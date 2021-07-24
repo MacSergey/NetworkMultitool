@@ -97,20 +97,65 @@ namespace NetworkMultitool
             var info = node.Info;
             var nodeIds = new ushort[2];
             var directions = new Vector3[2];
+            var invert = true;
             for (var i = 0; i < 2; i += 1)
             {
                 var segment = segmentIds[i].GetSegment();
                 nodeIds[i] = segment.GetOtherNode(nodeId);
                 directions[i] = segment.IsStartNode(nodeId) ? segment.m_endDirection : segment.m_startDirection;
+                invert &= segment.m_flags.IsSet(NetSegment.Flags.Invert);
                 Singleton<NetManager>.instance.ReleaseSegment(segmentIds[i], true);
             }
 
             Singleton<NetManager>.instance.ReleaseNode(nodeId);
 
-            Singleton<NetManager>.instance.CreateSegment(out _, ref Singleton<SimulationManager>.instance.m_randomizer, info, nodeIds[0], nodeIds[1], directions[0], directions[1], Singleton<SimulationManager>.instance.m_currentBuildIndex, Singleton<SimulationManager>.instance.m_currentBuildIndex, false);
+            return CreateSegment(out _, info, nodeIds[0], nodeIds[1], directions[0], directions[1], invert);
+        }
+        public bool IntersectSegments(ushort firstId, ushort secondId)
+        {
+            if (firstId == 0 || secondId == 0 || firstId == secondId)
+                return false;
+
+            var firstSegment = firstId.GetSegment();
+            var secondSegment = secondId.GetSegment();
+
+            if (!firstSegment.m_flags.CheckFlags(NetSegment.Flags.Created, NetSegment.Flags.Deleted) || !secondSegment.m_flags.CheckFlags(NetSegment.Flags.Created, NetSegment.Flags.Deleted))
+                return false;
+
+            var firstTrajectory = new BezierTrajectory(ref firstSegment);
+            var secondTrajectory = new BezierTrajectory(ref secondSegment);
+
+            if (!Intersection.CalculateSingle(firstTrajectory, secondTrajectory, out var firstT, out var secondT))
+                return false;
+
+            var firstPos = firstTrajectory.Position(firstT);
+            var firstDir = firstTrajectory.Tangent(firstT).normalized;
+
+            var secondPos = secondTrajectory.Position(secondT);
+            var secondDir = secondTrajectory.Tangent(secondT).normalized;
+
+            var pos = (firstPos + secondPos) / 2f;
+
+            Singleton<NetManager>.instance.ReleaseSegment(firstId, true);
+            Singleton<NetManager>.instance.ReleaseSegment(secondId, true);
+
+            if (!CreateNode(out var newNodeId, firstSegment.Info, pos))
+                return false;
+
+            var isFirstInvert = firstSegment.m_flags.IsSet(NetSegment.Flags.Invert);
+            var isSecondInvert = secondSegment.m_flags.IsSet(NetSegment.Flags.Invert);
+
+            CreateSegment(out _, firstSegment.Info, firstSegment.m_startNode, newNodeId, firstSegment.m_startDirection, -firstDir, isFirstInvert);
+            CreateSegment(out _, firstSegment.Info, newNodeId, firstSegment.m_endNode, firstDir, firstSegment.m_endDirection, isFirstInvert);
+
+            CreateSegment(out _, secondSegment.Info, secondSegment.m_startNode, newNodeId, secondSegment.m_startDirection, -secondDir, isSecondInvert);
+            CreateSegment(out _, secondSegment.Info, newNodeId, secondSegment.m_endNode, secondDir, secondSegment.m_endDirection, isSecondInvert);
 
             return true;
         }
+
+        private bool CreateNode(out ushort newNodeId, NetInfo info, Vector3 position) => Singleton<NetManager>.instance.CreateNode(out newNodeId, ref Singleton<SimulationManager>.instance.m_randomizer, info, position, Singleton<SimulationManager>.instance.m_currentBuildIndex);
+        private bool CreateSegment(out ushort newSegmentId, NetInfo info, ushort startId, ushort endId, Vector3 startDir, Vector3 endDir, bool invert = false) => Singleton<NetManager>.instance.CreateSegment(out newSegmentId, ref Singleton<SimulationManager>.instance.m_randomizer, info, startId, endId, startDir, endDir, Singleton<SimulationManager>.instance.m_currentBuildIndex, Singleton<SimulationManager>.instance.m_currentBuildIndex, invert);
     }
 
     public enum ToolModeType
