@@ -13,13 +13,14 @@ namespace NetworkMultitool
     {
         public static NetworkMultitoolShortcut ActivationShortcut { get; } = new NetworkMultitoolShortcut(nameof(ActivationShortcut), nameof(CommonLocalize.Settings_ShortcutActivateTool), SavedInputKey.Encode(KeyCode.T, true, false, false));
         public static NetworkMultitoolShortcut SelectionStepOverShortcut { get; } = new NetworkMultitoolShortcut(nameof(SelectionStepOverShortcut), nameof(CommonLocalize.Settings_ShortcutSelectionStepOver), SavedInputKey.Encode(KeyCode.Space, true, false, false), () => SingletonTool<NetworkMultitoolTool>.Instance.SelectionStepOver());
+        public static NetworkMultitoolShortcut Enter { get; } = new NetworkMultitoolShortcut(nameof(Enter), string.Empty, SavedInputKey.Encode(KeyCode.Return, false, false, false), () => SingletonTool<NetworkMultitoolTool>.Instance.PressEnter(), ToolModeType.Line);
 
         public static Dictionary<ToolModeType, NetworkMultitoolShortcut> ModeShortcuts { get; } = InitModeShortcuts();
         private static Dictionary<ToolModeType, NetworkMultitoolShortcut> InitModeShortcuts()
         {
             var dictionary = new Dictionary<ToolModeType, NetworkMultitoolShortcut>();
 
-            foreach(var mode in EnumExtension.GetEnumValues<ToolModeType>(m => m.IsItem()))
+            foreach (var mode in EnumExtension.GetEnumValues<ToolModeType>(m => m.IsItem()))
             {
                 var shortcut = new NetworkMultitoolShortcut(mode.ToString(), string.Empty, SavedInputKey.Encode((KeyCode)((int)KeyCode.Alpha1 + dictionary.Count), true, false, false), () => SingletonTool<NetworkMultitoolTool>.Instance.SetMode(mode));
                 dictionary[mode] = shortcut;
@@ -39,7 +40,9 @@ namespace NetworkMultitool
         {
             get
             {
-                foreach(var shortcut in ToolShortcuts)
+                yield return Enter;
+
+                foreach (var shortcut in ToolShortcuts)
                     yield return shortcut;
                 foreach (var shortcut in ModeShortcuts.Values)
                     yield return shortcut;
@@ -58,6 +61,7 @@ namespace NetworkMultitool
             yield return CreateToolMode<AddNodeMode>();
             yield return CreateToolMode<RemoveNodeMode>();
             yield return CreateToolMode<IntersectSegmentMode>();
+            yield return CreateToolMode<SlopeNodeMode>();
         }
         protected override void OnReset()
         {
@@ -153,9 +157,65 @@ namespace NetworkMultitool
 
             return true;
         }
+        public bool SetSlope(ushort[] nodeIds)
+        {
+            var startY = nodeIds.First().GetNode().m_position.y;
+            var endY = nodeIds.Last().GetNode().m_position.y;
+
+            var list = new List<ITrajectory>();
+
+            for (var i = 1; i < nodeIds.Length; i += 1)
+            {
+                var firstId = nodeIds[i - 1];
+                var secondId = nodeIds[i];
+
+                var commonSegmentId = (ushort)0;
+                foreach (var segmentId in firstId.GetNode().SegmentIds())
+                {
+                    if (segmentId.GetSegment().NodeIds().Any(n => n == secondId))
+                    {
+                        commonSegmentId = segmentId;
+                        break;
+                    }
+                }
+                if (commonSegmentId == 0)
+                    return false;
+                else
+                {
+                    var segment = commonSegmentId.GetSegment();
+
+                    var startPos = segment.m_startNode.GetNode().m_position;
+                    var endPos = segment.m_endNode.GetNode().m_position;
+                    var startDir = segment.m_startDirection.MakeFlatNormalized();
+                    var endDir = segment.m_endDirection.MakeFlatNormalized();
+
+                    startPos.y = 0;
+                    endPos.y = 0;
+
+                    list.Add(new BezierTrajectory(startPos, startDir, endPos, endDir));
+                }
+            }
+
+            var sumLenght = list.Sum(t => t.Length);
+            var currentLenght = 0f;
+            for (var i = 1; i < nodeIds.Length - 1; i += 1)
+            {
+                currentLenght += list[i - 1].Length;
+                var position = nodeIds[i].GetNode().m_position;
+                position.y = Mathf.Lerp(startY, endY, currentLenght / sumLenght);
+                NetManager.instance.MoveNode(nodeIds[i], position);
+            }
+            return true;
+        }
 
         private bool CreateNode(out ushort newNodeId, NetInfo info, Vector3 position) => Singleton<NetManager>.instance.CreateNode(out newNodeId, ref Singleton<SimulationManager>.instance.m_randomizer, info, position, Singleton<SimulationManager>.instance.m_currentBuildIndex);
         private bool CreateSegment(out ushort newSegmentId, NetInfo info, ushort startId, ushort endId, Vector3 startDir, Vector3 endDir, bool invert = false) => Singleton<NetManager>.instance.CreateSegment(out newSegmentId, ref Singleton<SimulationManager>.instance.m_randomizer, info, startId, endId, startDir, endDir, Singleton<SimulationManager>.instance.m_currentBuildIndex, Singleton<SimulationManager>.instance.m_currentBuildIndex, invert);
+
+        private void PressEnter()
+        {
+            if (Mode is BaseNodeLine mode)
+                mode.PressEnter();
+        }
     }
 
     public enum ToolModeType
@@ -166,6 +226,10 @@ namespace NetworkMultitool
         AddNode = 1,
         RemoveNode = 2,
         IntersectSegment = 4,
+        SlopeNode = 8,
+
+        [NotItem]
+        Line = SlopeNode | 16,
 
         [NotItem]
         Any = int.MaxValue,

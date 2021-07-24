@@ -76,6 +76,7 @@
     </Reference>
     <Reference Include="CitiesHarmony.Harmony, Version=2.0.4.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\CitiesHarmony.Harmony.2.0.4\lib\net35\CitiesHarmony.Harmony.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="ColossalManaged">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Cities_Skylines\Cities_Data\Managed\ColossalManaged.dll</HintPath>
@@ -107,7 +108,8 @@
     <Compile Include="Settings.cs" />
     <Compile Include="Tool.cs" />
     <Compile Include="ToolModes\AddNode.cs" />
-    <Compile Include="ToolModes\IntersectSegmentMode.cs" />
+    <Compile Include="ToolModes\BaseNodeLine.cs" />
+    <Compile Include="ToolModes\IntersectSegment.cs" />
     <Compile Include="ToolModes\RemoveNode.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -146,7 +148,7 @@
     <Type>Stable</Type>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Beta Release' OR '$(Configuration)' == 'Beta Debug'">
-    <WorkshopId>0</WorkshopId>
+    <WorkshopId>2556133736</WorkshopId>
     <Type>Beta</Type>
   </PropertyGroup>
   <PropertyGroup>
