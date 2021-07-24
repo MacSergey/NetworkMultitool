@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31005.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetworkMultitool", "NetworkMultitool\NetworkMultitool.csproj", "{741E3213-4964-4600-A82C-7FFAFEF72449}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Beta Debug|Any CPU = Beta Debug|Any CPU
+		Beta Release|Any CPU = Beta Release|Any CPU
+		Stable Debug|Any CPU = Stable Debug|Any CPU
+		Stable Release|Any CPU = Stable Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{741E3213-4964-4600-A82C-7FFAFEF72449}.Beta Debug|Any CPU.ActiveCfg = Beta Debug|Any CPU
+		{741E3213-4964-4600-A82C-7FFAFEF72449}.Beta Debug|Any CPU.Build.0 = Beta Debug|Any CPU
+		{741E3213-4964-4600-A82C-7FFAFEF72449}.Beta Release|Any CPU.ActiveCfg = Beta Release|Any CPU
+		{741E3213-4964-4600-A82C-7FFAFEF72449}.Beta Release|Any CPU.Build.0 = Beta Release|Any CPU
+		{741E3213-4964-4600-A82C-7FFAFEF72449}.Stable Debug|Any CPU.ActiveCfg = Stable Debug|Any CPU
+		{741E3213-4964-4600-A82C-7FFAFEF72449}.Stable Debug|Any CPU.Build.0 = Stable Debug|Any CPU
+		{741E3213-4964-4600-A82C-7FFAFEF72449}.Stable Release|Any CPU.ActiveCfg = Stable Release|Any CPU
+		{741E3213-4964-4600-A82C-7FFAFEF72449}.Stable Release|Any CPU.Build.0 = Stable Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DC876FBB-36A4-4BC9-AE4B-0BA63A3ED494}
+	EndGlobalSection
+EndGlobal
