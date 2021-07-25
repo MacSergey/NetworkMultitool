@@ -47,8 +47,8 @@ namespace NetworkMultitool
                 var segment = segmentIds[i].GetSegment();
                 nodeIds[i] = segment.GetOtherNode(nodeId);
                 directions[i] = segment.IsStartNode(nodeId) ? segment.m_endDirection : segment.m_startDirection;
-                invert &= segment.IsInvert();
-                Singleton<NetManager>.instance.ReleaseSegment(segmentIds[i], true);
+                invert &= segment.IsStartNode(nodeId) ^ i != 0 ^ segment.IsInvert();
+                RemoveSegment(segmentIds[i]);
             }
 
             base.RemoveNode(nodeId);
