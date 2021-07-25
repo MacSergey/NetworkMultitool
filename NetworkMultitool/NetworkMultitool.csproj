@@ -110,6 +110,7 @@
     <Compile Include="ToolModes\AddNode.cs" />
     <Compile Include="ToolModes\ArrangeLine.cs" />
     <Compile Include="ToolModes\BaseNodeLine.cs" />
+    <Compile Include="ToolModes\CreateLoop.cs" />
     <Compile Include="ToolModes\IntersectSegment.cs" />
     <Compile Include="ToolModes\RemoveNode.cs" />
     <Compile Include="ToolModes\SetSlope.cs" />

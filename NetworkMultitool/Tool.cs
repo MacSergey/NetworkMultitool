@@ -13,7 +13,6 @@ namespace NetworkMultitool
     {
         public static NetworkMultitoolShortcut ActivationShortcut { get; } = new NetworkMultitoolShortcut(nameof(ActivationShortcut), nameof(CommonLocalize.Settings_ShortcutActivateTool), SavedInputKey.Encode(KeyCode.T, true, false, false));
         public static NetworkMultitoolShortcut SelectionStepOverShortcut { get; } = new NetworkMultitoolShortcut(nameof(SelectionStepOverShortcut), nameof(CommonLocalize.Settings_ShortcutSelectionStepOver), SavedInputKey.Encode(KeyCode.Space, true, false, false), () => SingletonTool<NetworkMultitoolTool>.Instance.SelectionStepOver());
-        public static NetworkMultitoolShortcut Enter { get; } = new NetworkMultitoolShortcut(nameof(Enter), string.Empty, SavedInputKey.Encode(KeyCode.Return, false, false, false), () => SingletonTool<NetworkMultitoolTool>.Instance.PressEnter(), ToolModeType.Line);
 
         public static Dictionary<ToolModeType, NetworkMultitoolShortcut> ModeShortcuts { get; } = InitModeShortcuts();
         private static Dictionary<ToolModeType, NetworkMultitoolShortcut> InitModeShortcuts()
@@ -36,19 +35,21 @@ namespace NetworkMultitool
                 yield return SelectionStepOverShortcut;
             }
         }
-        private static IEnumerable<Shortcut> ToolShortcutsWithModes
+        public override IEnumerable<Shortcut> Shortcuts
         {
             get
             {
-                yield return Enter;
-
                 foreach (var shortcut in ToolShortcuts)
                     yield return shortcut;
                 foreach (var shortcut in ModeShortcuts.Values)
                     yield return shortcut;
+                if(Mode is BaseNetworkMultitoolMode mode)
+                {
+                    foreach (var shortcut in mode.Shortcuts)
+                        yield return shortcut;
+                }
             }
         }
-        public override IEnumerable<Shortcut> Shortcuts => ToolShortcutsWithModes;
 
         public override Shortcut Activation => ActivationShortcut;
 
@@ -63,6 +64,7 @@ namespace NetworkMultitool
             yield return CreateToolMode<IntersectSegmentMode>();
             yield return CreateToolMode<SlopeNodeMode>();
             yield return CreateToolMode<ArrangeLineMode>();
+            yield return CreateToolMode<CreateLoopMode>();
         }
         protected override void OnReset()
         {
@@ -75,6 +77,47 @@ namespace NetworkMultitool
         {
             if (Mode is ISelectToolMode selectMode)
                 selectMode.IgnoreSelected();
+        }
+        public bool SetSlope(ushort[] nodeIds)
+        {
+            var startY = nodeIds.First().GetNode().m_position.y;
+            var endY = nodeIds.Last().GetNode().m_position.y;
+
+            var list = new List<ITrajectory>();
+
+            for (var i = 1; i < nodeIds.Length; i += 1)
+            {
+                var firstId = nodeIds[i - 1];
+                var secondId = nodeIds[i];
+
+                if (!NetExtension.GetCommon(firstId, secondId, out var commonSegmentId))
+                    return false;
+                else
+                {
+                    var segment = commonSegmentId.GetSegment();
+
+                    var startPos = segment.m_startNode.GetNode().m_position;
+                    var endPos = segment.m_endNode.GetNode().m_position;
+                    var startDir = segment.m_startDirection.MakeFlatNormalized();
+                    var endDir = segment.m_endDirection.MakeFlatNormalized();
+
+                    startPos.y = 0;
+                    endPos.y = 0;
+
+                    list.Add(new BezierTrajectory(startPos, startDir, endPos, endDir));
+                }
+            }
+
+            var sumLenght = list.Sum(t => t.Length);
+            var currentLenght = 0f;
+            for (var i = 1; i < nodeIds.Length - 1; i += 1)
+            {
+                currentLenght += list[i - 1].Length;
+                var position = nodeIds[i].GetNode().m_position;
+                position.y = Mathf.Lerp(startY, endY, currentLenght / sumLenght);
+                NetManager.instance.MoveNode(nodeIds[i], position);
+            }
+            return true;
         }
 
         private void PressEnter()
@@ -95,6 +138,8 @@ namespace NetworkMultitool
         SlopeNode = 8,
         ArrangeAtLine = 16,
 
+        CreateLoop = 32,
+
         [NotItem]
         Line = SlopeNode | ArrangeAtLine,
 
@@ -104,6 +149,13 @@ namespace NetworkMultitool
     public abstract class BaseNetworkMultitoolMode : BaseSelectToolMode<NetworkMultitoolTool>, IToolMode<ToolModeType>, ISelectToolMode
     {
         public abstract ToolModeType Type { get; }
+        public virtual IEnumerable<NetworkMultitoolShortcut> Shortcuts
+        {
+            get
+            {
+                yield break;
+            }
+        }
 
         protected string GetStepOverInfo() => NetworkMultitoolTool.SelectionStepOverShortcut.NotSet ? string.Empty : "\n\n" + string.Format(CommonLocalize.Tool_InfoSelectionStepOver, NetworkMultitoolTool.SelectionStepOverShortcut.InputKey);
 

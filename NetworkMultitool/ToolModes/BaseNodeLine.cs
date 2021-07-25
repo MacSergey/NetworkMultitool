@@ -1,4 +1,5 @@
-﻿using ModsCommon;
+﻿using ColossalFramework;
+using ModsCommon;
 using ModsCommon.Utilities;
 using System;
 using System.Collections.Generic;
@@ -10,10 +11,24 @@ namespace NetworkMultitool
 {
     public abstract class BaseNodeLine : BaseNetworkMultitoolMode
     {
+        protected NetworkMultitoolShortcut Enter { get; }
+
+        public override IEnumerable<NetworkMultitoolShortcut> Shortcuts
+        {
+            get
+            {
+                yield return Enter;
+            }
+        }
         protected override bool SelectSegments => false;
 
         protected List<NodeSelection> Nodes { get; } = new List<NodeSelection>();
         protected Result State { get; private set; }
+
+        public BaseNodeLine()
+        {
+            Enter = new NetworkMultitoolShortcut(nameof(Enter), string.Empty, SavedInputKey.Encode(KeyCode.Return, false, false, false), PressEnter, ToolModeType.Line);
+        }
 
         protected override bool IsValidNode(ushort nodeId)
         {
