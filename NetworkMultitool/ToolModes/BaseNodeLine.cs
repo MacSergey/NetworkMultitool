@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine;
 
 namespace NetworkMultitool
 {
@@ -29,6 +30,17 @@ namespace NetworkMultitool
             base.Reset(prevMode);
             Nodes.Clear();
             State = Result.None;
+        }
+        public override string GetToolInfo()
+        {
+            if (State == Result.One || State == Result.InStart || State == Result.InEnd)
+                return "Click to select node" + GetStepOverInfo();
+            else if (State == Result.IsFirst || State == Result.IsLast)
+                return "Click to unselect node" + GetStepOverInfo();
+            else if (State == Result.NotConnect)
+                return "This node can't be selected\nbecause not connect with others" + GetStepOverInfo();
+            else
+                return "Select node";
         }
         public override void OnToolUpdate()
         {
@@ -102,28 +114,5 @@ namespace NetworkMultitool
             NotConnect
         }
     }
-    public class SlopeNodeMode : BaseNodeLine
-    {
-        public override ToolModeType Type => ToolModeType.SlopeNode;
-
-        public override string GetToolInfo()
-        {
-            if (State == Result.One || State == Result.InStart || State == Result.InEnd)
-                return "Click to select node" + GetStepOverInfo();
-            else if (State == Result.IsFirst || State == Result.IsLast)
-                return "Click to unselect node" + GetStepOverInfo();
-            else if (State == Result.NotConnect)
-                return "This node can't be selected\nbecause not connect with others" + GetStepOverInfo();
-            else
-                return "Select node";
-        }
-        public override void PressEnter()
-        {
-            if (Nodes.Count >= 3)
-            {
-                Tool.SetSlope(Nodes.Select(n => n.Id).ToArray());
-                Reset(this);
-            }
-        }
-    }
+    
 }

@@ -1,4 +1,5 @@
-﻿using ModsCommon;
+﻿using ColossalFramework;
+using ModsCommon;
 using ModsCommon.Utilities;
 using System;
 using System.Collections.Generic;
@@ -82,7 +83,7 @@ namespace NetworkMultitool
             }
             else if (State == Result.Correct)
             {
-                Tool.IntersectSegments(First.Id, Second.Id);
+                IntersectSegments(First.Id, Second.Id);
                 Reset(this);
             }
         }
@@ -91,6 +92,50 @@ namespace NetworkMultitool
             if (IsFirstSelect)
                 Reset(this);
         }
+
+        private bool IntersectSegments(ushort firstId, ushort secondId)
+        {
+            if (firstId == 0 || secondId == 0 || firstId == secondId)
+                return false;
+
+            var firstSegment = firstId.GetSegment();
+            var secondSegment = secondId.GetSegment();
+
+            if (!firstSegment.m_flags.CheckFlags(NetSegment.Flags.Created, NetSegment.Flags.Deleted) || !secondSegment.m_flags.CheckFlags(NetSegment.Flags.Created, NetSegment.Flags.Deleted))
+                return false;
+
+            var firstTrajectory = new BezierTrajectory(ref firstSegment);
+            var secondTrajectory = new BezierTrajectory(ref secondSegment);
+
+            if (!Intersection.CalculateSingle(firstTrajectory, secondTrajectory, out var firstT, out var secondT))
+                return false;
+
+            var firstPos = firstTrajectory.Position(firstT);
+            var firstDir = firstTrajectory.Tangent(firstT).normalized;
+
+            var secondPos = secondTrajectory.Position(secondT);
+            var secondDir = secondTrajectory.Tangent(secondT).normalized;
+
+            var pos = (firstPos + secondPos) / 2f;
+
+            RemoveSegment(firstId);
+            RemoveSegment(secondId);
+
+            if (!CreateNode(out var newNodeId, firstSegment.Info, pos))
+                return false;
+
+            var isFirstInvert = firstSegment.IsInvert();
+            var isSecondInvert = secondSegment.IsInvert();
+
+            CreateSegment(out _, firstSegment.Info, firstSegment.m_startNode, newNodeId, firstSegment.m_startDirection, -firstDir, isFirstInvert);
+            CreateSegment(out _, firstSegment.Info, newNodeId, firstSegment.m_endNode, firstDir, firstSegment.m_endDirection, isFirstInvert);
+
+            CreateSegment(out _, secondSegment.Info, secondSegment.m_startNode, newNodeId, secondSegment.m_startDirection, -secondDir, isSecondInvert);
+            CreateSegment(out _, secondSegment.Info, newNodeId, secondSegment.m_endNode, secondDir, secondSegment.m_endDirection, isSecondInvert);
+
+            return true;
+        }
+
         public override void RenderOverlay(RenderManager.CameraInfo cameraInfo)
         {
             var color = State switch

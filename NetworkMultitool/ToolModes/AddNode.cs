@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using static ToolBase;
 
 namespace NetworkMultitool
 {
@@ -42,10 +43,7 @@ namespace NetworkMultitool
         public override void OnPrimaryMouseClicked(Event e)
         {
             if (IsHoverSegment && IsPossibleInsertNode)
-            {
-                var controlPoint = new NetTool.ControlPoint() { m_segment = HoverSegment.Id, m_position = InsertPosition };
-                Tool.InsertNode(controlPoint, out _);
-            }
+                InsertNode(HoverSegment.Id, InsertPosition);
         }
         public bool PossibleInsertNode(Vector3 position)
         {
@@ -54,14 +52,24 @@ namespace NetworkMultitool
 
             foreach (var data in HoverSegment.Datas)
             {
-                ref var node = ref data.Id.GetNode();
-                if (node.m_flags.CheckFlags(NetNode.Flags.Moveable, NetNode.Flags.End))
-                    continue;
-
                 var gap = 8f + data.halfWidth * 2f * Mathf.Sqrt(1 - data.DeltaAngleCos * data.DeltaAngleCos);
                 if ((data.Position - position).sqrMagnitude < gap * gap)
                     return false;
             }
+
+            return true;
+        }
+        private bool InsertNode(ushort segmentId, Vector3 position)
+        {
+            var segment = segmentId.GetSegment();
+            segment.GetClosestPositionAndDirection(position, out var pos, out var dir);
+
+            RemoveSegment(segmentId);
+
+            CreateNode(out var newNodeId, segment.Info, pos);
+            var invert = segment.IsInvert();
+            CreateSegment(out _, segment.Info, segment.m_startNode, newNodeId, segment.m_startDirection, -dir, invert);
+            CreateSegment(out _, segment.Info, newNodeId, segment.m_endNode, dir, segment.m_endDirection, invert);
 
             return true;
         }

@@ -1,4 +1,5 @@
-﻿using ModsCommon;
+﻿using ColossalFramework;
+using ModsCommon;
 using ModsCommon.Utilities;
 using System;
 using System.Collections.Generic;
@@ -27,7 +28,32 @@ namespace NetworkMultitool
         public override void OnPrimaryMouseClicked(Event e)
         {
             if (IsCorrect)
-                Tool.RemoveNode(HoverNode.Id);
+                RemoveNode(HoverNode.Id);
+        }
+        private new bool RemoveNode(ushort nodeId)
+        {
+            var node = nodeId.GetNode();
+            var segmentIds = node.SegmentIds().ToArray();
+
+            if (segmentIds.Length != 2)
+                return false;
+
+            var info = node.Info;
+            var nodeIds = new ushort[2];
+            var directions = new Vector3[2];
+            var invert = true;
+            for (var i = 0; i < 2; i += 1)
+            {
+                var segment = segmentIds[i].GetSegment();
+                nodeIds[i] = segment.GetOtherNode(nodeId);
+                directions[i] = segment.IsStartNode(nodeId) ? segment.m_endDirection : segment.m_startDirection;
+                invert &= segment.IsInvert();
+                Singleton<NetManager>.instance.ReleaseSegment(segmentIds[i], true);
+            }
+
+            base.RemoveNode(nodeId);
+
+            return CreateSegment(out _, info, nodeIds[0], nodeIds[1], directions[0], directions[1], invert);
         }
         public override void RenderOverlay(RenderManager.CameraInfo cameraInfo)
         {
