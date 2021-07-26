@@ -106,7 +106,7 @@ namespace NetworkMultitool
         {
             if (State == Result.Calculated)
             {
-                text = $"R:{Radius.Value:0.0}m\nA{Mathf.Abs(Angle) * Mathf.Rad2Deg:0}°";
+                text = $"R:{Radius.Value:0.0}m\nA:{Mathf.Abs(Angle) * Mathf.Rad2Deg:0}°";
                 color = Colors.White;
                 size = 2f;
                 position = Center;

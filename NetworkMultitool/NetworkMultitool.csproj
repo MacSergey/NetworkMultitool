@@ -88,10 +88,15 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Xml.Linq">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="UnifiedUILib">
+      <HintPath>..\..\UnifiedUI\UnifiedUILib\bin\Debug\net35\UnifiedUILib.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Cities_Skylines\Cities_Data\Managed\UnityEngine.dll</HintPath>
       <Private>False</Private>
@@ -114,6 +119,7 @@
     <Compile Include="ToolModes\IntersectSegment.cs" />
     <Compile Include="ToolModes\RemoveNode.cs" />
     <Compile Include="ToolModes\SetSlope.cs" />
+    <Compile Include="Utilities\Textures.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -125,6 +131,10 @@
       <CustomToolNamespace>NetworkMultitool</CustomToolNamespace>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Localize.ru.resx" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\UUIButton.png" />
   </ItemGroup>
   <Import Project="..\ModsCommon\LocalizeShared\LocalizeShared.projitems" Label="Shared" />
   <Import Project="..\ModsCommon\LocalizeShared\LocalizeShared.ru.projitems" Label="Shared" />
@@ -145,6 +155,9 @@
   <Import Project="..\ModsCommon\TrajectoryShared\TrajectoryShared.projitems" Label="Shared" />
   <Import Project="..\ModsCommon\ColorsShared\ColorsShared.projitems" Label="Shared" />
   <Import Project="..\ModsCommon\ModShared\ModsCommonShared.projitems" Label="Shared" />
+  <Import Project="..\ModsCommon\UUIRegisterShared\UUIRegisterShared.projitems" Label="Shared" />
+  <Import Project="..\ModsCommon\LoadExtensionShared\LoadExtensionShared.projitems" Label="Shared" />
+  <Import Project="..\ModsCommon\XmlExtension\XmlExtension.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup Condition="'$(Configuration)' == 'Stable Release' OR '$(Configuration)' == 'Stable Debug'">
     <WorkshopId>0</WorkshopId>

@@ -1,6 +1,8 @@
 ﻿using ColossalFramework;
+using ColossalFramework.UI;
 using ModsCommon;
 using ModsCommon.Utilities;
+using NetworkMultitool.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -56,6 +58,12 @@ namespace NetworkMultitool
         protected override bool ShowToolTip => true;
 
         protected override IToolMode DefaultMode => ToolModes[ToolModeType.AddNode];
+
+        protected override UITextureAtlas UUIAtlas => NetworkMultitoolTextures.Atlas;
+        protected override string UUINormalSprite => NetworkMultitoolTextures.UUINormal;
+        protected override string UUIHoveredSprite => NetworkMultitoolTextures.UUIHovered;
+        protected override string UUIPressedSprite => NetworkMultitoolTextures.UUIPressed;
+        protected override string UUIDisabledSprite => /*NodeControllerTextures.UUIDisabled;*/string.Empty;
 
         protected override IEnumerable<IToolMode<ToolModeType>> GetModes()
         {
@@ -208,6 +216,6 @@ namespace NetworkMultitool
     {
         public NetworkMultitoolShortcut(string name, string labelKey, InputKey key, Action action = null, ToolModeType modeType = ToolModeType.Any) : base(name, labelKey, key, action, modeType) { }
     }
-    public class NetworkMultitoolThreadingExtension : BaseThreadingExtension<NetworkMultitoolTool> { }
+    public class NetworkMultitoolThreadingExtension : BaseUUIThreadingExtension<NetworkMultitoolTool> { }
     public class NetworkMultitoolLoadingExtension : BaseToolLoadingExtension<NetworkMultitoolTool> { }
 }

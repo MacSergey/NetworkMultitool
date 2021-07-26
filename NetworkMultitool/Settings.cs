@@ -44,6 +44,7 @@ namespace NetworkMultitool
         #endregion
 
         #region DEBUG
+#if DEBUG
         private void AddDebug(UIAdvancedHelper helper)
         {
             var overlayGroup = helper.AddGroup("Selection overlay");
@@ -53,6 +54,7 @@ namespace NetworkMultitool
             Selection.AddRenderOverlayBorders(overlayGroup);
             Selection.AddBorderOverlayWidth(overlayGroup);
         }
+#endif
         #endregion
     }
 }

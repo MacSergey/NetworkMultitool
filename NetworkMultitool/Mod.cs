@@ -103,4 +103,12 @@ namespace NetworkMultitool
         }
         private static bool Enabled() => SingletonTool<NetworkMultitoolTool>.Instance.enabled;
     }
+    public class LoadingExtension : BaseLoadingExtension<Mod>
+    {
+        protected override void OnLoad()
+        {
+            SingletonTool<NetworkMultitoolTool>.Instance.RegisterUUI();
+            base.OnLoad();
+        }
+    }
 }
