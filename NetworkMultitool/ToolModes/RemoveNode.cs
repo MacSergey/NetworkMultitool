@@ -12,10 +12,11 @@ namespace NetworkMultitool
     public class RemoveNodeMode : BaseNetworkMultitoolMode
     {
         public override ToolModeType Type => ToolModeType.RemoveNode;
-        protected override bool SelectSegments => false;
+        public override string ModeName => "REMOVE NODE MODE";
+
         private bool IsCorrect => IsHoverNode && HoverNode.Id.GetNode().CountSegments() == 2;
 
-        public override string GetToolInfo()
+        protected override string GetInfo()
         {
             if (!IsHoverNode)
                 return Localize.Tool_InfoSelectToRemove;
@@ -57,6 +58,8 @@ namespace NetworkMultitool
         }
         public override void RenderOverlay(RenderManager.CameraInfo cameraInfo)
         {
+            RenderSegmentNodes(cameraInfo);
+
             if (IsHoverNode)
                 HoverNode.Render(new OverlayData(cameraInfo) { Color = IsCorrect ? Colors.Green : Colors.Red, RenderLimit = Underground });
         }

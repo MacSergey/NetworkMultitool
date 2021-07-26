@@ -13,12 +13,13 @@ namespace NetworkMultitool
     public class AddNodeMode : BaseNetworkMultitoolMode
     {
         public override ToolModeType Type => ToolModeType.AddNode;
-        protected override bool SelectNodes => false;
+        public override string ModeName => "ADD NODE MODE";
 
+        protected override Color32 NodeColor => Colors.Red;
         private bool IsPossibleInsertNode { get; set; }
         private Vector3 InsertPosition { get; set; }
 
-        public override string GetToolInfo()
+        protected override string GetInfo()
         {
             if (!IsHoverSegment)
                 return Localize.Tool_InfoSelectToInsert;
@@ -52,7 +53,7 @@ namespace NetworkMultitool
 
             foreach (var data in HoverSegment.Datas)
             {
-                var gap = 8f + data.halfWidth * 2f * Mathf.Sqrt(1 - data.DeltaAngleCos * data.DeltaAngleCos);
+                var gap = Mathf.Min(data.halfWidth, 8f) + data.halfWidth * 2f * Mathf.Sqrt(1 - data.DeltaAngleCos * data.DeltaAngleCos);
                 if ((data.Position - position).sqrMagnitude < gap * gap)
                     return false;
             }
@@ -76,39 +77,63 @@ namespace NetworkMultitool
 
         public override void RenderOverlay(RenderManager.CameraInfo cameraInfo)
         {
-            var otherOverlay = new OverlayData(cameraInfo) { Color = new Color(1f, 1f, 1f, 0.3f), RenderLimit = Underground };
+            RenderSegmentNodes(cameraInfo);
+
             if (IsHoverSegment)
             {
                 var segment = HoverSegment.Id.GetSegment();
-
-                if (!Underground ^ segment.m_startNode.GetNode().m_flags.IsSet(NetNode.Flags.Underground))
-                    new NodeSelection(segment.m_startNode).Render(otherOverlay);
-
-                if (!Underground ^ segment.m_endNode.GetNode().m_flags.IsSet(NetNode.Flags.Underground))
-                    new NodeSelection(segment.m_endNode).Render(otherOverlay);
-
                 var bezier = new BezierTrajectory(ref segment);
                 bezier.Trajectory.GetHitPosition(Tool.Ray, out _, out var t, out var position);
                 var direction = bezier.Tangent(t).MakeFlatNormalized();
                 var halfWidth = segment.Info.m_halfWidth;
 
-                var overlayData = new OverlayData(cameraInfo) { Width = halfWidth * 2, Color = PossibleInsertNode(position) ? Colors.Green : Colors.Red, AlphaBlend = false, Cut = true, RenderLimit = Underground };
-
-                var middle = new Bezier3()
+                var color = PossibleInsertNode(position) ? Colors.Green : Colors.Red;
+                if (2f * halfWidth > Selection.BorderOverlayWidth)
                 {
-                    a = position + direction,
-                    b = position,
-                    c = position,
-                    d = position - direction,
-                };
-                middle.RenderBezier(overlayData);
+                    var overlayData = new OverlayData(cameraInfo)
+                    {
+                        Width = halfWidth * 2,
+                        Color = color,
+#if DEBUG
+                        AlphaBlend = Selection.AlphaBlendOverlay,
+#else
+                        AlphaBlend = false,
+#endif
+                        Cut = true,
+                        RenderLimit = Underground
+                    };
 
-                overlayData.Width = Mathf.Min(halfWidth * 2, Selection.BorderOverlayWidth);
-                overlayData.Cut = false;
+                    var middle = new Bezier3()
+                    {
+                        a = position + direction,
+                        b = position,
+                        c = position,
+                        d = position - direction,
+                    };
+                    middle.RenderBezier(overlayData);
 
-                var normal = direction.MakeFlatNormalized().Turn90(true);
-                RenderBorder(overlayData, position + direction, normal, halfWidth);
-                RenderBorder(overlayData, position - direction, normal, halfWidth);
+                    overlayData.Width = Mathf.Min(halfWidth * 2, Selection.BorderOverlayWidth);
+                    overlayData.Cut = false;
+
+                    var normal = direction.MakeFlatNormalized().Turn90(true);
+                    RenderBorder(overlayData, position + direction, normal, halfWidth);
+                    RenderBorder(overlayData, position - direction, normal, halfWidth);
+                }
+                else
+                {
+                    var overlayData = new OverlayData(cameraInfo)
+                    {
+                        Width = Mathf.Max(2f * halfWidth, Selection.BorderOverlayWidth / 2),
+                        Color = color,
+#if DEBUG
+                        AlphaBlend = Selection.AlphaBlendOverlay,
+#else
+                        AlphaBlend = false,
+#endif
+                        RenderLimit = Underground
+                    };
+                    position.RenderCircle(overlayData);
+                }
             }
             else
                 base.RenderOverlay(cameraInfo);

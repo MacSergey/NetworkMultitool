@@ -11,6 +11,7 @@ namespace NetworkMultitool
     public class SlopeNodeMode : BaseNodeLine
     {
         public override ToolModeType Type => ToolModeType.SlopeNode;
+        public override string ModeName => "SET SLOPE MODE";
 
         public override void PressEnter()
         {

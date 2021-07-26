@@ -15,10 +15,17 @@ namespace NetworkMultitool
     public class CreateLoopMode : BaseNetworkMultitoolMode
     {
         public override ToolModeType Type => ToolModeType.CreateLoop;
+        public override string ModeName => "CREATE LOOP MODE";
+        protected override Color32 SegmentColor => Colors.Blue;
+        protected override Color32 NodeColor => Colors.Green;
 
         protected NetworkMultitoolShortcut Enter { get; }
         protected NetworkMultitoolShortcut Plus { get; }
+        protected NetworkMultitoolShortcut ShiftPlus { get; }
+        protected NetworkMultitoolShortcut CtrlPlus { get; }
         protected NetworkMultitoolShortcut Minus { get; }
+        protected NetworkMultitoolShortcut ShiftMinus { get; }
+        protected NetworkMultitoolShortcut CtrlMinus { get; }
         protected NetworkMultitoolShortcut Tab { get; }
 
         public override IEnumerable<NetworkMultitoolShortcut> Shortcuts
@@ -27,7 +34,11 @@ namespace NetworkMultitool
             {
                 yield return Enter;
                 yield return Plus;
+                yield return ShiftPlus;
+                yield return CtrlPlus;
                 yield return Minus;
+                yield return ShiftMinus;
+                yield return CtrlMinus;
                 yield return Tab;
             }
         }
@@ -35,9 +46,16 @@ namespace NetworkMultitool
         public CreateLoopMode()
         {
             Enter = new NetworkMultitoolShortcut(nameof(Enter), string.Empty, SavedInputKey.Encode(KeyCode.Return, false, false, false), PressEnter, ToolModeType.CreateLoop);
-            Plus = new NetworkMultitoolShortcut(nameof(Enter), string.Empty, SavedInputKey.Encode(KeyCode.Equals, false, false, false), PressPlus, ToolModeType.CreateLoop) { CanRepeat = true};
-            Minus = new NetworkMultitoolShortcut(nameof(Enter), string.Empty, SavedInputKey.Encode(KeyCode.Minus, false, false, false), PressMinus, ToolModeType.CreateLoop) { CanRepeat = true };
-            Tab = new NetworkMultitoolShortcut(nameof(Enter), string.Empty, SavedInputKey.Encode(KeyCode.Tab, false, false, false), PressTab, ToolModeType.CreateLoop);
+
+            Plus = new NetworkMultitoolShortcut(nameof(Plus), string.Empty, SavedInputKey.Encode(KeyCode.Equals, false, false, false), PressPlus, ToolModeType.CreateLoop) { CanRepeat = true };
+            ShiftPlus = new NetworkMultitoolShortcut(nameof(ShiftPlus), string.Empty, SavedInputKey.Encode(KeyCode.Equals, false, true, false), PressPlus, ToolModeType.CreateLoop) { CanRepeat = true };
+            CtrlPlus = new NetworkMultitoolShortcut(nameof(CtrlPlus), string.Empty, SavedInputKey.Encode(KeyCode.Equals, true, false, false), PressPlus, ToolModeType.CreateLoop) { CanRepeat = true };
+
+            Minus = new NetworkMultitoolShortcut(nameof(Minus), string.Empty, SavedInputKey.Encode(KeyCode.Minus, false, false, false), PressMinus, ToolModeType.CreateLoop) { CanRepeat = true };
+            ShiftMinus = new NetworkMultitoolShortcut(nameof(ShiftMinus), string.Empty, SavedInputKey.Encode(KeyCode.Minus, false, true, false), PressMinus, ToolModeType.CreateLoop) { CanRepeat = true };
+            CtrlMinus = new NetworkMultitoolShortcut(nameof(CtrlMinus), string.Empty, SavedInputKey.Encode(KeyCode.Minus, true, false, false), PressMinus, ToolModeType.CreateLoop) { CanRepeat = true };
+
+            Tab = new NetworkMultitoolShortcut(nameof(Tab), string.Empty, SavedInputKey.Encode(KeyCode.Tab, false, false, false), PressTab, ToolModeType.CreateLoop);
         }
 
         protected override bool IsValidSegment(ushort segmentId) => !IsBoth && segmentId != First?.Id && segmentId != Second?.Id;
@@ -58,21 +76,46 @@ namespace NetworkMultitool
         private float MinRadius { get; set; }
         private float MaxRadius { get; set; }
         private float? Radius { get; set; }
+        private Vector3 Center { get; set; }
+        private Vector3 CenterDir { get; set; }
+        private Vector3 StartCurve { get; set; }
+        private Vector3 EndCurve { get; set; }
+        private float Angle { get; set; }
+
         private bool IsLoop { get; set; }
         private List<Point> Points { get; } = new List<Point>();
         private NetInfo Info => ToolsModifierControl.toolController.Tools.OfType<NetTool>().FirstOrDefault().Prefab?.m_netAI.m_info ?? First.Id.GetSegment().Info;
         private float MinPossibleRadius => Info != null ? Info.m_halfWidth + 5f : 16f;
 
-        public override string GetToolInfo()
+        protected override string GetInfo()
         {
             if (!IsFirst)
                 return "Select first segment" + GetStepOverInfo();
             else if (!IsSecond)
                 return "Select second segment" + GetStepOverInfo();
+            else if (State == Result.BigRadius)
+                return "Radius too big";
+            else if (State == Result.SmallRadius)
+                return "Radius too small";
             else if (State != Result.Calculated)
                 return "Choose nodes to select create direction";
             else
-                return $"Radius: {Radius.Value}\nPress Minus to decrease radius\nPress Plus to increase radius\nPress Enter to create\nPress Tab to change loop";
+                return $"Press Minus to decrease radius\nPress Plus to increase radius\nPress Enter to create\nPress Tab to change loop";
+        }
+        public override bool GetExtraInfo(out string text, out Color color, out float size, out Vector3 position, out Vector3 direction)
+        {
+            if (State == Result.Calculated)
+            {
+                text = $"R:{Radius.Value:0.0}m\nA{Mathf.Abs(Angle) * Mathf.Rad2Deg:0}°";
+                color = Colors.White;
+                size = 2f;
+                position = Center;
+                direction = CenterDir;
+
+                return true;
+            }
+            else
+                return base.GetExtraInfo(out text, out color, out size, out position, out direction);
         }
 
         protected override void Reset(IToolMode prevMode)
@@ -117,7 +160,7 @@ namespace NetworkMultitool
 
             Points.Clear();
             Points.Add(new Point(firstPos, firstDir));
-                  
+
             var angle = GetAngle(firstDir, secondDir);
             var halfAbsAngle = Mathf.Abs(angle) / 2f;
 
@@ -133,28 +176,39 @@ namespace NetworkMultitool
                 MaxRadius = Mathf.Max(MinRadius + 200f, 500f);
             }
             Radius = Mathf.Clamp(Radius ?? 50f, MinRadius, MaxRadius);
+            if(Radius.Value > 1000f)
+            {
+                State = Result.BigRadius;
+                return;
+            }
+            if(MaxRadius < MinRadius)
+            {
+                State = Result.SmallRadius;
+                return;
+            }
 
             var delta = Radius.Value / Mathf.Tan(halfAbsAngle);
             var startLenght = direct ? firtsT - delta : firtsT + delta;
             var endLenght = direct ? secondT - delta : secondT + delta;
-            //var startLenght = firtsT >= 0 && !IsLoop ? firtsT - delta : firtsT + delta;
-            //var endLenght = secondT >= 0 && !IsLoop ? secondT - delta : secondT + delta;
 
             var sign = direct ? -1 : 1;
             var intersect = (firstTrajectory.Position(firtsT) + secondTrajectory.Position(secondT)) / 2f;
-            var dir = (firstDir + secondDir).normalized;
+            CenterDir = sign * (firstDir + secondDir).normalized;
             var distant = Radius.Value / Mathf.Sin(halfAbsAngle);
-            var center = intersect + sign * dir * distant;
+            Center = intersect + CenterDir * distant;
 
-            angle = -sign * Mathf.Sign(angle) * (Mathf.PI + sign * Mathf.Abs(angle));
+            Angle = -sign * Mathf.Sign(angle) * (Mathf.PI + sign * Mathf.Abs(angle));
 
-            Calculate(firstTrajectory, secondTrajectory, startLenght, endLenght, center, angle);
+            Calculate(firstTrajectory, secondTrajectory, startLenght, endLenght);
 
             Points.Add(new Point(secondPos, -secondDir));
             State = Result.Calculated;
         }
-        private void Calculate(StraightTrajectory startTrajectory, StraightTrajectory endTrajectory, float startLenght, float endLenght, Vector3 center, float angle)
+        private void Calculate(StraightTrajectory startTrajectory, StraightTrajectory endTrajectory, float startLenght, float endLenght)
         {
+            StartCurve = startTrajectory.Position(startLenght);
+            EndCurve = endTrajectory.Position(endLenght);
+
             if (startLenght >= 8f)
             {
                 var count = Mathf.CeilToInt(startLenght / 80f);
@@ -166,16 +220,19 @@ namespace NetworkMultitool
                 }
             }
 
-            var startCurve = startTrajectory.Position(startLenght);
+            var curveLenght = Radius.Value * Mathf.Abs(Angle);
 
-            var curveLenght = Radius.Value * Mathf.Abs(angle);
-            var curveCount = curveLenght < 50f ? 1 : Math.Max(Mathf.CeilToInt(curveLenght / 80f), Mathf.CeilToInt(Mathf.Abs(angle) / Mathf.PI * 3));
+            var minByLenght = Mathf.CeilToInt(curveLenght / 30f);
+            var maxByLenght = Mathf.CeilToInt(curveLenght / 80f);
+            var maxByAngle = Mathf.CeilToInt(Mathf.Abs(Angle) / Mathf.PI * 3);
 
-            var direction = startCurve - center;
+            var curveCount = Math.Max(maxByLenght, Mathf.Min(minByLenght, maxByAngle));
+
+            var direction = StartCurve - Center;
             for (var i = 1; i < curveCount; i += 1)
             {
-                var deltaAngle = angle / curveCount * i;
-                var point = new Point(center + direction.TurnRad(deltaAngle, true), startTrajectory.Direction.TurnRad(deltaAngle, true));
+                var deltaAngle = Angle / curveCount * i;
+                var point = new Point(Center + direction.TurnRad(deltaAngle, true), startTrajectory.Direction.TurnRad(deltaAngle, true));
                 Points.Add(point);
             }
 
@@ -299,19 +356,34 @@ namespace NetworkMultitool
         {
             base.RenderOverlay(cameraInfo);
 
+            var color = State switch
+            {
+                Result.BigRadius or Result.SmallRadius => Colors.Red,
+                _ => Colors.White,
+            };
+
             if (IsFirst)
-                First.Render(new OverlayData(cameraInfo) { RenderLimit = Underground });
+                First.Render(new OverlayData(cameraInfo) { Color = color, RenderLimit = Underground });
             if (IsSecond)
-                Second.Render(new OverlayData(cameraInfo) { RenderLimit = Underground });
+                Second.Render(new OverlayData(cameraInfo) { Color = color, RenderLimit = Underground });
 
             if (State == Result.Calculated)
             {
-                var data = new OverlayData(cameraInfo) { Color = Colors.Yellow, Width = 16f, Cut = true };
+                var info = Info;
+                var data = new OverlayData(cameraInfo) { Color = Colors.Yellow, Width = info.m_halfWidth * 2f, Cut = true };
+
                 for (var i = 1; i < Points.Count; i += 1)
                 {
                     var trajectory = new BezierTrajectory(Points[i - 1].Position, Points[i - 1].Direction, Points[i].Position, -Points[i].Direction);
                     trajectory.Render(data);
                 }
+
+                var startBezier = new StraightTrajectory(StartCurve, Center).Cut(info.m_halfWidth / Radius.Value, 1f);
+                var endBezier = new StraightTrajectory(EndCurve, Center).Cut(info.m_halfWidth / Radius.Value, 1f);
+
+                startBezier.Render(new OverlayData(cameraInfo) { Color = Colors.Yellow });
+                endBezier.Render(new OverlayData(cameraInfo) { Color = Colors.Yellow });
+                Center.RenderCircle(new OverlayData(cameraInfo) { Color = Colors.Yellow }, 5f, 0f);
             }
         }
 

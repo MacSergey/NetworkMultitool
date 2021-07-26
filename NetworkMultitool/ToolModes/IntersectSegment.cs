@@ -12,7 +12,10 @@ namespace NetworkMultitool
     public class IntersectSegmentMode : BaseNetworkMultitoolMode
     {
         public override ToolModeType Type => ToolModeType.IntersectSegment;
+        public override string ModeName => "INTERSECT SEGMENT MODE";
         protected override bool SelectNodes => false;
+        protected override Color32 SegmentColor => Colors.Blue;
+
         private SegmentSelection First { get; set; }
         private bool IsFirstSelect => First != null;
         private SegmentSelection Second => HoverSegment;
@@ -20,7 +23,7 @@ namespace NetworkMultitool
         private Result State { get; set; }
 
         protected override bool IsValidSegment(ushort segmentId) => !IsFirstSelect || First.Id != segmentId;
-        public override string GetToolInfo()
+        protected override string GetInfo()
         {
             if (!IsFirstSelect)
             {
@@ -138,17 +141,21 @@ namespace NetworkMultitool
 
         public override void RenderOverlay(RenderManager.CameraInfo cameraInfo)
         {
-            var color = State switch
-            {
-                Result.None => Colors.White,
-                Result.Correct => Colors.Green,
-                _ => Colors.Red,
-            };
-
             if (IsFirstSelect)
+            {
+                var color = State switch
+                {
+                    Result.None => Colors.White,
+                    Result.Correct => Colors.Green,
+                    _ => Colors.Red,
+                };
+
                 First.Render(new OverlayData(cameraInfo) { Color = color, RenderLimit = Underground });
-            if(IsSecondSelect)
-                Second.Render(new OverlayData(cameraInfo) { Color = color, RenderLimit = Underground });
+                if (IsSecondSelect)
+                    Second.Render(new OverlayData(cameraInfo) { Color = color, RenderLimit = Underground });
+            }
+            else
+                base.RenderOverlay(cameraInfo);
         }
 
         private enum Result

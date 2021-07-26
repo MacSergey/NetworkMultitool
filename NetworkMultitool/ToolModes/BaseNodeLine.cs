@@ -20,7 +20,6 @@ namespace NetworkMultitool
                 yield return Enter;
             }
         }
-        protected override bool SelectSegments => false;
 
         protected List<NodeSelection> Nodes { get; } = new List<NodeSelection>();
         protected Result State { get; private set; }
@@ -46,7 +45,7 @@ namespace NetworkMultitool
             Nodes.Clear();
             State = Result.None;
         }
-        public override string GetToolInfo()
+        protected override string GetInfo()
         {
             if (State == Result.One || State == Result.InStart || State == Result.InEnd)
                 return "Click to select node" + GetStepOverInfo();
@@ -99,10 +98,8 @@ namespace NetworkMultitool
         {
             for (var i = 0; i < Nodes.Count; i += 1)
             {
-                if ((i == 0 && State == Result.IsFirst) || (i == Nodes.Count - 1 && State == Result.IsLast))
-                    continue;
-                else
-                    Nodes[i].Center.RenderCircle(new OverlayData(cameraInfo) { Color = Colors.White, Width = 16f });
+                if ((i != 0 || State != Result.IsFirst) && (i != Nodes.Count - 1 || State != Result.IsLast))
+                    Nodes[i].Render(new OverlayData(cameraInfo) { Color = Colors.White});
             }
 
             if (IsHoverNode)
@@ -116,7 +113,9 @@ namespace NetworkMultitool
                 };
                 HoverNode.Render(new OverlayData(cameraInfo) { Color = color });
             }
+            RenderSegmentNodes(cameraInfo);
         }
+        protected override bool AllowRenderNode(ushort nodeId) => Nodes.All(n => n.Id != nodeId);
 
         protected enum Result
         {

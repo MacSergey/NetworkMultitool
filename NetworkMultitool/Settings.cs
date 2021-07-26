@@ -1,4 +1,5 @@
 ﻿using ModsCommon;
+using ModsCommon.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,7 +46,12 @@ namespace NetworkMultitool
         #region DEBUG
         private void AddDebug(UIAdvancedHelper helper)
         {
+            var overlayGroup = helper.AddGroup("Selection overlay");
 
+            Selection.AddAlphaBlendOverlay(overlayGroup);
+            Selection.AddRenderOverlayCentre(overlayGroup);
+            Selection.AddRenderOverlayBorders(overlayGroup);
+            Selection.AddBorderOverlayWidth(overlayGroup);
         }
         #endregion
     }
