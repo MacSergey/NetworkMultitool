@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using ICities;
 using ModsCommon;
+using ModsCommon.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -34,6 +35,8 @@ namespace NetworkMultitool
         #endregion
 
         protected override ResourceManager LocalizeManager => Localize.ResourceManager;
+        private static PluginSearcher FRTSearcher { get; } = PluginUtilities.GetSearcher("", 1844442251ul);
+        private static bool IsFRT => FRTSearcher.GetPlugin() != null;
 
         #region BASIC
 
@@ -54,6 +57,8 @@ namespace NetworkMultitool
 
             success &= AddTool();
             success &= ToolOnEscape();
+            if (IsFRT)
+                success &= FineRoadToolUpdate();
 
             return success;
         }
@@ -66,6 +71,13 @@ namespace NetworkMultitool
         {
             return AddTranspiler(typeof(Patcher), nameof(Patcher.GameKeyShortcutsEscapeTranspiler), typeof(GameKeyShortcuts), "Escape");
         }
+        private bool FineRoadToolUpdate()
+        {
+            if (!AddTranspiler(typeof(Patcher), nameof(Patcher.FineRoadToolTranspiler), Type.GetType("FineRoadTool.FineRoadTool"), "Update"))
+                return AddTranspiler(typeof(Patcher), nameof(Patcher.FineRoadToolTranspiler), Type.GetType("FineRoadTool.FineRoadTool"), "FpsBoosterUpdate");
+            else
+                return true;
+        }
 
         #endregion
     }
@@ -74,5 +86,21 @@ namespace NetworkMultitool
         public static IEnumerable<CodeInstruction> ToolControllerAwakeTranspiler(ILGenerator generator, IEnumerable<CodeInstruction> instructions) => ModsCommon.Patcher.ToolControllerAwakeTranspiler<Mod, NetworkMultitoolTool>(generator, instructions);
 
         public static IEnumerable<CodeInstruction> GameKeyShortcutsEscapeTranspiler(ILGenerator generator, IEnumerable<CodeInstruction> instructions) => ModsCommon.Patcher.GameKeyShortcutsEscapeTranspiler<Mod, NetworkMultitoolTool>(generator, instructions);
+
+        public static IEnumerable<CodeInstruction> FineRoadToolTranspiler(ILGenerator generator, IEnumerable<CodeInstruction> instructions)
+        {
+            var patched = false;
+            foreach(var instruction in instructions)
+            {
+                yield return instruction;
+
+                if (!patched && instruction.opcode == OpCodes.Brtrue_S)
+                {
+                    yield return new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(Patcher), nameof(Enabled)));
+                    yield return instruction;
+                }
+            }
+        }
+        private static bool Enabled() => SingletonTool<NetworkMultitoolTool>.Instance.enabled;
     }
 }

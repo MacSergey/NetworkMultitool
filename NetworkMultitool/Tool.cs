@@ -43,7 +43,7 @@ namespace NetworkMultitool
                     yield return shortcut;
                 foreach (var shortcut in ModeShortcuts.Values)
                     yield return shortcut;
-                if(Mode is BaseNetworkMultitoolMode mode)
+                if (Mode is BaseNetworkMultitoolMode mode)
                 {
                     foreach (var shortcut in mode.Shortcuts)
                         yield return shortcut;
@@ -118,12 +118,6 @@ namespace NetworkMultitool
                 NetManager.instance.MoveNode(nodeIds[i], position);
             }
             return true;
-        }
-
-        private void PressEnter()
-        {
-            if (Mode is BaseNodeLine mode)
-                mode.PressEnter();
         }
     }
 
