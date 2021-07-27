@@ -73,6 +73,7 @@ namespace NetworkMultitool
             yield return CreateToolMode<SlopeNodeMode>();
             yield return CreateToolMode<ArrangeLineMode>();
             yield return CreateToolMode<CreateLoopMode>();
+            yield return CreateToolMode<CreateSMode>();
         }
         protected override void OnReset()
         {
@@ -141,9 +142,13 @@ namespace NetworkMultitool
         ArrangeAtLine = 16,
 
         CreateLoop = 32,
+        CreateS = 64,
 
         [NotItem]
         Line = SlopeNode | ArrangeAtLine,
+
+        [NotItem]
+        Create = CreateLoop | CreateS,
 
         [NotItem]
         Any = int.MaxValue,
@@ -159,6 +164,8 @@ namespace NetworkMultitool
                 yield break;
             }
         }
+
+        protected NetworkMultitoolShortcut GetShortcut(KeyCode keyCode, Action action, ToolModeType mode = ToolModeType.Any, bool ctrl = false, bool shift = false, bool alt = false, bool repeat = false) => new NetworkMultitoolShortcut(string.Empty, string.Empty, SavedInputKey.Encode(keyCode, ctrl, shift, alt), action, mode) { CanRepeat = repeat };
 
         public sealed override string GetToolInfo()
         {

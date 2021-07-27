@@ -113,12 +113,14 @@
     <Compile Include="Settings.cs" />
     <Compile Include="Tool.cs" />
     <Compile Include="ToolModes\AddNode.cs" />
-    <Compile Include="ToolModes\ArrangeLine.cs" />
-    <Compile Include="ToolModes\BaseNodeLine.cs" />
-    <Compile Include="ToolModes\CreateLoop.cs" />
+    <Compile Include="ToolModes\ConnectionModes\BaseCreate.cs" />
+    <Compile Include="ToolModes\ConnectionModes\CreateS.cs" />
+    <Compile Include="ToolModes\NodeLineModes\ArrangeLine.cs" />
+    <Compile Include="ToolModes\NodeLineModes\BaseNodeLine.cs" />
+    <Compile Include="ToolModes\ConnectionModes\CreateLoop.cs" />
     <Compile Include="ToolModes\IntersectSegment.cs" />
     <Compile Include="ToolModes\RemoveNode.cs" />
-    <Compile Include="ToolModes\SetSlope.cs" />
+    <Compile Include="ToolModes\NodeLineModes\SetSlope.cs" />
     <Compile Include="Utilities\Textures.cs" />
   </ItemGroup>
   <ItemGroup>
