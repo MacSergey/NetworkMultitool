@@ -109,16 +109,6 @@ namespace NetworkMultitool
             }
         }
         protected abstract IEnumerable<Point> Calculate(StraightTrajectory firstTrajectory, StraightTrajectory secondTrajectory);
-        protected static float GetAngle(Vector3 firstDir, Vector3 secondDir)
-        {
-            var first = NormalizeXZ(firstDir);
-            var second = NormalizeXZ(secondDir);
-
-            var sign = -Mathf.Sign(CrossXZ(first, second));
-            var angle = Mathf.Acos(Mathf.Clamp(DotXZ(first, second), -1f, 1f));
-
-            return sign * angle;
-        }
         protected static IEnumerable<Point> GetCurveParts(Vector3 center, Vector3 radiusDir, Vector3 dir, float radius, float angle)
         {
             var curveLenght = radius * Mathf.Abs(angle);

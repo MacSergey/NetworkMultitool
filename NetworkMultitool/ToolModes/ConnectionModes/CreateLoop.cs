@@ -99,7 +99,7 @@ namespace NetworkMultitool
                 yield break;
             }
 
-            var angle = GetAngle(firstTrajectory.Direction, secondTrajectory.Direction);
+            var angle = MathExtention.GetAngle(firstTrajectory.Direction, secondTrajectory.Direction);
             var halfAbsAngle = Mathf.Abs(angle) / 2f;
 
             var direct = firtsT >= 0f && secondT >= 0f && !IsLoop;

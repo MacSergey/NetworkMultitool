@@ -74,6 +74,7 @@ namespace NetworkMultitool
             yield return CreateToolMode<ArrangeLineMode>();
             yield return CreateToolMode<CreateLoopMode>();
             yield return CreateToolMode<CreateSMode>();
+            yield return CreateToolMode<UnionNodeMode>();
         }
         protected override void OnReset()
         {
@@ -137,6 +138,8 @@ namespace NetworkMultitool
 
         AddNode = 1,
         RemoveNode = 2,
+        UnionNode = 128,
+
         IntersectSegment = 4,
         SlopeNode = 8,
         ArrangeAtLine = 16,

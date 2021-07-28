@@ -166,7 +166,7 @@ namespace NetworkMultitool
 
             static float GetAngle(Vector3 radiusDir, Vector3 connectDir, float deltaAngle, bool cross)
             {
-                var angle = BaseCreateMode.GetAngle(radiusDir, connectDir);
+                var angle = MathExtention.GetAngle(radiusDir, connectDir);
                 if (angle > 0f == cross)
                     angle -= Mathf.Sign(angle) * 2 * Mathf.PI;
                 angle = -Mathf.Sign(angle) * (Mathf.Abs(angle) - deltaAngle);
