@@ -67,7 +67,7 @@ namespace NetworkMultitool
         protected override string UUIHoveredSprite => NetworkMultitoolTextures.UUIHovered;
         protected override string UUIPressedSprite => NetworkMultitoolTextures.UUIPressed;
         protected override string UUIDisabledSprite => /*NodeControllerTextures.UUIDisabled;*/string.Empty;
-        protected ModesPanel ModesPanel { get; set; }
+        public ModesPanel ModesPanel { get; private set; }
 
         protected override IEnumerable<IToolMode<ToolModeType>> GetModes()
         {

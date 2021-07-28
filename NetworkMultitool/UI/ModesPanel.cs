@@ -1,5 +1,6 @@
 ﻿using ColossalFramework;
 using ColossalFramework.UI;
+using ModsCommon;
 using ModsCommon.UI;
 using ModsCommon.Utilities;
 using System;
@@ -23,8 +24,17 @@ namespace NetworkMultitool.UI
                 return new Vector2(2 * Padding + Mathf.Min(count, 2) * ModeButtonSize, 2 * Padding + (count / 2) * ModeButtonSize);
             }
         }
+        public bool IsHover
+        {
+            get
+            {
+                var mouse = SingletonTool<NetworkMultitoolTool>.Instance.MousePosition;
+                return (isVisible && this.IsHover(mouse)) || (parent.isVisible && parent.IsHover(mouse));
+            }
+        }
+        private OpenState State { get; set; } = OpenState.Close;
         private OpenSide _openSide = OpenSide.Down;
-        private OpenSide Open
+        private OpenSide OpenSide
         {
             get => _openSide;
             set
@@ -36,7 +46,6 @@ namespace NetworkMultitool.UI
                 }
             }
         }
-
         public ModesPanel()
         {
             size = new Vector2(ModeButtonSize, 0f);
@@ -50,11 +59,21 @@ namespace NetworkMultitool.UI
         {
             base.Start();
 
+            parent.eventMouseEnter += ParentMouseEnter;
+            parent.eventMouseLeave += ParentMouseLeave;
+
             var root = parent;
             while (root.parent != null)
                 root = root.parent;
 
             root.eventPositionChanged += ParentPositionChanged;
+        }
+        private void ParentMouseEnter(UIComponent component, UIMouseEventParameter eventParam) => SetState(true, true);
+        private void ParentMouseLeave(UIComponent component, UIMouseEventParameter eventParam) => SetState(false, true);
+        protected override void OnMouseLeave(UIMouseEventParameter eventParam)
+        {
+            base.OnMouseLeave(eventParam);
+            SetState(false, true);
         }
 
         protected override void OnClick(UIMouseEventParameter p) { }
@@ -81,21 +100,56 @@ namespace NetworkMultitool.UI
         {
             UIView uiView = parent.GetUIView();
             var screen = uiView.GetScreenResolution();
-            Open = parent.absolutePosition.y + parent.height + DefaultSize.y <= screen.y ? OpenSide.Down : OpenSide.Up;
+            OpenSide = parent.absolutePosition.y + parent.height + DefaultSize.y <= screen.y ? OpenSide.Down : OpenSide.Up;
         }
-        private void SetPosition() => relativePosition = new Vector2((parent.width - width) / 2f, Open == OpenSide.Down ? parent.height : -height);
-        public void SetState(bool show)
+        private void SetPosition() => relativePosition = new Vector2((parent.width - width) / 2f, OpenSide == OpenSide.Down ? parent.height : -height);
+
+        public void SetState(bool show, bool auto = false)
         {
-            ValueAnimator.Cancel(nameof(NetworkMultitoolTool));
+            var autoHide = Settings.AutoHideModePanel.value;
+            var enabled = SingletonTool<NetworkMultitoolTool>.Instance.enabled;
+            var isHover = IsHover;
             if (show)
             {
-                SetOpenSide();
-                Show();
-                ValueAnimator.Animate(nameof(NetworkMultitoolTool), OnAnimate, new AnimatedFloat(20f, DefaultSize.y, 0.2f, EasingType.CubicEaseOut));
+                if (State != OpenState.Open && State != OpenState.Opening)
+                {
+                    if(enabled && ((!auto && (!autoHide || isHover)) || (auto && autoHide)))
+                    {
+                        StartOpening();
+                        SetOpenSide();
+                        var time = 0.2f / DefaultSize.y * height;
+                        ValueAnimator.Cancel(nameof(NetworkMultitoolTool));
+                        ValueAnimator.Animate(nameof(NetworkMultitoolTool), OnAnimate, new AnimatedFloat(height, DefaultSize.y, time, EasingType.CubicEaseOut), EndOpening);
+                    }
+                }
             }
             else
-                ValueAnimator.Animate(nameof(NetworkMultitoolTool), OnAnimate, new AnimatedFloat(height, 20f, 0.2f, EasingType.CubicEaseIn), Hide);
+            {
+                if (State != OpenState.Close && State != OpenState.Closing)
+                {
+                    if (!auto || autoHide)
+                    {
+                        StartClosing();
+                        var time = 0.2f / DefaultSize.y * height;
+                        ValueAnimator.Cancel(nameof(NetworkMultitoolTool));
+                        ValueAnimator.Animate(nameof(NetworkMultitoolTool), OnAnimate, new AnimatedFloat(height, 20f, time, EasingType.CubicEaseIn), EndClosing);
+                    }
+                }
+            }
         }
+        private void StartOpening()
+        {
+            State = OpenState.Opening;
+            Show();
+        }
+        private void EndOpening() => State = OpenState.Open;
+        private void StartClosing() => State = OpenState.Closing;
+        private void EndClosing()
+        {
+            State = OpenState.Close;
+            Hide();
+        }
+
         private void SetButtonsPosition()
         {
             var buttons = Buttons.ToArray();
@@ -104,7 +158,7 @@ namespace NetworkMultitool.UI
             for (var i = 0; i < buttons.Length; i += 1)
             {
                 var x = Padding + (i % 2) * ModeButtonSize;
-                var y = Padding + (i / 2) * ModeButtonSize + (Open == OpenSide.Down ? delta : 0f);
+                var y = Padding + (i / 2) * ModeButtonSize + (OpenSide == OpenSide.Down ? delta : 0f);
                 buttons[i].relativePosition = new Vector2(x, y);
             }
         }
@@ -114,11 +168,17 @@ namespace NetworkMultitool.UI
             SetPosition();
             SetButtonsPosition();
         }
-
-        private enum OpenSide
-        {
-            Down,
-            Up,
-        }
+    }
+    public enum OpenSide
+    {
+        Down,
+        Up,
+    }
+    public enum OpenState
+    {
+        Close,
+        Open,
+        Closing,
+        Opening,
     }
 }

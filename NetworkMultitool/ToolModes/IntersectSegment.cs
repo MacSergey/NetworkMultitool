@@ -14,6 +14,7 @@ namespace NetworkMultitool
         public override ToolModeType Type => ToolModeType.IntersectSegment;
         protected override bool SelectNodes => false;
         protected override Color32 SegmentColor => Colors.Blue;
+        protected override bool IsReseted => !IsFirstSelect;
 
         private SegmentSelection First { get; set; }
         private bool IsFirstSelect => First != null;

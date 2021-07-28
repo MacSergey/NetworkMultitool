@@ -11,6 +11,7 @@ namespace NetworkMultitool
     public class UnionNodeMode : BaseNetworkMultitoolMode
     {
         public override ToolModeType Type => ToolModeType.UnionNode;
+        protected override bool IsReseted => !IsSource;
 
         protected override bool IsValidNode(ushort nodeId) => !IsSource || nodeId != Source.Id;
 
@@ -90,12 +91,12 @@ namespace NetworkMultitool
                 if (IsHoverNode)
                     HoverNode.Render(new OverlayData(cameraInfo) { Color = Colors.Green });
                 else
-                    RenderSegmentNodes(cameraInfo);
+                    RenderSegmentNodes(cameraInfo, IsValidNode);
             }
             else if (!IsTarget)
             {
                 Source.Render(new OverlayData(cameraInfo));
-                RenderSegmentNodes(cameraInfo);
+                RenderSegmentNodes(cameraInfo, IsValidNode);
             }
             else if (!IsCorrectCount || IsConnected)
             {
@@ -108,7 +109,6 @@ namespace NetworkMultitool
                 Target.Render(new OverlayData(cameraInfo) { Color = Colors.Green });
             }
         }
-        protected override bool AllowRenderNode(ushort nodeId) => IsValidNode(nodeId);
 
         private bool Union(ushort sourceId, ushort targetId)
         {

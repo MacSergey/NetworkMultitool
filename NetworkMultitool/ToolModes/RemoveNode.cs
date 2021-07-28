@@ -12,6 +12,7 @@ namespace NetworkMultitool
     public class RemoveNodeMode : BaseNetworkMultitoolMode
     {
         public override ToolModeType Type => ToolModeType.RemoveNode;
+        protected override bool IsReseted => true;
 
         private bool IsCorrect => IsHoverNode && HoverNode.Id.GetNode().CountSegments() == 2;
 

@@ -14,6 +14,8 @@ namespace NetworkMultitool
 {
     public abstract class BaseCreateMode : BaseNetworkMultitoolMode
     {
+        protected override bool IsReseted => !IsFirst;
+
         protected NetworkMultitoolShortcut Enter { get; }
         protected NetworkMultitoolShortcut Plus { get; }
         protected NetworkMultitoolShortcut LargePlus { get; }

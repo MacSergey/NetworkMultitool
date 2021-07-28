@@ -11,6 +11,7 @@ namespace NetworkMultitool
 {
     public abstract class BaseNodeLine : BaseNetworkMultitoolMode
     {
+        protected override bool IsReseted => Nodes.Count == 0;
         protected NetworkMultitoolShortcut Enter { get; }
 
         public override IEnumerable<NetworkMultitoolShortcut> Shortcuts
@@ -113,9 +114,9 @@ namespace NetworkMultitool
                 };
                 HoverNode.Render(new OverlayData(cameraInfo) { Color = color });
             }
-            RenderSegmentNodes(cameraInfo);
+            RenderSegmentNodes(cameraInfo, AllowRenderNode);
         }
-        protected override bool AllowRenderNode(ushort nodeId) => Nodes.All(n => n.Id != nodeId);
+        private bool AllowRenderNode(ushort nodeId) => Nodes.All(n => n.Id != nodeId);
 
         protected enum Result
         {

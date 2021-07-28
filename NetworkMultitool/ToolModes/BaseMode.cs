@@ -18,6 +18,8 @@ namespace NetworkMultitool
     {
         public abstract ToolModeType Type { get; }
         public string Title => SingletonMod<Mod>.Instance.GetLocalizeString(Type.GetAttr<DescriptionAttribute, ToolModeType>().Description);
+        protected abstract bool IsReseted { get; }
+
         private ModeButton Button { get; }
         public NetworkMultitoolShortcut ActivationShortcut => NetworkMultitoolTool.ModeShortcuts[Type];
         public virtual IEnumerable<NetworkMultitoolShortcut> Shortcuts
@@ -54,6 +56,16 @@ namespace NetworkMultitool
                 Underground = true;
             else if (Underground && !Utility.OnlyShiftIsPressed)
                 Underground = false;
+        }
+        public override bool OnEscape()
+        {
+            if (!IsReseted)
+            {
+                Reset(this);
+                return true;
+            }
+            else
+                return false;
         }
         public void AttachButton(UIComponent parent)
         {
@@ -92,21 +104,20 @@ namespace NetworkMultitool
         protected void RemoveNode(ushort nodeId) => Singleton<NetManager>.instance.ReleaseNode(nodeId);
         protected void RemoveSegment(ushort segmentId, bool keepNodes = true) => Singleton<NetManager>.instance.ReleaseSegment(segmentId, keepNodes);
 
-        protected void RenderSegmentNodes(RenderManager.CameraInfo cameraInfo)
+        protected void RenderSegmentNodes(RenderManager.CameraInfo cameraInfo, Func<ushort, bool> action = null)
         {
             if (IsHoverSegment)
             {
                 var data = new OverlayData(cameraInfo) { Color = Colors.Blue, RenderLimit = Underground };
 
                 var segment = HoverSegment.Id.GetSegment();
-                if (AllowRenderNode(segment.m_startNode) && !Underground ^ segment.m_startNode.GetNode().m_flags.IsSet(NetNode.Flags.Underground))
+                if (action?.Invoke(segment.m_startNode) == true && !Underground ^ segment.m_startNode.GetNode().m_flags.IsSet(NetNode.Flags.Underground))
                     new NodeSelection(segment.m_startNode).Render(data);
 
-                if (AllowRenderNode(segment.m_endNode) && !Underground ^ segment.m_endNode.GetNode().m_flags.IsSet(NetNode.Flags.Underground))
+                if (action?.Invoke(segment.m_endNode) == true && !Underground ^ segment.m_endNode.GetNode().m_flags.IsSet(NetNode.Flags.Underground))
                     new NodeSelection(segment.m_endNode).Render(data);
             }
         }
-        protected virtual bool AllowRenderNode(ushort nodeId) => true;
     }
     public enum ToolModeType
     {

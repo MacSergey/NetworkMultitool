@@ -1,4 +1,5 @@
-﻿using ModsCommon;
+﻿using ColossalFramework;
+using ModsCommon;
 using ModsCommon.Utilities;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,8 @@ namespace NetworkMultitool
     public class Settings : BaseSettings<Mod>
     {
         #region PROPERTIES
+
+        public static SavedBool AutoHideModePanel { get; } = new SavedBool(nameof(AutoHideModePanel), SettingsFile, true, true);
 
         #endregion
 
@@ -30,11 +33,22 @@ namespace NetworkMultitool
 
 
             var generalGroup = GeneralTab.AddGroup(CommonLocalize.Settings_General);
+            AddCheckBox(generalGroup, "Auto hide modes panel", AutoHideModePanel, OnAutoHideChanged);
 
             AddNotifications(GeneralTab);
 #if DEBUG
             AddDebug(DebugTab);
 #endif
+            static void OnAutoHideChanged()
+            {
+                if(SingletonTool<NetworkMultitoolTool>.Instance?.ModesPanel is UI.ModesPanel panel)
+                {
+                    if (AutoHideModePanel)
+                        panel.SetState(false, true);
+                    else
+                        panel.SetState(true);
+                }
+            }
         }
 
         #endregion
