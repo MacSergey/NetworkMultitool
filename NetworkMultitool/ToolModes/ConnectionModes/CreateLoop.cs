@@ -37,7 +37,7 @@ namespace NetworkMultitool
 
         public CreateLoopMode()
         {
-            Tab = GetShortcut(KeyCode.Equals, PressTab, ToolModeType.CreateLoop);
+            Tab = GetShortcut(KeyCode.Tab, PressTab, ToolModeType.CreateLoop);
         }
 
         private float? Radius { get; set; }
@@ -48,6 +48,7 @@ namespace NetworkMultitool
         private float Angle { get; set; }
 
         private bool IsLoop { get; set; }
+        private InfoLabel Label { get; set; }
 
         protected override string GetInfo()
         {
@@ -64,31 +65,31 @@ namespace NetworkMultitool
             else
                 return $"Press Minus to decrease radius\nPress Plus to increase radius\nPress Enter to create\nPress Tab to change loop";
         }
-        public override bool GetExtraInfo(out string text, out Color color, out float size, out Vector3 position, out Vector3 direction)
-        {
-            if (State == Result.Calculated)
-            {
-                text = $"R:{Radius.Value:0.0}m\nA:{Mathf.Abs(Angle) * Mathf.Rad2Deg:0}°";
-                color = Colors.White;
-                size = 2f;
-                position = Center;
-                direction = CenterDir;
-
-                return true;
-            }
-            else
-                return base.GetExtraInfo(out text, out color, out size, out position, out direction);
-        }
 
         protected override void Reset(IToolMode prevMode)
         {
             base.Reset(prevMode);
             IsLoop = false;
+            Label = AddLabel();
         }
         protected override void ResetParams()
         {
             base.ResetParams();
             Radius = null;
+        }
+        public override void OnToolUpdate()
+        {
+            base.OnToolUpdate();
+
+            if (State == Result.Calculated)
+            {
+                Label.isVisible = true;
+                Label.text = $"{Radius.Value:0.0}m\n{Mathf.Abs(Angle) * Mathf.Rad2Deg:0}°";
+                Label.WorldPosition = Center + CenterDir * 5f;
+                Label.Direction = CenterDir;
+            }
+            else
+                Label.isVisible = false;
         }
         protected override IEnumerable<Point> Calculate(StraightTrajectory firstTrajectory, StraightTrajectory secondTrajectory)
         {
@@ -145,6 +146,7 @@ namespace NetworkMultitool
             {
                 foreach (var point in GetStraightParts(new StraightTrajectory(firstTrajectory.StartPosition, firstTrajectory.Position(startLenght))))
                     yield return point;
+                yield return new Point(StartCurve, firstTrajectory.Direction);
             }
 
             foreach (var point in GetCurveParts(Center, StartCurve - Center, firstTrajectory.Direction, Radius.Value, Angle))
@@ -152,6 +154,7 @@ namespace NetworkMultitool
 
             if (endLenght >= 8f)
             {
+                yield return new Point(EndCurve, -secondTrajectory.Direction);
                 foreach (var point in GetStraightParts(new StraightTrajectory(secondTrajectory.Position(endLenght), secondTrajectory.StartPosition)))
                     yield return point;
             }

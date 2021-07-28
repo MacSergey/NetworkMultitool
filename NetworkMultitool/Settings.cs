@@ -13,7 +13,7 @@ namespace NetworkMultitool
     {
         #region PROPERTIES
 
-        public static SavedBool AutoHideModePanel { get; } = new SavedBool(nameof(AutoHideModePanel), SettingsFile, true, true);
+        public static SavedBool AutoHideModePanel { get; } = new SavedBool(nameof(AutoHideModePanel), SettingsFile, false, true);
 
         #endregion
 

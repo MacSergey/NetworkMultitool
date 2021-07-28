@@ -1,5 +1,6 @@
 ﻿using ColossalFramework;
 using ColossalFramework.UI;
+using ModsCommon;
 using ModsCommon.Utilities;
 using System;
 using System.Collections.Generic;
@@ -69,6 +70,9 @@ namespace NetworkMultitool
         private float FirstAngle { get; set; }
         private float SecondAngle { get; set; }
 
+        private InfoLabel FirstLabel { get; set; }
+        private InfoLabel SecondLabel { get; set; }
+
         protected override string GetInfo()
         {
             if (!IsFirst)
@@ -84,11 +88,39 @@ namespace NetworkMultitool
             else
                 return $"Press - to decrease both radius\nPress + to increase both radius\nPress Tab to change circle\nPress [ to decrease once radius\nPress ] to increase once radius\nPress Enter to create";
         }
+        protected override void Reset(IToolMode prevMode)
+        {
+            base.Reset(prevMode);
+            FirstLabel = AddLabel();
+            SecondLabel = AddLabel();
+        }
         protected override void ResetParams()
         {
             base.ResetParams();
             FirstRadius = null;
             SecondRadius = null;
+        }
+        public override void OnToolUpdate()
+        {
+            base.OnToolUpdate();
+
+            if (State == Result.Calculated)
+            {
+                FirstLabel.isVisible = true;
+                FirstLabel.text = $"{FirstRadius.Value:0.0}m\n{Mathf.Abs(FirstAngle) * Mathf.Rad2Deg:0}°";
+                FirstLabel.WorldPosition = FirstCenter + FirstCenterDir * 5f;
+                FirstLabel.Direction = FirstCenterDir;
+
+                SecondLabel.isVisible = true;
+                SecondLabel.text = $"{SecondRadius.Value:0.0}m\n{Mathf.Abs(SecondAngle) * Mathf.Rad2Deg:0}°";
+                SecondLabel.WorldPosition = SecondCenter + SecondCenterDir * 5f;
+                SecondLabel.Direction = SecondCenterDir;
+            }
+            else
+            {
+                FirstLabel.isVisible = false;
+                SecondLabel.isVisible = false;
+            }
         }
 
         protected override IEnumerable<Point> Calculate(StraightTrajectory firstTrajectory, StraightTrajectory secondTrajectory)
@@ -110,21 +142,21 @@ namespace NetworkMultitool
             FirstCenter = FirstStartCurve - firstStartRadiusDir * FirstRadius.Value;
             SecondCenter = SecondStartCurve - secondStartRadiusDir * SecondRadius.Value;
 
-            var centerConnectLine = new StraightTrajectory(FirstCenter.MakeFlat(), SecondCenter.MakeFlat());
+            var centerConnect = new StraightTrajectory(FirstCenter.MakeFlat(), SecondCenter.MakeFlat());
             if (firstCross == secondCross)
             {
-                var delta = centerConnectLine.Length / (FirstRadius.Value + SecondRadius.Value) * FirstRadius.Value;
+                var delta = centerConnect.Length / (FirstRadius.Value + SecondRadius.Value) * FirstRadius.Value;
                 var deltaAngle = Mathf.Acos(FirstRadius.Value / delta);
 
-                FirstAngle = GetAngle(firstStartRadiusDir, centerConnectLine.Direction, deltaAngle, firstCross);
-                SecondAngle = GetAngle(secondStartRadiusDir, -centerConnectLine.Direction, deltaAngle, secondCross);
+                FirstAngle = GetAngle(firstStartRadiusDir, centerConnect.Direction, deltaAngle, firstCross);
+                SecondAngle = GetAngle(secondStartRadiusDir, -centerConnect.Direction, deltaAngle, secondCross);
             }
             else
             {
-                var deltaAngle = Mathf.Asin(Mathf.Abs(FirstRadius.Value - SecondRadius.Value) / centerConnectLine.Length);
+                var deltaAngle = Mathf.Asin(Mathf.Abs(FirstRadius.Value - SecondRadius.Value) / centerConnect.Length);
 
-                FirstAngle = GetAngle(firstStartRadiusDir, centerConnectLine.Direction, Mathf.PI / 2f + Mathf.Sign(SecondRadius.Value - FirstRadius.Value) * deltaAngle, firstCross);
-                SecondAngle = GetAngle(secondStartRadiusDir, -centerConnectLine.Direction, Mathf.PI / 2f + Mathf.Sign(FirstRadius.Value - SecondRadius.Value) * deltaAngle, secondCross);
+                FirstAngle = GetAngle(firstStartRadiusDir, centerConnect.Direction, Mathf.PI / 2f + Mathf.Sign(SecondRadius.Value - FirstRadius.Value) * deltaAngle, firstCross);
+                SecondAngle = GetAngle(secondStartRadiusDir, -centerConnect.Direction, Mathf.PI / 2f + Mathf.Sign(FirstRadius.Value - SecondRadius.Value) * deltaAngle, secondCross);
             }
 
             var firstEndRadiusDir = firstStartRadiusDir.TurnRad(FirstAngle, true);
@@ -133,10 +165,9 @@ namespace NetworkMultitool
             FirstEndCurve = FirstCenter + firstEndRadiusDir * FirstRadius.Value;
             SecondEndCurve = SecondCenter + secondEndRadiusDir * SecondRadius.Value;
 
-            var centerDistance = (SecondCenter.MakeFlat() - FirstCenter.MakeFlat()).magnitude;
             if (firstCross == secondCross)
             {
-                if(centerDistance < FirstRadius.Value + SecondRadius.Value)
+                if (centerConnect.Length < FirstRadius.Value + SecondRadius.Value)
                 {
                     State = Result.BigRadius;
                     return new Point[0];
@@ -144,24 +175,27 @@ namespace NetworkMultitool
             }
             else
             {
-                if(centerDistance + FirstRadius.Value < SecondRadius.Value || centerDistance + SecondRadius.Value < FirstRadius.Value)
+                if (centerConnect.Length + FirstRadius.Value < SecondRadius.Value || centerConnect.Length + SecondRadius.Value < FirstRadius.Value)
                 {
                     State = Result.WrongShape;
                     return new Point[0];
                 }
             }
 
-            if(firstCross != secondCross)
+            var connectEnds = new StraightTrajectory(FirstEndCurve.MakeFlat(), SecondEndCurve.MakeFlat(), false);
+            if (firstCross != secondCross)
             {
-                var connectEnds = new StraightTrajectory(FirstEndCurve, SecondEndCurve, false);
                 if (Mathf.Abs(FirstAngle) < Mathf.PI && Intersection.CalculateSingle(firstTrajectory, connectEnds, out var firstT, out _) && firstT < 0f)
                     FirstAngle -= Mathf.Sign(FirstAngle) * 2 * Mathf.PI;
                 if (Mathf.Abs(SecondAngle) < Mathf.PI && Intersection.CalculateSingle(secondTrajectory, connectEnds, out var secondT, out _) && secondT < 0f)
                     SecondAngle -= Mathf.Sign(SecondAngle) * 2 * Mathf.PI;
             }
 
+            FirstCenterDir = (connectEnds.Direction - firstTrajectory.Direction).normalized;
+            SecondCenterDir = (-connectEnds.Direction - secondTrajectory.Direction).normalized;
+
             State = Result.Calculated;
-            return GetParts(firstTrajectory, secondTrajectory);
+            return GetParts(firstTrajectory, secondTrajectory, connectEnds);
 
             static float GetAngle(Vector3 radiusDir, Vector3 connectDir, float deltaAngle, bool cross)
             {
@@ -173,21 +207,20 @@ namespace NetworkMultitool
             }
         }
 
-        private IEnumerable<Point> GetParts(StraightTrajectory firstTrajectory, StraightTrajectory secondTrajectory)
+        private IEnumerable<Point> GetParts(StraightTrajectory firstTrajectory, StraightTrajectory secondTrajectory, StraightTrajectory centerConnection)
         {
             foreach (var point in GetCurveParts(FirstCenter, FirstStartCurve - FirstCenter, firstTrajectory.Direction, FirstRadius.Value, FirstAngle))
                 yield return point;
 
-            var straight = new StraightTrajectory(FirstEndCurve.MakeFlat(), SecondEndCurve.MakeFlat());
-            if (straight.Length >= 8f)
+            if (centerConnection.Length >= 8f)
             {
-                yield return new Point(straight.StartPosition, straight.Direction);
-                foreach (var point in GetStraightParts(straight))
+                yield return new Point(centerConnection.StartPosition, centerConnection.Direction);
+                foreach (var point in GetStraightParts(centerConnection))
                     yield return point;
-                yield return new Point(straight.EndPosition, straight.Direction);
+                yield return new Point(centerConnection.EndPosition, centerConnection.Direction);
             }
             else
-                yield return new Point(straight.Position(0.5f), straight.Direction);
+                yield return new Point(centerConnection.Position(0.5f), centerConnection.Direction);
 
             foreach (var point in GetCurveParts(SecondCenter, SecondStartCurve - SecondCenter, -secondTrajectory.Direction, SecondRadius.Value, SecondAngle).Reverse())
                 yield return point;

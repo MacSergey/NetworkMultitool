@@ -29,7 +29,7 @@ namespace NetworkMultitool
                 yield break;
             }
         }
-
+        protected List<InfoLabel> Labels { get; } = new List<InfoLabel>();
 
         public BaseNetworkMultitoolMode()
         {
@@ -47,6 +47,12 @@ namespace NetworkMultitool
         {
             base.Deactivate();
             Button.Activate = false;
+            ClearLabels();
+        }
+        protected override void Reset(IToolMode prevMode)
+        {
+            base.Reset(prevMode);
+            ClearLabels();
         }
         public override void OnToolUpdate()
         {
@@ -118,6 +124,26 @@ namespace NetworkMultitool
                     new NodeSelection(segment.m_endNode).Render(data);
             }
         }
+
+        protected InfoLabel AddLabel()
+        {
+            var view = UIView.GetAView();
+            var label = view.AddUIComponent(typeof(InfoLabel)) as InfoLabel;
+            Labels.Add(label);
+            return label;
+        }
+        protected void RemoveLabel(InfoLabel label)
+        {
+            Labels.Remove(label);
+            Destroy(label.gameObject);
+        }
+        private void ClearLabels()
+        {
+            foreach(var label in Labels)
+                Destroy(label.gameObject);
+
+            Labels.Clear();
+        }
     }
     public enum ToolModeType
     {
@@ -163,5 +189,31 @@ namespace NetworkMultitool
     public interface ISelectToolMode
     {
         public void IgnoreSelected();
+    }
+    public class InfoLabel : CustomUILabel
+    {
+        public Vector3 WorldPosition { get; set; }
+        public Vector3 Direction { get; set; }
+
+        public InfoLabel()
+        {
+            isVisible = false;
+            color = Colors.White;
+            textScale = 2f;
+        }
+
+        public override void Update()
+        {
+            base.Update();
+
+            var uIView = GetUIView();
+            var startScreenPosition = Camera.main.WorldToScreenPoint(WorldPosition);
+            var endScreenPosition = Camera.main.WorldToScreenPoint(WorldPosition + Direction);
+            var screenDir = ((Vector2)(endScreenPosition - startScreenPosition)).normalized;
+            screenDir.y *= -1;
+            var relativePosition = uIView.ScreenPointToGUI(startScreenPosition / uIView.inputScale) - size * 0.5f + screenDir * (size.magnitude * 0.5f);
+
+            this.relativePosition = relativePosition;
+        }
     }
 }

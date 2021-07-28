@@ -81,17 +81,22 @@ namespace NetworkMultitool
 
             static bool Check(ushort firstId, ushort secondId) => firstId.GetNode().Segments().Any(s => s.NodeIds().Any(n => n == secondId));
         }
-        public override void OnPrimaryMouseClicked(UnityEngine.Event e)
+        public override void OnPrimaryMouseClicked(Event e)
         {
-            if (State == Result.One || State == Result.InEnd)
-                Nodes.Add(HoverNode);
-            else if (State == Result.InStart)
-                Nodes.Insert(0, HoverNode);
+            if (State == Result.InStart)
+                AddFirst(HoverNode);
+            else if (State == Result.One || State == Result.InEnd)
+                AddLast(HoverNode);
             else if (State == Result.IsFirst)
-                Nodes.RemoveAt(0);
+                RemoveFirst();
             else if (State == Result.IsLast)
-                Nodes.RemoveAt(Nodes.Count - 1);
+                RemoveLast();
         }
+        protected virtual void AddFirst(NodeSelection selection) => Nodes.Insert(0, selection);
+        protected virtual void AddLast(NodeSelection selection) => Nodes.Add(selection);
+        protected virtual void RemoveFirst() => Nodes.RemoveAt(0);
+        protected virtual void RemoveLast() => Nodes.RemoveAt(Nodes.Count - 1);
+
         public override void OnSecondaryMouseClicked() => Reset(this);
         public virtual void PressEnter() => Reset(this);
 
