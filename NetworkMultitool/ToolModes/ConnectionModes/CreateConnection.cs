@@ -11,10 +11,9 @@ using static ModsCommon.Utilities.VectorUtilsExtensions;
 
 namespace NetworkMultitool
 {
-    public class CreateSMode : BaseCreateMode
+    public class CreateConnectionMode : BaseCreateMode
     {
-        public override ToolModeType Type => ToolModeType.CreateS;
-        public override string ModeName => "CREATE CONNECTION MODE";
+        public override ToolModeType Type => ToolModeType.CreateConnection;
 
         protected NetworkMultitoolShortcut OncePlus { get; }
         protected NetworkMultitoolShortcut OnceLargePlus { get; }
@@ -43,17 +42,17 @@ namespace NetworkMultitool
             }
         }
 
-        public CreateSMode()
+        public CreateConnectionMode()
         {
-            OncePlus = GetShortcut(KeyCode.RightBracket, PressOncePlus, ToolModeType.CreateS, repeat: true);
-            OnceLargePlus = GetShortcut(KeyCode.RightBracket, PressOncePlus, ToolModeType.CreateS, shift: true, repeat: true);
-            OnceSmallPlus = GetShortcut(KeyCode.RightBracket, PressOncePlus, ToolModeType.CreateS, ctrl: true, repeat: true);
+            OncePlus = GetShortcut(KeyCode.RightBracket, PressOncePlus, ToolModeType.CreateConnection, repeat: true);
+            OnceLargePlus = GetShortcut(KeyCode.RightBracket, PressOncePlus, ToolModeType.CreateConnection, shift: true, repeat: true);
+            OnceSmallPlus = GetShortcut(KeyCode.RightBracket, PressOncePlus, ToolModeType.CreateConnection, ctrl: true, repeat: true);
 
-            OnceMinus = GetShortcut(KeyCode.LeftBracket, PressOnceMinus, ToolModeType.CreateS, repeat: true);
-            OnceLargeMinus = GetShortcut(KeyCode.LeftBracket, PressOnceMinus, ToolModeType.CreateS, shift: true, repeat: true);
-            OnceSmallMinus = GetShortcut(KeyCode.LeftBracket, PressOnceMinus, ToolModeType.CreateS, ctrl: true, repeat: true);
+            OnceMinus = GetShortcut(KeyCode.LeftBracket, PressOnceMinus, ToolModeType.CreateConnection, repeat: true);
+            OnceLargeMinus = GetShortcut(KeyCode.LeftBracket, PressOnceMinus, ToolModeType.CreateConnection, shift: true, repeat: true);
+            OnceSmallMinus = GetShortcut(KeyCode.LeftBracket, PressOnceMinus, ToolModeType.CreateConnection, ctrl: true, repeat: true);
 
-            Tab = GetShortcut(KeyCode.Tab, PressTab, ToolModeType.CreateS);
+            Tab = GetShortcut(KeyCode.Tab, PressTab, ToolModeType.CreateConnection);
         }
 
         private bool Select { get; set; }

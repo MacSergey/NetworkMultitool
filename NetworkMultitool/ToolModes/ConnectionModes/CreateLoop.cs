@@ -15,7 +15,6 @@ namespace NetworkMultitool
     public class CreateLoopMode : BaseCreateMode
     {
         public override ToolModeType Type => ToolModeType.CreateLoop;
-        public override string ModeName => "CREATE LOOP MODE";
 
         protected NetworkMultitoolShortcut Tab { get; }
 

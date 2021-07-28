@@ -113,8 +113,9 @@
     <Compile Include="Settings.cs" />
     <Compile Include="Tool.cs" />
     <Compile Include="ToolModes\AddNode.cs" />
+    <Compile Include="ToolModes\BaseMode.cs" />
     <Compile Include="ToolModes\ConnectionModes\BaseCreate.cs" />
-    <Compile Include="ToolModes\ConnectionModes\CreateS.cs" />
+    <Compile Include="ToolModes\ConnectionModes\CreateConnection.cs" />
     <Compile Include="ToolModes\NodeLineModes\ArrangeLine.cs" />
     <Compile Include="ToolModes\NodeLineModes\BaseNodeLine.cs" />
     <Compile Include="ToolModes\ConnectionModes\CreateLoop.cs" />
@@ -122,6 +123,8 @@
     <Compile Include="ToolModes\RemoveNode.cs" />
     <Compile Include="ToolModes\NodeLineModes\SetSlope.cs" />
     <Compile Include="ToolModes\UnionNode.cs" />
+    <Compile Include="UI\ModeButton.cs" />
+    <Compile Include="UI\ModesPanel.cs" />
     <Compile Include="Utilities\Textures.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -135,7 +138,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Localize.ru.resx" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ModeButtons.png" />
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\UUIButton.png" />
   </ItemGroup>

@@ -13,7 +13,6 @@ namespace NetworkMultitool
     public class AddNodeMode : BaseNetworkMultitoolMode
     {
         public override ToolModeType Type => ToolModeType.AddNode;
-        public override string ModeName => "ADD NODE MODE";
 
         protected override Color32 NodeColor => Colors.Red;
         private bool IsPossibleInsertNode { get; set; }

@@ -10,7 +10,6 @@ namespace NetworkMultitool
     public class ArrangeLineMode : BaseNodeLine
     {
         public override ToolModeType Type => ToolModeType.ArrangeAtLine;
-        public override string ModeName => "ARRANGE AT LINE MODE";
 
         public override void PressEnter()
         {

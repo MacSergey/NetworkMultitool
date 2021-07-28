@@ -117,6 +117,30 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Mode_AddNode" xml:space="preserve">
+    <value>Add node mode</value>
+  </data>
+  <data name="Mode_ArrangeAtLine" xml:space="preserve">
+    <value>Arrange at line mode</value>
+  </data>
+  <data name="Mode_CreateConnection" xml:space="preserve">
+    <value>Create connection mode</value>
+  </data>
+  <data name="Mode_CreateLoop" xml:space="preserve">
+    <value>Create loop mode</value>
+  </data>
+  <data name="Mode_IntersectSegment" xml:space="preserve">
+    <value>Intersect segments mode</value>
+  </data>
+  <data name="Mode_RemoveNode" xml:space="preserve">
+    <value>Remove node mode</value>
+  </data>
+  <data name="Mode_SlopeNode" xml:space="preserve">
+    <value>Set slope mode</value>
+  </data>
+  <data name="Mode_UnionNode" xml:space="preserve">
+    <value>Union nodes mode</value>
+  </data>
   <data name="Mod_Description" xml:space="preserve">
     <value />
   </data>

@@ -1,10 +1,13 @@
 ﻿using ColossalFramework;
 using ColossalFramework.UI;
 using ModsCommon;
+using ModsCommon.UI;
 using ModsCommon.Utilities;
+using NetworkMultitool.UI;
 using NetworkMultitool.Utilities;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using UnityEngine;
@@ -16,14 +19,15 @@ namespace NetworkMultitool
         public static NetworkMultitoolShortcut ActivationShortcut { get; } = new NetworkMultitoolShortcut(nameof(ActivationShortcut), nameof(CommonLocalize.Settings_ShortcutActivateTool), SavedInputKey.Encode(KeyCode.T, true, false, false));
         public static NetworkMultitoolShortcut SelectionStepOverShortcut { get; } = new NetworkMultitoolShortcut(nameof(SelectionStepOverShortcut), nameof(CommonLocalize.Settings_ShortcutSelectionStepOver), SavedInputKey.Encode(KeyCode.Space, true, false, false), () => SingletonTool<NetworkMultitoolTool>.Instance.SelectionStepOver());
 
+        public static IEnumerable<ToolModeType> ModeTypes => EnumExtension.GetEnumValues<ToolModeType>(m => m.IsItem());
         public static Dictionary<ToolModeType, NetworkMultitoolShortcut> ModeShortcuts { get; } = InitModeShortcuts();
         private static Dictionary<ToolModeType, NetworkMultitoolShortcut> InitModeShortcuts()
         {
             var dictionary = new Dictionary<ToolModeType, NetworkMultitoolShortcut>();
 
-            foreach (var mode in EnumExtension.GetEnumValues<ToolModeType>(m => m.IsItem()))
+            foreach (var mode in ModeTypes)
             {
-                var shortcut = new NetworkMultitoolShortcut(mode.ToString(), string.Empty, SavedInputKey.Encode((KeyCode)((int)KeyCode.Alpha1 + dictionary.Count), true, false, false), () => SingletonTool<NetworkMultitoolTool>.Instance.SetMode(mode));
+                var shortcut = new NetworkMultitoolShortcut(mode.ToString(), mode.GetAttr<DescriptionAttribute, ToolModeType>().Description, SavedInputKey.Encode((KeyCode)((int)KeyCode.Alpha1 + dictionary.Count), true, false, false), () => SingletonTool<NetworkMultitoolTool>.Instance.SetMode(mode));
                 dictionary[mode] = shortcut;
             }
 
@@ -35,6 +39,8 @@ namespace NetworkMultitool
             get
             {
                 yield return SelectionStepOverShortcut;
+                foreach (var shortcut in ModeShortcuts.Values)
+                    yield return shortcut;
             }
         }
         public override IEnumerable<Shortcut> Shortcuts
@@ -42,8 +48,6 @@ namespace NetworkMultitool
             get
             {
                 foreach (var shortcut in ToolShortcuts)
-                    yield return shortcut;
-                foreach (var shortcut in ModeShortcuts.Values)
                     yield return shortcut;
                 if (Mode is BaseNetworkMultitoolMode mode)
                 {
@@ -54,34 +58,73 @@ namespace NetworkMultitool
         }
 
         public override Shortcut Activation => ActivationShortcut;
-
-        protected override bool ShowToolTip => true;
-
-        protected override IToolMode DefaultMode => ToolModes[ToolModeType.AddNode];
+        protected override bool ShowToolTip => ModesPanel?.IsHoverAllParents(MousePosition) != true;
+        private IToolMode LastMode { get; set; }
+        protected override IToolMode DefaultMode => LastMode ?? ToolModes[ToolModeType.AddNode];
 
         protected override UITextureAtlas UUIAtlas => NetworkMultitoolTextures.Atlas;
         protected override string UUINormalSprite => NetworkMultitoolTextures.UUINormal;
         protected override string UUIHoveredSprite => NetworkMultitoolTextures.UUIHovered;
         protected override string UUIPressedSprite => NetworkMultitoolTextures.UUIPressed;
         protected override string UUIDisabledSprite => /*NodeControllerTextures.UUIDisabled;*/string.Empty;
+        protected ModesPanel ModesPanel { get; set; }
 
         protected override IEnumerable<IToolMode<ToolModeType>> GetModes()
         {
             yield return CreateToolMode<AddNodeMode>();
             yield return CreateToolMode<RemoveNodeMode>();
+            yield return CreateToolMode<UnionNodeMode>();
             yield return CreateToolMode<IntersectSegmentMode>();
             yield return CreateToolMode<SlopeNodeMode>();
             yield return CreateToolMode<ArrangeLineMode>();
             yield return CreateToolMode<CreateLoopMode>();
-            yield return CreateToolMode<CreateSMode>();
-            yield return CreateToolMode<UnionNodeMode>();
+            yield return CreateToolMode<CreateConnectionMode>();
         }
         protected override void OnReset()
         {
             base.OnReset();
             Singleton<InfoManager>.instance.SetCurrentMode(InfoManager.InfoMode.None, InfoManager.SubInfoMode.Default);
         }
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+            ModesPanel.SetState(true);
+        }
+        protected override void OnDisable()
+        {
+            base.OnDisable();
+            ModesPanel.SetState(false);
+        }
+        protected override void InitProcess()
+        {
+            base.InitProcess();
+            AddModePanel();
+        }
+        protected override void SetModeNow(IToolMode mode)
+        {
+            base.SetModeNow(mode);
+
+            if (mode != null)
+                LastMode = Mode;
+        }
         protected override bool CheckInfoMode(InfoManager.InfoMode mode, InfoManager.SubInfoMode subInfo) => (mode == InfoManager.InfoMode.None || mode == InfoManager.InfoMode.Underground) && subInfo == InfoManager.SubInfoMode.Default;
+
+        public override void RegisterUUI()
+        {
+            base.RegisterUUI();
+            if (IsInit)
+                AddModePanel();
+        }
+        private void AddModePanel()
+        {
+            if (UUIRegistered)
+            {
+                ModesPanel = UUIButton.AddUIComponent<ModesPanel>();
+
+                foreach (var mode in ToolModes.Values.OfType<BaseNetworkMultitoolMode>())
+                    mode.AttachButton(ModesPanel);
+            }
+        }
 
         private void SelectionStepOver()
         {
@@ -129,97 +172,6 @@ namespace NetworkMultitool
             }
             return true;
         }
-    }
-
-    public enum ToolModeType
-    {
-        [NotItem]
-        None = 0,
-
-        AddNode = 1,
-        RemoveNode = 2,
-        UnionNode = 128,
-
-        IntersectSegment = 4,
-        SlopeNode = 8,
-        ArrangeAtLine = 16,
-
-        CreateLoop = 32,
-        CreateS = 64,
-
-        [NotItem]
-        Line = SlopeNode | ArrangeAtLine,
-
-        [NotItem]
-        Create = CreateLoop | CreateS,
-
-        [NotItem]
-        Any = int.MaxValue,
-    }
-    public abstract class BaseNetworkMultitoolMode : BaseSelectToolMode<NetworkMultitoolTool>, IToolMode<ToolModeType>, ISelectToolMode
-    {
-        public abstract ToolModeType Type { get; }
-        public abstract string ModeName { get; }
-        public virtual IEnumerable<NetworkMultitoolShortcut> Shortcuts
-        {
-            get
-            {
-                yield break;
-            }
-        }
-
-        protected NetworkMultitoolShortcut GetShortcut(KeyCode keyCode, Action action, ToolModeType mode = ToolModeType.Any, bool ctrl = false, bool shift = false, bool alt = false, bool repeat = false) => new NetworkMultitoolShortcut(string.Empty, string.Empty, SavedInputKey.Encode(keyCode, ctrl, shift, alt), action, mode) { CanRepeat = repeat };
-
-        public sealed override string GetToolInfo()
-        {
-            var info = GetInfo();
-            if (string.IsNullOrEmpty(info))
-                return string.Empty;
-            else
-                return $"{ModeName}\n\n{info}";
-        }
-        protected virtual string GetInfo() => string.Empty;
-        protected string GetStepOverInfo() => NetworkMultitoolTool.SelectionStepOverShortcut.NotSet ? string.Empty : "\n\n" + string.Format(CommonLocalize.Tool_InfoSelectionStepOver, NetworkMultitoolTool.SelectionStepOverShortcut.InputKey);
-
-        protected override bool CheckSegment(ushort segmentId) => segmentId.GetSegment().m_flags.CheckFlags(0, NetSegment.Flags.Untouchable) && base.CheckSegment(segmentId);
-
-        protected override bool CheckItemClass(ItemClass itemClass) => itemClass.m_layer == ItemClass.Layer.Default || itemClass.m_layer == ItemClass.Layer.MetroTunnels;
-
-        public override void OnToolUpdate()
-        {
-            base.OnToolUpdate();
-
-            if (!Underground && Utility.OnlyShiftIsPressed)
-                Underground = true;
-            else if (Underground && !Utility.OnlyShiftIsPressed)
-                Underground = false;
-        }
-
-        protected bool CreateNode(out ushort newNodeId, NetInfo info, Vector3 position) => Singleton<NetManager>.instance.CreateNode(out newNodeId, ref Singleton<SimulationManager>.instance.m_randomizer, info, position, Singleton<SimulationManager>.instance.m_currentBuildIndex);
-        protected bool CreateSegment(out ushort newSegmentId, NetInfo info, ushort startId, ushort endId, Vector3 startDir, Vector3 endDir, bool invert = false) => Singleton<NetManager>.instance.CreateSegment(out newSegmentId, ref Singleton<SimulationManager>.instance.m_randomizer, info, startId, endId, startDir, endDir, Singleton<SimulationManager>.instance.m_currentBuildIndex, Singleton<SimulationManager>.instance.m_currentBuildIndex, invert);
-
-        protected void RemoveNode(ushort nodeId) => Singleton<NetManager>.instance.ReleaseNode(nodeId);
-        protected void RemoveSegment(ushort segmentId, bool keepNodes = true) => Singleton<NetManager>.instance.ReleaseSegment(segmentId, keepNodes);
-
-        protected void RenderSegmentNodes(RenderManager.CameraInfo cameraInfo)
-        {
-            if (IsHoverSegment)
-            {
-                var data = new OverlayData(cameraInfo) { Color = Colors.Blue, RenderLimit = Underground };
-
-                var segment = HoverSegment.Id.GetSegment();
-                if (AllowRenderNode(segment.m_startNode) && !Underground ^ segment.m_startNode.GetNode().m_flags.IsSet(NetNode.Flags.Underground))
-                    new NodeSelection(segment.m_startNode).Render(data);
-
-                if (AllowRenderNode(segment.m_endNode) && !Underground ^ segment.m_endNode.GetNode().m_flags.IsSet(NetNode.Flags.Underground))
-                    new NodeSelection(segment.m_endNode).Render(data);
-            }
-        }
-        protected virtual bool AllowRenderNode(ushort nodeId) => true;
-    }
-    public interface ISelectToolMode
-    {
-        public void IgnoreSelected();
     }
 
     public class NetworkMultitoolShortcut : ToolShortcut<Mod, NetworkMultitoolTool, ToolModeType>

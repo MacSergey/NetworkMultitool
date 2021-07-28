@@ -223,21 +223,20 @@ namespace NetworkMultitool
             if (IsSecond)
                 Second.Render(new OverlayData(cameraInfo) { Color = color, RenderLimit = Underground });
 
-            var info = Info;
             if (State == Result.Calculated)
             {
-                var data = new OverlayData(cameraInfo) { Color = Colors.Yellow, Width = info.m_halfWidth * 2f, Cut = true };
+                var info = Info;
+                RenderCalculatedOverlay(cameraInfo, info);
 
+                var data = new OverlayData(cameraInfo) { Color = Colors.Yellow, Width = info.m_halfWidth * 2f, Cut = true };
                 for (var i = 1; i < Points.Count; i += 1)
                 {
                     var trajectory = new BezierTrajectory(Points[i - 1].Position, Points[i - 1].Direction, Points[i].Position, -Points[i].Direction);
                     trajectory.Render(data);
                 }
-
-                RenderCalculatedOverlay(cameraInfo, info);
             }
             else if (State != Result.None)
-                RenderFailedOverlay(cameraInfo, info);
+                RenderFailedOverlay(cameraInfo, Info);
         }
         protected virtual void RenderCalculatedOverlay(RenderManager.CameraInfo cameraInfo, NetInfo info) { }
         protected virtual void RenderFailedOverlay(RenderManager.CameraInfo cameraInfo, NetInfo info) { }

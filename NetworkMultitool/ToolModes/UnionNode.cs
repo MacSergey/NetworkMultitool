@@ -11,7 +11,6 @@ namespace NetworkMultitool
     public class UnionNodeMode : BaseNetworkMultitoolMode
     {
         public override ToolModeType Type => ToolModeType.UnionNode;
-        public override string ModeName => "UNION NODES MODE";
 
         protected override bool IsValidNode(ushort nodeId) => !IsSource || nodeId != Source.Id;
 

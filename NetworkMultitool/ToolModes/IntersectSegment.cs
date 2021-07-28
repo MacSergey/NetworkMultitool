@@ -12,7 +12,6 @@ namespace NetworkMultitool
     public class IntersectSegmentMode : BaseNetworkMultitoolMode
     {
         public override ToolModeType Type => ToolModeType.IntersectSegment;
-        public override string ModeName => "INTERSECT SEGMENT MODE";
         protected override bool SelectNodes => false;
         protected override Color32 SegmentColor => Colors.Blue;
 

@@ -70,6 +70,78 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Add node mode.
+        /// </summary>
+        internal static string Mode_AddNode {
+            get {
+                return ResourceManager.GetString("Mode_AddNode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Arrange at line mode.
+        /// </summary>
+        internal static string Mode_ArrangeAtLine {
+            get {
+                return ResourceManager.GetString("Mode_ArrangeAtLine", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Create connection mode.
+        /// </summary>
+        internal static string Mode_CreateConnection {
+            get {
+                return ResourceManager.GetString("Mode_CreateConnection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Create loop mode.
+        /// </summary>
+        internal static string Mode_CreateLoop {
+            get {
+                return ResourceManager.GetString("Mode_CreateLoop", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Intersect segments mode.
+        /// </summary>
+        internal static string Mode_IntersectSegment {
+            get {
+                return ResourceManager.GetString("Mode_IntersectSegment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Remove node mode.
+        /// </summary>
+        internal static string Mode_RemoveNode {
+            get {
+                return ResourceManager.GetString("Mode_RemoveNode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Set slope mode.
+        /// </summary>
+        internal static string Mode_SlopeNode {
+            get {
+                return ResourceManager.GetString("Mode_SlopeNode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Union nodes mode.
+        /// </summary>
+        internal static string Mode_UnionNode {
+            get {
+                return ResourceManager.GetString("Mode_UnionNode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Segment #{0}
         ///Click to insert node.
         /// </summary>

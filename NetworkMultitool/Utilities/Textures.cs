@@ -21,6 +21,7 @@ namespace NetworkMultitool.Utilities
         private static Dictionary<string, TextureHelper.SpriteParamsGetter> Files { get; } = new Dictionary<string, TextureHelper.SpriteParamsGetter>
         {
             {nameof(UUIButton), UUIButton},
+            {nameof(ModeButtons), ModeButtons},
         };
 
         static NetworkMultitoolTextures()
@@ -29,5 +30,11 @@ namespace NetworkMultitool.Utilities
         }
 
         private static UITextureAtlas.SpriteInfo[] UUIButton(int texWidth, int texHeight, Rect rect) => TextureHelper.GetSpritesInfo(texWidth, texHeight, rect, 40, 40, UUINormal, UUIHovered, UUIPressed/*, UUIDisabled*/).ToArray();
+
+        private static UITextureAtlas.SpriteInfo[] ModeButtons(int texWidth, int texHeight, Rect rect)
+        {
+            var sprites = NetworkMultitoolTool.ModeTypes.Select(m => m.ToString()).ToArray();
+            return TextureHelper.GetSpritesInfo(texWidth, texHeight, rect, 25, 25, new RectOffset(4, 4, 4, 4), 2, sprites).ToArray();
+        }
     }
 }
