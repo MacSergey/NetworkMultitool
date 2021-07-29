@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Mode_AddNode" xml:space="preserve">
-    <value>モード: ノードの追加</value>
+    <value>Mode: ノードの追加</value>
   </data>
   <data name="Mode_AddNode_Info_ClickToAdd" xml:space="preserve">
-    <value>Click to add node</value>
+    <value>クリックしてノードを追加</value>
   </data>
   <data name="Mode_AddNode_Info_SelectToAdd" xml:space="preserve">
     <value>ノードを追加したいセグメントを選択</value>
@@ -134,13 +134,13 @@
     <value>{0}°</value>
   </data>
   <data name="Mode_ArrangeAtLine" xml:space="preserve">
-    <value>モード: ネットワークのスムージング</value>
+    <value>Mode: フォーススムージング</value>
   </data>
   <data name="Mode_CreateConnection" xml:space="preserve">
-    <value>モード: ネットワークの自動接続</value>
+    <value>Mode: ネットワークの直線接続</value>
   </data>
   <data name="Mode_CreateLoop" xml:space="preserve">
-    <value>モード: ループの作成</value>
+    <value>Mode: ネットワークの曲線接続</value>
   </data>
   <data name="Mode_CreateLoop_Info_Change" xml:space="preserve">
     <value>{0} を押してループを変更</value>
@@ -169,6 +169,9 @@
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>{0} を押して作成</value>
   </data>
+  <data name="Mode_Info_CurveDurection" xml:space="preserve">
+    <value>ノードをクリックしてカーブの方向を転換</value>
+  </data>
   <data name="Mode_Info_DecreaseAllRadius" xml:space="preserve">
     <value>{0} を押して全ての半径を縮小</value>
   </data>
@@ -176,7 +179,7 @@
     <value>{0} を押して両方の半径を縮小</value>
   </data>
   <data name="Mode_Info_DecreaseOneRadius" xml:space="preserve">
-    <value>Press {0} to decrease one radius</value>
+    <value>{0} を押して半径を1回だけ縮小</value>
   </data>
   <data name="Mode_Info_DecreaseRadius" xml:space="preserve">
     <value>{0} を押して半径を縮小</value>
@@ -188,7 +191,7 @@
     <value>{0} を押して両方の半径を拡大</value>
   </data>
   <data name="Mode_Info_IncreaseOneRadius" xml:space="preserve">
-    <value>Press {0} to increase one radius</value>
+    <value>{0} を押して半径を1回だけ拡大</value>
   </data>
   <data name="Mode_Info_IncreaseRadius" xml:space="preserve">
     <value>{0} を押して半径を拡大</value>
@@ -205,14 +208,17 @@
   <data name="Mode_Info_SelectSecondSegment" xml:space="preserve">
     <value>2つ目のセグメントを選択</value>
   </data>
+  <data name="Mode_Info_UndergroundMode" xml:space="preserve">
+    <value>Shiftキー押下で、地下表示に切り替え</value>
+  </data>
   <data name="Mode_Info_WrongShape" xml:space="preserve">
     <value>形状が不適切です</value>
   </data>
   <data name="Mode_IntersectSegment" xml:space="preserve">
-    <value>モード: セグメントの結合</value>
+    <value>Mode: セグメントのクロス結合</value>
   </data>
   <data name="Mode_IntersectSegment_Info_EdgeTooClose" xml:space="preserve">
-    <value>1 番目と2番目で選択した、いずれかのセグメントで終端が近すぎます</value>
+    <value>1 つ目と2つ目で選択した、いずれかのセグメントが終端に近すぎます</value>
   </data>
   <data name="Mode_IntersectSegment_Info_NotIntersect" xml:space="preserve">
     <value>セグメント同士が交差していません</value>
@@ -221,6 +227,9 @@
     <value>他のノードと未接続です
 このノードは選択できません</value>
   </data>
+  <data name="Mode_NodeLine_Info_SelectNode" xml:space="preserve">
+    <value>ノードを選択してオーダーに追加</value>
+  </data>
   <data name="Mode_PercentagesFormat" xml:space="preserve">
     <value>{0}%</value>
   </data>
@@ -228,16 +237,16 @@
     <value>{0}m</value>
   </data>
   <data name="Mode_RemoveNode" xml:space="preserve">
-    <value>モード: ノードの除去</value>
+    <value>Mode: ノードの除去</value>
   </data>
   <data name="Mode_RemoveNode_Info_NotAllow" xml:space="preserve">
     <value>このノードは除去できません</value>
   </data>
   <data name="Mode_SlopeNode" xml:space="preserve">
-    <value>モード: スロープの設定</value>
+    <value>Mode: ストレートスロープ</value>
   </data>
   <data name="Mode_UnionNode" xml:space="preserve">
-    <value>モード: ユニオンノード</value>
+    <value>Mode: ノードのユニオン結合</value>
   </data>
   <data name="Mode_UnionNode_Info_ClickSource" xml:space="preserve">
     <value>クリックして結合元のノードを選択</value>
@@ -257,20 +266,26 @@
   <data name="Mode_UnionNode_Info_SelectTarget" xml:space="preserve">
     <value>結合先のノードを選択</value>
   </data>
+  <data name="Mode_UnionNode_Info_TooFar" xml:space="preserve">
+    <value>ノード同士が遠すぎます</value>
+  </data>
   <data name="Mod_Description" xml:space="preserve">
-    <value></value>
+    <value>ネットワークを操作するための十徳ナイフのようなツール</value>
   </data>
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>自動的にUIパネルを折り畳む</value>
   </data>
+  <data name="Settings_SegmentLength" xml:space="preserve">
+    <value>セグメントの最大長</value>
+  </data>
   <data name="Settings_SlopeUnit" xml:space="preserve">
-    <value>スロープモードの単位</value>
+    <value>ストレートスロープの表示単位</value>
   </data>
   <data name="Settings_SlopeUnitDegrees" xml:space="preserve">
-    <value>角度</value>
+    <value>角度で表示</value>
   </data>
   <data name="Settings_SlopeUnitPercentages" xml:space="preserve">
-    <value>パーセント</value>
+    <value>勾配率で表示</value>
   </data>
   <data name="Tool_RemoveNode_Info_ClickToRemove" xml:space="preserve">
     <value>クリックしてノードを除去</value>

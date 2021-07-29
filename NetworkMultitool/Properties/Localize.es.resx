@@ -121,7 +121,7 @@
     <value>Modo de adición de nodos</value>
   </data>
   <data name="Mode_AddNode_Info_ClickToAdd" xml:space="preserve">
-    <value>Click to add node</value>
+    <value>Clic para añadir nodo</value>
   </data>
   <data name="Mode_AddNode_Info_SelectToAdd" xml:space="preserve">
     <value>Seleccione un segmento para añadir un nodo</value>
@@ -149,10 +149,10 @@ Muy cerca del nodo más cercano</value>
     <value>Pulsa {0} para aplicar</value>
   </data>
   <data name="Mode_Info_ChangeCircle" xml:space="preserve">
-    <value>Press {0} to switch selected circle</value>
+    <value>Pulsa {0} para cambiar el círculo seleccionado</value>
   </data>
   <data name="Mode_Info_ChooseDirestion" xml:space="preserve">
-    <value>Choose nodes to select create direction</value>
+    <value>Elija los nodos para seleccionar la dirección de creación</value>
   </data>
   <data name="Mode_Info_ClickFirstSegment" xml:space="preserve">
     <value>Clic para seleccionar el primer segmento</value>
@@ -169,6 +169,9 @@ Muy cerca del nodo más cercano</value>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Pulsa {0} para crear</value>
   </data>
+  <data name="Mode_Info_CurveDurection" xml:space="preserve">
+    <value>Clic en el nodo para cambiar la dirección de la curva</value>
+  </data>
   <data name="Mode_Info_DecreaseAllRadius" xml:space="preserve">
     <value>Pulsa {0} para disminuir todos los radios</value>
   </data>
@@ -176,7 +179,7 @@ Muy cerca del nodo más cercano</value>
     <value>Pulsa {0} para disminuir ambos radios</value>
   </data>
   <data name="Mode_Info_DecreaseOneRadius" xml:space="preserve">
-    <value>Press {0} to decrease one radius</value>
+    <value>Pulsa {0} para disminuir un radio</value>
   </data>
   <data name="Mode_Info_DecreaseRadius" xml:space="preserve">
     <value>Pulsa {0} para disminuir radio</value>
@@ -188,7 +191,7 @@ Muy cerca del nodo más cercano</value>
     <value>Pulsa {0} para incrementar ambos radios</value>
   </data>
   <data name="Mode_Info_IncreaseOneRadius" xml:space="preserve">
-    <value>Press {0} to increase one radius</value>
+    <value>Pulsa {0} para incrementar un radio</value>
   </data>
   <data name="Mode_Info_IncreaseRadius" xml:space="preserve">
     <value>Pulsa {0} para incrementar radio</value>
@@ -205,6 +208,9 @@ Muy cerca del nodo más cercano</value>
   <data name="Mode_Info_SelectSecondSegment" xml:space="preserve">
     <value>Seleccione el segundo segmento</value>
   </data>
+  <data name="Mode_Info_UndergroundMode" xml:space="preserve">
+    <value>Mantén presionada la tecla "Mayús" para modo subterráneo</value>
+  </data>
   <data name="Mode_Info_WrongShape" xml:space="preserve">
     <value>Forma incorrecta</value>
   </data>
@@ -220,6 +226,9 @@ Muy cerca del nodo más cercano</value>
   <data name="Mode_NodeLine_Info_NotConnected" xml:space="preserve">
     <value>Este nodo no se puede seleccionar
 porque no está conectado con otros nodos</value>
+  </data>
+  <data name="Mode_NodeLine_Info_SelectNode" xml:space="preserve">
+    <value>Seleccione el nodo para agregarlo al orden</value>
   </data>
   <data name="Mode_PercentagesFormat" xml:space="preserve">
     <value>{0}%</value>
@@ -257,11 +266,17 @@ porque no está conectado con otros nodos</value>
   <data name="Mode_UnionNode_Info_SelectTarget" xml:space="preserve">
     <value>Seleccione nodo de destino</value>
   </data>
+  <data name="Mode_UnionNode_Info_TooFar" xml:space="preserve">
+    <value>Los nodos están muy lejos entre sí</value>
+  </data>
   <data name="Mod_Description" xml:space="preserve">
-    <value></value>
+    <value>Conjunto de herramientas diferentes para trabajar con redes</value>
   </data>
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>Esconder panel de modos automáticamente</value>
+  </data>
+  <data name="Settings_SegmentLength" xml:space="preserve">
+    <value>Longitud máxima de segmento</value>
   </data>
   <data name="Settings_SlopeUnit" xml:space="preserve">
     <value>Unidad de medida para las pendientes</value>

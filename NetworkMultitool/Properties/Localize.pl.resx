@@ -121,14 +121,14 @@
     <value>Tryb dodawania węzłów</value>
   </data>
   <data name="Mode_AddNode_Info_ClickToAdd" xml:space="preserve">
-    <value>Click to add node</value>
+    <value>Naciśnij aby wstawić węzeł</value>
   </data>
   <data name="Mode_AddNode_Info_SelectToAdd" xml:space="preserve">
     <value>Wybierz segment, aby dodać węzeł</value>
   </data>
   <data name="Mode_AddNode_Info_TooCloseNode" xml:space="preserve">
-    <value>Can't add node
-Too close to nearby node</value>
+    <value>Nie można wstawić węzła
+Za blisko sąsiedniego węzła</value>
   </data>
   <data name="Mode_AngleFormat" xml:space="preserve">
     <value>{0}°</value>
@@ -152,22 +152,25 @@ Too close to nearby node</value>
     <value>Naciśnij {0}, aby przełączyć wybrane koło</value>
   </data>
   <data name="Mode_Info_ChooseDirestion" xml:space="preserve">
-    <value>Choose nodes to select create direction</value>
+    <value>Zaznacz węzły, aby wybrać kierunek tworzenia</value>
   </data>
   <data name="Mode_Info_ClickFirstSegment" xml:space="preserve">
-    <value>Click to select first segment</value>
+    <value>Kliknij, aby zaznaczyć pierwszy segment</value>
   </data>
   <data name="Mode_Info_ClickSecondSegment" xml:space="preserve">
-    <value>Click to select second segment</value>
+    <value>Kliknij, aby zaznaczyć drugi segment</value>
   </data>
   <data name="Mode_Info_ClickSelectNode" xml:space="preserve">
-    <value>Click to select node</value>
+    <value>Kliknij, aby zaznaczyć węzeł</value>
   </data>
   <data name="Mode_Info_ClickUnselectNode" xml:space="preserve">
-    <value>Click to unselect node</value>
+    <value>Kliknij, aby odznaczyć węzeł</value>
   </data>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Naciśnij {0}, aby utworzyć</value>
+  </data>
+  <data name="Mode_Info_CurveDurection" xml:space="preserve">
+    <value>Kliknij na węźle, aby zmienić kierunek skrętu</value>
   </data>
   <data name="Mode_Info_DecreaseAllRadius" xml:space="preserve">
     <value>Naciśnij {0}, aby zmniejszyć wszystkie promienie</value>
@@ -176,50 +179,56 @@ Too close to nearby node</value>
     <value>Naciśnij {0}, aby zmniejszyć oba promienie</value>
   </data>
   <data name="Mode_Info_DecreaseOneRadius" xml:space="preserve">
-    <value>Press {0} to decrease one radius</value>
+    <value>Naciśnij {0}, aby zmniejszyć promień</value>
   </data>
   <data name="Mode_Info_DecreaseRadius" xml:space="preserve">
     <value>Naciśnij {0}, aby zmniejszyć promień</value>
   </data>
   <data name="Mode_Info_IncreaseAllRadius" xml:space="preserve">
-    <value>Press {0} to increase all radii</value>
+    <value>Naciśnij {0}, aby zwiększyć promień</value>
   </data>
   <data name="Mode_Info_IncreaseBothRadius" xml:space="preserve">
-    <value>Press {0} to increase both radii</value>
+    <value>Naciśnij {0}, aby zwiększyć oba promienie</value>
   </data>
   <data name="Mode_Info_IncreaseOneRadius" xml:space="preserve">
-    <value>Press {0} to increase one radius</value>
+    <value>Naciśnij {0}, aby zwiększyć jeden promień</value>
   </data>
   <data name="Mode_Info_IncreaseRadius" xml:space="preserve">
-    <value>Press {0} to increase radius</value>
+    <value>Naciśnij {0}, aby zwiększyć promień</value>
   </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
-    <value>Radius too big</value>
+    <value>Promień jest za duży</value>
   </data>
   <data name="Mode_Info_RadiusTooSmall" xml:space="preserve">
-    <value>Radius too small</value>
+    <value>Promień jest za mały</value>
   </data>
   <data name="Mode_Info_SelectFirstSegment" xml:space="preserve">
-    <value>Select first segment</value>
+    <value>Zaznacz pierwszy segment</value>
   </data>
   <data name="Mode_Info_SelectSecondSegment" xml:space="preserve">
-    <value>Select second segment</value>
+    <value>Zaznacz drugi segment</value>
+  </data>
+  <data name="Mode_Info_UndergroundMode" xml:space="preserve">
+    <value>Przytrzymaj Shift, aby przejść w tryb podziemny</value>
   </data>
   <data name="Mode_Info_WrongShape" xml:space="preserve">
-    <value>Wrong shape</value>
+    <value>Nieprawidłowy kształt</value>
   </data>
   <data name="Mode_IntersectSegment" xml:space="preserve">
-    <value>Intersect segments mode</value>
+    <value>Tryb przecinania segmentów</value>
   </data>
   <data name="Mode_IntersectSegment_Info_EdgeTooClose" xml:space="preserve">
-    <value>Edge of one segment is too close to end of second segment</value>
+    <value>Krawędź pierwszego segmentu jest zbyt blisko końca drugiego segmentu</value>
   </data>
   <data name="Mode_IntersectSegment_Info_NotIntersect" xml:space="preserve">
-    <value>These segments are not intersect</value>
+    <value>Te segmenty się nie przecinają</value>
   </data>
   <data name="Mode_NodeLine_Info_NotConnected" xml:space="preserve">
-    <value>This node can't be selected
-because not connected with others</value>
+    <value>Ten węzeł nie może być zaznaczony
+ponieważ nie jest połączony z pozostałymi</value>
+  </data>
+  <data name="Mode_NodeLine_Info_SelectNode" xml:space="preserve">
+    <value>Zaznacz węzeł aby dodać go do kolejki</value>
   </data>
   <data name="Mode_PercentagesFormat" xml:space="preserve">
     <value>{0}%</value>
@@ -228,43 +237,49 @@ because not connected with others</value>
     <value>{0}m</value>
   </data>
   <data name="Mode_RemoveNode" xml:space="preserve">
-    <value>Remove node mode</value>
+    <value>Tryb usuwania węzłów</value>
   </data>
   <data name="Mode_RemoveNode_Info_NotAllow" xml:space="preserve">
-    <value>Not allow to remove this node</value>
+    <value>Nie zezwalaj na usunięcie tego węzła</value>
   </data>
   <data name="Mode_SlopeNode" xml:space="preserve">
-    <value>Set slope mode</value>
+    <value>Tryb ustawiania nachylenia</value>
   </data>
   <data name="Mode_UnionNode" xml:space="preserve">
-    <value>Union nodes mode</value>
+    <value>Tryb łączenia węzłów</value>
   </data>
   <data name="Mode_UnionNode_Info_ClickSource" xml:space="preserve">
-    <value>Click to select source node</value>
+    <value>Kliknij, aby zaznaczyć węzeł źródłowy</value>
   </data>
   <data name="Mode_UnionNode_Info_ClickUnion" xml:space="preserve">
-    <value>Click to union nodes</value>
+    <value>Kliknij aby złączyć węzły</value>
   </data>
   <data name="Mode_UnionNode_Info_NoCommon" xml:space="preserve">
-    <value>These nodes have common segment</value>
+    <value>Te węzły mają wspólny segment</value>
   </data>
   <data name="Mode_UnionNode_Info_Overflow" xml:space="preserve">
-    <value>Total number of nodes must be no more then 8</value>
+    <value>Całkowita liczba węzłów nie może być większa niż 8</value>
   </data>
   <data name="Mode_UnionNode_Info_SelectSource" xml:space="preserve">
-    <value>Select source node</value>
+    <value>Wybierz węzeł źródłowy</value>
   </data>
   <data name="Mode_UnionNode_Info_SelectTarget" xml:space="preserve">
-    <value>Select target node</value>
+    <value>Wybierz węzeł docelowy</value>
+  </data>
+  <data name="Mode_UnionNode_Info_TooFar" xml:space="preserve">
+    <value>Węzły są zbyt daleko od siebie</value>
   </data>
   <data name="Mod_Description" xml:space="preserve">
-    <value></value>
+    <value>Wiele różnych narzędzi do pracy z sieciami</value>
   </data>
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
-    <value>Auto hide modes panel</value>
+    <value>Automatyczne ukrywanie panelu trybów</value>
+  </data>
+  <data name="Settings_SegmentLength" xml:space="preserve">
+    <value>Maksymalna długość segmentu</value>
   </data>
   <data name="Settings_SlopeUnit" xml:space="preserve">
-    <value>Slope unit of measurement</value>
+    <value>Jednostka miary nachylenia</value>
   </data>
   <data name="Settings_SlopeUnitDegrees" xml:space="preserve">
     <value>Stopnie</value>
@@ -273,9 +288,9 @@ because not connected with others</value>
     <value>Procenty</value>
   </data>
   <data name="Tool_RemoveNode_Info_ClickToRemove" xml:space="preserve">
-    <value>Click to remove</value>
+    <value>Kliknij, aby usunąć</value>
   </data>
   <data name="Tool_RemoveNode_Info_Select" xml:space="preserve">
-    <value>Select node to remove it</value>
+    <value>Wybierz węzeł, aby go usunąć</value>
   </data>
 </root>

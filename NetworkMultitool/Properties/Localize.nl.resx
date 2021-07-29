@@ -169,6 +169,9 @@ Too close to nearby node</value>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Press {0} to create</value>
   </data>
+  <data name="Mode_Info_CurveDurection" xml:space="preserve">
+    <value>Click on node to change curve direction</value>
+  </data>
   <data name="Mode_Info_DecreaseAllRadius" xml:space="preserve">
     <value>Press {0} to decrease all radii</value>
   </data>
@@ -205,6 +208,9 @@ Too close to nearby node</value>
   <data name="Mode_Info_SelectSecondSegment" xml:space="preserve">
     <value>Select second segment</value>
   </data>
+  <data name="Mode_Info_UndergroundMode" xml:space="preserve">
+    <value>Hold Shift to underground mode</value>
+  </data>
   <data name="Mode_Info_WrongShape" xml:space="preserve">
     <value>Wrong shape</value>
   </data>
@@ -220,6 +226,9 @@ Too close to nearby node</value>
   <data name="Mode_NodeLine_Info_NotConnected" xml:space="preserve">
     <value>This node can't be selected
 because not connected with others</value>
+  </data>
+  <data name="Mode_NodeLine_Info_SelectNode" xml:space="preserve">
+    <value>Select node to add it to order</value>
   </data>
   <data name="Mode_PercentagesFormat" xml:space="preserve">
     <value>{0}%</value>
@@ -257,11 +266,17 @@ because not connected with others</value>
   <data name="Mode_UnionNode_Info_SelectTarget" xml:space="preserve">
     <value>Select target node</value>
   </data>
+  <data name="Mode_UnionNode_Info_TooFar" xml:space="preserve">
+    <value>Nodes too far from each other</value>
+  </data>
   <data name="Mod_Description" xml:space="preserve">
-    <value></value>
+    <value>Many different tools for working with networks</value>
   </data>
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>Auto hide modes panel</value>
+  </data>
+  <data name="Settings_SegmentLength" xml:space="preserve">
+    <value>Max Segment Length</value>
   </data>
   <data name="Settings_SlopeUnit" xml:space="preserve">
     <value>Slope unit of measurement</value>
