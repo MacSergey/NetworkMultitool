@@ -118,165 +118,164 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Mode_AddNode" xml:space="preserve">
-    <value>Режим добавления узла</value>
+    <value>Aggiungi modalità nodo</value>
   </data>
   <data name="Mode_AddNode_Info_ClickToAdd" xml:space="preserve">
-    <value>Нажмите чтобы добавить узел</value>
+    <value>Clicca per inserire il nodo</value>
   </data>
   <data name="Mode_AddNode_Info_SelectToAdd" xml:space="preserve">
-    <value>Выберите сегмент для добавления узла</value>
+    <value>Seleziona il segmento per aggiungere il nodo</value>
   </data>
   <data name="Mode_AddNode_Info_TooCloseNode" xml:space="preserve">
-    <value>Невозможно добавить узле
-Слишком близко к соседнему узлу</value>
+    <value>Impossibile inserire il nodo
+Troppo vicino ad un altro nodo</value>
   </data>
   <data name="Mode_AngleFormat" xml:space="preserve">
     <value>{0}°</value>
   </data>
   <data name="Mode_ArrangeAtLine" xml:space="preserve">
-    <value>Режим выравнивания в линию</value>
+    <value>Organizza in modalità linea</value>
   </data>
   <data name="Mode_CreateConnection" xml:space="preserve">
-    <value>Режим создания соединения</value>
+    <value>Crea modalità connessione</value>
   </data>
   <data name="Mode_CreateLoop" xml:space="preserve">
-    <value>Режим создания петли</value>
+    <value>Crea modalità ciclo</value>
   </data>
   <data name="Mode_CreateLoop_Info_Change" xml:space="preserve">
-    <value>Нажмите {0} для изменения петли</value>
+    <value>Premi {0} per cambiare ciclo</value>
   </data>
   <data name="Mode_Info_Apply" xml:space="preserve">
-    <value>Нажмите {0} чтобы применить</value>
+    <value>Premi {0} per applicare</value>
   </data>
   <data name="Mode_Info_ChangeCircle" xml:space="preserve">
-    <value>Нажмите {0} для смены выбранной окружности</value>
+    <value>Press {0} to switch selected circle</value>
   </data>
   <data name="Mode_Info_ChooseDirestion" xml:space="preserve">
-    <value>Выберите узел для задания направления</value>
+    <value>Scegli i nodi per selezionare la direzione di creazione</value>
   </data>
   <data name="Mode_Info_ClickFirstSegment" xml:space="preserve">
-    <value>Нажмите для выбора первого сегмента</value>
+    <value>Fare clic per selezionare il primo segmento</value>
   </data>
   <data name="Mode_Info_ClickSecondSegment" xml:space="preserve">
-    <value>Нажмите для выбора второго сегмента</value>
+    <value>Fare clic per selezionare il secondo segmento</value>
   </data>
   <data name="Mode_Info_ClickSelectNode" xml:space="preserve">
-    <value>Нажмите для выбора узла</value>
+    <value>Clicca per selezionare il nodo</value>
   </data>
   <data name="Mode_Info_ClickUnselectNode" xml:space="preserve">
-    <value>Нажмите для снятия выбора с узла</value>
+    <value>Clicca per deselezionare il nodo</value>
   </data>
   <data name="Mode_Info_Create" xml:space="preserve">
-    <value>Нажмите {0} чтобы создать</value>
+    <value>Premi {0} per creare</value>
   </data>
   <data name="Mode_Info_DecreaseAllRadius" xml:space="preserve">
-    <value>Нажмите {0} для уменьшения всех радиусов</value>
+    <value>Premi {0} per diminuire tutti i raggi</value>
   </data>
   <data name="Mode_Info_DecreaseBothRadius" xml:space="preserve">
-    <value>Нажмите {0} для уменьшения обоих радиусов</value>
+    <value>Premi {0} per diminuire entrambi i raggi</value>
   </data>
   <data name="Mode_Info_DecreaseOnceRadius" xml:space="preserve">
-    <value>Нажмите {0} для уменьшения одного радиуса</value>
+    <value>Premi {0} per diminuire una volta il raggio</value>
   </data>
   <data name="Mode_Info_DecreaseRadius" xml:space="preserve">
-    <value>Нажмите {0} для уменьшения радиуса</value>
+    <value>Premi {0} per diminuire il raggio</value>
   </data>
   <data name="Mode_Info_IncreaseAllRadius" xml:space="preserve">
-    <value>Нажмите {0} для увеличения всех радиусов</value>
+    <value>Premi {0} per aumentare tutti i raggi</value>
   </data>
   <data name="Mode_Info_IncreaseBothRadius" xml:space="preserve">
-    <value>Нажмите {0} для увеличения обоих радиусов</value>
+    <value>Premi {0} per aumentare entrambi i raggi</value>
   </data>
   <data name="Mode_Info_IncreaseOnceRadius" xml:space="preserve">
-    <value>Нажмите {0} для увеличения одного радиуса</value>
+    <value>Premi {0} per aumentare il raggio una volta</value>
   </data>
   <data name="Mode_Info_IncreaseRadius" xml:space="preserve">
-    <value>Нажмите {0} для увеличения радиуса</value>
+    <value>Premere {0} per aumentare il raggio</value>
   </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
-    <value>Радиус слишком большой</value>
+    <value>Raggio troppo grande</value>
   </data>
   <data name="Mode_Info_RadiusTooSmall" xml:space="preserve">
-    <value>Радиус слишком маленький</value>
+    <value>Raggio troppo piccolo</value>
   </data>
   <data name="Mode_Info_SelectFirstSegment" xml:space="preserve">
-    <value>Выберите первый сегмент</value>
+    <value>Seleziona il primo segmento</value>
   </data>
   <data name="Mode_Info_SelectSecondSegment" xml:space="preserve">
-    <value>Выберите второй сегмент</value>
+    <value>Seleziona il secondo segmento</value>
   </data>
   <data name="Mode_Info_WrongShape" xml:space="preserve">
-    <value>Неправильная форма</value>
+    <value>Forma sbagliata</value>
   </data>
   <data name="Mode_IntersectSegment" xml:space="preserve">
-    <value>Режим пересечения сегментов</value>
+    <value>Modalità interseca i segmenti</value>
   </data>
   <data name="Mode_IntersectSegment_Info_EdgeTooClose" xml:space="preserve">
-    <value>Край одного сегмента слишком близок
-к концу другого сегмента</value>
+    <value>Il bordo di un segmento è troppo vicino alla fine del secondo segmento</value>
   </data>
   <data name="Mode_IntersectSegment_Info_NotIntersect" xml:space="preserve">
-    <value>Эти сегменты не пересекаются</value>
+    <value>Questi segmenti non sono intersecati</value>
   </data>
   <data name="Mode_NodeLine_Info_NotConnected" xml:space="preserve">
-    <value>Этот узел не может быть выбран
-так как он не соединен с остальными</value>
+    <value>Questo nodo non può essere selezionato
+perché non è connesso con altri</value>
   </data>
   <data name="Mode_PercentagesFormat" xml:space="preserve">
     <value>{0}%</value>
   </data>
   <data name="Mode_RadiusFormat" xml:space="preserve">
-    <value>{0}м</value>
+    <value>{0}m</value>
   </data>
   <data name="Mode_RemoveNode" xml:space="preserve">
-    <value>Режим удаления узлов</value>
+    <value>Rimuovi modalità nodo</value>
   </data>
   <data name="Mode_RemoveNode_Info_NotAllow" xml:space="preserve">
-    <value>Этот узел нельзя удалить</value>
+    <value>Non consentito di rimuovere questo nodo</value>
   </data>
   <data name="Mode_SlopeNode" xml:space="preserve">
-    <value>Режим задания уклона</value>
+    <value>Imposta la modalità pendenza</value>
   </data>
   <data name="Mode_UnionNode" xml:space="preserve">
-    <value>Режим объединения узлов</value>
+    <value>Modalità unione nodi</value>
   </data>
   <data name="Mode_UnionNode_Info_ClickSource" xml:space="preserve">
-    <value>Нажмите чтобы выбрать узел источник</value>
+    <value>Fare clic per selezionare il nodo sorgente</value>
   </data>
   <data name="Mode_UnionNode_Info_ClickUnion" xml:space="preserve">
-    <value>Нажмите чтобы объединить узлы</value>
+    <value>Clicca per unire i nodi</value>
   </data>
   <data name="Mode_UnionNode_Info_NoCommon" xml:space="preserve">
-    <value>Эти узлы имеют общий сегмент</value>
+    <value>Questi nodi hanno un segmento comune</value>
   </data>
   <data name="Mode_UnionNode_Info_Overflow" xml:space="preserve">
-    <value>Суммарное количество узлов не должно быть больше 8</value>
+    <value>Il numero totale di nodi non deve essere superiore a 8</value>
   </data>
   <data name="Mode_UnionNode_Info_SelectSource" xml:space="preserve">
-    <value>Выберите узле источник</value>
+    <value>Seleziona nodo sorgente</value>
   </data>
   <data name="Mode_UnionNode_Info_SelectTarget" xml:space="preserve">
-    <value>Выберите узел цель</value>
+    <value>Seleziona nodo destinazione</value>
   </data>
   <data name="Mod_Description" xml:space="preserve">
     <value></value>
   </data>
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
-    <value>Автоматически скрывать панель выбора режимов</value>
+    <value>Nascondi automaticamente il pannello modalità</value>
   </data>
   <data name="Settings_SlopeUnit" xml:space="preserve">
-    <value>Единицы измерения наклона</value>
+    <value>Unità di misura pendenza</value>
   </data>
   <data name="Settings_SlopeUnitDegrees" xml:space="preserve">
-    <value>Градусы</value>
+    <value>Gradi</value>
   </data>
   <data name="Settings_SlopeUnitPercentages" xml:space="preserve">
-    <value>Проценты</value>
+    <value>Percentuale</value>
   </data>
   <data name="Tool_RemoveNode_Info_ClickToRemove" xml:space="preserve">
-    <value>Нажмите чтобы удалить</value>
+    <value>Clicca per rimuovere</value>
   </data>
   <data name="Tool_RemoveNode_Info_Select" xml:space="preserve">
-    <value>Выберите узел чтобы удалить его</value>
+    <value>Seleziona nodo per rimuoverlo</value>
   </data>
 </root>
