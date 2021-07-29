@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace NetworkMultitool
 {
-    public class SlopeNodeMode : BaseNodeLine
+    public class SlopeNodeMode : BaseNodeLineMode
     {
         public override ToolModeType Type => ToolModeType.SlopeNode;
         private List<InfoLabel> OrderLabels { get; } = new List<InfoLabel>();
@@ -72,7 +72,7 @@ namespace NetworkMultitool
             if (bezier.Length > Vector3.kEpsilon)
             {
                 var delta = (segment.IsStartNode(firstId) ? 1 : -1) * (bezier.StartPosition.y - bezier.EndPosition.y);
-                slope = Settings.SlopeUnite == 0 ? (delta / bezier.Length * 100f) : (Mathf.Atan2(delta, bezier.Length) * Mathf.Rad2Deg);
+                slope = Settings.SlopeUnite == 0 ? (delta / bezier.Length * 100f) : (Mathf.Atan2(delta, bezier.Length));
             }
             slope = slope.RoundToNearest(0.1f);
 

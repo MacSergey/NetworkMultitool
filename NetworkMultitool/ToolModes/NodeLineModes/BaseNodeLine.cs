@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace NetworkMultitool
 {
-    public abstract class BaseNodeLine : BaseNetworkMultitoolMode
+    public abstract class BaseNodeLineMode : BaseNetworkMultitoolMode
     {
         protected override bool IsReseted => Nodes.Count == 0;
         protected NetworkMultitoolShortcut Enter { get; }
@@ -25,7 +25,7 @@ namespace NetworkMultitool
         protected List<NodeSelection> Nodes { get; } = new List<NodeSelection>();
         protected Result State { get; private set; }
 
-        public BaseNodeLine()
+        public BaseNodeLineMode()
         {
             Enter = new NetworkMultitoolShortcut(nameof(Enter), string.Empty, SavedInputKey.Encode(KeyCode.Return, false, false, false), PressEnter, ToolModeType.Line);
         }
