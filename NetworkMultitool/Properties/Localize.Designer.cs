@@ -513,6 +513,15 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Length of creating segments.
+        /// </summary>
+        internal static string Settings_SegmentLength {
+            get {
+                return ResourceManager.GetString("Settings_SegmentLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Slope unit of measurement.
         /// </summary>
         internal static string Settings_SlopeUnit {

@@ -117,7 +117,7 @@ namespace NetworkMultitool
             var curveLenght = radius * Mathf.Abs(angle);
 
             var minByLenght = Mathf.CeilToInt(curveLenght / 50f);
-            var maxByLenght = Mathf.CeilToInt(curveLenght / 80f);
+            var maxByLenght = Mathf.CeilToInt(curveLenght / Settings.SegmentLenght);
             var maxByAngle = Mathf.CeilToInt(Mathf.Abs(angle) / Mathf.PI * 3);
 
             var curveCount = Math.Max(maxByLenght, Mathf.Min(minByLenght, maxByAngle));
@@ -132,7 +132,7 @@ namespace NetworkMultitool
         protected static IEnumerable<Point> GetStraightParts(StraightTrajectory straight)
         {
             var lenght = straight.Length;
-            var count = Mathf.CeilToInt(lenght / 80f);
+            var count = Mathf.CeilToInt(lenght / Settings.SegmentLenght);
             for (var i = 1; i < count; i += 1)
             {
                 var point = new Point(straight.Position(1f / count * i), straight.Direction);
