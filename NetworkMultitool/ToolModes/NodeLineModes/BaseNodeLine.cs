@@ -49,13 +49,13 @@ namespace NetworkMultitool
         protected override string GetInfo()
         {
             if (State == Result.One || State == Result.InStart || State == Result.InEnd)
-                return "Click to select node" + GetStepOverInfo();
+                return Localize.Mode_Info_ClickSelectNode + GetStepOverInfo();
             else if (State == Result.IsFirst || State == Result.IsLast)
-                return "Click to unselect node" + GetStepOverInfo();
+                return Localize.Mode_Info_ClickUnselectNode + GetStepOverInfo();
             else if (State == Result.NotConnect)
-                return "This node can't be selected\nbecause not connect with others" + GetStepOverInfo();
+                return Localize.Mode_NodeLine_Info_NotConnected + GetStepOverInfo();
             else
-                return "Select node";
+                return string.Format(Localize.Mode_Info_Apply, Enter);
         }
         public override void OnToolUpdate()
         {

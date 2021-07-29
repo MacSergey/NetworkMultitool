@@ -76,17 +76,33 @@ namespace NetworkMultitool
         protected override string GetInfo()
         {
             if (!IsFirst)
-                return "Select first segment" + GetStepOverInfo();
+            {
+                if (!IsHoverSegment)
+                    return Localize.Mode_Info_SelectFirstSegment;
+                else
+                    return Localize.Mode_Info_ClickFirstSegment + GetStepOverInfo();
+            }
             else if (!IsSecond)
-                return "Select second segment" + GetStepOverInfo();
+            {
+                if (!IsHoverSegment)
+                    return Localize.Mode_Info_SelectSecondSegment;
+                else
+                    return Localize.Mode_Info_ClickSecondSegment + GetStepOverInfo();
+            }
             else if (State == Result.BigRadius)
-                return "Radius too big";
+                return Localize.Mode_Info_RadiusTooBig;
             else if (State == Result.WrongShape)
-                return "Wrong shape";
+                return Localize.Mode_Info_WrongShape;
             else if (State != Result.Calculated)
-                return "Choose nodes to select create direction";
+                return Localize.Mode_Info_ChooseDirestion;
             else
-                return $"Press - to decrease both radius\nPress + to increase both radius\nPress Tab to change circle\nPress [ to decrease once radius\nPress ] to increase once radius\nPress Enter to create";
+                return
+                    string.Format(Localize.Mode_Info_DecreaseBothRadius, Minus) + "\n" +
+                    string.Format(Localize.Mode_Info_IncreaseBothRadius, Plus) + "\n" +
+                    string.Format(Localize.Mode_Info_ChangeCircle, Tab) + "\n" +
+                    string.Format(Localize.Mode_Info_DecreaseOnceRadius, OnceMinus) + "\n" +
+                    string.Format(Localize.Mode_Info_IncreaseOnceRadius, OncePlus) + "\n" +
+                    string.Format(Localize.Mode_Info_Create, Enter);
         }
         protected override void Reset(IToolMode prevMode)
         {
@@ -107,12 +123,12 @@ namespace NetworkMultitool
             if (State == Result.Calculated)
             {
                 FirstLabel.isVisible = true;
-                FirstLabel.text = $"{FirstRadius.Value:0.0}m\n{Mathf.Abs(FirstAngle) * Mathf.Rad2Deg:0}°";
+                FirstLabel.text = $"{GetRadiusString(FirstRadius.Value)}\n{GetAngleString(FirstAngle)}";
                 FirstLabel.WorldPosition = FirstCenter + FirstCenterDir * 5f;
                 FirstLabel.Direction = FirstCenterDir;
 
                 SecondLabel.isVisible = true;
-                SecondLabel.text = $"{SecondRadius.Value:0.0}m\n{Mathf.Abs(SecondAngle) * Mathf.Rad2Deg:0}°";
+                SecondLabel.text = $"{GetRadiusString(SecondRadius.Value)}\n{GetAngleString(SecondAngle)}";
                 SecondLabel.WorldPosition = SecondCenter + SecondCenterDir * 5f;
                 SecondLabel.Direction = SecondCenterDir;
             }

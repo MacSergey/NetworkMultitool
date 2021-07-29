@@ -28,20 +28,20 @@ namespace NetworkMultitool
             if (!IsFirstSelect)
             {
                 if (!IsHoverSegment)
-                    return "Select first segment";
+                    return Localize.Mode_Info_SelectFirstSegment;
                 else
-                    return string.Format("Segment #{0}\nClick to select first segment", HoverSegment.Id) + GetStepOverInfo();
+                    return Localize.Mode_Info_ClickFirstSegment + GetStepOverInfo();
             }
             else
             {
                 if (!IsSecondSelect)
-                    return "Select second segment";
+                    return Localize.Mode_Info_SelectSecondSegment;
                 else if (State == Result.NotIntersect)
-                    return "These segments are not intersect";
+                    return Localize.Mode_IntersectSegment_Info_NotIntersect;
                 else if (State == Result.Incorrect)
-                    return "Edge of first segment too close to end of second segment";
+                    return Localize.Mode_IntersectSegment_Info_EdgeTooClose;
                 else
-                    return string.Format("Segment #{0}\nClick to select second segment", HoverSegment.Id) + GetStepOverInfo();
+                    return Localize.Mode_Info_ClickSecondSegment + GetStepOverInfo();
             }
         }
 

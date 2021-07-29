@@ -34,8 +34,8 @@ namespace NetworkMultitool
 
 
             var generalGroup = GeneralTab.AddGroup(CommonLocalize.Settings_General);
-            AddCheckBox(generalGroup, "Auto hide modes panel", AutoHideModePanel, OnAutoHideChanged);
-            AddCheckboxPanel(generalGroup, "Slope unit of measurement", SlopeUnite, new string[] { "Percentages", "Degrees" }, OnSlopeUniteChanged);
+            AddCheckBox(generalGroup, Localize.Settings_AutoHideModePanel, AutoHideModePanel, OnAutoHideChanged);
+            AddCheckboxPanel(generalGroup, Localize.Settings_SlopeUnit, SlopeUnite, new string[] { Localize.Settings_SlopeUnitPercentages, Localize.Settings_SlopeUnitDegrees }, OnSlopeUniteChanged);
 
             AddNotifications(GeneralTab);
 #if DEBUG

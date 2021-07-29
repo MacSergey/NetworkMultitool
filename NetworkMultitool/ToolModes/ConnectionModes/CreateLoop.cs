@@ -53,17 +53,31 @@ namespace NetworkMultitool
         protected override string GetInfo()
         {
             if (!IsFirst)
-                return "Select first segment" + GetStepOverInfo();
+            {
+                if (!IsHoverSegment)
+                    return Localize.Mode_Info_SelectFirstSegment;
+                else
+                    return Localize.Mode_Info_ClickFirstSegment + GetStepOverInfo();
+            }
             else if (!IsSecond)
-                return "Select second segment" + GetStepOverInfo();
+            {
+                if (!IsHoverSegment)
+                    return Localize.Mode_Info_SelectSecondSegment;
+                else
+                    return Localize.Mode_Info_ClickSecondSegment + GetStepOverInfo();
+            }
             else if (State == Result.BigRadius)
-                return "Radius too big";
+                return Localize.Mode_Info_RadiusTooBig;
             else if (State == Result.SmallRadius)
-                return "Radius too small";
+                return Localize.Mode_Info_RadiusTooSmall;
             else if (State != Result.Calculated)
-                return "Choose nodes to select create direction";
+                return Localize.Mode_Info_ChooseDirestion;
             else
-                return $"Press Minus to decrease radius\nPress Plus to increase radius\nPress Enter to create\nPress Tab to change loop";
+                return
+                    string.Format(Localize.Mode_Info_DecreaseRadius, Minus) + "\n" +
+                    string.Format(Localize.Mode_Info_IncreaseRadius, Plus) + "\n" +
+                    string.Format(Localize.Mode_CreateLoop_Info_Change, Tab) + "\n" +
+                    string.Format(Localize.Mode_Info_Create, Enter);
         }
 
         protected override void Reset(IToolMode prevMode)
@@ -84,7 +98,7 @@ namespace NetworkMultitool
             if (State == Result.Calculated)
             {
                 Label.isVisible = true;
-                Label.text = $"{Radius.Value:0.0}m\n{Mathf.Abs(Angle) * Mathf.Rad2Deg:0}°";
+                Label.text = $"{GetRadiusString(Radius.Value)}\n{GetAngleString(Angle)}";
                 Label.WorldPosition = Center + CenterDir * 5f;
                 Label.Direction = CenterDir;
             }

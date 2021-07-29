@@ -30,6 +30,9 @@ namespace NetworkMultitool
             }
         }
         protected List<InfoLabel> Labels { get; } = new List<InfoLabel>();
+        protected static string GetRadiusString(float radius, string format = "0.0") => string.Format(Localize.Mode_RadiusFormat, radius.ToString(format));
+        protected static string GetAngleString(float angle, string format = "0") => string.Format(Localize.Mode_AngleFormat, (Mathf.Abs(angle) * Mathf.Rad2Deg).ToString(format));
+        protected static string GetPercentagesString(float percent, string format = "0.0") => string.Format(Localize.Mode_PercentagesFormat, percent.ToString(format));
 
         public BaseNetworkMultitoolMode()
         {

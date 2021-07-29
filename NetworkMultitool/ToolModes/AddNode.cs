@@ -22,11 +22,11 @@ namespace NetworkMultitool
         protected override string GetInfo()
         {
             if (!IsHoverSegment)
-                return Localize.Tool_InfoSelectToInsert;
+                return Localize.Mode_AddNode_Info_SelectToAdd;
             else if (!IsPossibleInsertNode)
-                return Localize.Tool_InfoTooCloseNode + GetStepOverInfo();
+                return Localize.Mode_AddNode_Info_TooCloseNode + GetStepOverInfo();
             else
-                return string.Format(Localize.Tool_InfoClickToInsert, HoverSegment.Id) + GetStepOverInfo();
+                return Localize.Mode_AddNode_Info_ClickToAdd + GetStepOverInfo();
         }
 
         public override void OnToolUpdate()

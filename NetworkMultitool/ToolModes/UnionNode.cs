@@ -49,18 +49,18 @@ namespace NetworkMultitool
             if (!IsSource)
             {
                 if (IsHoverNode)
-                    return "Click to select source node" + GetStepOverInfo();
+                    return Localize.Mode_UnionNode_Info_ClickSource + GetStepOverInfo();
                 else
-                    return "Select source node";
+                    return Localize.Mode_UnionNode_Info_SelectSource;
             }
             else if (!IsTarget)
-                return "Select target node";
+                return Localize.Mode_UnionNode_Info_SelectTarget;
             else if (IsConnected)
-                return "These nodes have common segment";
+                return Localize.Mode_UnionNode_Info_NoCommon;
             else if (!IsCorrectCount)
-                return "Total number of nodes must be no more then 8" + GetStepOverInfo();
+                return Localize.Mode_UnionNode_Info_Overflow + GetStepOverInfo();
             else
-                return "Click to union nodes" + GetStepOverInfo();
+                return Localize.Mode_UnionNode_Info_ClickUnion + GetStepOverInfo();
         }
         protected override void Reset(IToolMode prevMode)
         {
