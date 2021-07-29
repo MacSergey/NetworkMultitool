@@ -21,9 +21,9 @@ namespace NetworkMultitool
             if (!IsHoverNode)
                 return Localize.Tool_RemoveNode_Info_Select;
             else if(!IsCorrect)
-                return string.Format(Localize.Mode_RemoveNode_Info_NotAllow, HoverNode.Id) + GetStepOverInfo();
+                return Localize.Mode_RemoveNode_Info_NotAllow + GetStepOverInfo();
             else
-                return string.Format(Localize.Tool_RemoveNode_Info_ClickToRemove, HoverNode.Id) + GetStepOverInfo();
+                return Localize.Tool_RemoveNode_Info_ClickToRemove + GetStepOverInfo();
         }
 
         public override void OnPrimaryMouseClicked(Event e)
