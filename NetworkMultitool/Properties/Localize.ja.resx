@@ -121,7 +121,7 @@
     <value>モード: ノードの追加</value>
   </data>
   <data name="Mode_AddNode_Info_ClickToAdd" xml:space="preserve">
-    <value>クリックしてノードを追加</value>
+    <value>Click to insert node</value>
   </data>
   <data name="Mode_AddNode_Info_SelectToAdd" xml:space="preserve">
     <value>ノードを追加したいセグメントを選択</value>
@@ -175,9 +175,9 @@
   <data name="Mode_Info_DecreaseBothRadius" xml:space="preserve">
     <value>{0} を押して両方の半径を縮小</value>
   </data>
-  <data name="Mode_Info_DecreaseOneRadius" xml:space="preserve">
+  <data name="Mode_Info_DecreaseOnceRadius" xml:space="preserve">
     <value>Press {0} to decrease one radius</value>
-    <comment>
+    <comment>Mode_Info_DecreaseOneRadius
 </comment>
   </data>
   <data name="Mode_Info_DecreaseRadius" xml:space="preserve">
@@ -189,8 +189,10 @@
   <data name="Mode_Info_IncreaseBothRadius" xml:space="preserve">
     <value>{0} を押して両方の半径を拡大</value>
   </data>
-  <data name="Mode_Info_IncreaseOneRadius" xml:space="preserve">
+  <data name="Mode_Info_IncreaseOnceRadius" xml:space="preserve">
     <value>Press {0} to increase one radius</value>
+    <comment>Mode_Info_IncreaseOneRadius
+</comment>
   </data>
   <data name="Mode_Info_IncreaseRadius" xml:space="preserve">
     <value>{0} を押して半径を拡大</value>

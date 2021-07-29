@@ -175,9 +175,9 @@ Too close to nearby node</value>
   <data name="Mode_Info_DecreaseBothRadius" xml:space="preserve">
     <value>Press {0} to decrease both radii</value>
   </data>
-  <data name="Mode_Info_DecreaseOneRadius" xml:space="preserve">
+  <data name="Mode_Info_DecreaseOnceRadius" xml:space="preserve">
     <value>Press {0} to decrease one radius</value>
-    <comment>
+    <comment>Mode_Info_DecreaseOneRadius
 </comment>
   </data>
   <data name="Mode_Info_DecreaseRadius" xml:space="preserve">
@@ -189,8 +189,10 @@ Too close to nearby node</value>
   <data name="Mode_Info_IncreaseBothRadius" xml:space="preserve">
     <value>Press {0} to increase both radii</value>
   </data>
-  <data name="Mode_Info_IncreaseOneRadius" xml:space="preserve">
+  <data name="Mode_Info_IncreaseOnceRadius" xml:space="preserve">
     <value>Press {0} to increase one radius</value>
+    <comment>Mode_Info_IncreaseOneRadius
+</comment>
   </data>
   <data name="Mode_Info_IncreaseRadius" xml:space="preserve">
     <value>Press {0} to increase radius</value>

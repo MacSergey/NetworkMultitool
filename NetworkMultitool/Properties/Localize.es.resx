@@ -121,7 +121,7 @@
     <value>Modo de adición de nodos</value>
   </data>
   <data name="Mode_AddNode_Info_ClickToAdd" xml:space="preserve">
-    <value>Clic para insertar nodo</value>
+    <value>Click to insert node</value>
   </data>
   <data name="Mode_AddNode_Info_SelectToAdd" xml:space="preserve">
     <value>Seleccione un segmento para añadir un nodo</value>
@@ -175,9 +175,9 @@ Muy cerca del nodo más cercano</value>
   <data name="Mode_Info_DecreaseBothRadius" xml:space="preserve">
     <value>Pulsa {0} para disminuir ambos radios</value>
   </data>
-  <data name="Mode_Info_DecreaseOneRadius" xml:space="preserve">
+  <data name="Mode_Info_DecreaseOnceRadius" xml:space="preserve">
     <value>Press {0} to decrease one radius</value>
-    <comment>
+    <comment>Mode_Info_DecreaseOneRadius
 </comment>
   </data>
   <data name="Mode_Info_DecreaseRadius" xml:space="preserve">
@@ -189,8 +189,10 @@ Muy cerca del nodo más cercano</value>
   <data name="Mode_Info_IncreaseBothRadius" xml:space="preserve">
     <value>Pulsa {0} para incrementar ambos radios</value>
   </data>
-  <data name="Mode_Info_IncreaseOneRadius" xml:space="preserve">
+  <data name="Mode_Info_IncreaseOnceRadius" xml:space="preserve">
     <value>Press {0} to increase one radius</value>
+    <comment>Mode_Info_IncreaseOneRadius
+</comment>
   </data>
   <data name="Mode_Info_IncreaseRadius" xml:space="preserve">
     <value>Pulsa {0} para incrementar radio</value>

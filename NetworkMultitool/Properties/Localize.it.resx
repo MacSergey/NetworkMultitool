@@ -121,7 +121,7 @@
     <value>Aggiungi modalità nodo</value>
   </data>
   <data name="Mode_AddNode_Info_ClickToAdd" xml:space="preserve">
-    <value>Clicca per inserire il nodo</value>
+    <value>Click to insert node</value>
   </data>
   <data name="Mode_AddNode_Info_SelectToAdd" xml:space="preserve">
     <value>Seleziona il segmento per aggiungere il nodo</value>
@@ -175,9 +175,9 @@ Troppo vicino ad un altro nodo</value>
   <data name="Mode_Info_DecreaseBothRadius" xml:space="preserve">
     <value>Premi {0} per diminuire entrambi i raggi</value>
   </data>
-  <data name="Mode_Info_DecreaseOneRadius" xml:space="preserve">
+  <data name="Mode_Info_DecreaseOnceRadius" xml:space="preserve">
     <value>Press {0} to decrease one radius</value>
-    <comment>
+    <comment>Mode_Info_DecreaseOneRadius
 </comment>
   </data>
   <data name="Mode_Info_DecreaseRadius" xml:space="preserve">
@@ -189,8 +189,10 @@ Troppo vicino ad un altro nodo</value>
   <data name="Mode_Info_IncreaseBothRadius" xml:space="preserve">
     <value>Premi {0} per aumentare entrambi i raggi</value>
   </data>
-  <data name="Mode_Info_IncreaseOneRadius" xml:space="preserve">
+  <data name="Mode_Info_IncreaseOnceRadius" xml:space="preserve">
     <value>Press {0} to increase one radius</value>
+    <comment>Mode_Info_IncreaseOneRadius
+</comment>
   </data>
   <data name="Mode_Info_IncreaseRadius" xml:space="preserve">
     <value>Premere {0} per aumentare il raggio</value>
