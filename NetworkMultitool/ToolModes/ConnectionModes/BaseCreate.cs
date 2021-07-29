@@ -15,6 +15,7 @@ namespace NetworkMultitool
     public abstract class BaseCreateMode : BaseNetworkMultitoolMode
     {
         protected override bool IsReseted => !IsFirst;
+        protected override bool CanSwitchUnderground => !IsBoth;
 
         protected NetworkMultitoolShortcut Enter { get; }
         protected NetworkMultitoolShortcut Plus { get; }
@@ -28,7 +29,7 @@ namespace NetworkMultitool
         protected override Color32 NodeColor => Colors.Green;
 
         protected override bool IsValidSegment(ushort segmentId) => !IsBoth && segmentId != First?.Id && segmentId != Second?.Id;
-        protected override bool IsValidNode(ushort nodeId) => IsBoth && (First.Id.GetSegment().Contains(nodeId) || Second.Id.GetSegment().Contains(nodeId));
+        protected override bool IsValidNode(ushort nodeId) => base.IsValidNode(nodeId) && IsBoth && (First.Id.GetSegment().Contains(nodeId) || Second.Id.GetSegment().Contains(nodeId));
 
         public override IEnumerable<NetworkMultitoolShortcut> Shortcuts
         {
@@ -230,7 +231,7 @@ namespace NetworkMultitool
                 var info = Info;
                 RenderCalculatedOverlay(cameraInfo, info);
 
-                var data = new OverlayData(cameraInfo) { Color = Colors.Yellow, Width = info.m_halfWidth * 2f, Cut = true };
+                var data = new OverlayData(cameraInfo) { Color = Colors.Yellow, Width = info.m_halfWidth * 2f, Cut = true, RenderLimit = Underground };
                 for (var i = 1; i < Points.Count; i += 1)
                 {
                     var trajectory = new BezierTrajectory(Points[i - 1].Position, Points[i - 1].Direction, Points[i].Position, -Points[i].Direction);
@@ -251,11 +252,11 @@ namespace NetworkMultitool
         protected void RenderRadius(RenderManager.CameraInfo cameraInfo, NetInfo info, Vector3 center, Vector3 curve, float radius, Color color)
         {
             var startBezier = new StraightTrajectory(curve, center).Cut(info.m_halfWidth / radius, 1f);
-            startBezier.Render(new OverlayData(cameraInfo) { Color = color });
+            startBezier.Render(new OverlayData(cameraInfo) { Color = color, RenderLimit = Underground });
         }
         protected void RenderCenter(RenderManager.CameraInfo cameraInfo, Vector3 center, Color color)
         {
-            center.RenderCircle(new OverlayData(cameraInfo) { Color = color }, 5f, 0f);
+            center.RenderCircle(new OverlayData(cameraInfo) { Color = color, RenderLimit = Underground }, 5f, 0f);
         }
 
         protected enum Result

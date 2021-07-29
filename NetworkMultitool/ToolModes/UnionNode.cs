@@ -13,7 +13,7 @@ namespace NetworkMultitool
         public override ToolModeType Type => ToolModeType.UnionNode;
         protected override bool IsReseted => !IsSource;
 
-        protected override bool IsValidNode(ushort nodeId) => !IsSource || nodeId != Source.Id;
+        protected override bool IsValidNode(ushort nodeId) => base.IsValidNode(nodeId) && !IsSource || nodeId != Source.Id;
 
         private NodeSelection Source { get; set; }
         private bool IsSource => Source != null;
@@ -27,7 +27,7 @@ namespace NetworkMultitool
                 var count = 0;
                 if (IsSource)
                     count += Source.Id.GetNode().CountSegments();
-                if(IsTarget)
+                if (IsTarget)
                     count += Target.Id.GetNode().CountSegments();
                 return count;
             }
@@ -49,18 +49,18 @@ namespace NetworkMultitool
             if (!IsSource)
             {
                 if (IsHoverNode)
-                    return Localize.Mode_UnionNode_Info_ClickSource + GetStepOverInfo();
+                    return Localize.Mode_UnionNode_Info_ClickSource + StepOverInfo;
                 else
-                    return Localize.Mode_UnionNode_Info_SelectSource;
+                    return Localize.Mode_UnionNode_Info_SelectSource + UndergroundInfo;
             }
             else if (!IsTarget)
                 return Localize.Mode_UnionNode_Info_SelectTarget;
             else if (IsConnected)
                 return Localize.Mode_UnionNode_Info_NoCommon;
             else if (!IsCorrectCount)
-                return Localize.Mode_UnionNode_Info_Overflow + GetStepOverInfo();
+                return Localize.Mode_UnionNode_Info_Overflow + StepOverInfo;
             else
-                return Localize.Mode_UnionNode_Info_ClickUnion + GetStepOverInfo();
+                return Localize.Mode_UnionNode_Info_ClickUnion + StepOverInfo;
         }
         protected override void Reset(IToolMode prevMode)
         {
@@ -73,7 +73,7 @@ namespace NetworkMultitool
                 return;
             else if (!IsSource)
                 Source = HoverNode;
-            else if(IsCorrectCount && !IsConnected)
+            else if (IsCorrectCount && !IsConnected)
             {
                 Union(Source.Id, Target.Id);
                 Reset(this);
@@ -89,24 +89,24 @@ namespace NetworkMultitool
             if (!IsSource)
             {
                 if (IsHoverNode)
-                    HoverNode.Render(new OverlayData(cameraInfo) { Color = Colors.Green });
+                    HoverNode.Render(new OverlayData(cameraInfo) { Color = Colors.Green, RenderLimit = Underground });
                 else
                     RenderSegmentNodes(cameraInfo, IsValidNode);
             }
             else if (!IsTarget)
             {
-                Source.Render(new OverlayData(cameraInfo));
+                Source.Render(new OverlayData(cameraInfo) { RenderLimit = Underground });
                 RenderSegmentNodes(cameraInfo, IsValidNode);
             }
             else if (!IsCorrectCount || IsConnected)
             {
-                Source.Render(new OverlayData(cameraInfo) { Color = Colors.Red });
-                Target.Render(new OverlayData(cameraInfo) { Color = Colors.Red });
+                Source.Render(new OverlayData(cameraInfo) { Color = Colors.Red, RenderLimit = Underground });
+                Target.Render(new OverlayData(cameraInfo) { Color = Colors.Red, RenderLimit = Underground });
             }
             else
             {
-                Source.Render(new OverlayData(cameraInfo) { Color = Colors.Green });
-                Target.Render(new OverlayData(cameraInfo) { Color = Colors.Green });
+                Source.Render(new OverlayData(cameraInfo) { Color = Colors.Green, RenderLimit = Underground });
+                Target.Render(new OverlayData(cameraInfo) { Color = Colors.Green, RenderLimit = Underground });
             }
         }
 

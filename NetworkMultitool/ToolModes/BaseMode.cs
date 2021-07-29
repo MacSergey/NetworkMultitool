@@ -19,6 +19,7 @@ namespace NetworkMultitool
         public abstract ToolModeType Type { get; }
         public string Title => SingletonMod<Mod>.Instance.GetLocalizeString(Type.GetAttr<DescriptionAttribute, ToolModeType>().Description);
         protected abstract bool IsReseted { get; }
+        protected virtual bool CanSwitchUnderground => true;
 
         private List<ModeButton> Buttons { get; } = new List<ModeButton>();
         public NetworkMultitoolShortcut ActivationShortcut => NetworkMultitoolTool.ModeShortcuts[Type];
@@ -56,10 +57,13 @@ namespace NetworkMultitool
         {
             base.OnToolUpdate();
 
-            if (!Underground && Utility.OnlyShiftIsPressed)
-                Underground = true;
-            else if (Underground && !Utility.OnlyShiftIsPressed)
-                Underground = false;
+            if (CanSwitchUnderground)
+            {
+                if (!Underground && Utility.OnlyShiftIsPressed)
+                    Underground = true;
+                else if (Underground && !Utility.OnlyShiftIsPressed)
+                    Underground = false;
+            }
         }
         public override bool OnEscape()
         {
@@ -91,7 +95,8 @@ namespace NetworkMultitool
                 return $"{Title.ToUpper()}\n\n{info}";
         }
         protected virtual string GetInfo() => string.Empty;
-        protected string GetStepOverInfo() => NetworkMultitoolTool.SelectionStepOverShortcut.NotSet ? string.Empty : "\n\n" + string.Format(CommonLocalize.Tool_InfoSelectionStepOver, NetworkMultitoolTool.SelectionStepOverShortcut.InputKey);
+        protected string StepOverInfo => NetworkMultitoolTool.SelectionStepOverShortcut.NotSet ? string.Empty : "\n\n" + string.Format(CommonLocalize.Tool_InfoSelectionStepOver, NetworkMultitoolTool.SelectionStepOverShortcut.InputKey);
+        protected string UndergroundInfo => $"\n{Localize.Mode_Info_UndergroundMode}";
 
         protected override bool CheckSegment(ushort segmentId) => segmentId.GetSegment().m_flags.CheckFlags(0, NetSegment.Flags.Untouchable) && base.CheckSegment(segmentId);
 

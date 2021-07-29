@@ -78,16 +78,16 @@ namespace NetworkMultitool
             if (!IsFirst)
             {
                 if (!IsHoverSegment)
-                    return Localize.Mode_Info_SelectFirstSegment;
+                    return Localize.Mode_Info_SelectFirstSegment + UndergroundInfo;
                 else
-                    return Localize.Mode_Info_ClickFirstSegment + GetStepOverInfo();
+                    return Localize.Mode_Info_ClickFirstSegment + StepOverInfo;
             }
             else if (!IsSecond)
             {
                 if (!IsHoverSegment)
-                    return Localize.Mode_Info_SelectSecondSegment;
+                    return Localize.Mode_Info_SelectSecondSegment + UndergroundInfo;
                 else
-                    return Localize.Mode_Info_ClickSecondSegment + GetStepOverInfo();
+                    return Localize.Mode_Info_ClickSecondSegment + StepOverInfo;
             }
             else if (State == Result.BigRadius)
                 return Localize.Mode_Info_RadiusTooBig;
@@ -97,6 +97,7 @@ namespace NetworkMultitool
                 return Localize.Mode_Info_ChooseDirestion;
             else
                 return
+                    Localize.Mode_Info_ChooseDirestion + "\n\n" + 
                     string.Format(Localize.Mode_Info_DecreaseBothRadius, Minus) + "\n" +
                     string.Format(Localize.Mode_Info_IncreaseBothRadius, Plus) + "\n" +
                     string.Format(Localize.Mode_Info_ChangeCircle, Tab) + "\n" +
@@ -302,7 +303,7 @@ namespace NetworkMultitool
 
             RenderCenter(cameraInfo, info, FirstCenter, FirstStartCurve, FirstEndCurve, FirstRadius.Value);
             RenderCenter(cameraInfo, info, SecondCenter, SecondStartCurve, SecondEndCurve, SecondRadius.Value);
-            (Select ? FirstCenter : SecondCenter).RenderCircle(new OverlayData(cameraInfo), 7f, 5f);
+            (Select ? FirstCenter : SecondCenter).RenderCircle(new OverlayData(cameraInfo) { RenderLimit = Underground }, 7f, 5f);
 
             //new StraightTrajectory(FirstStartCurve, FirstEndCurve).Render(new OverlayData(cameraInfo));
             //new StraightTrajectory(SecondStartCurve, SecondEndCurve).Render(new OverlayData(cameraInfo));
@@ -312,8 +313,8 @@ namespace NetworkMultitool
         {
             if (State == Result.BigRadius || State == Result.SmallRadius || State == Result.WrongShape)
             {
-                FirstCenter.RenderCircle(new OverlayData(cameraInfo) { Width = FirstRadius.Value * 2f, Color = Color.red });
-                SecondCenter.RenderCircle(new OverlayData(cameraInfo) { Width = SecondRadius.Value * 2f, Color = Color.red });
+                FirstCenter.RenderCircle(new OverlayData(cameraInfo) { Width = FirstRadius.Value * 2f, Color = Color.red, RenderLimit = Underground });
+                SecondCenter.RenderCircle(new OverlayData(cameraInfo) { Width = SecondRadius.Value * 2f, Color = Color.red, RenderLimit = Underground });
 
                 RenderRadius(cameraInfo, info, FirstCenter, FirstStartCurve, FirstRadius.Value, Colors.Red);
                 RenderCenter(cameraInfo, FirstCenter, Colors.Red);
@@ -321,7 +322,7 @@ namespace NetworkMultitool
                 RenderRadius(cameraInfo, info, SecondCenter, SecondStartCurve, SecondRadius.Value, Colors.Red);
                 RenderCenter(cameraInfo, SecondCenter, Colors.Red);
 
-                (Select ? FirstCenter : SecondCenter).RenderCircle(new OverlayData(cameraInfo), 7f, 5f);
+                (Select ? FirstCenter : SecondCenter).RenderCircle(new OverlayData(cameraInfo) { RenderLimit = Underground }, 7f, 5f);
             }
         }
     }

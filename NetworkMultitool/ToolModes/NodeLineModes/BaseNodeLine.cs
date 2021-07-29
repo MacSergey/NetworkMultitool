@@ -37,7 +37,10 @@ namespace NetworkMultitool
                 if (Nodes[i].Id == nodeId)
                     return false;
             }
-            return true;
+            if (Nodes.Count != 0 && (nodeId == Nodes.First().Id || nodeId == Nodes.Last().Id))
+                return true;
+            else
+                return base.IsValidNode(nodeId);
         }
 
         protected override void Reset(IToolMode prevMode)
@@ -48,12 +51,14 @@ namespace NetworkMultitool
         }
         protected override string GetInfo()
         {
-            if (State == Result.One || State == Result.InStart || State == Result.InEnd)
-                return Localize.Mode_Info_ClickSelectNode + GetStepOverInfo();
+            if (State == Result.None)
+                return Localize.Mode_NodeLine_Info_SelectNode + UndergroundInfo;
+            else if (State == Result.One || State == Result.InStart || State == Result.InEnd)
+                return Localize.Mode_Info_ClickSelectNode + StepOverInfo;
             else if (State == Result.IsFirst || State == Result.IsLast)
-                return Localize.Mode_Info_ClickUnselectNode + GetStepOverInfo();
+                return Localize.Mode_Info_ClickUnselectNode + StepOverInfo;
             else if (State == Result.NotConnect)
-                return Localize.Mode_NodeLine_Info_NotConnected + GetStepOverInfo();
+                return Localize.Mode_NodeLine_Info_NotConnected + StepOverInfo;
             else
                 return string.Format(Localize.Mode_Info_Apply, Enter);
         }
@@ -105,7 +110,7 @@ namespace NetworkMultitool
             for (var i = 0; i < Nodes.Count; i += 1)
             {
                 if ((i != 0 || State != Result.IsFirst) && (i != Nodes.Count - 1 || State != Result.IsLast))
-                    Nodes[i].Render(new OverlayData(cameraInfo) { Color = Colors.White});
+                    Nodes[i].Render(new OverlayData(cameraInfo) { Color = Colors.White, RenderLimit = Underground });
             }
 
             if (IsHoverNode)
@@ -117,7 +122,7 @@ namespace NetworkMultitool
                     Result.NotConnect => Colors.Red,
                     _ => Colors.Red,
                 };
-                HoverNode.Render(new OverlayData(cameraInfo) { Color = color });
+                HoverNode.Render(new OverlayData(cameraInfo) { Color = color, RenderLimit = Underground });
             }
             RenderSegmentNodes(cameraInfo, AllowRenderNode);
         }
@@ -134,5 +139,5 @@ namespace NetworkMultitool
             NotConnect
         }
     }
-    
+
 }

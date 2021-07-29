@@ -15,6 +15,7 @@ namespace NetworkMultitool
         protected override bool SelectNodes => false;
         protected override Color32 SegmentColor => Colors.Blue;
         protected override bool IsReseted => !IsFirstSelect;
+        protected override bool CanSwitchUnderground => !IsFirstSelect;
 
         private SegmentSelection First { get; set; }
         private bool IsFirstSelect => First != null;
@@ -28,9 +29,9 @@ namespace NetworkMultitool
             if (!IsFirstSelect)
             {
                 if (!IsHoverSegment)
-                    return Localize.Mode_Info_SelectFirstSegment;
+                    return Localize.Mode_Info_SelectFirstSegment + UndergroundInfo;
                 else
-                    return Localize.Mode_Info_ClickFirstSegment + GetStepOverInfo();
+                    return Localize.Mode_Info_ClickFirstSegment + StepOverInfo;
             }
             else
             {
@@ -41,7 +42,7 @@ namespace NetworkMultitool
                 else if (State == Result.Incorrect)
                     return Localize.Mode_IntersectSegment_Info_EdgeTooClose;
                 else
-                    return Localize.Mode_Info_ClickSecondSegment + GetStepOverInfo();
+                    return Localize.Mode_Info_ClickSecondSegment + StepOverInfo;
             }
         }
 

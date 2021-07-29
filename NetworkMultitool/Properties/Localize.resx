@@ -59,46 +59,46 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"></xsd:import>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0"></xsd:element>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string"></xsd:attribute>
-              <xsd:attribute name="type" type="xsd:string"></xsd:attribute>
-              <xsd:attribute name="mimetype" type="xsd:string"></xsd:attribute>
-              <xsd:attribute ref="xml:space"></xsd:attribute>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string"></xsd:attribute>
-              <xsd:attribute name="name" type="xsd:string"></xsd:attribute>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"></xsd:element>
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"></xsd:element>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"></xsd:attribute>
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"></xsd:attribute>
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"></xsd:attribute>
-              <xsd:attribute ref="xml:space"></xsd:attribute>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"></xsd:element>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required"></xsd:attribute>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -205,6 +205,9 @@ Too close to nearby node</value>
   <data name="Mode_Info_SelectSecondSegment" xml:space="preserve">
     <value>Select second segment</value>
   </data>
+  <data name="Mode_Info_UndergroundMode" xml:space="preserve">
+    <value>Hold Shift to underground mode</value>
+  </data>
   <data name="Mode_Info_WrongShape" xml:space="preserve">
     <value>Wrong shape</value>
   </data>
@@ -220,6 +223,9 @@ Too close to nearby node</value>
   <data name="Mode_NodeLine_Info_NotConnected" xml:space="preserve">
     <value>This node can't be selected
 because not connected with others</value>
+  </data>
+  <data name="Mode_NodeLine_Info_SelectNode" xml:space="preserve">
+    <value>Select node to add it to order</value>
   </data>
   <data name="Mode_PercentagesFormat" xml:space="preserve">
     <value>{0}%</value>
@@ -258,7 +264,7 @@ because not connected with others</value>
     <value>Select target node</value>
   </data>
   <data name="Mod_Description" xml:space="preserve">
-    <value></value>
+    <value />
   </data>
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>Auto hide modes panel</value>

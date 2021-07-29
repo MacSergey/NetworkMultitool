@@ -55,16 +55,16 @@ namespace NetworkMultitool
             if (!IsFirst)
             {
                 if (!IsHoverSegment)
-                    return Localize.Mode_Info_SelectFirstSegment;
+                    return Localize.Mode_Info_SelectFirstSegment + UndergroundInfo;
                 else
-                    return Localize.Mode_Info_ClickFirstSegment + GetStepOverInfo();
+                    return Localize.Mode_Info_ClickFirstSegment + StepOverInfo;
             }
             else if (!IsSecond)
             {
                 if (!IsHoverSegment)
-                    return Localize.Mode_Info_SelectSecondSegment;
+                    return Localize.Mode_Info_SelectSecondSegment + UndergroundInfo;
                 else
-                    return Localize.Mode_Info_ClickSecondSegment + GetStepOverInfo();
+                    return Localize.Mode_Info_ClickSecondSegment + StepOverInfo;
             }
             else if (State == Result.BigRadius)
                 return Localize.Mode_Info_RadiusTooBig;
@@ -74,6 +74,7 @@ namespace NetworkMultitool
                 return Localize.Mode_Info_ChooseDirestion;
             else
                 return
+                    Localize.Mode_Info_ChooseDirestion + "\n\n" +
                     string.Format(Localize.Mode_Info_DecreaseRadius, Minus) + "\n" +
                     string.Format(Localize.Mode_Info_IncreaseRadius, Plus) + "\n" +
                     string.Format(Localize.Mode_CreateLoop_Info_Change, Tab) + "\n" +

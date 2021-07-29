@@ -79,7 +79,7 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Click to insert node.
+        ///   Ищет локализованную строку, похожую на Click to add node.
         /// </summary>
         internal static string Mode_AddNode_Info_ClickToAdd {
             get {
@@ -332,6 +332,15 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Hold Shift to underground mode.
+        /// </summary>
+        internal static string Mode_Info_UndergroundMode {
+            get {
+                return ResourceManager.GetString("Mode_Info_UndergroundMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Wrong shape.
         /// </summary>
         internal static string Mode_Info_WrongShape {
@@ -374,6 +383,15 @@ namespace NetworkMultitool {
         internal static string Mode_NodeLine_Info_NotConnected {
             get {
                 return ResourceManager.GetString("Mode_NodeLine_Info_NotConnected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Select node to add it to order.
+        /// </summary>
+        internal static string Mode_NodeLine_Info_SelectNode {
+            get {
+                return ResourceManager.GetString("Mode_NodeLine_Info_SelectNode", resourceCulture);
             }
         }
         
