@@ -177,6 +177,8 @@
   </data>
   <data name="Mode_Info_DecreaseOnceRadius" xml:space="preserve">
     <value>Нажмите {0} для уменьшения одного радиуса</value>
+    <comment>Mode_Info_DecreaseOneRadius
+</comment>
   </data>
   <data name="Mode_Info_DecreaseRadius" xml:space="preserve">
     <value>Нажмите {0} для уменьшения радиуса</value>
@@ -189,6 +191,8 @@
   </data>
   <data name="Mode_Info_IncreaseOnceRadius" xml:space="preserve">
     <value>Нажмите {0} для увеличения одного радиуса</value>
+    <comment>Mode_Info_IncreaseOneRadius
+</comment>
   </data>
   <data name="Mode_Info_IncreaseRadius" xml:space="preserve">
     <value>Нажмите {0} для увеличения радиуса</value>

@@ -176,7 +176,9 @@ Troppo vicino ad un altro nodo</value>
     <value>Premi {0} per diminuire entrambi i raggi</value>
   </data>
   <data name="Mode_Info_DecreaseOnceRadius" xml:space="preserve">
-    <value>Premi {0} per diminuire una volta il raggio</value>
+    <value>Press {0} to decrease one radius</value>
+    <comment>Mode_Info_DecreaseOneRadius
+</comment>
   </data>
   <data name="Mode_Info_DecreaseRadius" xml:space="preserve">
     <value>Premi {0} per diminuire il raggio</value>
@@ -188,7 +190,9 @@ Troppo vicino ad un altro nodo</value>
     <value>Premi {0} per aumentare entrambi i raggi</value>
   </data>
   <data name="Mode_Info_IncreaseOnceRadius" xml:space="preserve">
-    <value>Premi {0} per aumentare il raggio una volta</value>
+    <value>Press {0} to increase one radius</value>
+    <comment>Mode_Info_IncreaseOneRadius
+</comment>
   </data>
   <data name="Mode_Info_IncreaseRadius" xml:space="preserve">
     <value>Premere {0} per aumentare il raggio</value>

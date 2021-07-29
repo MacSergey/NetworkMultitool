@@ -176,7 +176,9 @@
     <value>按 {0} 减少一对半径</value>
   </data>
   <data name="Mode_Info_DecreaseOnceRadius" xml:space="preserve">
-    <value>按 {0} 减少其一半径</value>
+    <value>Press {0} to decrease one radius</value>
+    <comment>Mode_Info_DecreaseOneRadius
+</comment>
   </data>
   <data name="Mode_Info_DecreaseRadius" xml:space="preserve">
     <value>按 {0} 减少半径</value>
@@ -188,7 +190,9 @@
     <value>按 {0} 增加一对半径</value>
   </data>
   <data name="Mode_Info_IncreaseOnceRadius" xml:space="preserve">
-    <value>按 {0} 增加其一半径</value>
+    <value>Press {0} to increase one radius</value>
+    <comment>Mode_Info_IncreaseOneRadius
+</comment>
   </data>
   <data name="Mode_Info_IncreaseRadius" xml:space="preserve">
     <value>按 {0} 增加半径</value>

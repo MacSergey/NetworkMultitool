@@ -176,7 +176,9 @@
     <value>{0} を押して両方の半径を縮小</value>
   </data>
   <data name="Mode_Info_DecreaseOnceRadius" xml:space="preserve">
-    <value>{0} を押して半径を1回だけ縮小</value>
+    <value>Press {0} to decrease one radius</value>
+    <comment>Mode_Info_DecreaseOneRadius
+</comment>
   </data>
   <data name="Mode_Info_DecreaseRadius" xml:space="preserve">
     <value>{0} を押して半径を縮小</value>
@@ -188,7 +190,9 @@
     <value>{0} を押して両方の半径を拡大</value>
   </data>
   <data name="Mode_Info_IncreaseOnceRadius" xml:space="preserve">
-    <value>{0} を押して半径を1回だけ拡大</value>
+    <value>Press {0} to increase one radius</value>
+    <comment>Mode_Info_IncreaseOneRadius
+</comment>
   </data>
   <data name="Mode_Info_IncreaseRadius" xml:space="preserve">
     <value>{0} を押して半径を拡大</value>
