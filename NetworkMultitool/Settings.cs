@@ -14,6 +14,7 @@ namespace NetworkMultitool
         #region PROPERTIES
 
         public static SavedBool AutoHideModePanel { get; } = new SavedBool(nameof(AutoHideModePanel), SettingsFile, false, true);
+        public static SavedInt SlopeUnite { get; } = new SavedInt(nameof(SlopeUnite), SettingsFile, 0, true);
 
         #endregion
 
@@ -34,6 +35,7 @@ namespace NetworkMultitool
 
             var generalGroup = GeneralTab.AddGroup(CommonLocalize.Settings_General);
             AddCheckBox(generalGroup, "Auto hide modes panel", AutoHideModePanel, OnAutoHideChanged);
+            AddCheckboxPanel(generalGroup, "Slope unit of measurement", SlopeUnite, new string[] { "Percentages", "Degrees" }, OnSlopeUniteChanged);
 
             AddNotifications(GeneralTab);
 #if DEBUG
@@ -41,13 +43,18 @@ namespace NetworkMultitool
 #endif
             static void OnAutoHideChanged()
             {
-                if(SingletonTool<NetworkMultitoolTool>.Instance?.ModesPanel is UI.ModesPanel panel)
+                if (SingletonTool<NetworkMultitoolTool>.Instance?.ModesPanel is UI.ModesPanel panel)
                 {
                     if (AutoHideModePanel)
                         panel.SetState(false, true);
                     else
                         panel.SetState(true);
                 }
+            }
+            static void OnSlopeUniteChanged()
+            {
+                if (SingletonTool<NetworkMultitoolTool>.Instance?.Mode is SlopeNodeMode slopeNode)
+                    slopeNode.RefreshLabels();
             }
         }
 

@@ -1,4 +1,5 @@
-﻿using ModsCommon;
+﻿using ColossalFramework.UI;
+using ModsCommon;
 using ModsCommon.Utilities;
 using System;
 using System.Collections.Generic;
@@ -11,19 +12,19 @@ namespace NetworkMultitool
     public class SlopeNodeMode : BaseNodeLine
     {
         public override ToolModeType Type => ToolModeType.SlopeNode;
-        private new List<InfoLabel> Labels { get; } = new List<InfoLabel>();
+        private List<InfoLabel> OrderLabels { get; } = new List<InfoLabel>();
 
         protected override void Reset(IToolMode prevMode)
         {
             base.Reset(prevMode);
-
+            OrderLabels.Clear();
         }
         public override void PressEnter()
         {
             if (Nodes.Count >= 3)
             {
                 Tool.SetSlope(Nodes.Select(n => n.Id).ToArray());
-                Reset(this);
+                RefreshLabels();
             }
         }
 
@@ -31,8 +32,8 @@ namespace NetworkMultitool
         {
             base.AddFirst(selection);
             var label = AddLabel();
+            OrderLabels.Insert(0, label);
             ApplyLabel(label, Nodes[0].Id, Nodes[1].Id);
-            Labels.Insert(0, label);
         }
         protected override void AddLast(NodeSelection selection)
         {
@@ -40,30 +41,43 @@ namespace NetworkMultitool
             if (Nodes.Count > 1)
             {
                 var label = AddLabel();
-                ApplyLabel(label, Nodes[Labels.Count - 2].Id, Nodes[Labels.Count - 1].Id);
-                Labels.Add(label);
+                OrderLabels.Add(label);
+                ApplyLabel(label, Nodes[Nodes.Count - 2].Id, Nodes[Nodes.Count - 1].Id);
             }
         }
         protected override void RemoveFirst()
         {
             base.RemoveFirst();
-            RemoveLabel(Labels[0]);
-            Labels.RemoveAt(0);
+            RemoveLabel(OrderLabels[0]);
+            OrderLabels.RemoveAt(0);
         }
         protected override void RemoveLast()
         {
             base.RemoveLast();
-            RemoveLabel(Labels[Labels.Count - 1]);
-            Labels.RemoveAt(Labels.Count - 1);
+            RemoveLabel(OrderLabels[OrderLabels.Count - 1]);
+            OrderLabels.RemoveAt(OrderLabels.Count - 1);
+        }
+        public void RefreshLabels()
+        {
+            for (var i = 0; i < OrderLabels.Count; i += 1)
+                ApplyLabel(OrderLabels[i], Nodes[i].Id, Nodes[i + 1].Id);
         }
         private void ApplyLabel(InfoLabel label, ushort firstId, ushort secondId)
         {
             NetExtension.GetCommon(firstId, secondId, out ushort segmentId);
-            var bezier = new BezierTrajectory(segmentId);
-            var angle = bezier.Length < Vector3.kEpsilon ? 0f : Mathf.Abs(bezier.StartPosition.y - bezier.EndPosition.y) / bezier.Length * 100f;
+            ref var segment = ref segmentId.GetSegment();
+            var bezier = new BezierTrajectory(ref segment);
+
+            var slope = 0f;
+            if (bezier.Length > Vector3.kEpsilon)
+            {
+                var delta = (segment.IsStartNode(firstId) ? 1 : -1) * (bezier.StartPosition.y - bezier.EndPosition.y);
+                slope = Settings.SlopeUnite == 0 ? (delta / bezier.Length * 100f) : (Mathf.Atan2(delta, bezier.Length) * Mathf.Rad2Deg);
+            }
+            slope = slope.RoundToNearest(0.1f);
 
             label.isVisible = true;
-            label.text = angle.ToString("0.0");
+            label.text = $"{(slope > 0 ? "+" : (slope < 0f ? "-" : string.Empty))}{Mathf.Abs(slope):0.0}{(Settings.SlopeUnite == 0 ? "%" : "°")}";
             label.WorldPosition = bezier.Position(0.5f) + new Vector3(0f, 5f, 0f);
         }
     }
