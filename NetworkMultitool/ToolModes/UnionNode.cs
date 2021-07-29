@@ -73,7 +73,7 @@ namespace NetworkMultitool
                 return;
             else if (!IsSource)
                 Source = HoverNode;
-            else if(IsCorrectCount)
+            else if(IsCorrectCount && !IsConnected)
             {
                 Union(Source.Id, Target.Id);
                 Reset(this);

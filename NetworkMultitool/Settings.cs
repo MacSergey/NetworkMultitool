@@ -1,6 +1,8 @@
 ﻿using ColossalFramework;
+using ColossalFramework.UI;
 using ModsCommon;
 using ModsCommon.Utilities;
+using NetworkMultitool.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +15,8 @@ namespace NetworkMultitool
     {
         #region PROPERTIES
 
-        public static SavedBool AutoHideModePanel { get; } = new SavedBool(nameof(AutoHideModePanel), SettingsFile, false, true);
+        public static SavedBool ShowToolTip { get; } = new SavedBool(nameof(ShowToolTip), SettingsFile, true, true);
+        public static SavedBool AutoHideModePanel { get; } = new SavedBool(nameof(AutoHideModePanel), SettingsFile, true, true);
         public static SavedInt SlopeUnite { get; } = new SavedInt(nameof(SlopeUnite), SettingsFile, 0, true);
 
         #endregion
@@ -34,6 +37,7 @@ namespace NetworkMultitool
 
 
             var generalGroup = GeneralTab.AddGroup(CommonLocalize.Settings_General);
+            AddCheckBox(generalGroup, CommonLocalize.Settings_ShowTooltips, ShowToolTip);
             AddCheckBox(generalGroup, Localize.Settings_AutoHideModePanel, AutoHideModePanel, OnAutoHideChanged);
             AddCheckboxPanel(generalGroup, Localize.Settings_SlopeUnit, SlopeUnite, new string[] { Localize.Settings_SlopeUnitPercentages, Localize.Settings_SlopeUnitDegrees }, OnSlopeUniteChanged);
 
@@ -43,7 +47,7 @@ namespace NetworkMultitool
 #endif
             static void OnAutoHideChanged()
             {
-                if (SingletonTool<NetworkMultitoolTool>.Instance?.ModesPanel is UI.ModesPanel panel)
+                foreach(var panel in UIView.GetAView().GetComponentsInChildren<ModesPanel>())
                 {
                     if (AutoHideModePanel)
                         panel.SetState(false, true);

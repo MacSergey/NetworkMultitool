@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace NetworkMultitool
 {
-    public class ArrangeLineMode : BaseNodeLine
+    public class ArrangeLineMode : BaseNodeLineMode
     {
         public override ToolModeType Type => ToolModeType.ArrangeAtLine;
 

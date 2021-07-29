@@ -20,7 +20,7 @@ namespace NetworkMultitool
         public string Title => SingletonMod<Mod>.Instance.GetLocalizeString(Type.GetAttr<DescriptionAttribute, ToolModeType>().Description);
         protected abstract bool IsReseted { get; }
 
-        private ModeButton Button { get; }
+        private List<ModeButton> Buttons { get; } = new List<ModeButton>();
         public NetworkMultitoolShortcut ActivationShortcut => NetworkMultitoolTool.ModeShortcuts[Type];
         public virtual IEnumerable<NetworkMultitoolShortcut> Shortcuts
         {
@@ -34,22 +34,17 @@ namespace NetworkMultitool
         protected static string GetAngleString(float angle, string format = "0") => string.Format(Localize.Mode_AngleFormat, (Mathf.Abs(angle) * Mathf.Rad2Deg).ToString(format));
         protected static string GetPercentagesString(float percent, string format = "0.0") => string.Format(Localize.Mode_PercentagesFormat, percent.ToString(format));
 
-        public BaseNetworkMultitoolMode()
-        {
-            Button = new GameObject(Type.ToString()).AddComponent<ModeButton>();
-            Button.Init(this, Type.ToString());
-            Button.eventClicked += ButtonClicked;
-        }
-
         public override void Activate(IToolMode prevMode)
         {
             base.Activate(prevMode);
-            Button.Activate = true;
+            foreach (var button in Buttons)
+                button.Activate = true;
         }
         public override void Deactivate()
         {
             base.Deactivate();
-            Button.Activate = false;
+            foreach(var button in Buttons)
+                button.Activate = false;
             ClearLabels();
         }
         protected override void Reset(IToolMode prevMode)
@@ -76,16 +71,12 @@ namespace NetworkMultitool
             else
                 return false;
         }
-        public void AttachButton(UIComponent parent)
+        public void AddButton(UIComponent parent)
         {
-            if (Button.parent != null)
-            {
-                Button.parent.RemoveUIComponent(Button);
-                Button.transform.parent = null;
-            }
-
-            parent.AttachUIComponent(Button.gameObject);
-            Button.transform.parent = parent.cachedTransform;
+            var button = parent.AddUIComponent<ModeButton>();
+            button.Init(this, Type.ToString());
+            button.eventClicked += ButtonClicked;
+            Buttons.Add(button);
         }
         private void ButtonClicked(UIComponent component, UIMouseEventParameter eventParam) => Tool.SetMode(this);
 

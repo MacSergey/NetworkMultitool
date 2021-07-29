@@ -58,7 +58,7 @@ namespace NetworkMultitool
         }
 
         public override Shortcut Activation => ActivationShortcut;
-        protected override bool ShowToolTip => ModesPanel?.IsHoverAllParents(MousePosition) != true;
+        protected override bool ShowToolTip => base.ShowToolTip && Settings.ShowToolTip;
         private IToolMode LastMode { get; set; }
         protected override IToolMode DefaultMode => LastMode ?? ToolModes[ToolModeType.AddNode];
 
@@ -67,7 +67,6 @@ namespace NetworkMultitool
         protected override string UUIHoveredSprite => NetworkMultitoolTextures.UUIHovered;
         protected override string UUIPressedSprite => NetworkMultitoolTextures.UUIPressed;
         protected override string UUIDisabledSprite => /*NodeControllerTextures.UUIDisabled;*/string.Empty;
-        public ModesPanel ModesPanel { get; private set; }
 
         protected override IEnumerable<IToolMode<ToolModeType>> GetModes()
         {
@@ -84,16 +83,6 @@ namespace NetworkMultitool
         {
             base.OnReset();
             Singleton<InfoManager>.instance.SetCurrentMode(InfoManager.InfoMode.None, InfoManager.SubInfoMode.Default);
-        }
-        protected override void OnEnable()
-        {
-            base.OnEnable();
-            ModesPanel.SetState(true);
-        }
-        protected override void OnDisable()
-        {
-            base.OnDisable();
-            ModesPanel.SetState(false);
         }
         protected override void InitProcess()
         {
@@ -118,12 +107,7 @@ namespace NetworkMultitool
         private void AddModePanel()
         {
             if (UUIRegistered)
-            {
-                ModesPanel = UUIButton.AddUIComponent<ModesPanel>();
-
-                foreach (var mode in ToolModes.Values.OfType<BaseNetworkMultitoolMode>())
-                    mode.AttachButton(ModesPanel);
-            }
+                UUIButton.AddUIComponent<ModesPanel>();
         }
 
         private void SelectionStepOver()
