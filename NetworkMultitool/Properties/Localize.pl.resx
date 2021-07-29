@@ -118,13 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Mode_AddNode" xml:space="preserve">
-    <value>Add node mode</value>
+    <value>Tryb dodawania węzłów</value>
   </data>
   <data name="Mode_AddNode_Info_ClickToAdd" xml:space="preserve">
-    <value>Click to insert node</value>
+    <value>Kliknij aby wstawić węzeł</value>
   </data>
   <data name="Mode_AddNode_Info_SelectToAdd" xml:space="preserve">
-    <value>Select segment to add node</value>
+    <value>Wybierz segment, aby dodać węzeł</value>
   </data>
   <data name="Mode_AddNode_Info_TooCloseNode" xml:space="preserve">
     <value>Can't add node
@@ -134,22 +134,22 @@ Too close to nearby node</value>
     <value>{0}°</value>
   </data>
   <data name="Mode_ArrangeAtLine" xml:space="preserve">
-    <value>Arrange at line mode</value>
+    <value>Tryb układania w linii</value>
   </data>
   <data name="Mode_CreateConnection" xml:space="preserve">
-    <value>Create connection mode</value>
+    <value>Tryb tworzenia połączeń</value>
   </data>
   <data name="Mode_CreateLoop" xml:space="preserve">
-    <value>Create loop mode</value>
+    <value>Tryb tworzenia pętli</value>
   </data>
   <data name="Mode_CreateLoop_Info_Change" xml:space="preserve">
-    <value>Press {0} to change loop</value>
+    <value>Naciśnij {0}, aby zmienić pętlę</value>
   </data>
   <data name="Mode_Info_Apply" xml:space="preserve">
-    <value>Press {0} to apply</value>
+    <value>Naciśnij {0}, aby zastosować</value>
   </data>
   <data name="Mode_Info_ChangeCircle" xml:space="preserve">
-    <value>Press {0} to switch selected circle</value>
+    <value>Naciśnij {0}, aby przełączyć wybrane koło</value>
   </data>
   <data name="Mode_Info_ChooseDirestion" xml:space="preserve">
     <value>Choose nodes to select create direction</value>
@@ -167,19 +167,19 @@ Too close to nearby node</value>
     <value>Click to unselect node</value>
   </data>
   <data name="Mode_Info_Create" xml:space="preserve">
-    <value>Press {0} to create</value>
+    <value>Naciśnij {0}, aby utworzyć</value>
   </data>
   <data name="Mode_Info_DecreaseAllRadius" xml:space="preserve">
-    <value>Press {0} to decrease all radii</value>
+    <value>Naciśnij {0}, aby zmniejszyć wszystkie promienie</value>
   </data>
   <data name="Mode_Info_DecreaseBothRadius" xml:space="preserve">
-    <value>Press {0} to decrease both radii</value>
+    <value>Naciśnij {0}, aby zmniejszyć oba promienie</value>
   </data>
   <data name="Mode_Info_DecreaseOnceRadius" xml:space="preserve">
     <value>Press {0} to decrease once radius</value>
   </data>
   <data name="Mode_Info_DecreaseRadius" xml:space="preserve">
-    <value>Press {0} to decrease radius</value>
+    <value>Naciśnij {0}, aby zmniejszyć promień</value>
   </data>
   <data name="Mode_Info_IncreaseAllRadius" xml:space="preserve">
     <value>Press {0} to increase all radii</value>
@@ -267,10 +267,10 @@ because not connected with others</value>
     <value>Slope unit of measurement</value>
   </data>
   <data name="Settings_SlopeUnitDegrees" xml:space="preserve">
-    <value>Degrees</value>
+    <value>Stopnie</value>
   </data>
   <data name="Settings_SlopeUnitPercentages" xml:space="preserve">
-    <value>Percentages</value>
+    <value>Procenty</value>
   </data>
   <data name="Tool_RemoveNode_Info_ClickToRemove" xml:space="preserve">
     <value>Click to remove</value>

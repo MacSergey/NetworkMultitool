@@ -140,86 +140,86 @@ Zu nah an einem anderen Netzwerk-Knoten</value>
     <value>Verbindung erstellen</value>
   </data>
   <data name="Mode_CreateLoop" xml:space="preserve">
-    <value>Create loop mode</value>
+    <value>Schleife erstellen</value>
   </data>
   <data name="Mode_CreateLoop_Info_Change" xml:space="preserve">
-    <value>Press {0} to change loop</value>
+    <value>Drücke {0}, um die Schleife zu ändern</value>
   </data>
   <data name="Mode_Info_Apply" xml:space="preserve">
-    <value>Press {0} to apply</value>
+    <value>Drücke {0} zum Anwenden</value>
   </data>
   <data name="Mode_Info_ChangeCircle" xml:space="preserve">
-    <value>Press {0} to switch selected circle</value>
+    <value>Drücke {0}, um den ausgewählten Kreis zu wechseln</value>
   </data>
   <data name="Mode_Info_ChooseDirestion" xml:space="preserve">
-    <value>Choose nodes to select create direction</value>
+    <value>Wähle die Netzwerk-Knoten, um die Richtung festzulegen</value>
   </data>
   <data name="Mode_Info_ClickFirstSegment" xml:space="preserve">
-    <value>Click to select first segment</value>
+    <value>Klicken, um das erste Segment auszuwählen</value>
   </data>
   <data name="Mode_Info_ClickSecondSegment" xml:space="preserve">
-    <value>Click to select second segment</value>
+    <value>Klicken, um das zweite Segment auszuwählen</value>
   </data>
   <data name="Mode_Info_ClickSelectNode" xml:space="preserve">
-    <value>Click to select node</value>
+    <value>Klicken, um einen Netzwerk-Knoten auszuwählen</value>
   </data>
   <data name="Mode_Info_ClickUnselectNode" xml:space="preserve">
-    <value>Click to unselect node</value>
+    <value>Klicken, um einen Netzwerk-Knoten auszuschließen</value>
   </data>
   <data name="Mode_Info_Create" xml:space="preserve">
-    <value>Press {0} to create</value>
+    <value>Drücke {0} zum Erstellen</value>
   </data>
   <data name="Mode_Info_DecreaseAllRadius" xml:space="preserve">
-    <value>Press {0} to decrease all radii</value>
+    <value>Drücke {0}, um alle Radien zu verringern</value>
   </data>
   <data name="Mode_Info_DecreaseBothRadius" xml:space="preserve">
-    <value>Press {0} to decrease both radii</value>
+    <value>Drücke {0}, um beide Radien zu verringern</value>
   </data>
   <data name="Mode_Info_DecreaseOnceRadius" xml:space="preserve">
-    <value>Press {0} to decrease once radius</value>
+    <value>Drücke {0}, um den Radius zu verringern</value>
   </data>
   <data name="Mode_Info_DecreaseRadius" xml:space="preserve">
-    <value>Press {0} to decrease radius</value>
+    <value>Drücke {0}, um den Radius zu verringern</value>
   </data>
   <data name="Mode_Info_IncreaseAllRadius" xml:space="preserve">
-    <value>Press {0} to increase all radii</value>
+    <value>Drücke {0}, um alle Radien zu vergrößern</value>
   </data>
   <data name="Mode_Info_IncreaseBothRadius" xml:space="preserve">
-    <value>Press {0} to increase both radii</value>
+    <value>Drücke {0}, um beide Radien zu vergrößern</value>
   </data>
   <data name="Mode_Info_IncreaseOnceRadius" xml:space="preserve">
-    <value>Press {0} to increase once radius</value>
+    <value>Drücke {0}, um den Radius zu vergrößern</value>
   </data>
   <data name="Mode_Info_IncreaseRadius" xml:space="preserve">
-    <value>Press {0} to increase radius</value>
+    <value>Drücke {0}, um den Radius zu vergrößern</value>
   </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
-    <value>Radius too big</value>
+    <value>Radius zu groß</value>
   </data>
   <data name="Mode_Info_RadiusTooSmall" xml:space="preserve">
-    <value>Radius too small</value>
+    <value>Radius zu klein</value>
   </data>
   <data name="Mode_Info_SelectFirstSegment" xml:space="preserve">
-    <value>Select first segment</value>
+    <value>Erstes Segment auswählen</value>
   </data>
   <data name="Mode_Info_SelectSecondSegment" xml:space="preserve">
-    <value>Select second segment</value>
+    <value>Zweites Segment auswählen</value>
   </data>
   <data name="Mode_Info_WrongShape" xml:space="preserve">
-    <value>Wrong shape</value>
+    <value>Falsche Form</value>
   </data>
   <data name="Mode_IntersectSegment" xml:space="preserve">
-    <value>Intersect segments mode</value>
+    <value>Segmente kreuzen</value>
   </data>
   <data name="Mode_IntersectSegment_Info_EdgeTooClose" xml:space="preserve">
-    <value>Edge of one segment is too close to end of second segment</value>
+    <value>Rand eines Segments ist zu nahe am Ende des zweiten Segments</value>
   </data>
   <data name="Mode_IntersectSegment_Info_NotIntersect" xml:space="preserve">
-    <value>These segments are not intersect</value>
+    <value>Diese Segmente überschneiden sich nicht</value>
   </data>
   <data name="Mode_NodeLine_Info_NotConnected" xml:space="preserve">
-    <value>This node can't be selected
-because not connected with others</value>
+    <value>Dieser Netzwerk-Knoten kann nicht ausgewählt werden,
+da er nicht mit anderen verbunden ist</value>
   </data>
   <data name="Mode_PercentagesFormat" xml:space="preserve">
     <value>{0}%</value>
@@ -228,54 +228,54 @@ because not connected with others</value>
     <value>{0}m</value>
   </data>
   <data name="Mode_RemoveNode" xml:space="preserve">
-    <value>Remove node mode</value>
+    <value>Netzwerk-Knoten entfernen</value>
   </data>
   <data name="Mode_RemoveNode_Info_NotAllow" xml:space="preserve">
-    <value>Not allow to remove this node</value>
+    <value>Es ist nicht erlaubt, diesen Netzwerk-Knoten zu entfernen</value>
   </data>
   <data name="Mode_SlopeNode" xml:space="preserve">
-    <value>Set slope mode</value>
+    <value>Gefälle einstellen</value>
   </data>
   <data name="Mode_UnionNode" xml:space="preserve">
-    <value>Union nodes mode</value>
+    <value>Netzwerk-Knoten vereinen</value>
   </data>
   <data name="Mode_UnionNode_Info_ClickSource" xml:space="preserve">
-    <value>Click to select source node</value>
+    <value>Klicken, um den Ursprungs-Netzwerk-Knoten auszuwählen</value>
   </data>
   <data name="Mode_UnionNode_Info_ClickUnion" xml:space="preserve">
-    <value>Click to union nodes</value>
+    <value>Klicken, um zu verschmelzende Netzwerk-Knoten auszuwählen</value>
   </data>
   <data name="Mode_UnionNode_Info_NoCommon" xml:space="preserve">
-    <value>These nodes have common segment</value>
+    <value>Diese Netzwerk-Knoten haben ein gemeinsames Segment</value>
   </data>
   <data name="Mode_UnionNode_Info_Overflow" xml:space="preserve">
-    <value>Total number of nodes must be no more then 8</value>
+    <value>Die Gesamtzahl der Netzwerk-Knoten darf nicht größer als 8 sein</value>
   </data>
   <data name="Mode_UnionNode_Info_SelectSource" xml:space="preserve">
-    <value>Select source node</value>
+    <value>Ursprungs-Netzwerk-Knoten auswählen</value>
   </data>
   <data name="Mode_UnionNode_Info_SelectTarget" xml:space="preserve">
-    <value>Select target node</value>
+    <value>Ziel-Netzwerk-Knoten auswählen</value>
   </data>
   <data name="Mod_Description" xml:space="preserve">
     <value></value>
   </data>
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
-    <value>Auto hide modes panel</value>
+    <value>Panel automatisch ausblenden</value>
   </data>
   <data name="Settings_SlopeUnit" xml:space="preserve">
-    <value>Slope unit of measurement</value>
+    <value>Maßeinheit für Gefälle</value>
   </data>
   <data name="Settings_SlopeUnitDegrees" xml:space="preserve">
-    <value>Degrees</value>
+    <value>Grad</value>
   </data>
   <data name="Settings_SlopeUnitPercentages" xml:space="preserve">
-    <value>Percentages</value>
+    <value>Prozent</value>
   </data>
   <data name="Tool_RemoveNode_Info_ClickToRemove" xml:space="preserve">
-    <value>Click to remove</value>
+    <value>Klicke zum Entfernen</value>
   </data>
   <data name="Tool_RemoveNode_Info_Select" xml:space="preserve">
-    <value>Select node to remove it</value>
+    <value>Netzwerk-Knoten zum Entfernen auswählen</value>
   </data>
 </root>
