@@ -44,7 +44,7 @@ namespace NetworkMultitool
         public override void Deactivate()
         {
             base.Deactivate();
-            foreach(var button in Buttons)
+            foreach (var button in Buttons)
                 button.Activate = false;
             ClearLabels();
         }
@@ -123,6 +123,13 @@ namespace NetworkMultitool
                     new NodeSelection(segment.m_endNode).Render(data);
             }
         }
+        protected Rect GetTerrainRect(params ushort[] segmentIds) => segmentIds.Select(i => (ITrajectory)new BezierTrajectory(i)).GetRect();
+        protected void UpdateTerrain(params ushort[] segmentIds)
+        {
+            if (segmentIds.Length != 0)
+                UpdateTerrain(GetTerrainRect(segmentIds));
+        }
+        protected void UpdateTerrain(Rect rect) => TerrainModify.UpdateArea(rect.xMin, rect.yMin, rect.xMax, rect.yMax, true, true, false);
 
         protected InfoLabel AddLabel()
         {
@@ -138,7 +145,7 @@ namespace NetworkMultitool
         }
         private void ClearLabels()
         {
-            foreach(var label in Labels)
+            foreach (var label in Labels)
                 Destroy(label.gameObject);
 
             Labels.Clear();

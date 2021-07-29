@@ -266,6 +266,9 @@ because not connected with others</value>
   <data name="Mode_UnionNode_Info_SelectTarget" xml:space="preserve">
     <value>Select target node</value>
   </data>
+  <data name="Mode_UnionNode_Info_TooFar" xml:space="preserve">
+    <value>Nodes too far from each other</value>
+  </data>
   <data name="Mod_Description" xml:space="preserve">
     <value />
   </data>
@@ -273,7 +276,7 @@ because not connected with others</value>
     <value>Auto hide modes panel</value>
   </data>
   <data name="Settings_SegmentLength" xml:space="preserve">
-    <value>Length of creating segments</value>
+    <value>Max Segment Length</value>
   </data>
   <data name="Settings_SlopeUnit" xml:space="preserve">
     <value>Slope unit of measurement</value>

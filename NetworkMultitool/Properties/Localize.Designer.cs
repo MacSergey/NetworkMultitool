@@ -513,6 +513,15 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Nodes too far from each other.
+        /// </summary>
+        internal static string Mode_UnionNode_Info_TooFar {
+            get {
+                return ResourceManager.GetString("Mode_UnionNode_Info_TooFar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Auto hide modes panel.
         /// </summary>
         internal static string Settings_AutoHideModePanel {
@@ -522,7 +531,7 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Length of creating segments.
+        ///   Ищет локализованную строку, похожую на Max Segment Length.
         /// </summary>
         internal static string Settings_SegmentLength {
             get {

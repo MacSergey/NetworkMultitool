@@ -43,6 +43,8 @@ namespace NetworkMultitool
                     return NetExtension.GetCommon(Source.Id, Target.Id, out _);
             }
         }
+        private bool IsFar => (Source.Id.GetNode().m_position - Target.Id.GetNode().m_position).sqrMagnitude > 40000f;
+        private bool IsCorrect => IsCorrectCount && !IsConnected && !IsFar;
 
         protected override string GetInfo()
         {
@@ -59,6 +61,8 @@ namespace NetworkMultitool
                 return Localize.Mode_UnionNode_Info_NoCommon;
             else if (!IsCorrectCount)
                 return Localize.Mode_UnionNode_Info_Overflow + StepOverInfo;
+            else if(IsFar)
+                return Localize.Mode_UnionNode_Info_TooFar + StepOverInfo;
             else
                 return Localize.Mode_UnionNode_Info_ClickUnion + StepOverInfo;
         }
@@ -73,7 +77,7 @@ namespace NetworkMultitool
                 return;
             else if (!IsSource)
                 Source = HoverNode;
-            else if (IsCorrectCount && !IsConnected)
+            else if (IsCorrect)
             {
                 Union(Source.Id, Target.Id);
                 Reset(this);
@@ -98,7 +102,7 @@ namespace NetworkMultitool
                 Source.Render(new OverlayData(cameraInfo) { RenderLimit = Underground });
                 RenderSegmentNodes(cameraInfo, IsValidNode);
             }
-            else if (!IsCorrectCount || IsConnected)
+            else if (!IsCorrect)
             {
                 Source.Render(new OverlayData(cameraInfo) { Color = Colors.Red, RenderLimit = Underground });
                 Target.Render(new OverlayData(cameraInfo) { Color = Colors.Red, RenderLimit = Underground });
@@ -115,6 +119,7 @@ namespace NetworkMultitool
             var sourceNode = sourceId.GetNode();
             var targetNode = targetId.GetNode();
             var segmentIds = sourceNode.SegmentIds().ToArray();
+            var terrainRect = GetTerrainRect(segmentIds);
 
             foreach (var segmentId in segmentIds)
             {
@@ -139,6 +144,8 @@ namespace NetworkMultitool
             }
 
             RemoveNode(sourceId);
+            UpdateTerrain(terrainRect);
+
             return true;
         }
     }
