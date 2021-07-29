@@ -224,6 +224,15 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Click on node to change curve direction.
+        /// </summary>
+        internal static string Mode_Info_CurveDurection {
+            get {
+                return ResourceManager.GetString("Mode_Info_CurveDurection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Press {0} to decrease all radii.
         /// </summary>
         internal static string Mode_Info_DecreaseAllRadius {

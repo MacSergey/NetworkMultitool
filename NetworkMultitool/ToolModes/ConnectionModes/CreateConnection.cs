@@ -96,10 +96,13 @@ namespace NetworkMultitool
             else if (State == Result.WrongShape)
                 return Localize.Mode_Info_WrongShape;
             else if (State != Result.Calculated)
-                return Localize.Mode_Info_ChooseDirestion;
+                return
+                    Localize.Mode_Info_ChooseDirestion + "\n" +
+                    Localize.Mode_Info_CurveDurection;
             else
                 return
-                    Localize.Mode_Info_ChooseDirestion + "\n\n" +
+                    Localize.Mode_Info_ChooseDirestion + "\n" +
+                    Localize.Mode_Info_CurveDurection + "\n\n" +
                     string.Format(Localize.Mode_Info_DecreaseBothRadius, Minus) + "\n" +
                     string.Format(Localize.Mode_Info_IncreaseBothRadius, Plus) + "\n" +
                     string.Format(Localize.Mode_Info_ChangeCircle, Tab) + "\n" +

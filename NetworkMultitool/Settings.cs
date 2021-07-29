@@ -41,7 +41,7 @@ namespace NetworkMultitool
             AddCheckBox(generalGroup, CommonLocalize.Settings_ShowTooltips, ShowToolTip);
             AddCheckBox(generalGroup, Localize.Settings_AutoHideModePanel, AutoHideModePanel, OnAutoHideChanged);
             AddCheckboxPanel(generalGroup, Localize.Settings_SlopeUnit, SlopeUnite, new string[] { Localize.Settings_SlopeUnitPercentages, Localize.Settings_SlopeUnitDegrees }, OnSlopeUniteChanged);
-            AddIntField(generalGroup, , SegmentLenght, 80f, 50f, 200f);
+            AddIntField(generalGroup, Localize.Settings_SegmentLength, SegmentLenght, 80, 50, 200);
 
             AddNotifications(GeneralTab);
 #if DEBUG

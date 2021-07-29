@@ -169,6 +169,9 @@ Too close to nearby node</value>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Press {0} to create</value>
   </data>
+  <data name="Mode_Info_CurveDurection" xml:space="preserve">
+    <value>Click on node to change curve direction</value>
+  </data>
   <data name="Mode_Info_DecreaseAllRadius" xml:space="preserve">
     <value>Press {0} to decrease all radii</value>
   </data>
