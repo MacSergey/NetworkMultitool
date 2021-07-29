@@ -100,8 +100,8 @@ namespace NetworkMultitool
                     string.Format(Localize.Mode_Info_DecreaseBothRadius, Minus) + "\n" +
                     string.Format(Localize.Mode_Info_IncreaseBothRadius, Plus) + "\n" +
                     string.Format(Localize.Mode_Info_ChangeCircle, Tab) + "\n" +
-                    string.Format(Localize.Mode_Info_DecreaseOnceRadius, OnceMinus) + "\n" +
-                    string.Format(Localize.Mode_Info_IncreaseOnceRadius, OncePlus) + "\n" +
+                    string.Format(Localize.Mode_Info_DecreaseOneRadius, OnceMinus) + "\n" +
+                    string.Format(Localize.Mode_Info_IncreaseOneRadius, OncePlus) + "\n" +
                     string.Format(Localize.Mode_Info_Create, Enter);
         }
         protected override void Reset(IToolMode prevMode)

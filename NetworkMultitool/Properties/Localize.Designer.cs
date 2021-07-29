@@ -161,7 +161,7 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Press {0} to change circle.
+        ///   Ищет локализованную строку, похожую на Press {0} to switch selected circle.
         /// </summary>
         internal static string Mode_Info_ChangeCircle {
             get {
@@ -242,11 +242,11 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Press {0} to decrease once radius.
+        ///   Ищет локализованную строку, похожую на Press {0} to decrease one radius.
         /// </summary>
-        internal static string Mode_Info_DecreaseOnceRadius {
+        internal static string Mode_Info_DecreaseOneRadius {
             get {
-                return ResourceManager.GetString("Mode_Info_DecreaseOnceRadius", resourceCulture);
+                return ResourceManager.GetString("Mode_Info_DecreaseOneRadius", resourceCulture);
             }
         }
         
@@ -278,11 +278,11 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Press {0} to increase once radius.
+        ///   Ищет локализованную строку, похожую на Press {0} to increase one radius.
         /// </summary>
-        internal static string Mode_Info_IncreaseOnceRadius {
+        internal static string Mode_Info_IncreaseOneRadius {
             get {
-                return ResourceManager.GetString("Mode_Info_IncreaseOnceRadius", resourceCulture);
+                return ResourceManager.GetString("Mode_Info_IncreaseOneRadius", resourceCulture);
             }
         }
         
@@ -405,7 +405,7 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Not allow to remove.
+        ///   Ищет локализованную строку, похожую на Not allow to remove this node.
         /// </summary>
         internal static string Mode_RemoveNode_Info_NotAllow {
             get {
