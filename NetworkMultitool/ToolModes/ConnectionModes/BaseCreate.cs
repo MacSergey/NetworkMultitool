@@ -154,20 +154,24 @@ namespace NetworkMultitool
             }
             else if (IsHoverNode)
             {
-                var firstSegment = First.Id.GetSegment();
-                var secondSegment = Second.Id.GetSegment();
+                ref var firstSegment = ref First.Id.GetSegment();
+                ref var secondSegment = ref Second.Id.GetSegment();
 
                 if (firstSegment.Contains(HoverNode.Id))
-                {
-                    IsFirstStart = firstSegment.IsStartNode(HoverNode.Id);
-                    State = Result.None;
-                }
+                    SetFirstNode(ref firstSegment, HoverNode.Id);
                 else if (secondSegment.Contains(HoverNode.Id))
-                {
-                    IsSecondStart = secondSegment.IsStartNode(HoverNode.Id);
-                    State = Result.None;
-                }
+                    SetSecondNode(ref secondSegment, HoverNode.Id);
             }
+        }
+        protected virtual void SetFirstNode(ref NetSegment segment, ushort nodeId)
+        {
+            IsFirstStart = segment.IsStartNode(nodeId);
+            State = Result.None;
+        }
+        protected virtual void SetSecondNode(ref NetSegment segment, ushort nodeId)
+        {
+            IsSecondStart = segment.IsStartNode(nodeId);
+            State = Result.None;
         }
         public override void OnSecondaryMouseClicked()
         {
