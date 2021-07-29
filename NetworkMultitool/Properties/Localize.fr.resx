@@ -121,7 +121,7 @@
     <value>Ajouter des nœuds</value>
   </data>
   <data name="Mode_AddNode_Info_ClickToAdd" xml:space="preserve">
-    <value>Click to insert node</value>
+    <value>Click to add node</value>
   </data>
   <data name="Mode_AddNode_Info_SelectToAdd" xml:space="preserve">
     <value>Sélectionnez un segment pour ajouter un nœud</value>
@@ -175,10 +175,8 @@ Trop proche du nœud voisin</value>
   <data name="Mode_Info_DecreaseBothRadius" xml:space="preserve">
     <value>Appuyez sur {0} pour diminuer les deux rayons</value>
   </data>
-  <data name="Mode_Info_DecreaseOnceRadius" xml:space="preserve">
+  <data name="Mode_Info_DecreaseOneRadius" xml:space="preserve">
     <value>Press {0} to decrease one radius</value>
-    <comment>Mode_Info_DecreaseOneRadius
-</comment>
   </data>
   <data name="Mode_Info_DecreaseRadius" xml:space="preserve">
     <value>Appuyez sur {0} pour diminuer le rayon</value>
@@ -189,10 +187,8 @@ Trop proche du nœud voisin</value>
   <data name="Mode_Info_IncreaseBothRadius" xml:space="preserve">
     <value>Appuyez sur {0} pour augmenter les deux rayons</value>
   </data>
-  <data name="Mode_Info_IncreaseOnceRadius" xml:space="preserve">
+  <data name="Mode_Info_IncreaseOneRadius" xml:space="preserve">
     <value>Press {0} to increase one radius</value>
-    <comment>Mode_Info_IncreaseOneRadius
-</comment>
   </data>
   <data name="Mode_Info_IncreaseRadius" xml:space="preserve">
     <value>Appuyez sur {0} pour augmenter le rayon</value>
