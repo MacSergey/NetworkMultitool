@@ -16,6 +16,7 @@ namespace NetworkMultitool.UI
         public static float ModeButtonSize => 29f;
         public static float Padding => 2f;
         private IEnumerable<ModeButton> Buttons => components.OfType<ModeButton>();
+        private string AnimationId => $"{nameof(ModesPanel)}{GetHashCode()}";
         public Vector2 DefaultSize
         {
             get
@@ -59,6 +60,11 @@ namespace NetworkMultitool.UI
         {
             base.Start();
 
+            SingletonTool<NetworkMultitoolTool>.Instance.OnStateChanged += ToolStateChanged;
+
+            foreach (var mode in SingletonTool<NetworkMultitoolTool>.Instance.Modes.OfType<BaseNetworkMultitoolMode>())
+                mode.AddButton(this);
+
             parent.eventMouseEnter += ParentMouseEnter;
             parent.eventMouseLeave += ParentMouseLeave;
 
@@ -68,6 +74,9 @@ namespace NetworkMultitool.UI
 
             root.eventPositionChanged += ParentPositionChanged;
         }
+
+        private void ToolStateChanged(bool state) => SetState(state);
+
         private void ParentMouseEnter(UIComponent component, UIMouseEventParameter eventParam) => SetState(true, true);
         private void ParentMouseLeave(UIComponent component, UIMouseEventParameter eventParam) => SetState(false, true);
         protected override void OnMouseLeave(UIMouseEventParameter eventParam)
@@ -117,9 +126,9 @@ namespace NetworkMultitool.UI
                     {
                         StartOpening();
                         SetOpenSide();
-                        var time = 0.2f / DefaultSize.y * height;
-                        ValueAnimator.Cancel(nameof(NetworkMultitoolTool));
-                        ValueAnimator.Animate(nameof(NetworkMultitoolTool), OnAnimate, new AnimatedFloat(height, DefaultSize.y, time, EasingType.CubicEaseOut), EndOpening);
+                        var time = 0.2f * (1 - Mathf.Max(height - 20f, 0f) / DefaultSize.y);
+                        ValueAnimator.Cancel(AnimationId);
+                        ValueAnimator.Animate(AnimationId, OnAnimate, new AnimatedFloat(height, DefaultSize.y, time, EasingType.CubicEaseOut), EndOpening);
                     }
                 }
             }
@@ -130,9 +139,9 @@ namespace NetworkMultitool.UI
                     if (!auto || autoHide)
                     {
                         StartClosing();
-                        var time = 0.2f / DefaultSize.y * height;
-                        ValueAnimator.Cancel(nameof(NetworkMultitoolTool));
-                        ValueAnimator.Animate(nameof(NetworkMultitoolTool), OnAnimate, new AnimatedFloat(height, 20f, time, EasingType.CubicEaseIn), EndClosing);
+                        var time = 0.2f * (height / DefaultSize.y);
+                        ValueAnimator.Cancel(AnimationId);
+                        ValueAnimator.Animate(AnimationId, OnAnimate, new AnimatedFloat(height, 20f, time, EasingType.CubicEaseIn), EndClosing);
                     }
                 }
             }

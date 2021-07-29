@@ -2,6 +2,7 @@
 using ICities;
 using ModsCommon;
 using ModsCommon.Utilities;
+using NetworkMultitool.UI;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -35,7 +36,7 @@ namespace NetworkMultitool
         #endregion
 
         protected override ResourceManager LocalizeManager => Localize.ResourceManager;
-        private static PluginSearcher FRTSearcher { get; } = PluginUtilities.GetSearcher("", 1844442251ul);
+        private static PluginSearcher FRTSearcher { get; } = PluginUtilities.GetSearcher("Fine Road Tool", 1844442251ul);
         private static bool IsFRT => FRTSearcher.GetPlugin() != null;
 
         #region BASIC
@@ -56,6 +57,7 @@ namespace NetworkMultitool
             var success = true;
 
             success &= AddTool();
+            success &= AddNetToolButton();
             success &= ToolOnEscape();
             if (IsFRT)
                 success &= FineRoadToolUpdate();
@@ -66,6 +68,10 @@ namespace NetworkMultitool
         private bool AddTool()
         {
             return AddTranspiler(typeof(Patcher), nameof(Patcher.ToolControllerAwakeTranspiler), typeof(ToolController), "Awake");
+        }
+        private bool AddNetToolButton()
+        {
+            return AddPostfix(typeof(Patcher), nameof(Patcher.GeneratedScrollPanelCreateOptionPanelPostfix), typeof(GeneratedScrollPanel), "CreateOptionPanel");
         }
         private bool ToolOnEscape()
         {
@@ -84,6 +90,8 @@ namespace NetworkMultitool
     public static class Patcher
     {
         public static IEnumerable<CodeInstruction> ToolControllerAwakeTranspiler(ILGenerator generator, IEnumerable<CodeInstruction> instructions) => ModsCommon.Patcher.ToolControllerAwakeTranspiler<Mod, NetworkMultitoolTool>(generator, instructions);
+
+        public static void GeneratedScrollPanelCreateOptionPanelPostfix(string templateName, ref OptionPanelBase __result) => ModsCommon.Patcher.GeneratedScrollPanelCreateOptionPanelPostfix<Mod, NetworkMultitoolButton>(templateName, ref __result, ModsCommon.Patcher.RoadsOptionPanel, ModsCommon.Patcher.PathsOptionPanel, ModsCommon.Patcher.CanalsOptionPanel, ModsCommon.Patcher.QuaysOptionPanel, ModsCommon.Patcher.FloodWallsOptionPanel);
 
         public static IEnumerable<CodeInstruction> GameKeyShortcutsEscapeTranspiler(ILGenerator generator, IEnumerable<CodeInstruction> instructions) => ModsCommon.Patcher.GameKeyShortcutsEscapeTranspiler<Mod, NetworkMultitoolTool>(generator, instructions);
 

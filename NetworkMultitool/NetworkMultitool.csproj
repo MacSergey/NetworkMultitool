@@ -123,6 +123,7 @@
     <Compile Include="ToolModes\RemoveNode.cs" />
     <Compile Include="ToolModes\NodeLineModes\SetSlope.cs" />
     <Compile Include="ToolModes\UnionNode.cs" />
+    <Compile Include="UI\Button.cs" />
     <Compile Include="UI\ModeButton.cs" />
     <Compile Include="UI\ModesPanel.cs" />
     <Compile Include="Utilities\Textures.cs" />
@@ -150,6 +151,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\UUIButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Button.png" />
   </ItemGroup>
   <Import Project="..\ModsCommon\LocalizeShared\LocalizeShared.projitems" Label="Shared" />
   <Import Project="..\ModsCommon\LocalizeShared\LocalizeShared.ru.projitems" Label="Shared" />
