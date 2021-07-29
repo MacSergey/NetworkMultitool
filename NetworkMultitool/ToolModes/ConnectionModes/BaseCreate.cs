@@ -49,9 +49,9 @@ namespace NetworkMultitool
         {
             Enter = GetShortcut(KeyCode.Return, PressEnter, ToolModeType.Create);
 
-            Plus = GetShortcut(KeyCode.Equals, PressPlus, ToolModeType.Create, repeat: true);
-            LargePlus = GetShortcut(KeyCode.Equals, PressPlus, ToolModeType.Create, shift: true, repeat: true);
-            SmallPlus = GetShortcut(KeyCode.Equals, PressPlus, ToolModeType.Create, ctrl: true, repeat: true);
+            Plus = GetShortcut(KeyCode.Plus, PressPlus, ToolModeType.Create, repeat: true);
+            LargePlus = GetShortcut(KeyCode.Plus, PressPlus, ToolModeType.Create, shift: true, repeat: true);
+            SmallPlus = GetShortcut(KeyCode.Plus, PressPlus, ToolModeType.Create, ctrl: true, repeat: true);
 
             Minus = GetShortcut(KeyCode.Minus, PressMinus, ToolModeType.Create, repeat: true);
             LargeMinus = GetShortcut(KeyCode.Minus, PressMinus, ToolModeType.Create, shift: true, repeat: true);
