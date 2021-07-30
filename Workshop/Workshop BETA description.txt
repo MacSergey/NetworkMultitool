@@ -1,0 +1,5 @@
+[HR][/HR] 
+[img]https://i.imgur.com/4bLVAsL.png[/img]
+[code][h1]WARNING![/h1]
+[list][h2]This is BETA version. It is for testing new features and may contain errors. If you subscribed to it by mistake, then switch to the [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2560782729]STABLE VERSION[/url][/h2][/list]
+[/code]

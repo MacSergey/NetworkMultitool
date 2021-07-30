@@ -25,7 +25,7 @@ namespace NetworkMultitool
 
         public override string NameRaw => "Network Multitool";
         public override string Description => !IsBeta ? Localize.Mod_Description : CommonLocalize.Mod_DescriptionBeta;
-        protected override ulong StableWorkshopId => 0ul;
+        protected override ulong StableWorkshopId => 2560782729ul;
         protected override ulong BetaWorkshopId => 2556133736ul;
 
 #if BETA

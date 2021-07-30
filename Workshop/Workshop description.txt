@@ -1,0 +1,58 @@
+[HR][/HR]
+[img]https://i.imgur.com/4bLVAsL.png[/img]
+[code][h1]Overview[/h1]
+[list][h2][/h2][/list]
+[/code]
+
+[h1]What’s Included[/h1]
+[list] 
+[*] Add node mode: add node to exist segment
+[*] Remove node mode: remove node and join segments
+[*] Union nodes mode: union two nodes in one
+[*] Intersect segments mode: make node in segment intersection point
+[*] Align in line mode: Align selected nodes to smooth line
+[*] Slope nodes mode: 
+[*] Create loop mode:
+[*] Create connection mode:
+[/list]
+
+[img]https://i.imgur.com/8Ff2swh.png[/img]
+
+[HR][/HR] 
+[h1]How activate[/h1]
+[olist]
+[*] Press Ctrl+T (You can change binding shortcut in mod settings)
+[*] Open Road panel and press button
+[*] Use [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2255219025]UnifiedUI[/url] mod
+[/olist]
+
+[HR][/HR]
+[h1]Join to discord for discussion and support[/h1]
+[url=https://discord.gg/NnwhuBKMqj][img]https://i.imgur.com/bnDNN2x.png[/img][/url]
+
+[HR][/HR] 
+[h1]If you like Network Multitool, you can support me[/h1]
+
+[url=https://www.paypal.me/macsergey][img]https://i.imgur.com/vtwKnVr.png[/img][/url][url=https://www.patreon.com/MacSergey][img]https://i.imgur.com/aMLNy32.png[/img][/url]
+
+[HR][/HR]
+[h1]Source code[/h1]
+[url=https://github.com/MacSergey/NetworkMultitool][img]https://i.imgur.com/DczUXYq.png[/img][/url]
+
+[HR][/HR]
+[h1]Translations[/h1]
+If you want to help improve existing translations or you want to translate into your own language (ask to add it to the translation project).
+[url=https://crowdin.com/project/macsergey-other-mods][img]https://i.imgur.com/uG2NKvG.png[/img][/url]
+
+[HR][/HR]
+[h1]Thank you for your help in translation:[/h1]
+[list]
+[*] [url=https://steamcommunity.com/profiles/76561198855893485]Almi[/url] (Spanish translation)
+[*] [url=https://steamcommunity.com/id/chameleonlifede/]Chamëleon[/url] (German translation)
+[*] [url=https://steamcommunity.com/id/citadino/]Citadino[/url] (Spanish translation)
+[*] [url=https://steamcommunity.com/id/claude_speed_]Claude_Speed[/url] (Chinese translation)
+[*] raistlin46 (Italian translation)
+[*] [url=https://steamcommunity.com/id/shg166yh/]shg166[/url] (Japanese translation)
+[*] [url=https://steamcommunity.com/profiles/76561198076859879/]Sheep[/url] (Workshop preview, bunner, icon)
+[*] [url=https://steamcommunity.com/id/mrwoozie/]Woozie[/url] (Polish translation)
+[/list]

@@ -29,7 +29,8 @@ namespace NetworkMultitool.UI
         {
             get
             {
-                var mouse = SingletonTool<NetworkMultitoolTool>.Instance.MousePosition;
+                var uiView = UIView.GetAView();
+                var mouse = uiView.ScreenPointToGUI(Input.mousePosition / uiView.inputScale);
                 return (isVisible && this.IsHover(mouse)) || (parent.isVisible && parent.IsHover(mouse));
             }
         }

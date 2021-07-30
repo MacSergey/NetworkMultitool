@@ -188,7 +188,7 @@
   <Import Project="..\ModsCommon\LocalizeShared\LocalizeShared.zh-CN.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup Condition="'$(Configuration)' == 'Stable Release' OR '$(Configuration)' == 'Stable Debug'">
-    <WorkshopId>0</WorkshopId>
+    <WorkshopId>2560782729</WorkshopId>
     <Type>Stable</Type>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Beta Release' OR '$(Configuration)' == 'Beta Debug'">
