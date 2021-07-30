@@ -97,19 +97,20 @@ namespace NetworkMultitool
 
         public static IEnumerable<CodeInstruction> FineRoadToolTranspiler(ILGenerator generator, IEnumerable<CodeInstruction> instructions)
         {
-            var patched = false;
-            foreach(var instruction in instructions)
+            var enabledProperty = AccessTools.PropertyGetter(typeof(UnityEngine.Behaviour), nameof(UnityEngine.Behaviour.enabled));
+            var netToolField = AccessTools.Field(Type.GetType("FineRoadTool.FineRoadTool"), "m_netTool");
+            var prev = default(CodeInstruction);
+            foreach (var instruction in instructions)
             {
                 yield return instruction;
-
-                if (!patched && instruction.opcode == OpCodes.Brtrue_S)
+                if(prev != null && prev.opcode == OpCodes.Ldfld && prev.operand == netToolField && instruction.opcode == OpCodes.Callvirt && instruction.operand == enabledProperty)
                 {
-                    yield return new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(Patcher), nameof(Enabled)));
-                    yield return instruction;
+                    yield return new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(Patcher), nameof(Patcher.Enabled)));
                 }
+                prev = instruction;
             }
         }
-        private static bool Enabled() => SingletonTool<NetworkMultitoolTool>.Instance.enabled;
+        private static bool Enabled(bool netToolEnabled) => netToolEnabled || SingletonTool<NetworkMultitoolTool>.Instance.enabled;
     }
     public class LoadingExtension : BaseLoadingExtension<Mod>
     {
