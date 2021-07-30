@@ -121,7 +121,7 @@
     <value>Netzwerk-Knoten hinzufügen</value>
   </data>
   <data name="Mode_AddNode_Info_ClickToAdd" xml:space="preserve">
-    <value>Click to add node</value>
+    <value>Klicken, um einen Netzwerk-Knoten einzufügen</value>
   </data>
   <data name="Mode_AddNode_Info_SelectToAdd" xml:space="preserve">
     <value>Segment zum Hinzufügen eines Netzwerk-Knotens auswählen</value>
@@ -170,7 +170,7 @@ Zu nah an einem anderen Netzwerk-Knoten</value>
     <value>Drücke {0} zum Erstellen</value>
   </data>
   <data name="Mode_Info_CurveDurection" xml:space="preserve">
-    <value>Click on node to change curve direction</value>
+    <value>Klicke auf den Netzwerk-Knoten um die Kurvenrichtung zu ändern</value>
   </data>
   <data name="Mode_Info_DecreaseAllRadius" xml:space="preserve">
     <value>Drücke {0}, um alle Radien zu verringern</value>
@@ -179,7 +179,7 @@ Zu nah an einem anderen Netzwerk-Knoten</value>
     <value>Drücke {0}, um beide Radien zu verringern</value>
   </data>
   <data name="Mode_Info_DecreaseOneRadius" xml:space="preserve">
-    <value>Press {0} to decrease one radius</value>
+    <value>Drücke {0}, um einen Radius zu verringern</value>
   </data>
   <data name="Mode_Info_DecreaseRadius" xml:space="preserve">
     <value>Drücke {0}, um den Radius zu verringern</value>
@@ -191,7 +191,7 @@ Zu nah an einem anderen Netzwerk-Knoten</value>
     <value>Drücke {0}, um beide Radien zu vergrößern</value>
   </data>
   <data name="Mode_Info_IncreaseOneRadius" xml:space="preserve">
-    <value>Press {0} to increase one radius</value>
+    <value>Drücke {0}, um einen Radius zu vergrößern</value>
   </data>
   <data name="Mode_Info_IncreaseRadius" xml:space="preserve">
     <value>Drücke {0}, um den Radius zu vergrößern</value>
@@ -228,7 +228,7 @@ Zu nah an einem anderen Netzwerk-Knoten</value>
 da er nicht mit anderen verbunden ist</value>
   </data>
   <data name="Mode_NodeLine_Info_SelectNode" xml:space="preserve">
-    <value>Select node to add it to order</value>
+    <value>Netzwerk-Knoten auswählen um ihn zur Reihenfolge hinzuzufügen</value>
   </data>
   <data name="Mode_PercentagesFormat" xml:space="preserve">
     <value>{0}%</value>
@@ -267,16 +267,16 @@ da er nicht mit anderen verbunden ist</value>
     <value>Ziel-Netzwerk-Knoten auswählen</value>
   </data>
   <data name="Mode_UnionNode_Info_TooFar" xml:space="preserve">
-    <value>Nodes too far from each other</value>
+    <value>Die Netzwerk-Knoten sind zu weit voneinander entfernt</value>
   </data>
   <data name="Mod_Description" xml:space="preserve">
-    <value>Many different tools for working with networks</value>
+    <value>Viele verschiedene Werkzeuge für die Arbeit mit Netzwerken</value>
   </data>
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>Panel automatisch ausblenden</value>
   </data>
   <data name="Settings_SegmentLength" xml:space="preserve">
-    <value>Max Segment Length</value>
+    <value>Maximale Segmentlänge</value>
   </data>
   <data name="Settings_SlopeUnit" xml:space="preserve">
     <value>Maßeinheit für Gefälle</value>
