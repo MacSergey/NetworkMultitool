@@ -15,6 +15,7 @@ namespace NetworkMultitool
     public abstract class BaseCreateMode : BaseNetworkMultitoolMode
     {
         protected override bool IsReseted => !IsFirst;
+        protected override bool CanSwitchUnderground => !IsBoth;
 
         protected NetworkMultitoolShortcut Enter { get; }
         protected NetworkMultitoolShortcut Plus { get; }
@@ -28,7 +29,7 @@ namespace NetworkMultitool
         protected override Color32 NodeColor => Colors.Green;
 
         protected override bool IsValidSegment(ushort segmentId) => !IsBoth && segmentId != First?.Id && segmentId != Second?.Id;
-        protected override bool IsValidNode(ushort nodeId) => IsBoth && (First.Id.GetSegment().Contains(nodeId) || Second.Id.GetSegment().Contains(nodeId));
+        protected override bool IsValidNode(ushort nodeId) => base.IsValidNode(nodeId) && IsBoth && (First.Id.GetSegment().Contains(nodeId) || Second.Id.GetSegment().Contains(nodeId));
 
         public override IEnumerable<NetworkMultitoolShortcut> Shortcuts
         {
@@ -80,6 +81,8 @@ namespace NetworkMultitool
             First = null;
             Second = null;
             State = Result.None;
+
+            ResetParams();
         }
         protected virtual void ResetParams()
         {
@@ -116,7 +119,7 @@ namespace NetworkMultitool
             var curveLenght = radius * Mathf.Abs(angle);
 
             var minByLenght = Mathf.CeilToInt(curveLenght / 50f);
-            var maxByLenght = Mathf.CeilToInt(curveLenght / 80f);
+            var maxByLenght = Mathf.CeilToInt(curveLenght / Settings.SegmentLenght);
             var maxByAngle = Mathf.CeilToInt(Mathf.Abs(angle) / Mathf.PI * 3);
 
             var curveCount = Math.Max(maxByLenght, Mathf.Min(minByLenght, maxByAngle));
@@ -131,7 +134,7 @@ namespace NetworkMultitool
         protected static IEnumerable<Point> GetStraightParts(StraightTrajectory straight)
         {
             var lenght = straight.Length;
-            var count = Mathf.CeilToInt(lenght / 80f);
+            var count = Mathf.CeilToInt(lenght / Settings.SegmentLenght);
             for (var i = 1; i < count; i += 1)
             {
                 var point = new Point(straight.Position(1f / count * i), straight.Direction);
@@ -153,20 +156,24 @@ namespace NetworkMultitool
             }
             else if (IsHoverNode)
             {
-                var firstSegment = First.Id.GetSegment();
-                var secondSegment = Second.Id.GetSegment();
+                ref var firstSegment = ref First.Id.GetSegment();
+                ref var secondSegment = ref Second.Id.GetSegment();
 
                 if (firstSegment.Contains(HoverNode.Id))
-                {
-                    IsFirstStart = firstSegment.IsStartNode(HoverNode.Id);
-                    State = Result.None;
-                }
+                    SetFirstNode(ref firstSegment, HoverNode.Id);
                 else if (secondSegment.Contains(HoverNode.Id))
-                {
-                    IsSecondStart = secondSegment.IsStartNode(HoverNode.Id);
-                    State = Result.None;
-                }
+                    SetSecondNode(ref secondSegment, HoverNode.Id);
             }
+        }
+        protected virtual void SetFirstNode(ref NetSegment segment, ushort nodeId)
+        {
+            IsFirstStart = segment.IsStartNode(nodeId);
+            State = Result.None;
+        }
+        protected virtual void SetSecondNode(ref NetSegment segment, ushort nodeId)
+        {
+            IsSecondStart = segment.IsStartNode(nodeId);
+            State = Result.None;
         }
         public override void OnSecondaryMouseClicked()
         {
@@ -230,7 +237,7 @@ namespace NetworkMultitool
                 var info = Info;
                 RenderCalculatedOverlay(cameraInfo, info);
 
-                var data = new OverlayData(cameraInfo) { Color = Colors.Yellow, Width = info.m_halfWidth * 2f, Cut = true };
+                var data = new OverlayData(cameraInfo) { Color = Colors.Yellow, Width = info.m_halfWidth * 2f, Cut = true, RenderLimit = Underground };
                 for (var i = 1; i < Points.Count; i += 1)
                 {
                     var trajectory = new BezierTrajectory(Points[i - 1].Position, Points[i - 1].Direction, Points[i].Position, -Points[i].Direction);
@@ -251,11 +258,11 @@ namespace NetworkMultitool
         protected void RenderRadius(RenderManager.CameraInfo cameraInfo, NetInfo info, Vector3 center, Vector3 curve, float radius, Color color)
         {
             var startBezier = new StraightTrajectory(curve, center).Cut(info.m_halfWidth / radius, 1f);
-            startBezier.Render(new OverlayData(cameraInfo) { Color = color });
+            startBezier.Render(new OverlayData(cameraInfo) { Color = color, RenderLimit = Underground });
         }
         protected void RenderCenter(RenderManager.CameraInfo cameraInfo, Vector3 center, Color color)
         {
-            center.RenderCircle(new OverlayData(cameraInfo) { Color = color }, 5f, 0f);
+            center.RenderCircle(new OverlayData(cameraInfo) { Color = color, RenderLimit = Underground }, 5f, 0f);
         }
 
         protected enum Result

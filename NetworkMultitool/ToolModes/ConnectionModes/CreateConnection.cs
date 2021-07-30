@@ -57,6 +57,8 @@ namespace NetworkMultitool
         }
 
         private bool Select { get; set; }
+        private bool? FirstSide { get; set; }
+        private bool? SecondSide { get; set; }
         private float? FirstRadius { get; set; }
         private float? SecondRadius { get; set; }
         private Vector3 FirstCenter { get; set; }
@@ -78,25 +80,29 @@ namespace NetworkMultitool
             if (!IsFirst)
             {
                 if (!IsHoverSegment)
-                    return Localize.Mode_Info_SelectFirstSegment;
+                    return Localize.Mode_Info_SelectFirstSegment + UndergroundInfo;
                 else
-                    return Localize.Mode_Info_ClickFirstSegment + GetStepOverInfo();
+                    return Localize.Mode_Info_ClickFirstSegment + StepOverInfo;
             }
             else if (!IsSecond)
             {
                 if (!IsHoverSegment)
-                    return Localize.Mode_Info_SelectSecondSegment;
+                    return Localize.Mode_Info_SelectSecondSegment + UndergroundInfo;
                 else
-                    return Localize.Mode_Info_ClickSecondSegment + GetStepOverInfo();
+                    return Localize.Mode_Info_ClickSecondSegment + StepOverInfo;
             }
             else if (State == Result.BigRadius)
                 return Localize.Mode_Info_RadiusTooBig;
             else if (State == Result.WrongShape)
                 return Localize.Mode_Info_WrongShape;
             else if (State != Result.Calculated)
-                return Localize.Mode_Info_ChooseDirestion;
+                return
+                    Localize.Mode_Info_ChooseDirestion + "\n" +
+                    Localize.Mode_Info_CurveDurection;
             else
                 return
+                    Localize.Mode_Info_ChooseDirestion + "\n" +
+                    Localize.Mode_Info_CurveDurection + "\n\n" +
                     string.Format(Localize.Mode_Info_DecreaseBothRadius, Minus) + "\n" +
                     string.Format(Localize.Mode_Info_IncreaseBothRadius, Plus) + "\n" +
                     string.Format(Localize.Mode_Info_ChangeCircle, Tab) + "\n" +
@@ -115,6 +121,8 @@ namespace NetworkMultitool
             base.ResetParams();
             FirstRadius = null;
             SecondRadius = null;
+            FirstSide = null;
+            SecondSide = null;
         }
         public override void OnToolUpdate()
         {
@@ -123,12 +131,12 @@ namespace NetworkMultitool
             if (State == Result.Calculated)
             {
                 FirstLabel.isVisible = true;
-                FirstLabel.text = $"{GetRadiusString(FirstRadius.Value)}\n{GetAngleString(FirstAngle)}";
+                FirstLabel.text = $"{GetRadiusString(FirstRadius.Value)}\n{GetAngleString(Mathf.Abs(FirstAngle))}";
                 FirstLabel.WorldPosition = FirstCenter + FirstCenterDir * 5f;
                 FirstLabel.Direction = FirstCenterDir;
 
                 SecondLabel.isVisible = true;
-                SecondLabel.text = $"{GetRadiusString(SecondRadius.Value)}\n{GetAngleString(SecondAngle)}";
+                SecondLabel.text = $"{GetRadiusString(SecondRadius.Value)}\n{GetAngleString(Mathf.Abs(SecondAngle))}";
                 SecondLabel.WorldPosition = SecondCenter + SecondCenterDir * 5f;
                 SecondLabel.Direction = SecondCenterDir;
             }
@@ -144,36 +152,15 @@ namespace NetworkMultitool
             FirstStartCurve = firstTrajectory.StartPosition;
             SecondStartCurve = secondTrajectory.StartPosition;
 
-            var connect = new StraightTrajectory(firstTrajectory.StartPosition.MakeFlat(), secondTrajectory.EndPosition.MakeFlat());
+            GetSides(firstTrajectory, secondTrajectory);
 
-            var firstCross = CrossXZ(firstTrajectory.Direction, connect.Direction) >= 0;
-            var secondCross = CrossXZ(secondTrajectory.Direction, -connect.Direction) >= 0;
+            var firstStartRadiusDir = -firstTrajectory.Direction.Turn90(FirstSide.Value);
+            var secondStartRadiusDir = -secondTrajectory.Direction.Turn90(SecondSide.Value);
 
-            var firstStartRadiusDir = -firstTrajectory.Direction.Turn90(firstCross);
-            var secondStartRadiusDir = -secondTrajectory.Direction.Turn90(secondCross);
-
-            FirstRadius = Mathf.Clamp(FirstRadius ?? 50f, MinPossibleRadius, 1000f);
-            SecondRadius = Mathf.Clamp(SecondRadius ?? 50f, MinPossibleRadius, 1000f);
-
-            FirstCenter = FirstStartCurve - firstStartRadiusDir * FirstRadius.Value;
-            SecondCenter = SecondStartCurve - secondStartRadiusDir * SecondRadius.Value;
+            GetRadii(firstStartRadiusDir, secondStartRadiusDir);
 
             var centerConnect = new StraightTrajectory(FirstCenter.MakeFlat(), SecondCenter.MakeFlat());
-            if (firstCross == secondCross)
-            {
-                var delta = centerConnect.Length / (FirstRadius.Value + SecondRadius.Value) * FirstRadius.Value;
-                var deltaAngle = Mathf.Acos(FirstRadius.Value / delta);
-
-                FirstAngle = GetAngle(firstStartRadiusDir, centerConnect.Direction, deltaAngle, firstCross);
-                SecondAngle = GetAngle(secondStartRadiusDir, -centerConnect.Direction, deltaAngle, secondCross);
-            }
-            else
-            {
-                var deltaAngle = Mathf.Asin(Mathf.Abs(FirstRadius.Value - SecondRadius.Value) / centerConnect.Length);
-
-                FirstAngle = GetAngle(firstStartRadiusDir, centerConnect.Direction, Mathf.PI / 2f + Mathf.Sign(SecondRadius.Value - FirstRadius.Value) * deltaAngle, firstCross);
-                SecondAngle = GetAngle(secondStartRadiusDir, -centerConnect.Direction, Mathf.PI / 2f + Mathf.Sign(FirstRadius.Value - SecondRadius.Value) * deltaAngle, secondCross);
-            }
+            GetAngles(centerConnect, firstStartRadiusDir, secondStartRadiusDir);
 
             var firstEndRadiusDir = firstStartRadiusDir.TurnRad(FirstAngle, true);
             var secondEndRadiusDir = secondStartRadiusDir.TurnRad(SecondAngle, true);
@@ -181,37 +168,63 @@ namespace NetworkMultitool
             FirstEndCurve = FirstCenter + firstEndRadiusDir * FirstRadius.Value;
             SecondEndCurve = SecondCenter + secondEndRadiusDir * SecondRadius.Value;
 
-            if (firstCross == secondCross)
-            {
-                if (centerConnect.Length < FirstRadius.Value + SecondRadius.Value)
-                {
-                    State = Result.BigRadius;
-                    return new Point[0];
-                }
-            }
-            else
-            {
-                if (centerConnect.Length + FirstRadius.Value < SecondRadius.Value || centerConnect.Length + SecondRadius.Value < FirstRadius.Value)
-                {
-                    State = Result.WrongShape;
-                    return new Point[0];
-                }
-            }
+            if (!CheckRadii(centerConnect))
+                return new Point[0];
 
             var connectEnds = new StraightTrajectory(FirstEndCurve.MakeFlat(), SecondEndCurve.MakeFlat(), false);
-            if (firstCross != secondCross)
-            {
-                if (Mathf.Abs(FirstAngle) < Mathf.PI && Intersection.CalculateSingle(firstTrajectory, connectEnds, out var firstT, out _) && firstT < 0f)
-                    FirstAngle -= Mathf.Sign(FirstAngle) * 2 * Mathf.PI;
-                if (Mathf.Abs(SecondAngle) < Mathf.PI && Intersection.CalculateSingle(secondTrajectory, connectEnds, out var secondT, out _) && secondT < 0f)
-                    SecondAngle -= Mathf.Sign(SecondAngle) * 2 * Mathf.PI;
-            }
+            FixAngles(firstTrajectory, secondTrajectory, connectEnds);
 
             FirstCenterDir = (connectEnds.Direction - firstTrajectory.Direction).normalized;
             SecondCenterDir = (-connectEnds.Direction - secondTrajectory.Direction).normalized;
 
             State = Result.Calculated;
             return GetParts(firstTrajectory, secondTrajectory, connectEnds);
+        }
+        private void GetSides(StraightTrajectory firstTrajectory, StraightTrajectory secondTrajectory)
+        {
+            if (FirstSide != null && SecondSide != null)
+                return;
+
+            var connect = new StraightTrajectory(firstTrajectory.StartPosition.MakeFlat(), secondTrajectory.EndPosition.MakeFlat());
+
+            FirstSide = CrossXZ(firstTrajectory.Direction, connect.Direction) >= 0;
+            SecondSide = CrossXZ(secondTrajectory.Direction, -connect.Direction) >= 0;
+            var firstDot = DotXZ(firstTrajectory.Direction, connect.Direction) >= 0;
+            var secondDot = DotXZ(secondTrajectory.Direction, -connect.Direction) >= 0;
+
+            if (firstDot != secondDot && FirstSide != SecondSide)
+            {
+                if (!firstDot)
+                    FirstSide = !FirstSide;
+                else if (!secondDot)
+                    SecondSide = !SecondSide;
+            }
+        }
+        private void GetRadii(Vector3 firstRadiusDir, Vector3 secondRadiusDir)
+        {
+            FirstRadius = Mathf.Clamp(FirstRadius ?? 50f, MinPossibleRadius, 1000f);
+            SecondRadius = Mathf.Clamp(SecondRadius ?? 50f, MinPossibleRadius, 1000f);
+
+            FirstCenter = FirstStartCurve - firstRadiusDir * FirstRadius.Value;
+            SecondCenter = SecondStartCurve - secondRadiusDir * SecondRadius.Value;
+        }
+        private void GetAngles(StraightTrajectory centerConnect, Vector3 firstRadiusDir, Vector3 secondRadiusDir)
+        {
+            if (FirstSide == SecondSide)
+            {
+                var delta = centerConnect.Length / (FirstRadius.Value + SecondRadius.Value) * FirstRadius.Value;
+                var deltaAngle = Mathf.Acos(FirstRadius.Value / delta);
+
+                FirstAngle = GetAngle(firstRadiusDir, centerConnect.Direction, deltaAngle, FirstSide.Value);
+                SecondAngle = GetAngle(secondRadiusDir, -centerConnect.Direction, deltaAngle, SecondSide.Value);
+            }
+            else
+            {
+                var deltaAngle = Mathf.Asin(Mathf.Abs(FirstRadius.Value - SecondRadius.Value) / centerConnect.Length);
+
+                FirstAngle = GetAngle(firstRadiusDir, centerConnect.Direction, Mathf.PI / 2f + Mathf.Sign(SecondRadius.Value - FirstRadius.Value) * deltaAngle, FirstSide.Value);
+                SecondAngle = GetAngle(secondRadiusDir, -centerConnect.Direction, Mathf.PI / 2f + Mathf.Sign(FirstRadius.Value - SecondRadius.Value) * deltaAngle, SecondSide.Value);
+            }
 
             static float GetAngle(Vector3 radiusDir, Vector3 connectDir, float deltaAngle, bool cross)
             {
@@ -222,7 +235,33 @@ namespace NetworkMultitool
                 return angle;
             }
         }
-
+        private bool CheckRadii(StraightTrajectory centerConnect)
+        {
+            if (FirstSide.Value == SecondSide.Value)
+            {
+                if (centerConnect.Length < FirstRadius.Value + SecondRadius.Value)
+                {
+                    State = Result.BigRadius;
+                    return false;
+                }
+            }
+            else
+            {
+                if (centerConnect.Length + FirstRadius.Value < SecondRadius.Value || centerConnect.Length + SecondRadius.Value < FirstRadius.Value)
+                {
+                    State = Result.WrongShape;
+                    return false;
+                }
+            }
+            return true;
+        }
+        private void FixAngles(StraightTrajectory firstTrajectory, StraightTrajectory secondTrajectory, StraightTrajectory connectEnds)
+        {
+            if (Mathf.Abs(FirstAngle) < Mathf.PI && Intersection.CalculateSingle(firstTrajectory, connectEnds, out var firstT, out _) && firstT < 0f)
+                FirstAngle = FirstAngle - Mathf.Sign(FirstAngle) * 2 * Mathf.PI;
+            if (Mathf.Abs(SecondAngle) < Mathf.PI && Intersection.CalculateSingle(secondTrajectory, connectEnds, out var secondT, out _) && secondT < 0f)
+                SecondAngle = SecondAngle - Mathf.Sign(SecondAngle) * 2 * Mathf.PI;
+        }
         private IEnumerable<Point> GetParts(StraightTrajectory firstTrajectory, StraightTrajectory secondTrajectory, StraightTrajectory centerConnection)
         {
             foreach (var point in GetCurveParts(FirstCenter, FirstStartCurve - FirstCenter, firstTrajectory.Direction, FirstRadius.Value, FirstAngle))
@@ -242,6 +281,18 @@ namespace NetworkMultitool
                 yield return point;
         }
 
+        protected override void SetFirstNode(ref NetSegment segment, ushort nodeId)
+        {
+            base.SetFirstNode(ref segment, nodeId);
+            if (FirstSide.HasValue)
+                FirstSide = !FirstSide;
+        }
+        protected override void SetSecondNode(ref NetSegment segment, ushort nodeId)
+        {
+            base.SetSecondNode(ref segment, nodeId);
+            if (SecondSide.HasValue)
+                SecondSide = !SecondSide;
+        }
         protected override void PressPlus()
         {
             FirstRadius = PressPlus(FirstRadius);
@@ -302,7 +353,7 @@ namespace NetworkMultitool
 
             RenderCenter(cameraInfo, info, FirstCenter, FirstStartCurve, FirstEndCurve, FirstRadius.Value);
             RenderCenter(cameraInfo, info, SecondCenter, SecondStartCurve, SecondEndCurve, SecondRadius.Value);
-            (Select ? FirstCenter : SecondCenter).RenderCircle(new OverlayData(cameraInfo), 7f, 5f);
+            (Select ? FirstCenter : SecondCenter).RenderCircle(new OverlayData(cameraInfo) { RenderLimit = Underground }, 7f, 5f);
 
             //new StraightTrajectory(FirstStartCurve, FirstEndCurve).Render(new OverlayData(cameraInfo));
             //new StraightTrajectory(SecondStartCurve, SecondEndCurve).Render(new OverlayData(cameraInfo));
@@ -312,8 +363,8 @@ namespace NetworkMultitool
         {
             if (State == Result.BigRadius || State == Result.SmallRadius || State == Result.WrongShape)
             {
-                FirstCenter.RenderCircle(new OverlayData(cameraInfo) { Width = FirstRadius.Value * 2f, Color = Color.red });
-                SecondCenter.RenderCircle(new OverlayData(cameraInfo) { Width = SecondRadius.Value * 2f, Color = Color.red });
+                FirstCenter.RenderCircle(new OverlayData(cameraInfo) { Width = FirstRadius.Value * 2f, Color = Color.red, RenderLimit = Underground });
+                SecondCenter.RenderCircle(new OverlayData(cameraInfo) { Width = SecondRadius.Value * 2f, Color = Color.red, RenderLimit = Underground });
 
                 RenderRadius(cameraInfo, info, FirstCenter, FirstStartCurve, FirstRadius.Value, Colors.Red);
                 RenderCenter(cameraInfo, FirstCenter, Colors.Red);
@@ -321,7 +372,7 @@ namespace NetworkMultitool
                 RenderRadius(cameraInfo, info, SecondCenter, SecondStartCurve, SecondRadius.Value, Colors.Red);
                 RenderCenter(cameraInfo, SecondCenter, Colors.Red);
 
-                (Select ? FirstCenter : SecondCenter).RenderCircle(new OverlayData(cameraInfo), 7f, 5f);
+                (Select ? FirstCenter : SecondCenter).RenderCircle(new OverlayData(cameraInfo) { RenderLimit = Underground }, 7f, 5f);
             }
         }
     }

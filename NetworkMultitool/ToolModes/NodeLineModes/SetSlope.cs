@@ -78,7 +78,7 @@ namespace NetworkMultitool
 
             label.isVisible = true;
             var sign = slope > 0 ? "+" : (slope < 0f ? "-" : string.Empty);
-            var value = Settings.SlopeUnite == 0 ? GetPercentagesString(slope) : GetAngleString(slope, "0.0");
+            var value = Settings.SlopeUnite == 0 ? GetPercentagesString(Mathf.Abs(slope)) : GetAngleString(Mathf.Abs(slope), "0.0");
             label.text = sign + value;
             label.WorldPosition = bezier.Position(0.5f) + new Vector3(0f, 5f, 0f);
         }

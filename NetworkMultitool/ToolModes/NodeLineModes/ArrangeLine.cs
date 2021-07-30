@@ -22,6 +22,11 @@ namespace NetworkMultitool
 
         private void Arrange(ushort[] nodeIds)
         {
+            var segmentIds = new ushort[nodeIds.Length - 1];
+            for (var i = 1; i < nodeIds.Length; i += 1)
+                NetExtension.GetCommon(nodeIds[i - 1], nodeIds[i], out segmentIds[i - 1]);
+            var terrainRect = GetTerrainRect(segmentIds);
+
             var startPos = nodeIds[0].GetNode().m_position;
             var endPos = nodeIds[nodeIds.Length - 1].GetNode().m_position;
             var startDir = GetDirection(nodeIds[0], nodeIds[1], out var firstCount).normalized;
@@ -52,36 +57,38 @@ namespace NetworkMultitool
             foreach(var nodeId in nodeIds)
                 NetManager.instance.UpdateNode(nodeId);
 
-            static Vector3 GetDirection(ushort nodeId, ushort anotherNodeId, out int segmentCount)
-            {
-                NetExtension.GetCommon(nodeId, anotherNodeId, out var commonId);
-                var segmentIds = nodeId.GetNode().SegmentIds().ToArray();
-                segmentCount = segmentIds.Length;
-                if (segmentIds.Length == 1)
-                {
-                    var segment = commonId.GetSegment();
-                    return Vector3.zero;
-                }
-                else
-                {
-                    var anotherSegmentId = segmentIds.FirstOrDefault(i => i != commonId);
-                    var segment = anotherSegmentId.GetSegment();
-                    return -(segment.IsStartNode(nodeId) ? segment.m_startDirection : segment.m_endDirection);
-                }
-            }
-            static void SetDirection(ushort nodeId, ushort anotherNodeId, Vector3 direction)
-            {
-                if (!NetExtension.GetCommon(nodeId, anotherNodeId, out var commonId))
-                    return;
 
-                ref var segment = ref commonId.GetSegment();
-                if (segment.IsStartNode(nodeId))
-                    segment.m_startDirection = direction;
-                else
-                    segment.m_endDirection = direction;
-
-                NetManager.instance.UpdateSegmentRenderer(commonId, true);
+            UpdateTerrain(terrainRect);
+        }
+        static Vector3 GetDirection(ushort nodeId, ushort anotherNodeId, out int segmentCount)
+        {
+            NetExtension.GetCommon(nodeId, anotherNodeId, out var commonId);
+            var segmentIds = nodeId.GetNode().SegmentIds().ToArray();
+            segmentCount = segmentIds.Length;
+            if (segmentIds.Length == 1)
+            {
+                var segment = commonId.GetSegment();
+                return Vector3.zero;
             }
+            else
+            {
+                var anotherSegmentId = segmentIds.FirstOrDefault(i => i != commonId);
+                var segment = anotherSegmentId.GetSegment();
+                return -(segment.IsStartNode(nodeId) ? segment.m_startDirection : segment.m_endDirection);
+            }
+        }
+        static void SetDirection(ushort nodeId, ushort anotherNodeId, Vector3 direction)
+        {
+            if (!NetExtension.GetCommon(nodeId, anotherNodeId, out var commonId))
+                return;
+
+            ref var segment = ref commonId.GetSegment();
+            if (segment.IsStartNode(nodeId))
+                segment.m_startDirection = direction;
+            else
+                segment.m_endDirection = direction;
+
+            NetManager.instance.UpdateSegmentRenderer(commonId, true);
         }
     }
 }

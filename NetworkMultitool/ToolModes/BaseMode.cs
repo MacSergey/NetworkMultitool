@@ -19,6 +19,7 @@ namespace NetworkMultitool
         public abstract ToolModeType Type { get; }
         public string Title => SingletonMod<Mod>.Instance.GetLocalizeString(Type.GetAttr<DescriptionAttribute, ToolModeType>().Description);
         protected abstract bool IsReseted { get; }
+        protected virtual bool CanSwitchUnderground => true;
 
         private List<ModeButton> Buttons { get; } = new List<ModeButton>();
         public NetworkMultitoolShortcut ActivationShortcut => NetworkMultitoolTool.ModeShortcuts[Type];
@@ -31,7 +32,7 @@ namespace NetworkMultitool
         }
         protected List<InfoLabel> Labels { get; } = new List<InfoLabel>();
         protected static string GetRadiusString(float radius, string format = "0.0") => string.Format(Localize.Mode_RadiusFormat, radius.ToString(format));
-        protected static string GetAngleString(float angle, string format = "0") => string.Format(Localize.Mode_AngleFormat, (Mathf.Abs(angle) * Mathf.Rad2Deg).ToString(format));
+        protected static string GetAngleString(float angle, string format = "0") => string.Format(Localize.Mode_AngleFormat, (angle * Mathf.Rad2Deg).ToString(format));
         protected static string GetPercentagesString(float percent, string format = "0.0") => string.Format(Localize.Mode_PercentagesFormat, percent.ToString(format));
 
         public override void Activate(IToolMode prevMode)
@@ -43,7 +44,7 @@ namespace NetworkMultitool
         public override void Deactivate()
         {
             base.Deactivate();
-            foreach(var button in Buttons)
+            foreach (var button in Buttons)
                 button.Activate = false;
             ClearLabels();
         }
@@ -56,10 +57,13 @@ namespace NetworkMultitool
         {
             base.OnToolUpdate();
 
-            if (!Underground && Utility.OnlyShiftIsPressed)
-                Underground = true;
-            else if (Underground && !Utility.OnlyShiftIsPressed)
-                Underground = false;
+            if (CanSwitchUnderground)
+            {
+                if (!Underground && Utility.OnlyShiftIsPressed)
+                    Underground = true;
+                else if (Underground && !Utility.OnlyShiftIsPressed)
+                    Underground = false;
+            }
         }
         public override bool OnEscape()
         {
@@ -91,7 +95,8 @@ namespace NetworkMultitool
                 return $"{Title.ToUpper()}\n\n{info}";
         }
         protected virtual string GetInfo() => string.Empty;
-        protected string GetStepOverInfo() => NetworkMultitoolTool.SelectionStepOverShortcut.NotSet ? string.Empty : "\n\n" + string.Format(CommonLocalize.Tool_InfoSelectionStepOver, NetworkMultitoolTool.SelectionStepOverShortcut.InputKey);
+        protected string StepOverInfo => NetworkMultitoolTool.SelectionStepOverShortcut.NotSet ? string.Empty : "\n\n" + string.Format(CommonLocalize.Tool_InfoSelectionStepOver, NetworkMultitoolTool.SelectionStepOverShortcut.InputKey);
+        protected string UndergroundInfo => $"\n{Localize.Mode_Info_UndergroundMode}";
 
         protected override bool CheckSegment(ushort segmentId) => segmentId.GetSegment().m_flags.CheckFlags(0, NetSegment.Flags.Untouchable) && base.CheckSegment(segmentId);
 
@@ -118,6 +123,13 @@ namespace NetworkMultitool
                     new NodeSelection(segment.m_endNode).Render(data);
             }
         }
+        protected Rect GetTerrainRect(params ushort[] segmentIds) => segmentIds.Select(i => (ITrajectory)new BezierTrajectory(i)).GetRect();
+        protected void UpdateTerrain(params ushort[] segmentIds)
+        {
+            if (segmentIds.Length != 0)
+                UpdateTerrain(GetTerrainRect(segmentIds));
+        }
+        protected void UpdateTerrain(Rect rect) => TerrainModify.UpdateArea(rect.xMin, rect.yMin, rect.xMax, rect.yMax, true, true, false);
 
         protected InfoLabel AddLabel()
         {
@@ -133,7 +145,7 @@ namespace NetworkMultitool
         }
         private void ClearLabels()
         {
-            foreach(var label in Labels)
+            foreach (var label in Labels)
                 Destroy(label.gameObject);
 
             Labels.Clear();

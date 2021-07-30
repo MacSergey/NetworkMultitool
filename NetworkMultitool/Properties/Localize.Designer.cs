@@ -61,7 +61,7 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на .
+        ///   Ищет локализованную строку, похожую на Many different tools for working with networks.
         /// </summary>
         internal static string Mod_Description {
             get {
@@ -79,7 +79,7 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Click to insert node.
+        ///   Ищет локализованную строку, похожую на Click to add node.
         /// </summary>
         internal static string Mode_AddNode_Info_ClickToAdd {
             get {
@@ -224,6 +224,15 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Click on node to change curve direction.
+        /// </summary>
+        internal static string Mode_Info_CurveDurection {
+            get {
+                return ResourceManager.GetString("Mode_Info_CurveDurection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Press {0} to decrease all radii.
         /// </summary>
         internal static string Mode_Info_DecreaseAllRadius {
@@ -332,6 +341,15 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Hold Shift to underground mode.
+        /// </summary>
+        internal static string Mode_Info_UndergroundMode {
+            get {
+                return ResourceManager.GetString("Mode_Info_UndergroundMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Wrong shape.
         /// </summary>
         internal static string Mode_Info_WrongShape {
@@ -374,6 +392,15 @@ namespace NetworkMultitool {
         internal static string Mode_NodeLine_Info_NotConnected {
             get {
                 return ResourceManager.GetString("Mode_NodeLine_Info_NotConnected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Select node to add it to order.
+        /// </summary>
+        internal static string Mode_NodeLine_Info_SelectNode {
+            get {
+                return ResourceManager.GetString("Mode_NodeLine_Info_SelectNode", resourceCulture);
             }
         }
         
@@ -486,11 +513,29 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Nodes too far from each other.
+        /// </summary>
+        internal static string Mode_UnionNode_Info_TooFar {
+            get {
+                return ResourceManager.GetString("Mode_UnionNode_Info_TooFar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Auto hide modes panel.
         /// </summary>
         internal static string Settings_AutoHideModePanel {
             get {
                 return ResourceManager.GetString("Settings_AutoHideModePanel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Max Segment Length.
+        /// </summary>
+        internal static string Settings_SegmentLength {
+            get {
+                return ResourceManager.GetString("Settings_SegmentLength", resourceCulture);
             }
         }
         

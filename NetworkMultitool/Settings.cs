@@ -18,6 +18,7 @@ namespace NetworkMultitool
         public static SavedBool ShowToolTip { get; } = new SavedBool(nameof(ShowToolTip), SettingsFile, true, true);
         public static SavedBool AutoHideModePanel { get; } = new SavedBool(nameof(AutoHideModePanel), SettingsFile, true, true);
         public static SavedInt SlopeUnite { get; } = new SavedInt(nameof(SlopeUnite), SettingsFile, 0, true);
+        public static SavedInt SegmentLenght { get; } = new SavedInt(nameof(SegmentLenght), SettingsFile, 80, true);
 
         #endregion
 
@@ -40,6 +41,7 @@ namespace NetworkMultitool
             AddCheckBox(generalGroup, CommonLocalize.Settings_ShowTooltips, ShowToolTip);
             AddCheckBox(generalGroup, Localize.Settings_AutoHideModePanel, AutoHideModePanel, OnAutoHideChanged);
             AddCheckboxPanel(generalGroup, Localize.Settings_SlopeUnit, SlopeUnite, new string[] { Localize.Settings_SlopeUnitPercentages, Localize.Settings_SlopeUnitDegrees }, OnSlopeUniteChanged);
+            AddIntField(generalGroup, Localize.Settings_SegmentLength, SegmentLenght, 80, 50, 200);
 
             AddNotifications(GeneralTab);
 #if DEBUG
