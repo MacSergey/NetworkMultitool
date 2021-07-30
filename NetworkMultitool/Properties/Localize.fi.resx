@@ -118,117 +118,116 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Mode_AddNode" xml:space="preserve">
-    <value>Add node mode</value>
+    <value>Kahden tien risteyksetön välin lisäys</value>
   </data>
   <data name="Mode_AddNode_Info_ClickToAdd" xml:space="preserve">
-    <value>Click to add node</value>
+    <value>Lisää kahden tien risteyksetön väli napauttamalla</value>
   </data>
   <data name="Mode_AddNode_Info_SelectToAdd" xml:space="preserve">
-    <value>Select segment to add node</value>
+    <value>Valitse tie lisätäksesi risteyksetön väli</value>
   </data>
   <data name="Mode_AddNode_Info_TooCloseNode" xml:space="preserve">
-    <value>Can't add node
-Too close to nearby node</value>
+    <value>Risteystä ei voi lisätä
+Se on liian lähellä toista risteystä</value>
   </data>
   <data name="Mode_AngleFormat" xml:space="preserve">
     <value>{0}°</value>
   </data>
   <data name="Mode_ArrangeAtLine" xml:space="preserve">
-    <value>Arrange at line mode</value>
+    <value>Tien suoristus</value>
   </data>
   <data name="Mode_CreateConnection" xml:space="preserve">
-    <value>Create connection mode</value>
+    <value>Teiden yhdistys</value>
   </data>
   <data name="Mode_CreateLoop" xml:space="preserve">
-    <value>Create loop mode</value>
+    <value>Mutkan luominen</value>
   </data>
   <data name="Mode_CreateLoop_Info_Change" xml:space="preserve">
-    <value>Press {0} to change loop</value>
+    <value>Napauta {0} vaihtaaksesi kaarteen suunta</value>
   </data>
   <data name="Mode_Info_Apply" xml:space="preserve">
-    <value>Press {0} to apply</value>
+    <value>Aseta painamalla {0}</value>
   </data>
   <data name="Mode_Info_ChangeCircle" xml:space="preserve">
-    <value>Press {0} to switch selected circle</value>
+    <value>Paina {0} valitaksesi toinen ympyrä</value>
   </data>
   <data name="Mode_Info_ChooseDirestion" xml:space="preserve">
-    <value>Choose nodes to select create direction</value>
+    <value>Valitse suunta valitsemalla risteykset</value>
   </data>
   <data name="Mode_Info_ClickFirstSegment" xml:space="preserve">
-    <value>Click to select first segment</value>
+    <value>Napsauta valitaksesi ensimmäinen tie</value>
   </data>
   <data name="Mode_Info_ClickSecondSegment" xml:space="preserve">
-    <value>Click to select second segment</value>
+    <value>Napsauta valitaksesi toinen tie</value>
   </data>
   <data name="Mode_Info_ClickSelectNode" xml:space="preserve">
-    <value>Click to select node</value>
+    <value>Napauta valitaksesi risteyksen</value>
   </data>
   <data name="Mode_Info_ClickUnselectNode" xml:space="preserve">
-    <value>Click to unselect node</value>
+    <value>Napauta poistaaksesi risteyksen valinta</value>
   </data>
   <data name="Mode_Info_Create" xml:space="preserve">
-    <value>Press {0} to create</value>
+    <value>Luo painamalla {0}</value>
   </data>
   <data name="Mode_Info_CurveDurection" xml:space="preserve">
-    <value>Click on node to change curve direction</value>
+    <value>Napauta risteystä vaihtaaksesi kaarteen suunta</value>
   </data>
   <data name="Mode_Info_DecreaseAllRadius" xml:space="preserve">
-    <value>Press {0} to decrease all radii</value>
+    <value>Paina {0} pienentääksesi kaikkia säteitä</value>
   </data>
   <data name="Mode_Info_DecreaseBothRadius" xml:space="preserve">
-    <value>Press {0} to decrease both radii</value>
+    <value>Paina {0} pienentääksesi molempia säteitä</value>
   </data>
   <data name="Mode_Info_DecreaseOneRadius" xml:space="preserve">
-    <value>Press {0} to decrease one radius</value>
+    <value>Paina {0} pienentääksesi sädettä</value>
   </data>
   <data name="Mode_Info_DecreaseRadius" xml:space="preserve">
-    <value>Press {0} to decrease radius</value>
+    <value>Paina {0} pienentääksesi sädettä</value>
   </data>
   <data name="Mode_Info_IncreaseAllRadius" xml:space="preserve">
-    <value>Press {0} to increase all radii</value>
+    <value>Paina {0} suurentaaksesi kaikkia säteitä</value>
   </data>
   <data name="Mode_Info_IncreaseBothRadius" xml:space="preserve">
-    <value>Press {0} to increase both radii</value>
+    <value>Paina {0} suurentaaksesi molempia säteitä</value>
   </data>
   <data name="Mode_Info_IncreaseOneRadius" xml:space="preserve">
-    <value>Press {0} to increase one radius</value>
+    <value>Paina {0} suurentaaksesi sädettä</value>
   </data>
   <data name="Mode_Info_IncreaseRadius" xml:space="preserve">
-    <value>Press {0} to increase radius</value>
+    <value>Paina {0} suurentaaksesi sädettä</value>
   </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
-    <value>Radius too big</value>
+    <value>Liian suuri säde</value>
   </data>
   <data name="Mode_Info_RadiusTooSmall" xml:space="preserve">
-    <value>Radius too small</value>
+    <value>Liian pieni säde</value>
   </data>
   <data name="Mode_Info_SelectFirstSegment" xml:space="preserve">
-    <value>Select first segment</value>
+    <value>Valitse ensimmäinen tie</value>
   </data>
   <data name="Mode_Info_SelectSecondSegment" xml:space="preserve">
-    <value>Select second segment</value>
+    <value>Valitse toinen tie</value>
   </data>
   <data name="Mode_Info_UndergroundMode" xml:space="preserve">
-    <value>Hold Shift to underground mode</value>
+    <value>Pidä Shift-näppäintä pohjassa nähdäksesi maanalaiset tiet</value>
   </data>
   <data name="Mode_Info_WrongShape" xml:space="preserve">
-    <value>Wrong shape</value>
+    <value>Väärä muoto</value>
   </data>
   <data name="Mode_IntersectSegment" xml:space="preserve">
-    <value>Intersect segments mode</value>
+    <value>Teiden risteys</value>
   </data>
   <data name="Mode_IntersectSegment_Info_EdgeTooClose" xml:space="preserve">
-    <value>Edge of one segment is too close to end of second segment</value>
+    <value>Tie on liian lähellä toisen tien päätä</value>
   </data>
   <data name="Mode_IntersectSegment_Info_NotIntersect" xml:space="preserve">
-    <value>These segments are not intersect</value>
+    <value>Nämä tiet eivät risteä</value>
   </data>
   <data name="Mode_NodeLine_Info_NotConnected" xml:space="preserve">
-    <value>This node can't be selected
-because not connected with others</value>
+    <value>Tätä risteystä ei voi valita, koske se ei ole yhteydessä muihin</value>
   </data>
   <data name="Mode_NodeLine_Info_SelectNode" xml:space="preserve">
-    <value>Select node to add it to order</value>
+    <value>Valitse risteys lisätäksesi se</value>
   </data>
   <data name="Mode_PercentagesFormat" xml:space="preserve">
     <value>{0}%</value>
@@ -237,60 +236,60 @@ because not connected with others</value>
     <value>{0}m</value>
   </data>
   <data name="Mode_RemoveNode" xml:space="preserve">
-    <value>Remove node mode</value>
+    <value>Poista risteys</value>
   </data>
   <data name="Mode_RemoveNode_Info_NotAllow" xml:space="preserve">
-    <value>Not allow to remove this node</value>
+    <value>Tätä risteystä ei voi poistaa</value>
   </data>
   <data name="Mode_SlopeNode" xml:space="preserve">
-    <value>Set slope mode</value>
+    <value>Tasaa kaltevuus</value>
   </data>
   <data name="Mode_UnionNode" xml:space="preserve">
-    <value>Union nodes mode</value>
+    <value>Yhdistä risteykset</value>
   </data>
   <data name="Mode_UnionNode_Info_ClickSource" xml:space="preserve">
-    <value>Click to select source node</value>
+    <value>Napauta valitaksesi pääristeys</value>
   </data>
   <data name="Mode_UnionNode_Info_ClickUnion" xml:space="preserve">
-    <value>Click to union nodes</value>
+    <value>Napauta yhdistääksesi risteykset</value>
   </data>
   <data name="Mode_UnionNode_Info_NoCommon" xml:space="preserve">
-    <value>These nodes have common segment</value>
+    <value>Näillä risteyksillä on yhteinen tie</value>
   </data>
   <data name="Mode_UnionNode_Info_Overflow" xml:space="preserve">
-    <value>Total number of nodes must be no more then 8</value>
+    <value>Risteysten kokonaismäärä ei voi olla yli 8</value>
   </data>
   <data name="Mode_UnionNode_Info_SelectSource" xml:space="preserve">
-    <value>Select source node</value>
+    <value>Valitse pääristeys</value>
   </data>
   <data name="Mode_UnionNode_Info_SelectTarget" xml:space="preserve">
-    <value>Select target node</value>
+    <value>Valitse kohderisteys</value>
   </data>
   <data name="Mode_UnionNode_Info_TooFar" xml:space="preserve">
-    <value>Nodes too far from each other</value>
+    <value>Risteykset ovat liian kaukana toisistaan</value>
   </data>
   <data name="Mod_Description" xml:space="preserve">
-    <value>Many different tools for working with networks</value>
+    <value>Työkaluja verkostojen muokkaamiseen</value>
   </data>
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
-    <value>Auto hide modes panel</value>
+    <value>Piilota valikko automaattisesti</value>
   </data>
   <data name="Settings_SegmentLength" xml:space="preserve">
-    <value>Max Segment Length</value>
+    <value>Pisin tien pituus</value>
   </data>
   <data name="Settings_SlopeUnit" xml:space="preserve">
-    <value>Slope unit of measurement</value>
+    <value>Kaltevuuden yksikkö</value>
   </data>
   <data name="Settings_SlopeUnitDegrees" xml:space="preserve">
-    <value>Degrees</value>
+    <value>Asteet</value>
   </data>
   <data name="Settings_SlopeUnitPercentages" xml:space="preserve">
-    <value>Percentages</value>
+    <value>Prosenttiosuus</value>
   </data>
   <data name="Tool_RemoveNode_Info_ClickToRemove" xml:space="preserve">
-    <value>Click to remove</value>
+    <value>Napauta poistaaksesi</value>
   </data>
   <data name="Tool_RemoveNode_Info_Select" xml:space="preserve">
-    <value>Select node to remove it</value>
+    <value>Valitse risteys poistaaksesi se</value>
   </data>
 </root>

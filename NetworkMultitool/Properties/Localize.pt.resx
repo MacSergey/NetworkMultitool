@@ -118,117 +118,117 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Mode_AddNode" xml:space="preserve">
-    <value>Add node mode</value>
+    <value>Modo de adição de nós</value>
   </data>
   <data name="Mode_AddNode_Info_ClickToAdd" xml:space="preserve">
-    <value>Click to add node</value>
+    <value>Clique para adicionar nó</value>
   </data>
   <data name="Mode_AddNode_Info_SelectToAdd" xml:space="preserve">
-    <value>Select segment to add node</value>
+    <value>Selecione segmento para adicionar nó</value>
   </data>
   <data name="Mode_AddNode_Info_TooCloseNode" xml:space="preserve">
-    <value>Can't add node
-Too close to nearby node</value>
+    <value>Não é possível inserir nó
+Está demasiado perto de outro nó</value>
   </data>
   <data name="Mode_AngleFormat" xml:space="preserve">
     <value>{0}°</value>
   </data>
   <data name="Mode_ArrangeAtLine" xml:space="preserve">
-    <value>Arrange at line mode</value>
+    <value>Ajustar em modo de linha</value>
   </data>
   <data name="Mode_CreateConnection" xml:space="preserve">
-    <value>Create connection mode</value>
+    <value>Modo de criação de ligação</value>
   </data>
   <data name="Mode_CreateLoop" xml:space="preserve">
-    <value>Create loop mode</value>
+    <value>Modo de criação de loop</value>
   </data>
   <data name="Mode_CreateLoop_Info_Change" xml:space="preserve">
-    <value>Press {0} to change loop</value>
+    <value>Pressione {0} para alterar o loop</value>
   </data>
   <data name="Mode_Info_Apply" xml:space="preserve">
-    <value>Press {0} to apply</value>
+    <value>Pressione {0} para aplicar</value>
   </data>
   <data name="Mode_Info_ChangeCircle" xml:space="preserve">
-    <value>Press {0} to switch selected circle</value>
+    <value>Pressione {0} para alterar o círculo selecionado</value>
   </data>
   <data name="Mode_Info_ChooseDirestion" xml:space="preserve">
-    <value>Choose nodes to select create direction</value>
+    <value>Selecione os nós para selecionar a direção de criação</value>
   </data>
   <data name="Mode_Info_ClickFirstSegment" xml:space="preserve">
-    <value>Click to select first segment</value>
+    <value>Clique para selecionar o primeiro segmento</value>
   </data>
   <data name="Mode_Info_ClickSecondSegment" xml:space="preserve">
-    <value>Click to select second segment</value>
+    <value>Clique para selecionar o primeiro segmento</value>
   </data>
   <data name="Mode_Info_ClickSelectNode" xml:space="preserve">
-    <value>Click to select node</value>
+    <value>Clique para inserir nó</value>
   </data>
   <data name="Mode_Info_ClickUnselectNode" xml:space="preserve">
-    <value>Click to unselect node</value>
+    <value>Clique para desselecionar o nó</value>
   </data>
   <data name="Mode_Info_Create" xml:space="preserve">
-    <value>Press {0} to create</value>
+    <value>Pressione {0} para criar</value>
   </data>
   <data name="Mode_Info_CurveDurection" xml:space="preserve">
-    <value>Click on node to change curve direction</value>
+    <value>Clique no nó para mudar a direção da curva</value>
   </data>
   <data name="Mode_Info_DecreaseAllRadius" xml:space="preserve">
-    <value>Press {0} to decrease all radii</value>
+    <value>Pressione {0} para diminuir todo o raio</value>
   </data>
   <data name="Mode_Info_DecreaseBothRadius" xml:space="preserve">
-    <value>Press {0} to decrease both radii</value>
+    <value>Pressione {0} para diminuir o raio de ambos</value>
   </data>
   <data name="Mode_Info_DecreaseOneRadius" xml:space="preserve">
-    <value>Press {0} to decrease one radius</value>
+    <value>Pressione {0} para diminuir o raio em 1</value>
   </data>
   <data name="Mode_Info_DecreaseRadius" xml:space="preserve">
-    <value>Press {0} to decrease radius</value>
+    <value>Pressione {0} para diminuir o raio</value>
   </data>
   <data name="Mode_Info_IncreaseAllRadius" xml:space="preserve">
-    <value>Press {0} to increase all radii</value>
+    <value>Pressione {0} para aumentar todo o raio</value>
   </data>
   <data name="Mode_Info_IncreaseBothRadius" xml:space="preserve">
-    <value>Press {0} to increase both radii</value>
+    <value>Pressione {0} para aumentar ambos os raios</value>
   </data>
   <data name="Mode_Info_IncreaseOneRadius" xml:space="preserve">
-    <value>Press {0} to increase one radius</value>
+    <value>Pressione {0} para aumentar o raio em 1</value>
   </data>
   <data name="Mode_Info_IncreaseRadius" xml:space="preserve">
-    <value>Press {0} to increase radius</value>
+    <value>Pressione {0} para aumentar o raio</value>
   </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
-    <value>Radius too big</value>
+    <value>Raio muito grande</value>
   </data>
   <data name="Mode_Info_RadiusTooSmall" xml:space="preserve">
-    <value>Radius too small</value>
+    <value>Raio muito pequeno</value>
   </data>
   <data name="Mode_Info_SelectFirstSegment" xml:space="preserve">
-    <value>Select first segment</value>
+    <value>Selecione o primeiro segmento</value>
   </data>
   <data name="Mode_Info_SelectSecondSegment" xml:space="preserve">
-    <value>Select second segment</value>
+    <value>Selecione o segundo segmento</value>
   </data>
   <data name="Mode_Info_UndergroundMode" xml:space="preserve">
-    <value>Hold Shift to underground mode</value>
+    <value>Segure Shift para o modo subterrâneo</value>
   </data>
   <data name="Mode_Info_WrongShape" xml:space="preserve">
-    <value>Wrong shape</value>
+    <value>Forma errada</value>
   </data>
   <data name="Mode_IntersectSegment" xml:space="preserve">
-    <value>Intersect segments mode</value>
+    <value>Modo de intersecção de segmentos</value>
   </data>
   <data name="Mode_IntersectSegment_Info_EdgeTooClose" xml:space="preserve">
-    <value>Edge of one segment is too close to end of second segment</value>
+    <value>Borda de um segmento é muito perto do final do segundo segmento</value>
   </data>
   <data name="Mode_IntersectSegment_Info_NotIntersect" xml:space="preserve">
-    <value>These segments are not intersect</value>
+    <value>Estes segmentos não se intersectam</value>
   </data>
   <data name="Mode_NodeLine_Info_NotConnected" xml:space="preserve">
-    <value>This node can't be selected
-because not connected with others</value>
+    <value>Este nó não pode ser selecionado
+porque não está ligado a outros</value>
   </data>
   <data name="Mode_NodeLine_Info_SelectNode" xml:space="preserve">
-    <value>Select node to add it to order</value>
+    <value>Selecione o nó para adicioná-lo à ordem</value>
   </data>
   <data name="Mode_PercentagesFormat" xml:space="preserve">
     <value>{0}%</value>
@@ -237,60 +237,60 @@ because not connected with others</value>
     <value>{0}m</value>
   </data>
   <data name="Mode_RemoveNode" xml:space="preserve">
-    <value>Remove node mode</value>
+    <value>Modo remover nó</value>
   </data>
   <data name="Mode_RemoveNode_Info_NotAllow" xml:space="preserve">
-    <value>Not allow to remove this node</value>
+    <value>Não é permitido remover este nó</value>
   </data>
   <data name="Mode_SlopeNode" xml:space="preserve">
-    <value>Set slope mode</value>
+    <value>Definir modo de inclinação</value>
   </data>
   <data name="Mode_UnionNode" xml:space="preserve">
-    <value>Union nodes mode</value>
+    <value>Modo de união de nós</value>
   </data>
   <data name="Mode_UnionNode_Info_ClickSource" xml:space="preserve">
-    <value>Click to select source node</value>
+    <value>Clique para selecionar o nó de origem</value>
   </data>
   <data name="Mode_UnionNode_Info_ClickUnion" xml:space="preserve">
-    <value>Click to union nodes</value>
+    <value>Clique para unir nós</value>
   </data>
   <data name="Mode_UnionNode_Info_NoCommon" xml:space="preserve">
-    <value>These nodes have common segment</value>
+    <value>Estes nós têm um segmento em comum</value>
   </data>
   <data name="Mode_UnionNode_Info_Overflow" xml:space="preserve">
-    <value>Total number of nodes must be no more then 8</value>
+    <value>O número total de nós não pode ser mais do que 8</value>
   </data>
   <data name="Mode_UnionNode_Info_SelectSource" xml:space="preserve">
-    <value>Select source node</value>
+    <value>Selecionar nó de origem</value>
   </data>
   <data name="Mode_UnionNode_Info_SelectTarget" xml:space="preserve">
-    <value>Select target node</value>
+    <value>Selecionar nó de destino</value>
   </data>
   <data name="Mode_UnionNode_Info_TooFar" xml:space="preserve">
-    <value>Nodes too far from each other</value>
+    <value>Nós muito distantes um do outro</value>
   </data>
   <data name="Mod_Description" xml:space="preserve">
-    <value>Many different tools for working with networks</value>
+    <value>Muitas ferramentas diferentes para trabalhar com redes</value>
   </data>
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
-    <value>Auto hide modes panel</value>
+    <value>Ocultar automaticamente o painel de modos</value>
   </data>
   <data name="Settings_SegmentLength" xml:space="preserve">
-    <value>Max Segment Length</value>
+    <value>Comprimento máximo do segmento</value>
   </data>
   <data name="Settings_SlopeUnit" xml:space="preserve">
-    <value>Slope unit of measurement</value>
+    <value>Unidade de medida de inclinação</value>
   </data>
   <data name="Settings_SlopeUnitDegrees" xml:space="preserve">
-    <value>Degrees</value>
+    <value>Graus</value>
   </data>
   <data name="Settings_SlopeUnitPercentages" xml:space="preserve">
-    <value>Percentages</value>
+    <value>Percentagem</value>
   </data>
   <data name="Tool_RemoveNode_Info_ClickToRemove" xml:space="preserve">
-    <value>Click to remove</value>
+    <value>Clique para remover</value>
   </data>
   <data name="Tool_RemoveNode_Info_Select" xml:space="preserve">
-    <value>Select node to remove it</value>
+    <value>Selecione o nó para removê-lo</value>
   </data>
 </root>
