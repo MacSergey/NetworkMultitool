@@ -139,6 +139,7 @@
     <EmbeddedResource Include="Properties\Localize.it.resx" />
     <EmbeddedResource Include="Properties\Localize.ja.resx" />
     <EmbeddedResource Include="Properties\Localize.pl.resx" />
+    <EmbeddedResource Include="Properties\Localize.pt.resx" />
     <EmbeddedResource Include="Properties\Localize.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Localize.Designer.cs</LastGenOutput>
@@ -186,6 +187,7 @@
   <Import Project="..\ModsCommon\LocalizeShared\LocalizeShared.pl.projitems" Label="Shared" />
   <Import Project="..\ModsCommon\LocalizeShared\LocalizeShared.zh-CN.projitems" Label="Shared" />
   <Import Project="..\ModsCommon\LocalizeShared\LocalizeShared.fi.projitems" Label="Shared" />
+  <Import Project="..\ModsCommon\LocalizeShared\LocalizeShared.pt.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup Condition="'$(Configuration)' == 'Stable Release' OR '$(Configuration)' == 'Stable Debug'">
     <WorkshopId>2560782729</WorkshopId>
