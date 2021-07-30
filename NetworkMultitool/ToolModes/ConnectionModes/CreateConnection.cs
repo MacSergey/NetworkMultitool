@@ -257,13 +257,10 @@ namespace NetworkMultitool
         }
         private void FixAngles(StraightTrajectory firstTrajectory, StraightTrajectory secondTrajectory, StraightTrajectory connectEnds)
         {
-            if (FirstSide.Value != SecondSide.Value)
-            {
-                if (Mathf.Abs(FirstAngle) < Mathf.PI && Intersection.CalculateSingle(firstTrajectory, connectEnds, out var firstT, out _) && firstT < 0f)
-                    FirstAngle -= Mathf.Sign(FirstAngle) * 2 * Mathf.PI;
-                if (Mathf.Abs(SecondAngle) < Mathf.PI && Intersection.CalculateSingle(secondTrajectory, connectEnds, out var secondT, out _) && secondT < 0f)
-                    SecondAngle -= Mathf.Sign(SecondAngle) * 2 * Mathf.PI;
-            }
+            if (Mathf.Abs(FirstAngle) < Mathf.PI && Intersection.CalculateSingle(firstTrajectory, connectEnds, out var firstT, out _) && firstT < 0f)
+                FirstAngle = FirstAngle - Mathf.Sign(FirstAngle) * 2 * Mathf.PI;
+            if (Mathf.Abs(SecondAngle) < Mathf.PI && Intersection.CalculateSingle(secondTrajectory, connectEnds, out var secondT, out _) && secondT < 0f)
+                SecondAngle = SecondAngle - Mathf.Sign(SecondAngle) * 2 * Mathf.PI;
         }
         private IEnumerable<Point> GetParts(StraightTrajectory firstTrajectory, StraightTrajectory secondTrajectory, StraightTrajectory centerConnection)
         {
