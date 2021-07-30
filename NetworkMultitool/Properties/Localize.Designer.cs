@@ -61,7 +61,7 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на .
+        ///   Ищет локализованную строку, похожую на Many different tools for working with networks.
         /// </summary>
         internal static string Mod_Description {
             get {

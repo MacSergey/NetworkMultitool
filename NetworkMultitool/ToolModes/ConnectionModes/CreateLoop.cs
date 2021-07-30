@@ -99,7 +99,7 @@ namespace NetworkMultitool
             if (State == Result.Calculated)
             {
                 Label.isVisible = true;
-                Label.text = $"{GetRadiusString(Radius.Value)}\n{GetAngleString(Angle)}";
+                Label.text = $"{GetRadiusString(Radius.Value)}\n{GetAngleString(Mathf.Abs(Angle))}";
                 Label.WorldPosition = Center + CenterDir * 5f;
                 Label.Direction = CenterDir;
             }

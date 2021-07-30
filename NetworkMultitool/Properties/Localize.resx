@@ -270,7 +270,7 @@ because not connected with others</value>
     <value>Nodes too far from each other</value>
   </data>
   <data name="Mod_Description" xml:space="preserve">
-    <value />
+    <value>Many different tools for working with networks</value>
   </data>
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>Auto hide modes panel</value>

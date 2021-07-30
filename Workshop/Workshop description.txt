@@ -1,7 +1,7 @@
 [HR][/HR]
 [img]https://i.imgur.com/4bLVAsL.png[/img]
 [code][h1]Overview[/h1]
-[list][h2][/h2][/list]
+[list][h2]This mod provides many different tools for working with networks[/h2][/list]
 [/code]
 
 [h1]What’s Included[/h1]
@@ -10,10 +10,10 @@
 [*] Remove node mode: remove node and join segments
 [*] Union nodes mode: union two nodes in one
 [*] Intersect segments mode: make node in segment intersection point
-[*] Align in line mode: Align selected nodes to smooth line
-[*] Slope nodes mode: 
-[*] Create loop mode:
-[*] Create connection mode:
+[*] Align in line mode: Changes the position of the nodes so that they line up in one smooth line
+[*] Slope nodes mode: Changes the height of the nodes so that the slope between them becomes the same value
+[*] Create loop mode: Creates a loop that connects two segments with an even curve (straight - curve - straight)
+[*] Create connection mode: Creates a connection for any two segments with even curves (curve - straight - curve)
 [/list]
 
 [img]https://i.imgur.com/8Ff2swh.png[/img]
@@ -51,6 +51,7 @@ If you want to help improve existing translations or you want to translate into 
 [*] [url=https://steamcommunity.com/id/chameleonlifede/]Chamëleon[/url] (German translation)
 [*] [url=https://steamcommunity.com/id/citadino/]Citadino[/url] (Spanish translation)
 [*] [url=https://steamcommunity.com/id/claude_speed_]Claude_Speed[/url] (Chinese translation)
+[*] [url=https://steamcommunity.com/id/mrlojnat/]MrLojnat[/url] (French translation)
 [*] raistlin46 (Italian translation)
 [*] [url=https://steamcommunity.com/id/shg166yh/]shg166[/url] (Japanese translation)
 [*] [url=https://steamcommunity.com/profiles/76561198076859879/]Sheep[/url] (Workshop preview, bunner, icon)

@@ -131,12 +131,12 @@ namespace NetworkMultitool
             if (State == Result.Calculated)
             {
                 FirstLabel.isVisible = true;
-                FirstLabel.text = $"{GetRadiusString(FirstRadius.Value)}\n{GetAngleString(FirstAngle)}";
+                FirstLabel.text = $"{GetRadiusString(FirstRadius.Value)}\n{GetAngleString(Mathf.Abs(FirstAngle))}";
                 FirstLabel.WorldPosition = FirstCenter + FirstCenterDir * 5f;
                 FirstLabel.Direction = FirstCenterDir;
 
                 SecondLabel.isVisible = true;
-                SecondLabel.text = $"{GetRadiusString(SecondRadius.Value)}\n{GetAngleString(SecondAngle)}";
+                SecondLabel.text = $"{GetRadiusString(SecondRadius.Value)}\n{GetAngleString(Mathf.Abs(SecondAngle))}";
                 SecondLabel.WorldPosition = SecondCenter + SecondCenterDir * 5f;
                 SecondLabel.Direction = SecondCenterDir;
             }
