@@ -25,12 +25,6 @@ namespace NetworkMultitool
                 foreach (var shortcut in base.Shortcuts)
                     yield return shortcut;
 
-                yield return Plus;
-                yield return LargePlus;
-                yield return SmallPlus;
-                yield return Minus;
-                yield return LargeMinus;
-                yield return SmallMinus;
                 yield return Tab;
             }
         }

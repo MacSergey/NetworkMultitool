@@ -19,9 +19,13 @@ namespace NetworkMultitool
         protected NetworkMultitoolShortcut OncePlus { get; }
         protected NetworkMultitoolShortcut OnceLargePlus { get; }
         protected NetworkMultitoolShortcut OnceSmallPlus { get; }
+        protected NetworkMultitoolShortcut OnceVerySmallPlus { get; }
+
         protected NetworkMultitoolShortcut OnceMinus { get; }
         protected NetworkMultitoolShortcut OnceLargeMinus { get; }
         protected NetworkMultitoolShortcut OnceSmallMinus { get; }
+        protected NetworkMultitoolShortcut OnceVerySmallMinus { get; }
+
         protected NetworkMultitoolShortcut Tab { get; }
 
         public override IEnumerable<NetworkMultitoolShortcut> Shortcuts
@@ -34,10 +38,12 @@ namespace NetworkMultitool
                 yield return OncePlus;
                 yield return OnceLargePlus;
                 yield return OnceSmallPlus;
+                yield return OnceVerySmallPlus;
 
                 yield return OnceMinus;
                 yield return OnceLargeMinus;
                 yield return OnceSmallMinus;
+                yield return OnceVerySmallMinus;
 
                 yield return Tab;
             }
@@ -48,10 +54,12 @@ namespace NetworkMultitool
             OncePlus = GetShortcut(KeyCode.RightBracket, PressOncePlus, ToolModeType.CreateConnection, repeat: true);
             OnceLargePlus = GetShortcut(KeyCode.RightBracket, PressOncePlus, ToolModeType.CreateConnection, shift: true, repeat: true);
             OnceSmallPlus = GetShortcut(KeyCode.RightBracket, PressOncePlus, ToolModeType.CreateConnection, ctrl: true, repeat: true);
+            OnceVerySmallPlus = GetShortcut(KeyCode.RightBracket, PressOncePlus, ToolModeType.CreateConnection, alt: true, repeat: true);
 
             OnceMinus = GetShortcut(KeyCode.LeftBracket, PressOnceMinus, ToolModeType.CreateConnection, repeat: true);
             OnceLargeMinus = GetShortcut(KeyCode.LeftBracket, PressOnceMinus, ToolModeType.CreateConnection, shift: true, repeat: true);
             OnceSmallMinus = GetShortcut(KeyCode.LeftBracket, PressOnceMinus, ToolModeType.CreateConnection, ctrl: true, repeat: true);
+            OnceVerySmallMinus = GetShortcut(KeyCode.LeftBracket, PressOnceMinus, ToolModeType.CreateConnection, alt: true, repeat: true);
 
             Tab = GetShortcut(KeyCode.Tab, PressTab, ToolModeType.CreateConnection);
         }
