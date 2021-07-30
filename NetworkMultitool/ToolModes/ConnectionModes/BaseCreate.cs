@@ -81,6 +81,8 @@ namespace NetworkMultitool
             First = null;
             Second = null;
             State = Result.None;
+
+            ResetParams();
         }
         protected virtual void ResetParams()
         {
