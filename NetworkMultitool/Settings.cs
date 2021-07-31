@@ -33,7 +33,7 @@ namespace NetworkMultitool
             var keymappingsGroup = GeneralTab.AddGroup(CommonLocalize.Settings_Shortcuts);
             var keymappings = AddKeyMappingPanel(keymappingsGroup);
             keymappings.AddKeymapping(NetworkMultitoolTool.ActivationShortcut);
-            foreach (var shortcut in NetworkMultitoolTool.ToolShortcuts)
+            foreach (var shortcut in NetworkMultitoolTool.BindShortcuts)
                 keymappings.AddKeymapping(shortcut);
 
 

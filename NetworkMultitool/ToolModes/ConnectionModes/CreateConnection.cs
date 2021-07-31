@@ -14,19 +14,12 @@ namespace NetworkMultitool
 {
     public class CreateConnectionMode : BaseCreateMode
     {
+        public static NetworkMultitoolShortcut SwitchSelectShortcut = GetShortcut(KeyCode.Tab, nameof(SwitchSelectShortcut), nameof(Localize.Settings_Shortcut_SwitchSelect), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as CreateConnectionMode)?.SwitchSelect());
+
         public override ToolModeType Type => ToolModeType.CreateConnection;
 
-        protected NetworkMultitoolShortcut OncePlus { get; }
-        protected NetworkMultitoolShortcut OnceLargePlus { get; }
-        protected NetworkMultitoolShortcut OnceSmallPlus { get; }
-        protected NetworkMultitoolShortcut OnceVerySmallPlus { get; }
-
-        protected NetworkMultitoolShortcut OnceMinus { get; }
-        protected NetworkMultitoolShortcut OnceLargeMinus { get; }
-        protected NetworkMultitoolShortcut OnceSmallMinus { get; }
-        protected NetworkMultitoolShortcut OnceVerySmallMinus { get; }
-
-        protected NetworkMultitoolShortcut Tab { get; }
+        protected NetworkMultitoolShortcut IncreaseOneRadiusShortcut { get; }
+        protected NetworkMultitoolShortcut DecreaseOneRadiusShortcut { get; }
 
         public override IEnumerable<NetworkMultitoolShortcut> Shortcuts
         {
@@ -35,33 +28,16 @@ namespace NetworkMultitool
                 foreach (var shortcut in base.Shortcuts)
                     yield return shortcut;
 
-                yield return OncePlus;
-                yield return OnceLargePlus;
-                yield return OnceSmallPlus;
-                yield return OnceVerySmallPlus;
-
-                yield return OnceMinus;
-                yield return OnceLargeMinus;
-                yield return OnceSmallMinus;
-                yield return OnceVerySmallMinus;
-
-                yield return Tab;
+                yield return IncreaseOneRadiusShortcut;
+                yield return DecreaseOneRadiusShortcut;
+                yield return SwitchSelectShortcut;
             }
         }
 
         public CreateConnectionMode()
         {
-            OncePlus = GetShortcut(KeyCode.RightBracket, PressOncePlus, ToolModeType.CreateConnection, repeat: true);
-            OnceLargePlus = GetShortcut(KeyCode.RightBracket, PressOncePlus, ToolModeType.CreateConnection, shift: true, repeat: true);
-            OnceSmallPlus = GetShortcut(KeyCode.RightBracket, PressOncePlus, ToolModeType.CreateConnection, ctrl: true, repeat: true);
-            OnceVerySmallPlus = GetShortcut(KeyCode.RightBracket, PressOncePlus, ToolModeType.CreateConnection, alt: true, repeat: true);
-
-            OnceMinus = GetShortcut(KeyCode.LeftBracket, PressOnceMinus, ToolModeType.CreateConnection, repeat: true);
-            OnceLargeMinus = GetShortcut(KeyCode.LeftBracket, PressOnceMinus, ToolModeType.CreateConnection, shift: true, repeat: true);
-            OnceSmallMinus = GetShortcut(KeyCode.LeftBracket, PressOnceMinus, ToolModeType.CreateConnection, ctrl: true, repeat: true);
-            OnceVerySmallMinus = GetShortcut(KeyCode.LeftBracket, PressOnceMinus, ToolModeType.CreateConnection, alt: true, repeat: true);
-
-            Tab = GetShortcut(KeyCode.Tab, PressTab, ToolModeType.CreateConnection);
+            IncreaseOneRadiusShortcut = GetShortcut(KeyCode.RightBracket, IncreaseOneRadius, ToolModeType.CreateConnection, repeat: true);
+            DecreaseOneRadiusShortcut = GetShortcut(KeyCode.LeftBracket, DecreaseOneRadius, ToolModeType.CreateConnection, repeat: true);
         }
 
         private bool Select { get; set; }
@@ -111,12 +87,12 @@ namespace NetworkMultitool
                 return
                     Localize.Mode_Info_ChooseDirestion + "\n" +
                     Localize.Mode_Info_CurveDurection + "\n\n" +
-                    string.Format(Localize.Mode_Info_DecreaseBothRadius, Minus) + "\n" +
-                    string.Format(Localize.Mode_Info_IncreaseBothRadius, Plus) + "\n" +
-                    string.Format(Localize.Mode_Info_ChangeCircle, Tab) + "\n" +
-                    string.Format(Localize.Mode_Info_DecreaseOneRadius, OnceMinus) + "\n" +
-                    string.Format(Localize.Mode_Info_IncreaseOneRadius, OncePlus) + "\n" +
-                    string.Format(Localize.Mode_Info_Create, Enter);
+                    string.Format(Localize.Mode_Info_DecreaseBothRadius, DecreaseRadiusShortcut) + "\n" +
+                    string.Format(Localize.Mode_Info_IncreaseBothRadius, IncreaseRadiusShortcut) + "\n" +
+                    string.Format(Localize.Mode_Info_ChangeCircle, SwitchSelectShortcut) + "\n" +
+                    string.Format(Localize.Mode_Info_DecreaseOneRadius, DecreaseOneRadiusShortcut) + "\n" +
+                    string.Format(Localize.Mode_Info_IncreaseOneRadius, IncreaseOneRadiusShortcut) + "\n" +
+                    string.Format(Localize.Mode_Info_Create, ApplyShortcut);
         }
         protected override void Reset(IToolMode prevMode)
         {
@@ -301,35 +277,35 @@ namespace NetworkMultitool
             if (SecondSide.HasValue)
                 SecondSide = !SecondSide;
         }
-        protected override void PressPlus()
+        protected override void IncreaseRadius()
         {
-            FirstRadius = PressPlus(FirstRadius);
-            SecondRadius = PressPlus(SecondRadius);
+            FirstRadius = IncreaseRadius(FirstRadius);
+            SecondRadius = IncreaseRadius(SecondRadius);
             State = Result.None;
         }
-        protected override void PressMinus()
+        protected override void DecreaseRadius()
         {
-            FirstRadius = PressMinus(FirstRadius);
-            SecondRadius = PressMinus(SecondRadius);
+            FirstRadius = DecreaseRadius(FirstRadius);
+            SecondRadius = DecreaseRadius(SecondRadius);
             State = Result.None;
         }
-        private void PressOncePlus()
-        {
-            if (Select)
-                FirstRadius = PressPlus(FirstRadius);
-            else
-                SecondRadius = PressPlus(SecondRadius);
-            State = Result.None;
-        }
-        private void PressOnceMinus()
+        private void IncreaseOneRadius()
         {
             if (Select)
-                FirstRadius = PressMinus(FirstRadius);
+                FirstRadius = IncreaseRadius(FirstRadius);
             else
-                SecondRadius = PressMinus(SecondRadius);
+                SecondRadius = IncreaseRadius(SecondRadius);
             State = Result.None;
         }
-        private float? PressPlus(float? radius)
+        private void DecreaseOneRadius()
+        {
+            if (Select)
+                FirstRadius = DecreaseRadius(FirstRadius);
+            else
+                SecondRadius = DecreaseRadius(SecondRadius);
+            State = Result.None;
+        }
+        private float? IncreaseRadius(float? radius)
         {
             if (radius != null)
             {
@@ -339,7 +315,7 @@ namespace NetworkMultitool
             else
                 return radius;
         }
-        private float? PressMinus(float? radius)
+        private float? DecreaseRadius(float? radius)
         {
             if (radius != null)
             {
@@ -349,7 +325,7 @@ namespace NetworkMultitool
             else
                 return radius;
         }
-        private void PressTab() => Select = !Select;
+        private void SwitchSelect() => Select = !Select;
 
         protected override void RenderCalculatedOverlay(RenderManager.CameraInfo cameraInfo, NetInfo info)
         {

@@ -17,27 +17,10 @@ namespace NetworkMultitool
         protected override bool IsReseted => !IsFirst;
         protected override bool CanSwitchUnderground => !IsBoth;
 
-        protected NetworkMultitoolShortcut Enter { get; }
-
-        protected NetworkMultitoolShortcut Plus { get; }
-        protected NetworkMultitoolShortcut LargePlus { get; }
-        protected NetworkMultitoolShortcut SmallPlus { get; }
-        protected NetworkMultitoolShortcut VerySmallPlus { get; }
-
-        protected NetworkMultitoolShortcut Minus { get; }
-        protected NetworkMultitoolShortcut LargeMinus { get; }
-        protected NetworkMultitoolShortcut SmallMinus { get; }
-        protected NetworkMultitoolShortcut VerySmallMinus { get; }
-
-        protected NetworkMultitoolShortcut NumPadPlus { get; }
-        protected NetworkMultitoolShortcut NumPadLargePlus { get; }
-        protected NetworkMultitoolShortcut NumPadSmallPlus { get; }
-        protected NetworkMultitoolShortcut NumPadVerySmallPlus { get; }
-
-        protected NetworkMultitoolShortcut NumPadMinus { get; }
-        protected NetworkMultitoolShortcut NumPadLargeMinus { get; }
-        protected NetworkMultitoolShortcut NumPadSmallMinus { get; }
-        protected NetworkMultitoolShortcut NumPadVerySmallMinus { get; }
+        protected NetworkMultitoolShortcut IncreaseRadiusShortcut { get; }
+        protected NetworkMultitoolShortcut DecreaseRadiusShortcut { get; }
+        protected NetworkMultitoolShortcut IncreaseRadiusNumPadShortcut { get; }
+        protected NetworkMultitoolShortcut DecreaseRadiusNumPadShortcut { get; }
 
 
         protected override Color32 SegmentColor => Colors.Blue;
@@ -50,52 +33,19 @@ namespace NetworkMultitool
         {
             get
             {
-                yield return Enter;
-
-                yield return Plus;
-                yield return LargePlus;
-                yield return SmallPlus;
-                yield return VerySmallPlus;
-
-                yield return Minus;
-                yield return LargeMinus;
-                yield return SmallMinus;
-                yield return VerySmallMinus;
-
-                yield return NumPadPlus;
-                yield return NumPadLargePlus;
-                yield return NumPadSmallPlus;
-                yield return NumPadVerySmallPlus;
-
-                yield return NumPadMinus;
-                yield return NumPadLargeMinus;
-                yield return NumPadSmallMinus;
-                yield return NumPadVerySmallMinus;
+                yield return ApplyShortcut;
+                yield return IncreaseRadiusShortcut;
+                yield return DecreaseRadiusShortcut;
+                yield return IncreaseRadiusNumPadShortcut;
+                yield return DecreaseRadiusNumPadShortcut;
             }
         }
         public BaseCreateMode()
         {
-            Enter = GetShortcut(KeyCode.Return, PressEnter, ToolModeType.Create);
-
-            Plus = GetShortcut(KeyCode.Equals, PressPlus, ToolModeType.Create, repeat: true);
-            LargePlus = GetShortcut(KeyCode.Equals, PressPlus, ToolModeType.Create, shift: true, repeat: true);
-            SmallPlus = GetShortcut(KeyCode.Equals, PressPlus, ToolModeType.Create, ctrl: true, repeat: true);
-            VerySmallPlus = GetShortcut(KeyCode.Equals, PressPlus, ToolModeType.Create, alt: true, repeat: true);
-
-            Minus = GetShortcut(KeyCode.Minus, PressMinus, ToolModeType.Create, repeat: true);
-            LargeMinus = GetShortcut(KeyCode.Minus, PressMinus, ToolModeType.Create, shift: true, repeat: true);
-            SmallMinus = GetShortcut(KeyCode.Minus, PressMinus, ToolModeType.Create, ctrl: true, repeat: true);
-            VerySmallMinus = GetShortcut(KeyCode.Minus, PressMinus, ToolModeType.Create, alt: true, repeat: true);
-
-            NumPadPlus = GetShortcut(KeyCode.KeypadPlus, PressPlus, ToolModeType.Create, repeat: true);
-            NumPadLargePlus = GetShortcut(KeyCode.KeypadPlus, PressPlus, ToolModeType.Create, shift: true, repeat: true);
-            NumPadSmallPlus = GetShortcut(KeyCode.KeypadPlus, PressPlus, ToolModeType.Create, ctrl: true, repeat: true);
-            NumPadVerySmallPlus = GetShortcut(KeyCode.KeypadPlus, PressPlus, ToolModeType.Create, alt: true, repeat: true);
-
-            NumPadMinus = GetShortcut(KeyCode.KeypadMinus, PressMinus, ToolModeType.Create, repeat: true);
-            NumPadLargeMinus = GetShortcut(KeyCode.KeypadMinus, PressMinus, ToolModeType.Create, shift: true, repeat: true);
-            NumPadSmallMinus = GetShortcut(KeyCode.KeypadMinus, PressMinus, ToolModeType.Create, ctrl: true, repeat: true);
-            NumPadVerySmallMinus = GetShortcut(KeyCode.KeypadMinus, PressMinus, ToolModeType.Create, alt: true, repeat: true);
+            IncreaseRadiusShortcut = GetShortcut(KeyCode.Equals, IncreaseRadius, ToolModeType.Create, repeat: true, ignoreModifiers: true);
+            DecreaseRadiusShortcut = GetShortcut(KeyCode.Minus, DecreaseRadius, ToolModeType.Create, repeat: true, ignoreModifiers: true);
+            IncreaseRadiusNumPadShortcut = GetShortcut(KeyCode.KeypadPlus, IncreaseRadius, ToolModeType.Create, repeat: true, ignoreModifiers: true);
+            DecreaseRadiusNumPadShortcut = GetShortcut(KeyCode.KeypadMinus, DecreaseRadius, ToolModeType.Create, repeat: true, ignoreModifiers: true);
         }
 
         protected SegmentSelection First { get; set; }
@@ -229,7 +179,7 @@ namespace NetworkMultitool
             else
                 base.OnSecondaryMouseClicked();
         }
-        private void PressEnter()
+        protected override void Apply()
         {
             if (State == Result.Calculated && Info is NetInfo info)
             {
@@ -251,8 +201,8 @@ namespace NetworkMultitool
                 Reset(this);
             }
         }
-        protected abstract void PressPlus();
-        protected abstract void PressMinus();
+        protected abstract void IncreaseRadius();
+        protected abstract void DecreaseRadius();
 
         protected float Step
         {

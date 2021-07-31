@@ -12,23 +12,17 @@ namespace NetworkMultitool
     public abstract class BaseNodeLineMode : BaseNetworkMultitoolMode
     {
         protected override bool IsReseted => Nodes.Count == 0;
-        protected NetworkMultitoolShortcut Enter { get; }
 
         public override IEnumerable<NetworkMultitoolShortcut> Shortcuts
         {
             get
             {
-                yield return Enter;
+                yield return ApplyShortcut;
             }
         }
 
         protected List<NodeSelection> Nodes { get; } = new List<NodeSelection>();
         protected Result State { get; private set; }
-
-        public BaseNodeLineMode()
-        {
-            Enter = new NetworkMultitoolShortcut(nameof(Enter), string.Empty, SavedInputKey.Encode(KeyCode.Return, false, false, false), PressEnter, ToolModeType.Line);
-        }
 
         protected override bool IsValidNode(ushort nodeId)
         {
@@ -60,7 +54,7 @@ namespace NetworkMultitool
             else if (State == Result.NotConnect)
                 return Localize.Mode_NodeLine_Info_NotConnected + StepOverInfo;
             else
-                return string.Format(Localize.Mode_Info_Apply, Enter);
+                return string.Format(Localize.Mode_Info_Apply, ApplyShortcut);
         }
         public override void OnToolUpdate()
         {
@@ -103,7 +97,7 @@ namespace NetworkMultitool
         protected virtual void RemoveLast() => Nodes.RemoveAt(Nodes.Count - 1);
 
         public override void OnSecondaryMouseClicked() => Reset(this);
-        public virtual void PressEnter() => Reset(this);
+        protected override void Apply() => Reset(this);
 
         public override void RenderOverlay(RenderManager.CameraInfo cameraInfo)
         {

@@ -14,9 +14,9 @@ namespace NetworkMultitool
 {
     public class CreateLoopMode : BaseCreateMode
     {
-        public override ToolModeType Type => ToolModeType.CreateLoop;
+        public static NetworkMultitoolShortcut SwitchIsLoopShortcut = GetShortcut(KeyCode.Tab, nameof(SwitchIsLoopShortcut), nameof(Localize.Settings_Shortcut_SwitchIsLoop), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as CreateLoopMode)?.SwitchIsLoop());
 
-        protected NetworkMultitoolShortcut Tab { get; }
+        public override ToolModeType Type => ToolModeType.CreateLoop;
 
         public override IEnumerable<NetworkMultitoolShortcut> Shortcuts
         {
@@ -25,14 +25,10 @@ namespace NetworkMultitool
                 foreach (var shortcut in base.Shortcuts)
                     yield return shortcut;
 
-                yield return Tab;
+                yield return SwitchIsLoopShortcut;
             }
         }
 
-        public CreateLoopMode()
-        {
-            Tab = GetShortcut(KeyCode.Tab, PressTab, ToolModeType.CreateLoop);
-        }
 
         private float? Radius { get; set; }
         private Vector3 Center { get; set; }
@@ -69,10 +65,10 @@ namespace NetworkMultitool
             else
                 return
                     Localize.Mode_Info_ChooseDirestion + "\n\n" +
-                    string.Format(Localize.Mode_Info_DecreaseRadius, Minus) + "\n" +
-                    string.Format(Localize.Mode_Info_IncreaseRadius, Plus) + "\n" +
-                    string.Format(Localize.Mode_CreateLoop_Info_Change, Tab) + "\n" +
-                    string.Format(Localize.Mode_Info_Create, Enter);
+                    string.Format(Localize.Mode_Info_DecreaseRadius, DecreaseRadiusShortcut) + "\n" +
+                    string.Format(Localize.Mode_Info_IncreaseRadius, IncreaseRadiusShortcut) + "\n" +
+                    string.Format(Localize.Mode_CreateLoop_Info_Change, SwitchIsLoopShortcut) + "\n" +
+                    string.Format(Localize.Mode_Info_Create, ApplyShortcut);
         }
 
         protected override void Reset(IToolMode prevMode)
@@ -171,7 +167,7 @@ namespace NetworkMultitool
             State = Result.Calculated;
         }
 
-        protected override void PressPlus()
+        protected override void IncreaseRadius()
         {
             if (Radius != null)
             {
@@ -180,7 +176,7 @@ namespace NetworkMultitool
                 State = Result.None;
             }
         }
-        protected override void PressMinus()
+        protected override void DecreaseRadius()
         {
             if (Radius != null)
             {
@@ -189,7 +185,7 @@ namespace NetworkMultitool
                 State = Result.None;
             }
         }
-        private void PressTab()
+        private void SwitchIsLoop()
         {
             IsLoop = !IsLoop;
             Radius = null;

@@ -540,6 +540,33 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Apply mode action.
+        /// </summary>
+        internal static string Settings_Shortcut_Apply {
+            get {
+                return ResourceManager.GetString("Settings_Shortcut_Apply", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Switch loop direction.
+        /// </summary>
+        internal static string Settings_Shortcut_SwitchIsLoop {
+            get {
+                return ResourceManager.GetString("Settings_Shortcut_SwitchIsLoop", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Switch selected circle.
+        /// </summary>
+        internal static string Settings_Shortcut_SwitchSelect {
+            get {
+                return ResourceManager.GetString("Settings_Shortcut_SwitchSelect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Slope unit of measurement.
         /// </summary>
         internal static string Settings_SlopeUnit {
