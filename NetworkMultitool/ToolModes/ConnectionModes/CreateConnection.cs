@@ -36,8 +36,8 @@ namespace NetworkMultitool
 
         public CreateConnectionMode()
         {
-            IncreaseOneRadiusShortcut = GetShortcut(KeyCode.RightBracket, IncreaseOneRadius, ToolModeType.CreateConnection, repeat: true);
-            DecreaseOneRadiusShortcut = GetShortcut(KeyCode.LeftBracket, DecreaseOneRadius, ToolModeType.CreateConnection, repeat: true);
+            IncreaseOneRadiusShortcut = GetShortcut(KeyCode.RightBracket, IncreaseOneRadius, ToolModeType.CreateConnection, repeat: true, ignoreModifiers: true);
+            DecreaseOneRadiusShortcut = GetShortcut(KeyCode.LeftBracket, DecreaseOneRadius, ToolModeType.CreateConnection, repeat: true, ignoreModifiers: true);
         }
 
         private bool Select { get; set; }
