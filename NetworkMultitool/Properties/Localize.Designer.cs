@@ -341,6 +341,15 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Select segment.
+        /// </summary>
+        internal static string Mode_Info_SelectSegment {
+            get {
+                return ResourceManager.GetString("Mode_Info_SelectSegment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Hold Shift to underground mode.
         /// </summary>
         internal static string Mode_Info_UndergroundMode {
@@ -382,6 +391,25 @@ namespace NetworkMultitool {
         internal static string Mode_IntersectSegment_Info_NotIntersect {
             get {
                 return ResourceManager.GetString("Mode_IntersectSegment_Info_NotIntersect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Invert segment mode.
+        /// </summary>
+        internal static string Mode_InvertSegment {
+            get {
+                return ResourceManager.GetString("Mode_InvertSegment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Right click to Invert segment
+        ///Left click to reverse segment.
+        /// </summary>
+        internal static string Mode_InvertSegment_Info {
+            get {
+                return ResourceManager.GetString("Mode_InvertSegment_Info", resourceCulture);
             }
         }
         

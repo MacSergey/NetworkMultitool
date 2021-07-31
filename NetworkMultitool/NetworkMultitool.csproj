@@ -116,6 +116,7 @@
     <Compile Include="ToolModes\BaseMode.cs" />
     <Compile Include="ToolModes\ConnectionModes\BaseCreate.cs" />
     <Compile Include="ToolModes\ConnectionModes\CreateConnection.cs" />
+    <Compile Include="ToolModes\InvertSegment.cs" />
     <Compile Include="ToolModes\NodeLineModes\ArrangeLine.cs" />
     <Compile Include="ToolModes\NodeLineModes\BaseNodeLine.cs" />
     <Compile Include="ToolModes\ConnectionModes\CreateLoop.cs" />

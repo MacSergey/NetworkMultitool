@@ -208,6 +208,9 @@ Too close to nearby node</value>
   <data name="Mode_Info_SelectSecondSegment" xml:space="preserve">
     <value>Select second segment</value>
   </data>
+  <data name="Mode_Info_SelectSegment" xml:space="preserve">
+    <value>Select segment</value>
+  </data>
   <data name="Mode_Info_UndergroundMode" xml:space="preserve">
     <value>Hold Shift to underground mode</value>
   </data>
@@ -222,6 +225,13 @@ Too close to nearby node</value>
   </data>
   <data name="Mode_IntersectSegment_Info_NotIntersect" xml:space="preserve">
     <value>These segments are not intersect</value>
+  </data>
+  <data name="Mode_InvertSegment" xml:space="preserve">
+    <value>Invert segment mode</value>
+  </data>
+  <data name="Mode_InvertSegment_Info" xml:space="preserve">
+    <value>Right click to Invert segment
+Left click to reverse segment</value>
   </data>
   <data name="Mode_NodeLine_Info_NotConnected" xml:space="preserve">
     <value>This node can't be selected

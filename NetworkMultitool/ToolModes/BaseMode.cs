@@ -174,8 +174,11 @@ namespace NetworkMultitool
         [Description(nameof(Localize.Mode_IntersectSegment))]
         IntersectSegment = UnionNode << 1,
 
+        [Description(nameof(Localize.Mode_InvertSegment))]
+        InvertSegment = IntersectSegment << 1,
+
         [Description(nameof(Localize.Mode_SlopeNode))]
-        SlopeNode = IntersectSegment << 1,
+        SlopeNode = InvertSegment << 1,
 
         [Description(nameof(Localize.Mode_ArrangeAtLine))]
         ArrangeAtLine = SlopeNode << 1,
@@ -186,6 +189,7 @@ namespace NetworkMultitool
 
         [Description(nameof(Localize.Mode_CreateConnection))]
         CreateConnection = CreateLoop << 1,
+
 
         [NotItem]
         Line = SlopeNode | ArrangeAtLine,

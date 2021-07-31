@@ -20,19 +20,7 @@ namespace NetworkMultitool
         public static NetworkMultitoolShortcut SelectionStepOverShortcut { get; } = new NetworkMultitoolShortcut(nameof(SelectionStepOverShortcut), nameof(CommonLocalize.Settings_ShortcutSelectionStepOver), SavedInputKey.Encode(KeyCode.Space, true, false, false), () => SingletonTool<NetworkMultitoolTool>.Instance.SelectionStepOver());
 
         public static IEnumerable<ToolModeType> ModeTypes => EnumExtension.GetEnumValues<ToolModeType>(m => m.IsItem());
-        public static Dictionary<ToolModeType, NetworkMultitoolShortcut> ModeShortcuts { get; } = InitModeShortcuts();
-        private static Dictionary<ToolModeType, NetworkMultitoolShortcut> InitModeShortcuts()
-        {
-            var dictionary = new Dictionary<ToolModeType, NetworkMultitoolShortcut>();
-
-            foreach (var mode in ModeTypes)
-            {
-                var shortcut = new NetworkMultitoolShortcut(mode.ToString(), mode.GetAttr<DescriptionAttribute, ToolModeType>().Description, SavedInputKey.Encode((KeyCode)((int)KeyCode.Alpha1 + dictionary.Count), true, false, false), () => SingletonTool<NetworkMultitoolTool>.Instance.SetMode(mode));
-                dictionary[mode] = shortcut;
-            }
-
-            return dictionary;
-        }
+        public static Dictionary<ToolModeType, NetworkMultitoolShortcut> ModeShortcuts { get; }
 
         private static IEnumerable<Shortcut> ToolShortcuts
         {
@@ -80,12 +68,32 @@ namespace NetworkMultitool
         protected override string UUIPressedSprite => NetworkMultitoolTextures.UUIPressed;
         protected override string UUIDisabledSprite => /*NodeControllerTextures.UUIDisabled;*/string.Empty;
 
+        static NetworkMultitoolTool()
+        {
+            ModeShortcuts = new Dictionary<ToolModeType, NetworkMultitoolShortcut>();
+
+            AddModeShortcut(ToolModeType.AddNode, KeyCode.Alpha1);
+            AddModeShortcut(ToolModeType.RemoveNode, KeyCode.Alpha2);
+            AddModeShortcut(ToolModeType.UnionNode, KeyCode.Alpha3);
+            AddModeShortcut(ToolModeType.IntersectSegment, KeyCode.Alpha4);
+            AddModeShortcut(ToolModeType.InvertSegment, KeyCode.Alpha9);
+            AddModeShortcut(ToolModeType.SlopeNode, KeyCode.Alpha5);
+            AddModeShortcut(ToolModeType.ArrangeAtLine, KeyCode.Alpha6);
+            AddModeShortcut(ToolModeType.CreateLoop, KeyCode.Alpha7);
+            AddModeShortcut(ToolModeType.CreateConnection, KeyCode.Alpha8);
+        }
+        private static void AddModeShortcut(ToolModeType mode, KeyCode key)
+        {
+            ModeShortcuts[mode] = new NetworkMultitoolShortcut(mode.ToString(), mode.GetAttr<DescriptionAttribute, ToolModeType>().Description, SavedInputKey.Encode(key, true, false, false), () => SingletonTool<NetworkMultitoolTool>.Instance.SetMode(mode));
+        }
+
         protected override IEnumerable<IToolMode<ToolModeType>> GetModes()
         {
             yield return CreateToolMode<AddNodeMode>();
             yield return CreateToolMode<RemoveNodeMode>();
             yield return CreateToolMode<UnionNodeMode>();
             yield return CreateToolMode<IntersectSegmentMode>();
+            yield return CreateToolMode<InvertSegmentMode>();
             yield return CreateToolMode<SlopeNodeMode>();
             yield return CreateToolMode<ArrangeLineMode>();
             yield return CreateToolMode<CreateLoopMode>();

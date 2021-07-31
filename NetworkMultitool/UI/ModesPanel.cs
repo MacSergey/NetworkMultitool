@@ -22,7 +22,7 @@ namespace NetworkMultitool.UI
             get
             {
                 var count = Buttons.Count();
-                return new Vector2(2 * Padding + Mathf.Min(count, 2) * ModeButtonSize, 2 * Padding + (count / 2) * ModeButtonSize);
+                return new Vector2(2 * Padding + Mathf.Min(count, 2) * ModeButtonSize, 2 * Padding + (count / 2 + count % 2) * ModeButtonSize);
             }
         }
         public bool IsHover
