@@ -75,6 +75,7 @@ namespace NetworkMultitool
             AddModeShortcut(ToolModeType.AddNode, KeyCode.Alpha1);
             AddModeShortcut(ToolModeType.RemoveNode, KeyCode.Alpha2);
             AddModeShortcut(ToolModeType.UnionNode, KeyCode.Alpha3);
+            AddModeShortcut(ToolModeType.SplitNode, KeyCode.Alpha0);
             AddModeShortcut(ToolModeType.IntersectSegment, KeyCode.Alpha4);
             AddModeShortcut(ToolModeType.InvertSegment, KeyCode.Alpha9);
             AddModeShortcut(ToolModeType.SlopeNode, KeyCode.Alpha5);
@@ -92,6 +93,7 @@ namespace NetworkMultitool
             yield return CreateToolMode<AddNodeMode>();
             yield return CreateToolMode<RemoveNodeMode>();
             yield return CreateToolMode<UnionNodeMode>();
+            yield return CreateToolMode<SplitNodeMode>();
             yield return CreateToolMode<IntersectSegmentMode>();
             yield return CreateToolMode<InvertSegmentMode>();
             yield return CreateToolMode<SlopeNodeMode>();

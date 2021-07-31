@@ -478,6 +478,79 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Split node mode.
+        /// </summary>
+        internal static string Mode_SplitNode {
+            get {
+                return ResourceManager.GetString("Mode_SplitNode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Click to remove segment from split order.
+        /// </summary>
+        internal static string Mode_SplitNode_Info_ClickFromOrder {
+            get {
+                return ResourceManager.GetString("Mode_SplitNode_Info_ClickFromOrder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Click to add segment to split order.
+        /// </summary>
+        internal static string Mode_SplitNode_Info_ClickToOrder {
+            get {
+                return ResourceManager.GetString("Mode_SplitNode_Info_ClickToOrder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Click to split node and set terrain height
+        ///Click with Shift to split node and set source height.
+        /// </summary>
+        internal static string Mode_SplitNode_Info_ClickToSplit {
+            get {
+                return ResourceManager.GetString("Mode_SplitNode_Info_ClickToSplit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Not allowed split node with only one segment.
+        /// </summary>
+        internal static string Mode_SplitNode_Info_NotAllowedSplit {
+            get {
+                return ResourceManager.GetString("Mode_SplitNode_Info_NotAllowedSplit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Not possible add more segments to split order.
+        /// </summary>
+        internal static string Mode_SplitNode_Info_OrderIsFull {
+            get {
+                return ResourceManager.GetString("Mode_SplitNode_Info_OrderIsFull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Select segments to split.
+        /// </summary>
+        internal static string Mode_SplitNode_Info_SelectToSplit {
+            get {
+                return ResourceManager.GetString("Mode_SplitNode_Info_SelectToSplit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Position is far from source node.
+        /// </summary>
+        internal static string Mode_SplitNode_Info_TooFar {
+            get {
+                return ResourceManager.GetString("Mode_SplitNode_Info_TooFar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Union nodes mode.
         /// </summary>
         internal static string Mode_UnionNode {

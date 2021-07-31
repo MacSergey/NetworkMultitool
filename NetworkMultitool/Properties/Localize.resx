@@ -255,6 +255,31 @@ because not connected with others</value>
   <data name="Mode_SlopeNode" xml:space="preserve">
     <value>Set slope mode</value>
   </data>
+  <data name="Mode_SplitNode" xml:space="preserve">
+    <value>Split node mode</value>
+  </data>
+  <data name="Mode_SplitNode_Info_ClickFromOrder" xml:space="preserve">
+    <value>Click to remove segment from split order</value>
+  </data>
+  <data name="Mode_SplitNode_Info_ClickToOrder" xml:space="preserve">
+    <value>Click to add segment to split order</value>
+  </data>
+  <data name="Mode_SplitNode_Info_ClickToSplit" xml:space="preserve">
+    <value>Click to split node and set terrain height
+Click with Shift to split node and set source height</value>
+  </data>
+  <data name="Mode_SplitNode_Info_NotAllowedSplit" xml:space="preserve">
+    <value>Not allowed split node with only one segment</value>
+  </data>
+  <data name="Mode_SplitNode_Info_OrderIsFull" xml:space="preserve">
+    <value>Not possible add more segments to split order</value>
+  </data>
+  <data name="Mode_SplitNode_Info_SelectToSplit" xml:space="preserve">
+    <value>Select segments to split</value>
+  </data>
+  <data name="Mode_SplitNode_Info_TooFar" xml:space="preserve">
+    <value>Position is far from source node</value>
+  </data>
   <data name="Mode_UnionNode" xml:space="preserve">
     <value>Union nodes mode</value>
   </data>
