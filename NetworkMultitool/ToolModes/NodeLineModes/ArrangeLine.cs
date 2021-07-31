@@ -11,7 +11,7 @@ namespace NetworkMultitool
     {
         public override ToolModeType Type => ToolModeType.ArrangeAtLine;
 
-        public override void PressEnter()
+        protected override void Apply()
         {
             if (Nodes.Count >= 3)
             {

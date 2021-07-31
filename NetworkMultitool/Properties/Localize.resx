@@ -278,6 +278,15 @@ because not connected with others</value>
   <data name="Settings_SegmentLength" xml:space="preserve">
     <value>Max Segment Length</value>
   </data>
+  <data name="Settings_Shortcut_Apply" xml:space="preserve">
+    <value>Apply mode action</value>
+  </data>
+  <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
+    <value>Switch loop direction</value>
+  </data>
+  <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
+    <value>Switch selected circle</value>
+  </data>
   <data name="Settings_SlopeUnit" xml:space="preserve">
     <value>Slope unit of measurement</value>
   </data>

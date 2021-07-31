@@ -34,13 +34,25 @@ namespace NetworkMultitool
             return dictionary;
         }
 
-        public static IEnumerable<Shortcut> ToolShortcuts
+        private static IEnumerable<Shortcut> ToolShortcuts
         {
             get
             {
                 yield return SelectionStepOverShortcut;
                 foreach (var shortcut in ModeShortcuts.Values)
                     yield return shortcut;
+            }
+        }
+        public static IEnumerable<Shortcut> BindShortcuts
+        {
+            get
+            {
+                foreach (var shortcut in ToolShortcuts)
+                    yield return shortcut;
+
+                yield return BaseNetworkMultitoolMode.ApplyShortcut;
+                yield return CreateConnectionMode.SwitchSelectShortcut;
+                yield return CreateLoopMode.SwitchIsLoopShortcut;
             }
         }
         public override IEnumerable<Shortcut> Shortcuts

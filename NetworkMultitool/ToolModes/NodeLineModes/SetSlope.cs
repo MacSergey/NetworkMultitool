@@ -19,7 +19,7 @@ namespace NetworkMultitool
             base.Reset(prevMode);
             OrderLabels.Clear();
         }
-        public override void PressEnter()
+        protected override void Apply()
         {
             if (Nodes.Count >= 3)
             {
