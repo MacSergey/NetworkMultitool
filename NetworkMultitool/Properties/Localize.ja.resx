@@ -152,7 +152,7 @@
     <value>{0} を押してループの選択を切り替え</value>
   </data>
   <data name="Mode_Info_ChooseDirestion" xml:space="preserve">
-    <value>ループの方向を指定するノードを選択</value>
+    <value>方向を指定するノードを選択</value>
   </data>
   <data name="Mode_Info_ClickFirstSegment" xml:space="preserve">
     <value>クリックして始点のセグメントを選択</value>
@@ -208,6 +208,9 @@
   <data name="Mode_Info_SelectSecondSegment" xml:space="preserve">
     <value>2つ目のセグメントを選択</value>
   </data>
+  <data name="Mode_Info_SelectSegment" xml:space="preserve">
+    <value>セグメントを選択</value>
+  </data>
   <data name="Mode_Info_UndergroundMode" xml:space="preserve">
     <value>Shiftキー押下で、地下表示に切り替え</value>
   </data>
@@ -222,6 +225,13 @@
   </data>
   <data name="Mode_IntersectSegment_Info_NotIntersect" xml:space="preserve">
     <value>セグメント同士が交差していません</value>
+  </data>
+  <data name="Mode_InvertSegment" xml:space="preserve">
+    <value>Mode: セグメントの反転</value>
+  </data>
+  <data name="Mode_InvertSegment_Info" xml:space="preserve">
+    <value>右クリックでセグメントを反転
+左クリックでセグメントを逆転</value>
   </data>
   <data name="Mode_NodeLine_Info_NotConnected" xml:space="preserve">
     <value>他のノードと未接続です
@@ -245,11 +255,36 @@
   <data name="Mode_SlopeNode" xml:space="preserve">
     <value>Mode: ストレートスロープ</value>
   </data>
+  <data name="Mode_SplitNode" xml:space="preserve">
+    <value>Mode: ノードの分割</value>
+  </data>
+  <data name="Mode_SplitNode_Info_ClickFromOrder" xml:space="preserve">
+    <value>クリックして分割したいセグメントの選択を解除</value>
+  </data>
+  <data name="Mode_SplitNode_Info_ClickToOrder" xml:space="preserve">
+    <value>クリックして分割したいセグメントを追加</value>
+  </data>
+  <data name="Mode_SplitNode_Info_ClickToSplit" xml:space="preserve">
+    <value>クリックして分割ノードは、地形側の高さに追従
+クリック + Shiftの分割ノードは、基準元の高さで追従</value>
+  </data>
+  <data name="Mode_SplitNode_Info_NotAllowedSplit" xml:space="preserve">
+    <value>単一セグメントではノードの分割はできません</value>
+  </data>
+  <data name="Mode_SplitNode_Info_OrderIsFull" xml:space="preserve">
+    <value>このセグメントはオーダーに追加できません</value>
+  </data>
+  <data name="Mode_SplitNode_Info_SelectToSplit" xml:space="preserve">
+    <value>このセグメントを分割に選択</value>
+  </data>
+  <data name="Mode_SplitNode_Info_TooFar" xml:space="preserve">
+    <value>分割先が基準のノードから遠すぎます</value>
+  </data>
   <data name="Mode_UnionNode" xml:space="preserve">
     <value>Mode: ノードのユニオン結合</value>
   </data>
   <data name="Mode_UnionNode_Info_ClickSource" xml:space="preserve">
-    <value>クリックして結合元のノードを選択</value>
+    <value>クリックして基準のノードを選択</value>
   </data>
   <data name="Mode_UnionNode_Info_ClickUnion" xml:space="preserve">
     <value>クリックしてノードを結合</value>
@@ -258,10 +293,10 @@
     <value>このノードは同じセグメントにあって選択できません</value>
   </data>
   <data name="Mode_UnionNode_Info_Overflow" xml:space="preserve">
-    <value>接続されるノード数は 8個以下にしてください</value>
+    <value>接続されるノード・セグメント数は 8個以下にしてください</value>
   </data>
   <data name="Mode_UnionNode_Info_SelectSource" xml:space="preserve">
-    <value>結合元のノードを選択</value>
+    <value>基準のノードを選択</value>
   </data>
   <data name="Mode_UnionNode_Info_SelectTarget" xml:space="preserve">
     <value>結合先のノードを選択</value>
@@ -277,6 +312,15 @@
   </data>
   <data name="Settings_SegmentLength" xml:space="preserve">
     <value>セグメントの最大長</value>
+  </data>
+  <data name="Settings_Shortcut_Apply" xml:space="preserve">
+    <value>アクションを適用</value>
+  </data>
+  <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
+    <value>ループの方向を切り替え</value>
+  </data>
+  <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
+    <value>選択したサークルを切り替え</value>
   </data>
   <data name="Settings_SlopeUnit" xml:space="preserve">
     <value>ストレートスロープの表示単位</value>

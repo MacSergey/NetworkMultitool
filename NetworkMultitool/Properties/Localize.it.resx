@@ -208,6 +208,9 @@ Troppo vicino ad un altro nodo</value>
   <data name="Mode_Info_SelectSecondSegment" xml:space="preserve">
     <value>Seleziona il secondo segmento</value>
   </data>
+  <data name="Mode_Info_SelectSegment" xml:space="preserve">
+    <value>Seleziona un segmento</value>
+  </data>
   <data name="Mode_Info_UndergroundMode" xml:space="preserve">
     <value>Tieni premuto Shift per
 modalità sotterranea</value>
@@ -223,6 +226,13 @@ modalità sotterranea</value>
   </data>
   <data name="Mode_IntersectSegment_Info_NotIntersect" xml:space="preserve">
     <value>Questi segmenti non sono intersecati</value>
+  </data>
+  <data name="Mode_InvertSegment" xml:space="preserve">
+    <value>Modalità inverti segmento</value>
+  </data>
+  <data name="Mode_InvertSegment_Info" xml:space="preserve">
+    <value>Right click to invert segment
+Left click to reverse segment</value>
   </data>
   <data name="Mode_NodeLine_Info_NotConnected" xml:space="preserve">
     <value>Questo nodo non può essere selezionato
@@ -245,6 +255,31 @@ perché non è connesso con altri</value>
   </data>
   <data name="Mode_SlopeNode" xml:space="preserve">
     <value>Imposta la modalità pendenza</value>
+  </data>
+  <data name="Mode_SplitNode" xml:space="preserve">
+    <value>Modalità divisione nodo</value>
+  </data>
+  <data name="Mode_SplitNode_Info_ClickFromOrder" xml:space="preserve">
+    <value>Fare clic per rimuovere il segmento dall'ordine di divisione</value>
+  </data>
+  <data name="Mode_SplitNode_Info_ClickToOrder" xml:space="preserve">
+    <value>Fare clic per aggiungere un segmento all'ordine di divisione</value>
+  </data>
+  <data name="Mode_SplitNode_Info_ClickToSplit" xml:space="preserve">
+    <value>Fare clic per dividere il nodo e impostare l'altezza del terreno
+Fare clic con Maiusc per dividere il nodo e impostare l'altezza della sorgente</value>
+  </data>
+  <data name="Mode_SplitNode_Info_NotAllowedSplit" xml:space="preserve">
+    <value>Non è consentito dividere il nodo con un solo segmento</value>
+  </data>
+  <data name="Mode_SplitNode_Info_OrderIsFull" xml:space="preserve">
+    <value>Non è possibile aggiungere altri segmenti all'ordine divisione</value>
+  </data>
+  <data name="Mode_SplitNode_Info_SelectToSplit" xml:space="preserve">
+    <value>Seleziona i segmenti da dividere</value>
+  </data>
+  <data name="Mode_SplitNode_Info_TooFar" xml:space="preserve">
+    <value>La posizione è lontana dal nodo sorgente</value>
   </data>
   <data name="Mode_UnionNode" xml:space="preserve">
     <value>Modalità unione nodi</value>
@@ -278,6 +313,15 @@ perché non è connesso con altri</value>
   </data>
   <data name="Settings_SegmentLength" xml:space="preserve">
     <value>Lunghezza Massima Del Segmento</value>
+  </data>
+  <data name="Settings_Shortcut_Apply" xml:space="preserve">
+    <value>Applica l'azione in modalità</value>
+  </data>
+  <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
+    <value>Cambia direzione ciclo</value>
+  </data>
+  <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
+    <value>Cambia cerchio selezionato</value>
   </data>
   <data name="Settings_SlopeUnit" xml:space="preserve">
     <value>Unità di misura pendenza</value>

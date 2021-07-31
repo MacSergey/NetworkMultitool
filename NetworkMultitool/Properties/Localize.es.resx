@@ -208,6 +208,9 @@ Muy cerca del nodo más cercano</value>
   <data name="Mode_Info_SelectSecondSegment" xml:space="preserve">
     <value>Seleccione el segundo segmento</value>
   </data>
+  <data name="Mode_Info_SelectSegment" xml:space="preserve">
+    <value>Select segment</value>
+  </data>
   <data name="Mode_Info_UndergroundMode" xml:space="preserve">
     <value>Mantén presionada la tecla "Mayús" para modo subterráneo</value>
   </data>
@@ -222,6 +225,13 @@ Muy cerca del nodo más cercano</value>
   </data>
   <data name="Mode_IntersectSegment_Info_NotIntersect" xml:space="preserve">
     <value>Estos segmentos no se intersectan</value>
+  </data>
+  <data name="Mode_InvertSegment" xml:space="preserve">
+    <value>Invert segment mode</value>
+  </data>
+  <data name="Mode_InvertSegment_Info" xml:space="preserve">
+    <value>Right click to invert segment
+Left click to reverse segment</value>
   </data>
   <data name="Mode_NodeLine_Info_NotConnected" xml:space="preserve">
     <value>Este nodo no se puede seleccionar
@@ -244,6 +254,31 @@ porque no está conectado con otros nodos</value>
   </data>
   <data name="Mode_SlopeNode" xml:space="preserve">
     <value>Modo de pendiente</value>
+  </data>
+  <data name="Mode_SplitNode" xml:space="preserve">
+    <value>Split node mode</value>
+  </data>
+  <data name="Mode_SplitNode_Info_ClickFromOrder" xml:space="preserve">
+    <value>Click to remove segment from split order</value>
+  </data>
+  <data name="Mode_SplitNode_Info_ClickToOrder" xml:space="preserve">
+    <value>Click to add segment to split order</value>
+  </data>
+  <data name="Mode_SplitNode_Info_ClickToSplit" xml:space="preserve">
+    <value>Click to split node and set terrain height
+Click with Shift to split node and set source height</value>
+  </data>
+  <data name="Mode_SplitNode_Info_NotAllowedSplit" xml:space="preserve">
+    <value>Not allowed split node with only one segment</value>
+  </data>
+  <data name="Mode_SplitNode_Info_OrderIsFull" xml:space="preserve">
+    <value>Not possible add more segments to split order</value>
+  </data>
+  <data name="Mode_SplitNode_Info_SelectToSplit" xml:space="preserve">
+    <value>Select segments to split</value>
+  </data>
+  <data name="Mode_SplitNode_Info_TooFar" xml:space="preserve">
+    <value>Position is far from source node</value>
   </data>
   <data name="Mode_UnionNode" xml:space="preserve">
     <value>Modo de conexión de nodos</value>
@@ -277,6 +312,15 @@ porque no está conectado con otros nodos</value>
   </data>
   <data name="Settings_SegmentLength" xml:space="preserve">
     <value>Longitud máxima de segmento</value>
+  </data>
+  <data name="Settings_Shortcut_Apply" xml:space="preserve">
+    <value>Aplicar acción de modo</value>
+  </data>
+  <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
+    <value>Cambiar dirección de la curva</value>
+  </data>
+  <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
+    <value>Cambiar círculo seleccionado</value>
   </data>
   <data name="Settings_SlopeUnit" xml:space="preserve">
     <value>Unidad de medida para las pendientes</value>

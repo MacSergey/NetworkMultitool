@@ -208,6 +208,9 @@ Zu nah an einem anderen Netzwerk-Knoten</value>
   <data name="Mode_Info_SelectSecondSegment" xml:space="preserve">
     <value>Zweites Segment auswählen</value>
   </data>
+  <data name="Mode_Info_SelectSegment" xml:space="preserve">
+    <value>Select segment</value>
+  </data>
   <data name="Mode_Info_UndergroundMode" xml:space="preserve">
     <value>Halte Shift gedrückt für den unterirdischen Modus</value>
   </data>
@@ -222,6 +225,13 @@ Zu nah an einem anderen Netzwerk-Knoten</value>
   </data>
   <data name="Mode_IntersectSegment_Info_NotIntersect" xml:space="preserve">
     <value>Diese Segmente überschneiden sich nicht</value>
+  </data>
+  <data name="Mode_InvertSegment" xml:space="preserve">
+    <value>Invert segment mode</value>
+  </data>
+  <data name="Mode_InvertSegment_Info" xml:space="preserve">
+    <value>Right click to invert segment
+Left click to reverse segment</value>
   </data>
   <data name="Mode_NodeLine_Info_NotConnected" xml:space="preserve">
     <value>Dieser Netzwerk-Knoten kann nicht ausgewählt werden,
@@ -244,6 +254,31 @@ da er nicht mit anderen verbunden ist</value>
   </data>
   <data name="Mode_SlopeNode" xml:space="preserve">
     <value>Gefälle einstellen</value>
+  </data>
+  <data name="Mode_SplitNode" xml:space="preserve">
+    <value>Split node mode</value>
+  </data>
+  <data name="Mode_SplitNode_Info_ClickFromOrder" xml:space="preserve">
+    <value>Click to remove segment from split order</value>
+  </data>
+  <data name="Mode_SplitNode_Info_ClickToOrder" xml:space="preserve">
+    <value>Click to add segment to split order</value>
+  </data>
+  <data name="Mode_SplitNode_Info_ClickToSplit" xml:space="preserve">
+    <value>Click to split node and set terrain height
+Click with Shift to split node and set source height</value>
+  </data>
+  <data name="Mode_SplitNode_Info_NotAllowedSplit" xml:space="preserve">
+    <value>Not allowed split node with only one segment</value>
+  </data>
+  <data name="Mode_SplitNode_Info_OrderIsFull" xml:space="preserve">
+    <value>Not possible add more segments to split order</value>
+  </data>
+  <data name="Mode_SplitNode_Info_SelectToSplit" xml:space="preserve">
+    <value>Select segments to split</value>
+  </data>
+  <data name="Mode_SplitNode_Info_TooFar" xml:space="preserve">
+    <value>Position is far from source node</value>
   </data>
   <data name="Mode_UnionNode" xml:space="preserve">
     <value>Netzwerk-Knoten vereinen</value>
@@ -277,6 +312,15 @@ da er nicht mit anderen verbunden ist</value>
   </data>
   <data name="Settings_SegmentLength" xml:space="preserve">
     <value>Maximale Segmentlänge</value>
+  </data>
+  <data name="Settings_Shortcut_Apply" xml:space="preserve">
+    <value>Aktion im Modus anwenden</value>
+  </data>
+  <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
+    <value>Schleifenrichtung ändern</value>
+  </data>
+  <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
+    <value>Ausgewählten Kreis wechseln</value>
   </data>
   <data name="Settings_SlopeUnit" xml:space="preserve">
     <value>Maßeinheit für Gefälle</value>

@@ -118,113 +118,113 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Mode_AddNode" xml:space="preserve">
-    <value>Ajouter des nœuds</value>
+    <value>Add node mode</value>
   </data>
   <data name="Mode_AddNode_Info_ClickToAdd" xml:space="preserve">
-    <value>Cliquez pour ajouter un nœud</value>
+    <value>Click to add node</value>
   </data>
   <data name="Mode_AddNode_Info_SelectToAdd" xml:space="preserve">
-    <value>Sélectionnez un segment pour ajouter un nœud</value>
+    <value>Select segment to add node</value>
   </data>
   <data name="Mode_AddNode_Info_TooCloseNode" xml:space="preserve">
-    <value>Impossible d'ajouter le nœud
-Trop proche du nœud voisin</value>
+    <value>Can't add node
+Too close to nearby node</value>
   </data>
   <data name="Mode_AngleFormat" xml:space="preserve">
     <value>{0}°</value>
   </data>
   <data name="Mode_ArrangeAtLine" xml:space="preserve">
-    <value>Aligner la route</value>
+    <value>Arrange at line mode</value>
   </data>
   <data name="Mode_CreateConnection" xml:space="preserve">
-    <value>Créer une connexion</value>
+    <value>Create connection mode</value>
   </data>
   <data name="Mode_CreateLoop" xml:space="preserve">
-    <value>Créer une boucle</value>
+    <value>Create loop mode</value>
   </data>
   <data name="Mode_CreateLoop_Info_Change" xml:space="preserve">
-    <value>Appuyez sur {0} pour modifier la boucle</value>
+    <value>Press {0} to change loop</value>
   </data>
   <data name="Mode_Info_Apply" xml:space="preserve">
-    <value>Appuyez sur {0} pour appliquer</value>
+    <value>Press {0} to apply</value>
   </data>
   <data name="Mode_Info_ChangeCircle" xml:space="preserve">
-    <value>Appuyez sur {0} pour changer de cercle</value>
+    <value>Press {0} to switch selected circle</value>
   </data>
   <data name="Mode_Info_ChooseDirestion" xml:space="preserve">
-    <value>Choisissez des nœuds pour sélectionner la création de direction</value>
+    <value>Choose nodes to select create direction</value>
   </data>
   <data name="Mode_Info_ClickFirstSegment" xml:space="preserve">
-    <value>Cliquez pour sélectionner le premier segment</value>
+    <value>Click to select first segment</value>
   </data>
   <data name="Mode_Info_ClickSecondSegment" xml:space="preserve">
-    <value>Cliquez pour sélectionner le second segment</value>
+    <value>Click to select second segment</value>
   </data>
   <data name="Mode_Info_ClickSelectNode" xml:space="preserve">
-    <value>Cliquez pour sélectionner un nœud</value>
+    <value>Click to select node</value>
   </data>
   <data name="Mode_Info_ClickUnselectNode" xml:space="preserve">
-    <value>Cliquez pour désélectionner un nœud</value>
+    <value>Click to unselect node</value>
   </data>
   <data name="Mode_Info_Create" xml:space="preserve">
-    <value>Appuyez sur {0} pour créer</value>
+    <value>Press {0} to create</value>
   </data>
   <data name="Mode_Info_CurveDurection" xml:space="preserve">
-    <value>Cliquez sur le nœud pour changer la direction de la courbe</value>
+    <value>Click on node to change curve direction</value>
   </data>
   <data name="Mode_Info_DecreaseAllRadius" xml:space="preserve">
-    <value>Appuyez sur {0} pour diminuer tous les rayons</value>
+    <value>Press {0} to decrease all radii</value>
   </data>
   <data name="Mode_Info_DecreaseBothRadius" xml:space="preserve">
-    <value>Appuyez sur {0} pour diminuer les deux rayons</value>
+    <value>Press {0} to decrease both radii</value>
   </data>
   <data name="Mode_Info_DecreaseOneRadius" xml:space="preserve">
-    <value>Appuyez sur {0} pour diminuer un rayon</value>
+    <value>Press {0} to decrease one radius</value>
   </data>
   <data name="Mode_Info_DecreaseRadius" xml:space="preserve">
-    <value>Appuyez sur {0} pour diminuer le rayon</value>
+    <value>Press {0} to decrease radius</value>
   </data>
   <data name="Mode_Info_IncreaseAllRadius" xml:space="preserve">
-    <value>Appuyez sur {0} pour augmenter tous les rayons</value>
+    <value>Press {0} to increase all radii</value>
   </data>
   <data name="Mode_Info_IncreaseBothRadius" xml:space="preserve">
-    <value>Appuyez sur {0} pour augmenter les deux rayons</value>
+    <value>Press {0} to increase both radii</value>
   </data>
   <data name="Mode_Info_IncreaseOneRadius" xml:space="preserve">
-    <value>Appuyez sur {0} pour augmenter un rayon</value>
+    <value>Press {0} to increase one radius</value>
   </data>
   <data name="Mode_Info_IncreaseRadius" xml:space="preserve">
-    <value>Appuyez sur {0} pour augmenter le rayon</value>
+    <value>Press {0} to increase radius</value>
   </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
-    <value>Rayon trop important</value>
+    <value>Radius too big</value>
   </data>
   <data name="Mode_Info_RadiusTooSmall" xml:space="preserve">
-    <value>Rayon trop petit</value>
+    <value>Radius too small</value>
   </data>
   <data name="Mode_Info_SelectFirstSegment" xml:space="preserve">
-    <value>Sélectionnez le premier segment</value>
+    <value>Select first segment</value>
   </data>
   <data name="Mode_Info_SelectSecondSegment" xml:space="preserve">
-    <value>Sélectionnez le second segment</value>
+    <value>Select second segment</value>
   </data>
   <data name="Mode_Info_SelectSegment" xml:space="preserve">
     <value>Select segment</value>
   </data>
   <data name="Mode_Info_UndergroundMode" xml:space="preserve">
-    <value>Maintenez Maj pour le mode souterrain</value>
+    <value>Hold Shift to underground mode</value>
   </data>
   <data name="Mode_Info_WrongShape" xml:space="preserve">
-    <value>Forme incorrecte</value>
+    <value>Wrong shape</value>
   </data>
   <data name="Mode_IntersectSegment" xml:space="preserve">
-    <value>Intersecter des segments</value>
+    <value>Intersect segments mode</value>
   </data>
   <data name="Mode_IntersectSegment_Info_EdgeTooClose" xml:space="preserve">
-    <value>Le bord du segment est trop proche de la fin du second segment</value>
+    <value>Edge of one segment is too close to end of second segment</value>
   </data>
   <data name="Mode_IntersectSegment_Info_NotIntersect" xml:space="preserve">
-    <value>Ces segments ne se croisent pas</value>
+    <value>These segments are not intersect</value>
   </data>
   <data name="Mode_InvertSegment" xml:space="preserve">
     <value>Invert segment mode</value>
@@ -234,11 +234,11 @@ Trop proche du nœud voisin</value>
 Left click to reverse segment</value>
   </data>
   <data name="Mode_NodeLine_Info_NotConnected" xml:space="preserve">
-    <value>Ce nœud ne peut pas être sélectionné
-car il n'est pas connecté aux autres</value>
+    <value>This node can't be selected
+because not connected with others</value>
   </data>
   <data name="Mode_NodeLine_Info_SelectNode" xml:space="preserve">
-    <value>Sélectionnez le nœud pour l'ajouter à l'ordre</value>
+    <value>Select node to add it to order</value>
   </data>
   <data name="Mode_PercentagesFormat" xml:space="preserve">
     <value>{0}%</value>
@@ -247,13 +247,13 @@ car il n'est pas connecté aux autres</value>
     <value>{0}m</value>
   </data>
   <data name="Mode_RemoveNode" xml:space="preserve">
-    <value>Supprimer des nœuds</value>
+    <value>Remove node mode</value>
   </data>
   <data name="Mode_RemoveNode_Info_NotAllow" xml:space="preserve">
-    <value>Non autorisé à supprimer ce nœud</value>
+    <value>Not allow to remove this node</value>
   </data>
   <data name="Mode_SlopeNode" xml:space="preserve">
-    <value>Égaliser la pente</value>
+    <value>Set slope mode</value>
   </data>
   <data name="Mode_SplitNode" xml:space="preserve">
     <value>Split node mode</value>
@@ -281,60 +281,60 @@ Click with Shift to split node and set source height</value>
     <value>Position is far from source node</value>
   </data>
   <data name="Mode_UnionNode" xml:space="preserve">
-    <value>Fusionner des nœuds</value>
+    <value>Union nodes mode</value>
   </data>
   <data name="Mode_UnionNode_Info_ClickSource" xml:space="preserve">
-    <value>Cliquez pour sélectionner le nœud source</value>
+    <value>Click to select source node</value>
   </data>
   <data name="Mode_UnionNode_Info_ClickUnion" xml:space="preserve">
-    <value>Cliquez pour unifier les nœuds</value>
+    <value>Click to union nodes</value>
   </data>
   <data name="Mode_UnionNode_Info_NoCommon" xml:space="preserve">
-    <value>Ces nœuds ont un segment commun</value>
+    <value>These nodes have common segment</value>
   </data>
   <data name="Mode_UnionNode_Info_Overflow" xml:space="preserve">
-    <value>Le nombre total de nœuds ne doit pas dépasser 8</value>
+    <value>Total number of nodes must be no more then 8</value>
   </data>
   <data name="Mode_UnionNode_Info_SelectSource" xml:space="preserve">
-    <value>Sélectionnez le nœud source</value>
+    <value>Select source node</value>
   </data>
   <data name="Mode_UnionNode_Info_SelectTarget" xml:space="preserve">
-    <value>Sélectionnez le nœud cible</value>
+    <value>Select target node</value>
   </data>
   <data name="Mode_UnionNode_Info_TooFar" xml:space="preserve">
-    <value>Noeuds trop éloignés de l'un à l'autre</value>
+    <value>Nodes too far from each other</value>
   </data>
   <data name="Mod_Description" xml:space="preserve">
-    <value>De nombreux outils pour travailler avec les réseaux</value>
+    <value>Many different tools for working with networks</value>
   </data>
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
-    <value>Masquer automatiquement le panneau</value>
+    <value>Auto hide modes panel</value>
   </data>
   <data name="Settings_SegmentLength" xml:space="preserve">
-    <value>Longueur maximale du segment</value>
+    <value>Max Segment Length</value>
   </data>
   <data name="Settings_Shortcut_Apply" xml:space="preserve">
-    <value>Appliquer</value>
+    <value>Apply mode action</value>
   </data>
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
-    <value>Changer la direction de la boucle</value>
+    <value>Switch loop direction</value>
   </data>
   <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
-    <value>Changer de cercle</value>
+    <value>Switch selected circle</value>
   </data>
   <data name="Settings_SlopeUnit" xml:space="preserve">
-    <value>Unité de mesure des pentes</value>
+    <value>Slope unit of measurement</value>
   </data>
   <data name="Settings_SlopeUnitDegrees" xml:space="preserve">
-    <value>Degrés</value>
+    <value>Degrees</value>
   </data>
   <data name="Settings_SlopeUnitPercentages" xml:space="preserve">
-    <value>Pourcentages</value>
+    <value>Percentages</value>
   </data>
   <data name="Tool_RemoveNode_Info_ClickToRemove" xml:space="preserve">
-    <value>Cliquez pour supprimer</value>
+    <value>Click to remove</value>
   </data>
   <data name="Tool_RemoveNode_Info_Select" xml:space="preserve">
-    <value>Sélectionnez un noeud pour le supprimer</value>
+    <value>Select node to remove it</value>
   </data>
 </root>

@@ -208,6 +208,9 @@
   <data name="Mode_Info_SelectSecondSegment" xml:space="preserve">
     <value>Выберите второй сегмент</value>
   </data>
+  <data name="Mode_Info_SelectSegment" xml:space="preserve">
+    <value>Выберите сегмент</value>
+  </data>
   <data name="Mode_Info_UndergroundMode" xml:space="preserve">
     <value>Удерживайте Shift для подземного режима</value>
   </data>
@@ -223,6 +226,13 @@
   </data>
   <data name="Mode_IntersectSegment_Info_NotIntersect" xml:space="preserve">
     <value>Эти сегменты не пересекаются</value>
+  </data>
+  <data name="Mode_InvertSegment" xml:space="preserve">
+    <value>Режим инвертирования сегмента</value>
+  </data>
+  <data name="Mode_InvertSegment_Info" xml:space="preserve">
+    <value>Нажатие правую кнопку для инверсии
+Нажмите левую кнопку для реверса</value>
   </data>
   <data name="Mode_NodeLine_Info_NotConnected" xml:space="preserve">
     <value>Этот узел не может быть выбран
@@ -245,6 +255,31 @@
   </data>
   <data name="Mode_SlopeNode" xml:space="preserve">
     <value>Режим задания уклона</value>
+  </data>
+  <data name="Mode_SplitNode" xml:space="preserve">
+    <value>Режим разделения узла</value>
+  </data>
+  <data name="Mode_SplitNode_Info_ClickFromOrder" xml:space="preserve">
+    <value>Нажмите чтобы удалить сегмент из списка</value>
+  </data>
+  <data name="Mode_SplitNode_Info_ClickToOrder" xml:space="preserve">
+    <value>Нажмите чтобы добавить сегмент в список</value>
+  </data>
+  <data name="Mode_SplitNode_Info_ClickToSplit" xml:space="preserve">
+    <value>Нажмите чтобы разделить узел и задать высоту поверхности
+Нажмите с Shift чтобы разделить узел и задать высоту источника</value>
+  </data>
+  <data name="Mode_SplitNode_Info_NotAllowedSplit" xml:space="preserve">
+    <value>Нельзя разделить узел с только одним сегментом</value>
+  </data>
+  <data name="Mode_SplitNode_Info_OrderIsFull" xml:space="preserve">
+    <value>Нельзя добавить больше сегментов в список</value>
+  </data>
+  <data name="Mode_SplitNode_Info_SelectToSplit" xml:space="preserve">
+    <value>Выберите сегменты которые нужно отделить</value>
+  </data>
+  <data name="Mode_SplitNode_Info_TooFar" xml:space="preserve">
+    <value>Позиция слишком далека от источника</value>
   </data>
   <data name="Mode_UnionNode" xml:space="preserve">
     <value>Режим объединения узлов</value>
@@ -278,6 +313,15 @@
   </data>
   <data name="Settings_SegmentLength" xml:space="preserve">
     <value>Максимальная длина сегмента</value>
+  </data>
+  <data name="Settings_Shortcut_Apply" xml:space="preserve">
+    <value>Применить</value>
+  </data>
+  <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
+    <value>Сменить направление петли</value>
+  </data>
+  <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
+    <value>Сменить выбранную окружность</value>
   </data>
   <data name="Settings_SlopeUnit" xml:space="preserve">
     <value>Единицы измерения наклона</value>
