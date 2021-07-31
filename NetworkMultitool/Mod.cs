@@ -1,4 +1,5 @@
-﻿using HarmonyLib;
+﻿using ColossalFramework.UI;
+using HarmonyLib;
 using ICities;
 using ModsCommon;
 using ModsCommon.Utilities;
@@ -37,7 +38,10 @@ namespace NetworkMultitool
 
         protected override ResourceManager LocalizeManager => Localize.ResourceManager;
         private static PluginSearcher FRTSearcher { get; } = PluginUtilities.GetSearcher("Fine Road Tool", 1844442251ul);
-        private static bool IsFRT => FRTSearcher.GetPlugin() != null;
+        private static PluginSearcher NodeSpacerSearcher { get; } = PluginUtilities.GetSearcher("Node Spacer", 2085018096ul);
+
+        public static bool IsFRT => FRTSearcher.GetPlugin() != null;
+        public static bool IsNodeSpacer => NodeSpacerSearcher.GetPlugin() != null;
 
         #region BASIC
 
@@ -61,7 +65,8 @@ namespace NetworkMultitool
             success &= ToolOnEscape();
             if (IsFRT)
                 success &= FineRoadToolUpdate();
-
+            if (IsNodeSpacer)
+                success &= NodeSpacerStart();
             return success;
         }
 
@@ -83,6 +88,10 @@ namespace NetworkMultitool
                 return AddTranspiler(typeof(Patcher), nameof(Patcher.FineRoadToolTranspiler), Type.GetType("FineRoadTool.FineRoadTool"), "FpsBoosterUpdate");
             else
                 return true;
+        }
+        private bool NodeSpacerStart()
+        {
+            return AddPostfix(typeof(Patcher), nameof(Patcher.NodeSpacerPostfix), Type.GetType("NodeSpacer.ModUI"), "Start");
         }
 
         #endregion
@@ -111,6 +120,15 @@ namespace NetworkMultitool
             }
         }
         private static bool Enabled(bool netToolEnabled) => netToolEnabled || SingletonTool<NetworkMultitoolTool>.Instance.enabled;
+
+        public static void NodeSpacerPostfix(UISlider ___m_maxLengthSlider)
+        {
+            ___m_maxLengthSlider.eventValueChanged += (_,_) =>
+            {
+                if (SingletonTool<NetworkMultitoolTool>.Instance.Mode is BaseCreateMode mode)
+                    mode.Recalculate();
+            };
+        }
     }
     public class LoadingExtension : BaseLoadingExtension<Mod>
     {
