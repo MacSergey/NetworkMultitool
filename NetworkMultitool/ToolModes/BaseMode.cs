@@ -84,7 +84,7 @@ namespace NetworkMultitool
         }
         private void ButtonClicked(UIComponent component, UIMouseEventParameter eventParam) => Tool.SetMode(this);
 
-        protected NetworkMultitoolShortcut GetShortcut(KeyCode keyCode, Action action, ToolModeType mode = ToolModeType.Any, bool ctrl = false, bool shift = false, bool alt = false, bool repeat = false) => new NetworkMultitoolShortcut(string.Empty, string.Empty, SavedInputKey.Encode(keyCode, ctrl, shift, alt), action, mode) { CanRepeat = repeat };
+        protected NetworkMultitoolShortcut GetShortcut(KeyCode keyCode, Action action, ToolModeType mode = ToolModeType.Any, bool ctrl = false, bool shift = false, bool alt = false, bool repeat = false, bool ignoreModifiers = false) => new NetworkMultitoolShortcut(string.Empty, string.Empty, SavedInputKey.Encode(keyCode, ctrl, shift, alt), action, mode) { CanRepeat = repeat, IgnoreModifiers = ignoreModifiers };
 
         public sealed override string GetToolInfo()
         {
