@@ -51,6 +51,7 @@ If you want to help improve existing translations or you want to translate into 
 [h1]Thank you for your help in development and translation:[/h1]
 [list]
 [*] [url=https://steamcommunity.com/profiles/76561198855893485]Almi[/url] (Spanish translation)
+[*] Annyeong1 (Korean translation)
 [*] [url=https://steamcommunity.com/id/chameleonlifede/]Chamëleon[/url] (German translation)
 [*] [url=https://steamcommunity.com/id/citadino/]Citadino[/url] (Spanish translation)
 [*] [url=https://steamcommunity.com/id/claude_speed_]Claude_Speed[/url] (Chinese translation)
