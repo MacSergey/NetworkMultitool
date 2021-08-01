@@ -224,7 +224,7 @@ Too close to nearby node</value>
     <value>Edge of one segment is too close to end of second segment</value>
   </data>
   <data name="Mode_IntersectSegment_Info_NotIntersect" xml:space="preserve">
-    <value>These segments are not intersect</value>
+    <value>These segments don’t intersect</value>
   </data>
   <data name="Mode_InvertSegment" xml:space="preserve">
     <value>Invert segment mode</value>

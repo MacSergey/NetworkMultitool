@@ -170,37 +170,37 @@ Te dicht bij een nabijgelegen knooppunt</value>
     <value>Druk {0} om te creëren</value>
   </data>
   <data name="Mode_Info_CurveDurection" xml:space="preserve">
-    <value>Click on node to change curve direction</value>
+    <value>Klik op knooppunt om de curverichting te wijzigen</value>
   </data>
   <data name="Mode_Info_DecreaseAllRadius" xml:space="preserve">
-    <value>Press {0} to decrease all radii</value>
+    <value>Druk {0} om alle stralen te verkleinen</value>
   </data>
   <data name="Mode_Info_DecreaseBothRadius" xml:space="preserve">
-    <value>Press {0} to decrease both radii</value>
+    <value>Druk {0} om beide stralen te verkleinen</value>
   </data>
   <data name="Mode_Info_DecreaseOneRadius" xml:space="preserve">
-    <value>Press {0} to decrease one radius</value>
+    <value>Druk {0} om één straal te verkleinen</value>
   </data>
   <data name="Mode_Info_DecreaseRadius" xml:space="preserve">
-    <value>Press {0} to decrease radius</value>
+    <value>Druk {0} om straal te verkleinen</value>
   </data>
   <data name="Mode_Info_IncreaseAllRadius" xml:space="preserve">
-    <value>Press {0} to increase all radii</value>
+    <value>Druk {0} om alle stralen te vergroten</value>
   </data>
   <data name="Mode_Info_IncreaseBothRadius" xml:space="preserve">
-    <value>Press {0} to increase both radii</value>
+    <value>Druk {0} om beide stralen te vergroten</value>
   </data>
   <data name="Mode_Info_IncreaseOneRadius" xml:space="preserve">
-    <value>Press {0} to increase one radius</value>
+    <value>Druk {0} om één straal te vergroten</value>
   </data>
   <data name="Mode_Info_IncreaseRadius" xml:space="preserve">
-    <value>Press {0} to increase radius</value>
+    <value>Druk {0} om straal te vergroten</value>
   </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
-    <value>Radius too big</value>
+    <value>Straal te groot</value>
   </data>
   <data name="Mode_Info_RadiusTooSmall" xml:space="preserve">
-    <value>Radius too small</value>
+    <value>Straal te klein</value>
   </data>
   <data name="Mode_Info_SelectFirstSegment" xml:space="preserve">
     <value>Selecteer eerste segment</value>
@@ -209,7 +209,7 @@ Te dicht bij een nabijgelegen knooppunt</value>
     <value>Selecteer tweede segment</value>
   </data>
   <data name="Mode_Info_SelectSegment" xml:space="preserve">
-    <value>Select segment</value>
+    <value>Selecteer segment</value>
   </data>
   <data name="Mode_Info_UndergroundMode" xml:space="preserve">
     <value>Houd Shift om in ondergrondse modus te gaan</value>
@@ -224,7 +224,7 @@ Te dicht bij een nabijgelegen knooppunt</value>
     <value>De rand van één segment is te dichtbij het einde van het tweede segment</value>
   </data>
   <data name="Mode_IntersectSegment_Info_NotIntersect" xml:space="preserve">
-    <value>These segments are not intersect</value>
+    <value>Deze segmenten kruisen elkaar niet</value>
   </data>
   <data name="Mode_InvertSegment" xml:space="preserve">
     <value>Invert segment mode</value>
@@ -274,7 +274,7 @@ Click with Shift to split node and set source height</value>
     <value>Not possible add more segments to split order</value>
   </data>
   <data name="Mode_SplitNode_Info_SelectToSplit" xml:space="preserve">
-    <value>Select segments to split</value>
+    <value>Selecteer segmenten om te splitsen</value>
   </data>
   <data name="Mode_SplitNode_Info_TooFar" xml:space="preserve">
     <value>Position is far from source node</value>
@@ -283,13 +283,13 @@ Click with Shift to split node and set source height</value>
     <value>Union nodes mode</value>
   </data>
   <data name="Mode_UnionNode_Info_ClickSource" xml:space="preserve">
-    <value>Click to select source node</value>
+    <value>Klik om het bronknooppunt te selecteren</value>
   </data>
   <data name="Mode_UnionNode_Info_ClickUnion" xml:space="preserve">
-    <value>Click to union nodes</value>
+    <value>Klik om knooppunten te verenigen</value>
   </data>
   <data name="Mode_UnionNode_Info_NoCommon" xml:space="preserve">
-    <value>These nodes have common segment</value>
+    <value>Deze knooppunten hebben een gemeenschappelijk segment</value>
   </data>
   <data name="Mode_UnionNode_Info_Overflow" xml:space="preserve">
     <value>Totaal aantal knooppunten mag niet meer dan 8 zijn</value>
@@ -298,7 +298,7 @@ Click with Shift to split node and set source height</value>
     <value>Selecteer bronknooppunt</value>
   </data>
   <data name="Mode_UnionNode_Info_SelectTarget" xml:space="preserve">
-    <value>Select target node</value>
+    <value>Selecteer doelknooppunt</value>
   </data>
   <data name="Mode_UnionNode_Info_TooFar" xml:space="preserve">
     <value>Knooppunten te ver van elkaar</value>
@@ -316,13 +316,13 @@ Click with Shift to split node and set source height</value>
     <value>Apply mode action</value>
   </data>
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
-    <value>Wissel lusrichting om</value>
+    <value>Verander lusrichting om</value>
   </data>
   <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
-    <value>Switch selected circle</value>
+    <value>Verander de geselecteerde cirkel</value>
   </data>
   <data name="Settings_SlopeUnit" xml:space="preserve">
-    <value>Slope unit of measurement</value>
+    <value>Hellings maateenheid</value>
   </data>
   <data name="Settings_SlopeUnitDegrees" xml:space="preserve">
     <value>Graden</value>
