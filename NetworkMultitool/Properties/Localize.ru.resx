@@ -136,6 +136,23 @@
   <data name="Mode_ArrangeAtLine" xml:space="preserve">
     <value>Режим выравнивания в линию</value>
   </data>
+  <data name="Mode_Connection_Info_DoubleClickOnCenterToChangeDir" xml:space="preserve">
+    <value>Двойное нажатие на центр круга
+для изменения направления кривой</value>
+  </data>
+  <data name="Mode_Connection_Info_DoubleClickToAdd" xml:space="preserve">
+    <value>Двойное нажатие для добавления кривой</value>
+  </data>
+  <data name="Mode_Connection_Info_DoubleClickToRemove" xml:space="preserve">
+    <value>Двойное нажатие правой кнопки
+для удаления этой кривой</value>
+  </data>
+  <data name="Mode_Connection_Info_DragToChangeRadius" xml:space="preserve">
+    <value>Перетащите для изменения радиуса</value>
+  </data>
+  <data name="Mode_Connection_Info_DragToMove" xml:space="preserve">
+    <value>Перетащите для перемещения круга</value>
+  </data>
   <data name="Mode_CreateConnection" xml:space="preserve">
     <value>Режим создания соединения</value>
   </data>
@@ -148,14 +165,29 @@
   <data name="Mode_Info_Apply" xml:space="preserve">
     <value>Нажмите {0} чтобы применить</value>
   </data>
+  <data name="Mode_Info_ChangeAllRadius" xml:space="preserve">
+    <value>Нажмите {0} или {1} для изменения всех радиусов</value>
+  </data>
+  <data name="Mode_Info_ChangeBothRadius" xml:space="preserve">
+    <value>Нажмите {0} или {1} для изменения обоих радиусов</value>
+  </data>
   <data name="Mode_Info_ChangeCircle" xml:space="preserve">
     <value>Нажмите {0} для смены выбранной окружности</value>
   </data>
-  <data name="Mode_Info_ChooseDirestion" xml:space="preserve">
-    <value>Выберите узел для задания направления</value>
+  <data name="Mode_Info_ChangeOffset" xml:space="preserve">
+    <value>Нажмите {0} или {1} для изменения отступа начала кривой</value>
+  </data>
+  <data name="Mode_Info_ChangeOneRadius" xml:space="preserve">
+    <value>Нажмите {0} или {1} для изменения одного радиуса</value>
+  </data>
+  <data name="Mode_Info_ChangeRadius" xml:space="preserve">
+    <value>Нажмите {0} или {1} для изменения радиуса</value>
   </data>
   <data name="Mode_Info_ClickFirstSegment" xml:space="preserve">
     <value>Нажмите для выбора первого сегмента</value>
+  </data>
+  <data name="Mode_Info_ClickOnNodeToChangeCreateDir" xml:space="preserve">
+    <value>Нажмите на узел для изменения направления строительства</value>
   </data>
   <data name="Mode_Info_ClickSecondSegment" xml:space="preserve">
     <value>Нажмите для выбора второго сегмента</value>
@@ -163,38 +195,14 @@
   <data name="Mode_Info_ClickSelectNode" xml:space="preserve">
     <value>Нажмите для выбора узла</value>
   </data>
+  <data name="Mode_Info_ClickToChangeCreateDir" xml:space="preserve">
+    <value>Нажмите для изменения направления строительства</value>
+  </data>
   <data name="Mode_Info_ClickUnselectNode" xml:space="preserve">
     <value>Нажмите для снятия выбора с узла</value>
   </data>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Нажмите {0} чтобы создать</value>
-  </data>
-  <data name="Mode_Info_CurveDurection" xml:space="preserve">
-    <value>Нажмите на узел для изменения направления закругления</value>
-  </data>
-  <data name="Mode_Info_DecreaseAllRadius" xml:space="preserve">
-    <value>Нажмите {0} для уменьшения всех радиусов</value>
-  </data>
-  <data name="Mode_Info_DecreaseBothRadius" xml:space="preserve">
-    <value>Нажмите {0} для уменьшения обоих радиусов</value>
-  </data>
-  <data name="Mode_Info_DecreaseOneRadius" xml:space="preserve">
-    <value>Нажмите {0} для уменьшения одного радиуса</value>
-  </data>
-  <data name="Mode_Info_DecreaseRadius" xml:space="preserve">
-    <value>Нажмите {0} для уменьшения радиуса</value>
-  </data>
-  <data name="Mode_Info_IncreaseAllRadius" xml:space="preserve">
-    <value>Нажмите {0} для увеличения всех радиусов</value>
-  </data>
-  <data name="Mode_Info_IncreaseBothRadius" xml:space="preserve">
-    <value>Нажмите {0} для увеличения обоих радиусов</value>
-  </data>
-  <data name="Mode_Info_IncreaseOneRadius" xml:space="preserve">
-    <value>Нажмите {0} для увеличения одного радиуса</value>
-  </data>
-  <data name="Mode_Info_IncreaseRadius" xml:space="preserve">
-    <value>Нажмите {0} для увеличения радиуса</value>
   </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
     <value>Радиус слишком большой</value>
@@ -210,6 +218,9 @@
   </data>
   <data name="Mode_Info_SelectSegment" xml:space="preserve">
     <value>Выберите сегмент</value>
+  </data>
+  <data name="Mode_Info_SwitchOffset" xml:space="preserve">
+    <value>Нажмите {0} для смены выбранного отступа начала кривой</value>
   </data>
   <data name="Mode_Info_UndergroundMode" xml:space="preserve">
     <value>Удерживайте Shift для подземного режима</value>
@@ -317,8 +328,29 @@
   <data name="Settings_Shortcut_Apply" xml:space="preserve">
     <value>Применить</value>
   </data>
+  <data name="Settings_Shortcut_DecreaseOffset" xml:space="preserve">
+    <value>Уменьшить отступ начала кривой</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseOneRadius" xml:space="preserve">
+    <value>Уменьшить один радиус</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseRadius" xml:space="preserve">
+    <value>Уменьшить радиусы</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
+    <value>Увеличить отступ начала кривой</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseOneRadius" xml:space="preserve">
+    <value>Увеличить один радиус</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseRadius" xml:space="preserve">
+    <value>Увеличить радиусы</value>
+  </data>
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
     <value>Сменить направление петли</value>
+  </data>
+  <data name="Settings_Shortcut_SwitchOffset" xml:space="preserve">
+    <value>Сменить выбранный отступ начала кривой</value>
   </data>
   <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
     <value>Сменить выбранную окружность</value>

@@ -118,13 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Mode_AddNode" xml:space="preserve">
-    <value>Csomópont mód hozzáadása</value>
+    <value>Csomópont hozzáadása mód</value>
   </data>
   <data name="Mode_AddNode_Info_ClickToAdd" xml:space="preserve">
-    <value>Nyomja meg csomópont hozzáadásához</value>
+    <value>Kattints csomópont hozzáadásához</value>
   </data>
   <data name="Mode_AddNode_Info_SelectToAdd" xml:space="preserve">
-    <value>Válasszon ki egy szakaszt csomópont hozzáadásához</value>
+    <value>Válassz szegmenst a csomópont hozzáadásához</value>
   </data>
   <data name="Mode_AddNode_Info_TooCloseNode" xml:space="preserve">
     <value>Nem lehet hozzáadni a csomópontot
@@ -134,113 +134,121 @@ Túl közel egy másik csomóponthoz</value>
     <value>{0}°</value>
   </data>
   <data name="Mode_ArrangeAtLine" xml:space="preserve">
-    <value>Arrange at line mode</value>
+    <value>Vonalhoz rendezés mód</value>
+  </data>
+  <data name="Mode_Connection_Info_DoubleClickOnCenterToChangeDir" xml:space="preserve">
+    <value>Double click on circle center
+to change curve direction</value>
+  </data>
+  <data name="Mode_Connection_Info_DoubleClickToAdd" xml:space="preserve">
+    <value>Double click to add curve to this line</value>
+  </data>
+  <data name="Mode_Connection_Info_DoubleClickToRemove" xml:space="preserve">
+    <value>Double right click to remove this curve</value>
+  </data>
+  <data name="Mode_Connection_Info_DragToChangeRadius" xml:space="preserve">
+    <value>Drag to change radius</value>
+  </data>
+  <data name="Mode_Connection_Info_DragToMove" xml:space="preserve">
+    <value>Drag to move circle</value>
   </data>
   <data name="Mode_CreateConnection" xml:space="preserve">
-    <value>Create connection mode</value>
+    <value>Kapcsolat létrehozása mód</value>
   </data>
   <data name="Mode_CreateLoop" xml:space="preserve">
-    <value>Create loop mode</value>
+    <value>Hurok létrehozása mód</value>
   </data>
   <data name="Mode_CreateLoop_Info_Change" xml:space="preserve">
-    <value>Nyomja meg {0} körforgás megváltoztatásához</value>
+    <value>Nyomd meg {0}-t a hurok megváltoztatásához</value>
   </data>
   <data name="Mode_Info_Apply" xml:space="preserve">
-    <value>Press {0} to apply</value>
+    <value>Nyomj {0}-t a végrehajtáshoz</value>
+  </data>
+  <data name="Mode_Info_ChangeAllRadius" xml:space="preserve">
+    <value>Nyomj {0}-t vagy {1}-t minden sugár változtatásához</value>
+  </data>
+  <data name="Mode_Info_ChangeBothRadius" xml:space="preserve">
+    <value>Nyomj {0}-t vagy {1}-t mindkét sugár változtatásához</value>
   </data>
   <data name="Mode_Info_ChangeCircle" xml:space="preserve">
-    <value>Press {0} to switch selected circle</value>
+    <value>Nyomj {0}-t a kiválasztott kör váltásához</value>
   </data>
-  <data name="Mode_Info_ChooseDirestion" xml:space="preserve">
-    <value>Choose nodes to select create direction</value>
+  <data name="Mode_Info_ChangeOffset" xml:space="preserve">
+    <value>Nyomj {0}-t vagy {1}-t a görbe kezdési eltolásának megváltoztatásához</value>
+  </data>
+  <data name="Mode_Info_ChangeOneRadius" xml:space="preserve">
+    <value>Nyomj {0}-t vagy {1}-t az egyik sugár változtatásához</value>
+  </data>
+  <data name="Mode_Info_ChangeRadius" xml:space="preserve">
+    <value>Nyomj {0}-t vagy {1}-t a sugár változtatásához</value>
   </data>
   <data name="Mode_Info_ClickFirstSegment" xml:space="preserve">
-    <value>Nyomja meg ahhoz, hogy ki tudja választani
-az első szegmenst</value>
+    <value>Kattints az első szegmens kiválasztásához</value>
+  </data>
+  <data name="Mode_Info_ClickOnNodeToChangeCreateDir" xml:space="preserve">
+    <value>Click on node to change create direction</value>
   </data>
   <data name="Mode_Info_ClickSecondSegment" xml:space="preserve">
-    <value>Nyomja meg második
-szegmens kiválasztásához</value>
+    <value>Kattints a második szegmens kiválasztásához</value>
   </data>
   <data name="Mode_Info_ClickSelectNode" xml:space="preserve">
-    <value>Nyomja meg csomópont kiválasztásához</value>
+    <value>Kattints a csomópont kiválasztásához</value>
+  </data>
+  <data name="Mode_Info_ClickToChangeCreateDir" xml:space="preserve">
+    <value>Click to change create direction</value>
   </data>
   <data name="Mode_Info_ClickUnselectNode" xml:space="preserve">
-    <value>Click to unselect node</value>
+    <value>Kattints a csomópont kijelölésének megszüntetéséhez</value>
   </data>
   <data name="Mode_Info_Create" xml:space="preserve">
-    <value>Nyomja meg {0} létrehozáshoz</value>
-  </data>
-  <data name="Mode_Info_CurveDurection" xml:space="preserve">
-    <value>Click on node to change curve direction</value>
-  </data>
-  <data name="Mode_Info_DecreaseAllRadius" xml:space="preserve">
-    <value>Press {0} to decrease all radii</value>
-  </data>
-  <data name="Mode_Info_DecreaseBothRadius" xml:space="preserve">
-    <value>Press {0} to decrease both radii</value>
-  </data>
-  <data name="Mode_Info_DecreaseOneRadius" xml:space="preserve">
-    <value>Press {0} to decrease one radius</value>
-  </data>
-  <data name="Mode_Info_DecreaseRadius" xml:space="preserve">
-    <value>Press {0} to decrease radius</value>
-  </data>
-  <data name="Mode_Info_IncreaseAllRadius" xml:space="preserve">
-    <value>Press {0} to increase all radii</value>
-  </data>
-  <data name="Mode_Info_IncreaseBothRadius" xml:space="preserve">
-    <value>Press {0} to increase both radii</value>
-  </data>
-  <data name="Mode_Info_IncreaseOneRadius" xml:space="preserve">
-    <value>Press {0} to increase one radius</value>
-  </data>
-  <data name="Mode_Info_IncreaseRadius" xml:space="preserve">
-    <value>Nyomja meg {0} rádius növeléséhez</value>
+    <value>Nyomj {0}-t a létrehozáshoz</value>
   </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
-    <value>Túl nagy a rádius</value>
+    <value>Túl nagy a sugár</value>
   </data>
   <data name="Mode_Info_RadiusTooSmall" xml:space="preserve">
-    <value>Túl kicsi rádius</value>
+    <value>Túl kicsi a sugár</value>
   </data>
   <data name="Mode_Info_SelectFirstSegment" xml:space="preserve">
-    <value>Első szegmens kiválasztása</value>
+    <value>Válaszd ki az első szegmenst</value>
   </data>
   <data name="Mode_Info_SelectSecondSegment" xml:space="preserve">
-    <value>Válassza ki a második szegmenst</value>
+    <value>Válaszd ki a második szegmenst</value>
   </data>
   <data name="Mode_Info_SelectSegment" xml:space="preserve">
-    <value>Select segment</value>
+    <value>Válaszd ki a szegmenst</value>
+  </data>
+  <data name="Mode_Info_SwitchOffset" xml:space="preserve">
+    <value>Nyomd meg a {0}-t a kiválasztott görbe indítási eltolásának váltásához</value>
   </data>
   <data name="Mode_Info_UndergroundMode" xml:space="preserve">
-    <value>Tartsa le Shift földalatti módhoz</value>
+    <value>Tartsd lenyomva a Shiftet a földalatti módhoz</value>
   </data>
   <data name="Mode_Info_WrongShape" xml:space="preserve">
-    <value>Wrong shape</value>
+    <value>Helytelen alak</value>
   </data>
   <data name="Mode_IntersectSegment" xml:space="preserve">
-    <value>Intersect segments mode</value>
+    <value>Szegmensek metszése mód</value>
   </data>
   <data name="Mode_IntersectSegment_Info_EdgeTooClose" xml:space="preserve">
-    <value>Edge of one segment is too close to end of second segment</value>
+    <value>Az egyik szegmens széle túl közel van a másik szegmens végéhez</value>
   </data>
   <data name="Mode_IntersectSegment_Info_NotIntersect" xml:space="preserve">
-    <value>These segments don’t intersect</value>
+    <value>Ezek a szegmensek nem metszik egymást</value>
   </data>
   <data name="Mode_InvertSegment" xml:space="preserve">
-    <value>Invert segment mode</value>
+    <value>Szegmens megfordítása mód</value>
   </data>
   <data name="Mode_InvertSegment_Info" xml:space="preserve">
-    <value>Right click to invert segment
-Left click to reverse segment</value>
+    <value>Jobb kattintás a szegmens megfordításához
+Bal kattintás a szegmens visszafordításához</value>
   </data>
   <data name="Mode_NodeLine_Info_NotConnected" xml:space="preserve">
-    <value>This node can't be selected
-because not connected with others</value>
+    <value>Ez a csomópont nem választható ki, 
+mert nincs kapcsolatban másokkal</value>
   </data>
   <data name="Mode_NodeLine_Info_SelectNode" xml:space="preserve">
-    <value>Select node to add it to order</value>
+    <value>Válaszd ki a csomópontot a hozzáadáshoz</value>
   </data>
   <data name="Mode_PercentagesFormat" xml:space="preserve">
     <value>{0}%</value>
@@ -249,94 +257,115 @@ because not connected with others</value>
     <value>{0}m</value>
   </data>
   <data name="Mode_RemoveNode" xml:space="preserve">
-    <value>Remove node mode</value>
+    <value>Csomópont eltávolítása mód</value>
   </data>
   <data name="Mode_RemoveNode_Info_NotAllow" xml:space="preserve">
-    <value>Not allow to remove this node</value>
+    <value>Nem engedélyezett e csomópont eltávolítása</value>
   </data>
   <data name="Mode_SlopeNode" xml:space="preserve">
-    <value>Set slope mode</value>
+    <value>Lejtés beállítása mód</value>
   </data>
   <data name="Mode_SplitNode" xml:space="preserve">
-    <value>Split node mode</value>
+    <value>Csomópont felosztása mód</value>
   </data>
   <data name="Mode_SplitNode_Info_ClickFromOrder" xml:space="preserve">
-    <value>Click to remove segment from split order</value>
+    <value>Kattintson a szegmens felosztásból történő eltávolításához</value>
   </data>
   <data name="Mode_SplitNode_Info_ClickToOrder" xml:space="preserve">
-    <value>Click to add segment to split order</value>
+    <value>Kattintson a szegmens felosztáshoz történő hozzáadáshoz</value>
   </data>
   <data name="Mode_SplitNode_Info_ClickToSplit" xml:space="preserve">
-    <value>Click to split node and set terrain height
-Click with Shift to split node and set source height</value>
+    <value>Kattints a csomópont felosztásához és a terep magasságának beállításához
+Kattints a Shift lenyomásával a csomópont felosztásához és a forrás magasságának beállításához</value>
   </data>
   <data name="Mode_SplitNode_Info_NotAllowedSplit" xml:space="preserve">
-    <value>Not allowed split node with only one segment</value>
+    <value>Nem engedélyezett az egy szegmenses csomópont felosztása</value>
   </data>
   <data name="Mode_SplitNode_Info_OrderIsFull" xml:space="preserve">
-    <value>Not possible add more segments to split order</value>
+    <value>Nem lehetséges további szegmensek hozzáadása a felosztáshoz</value>
   </data>
   <data name="Mode_SplitNode_Info_SelectToSplit" xml:space="preserve">
-    <value>Select segments to split</value>
+    <value>Válaszd ki a felosztandó szegmenseket</value>
   </data>
   <data name="Mode_SplitNode_Info_TooFar" xml:space="preserve">
-    <value>Position is far from source node</value>
+    <value>A pozíció messze van a forrás csomóponttól</value>
   </data>
   <data name="Mode_UnionNode" xml:space="preserve">
-    <value>Union nodes mode</value>
+    <value>Csomópontok összekötése mód</value>
   </data>
   <data name="Mode_UnionNode_Info_ClickSource" xml:space="preserve">
-    <value>Click to select source node</value>
+    <value>Kattints a forrás csomópont kiválasztásához</value>
   </data>
   <data name="Mode_UnionNode_Info_ClickUnion" xml:space="preserve">
-    <value>Click to union nodes</value>
+    <value>Kattints a csomópontok összekötéséhez</value>
   </data>
   <data name="Mode_UnionNode_Info_NoCommon" xml:space="preserve">
-    <value>These nodes have common segment</value>
+    <value>Ezeknek a csomópontoknak van közös szegmense</value>
   </data>
   <data name="Mode_UnionNode_Info_Overflow" xml:space="preserve">
-    <value>Csomópontok száma, nem lehet 8-nál több</value>
+    <value>Csomópontok száma nem lehet több, mint 8</value>
   </data>
   <data name="Mode_UnionNode_Info_SelectSource" xml:space="preserve">
-    <value>Select source node</value>
+    <value>Válassz forrás csomópontot</value>
   </data>
   <data name="Mode_UnionNode_Info_SelectTarget" xml:space="preserve">
-    <value>Select target node</value>
+    <value>Válassz cél csomópontot</value>
   </data>
   <data name="Mode_UnionNode_Info_TooFar" xml:space="preserve">
     <value>Csomópontok túl messze vannak egymástól</value>
   </data>
   <data name="Mod_Description" xml:space="preserve">
-    <value>Many different tools for working with networks</value>
+    <value>Sokféle eszköz a hálózatokkal való munkavégzéshez</value>
   </data>
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
-    <value>Auto hide modes panel</value>
+    <value>Mód panel automatikus elrejtése</value>
   </data>
   <data name="Settings_SegmentLength" xml:space="preserve">
-    <value>Max. Szegmens Hossz</value>
+    <value>Maximális szegmens hossz</value>
   </data>
   <data name="Settings_Shortcut_Apply" xml:space="preserve">
-    <value>Apply mode action</value>
+    <value>Mód művelet alkalmazása</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseOffset" xml:space="preserve">
+    <value>A görbe kezdési eltolásának csökkentése</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseOneRadius" xml:space="preserve">
+    <value>Az egyik sugár csökkentése</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseRadius" xml:space="preserve">
+    <value>Sugár csökkentése</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
+    <value>A görbe kezdési eltolásának növelése</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseOneRadius" xml:space="preserve">
+    <value>Az egyik sugár növelése</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseRadius" xml:space="preserve">
+    <value>Sugár növelése</value>
   </data>
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
-    <value>Switch loop direction</value>
+    <value>Hurok irányának váltása</value>
+  </data>
+  <data name="Settings_Shortcut_SwitchOffset" xml:space="preserve">
+    <value>Kiválasztott görbe indítási eltolásának váltása</value>
   </data>
   <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
-    <value>Switch selected circle</value>
+    <value>Kiválasztott kör váltása</value>
   </data>
   <data name="Settings_SlopeUnit" xml:space="preserve">
-    <value>Slope unit of measurement</value>
+    <value>Lejtés mértékegysége</value>
   </data>
   <data name="Settings_SlopeUnitDegrees" xml:space="preserve">
-    <value>Fokok</value>
+    <value>Fok</value>
   </data>
   <data name="Settings_SlopeUnitPercentages" xml:space="preserve">
-    <value>Százalékok</value>
+    <value>Százalék</value>
   </data>
   <data name="Tool_RemoveNode_Info_ClickToRemove" xml:space="preserve">
-    <value>Nyomja meg az eltávolításhoz</value>
+    <value>Kattints az eltávolításhoz</value>
   </data>
   <data name="Tool_RemoveNode_Info_Select" xml:space="preserve">
-    <value>Válasszon ki egy csomópontot az eltávolításához</value>
+    <value>Válaszd ki a csomópontot az eltávolításához</value>
   </data>
 </root>

@@ -136,6 +136,22 @@
   <data name="Mode_ArrangeAtLine" xml:space="preserve">
     <value>Mode: フォーススムージング</value>
   </data>
+  <data name="Mode_Connection_Info_DoubleClickOnCenterToChangeDir" xml:space="preserve">
+    <value>Double click on circle center
+to change curve direction</value>
+  </data>
+  <data name="Mode_Connection_Info_DoubleClickToAdd" xml:space="preserve">
+    <value>Double click to add curve to this line</value>
+  </data>
+  <data name="Mode_Connection_Info_DoubleClickToRemove" xml:space="preserve">
+    <value>Double right click to remove this curve</value>
+  </data>
+  <data name="Mode_Connection_Info_DragToChangeRadius" xml:space="preserve">
+    <value>Drag to change radius</value>
+  </data>
+  <data name="Mode_Connection_Info_DragToMove" xml:space="preserve">
+    <value>Drag to move circle</value>
+  </data>
   <data name="Mode_CreateConnection" xml:space="preserve">
     <value>Mode: ネットワークの直線接続</value>
   </data>
@@ -143,19 +159,34 @@
     <value>Mode: ネットワークの曲線接続</value>
   </data>
   <data name="Mode_CreateLoop_Info_Change" xml:space="preserve">
-    <value>{0} を押してループを変更</value>
+    <value>{0} でループを変更</value>
   </data>
   <data name="Mode_Info_Apply" xml:space="preserve">
-    <value>{0} を押して適用</value>
+    <value>{0} で敷設を適用</value>
+  </data>
+  <data name="Mode_Info_ChangeAllRadius" xml:space="preserve">
+    <value>{0} or {1} で全ての半径を変更</value>
+  </data>
+  <data name="Mode_Info_ChangeBothRadius" xml:space="preserve">
+    <value>{0} or {1} で両方の半径を変更</value>
   </data>
   <data name="Mode_Info_ChangeCircle" xml:space="preserve">
-    <value>{0} を押してループの選択を切り替え</value>
+    <value>{0} でループの選択を切り替え</value>
   </data>
-  <data name="Mode_Info_ChooseDirestion" xml:space="preserve">
-    <value>方向を指定するノードを選択</value>
+  <data name="Mode_Info_ChangeOffset" xml:space="preserve">
+    <value>{0} or {1} でカーブ開始前のオフセットを変更</value>
+  </data>
+  <data name="Mode_Info_ChangeOneRadius" xml:space="preserve">
+    <value>{0} or {1} で片方の半径を変更</value>
+  </data>
+  <data name="Mode_Info_ChangeRadius" xml:space="preserve">
+    <value>{0} or {1} で半径を変更</value>
   </data>
   <data name="Mode_Info_ClickFirstSegment" xml:space="preserve">
     <value>クリックして始点のセグメントを選択</value>
+  </data>
+  <data name="Mode_Info_ClickOnNodeToChangeCreateDir" xml:space="preserve">
+    <value>Click on node to change create direction</value>
   </data>
   <data name="Mode_Info_ClickSecondSegment" xml:space="preserve">
     <value>クリックして終点のセグメントを選択</value>
@@ -163,38 +194,14 @@
   <data name="Mode_Info_ClickSelectNode" xml:space="preserve">
     <value>クリックしてノードを選択</value>
   </data>
+  <data name="Mode_Info_ClickToChangeCreateDir" xml:space="preserve">
+    <value>Click to change create direction</value>
+  </data>
   <data name="Mode_Info_ClickUnselectNode" xml:space="preserve">
     <value>クリックしてノードの選択を解除</value>
   </data>
   <data name="Mode_Info_Create" xml:space="preserve">
-    <value>{0} を押して作成</value>
-  </data>
-  <data name="Mode_Info_CurveDurection" xml:space="preserve">
-    <value>ノードをクリックしてカーブの方向を転換</value>
-  </data>
-  <data name="Mode_Info_DecreaseAllRadius" xml:space="preserve">
-    <value>{0} を押して全ての半径を縮小</value>
-  </data>
-  <data name="Mode_Info_DecreaseBothRadius" xml:space="preserve">
-    <value>{0} を押して両方の半径を縮小</value>
-  </data>
-  <data name="Mode_Info_DecreaseOneRadius" xml:space="preserve">
-    <value>{0} を押して半径を1回だけ縮小</value>
-  </data>
-  <data name="Mode_Info_DecreaseRadius" xml:space="preserve">
-    <value>{0} を押して半径を縮小</value>
-  </data>
-  <data name="Mode_Info_IncreaseAllRadius" xml:space="preserve">
-    <value>{0} を押して全ての半径を拡大</value>
-  </data>
-  <data name="Mode_Info_IncreaseBothRadius" xml:space="preserve">
-    <value>{0} を押して両方の半径を拡大</value>
-  </data>
-  <data name="Mode_Info_IncreaseOneRadius" xml:space="preserve">
-    <value>{0} を押して半径を1回だけ拡大</value>
-  </data>
-  <data name="Mode_Info_IncreaseRadius" xml:space="preserve">
-    <value>{0} を押して半径を拡大</value>
+    <value>{0} で敷設を確定</value>
   </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
     <value>半径が大き過ぎます</value>
@@ -210,6 +217,9 @@
   </data>
   <data name="Mode_Info_SelectSegment" xml:space="preserve">
     <value>セグメントを選択</value>
+  </data>
+  <data name="Mode_Info_SwitchOffset" xml:space="preserve">
+    <value>{0} でカーブ開始前のオフセットを切り替え</value>
   </data>
   <data name="Mode_Info_UndergroundMode" xml:space="preserve">
     <value>Shiftキー押下で、地下表示に切り替え</value>
@@ -316,8 +326,29 @@
   <data name="Settings_Shortcut_Apply" xml:space="preserve">
     <value>アクションを適用</value>
   </data>
+  <data name="Settings_Shortcut_DecreaseOffset" xml:space="preserve">
+    <value>カーブ開始前のオフセットを伸ばす</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseOneRadius" xml:space="preserve">
+    <value>半径を1回だけ縮小</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseRadius" xml:space="preserve">
+    <value>半径を縮小</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
+    <value>カーブ開始前のオフセットを縮める</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseOneRadius" xml:space="preserve">
+    <value>半径を1回だけ拡大</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseRadius" xml:space="preserve">
+    <value>半径を拡大</value>
+  </data>
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
     <value>ループの方向を切り替え</value>
+  </data>
+  <data name="Settings_Shortcut_SwitchOffset" xml:space="preserve">
+    <value>カーブ開始前のオフセットの選択を切り替え</value>
   </data>
   <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
     <value>選択したサークルを切り替え</value>

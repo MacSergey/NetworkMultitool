@@ -136,6 +136,22 @@ Za blisko sąsiedniego węzła</value>
   <data name="Mode_ArrangeAtLine" xml:space="preserve">
     <value>Tryb układania w linii</value>
   </data>
+  <data name="Mode_Connection_Info_DoubleClickOnCenterToChangeDir" xml:space="preserve">
+    <value>Double click on circle center
+to change curve direction</value>
+  </data>
+  <data name="Mode_Connection_Info_DoubleClickToAdd" xml:space="preserve">
+    <value>Double click to add curve to this line</value>
+  </data>
+  <data name="Mode_Connection_Info_DoubleClickToRemove" xml:space="preserve">
+    <value>Double right click to remove this curve</value>
+  </data>
+  <data name="Mode_Connection_Info_DragToChangeRadius" xml:space="preserve">
+    <value>Drag to change radius</value>
+  </data>
+  <data name="Mode_Connection_Info_DragToMove" xml:space="preserve">
+    <value>Drag to move circle</value>
+  </data>
   <data name="Mode_CreateConnection" xml:space="preserve">
     <value>Tryb tworzenia połączeń</value>
   </data>
@@ -148,14 +164,29 @@ Za blisko sąsiedniego węzła</value>
   <data name="Mode_Info_Apply" xml:space="preserve">
     <value>Naciśnij {0}, aby zastosować</value>
   </data>
+  <data name="Mode_Info_ChangeAllRadius" xml:space="preserve">
+    <value>Press {0} or {1} to change all radii</value>
+  </data>
+  <data name="Mode_Info_ChangeBothRadius" xml:space="preserve">
+    <value>Press {0} or {1} to change both radii</value>
+  </data>
   <data name="Mode_Info_ChangeCircle" xml:space="preserve">
     <value>Naciśnij {0}, aby przełączyć wybrane koło</value>
   </data>
-  <data name="Mode_Info_ChooseDirestion" xml:space="preserve">
-    <value>Zaznacz węzły, aby wybrać kierunek tworzenia</value>
+  <data name="Mode_Info_ChangeOffset" xml:space="preserve">
+    <value>Press {0} or {1} to change curse start offset</value>
+  </data>
+  <data name="Mode_Info_ChangeOneRadius" xml:space="preserve">
+    <value>Press {0} or {1} to change one radius</value>
+  </data>
+  <data name="Mode_Info_ChangeRadius" xml:space="preserve">
+    <value>Press {0} or {1} to change radius</value>
   </data>
   <data name="Mode_Info_ClickFirstSegment" xml:space="preserve">
     <value>Kliknij, aby zaznaczyć pierwszy segment</value>
+  </data>
+  <data name="Mode_Info_ClickOnNodeToChangeCreateDir" xml:space="preserve">
+    <value>Click on node to change create direction</value>
   </data>
   <data name="Mode_Info_ClickSecondSegment" xml:space="preserve">
     <value>Kliknij, aby zaznaczyć drugi segment</value>
@@ -163,38 +194,14 @@ Za blisko sąsiedniego węzła</value>
   <data name="Mode_Info_ClickSelectNode" xml:space="preserve">
     <value>Kliknij, aby zaznaczyć węzeł</value>
   </data>
+  <data name="Mode_Info_ClickToChangeCreateDir" xml:space="preserve">
+    <value>Click to change create direction</value>
+  </data>
   <data name="Mode_Info_ClickUnselectNode" xml:space="preserve">
     <value>Kliknij, aby odznaczyć węzeł</value>
   </data>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Naciśnij {0}, aby utworzyć</value>
-  </data>
-  <data name="Mode_Info_CurveDurection" xml:space="preserve">
-    <value>Kliknij na węźle, aby zmienić kierunek skrętu</value>
-  </data>
-  <data name="Mode_Info_DecreaseAllRadius" xml:space="preserve">
-    <value>Naciśnij {0}, aby zmniejszyć wszystkie promienie</value>
-  </data>
-  <data name="Mode_Info_DecreaseBothRadius" xml:space="preserve">
-    <value>Naciśnij {0}, aby zmniejszyć oba promienie</value>
-  </data>
-  <data name="Mode_Info_DecreaseOneRadius" xml:space="preserve">
-    <value>Naciśnij {0}, aby zmniejszyć promień</value>
-  </data>
-  <data name="Mode_Info_DecreaseRadius" xml:space="preserve">
-    <value>Naciśnij {0}, aby zmniejszyć promień</value>
-  </data>
-  <data name="Mode_Info_IncreaseAllRadius" xml:space="preserve">
-    <value>Naciśnij {0}, aby zwiększyć promień</value>
-  </data>
-  <data name="Mode_Info_IncreaseBothRadius" xml:space="preserve">
-    <value>Naciśnij {0}, aby zwiększyć oba promienie</value>
-  </data>
-  <data name="Mode_Info_IncreaseOneRadius" xml:space="preserve">
-    <value>Naciśnij {0}, aby zwiększyć jeden promień</value>
-  </data>
-  <data name="Mode_Info_IncreaseRadius" xml:space="preserve">
-    <value>Naciśnij {0}, aby zwiększyć promień</value>
   </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
     <value>Promień jest za duży</value>
@@ -210,6 +217,9 @@ Za blisko sąsiedniego węzła</value>
   </data>
   <data name="Mode_Info_SelectSegment" xml:space="preserve">
     <value>Select segment</value>
+  </data>
+  <data name="Mode_Info_SwitchOffset" xml:space="preserve">
+    <value>Press {0} to switch selected offset</value>
   </data>
   <data name="Mode_Info_UndergroundMode" xml:space="preserve">
     <value>Przytrzymaj Shift, aby przejść w tryb podziemny</value>
@@ -316,8 +326,29 @@ Click with Shift to split node and set source height</value>
   <data name="Settings_Shortcut_Apply" xml:space="preserve">
     <value>Apply mode action</value>
   </data>
+  <data name="Settings_Shortcut_DecreaseOffset" xml:space="preserve">
+    <value>Decrease circle start offset</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseOneRadius" xml:space="preserve">
+    <value>Decrease one radius</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseRadius" xml:space="preserve">
+    <value>Decrease radii</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
+    <value>Increase circle start offset</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseOneRadius" xml:space="preserve">
+    <value>Increase one radius</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseRadius" xml:space="preserve">
+    <value>Increase radii</value>
+  </data>
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
     <value>Switch loop direction</value>
+  </data>
+  <data name="Settings_Shortcut_SwitchOffset" xml:space="preserve">
+    <value>Switch selected offset</value>
   </data>
   <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
     <value>Switch selected circle</value>

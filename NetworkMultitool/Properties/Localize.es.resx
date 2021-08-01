@@ -136,6 +136,22 @@ Muy cerca del nodo más cercano</value>
   <data name="Mode_ArrangeAtLine" xml:space="preserve">
     <value>Modo de organización en línea</value>
   </data>
+  <data name="Mode_Connection_Info_DoubleClickOnCenterToChangeDir" xml:space="preserve">
+    <value>Double click on circle center
+to change curve direction</value>
+  </data>
+  <data name="Mode_Connection_Info_DoubleClickToAdd" xml:space="preserve">
+    <value>Double click to add curve to this line</value>
+  </data>
+  <data name="Mode_Connection_Info_DoubleClickToRemove" xml:space="preserve">
+    <value>Double right click to remove this curve</value>
+  </data>
+  <data name="Mode_Connection_Info_DragToChangeRadius" xml:space="preserve">
+    <value>Drag to change radius</value>
+  </data>
+  <data name="Mode_Connection_Info_DragToMove" xml:space="preserve">
+    <value>Drag to move circle</value>
+  </data>
   <data name="Mode_CreateConnection" xml:space="preserve">
     <value>Modo de creación de conexión</value>
   </data>
@@ -148,14 +164,29 @@ Muy cerca del nodo más cercano</value>
   <data name="Mode_Info_Apply" xml:space="preserve">
     <value>Pulsa {0} para aplicar</value>
   </data>
+  <data name="Mode_Info_ChangeAllRadius" xml:space="preserve">
+    <value>Pulsa {0} o {1} para cambiar todos los radios</value>
+  </data>
+  <data name="Mode_Info_ChangeBothRadius" xml:space="preserve">
+    <value>Pulsa {0} o {1} para cambiar ambos radios</value>
+  </data>
   <data name="Mode_Info_ChangeCircle" xml:space="preserve">
     <value>Pulsa {0} para cambiar el círculo seleccionado</value>
   </data>
-  <data name="Mode_Info_ChooseDirestion" xml:space="preserve">
-    <value>Elija los nodos para seleccionar la dirección de creación</value>
+  <data name="Mode_Info_ChangeOffset" xml:space="preserve">
+    <value>Pulsa {0} o {1} para cambiar el desplazamiento inicial de la curva</value>
+  </data>
+  <data name="Mode_Info_ChangeOneRadius" xml:space="preserve">
+    <value>Pulsa {0} o {1} para cambiar un radio</value>
+  </data>
+  <data name="Mode_Info_ChangeRadius" xml:space="preserve">
+    <value>Pulsa {0} o {1} para cambiar el radio</value>
   </data>
   <data name="Mode_Info_ClickFirstSegment" xml:space="preserve">
     <value>Clic para seleccionar el primer segmento</value>
+  </data>
+  <data name="Mode_Info_ClickOnNodeToChangeCreateDir" xml:space="preserve">
+    <value>Click on node to change create direction</value>
   </data>
   <data name="Mode_Info_ClickSecondSegment" xml:space="preserve">
     <value>Clic para seleccionar un segundo segmento</value>
@@ -163,38 +194,14 @@ Muy cerca del nodo más cercano</value>
   <data name="Mode_Info_ClickSelectNode" xml:space="preserve">
     <value>Clic para seleccionar nodo</value>
   </data>
+  <data name="Mode_Info_ClickToChangeCreateDir" xml:space="preserve">
+    <value>Click to change create direction</value>
+  </data>
   <data name="Mode_Info_ClickUnselectNode" xml:space="preserve">
     <value>Clic para deseleccionar nodo</value>
   </data>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Pulsa {0} para crear</value>
-  </data>
-  <data name="Mode_Info_CurveDurection" xml:space="preserve">
-    <value>Clic en el nodo para cambiar la dirección de la curva</value>
-  </data>
-  <data name="Mode_Info_DecreaseAllRadius" xml:space="preserve">
-    <value>Pulsa {0} para disminuir todos los radios</value>
-  </data>
-  <data name="Mode_Info_DecreaseBothRadius" xml:space="preserve">
-    <value>Pulsa {0} para disminuir ambos radios</value>
-  </data>
-  <data name="Mode_Info_DecreaseOneRadius" xml:space="preserve">
-    <value>Pulsa {0} para disminuir un radio</value>
-  </data>
-  <data name="Mode_Info_DecreaseRadius" xml:space="preserve">
-    <value>Pulsa {0} para disminuir radio</value>
-  </data>
-  <data name="Mode_Info_IncreaseAllRadius" xml:space="preserve">
-    <value>Pulsa {0} para incrementar todos los radios</value>
-  </data>
-  <data name="Mode_Info_IncreaseBothRadius" xml:space="preserve">
-    <value>Pulsa {0} para incrementar ambos radios</value>
-  </data>
-  <data name="Mode_Info_IncreaseOneRadius" xml:space="preserve">
-    <value>Pulsa {0} para incrementar un radio</value>
-  </data>
-  <data name="Mode_Info_IncreaseRadius" xml:space="preserve">
-    <value>Pulsa {0} para incrementar radio</value>
   </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
     <value>El radio es muy grande</value>
@@ -209,7 +216,10 @@ Muy cerca del nodo más cercano</value>
     <value>Seleccione el segundo segmento</value>
   </data>
   <data name="Mode_Info_SelectSegment" xml:space="preserve">
-    <value>Select segment</value>
+    <value>Seleccione segmento</value>
+  </data>
+  <data name="Mode_Info_SwitchOffset" xml:space="preserve">
+    <value>Pulsa {0} para cambiar el desplazamiento inicial de la curva seleccionada</value>
   </data>
   <data name="Mode_Info_UndergroundMode" xml:space="preserve">
     <value>Mantén presionada la tecla "Mayús" para modo subterráneo</value>
@@ -227,11 +237,11 @@ Muy cerca del nodo más cercano</value>
     <value>Estos segmentos no se intersectan</value>
   </data>
   <data name="Mode_InvertSegment" xml:space="preserve">
-    <value>Invert segment mode</value>
+    <value>Modo de invertir segmento</value>
   </data>
   <data name="Mode_InvertSegment_Info" xml:space="preserve">
-    <value>Right click to invert segment
-Left click to reverse segment</value>
+    <value>Clic derecho para invertir el segmento
+Clic izquierdo para revertir el segmento</value>
   </data>
   <data name="Mode_NodeLine_Info_NotConnected" xml:space="preserve">
     <value>Este nodo no se puede seleccionar
@@ -256,29 +266,29 @@ porque no está conectado con otros nodos</value>
     <value>Modo de pendiente</value>
   </data>
   <data name="Mode_SplitNode" xml:space="preserve">
-    <value>Split node mode</value>
+    <value>Modo de separar nodo</value>
   </data>
   <data name="Mode_SplitNode_Info_ClickFromOrder" xml:space="preserve">
-    <value>Click to remove segment from split order</value>
+    <value>Clic para remover el segmento del orden de separación</value>
   </data>
   <data name="Mode_SplitNode_Info_ClickToOrder" xml:space="preserve">
-    <value>Click to add segment to split order</value>
+    <value>Clic para añadir el segmento al orden de separación</value>
   </data>
   <data name="Mode_SplitNode_Info_ClickToSplit" xml:space="preserve">
-    <value>Click to split node and set terrain height
-Click with Shift to split node and set source height</value>
+    <value>Clic para separar el nodo y establecer el alto del terreno
+Clic con la tecla "Mayús" para separar el nodo y establecer el alto del origen</value>
   </data>
   <data name="Mode_SplitNode_Info_NotAllowedSplit" xml:space="preserve">
-    <value>Not allowed split node with only one segment</value>
+    <value>No se puede separar el nodo en un solo segmento</value>
   </data>
   <data name="Mode_SplitNode_Info_OrderIsFull" xml:space="preserve">
-    <value>Not possible add more segments to split order</value>
+    <value>No es posible añadir más segmentos al orden de separación</value>
   </data>
   <data name="Mode_SplitNode_Info_SelectToSplit" xml:space="preserve">
-    <value>Select segments to split</value>
+    <value>Seleccione segmentos a separar</value>
   </data>
   <data name="Mode_SplitNode_Info_TooFar" xml:space="preserve">
-    <value>Position is far from source node</value>
+    <value>La posición está lejos del nodo de origen</value>
   </data>
   <data name="Mode_UnionNode" xml:space="preserve">
     <value>Modo de conexión de nodos</value>
@@ -316,8 +326,29 @@ Click with Shift to split node and set source height</value>
   <data name="Settings_Shortcut_Apply" xml:space="preserve">
     <value>Aplicar acción de modo</value>
   </data>
+  <data name="Settings_Shortcut_DecreaseOffset" xml:space="preserve">
+    <value>Disminuir el desplazamiento de curva</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseOneRadius" xml:space="preserve">
+    <value>Disminuir un radio</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseRadius" xml:space="preserve">
+    <value>Disminuir radio</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
+    <value>Incrementar el desplazamiento de curva</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseOneRadius" xml:space="preserve">
+    <value>Incrementar un radio</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseRadius" xml:space="preserve">
+    <value>Incrementar radio</value>
+  </data>
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
     <value>Cambiar dirección de la curva</value>
+  </data>
+  <data name="Settings_Shortcut_SwitchOffset" xml:space="preserve">
+    <value>Cambiar el desplazamiento inicial de la curva seleccionada</value>
   </data>
   <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
     <value>Cambiar círculo seleccionado</value>

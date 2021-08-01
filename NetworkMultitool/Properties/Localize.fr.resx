@@ -136,6 +136,22 @@ Trop proche du nœud voisin</value>
   <data name="Mode_ArrangeAtLine" xml:space="preserve">
     <value>Aligner la route</value>
   </data>
+  <data name="Mode_Connection_Info_DoubleClickOnCenterToChangeDir" xml:space="preserve">
+    <value>Double click on circle center
+to change curve direction</value>
+  </data>
+  <data name="Mode_Connection_Info_DoubleClickToAdd" xml:space="preserve">
+    <value>Double click to add curve to this line</value>
+  </data>
+  <data name="Mode_Connection_Info_DoubleClickToRemove" xml:space="preserve">
+    <value>Double right click to remove this curve</value>
+  </data>
+  <data name="Mode_Connection_Info_DragToChangeRadius" xml:space="preserve">
+    <value>Drag to change radius</value>
+  </data>
+  <data name="Mode_Connection_Info_DragToMove" xml:space="preserve">
+    <value>Drag to move circle</value>
+  </data>
   <data name="Mode_CreateConnection" xml:space="preserve">
     <value>Créer une connexion</value>
   </data>
@@ -148,14 +164,29 @@ Trop proche du nœud voisin</value>
   <data name="Mode_Info_Apply" xml:space="preserve">
     <value>Appuyez sur {0} pour appliquer</value>
   </data>
+  <data name="Mode_Info_ChangeAllRadius" xml:space="preserve">
+    <value>Appuyez sur {0} ou {1} pour modifier tous les rayons</value>
+  </data>
+  <data name="Mode_Info_ChangeBothRadius" xml:space="preserve">
+    <value>Appuyez sur {0} ou {1} pour modifier les deux rayons</value>
+  </data>
   <data name="Mode_Info_ChangeCircle" xml:space="preserve">
     <value>Appuyez sur {0} pour changer de cercle</value>
   </data>
-  <data name="Mode_Info_ChooseDirestion" xml:space="preserve">
-    <value>Choisissez des nœuds pour sélectionner la création de direction</value>
+  <data name="Mode_Info_ChangeOffset" xml:space="preserve">
+    <value>Appuyez sur {0} ou {1} pour modifier le décalage de début de courbe</value>
+  </data>
+  <data name="Mode_Info_ChangeOneRadius" xml:space="preserve">
+    <value>Appuyez sur {0} ou {1} pour modifier un rayon</value>
+  </data>
+  <data name="Mode_Info_ChangeRadius" xml:space="preserve">
+    <value>Appuyez sur {0} ou {1} pour modifier le rayon</value>
   </data>
   <data name="Mode_Info_ClickFirstSegment" xml:space="preserve">
     <value>Cliquez pour sélectionner le premier segment</value>
+  </data>
+  <data name="Mode_Info_ClickOnNodeToChangeCreateDir" xml:space="preserve">
+    <value>Click on node to change create direction</value>
   </data>
   <data name="Mode_Info_ClickSecondSegment" xml:space="preserve">
     <value>Cliquez pour sélectionner le second segment</value>
@@ -163,38 +194,14 @@ Trop proche du nœud voisin</value>
   <data name="Mode_Info_ClickSelectNode" xml:space="preserve">
     <value>Cliquez pour sélectionner un nœud</value>
   </data>
+  <data name="Mode_Info_ClickToChangeCreateDir" xml:space="preserve">
+    <value>Click to change create direction</value>
+  </data>
   <data name="Mode_Info_ClickUnselectNode" xml:space="preserve">
     <value>Cliquez pour désélectionner un nœud</value>
   </data>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Appuyez sur {0} pour créer</value>
-  </data>
-  <data name="Mode_Info_CurveDurection" xml:space="preserve">
-    <value>Cliquez sur le nœud pour changer la direction de la courbe</value>
-  </data>
-  <data name="Mode_Info_DecreaseAllRadius" xml:space="preserve">
-    <value>Appuyez sur {0} pour diminuer tous les rayons</value>
-  </data>
-  <data name="Mode_Info_DecreaseBothRadius" xml:space="preserve">
-    <value>Appuyez sur {0} pour diminuer les deux rayons</value>
-  </data>
-  <data name="Mode_Info_DecreaseOneRadius" xml:space="preserve">
-    <value>Appuyez sur {0} pour diminuer un rayon</value>
-  </data>
-  <data name="Mode_Info_DecreaseRadius" xml:space="preserve">
-    <value>Appuyez sur {0} pour diminuer le rayon</value>
-  </data>
-  <data name="Mode_Info_IncreaseAllRadius" xml:space="preserve">
-    <value>Appuyez sur {0} pour augmenter tous les rayons</value>
-  </data>
-  <data name="Mode_Info_IncreaseBothRadius" xml:space="preserve">
-    <value>Appuyez sur {0} pour augmenter les deux rayons</value>
-  </data>
-  <data name="Mode_Info_IncreaseOneRadius" xml:space="preserve">
-    <value>Appuyez sur {0} pour augmenter un rayon</value>
-  </data>
-  <data name="Mode_Info_IncreaseRadius" xml:space="preserve">
-    <value>Appuyez sur {0} pour augmenter le rayon</value>
   </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
     <value>Rayon trop important</value>
@@ -209,7 +216,10 @@ Trop proche du nœud voisin</value>
     <value>Sélectionnez le second segment</value>
   </data>
   <data name="Mode_Info_SelectSegment" xml:space="preserve">
-    <value>Select segment</value>
+    <value>Sélectionnez un segment</value>
+  </data>
+  <data name="Mode_Info_SwitchOffset" xml:space="preserve">
+    <value>Appuyer sur {0} pour modifier le décalage du début de la courbe sélectionnée</value>
   </data>
   <data name="Mode_Info_UndergroundMode" xml:space="preserve">
     <value>Maintenez Maj pour le mode souterrain</value>
@@ -227,18 +237,18 @@ Trop proche du nœud voisin</value>
     <value>Ces segments ne se croisent pas</value>
   </data>
   <data name="Mode_InvertSegment" xml:space="preserve">
-    <value>Invert segment mode</value>
+    <value>Inversement de segment</value>
   </data>
   <data name="Mode_InvertSegment_Info" xml:space="preserve">
-    <value>Right click to invert segment
-Left click to reverse segment</value>
+    <value>Clic droit pour inverser le segment
+Clic gauche pour retourner le segment</value>
   </data>
   <data name="Mode_NodeLine_Info_NotConnected" xml:space="preserve">
     <value>Ce nœud ne peut pas être sélectionné
 car il n'est pas connecté aux autres</value>
   </data>
   <data name="Mode_NodeLine_Info_SelectNode" xml:space="preserve">
-    <value>Sélectionnez le nœud pour l'ajouter à l'ordre</value>
+    <value>Sélectionnez le nœud à ajouter à l'action</value>
   </data>
   <data name="Mode_PercentagesFormat" xml:space="preserve">
     <value>{0}%</value>
@@ -256,29 +266,29 @@ car il n'est pas connecté aux autres</value>
     <value>Égaliser la pente</value>
   </data>
   <data name="Mode_SplitNode" xml:space="preserve">
-    <value>Split node mode</value>
+    <value>Séparateur de nœud</value>
   </data>
   <data name="Mode_SplitNode_Info_ClickFromOrder" xml:space="preserve">
-    <value>Click to remove segment from split order</value>
+    <value>Cliquez pour retirer le segment de l'action</value>
   </data>
   <data name="Mode_SplitNode_Info_ClickToOrder" xml:space="preserve">
-    <value>Click to add segment to split order</value>
+    <value>Cliquez pour ajouter le segment à l'action</value>
   </data>
   <data name="Mode_SplitNode_Info_ClickToSplit" xml:space="preserve">
-    <value>Click to split node and set terrain height
-Click with Shift to split node and set source height</value>
+    <value>Cliquez pour séparer le nœud et le mettre à la hauteur du terrain
+Cliquez avec Maj pour séparer le nœud et définir sa hauteur</value>
   </data>
   <data name="Mode_SplitNode_Info_NotAllowedSplit" xml:space="preserve">
-    <value>Not allowed split node with only one segment</value>
+    <value>Impossible de séparer un nœud avec un seul segment</value>
   </data>
   <data name="Mode_SplitNode_Info_OrderIsFull" xml:space="preserve">
-    <value>Not possible add more segments to split order</value>
+    <value>Impossible d'ajouter plus de segments à l'action de séparation</value>
   </data>
   <data name="Mode_SplitNode_Info_SelectToSplit" xml:space="preserve">
-    <value>Select segments to split</value>
+    <value>Sélectionnez les segments à séparer</value>
   </data>
   <data name="Mode_SplitNode_Info_TooFar" xml:space="preserve">
-    <value>Position is far from source node</value>
+    <value>La position est loin du nœud source</value>
   </data>
   <data name="Mode_UnionNode" xml:space="preserve">
     <value>Fusionner des nœuds</value>
@@ -302,7 +312,7 @@ Click with Shift to split node and set source height</value>
     <value>Sélectionnez le nœud cible</value>
   </data>
   <data name="Mode_UnionNode_Info_TooFar" xml:space="preserve">
-    <value>Noeuds trop éloignés de l'un à l'autre</value>
+    <value>Noeuds trop éloignés l'un de l'autre</value>
   </data>
   <data name="Mod_Description" xml:space="preserve">
     <value>De nombreux outils pour travailler avec les réseaux</value>
@@ -316,8 +326,29 @@ Click with Shift to split node and set source height</value>
   <data name="Settings_Shortcut_Apply" xml:space="preserve">
     <value>Appliquer</value>
   </data>
+  <data name="Settings_Shortcut_DecreaseOffset" xml:space="preserve">
+    <value>Diminuer le décalage de début de la courbe</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseOneRadius" xml:space="preserve">
+    <value>Diminuer un rayon</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseRadius" xml:space="preserve">
+    <value>Diminuer les rayons</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
+    <value>Augmenter le décalage de début de la courbe</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseOneRadius" xml:space="preserve">
+    <value>Augmenter un rayon</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseRadius" xml:space="preserve">
+    <value>Augmenter les rayons</value>
+  </data>
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
     <value>Changer la direction de la boucle</value>
+  </data>
+  <data name="Settings_Shortcut_SwitchOffset" xml:space="preserve">
+    <value>Changer le début de décalage de la courbe sélectionnée</value>
   </data>
   <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
     <value>Changer de cercle</value>

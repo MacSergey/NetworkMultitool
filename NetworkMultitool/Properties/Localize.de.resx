@@ -136,6 +136,22 @@ Zu nah an einem anderen Netzwerk-Knoten</value>
   <data name="Mode_ArrangeAtLine" xml:space="preserve">
     <value>In Reihe anordnen</value>
   </data>
+  <data name="Mode_Connection_Info_DoubleClickOnCenterToChangeDir" xml:space="preserve">
+    <value>Double click on circle center
+to change curve direction</value>
+  </data>
+  <data name="Mode_Connection_Info_DoubleClickToAdd" xml:space="preserve">
+    <value>Double click to add curve to this line</value>
+  </data>
+  <data name="Mode_Connection_Info_DoubleClickToRemove" xml:space="preserve">
+    <value>Double right click to remove this curve</value>
+  </data>
+  <data name="Mode_Connection_Info_DragToChangeRadius" xml:space="preserve">
+    <value>Drag to change radius</value>
+  </data>
+  <data name="Mode_Connection_Info_DragToMove" xml:space="preserve">
+    <value>Drag to move circle</value>
+  </data>
   <data name="Mode_CreateConnection" xml:space="preserve">
     <value>Verbindung erstellen</value>
   </data>
@@ -148,14 +164,29 @@ Zu nah an einem anderen Netzwerk-Knoten</value>
   <data name="Mode_Info_Apply" xml:space="preserve">
     <value>Drücke {0} zum Anwenden</value>
   </data>
+  <data name="Mode_Info_ChangeAllRadius" xml:space="preserve">
+    <value>Press {0} or {1} to change all radii</value>
+  </data>
+  <data name="Mode_Info_ChangeBothRadius" xml:space="preserve">
+    <value>Press {0} or {1} to change both radii</value>
+  </data>
   <data name="Mode_Info_ChangeCircle" xml:space="preserve">
     <value>Drücke {0}, um den ausgewählten Kreis zu wechseln</value>
   </data>
-  <data name="Mode_Info_ChooseDirestion" xml:space="preserve">
-    <value>Wähle die Netzwerk-Knoten, um die Richtung festzulegen</value>
+  <data name="Mode_Info_ChangeOffset" xml:space="preserve">
+    <value>Press {0} or {1} to change curse start offset</value>
+  </data>
+  <data name="Mode_Info_ChangeOneRadius" xml:space="preserve">
+    <value>Press {0} or {1} to change one radius</value>
+  </data>
+  <data name="Mode_Info_ChangeRadius" xml:space="preserve">
+    <value>Press {0} or {1} to change radius</value>
   </data>
   <data name="Mode_Info_ClickFirstSegment" xml:space="preserve">
     <value>Klicken, um das erste Segment auszuwählen</value>
+  </data>
+  <data name="Mode_Info_ClickOnNodeToChangeCreateDir" xml:space="preserve">
+    <value>Click on node to change create direction</value>
   </data>
   <data name="Mode_Info_ClickSecondSegment" xml:space="preserve">
     <value>Klicken, um das zweite Segment auszuwählen</value>
@@ -163,38 +194,14 @@ Zu nah an einem anderen Netzwerk-Knoten</value>
   <data name="Mode_Info_ClickSelectNode" xml:space="preserve">
     <value>Klicken, um einen Netzwerk-Knoten auszuwählen</value>
   </data>
+  <data name="Mode_Info_ClickToChangeCreateDir" xml:space="preserve">
+    <value>Click to change create direction</value>
+  </data>
   <data name="Mode_Info_ClickUnselectNode" xml:space="preserve">
     <value>Klicken, um einen Netzwerk-Knoten auszuschließen</value>
   </data>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Drücke {0} zum Erstellen</value>
-  </data>
-  <data name="Mode_Info_CurveDurection" xml:space="preserve">
-    <value>Klicke auf den Netzwerk-Knoten um die Kurvenrichtung zu ändern</value>
-  </data>
-  <data name="Mode_Info_DecreaseAllRadius" xml:space="preserve">
-    <value>Drücke {0}, um alle Radien zu verringern</value>
-  </data>
-  <data name="Mode_Info_DecreaseBothRadius" xml:space="preserve">
-    <value>Drücke {0}, um beide Radien zu verringern</value>
-  </data>
-  <data name="Mode_Info_DecreaseOneRadius" xml:space="preserve">
-    <value>Drücke {0}, um einen Radius zu verringern</value>
-  </data>
-  <data name="Mode_Info_DecreaseRadius" xml:space="preserve">
-    <value>Drücke {0}, um den Radius zu verringern</value>
-  </data>
-  <data name="Mode_Info_IncreaseAllRadius" xml:space="preserve">
-    <value>Drücke {0}, um alle Radien zu vergrößern</value>
-  </data>
-  <data name="Mode_Info_IncreaseBothRadius" xml:space="preserve">
-    <value>Drücke {0}, um beide Radien zu vergrößern</value>
-  </data>
-  <data name="Mode_Info_IncreaseOneRadius" xml:space="preserve">
-    <value>Drücke {0}, um einen Radius zu vergrößern</value>
-  </data>
-  <data name="Mode_Info_IncreaseRadius" xml:space="preserve">
-    <value>Drücke {0}, um den Radius zu vergrößern</value>
   </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
     <value>Radius zu groß</value>
@@ -210,6 +217,9 @@ Zu nah an einem anderen Netzwerk-Knoten</value>
   </data>
   <data name="Mode_Info_SelectSegment" xml:space="preserve">
     <value>Select segment</value>
+  </data>
+  <data name="Mode_Info_SwitchOffset" xml:space="preserve">
+    <value>Press {0} to switch selected offset</value>
   </data>
   <data name="Mode_Info_UndergroundMode" xml:space="preserve">
     <value>Halte Shift gedrückt für den unterirdischen Modus</value>
@@ -316,8 +326,29 @@ Click with Shift to split node and set source height</value>
   <data name="Settings_Shortcut_Apply" xml:space="preserve">
     <value>Aktion im Modus anwenden</value>
   </data>
+  <data name="Settings_Shortcut_DecreaseOffset" xml:space="preserve">
+    <value>Decrease circle start offset</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseOneRadius" xml:space="preserve">
+    <value>Decrease one radius</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseRadius" xml:space="preserve">
+    <value>Decrease radii</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
+    <value>Increase circle start offset</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseOneRadius" xml:space="preserve">
+    <value>Increase one radius</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseRadius" xml:space="preserve">
+    <value>Increase radii</value>
+  </data>
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
     <value>Schleifenrichtung ändern</value>
+  </data>
+  <data name="Settings_Shortcut_SwitchOffset" xml:space="preserve">
+    <value>Switch selected offset</value>
   </data>
   <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
     <value>Ausgewählten Kreis wechseln</value>

@@ -136,6 +136,22 @@ Está demasiado perto de outro nó</value>
   <data name="Mode_ArrangeAtLine" xml:space="preserve">
     <value>Ajustar em modo de linha</value>
   </data>
+  <data name="Mode_Connection_Info_DoubleClickOnCenterToChangeDir" xml:space="preserve">
+    <value>Double click on circle center
+to change curve direction</value>
+  </data>
+  <data name="Mode_Connection_Info_DoubleClickToAdd" xml:space="preserve">
+    <value>Double click to add curve to this line</value>
+  </data>
+  <data name="Mode_Connection_Info_DoubleClickToRemove" xml:space="preserve">
+    <value>Double right click to remove this curve</value>
+  </data>
+  <data name="Mode_Connection_Info_DragToChangeRadius" xml:space="preserve">
+    <value>Drag to change radius</value>
+  </data>
+  <data name="Mode_Connection_Info_DragToMove" xml:space="preserve">
+    <value>Drag to move circle</value>
+  </data>
   <data name="Mode_CreateConnection" xml:space="preserve">
     <value>Modo de criação de ligação</value>
   </data>
@@ -148,14 +164,29 @@ Está demasiado perto de outro nó</value>
   <data name="Mode_Info_Apply" xml:space="preserve">
     <value>Pressione {0} para aplicar</value>
   </data>
+  <data name="Mode_Info_ChangeAllRadius" xml:space="preserve">
+    <value>Pressione {0} ou {1} para alterar todos os raios</value>
+  </data>
+  <data name="Mode_Info_ChangeBothRadius" xml:space="preserve">
+    <value>Pressione {0} ou {1} para alterar ambos os raios</value>
+  </data>
   <data name="Mode_Info_ChangeCircle" xml:space="preserve">
     <value>Pressione {0} para alterar o círculo selecionado</value>
   </data>
-  <data name="Mode_Info_ChooseDirestion" xml:space="preserve">
-    <value>Selecione os nós para selecionar a direção de criação</value>
+  <data name="Mode_Info_ChangeOffset" xml:space="preserve">
+    <value>Pressione {0} ou {1} para alterar o deslocamento inicial da curva</value>
+  </data>
+  <data name="Mode_Info_ChangeOneRadius" xml:space="preserve">
+    <value>Press {0} or {1} to change one radius</value>
+  </data>
+  <data name="Mode_Info_ChangeRadius" xml:space="preserve">
+    <value>Press {0} or {1} to change radius</value>
   </data>
   <data name="Mode_Info_ClickFirstSegment" xml:space="preserve">
     <value>Clique para selecionar o primeiro segmento</value>
+  </data>
+  <data name="Mode_Info_ClickOnNodeToChangeCreateDir" xml:space="preserve">
+    <value>Click on node to change create direction</value>
   </data>
   <data name="Mode_Info_ClickSecondSegment" xml:space="preserve">
     <value>Clique para selecionar o primeiro segmento</value>
@@ -163,38 +194,14 @@ Está demasiado perto de outro nó</value>
   <data name="Mode_Info_ClickSelectNode" xml:space="preserve">
     <value>Clique para inserir nó</value>
   </data>
+  <data name="Mode_Info_ClickToChangeCreateDir" xml:space="preserve">
+    <value>Click to change create direction</value>
+  </data>
   <data name="Mode_Info_ClickUnselectNode" xml:space="preserve">
     <value>Clique para desselecionar o nó</value>
   </data>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Pressione {0} para criar</value>
-  </data>
-  <data name="Mode_Info_CurveDurection" xml:space="preserve">
-    <value>Clique no nó para mudar a direção da curva</value>
-  </data>
-  <data name="Mode_Info_DecreaseAllRadius" xml:space="preserve">
-    <value>Pressione {0} para diminuir todo o raio</value>
-  </data>
-  <data name="Mode_Info_DecreaseBothRadius" xml:space="preserve">
-    <value>Pressione {0} para diminuir o raio de ambos</value>
-  </data>
-  <data name="Mode_Info_DecreaseOneRadius" xml:space="preserve">
-    <value>Pressione {0} para diminuir o raio em 1</value>
-  </data>
-  <data name="Mode_Info_DecreaseRadius" xml:space="preserve">
-    <value>Pressione {0} para diminuir o raio</value>
-  </data>
-  <data name="Mode_Info_IncreaseAllRadius" xml:space="preserve">
-    <value>Pressione {0} para aumentar todo o raio</value>
-  </data>
-  <data name="Mode_Info_IncreaseBothRadius" xml:space="preserve">
-    <value>Pressione {0} para aumentar ambos os raios</value>
-  </data>
-  <data name="Mode_Info_IncreaseOneRadius" xml:space="preserve">
-    <value>Pressione {0} para aumentar o raio em 1</value>
-  </data>
-  <data name="Mode_Info_IncreaseRadius" xml:space="preserve">
-    <value>Pressione {0} para aumentar o raio</value>
   </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
     <value>Raio muito grande</value>
@@ -209,7 +216,10 @@ Está demasiado perto de outro nó</value>
     <value>Selecione o segundo segmento</value>
   </data>
   <data name="Mode_Info_SelectSegment" xml:space="preserve">
-    <value>Select segment</value>
+    <value>Selecione segmento</value>
+  </data>
+  <data name="Mode_Info_SwitchOffset" xml:space="preserve">
+    <value>Press {0} to switch selected offset</value>
   </data>
   <data name="Mode_Info_UndergroundMode" xml:space="preserve">
     <value>Segure Shift para o modo subterrâneo</value>
@@ -256,7 +266,7 @@ porque não está ligado a outros</value>
     <value>Definir modo de inclinação</value>
   </data>
   <data name="Mode_SplitNode" xml:space="preserve">
-    <value>Split node mode</value>
+    <value>Modo nó dividido</value>
   </data>
   <data name="Mode_SplitNode_Info_ClickFromOrder" xml:space="preserve">
     <value>Click to remove segment from split order</value>
@@ -316,8 +326,29 @@ Click with Shift to split node and set source height</value>
   <data name="Settings_Shortcut_Apply" xml:space="preserve">
     <value>Apply mode action</value>
   </data>
+  <data name="Settings_Shortcut_DecreaseOffset" xml:space="preserve">
+    <value>Decrease circle start offset</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseOneRadius" xml:space="preserve">
+    <value>Decrease one radius</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseRadius" xml:space="preserve">
+    <value>Decrease radii</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
+    <value>Increase circle start offset</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseOneRadius" xml:space="preserve">
+    <value>Increase one radius</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseRadius" xml:space="preserve">
+    <value>Increase radii</value>
+  </data>
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
     <value>Switch loop direction</value>
+  </data>
+  <data name="Settings_Shortcut_SwitchOffset" xml:space="preserve">
+    <value>Switch selected offset</value>
   </data>
   <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
     <value>Switch selected circle</value>
