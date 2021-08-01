@@ -22,6 +22,8 @@ namespace NetworkMultitool
         }
 
         protected List<NodeSelection> Nodes { get; } = new List<NodeSelection>();
+        protected NodeSelection LastHover { get; set; }
+        protected HashSet<NodeSelection> ToAdd { get; } = new HashSet<NodeSelection>();
         protected Result State { get; private set; }
 
         protected override bool IsValidNode(ushort nodeId)
@@ -41,6 +43,8 @@ namespace NetworkMultitool
         {
             base.Reset(prevMode);
             Nodes.Clear();
+            ToAdd.Clear();
+            LastHover = null;
             State = Result.None;
         }
         protected override string GetInfo()
@@ -60,32 +64,88 @@ namespace NetworkMultitool
         {
             base.OnToolUpdate();
 
-            if (IsHoverNode)
+            if (!IsHoverNode)
             {
+                State = Result.None;
+                LastHover = null;
+                ToAdd.Clear();
+            }
+            else if (State == Result.None || !HoverNode.Equals(LastHover))
+            {
+                LastHover = HoverNode;
+                ToAdd.Clear();
+
                 if (Nodes.Count == 0)
+                {
                     State = Result.One;
-                else if (HoverNode.Id == Nodes.First().Id)
+                    ToAdd.Add(HoverNode);
+                }
+                else if (HoverNode.Id == Nodes[0].Id)
                     State = Result.IsFirst;
-                else if (HoverNode.Id == Nodes.Last().Id)
+                else if (HoverNode.Id == Nodes[Nodes.Count - 1].Id)
                     State = Result.IsLast;
-                else if (Check(HoverNode.Id, Nodes.First().Id))
+                else if (Check(HoverNode.Id, Nodes[0].Id, Nodes[Nodes.Count - 1].Id, (Nodes.Count == 1 ? 0 : Nodes[1].Id), out var toAddStart))
+                {
                     State = Result.InStart;
-                else if (Check(HoverNode.Id, Nodes.Last().Id))
+                    ToAdd.AddRange(toAddStart.Select(i => new NodeSelection(i)));
+                }
+                else if (Check(HoverNode.Id, Nodes[Nodes.Count - 1].Id, Nodes[0].Id, (Nodes.Count == 1 ? 0 : Nodes[Nodes.Count - 2].Id), out var toAddEnd))
+                {
                     State = Result.InEnd;
+                    ToAdd.AddRange(toAddEnd.Select(i => new NodeSelection(i)));
+                }
                 else
                     State = Result.NotConnect;
             }
-            else
-                State = Result.None;
 
-            static bool Check(ushort firstId, ushort secondId) => firstId.GetNode().Segments().Any(s => s.NodeIds().Any(n => n == secondId));
         }
+        private bool Check(ushort nodeId, ushort startId, ushort endId, ushort stopId, out HashSet<ushort> toAdd)
+        {
+            ref var node = ref startId.GetNode();
+            foreach (var id in node.SegmentIds())
+            {
+                var segmentId = id;
+                var nextId = segmentId.GetSegment().GetOtherNode(startId);
+
+                if (nextId == stopId)
+                    continue;
+
+                toAdd = new HashSet<ushort>();
+
+                for (var i = 0; i < 20; i += 1)
+                {
+                    if (nextId == endId)
+                        break;
+
+                    toAdd.Add(nextId);
+                    if (nextId == nodeId)
+                        return true;
+
+                    node = ref nextId.GetNode();
+                    if (node.CountSegments() != 2)
+                        break;
+
+                    segmentId = node.SegmentIds().FirstOrDefault(s => s != segmentId);
+                    nextId = segmentId.GetSegment().GetOtherNode(nextId);
+                }
+            }
+
+            toAdd = null;
+            return false;
+        }
+
         public override void OnPrimaryMouseClicked(Event e)
         {
             if (State == Result.InStart)
-                AddFirst(HoverNode);
+            {
+                foreach (var node in ToAdd)
+                    AddFirst(node);
+            }
             else if (State == Result.One || State == Result.InEnd)
-                AddLast(HoverNode);
+            {
+                foreach (var node in ToAdd)
+                    AddLast(node);
+            }
             else if (State == Result.IsFirst)
                 RemoveFirst();
             else if (State == Result.IsLast)
@@ -112,18 +172,25 @@ namespace NetworkMultitool
 
             if (IsHoverNode)
             {
-                var color = State switch
+                if (State == Result.One || State == Result.InStart || State == Result.InEnd)
                 {
-                    Result.One or Result.InStart or Result.InEnd => Colors.Green,
-                    Result.IsFirst or Result.IsLast => Colors.Yellow,
-                    Result.NotConnect => Colors.Red,
-                    _ => Colors.Red,
-                };
-                HoverNode.Render(new OverlayData(cameraInfo) { Color = color, RenderLimit = Underground });
+                    foreach (var node in ToAdd)
+                        node.Render(new OverlayData(cameraInfo) { Color = Colors.Green, RenderLimit = Underground });
+                }
+                else
+                {
+                    var color = State switch
+                    {
+                        Result.IsFirst or Result.IsLast => Colors.Yellow,
+                        Result.NotConnect => Colors.Red,
+                        _ => Colors.Red,
+                    };
+                    HoverNode.Render(new OverlayData(cameraInfo) { Color = color, RenderLimit = Underground });
+                }
             }
         }
         private bool AllowRenderNode(ushort nodeId) => Nodes.All(n => n.Id != nodeId);
-        protected override bool AllowRenderNear(ushort nodeId) => base.AllowRenderNear(nodeId) && AllowRenderNode(nodeId);
+        protected override bool AllowRenderNear(ushort nodeId) => base.AllowRenderNear(nodeId) && AllowRenderNode(nodeId) && ToAdd.All(n => n.Id != nodeId);
 
         protected enum Result
         {
