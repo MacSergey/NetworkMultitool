@@ -61,6 +61,7 @@ namespace NetworkMultitool
         }
         public override void RenderOverlay(RenderManager.CameraInfo cameraInfo)
         {
+            RenderNearNodes(cameraInfo);
             RenderSegmentNodes(cameraInfo);
 
             if (IsHoverNode)

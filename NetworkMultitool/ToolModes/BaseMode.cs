@@ -1,4 +1,5 @@
 ﻿using ColossalFramework;
+using ColossalFramework.Math;
 using ColossalFramework.UI;
 using ModsCommon;
 using ModsCommon.UI;
@@ -11,6 +12,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using static ColossalFramework.Math.VectorUtils;
 
 namespace NetworkMultitool
 {
@@ -115,21 +117,6 @@ namespace NetworkMultitool
 
         protected void RemoveNode(ushort nodeId) => Singleton<NetManager>.instance.ReleaseNode(nodeId);
         protected void RemoveSegment(ushort segmentId, bool keepNodes = true) => Singleton<NetManager>.instance.ReleaseSegment(segmentId, keepNodes);
-
-        protected void RenderSegmentNodes(RenderManager.CameraInfo cameraInfo, Func<ushort, bool> action = null)
-        {
-            if (IsHoverSegment)
-            {
-                var data = new OverlayData(cameraInfo) { Color = Colors.Blue, RenderLimit = Underground };
-
-                var segment = HoverSegment.Id.GetSegment();
-                if (action?.Invoke(segment.m_startNode) == true && !Underground ^ segment.m_startNode.GetNode().m_flags.IsSet(NetNode.Flags.Underground))
-                    new NodeSelection(segment.m_startNode).Render(data);
-
-                if (action?.Invoke(segment.m_endNode) == true && !Underground ^ segment.m_endNode.GetNode().m_flags.IsSet(NetNode.Flags.Underground))
-                    new NodeSelection(segment.m_endNode).Render(data);
-            }
-        }
         protected void RelinkSegment(ushort segmentId, ushort sourceNodeId, ushort targetNodeId)
         {
             var segment = segmentId.GetSegment();
@@ -179,6 +166,68 @@ namespace NetworkMultitool
                 Destroy(label.gameObject);
 
             Labels.Clear();
+        }
+
+        protected void RenderSegmentNodes(RenderManager.CameraInfo cameraInfo, Func<ushort, bool> isAllow = null)
+        {
+            if (IsHoverSegment)
+            {
+                var data = new OverlayData(cameraInfo) { Color = Colors.Blue, RenderLimit = Underground };
+
+                var segment = HoverSegment.Id.GetSegment();
+                if (!Underground ^ segment.m_startNode.GetNode().m_flags.IsSet(NetNode.Flags.Underground) && isAllow?.Invoke(segment.m_startNode) != false)
+                    new NodeSelection(segment.m_startNode).Render(data);
+
+                if (!Underground ^ segment.m_endNode.GetNode().m_flags.IsSet(NetNode.Flags.Underground) && isAllow?.Invoke(segment.m_endNode) != false)
+                    new NodeSelection(segment.m_endNode).Render(data);
+            }
+        }
+        protected void RenderNearNodes(RenderManager.CameraInfo cameraInfo, Vector3? position = null, float radius = 300f, Func<ushort, bool> isAllow = null)
+        {
+            position ??= Tool.MouseWorldPosition;
+            isAllow ??= AllowRenderNear;
+
+            var minX = Min(position.Value.x - radius);
+            var minZ = Min(position.Value.z - radius);
+            var maxX = Max(position.Value.x + radius);
+            var maxZ = Max(position.Value.z + radius);
+            var xzPosition = XZ(position.Value);
+
+            for (int i = minZ; i <= maxZ; i++)
+            {
+                for (int j = minX; j <= maxX; j++)
+                {
+                    var nodeId = NetManager.instance.m_nodeGrid[i * 270 + j];
+                    int count = 0;
+
+                    while (nodeId != 0u && count < NetManager.MAX_SEGMENT_COUNT)
+                    {
+                        ref var node = ref nodeId.GetNode();
+                        var magnitude = (XZ(node.m_position) - xzPosition).magnitude;
+                        if (!Underground ^ node.m_flags.IsSet(NetNode.Flags.Underground) && magnitude <= radius && isAllow?.Invoke(nodeId) != false)
+                        {
+                            var color = Colors.Blue;
+                            color.a = (byte)((1 - magnitude / radius) * 255f);
+                            node.m_position.RenderCircle(new OverlayData(cameraInfo) { Width = Mathf.Min(8f, node.Info.m_halfWidth * 2f), Color = color, RenderLimit = Underground });
+                        }
+
+                        nodeId = node.m_nextGridNode;
+                    }
+                }
+            }
+
+
+            static int Min(float value) => Mathf.Max((int)((value - 16f) / 64f + 135f) - 1, 0);
+            static int Max(float value) => Mathf.Min((int)((value + 16f) / 64f + 135f) + 1, 269);
+        }
+        protected virtual bool AllowRenderNear(ushort nodeId)
+        {
+            if (IsHoverNode)
+                return nodeId != HoverNode.Id;
+            else if (IsHoverSegment)
+                return !HoverSegment.Id.GetSegment().Contains(nodeId);
+            else
+                return true;
         }
     }
     public enum ToolModeType

@@ -143,13 +143,18 @@ namespace NetworkMultitool
                     }
                 }
             }
-            else if (IsHoverNode)
-            {
-                var color = HoverNode.Id.GetNode().CountSegments() >= 2 ? Colors.Green : Colors.Red;
-                HoverNode.Render(new OverlayData(cameraInfo) { Color = color, RenderLimit = Underground });
-            }
             else
-                RenderSegmentNodes(cameraInfo, IsValidNode);
+            {
+                RenderNearNodes(cameraInfo);
+
+                if (IsHoverNode)
+                {
+                    var color = HoverNode.Id.GetNode().CountSegments() >= 2 ? Colors.Green : Colors.Red;
+                    HoverNode.Render(new OverlayData(cameraInfo) { Color = color, RenderLimit = Underground });
+                }
+                else
+                    RenderSegmentNodes(cameraInfo, IsValidNode);
+            }
         }
     }
 }

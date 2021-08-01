@@ -101,6 +101,9 @@ namespace NetworkMultitool
 
         public override void RenderOverlay(RenderManager.CameraInfo cameraInfo)
         {
+            RenderNearNodes(cameraInfo);
+            RenderSegmentNodes(cameraInfo, AllowRenderNode);
+
             for (var i = 0; i < Nodes.Count; i += 1)
             {
                 if ((i != 0 || State != Result.IsFirst) && (i != Nodes.Count - 1 || State != Result.IsLast))
@@ -118,9 +121,9 @@ namespace NetworkMultitool
                 };
                 HoverNode.Render(new OverlayData(cameraInfo) { Color = color, RenderLimit = Underground });
             }
-            RenderSegmentNodes(cameraInfo, AllowRenderNode);
         }
         private bool AllowRenderNode(ushort nodeId) => Nodes.All(n => n.Id != nodeId);
+        protected override bool AllowRenderNear(ushort nodeId) => base.AllowRenderNear(nodeId) && AllowRenderNode(nodeId);
 
         protected enum Result
         {
