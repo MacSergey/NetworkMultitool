@@ -386,7 +386,7 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на These segments are not intersect.
+        ///   Ищет локализованную строку, похожую на These segments don’t intersect.
         /// </summary>
         internal static string Mode_IntersectSegment_Info_NotIntersect {
             get {
@@ -404,7 +404,7 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Right click to Invert segment
+        ///   Ищет локализованную строку, похожую на Right click to invert segment
         ///Left click to reverse segment.
         /// </summary>
         internal static string Mode_InvertSegment_Info {
@@ -646,6 +646,42 @@ namespace NetworkMultitool {
         internal static string Settings_Shortcut_Apply {
             get {
                 return ResourceManager.GetString("Settings_Shortcut_Apply", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Decrease one radius.
+        /// </summary>
+        internal static string Settings_Shortcut_DecreaseOneRadius {
+            get {
+                return ResourceManager.GetString("Settings_Shortcut_DecreaseOneRadius", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Decrease radii.
+        /// </summary>
+        internal static string Settings_Shortcut_DecreaseRadius {
+            get {
+                return ResourceManager.GetString("Settings_Shortcut_DecreaseRadius", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Increase one radius.
+        /// </summary>
+        internal static string Settings_Shortcut_IncreaseOneRadius {
+            get {
+                return ResourceManager.GetString("Settings_Shortcut_IncreaseOneRadius", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Increase radii.
+        /// </summary>
+        internal static string Settings_Shortcut_IncreaseRadius {
+            get {
+                return ResourceManager.GetString("Settings_Shortcut_IncreaseRadius", resourceCulture);
             }
         }
         

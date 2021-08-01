@@ -15,11 +15,10 @@ namespace NetworkMultitool
     public class CreateConnectionMode : BaseCreateMode
     {
         public static NetworkMultitoolShortcut SwitchSelectShortcut = GetShortcut(KeyCode.Tab, nameof(SwitchSelectShortcut), nameof(Localize.Settings_Shortcut_SwitchSelect), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as CreateConnectionMode)?.SwitchSelect());
+        public static NetworkMultitoolShortcut IncreaseOneRadiusShortcut { get; } = GetShortcut(KeyCode.RightBracket, nameof(IncreaseOneRadiusShortcut), nameof(Localize.Settings_Shortcut_IncreaseOneRadius), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as CreateConnectionMode)?.IncreaseOneRadius(), ToolModeType.CreateConnection, repeat: true, ignoreModifiers: true);
+        public static NetworkMultitoolShortcut DecreaseOneRadiusShortcut { get; } = GetShortcut(KeyCode.LeftBracket, nameof(DecreaseOneRadiusShortcut), nameof(Localize.Settings_Shortcut_DecreaseOneRadius), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as CreateConnectionMode)?.DecreaseOneRadius(), ToolModeType.CreateConnection, repeat: true, ignoreModifiers: true);
 
         public override ToolModeType Type => ToolModeType.CreateConnection;
-
-        protected NetworkMultitoolShortcut IncreaseOneRadiusShortcut { get; }
-        protected NetworkMultitoolShortcut DecreaseOneRadiusShortcut { get; }
 
         public override IEnumerable<NetworkMultitoolShortcut> Shortcuts
         {
@@ -32,12 +31,6 @@ namespace NetworkMultitool
                 yield return DecreaseOneRadiusShortcut;
                 yield return SwitchSelectShortcut;
             }
-        }
-
-        public CreateConnectionMode()
-        {
-            IncreaseOneRadiusShortcut = GetShortcut(KeyCode.RightBracket, IncreaseOneRadius, ToolModeType.CreateConnection, repeat: true, ignoreModifiers: true);
-            DecreaseOneRadiusShortcut = GetShortcut(KeyCode.LeftBracket, DecreaseOneRadius, ToolModeType.CreateConnection, repeat: true, ignoreModifiers: true);
         }
 
         private bool Select { get; set; }

@@ -39,7 +39,14 @@ namespace NetworkMultitool
                     yield return shortcut;
 
                 yield return BaseNetworkMultitoolMode.ApplyShortcut;
+
+                yield return BaseCreateMode.IncreaseRadiusShortcut;
+                yield return BaseCreateMode.DecreaseRadiusShortcut;
+
                 yield return CreateConnectionMode.SwitchSelectShortcut;
+                yield return CreateConnectionMode.IncreaseOneRadiusShortcut;
+                yield return CreateConnectionMode.DecreaseOneRadiusShortcut;
+
                 yield return CreateLoopMode.SwitchIsLoopShortcut;
             }
         }

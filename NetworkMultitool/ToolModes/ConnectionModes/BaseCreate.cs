@@ -19,10 +19,8 @@ namespace NetworkMultitool
         protected override bool IsReseted => !IsFirst;
         protected override bool CanSwitchUnderground => !IsBoth;
 
-        protected NetworkMultitoolShortcut IncreaseRadiusShortcut { get; }
-        protected NetworkMultitoolShortcut DecreaseRadiusShortcut { get; }
-        protected NetworkMultitoolShortcut IncreaseRadiusNumPadShortcut { get; }
-        protected NetworkMultitoolShortcut DecreaseRadiusNumPadShortcut { get; }
+        public static NetworkMultitoolShortcut IncreaseRadiusShortcut { get; } = GetShortcut(KeyCode.Equals, nameof(IncreaseRadiusShortcut), nameof(Localize.Settings_Shortcut_IncreaseRadius), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as BaseCreateMode)?.IncreaseRadius(), ToolModeType.Create, repeat: true, ignoreModifiers: true);
+        public static NetworkMultitoolShortcut DecreaseRadiusShortcut { get; } = GetShortcut(KeyCode.Minus, nameof(DecreaseRadiusShortcut), nameof(Localize.Settings_Shortcut_DecreaseRadius), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as BaseCreateMode)?.DecreaseRadius(), ToolModeType.Create, repeat: true, ignoreModifiers: true);
 
 
         protected override Color32 SegmentColor => Colors.Blue;
@@ -38,17 +36,10 @@ namespace NetworkMultitool
                 yield return ApplyShortcut;
                 yield return IncreaseRadiusShortcut;
                 yield return DecreaseRadiusShortcut;
-                yield return IncreaseRadiusNumPadShortcut;
-                yield return DecreaseRadiusNumPadShortcut;
             }
         }
-        public BaseCreateMode()
+        static BaseCreateMode()
         {
-            IncreaseRadiusShortcut = GetShortcut(KeyCode.Equals, IncreaseRadius, ToolModeType.Create, repeat: true, ignoreModifiers: true);
-            DecreaseRadiusShortcut = GetShortcut(KeyCode.Minus, DecreaseRadius, ToolModeType.Create, repeat: true, ignoreModifiers: true);
-            IncreaseRadiusNumPadShortcut = GetShortcut(KeyCode.KeypadPlus, IncreaseRadius, ToolModeType.Create, repeat: true, ignoreModifiers: true);
-            DecreaseRadiusNumPadShortcut = GetShortcut(KeyCode.KeypadMinus, DecreaseRadius, ToolModeType.Create, repeat: true, ignoreModifiers: true);
-
             if (Mod.IsNodeSpacer)
             {
                 try
