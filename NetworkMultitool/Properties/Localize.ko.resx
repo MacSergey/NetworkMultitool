@@ -1,0 +1,340 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string"/>
+              <xsd:attribute name="type" type="xsd:string"/>
+              <xsd:attribute name="mimetype" type="xsd:string"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string"/>
+              <xsd:attribute name="name" type="xsd:string"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
+              <xsd:attribute ref="xml:space"/>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required"/>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Mode_AddNode" xml:space="preserve">
+    <value>노드 추가 모드</value>
+  </data>
+  <data name="Mode_AddNode_Info_ClickToAdd" xml:space="preserve">
+    <value>클릭해 노드 추가</value>
+  </data>
+  <data name="Mode_AddNode_Info_SelectToAdd" xml:space="preserve">
+    <value>세그먼트를 선택해 노드 추가</value>
+  </data>
+  <data name="Mode_AddNode_Info_TooCloseNode" xml:space="preserve">
+    <value>노드 추가 불가
+근처 노드와 너무 가까움</value>
+  </data>
+  <data name="Mode_AngleFormat" xml:space="preserve">
+    <value>{0}°</value>
+  </data>
+  <data name="Mode_ArrangeAtLine" xml:space="preserve">
+    <value>선 위에 정렬 모드</value>
+  </data>
+  <data name="Mode_CreateConnection" xml:space="preserve">
+    <value>연결 생성 모드</value>
+  </data>
+  <data name="Mode_CreateLoop" xml:space="preserve">
+    <value>루프 생성 모드</value>
+  </data>
+  <data name="Mode_CreateLoop_Info_Change" xml:space="preserve">
+    <value>{0}을(를) 눌러서 루프 변경</value>
+  </data>
+  <data name="Mode_Info_Apply" xml:space="preserve">
+    <value>{0}을 눌러 적용</value>
+  </data>
+  <data name="Mode_Info_ChangeCircle" xml:space="preserve">
+    <value>{0}을 눌러 선택한 원 변경</value>
+  </data>
+  <data name="Mode_Info_ChooseDirestion" xml:space="preserve">
+    <value>노드를 선택해 방향 생성 선택</value>
+  </data>
+  <data name="Mode_Info_ClickFirstSegment" xml:space="preserve">
+    <value>클릭해 첫 세그먼트 선택</value>
+  </data>
+  <data name="Mode_Info_ClickSecondSegment" xml:space="preserve">
+    <value>클릭해 두 번째 세그먼트 선택</value>
+  </data>
+  <data name="Mode_Info_ClickSelectNode" xml:space="preserve">
+    <value>클릭하여 노드 선택</value>
+  </data>
+  <data name="Mode_Info_ClickUnselectNode" xml:space="preserve">
+    <value>클릭하여 노드 선택 취소</value>
+  </data>
+  <data name="Mode_Info_Create" xml:space="preserve">
+    <value>{0}을(를) 눌러서 생성</value>
+  </data>
+  <data name="Mode_Info_CurveDurection" xml:space="preserve">
+    <value>노드를 클릭해 커브의 방향 변경</value>
+  </data>
+  <data name="Mode_Info_DecreaseAllRadius" xml:space="preserve">
+    <value>{0}을(를) 눌러서 모든 반지름 축소</value>
+  </data>
+  <data name="Mode_Info_DecreaseBothRadius" xml:space="preserve">
+    <value>{0}을(를) 눌러서 두 반지름 모두 축소</value>
+  </data>
+  <data name="Mode_Info_DecreaseOneRadius" xml:space="preserve">
+    <value>{0}을(를) 눌러서 반지름 1개 축소</value>
+  </data>
+  <data name="Mode_Info_DecreaseRadius" xml:space="preserve">
+    <value>{0}을(를) 눌러서 반지름 축소</value>
+  </data>
+  <data name="Mode_Info_IncreaseAllRadius" xml:space="preserve">
+    <value>{0}을(를) 눌러서 모든 반지름 확대</value>
+  </data>
+  <data name="Mode_Info_IncreaseBothRadius" xml:space="preserve">
+    <value>{0}을(를) 눌러서 두 반지름 모두 확대</value>
+  </data>
+  <data name="Mode_Info_IncreaseOneRadius" xml:space="preserve">
+    <value>{0}을(를) 눌러서 반지름 1개 확대</value>
+  </data>
+  <data name="Mode_Info_IncreaseRadius" xml:space="preserve">
+    <value>{0}을(를) 눌러서 반지름 확대</value>
+  </data>
+  <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
+    <value>반지름 너무 큼</value>
+  </data>
+  <data name="Mode_Info_RadiusTooSmall" xml:space="preserve">
+    <value>반지름 너무 작음</value>
+  </data>
+  <data name="Mode_Info_SelectFirstSegment" xml:space="preserve">
+    <value>첫 세그먼트 선택</value>
+  </data>
+  <data name="Mode_Info_SelectSecondSegment" xml:space="preserve">
+    <value>둘째 세그먼트 선택</value>
+  </data>
+  <data name="Mode_Info_SelectSegment" xml:space="preserve">
+    <value>세그먼트 선택</value>
+  </data>
+  <data name="Mode_Info_UndergroundMode" xml:space="preserve">
+    <value>시프트를 꾹 눌러 지하 모드</value>
+  </data>
+  <data name="Mode_Info_WrongShape" xml:space="preserve">
+    <value>틀린 모양</value>
+  </data>
+  <data name="Mode_IntersectSegment" xml:space="preserve">
+    <value>세그먼트 교차 모드</value>
+  </data>
+  <data name="Mode_IntersectSegment_Info_EdgeTooClose" xml:space="preserve">
+    <value>첫 세그먼트의 끝점이 두 번째의 끝점과 너무 가까움</value>
+  </data>
+  <data name="Mode_IntersectSegment_Info_NotIntersect" xml:space="preserve">
+    <value>세 세그먼트가 교차하지 않음</value>
+  </data>
+  <data name="Mode_InvertSegment" xml:space="preserve">
+    <value>세그먼트 반전 모드</value>
+  </data>
+  <data name="Mode_InvertSegment_Info" xml:space="preserve">
+    <value>우클릭으로 세그먼트 반전
+좌클릭으로 세그먼트 뒤집기</value>
+  </data>
+  <data name="Mode_NodeLine_Info_NotConnected" xml:space="preserve">
+    <value>이 노드는 다른 노드와
+연결되어 있지 않아 선택할 수 없습니다</value>
+  </data>
+  <data name="Mode_NodeLine_Info_SelectNode" xml:space="preserve">
+    <value>노드를 선택해 순서에 추가</value>
+  </data>
+  <data name="Mode_PercentagesFormat" xml:space="preserve">
+    <value>{0}%</value>
+  </data>
+  <data name="Mode_RadiusFormat" xml:space="preserve">
+    <value>{0}m</value>
+  </data>
+  <data name="Mode_RemoveNode" xml:space="preserve">
+    <value>노드 삭제 모드</value>
+  </data>
+  <data name="Mode_RemoveNode_Info_NotAllow" xml:space="preserve">
+    <value>노드 삭제 불가능</value>
+  </data>
+  <data name="Mode_SlopeNode" xml:space="preserve">
+    <value>기울기 모드</value>
+  </data>
+  <data name="Mode_SplitNode" xml:space="preserve">
+    <value>노드 분리 모드</value>
+  </data>
+  <data name="Mode_SplitNode_Info_ClickFromOrder" xml:space="preserve">
+    <value>클릭해 분리 순서에서 세그먼트 삭제</value>
+  </data>
+  <data name="Mode_SplitNode_Info_ClickToOrder" xml:space="preserve">
+    <value>클릭해 분리 순서에 세그먼트 추가</value>
+  </data>
+  <data name="Mode_SplitNode_Info_ClickToSplit" xml:space="preserve">
+    <value>클릭해 노드 분리 및 지형 높이 설정
+쉬프트 클릭해 노드 분리 및 소스 높이 설정</value>
+  </data>
+  <data name="Mode_SplitNode_Info_NotAllowedSplit" xml:space="preserve">
+    <value>불가능함 1개 세그먼트에서만 노드 분리 가능</value>
+  </data>
+  <data name="Mode_SplitNode_Info_OrderIsFull" xml:space="preserve">
+    <value>불가능함 세그먼트를 더 추가해야 순서를 나눌 수 있음</value>
+  </data>
+  <data name="Mode_SplitNode_Info_SelectToSplit" xml:space="preserve">
+    <value>나눌 세그먼트 선택</value>
+  </data>
+  <data name="Mode_SplitNode_Info_TooFar" xml:space="preserve">
+    <value>소스 노드로부터 너무 멀리 떨어짐</value>
+  </data>
+  <data name="Mode_UnionNode" xml:space="preserve">
+    <value>노드 결합 모드</value>
+  </data>
+  <data name="Mode_UnionNode_Info_ClickSource" xml:space="preserve">
+    <value>클릭해 소스 노드 선택</value>
+  </data>
+  <data name="Mode_UnionNode_Info_ClickUnion" xml:space="preserve">
+    <value>클릭해 노드 결합</value>
+  </data>
+  <data name="Mode_UnionNode_Info_NoCommon" xml:space="preserve">
+    <value>노드가 한 세그먼트를 공유하지 않음</value>
+  </data>
+  <data name="Mode_UnionNode_Info_Overflow" xml:space="preserve">
+    <value>노드는 8개 이하여야 합니다</value>
+  </data>
+  <data name="Mode_UnionNode_Info_SelectSource" xml:space="preserve">
+    <value>소스 노드 선택</value>
+  </data>
+  <data name="Mode_UnionNode_Info_SelectTarget" xml:space="preserve">
+    <value>대상 노드 선택</value>
+  </data>
+  <data name="Mode_UnionNode_Info_TooFar" xml:space="preserve">
+    <value>두 노드가 너무 멀리 떨어짐</value>
+  </data>
+  <data name="Mod_Description" xml:space="preserve">
+    <value>네트워크를 위한 여러 가지 도구</value>
+  </data>
+  <data name="Settings_AutoHideModePanel" xml:space="preserve">
+    <value>모드 패널 자동으로 숨김</value>
+  </data>
+  <data name="Settings_SegmentLength" xml:space="preserve">
+    <value>최대 세그먼트 길이</value>
+  </data>
+  <data name="Settings_Shortcut_Apply" xml:space="preserve">
+    <value>모드 사용사항 적용</value>
+  </data>
+  <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
+    <value>루프 방향 변경</value>
+  </data>
+  <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
+    <value>다른 원 선택</value>
+  </data>
+  <data name="Settings_SlopeUnit" xml:space="preserve">
+    <value>기울기 단위</value>
+  </data>
+  <data name="Settings_SlopeUnitDegrees" xml:space="preserve">
+    <value>도</value>
+  </data>
+  <data name="Settings_SlopeUnitPercentages" xml:space="preserve">
+    <value>퍼센트</value>
+  </data>
+  <data name="Tool_RemoveNode_Info_ClickToRemove" xml:space="preserve">
+    <value>클릭해 삭제</value>
+  </data>
+  <data name="Tool_RemoveNode_Info_Select" xml:space="preserve">
+    <value>노드를 선택해 삭제</value>
+  </data>
+</root>
