@@ -18,7 +18,7 @@ namespace NetworkMultitool
         public static SavedBool ShowToolTip { get; } = new SavedBool(nameof(ShowToolTip), SettingsFile, true, true);
         public static SavedBool AutoHideModePanel { get; } = new SavedBool(nameof(AutoHideModePanel), SettingsFile, true, true);
         public static SavedInt SlopeUnite { get; } = new SavedInt(nameof(SlopeUnite), SettingsFile, 0, true);
-        public static SavedInt SegmentLenght { get; } = new SavedInt(nameof(SegmentLenght), SettingsFile, 80, true);
+        public static SavedInt SegmentLength { get; } = new SavedInt(nameof(SegmentLength), SettingsFile, 80, true);
 
         #endregion
 
@@ -41,7 +41,8 @@ namespace NetworkMultitool
             AddCheckBox(generalGroup, CommonLocalize.Settings_ShowTooltips, ShowToolTip);
             AddCheckBox(generalGroup, Localize.Settings_AutoHideModePanel, AutoHideModePanel, OnAutoHideChanged);
             AddCheckboxPanel(generalGroup, Localize.Settings_SlopeUnit, SlopeUnite, new string[] { Localize.Settings_SlopeUnitPercentages, Localize.Settings_SlopeUnitDegrees }, OnSlopeUniteChanged);
-            AddIntField(generalGroup, Localize.Settings_SegmentLength, SegmentLenght, 80, 50, 200);
+            if (!Mod.IsNodeSpacer)
+                AddIntField(generalGroup, Localize.Settings_SegmentLength, SegmentLength, 80, 50, 200);
 
             AddNotifications(GeneralTab);
 #if DEBUG
@@ -49,7 +50,7 @@ namespace NetworkMultitool
 #endif
             static void OnAutoHideChanged()
             {
-                foreach(var panel in UIView.GetAView().GetComponentsInChildren<ModesPanel>())
+                foreach (var panel in UIView.GetAView().GetComponentsInChildren<ModesPanel>())
                 {
                     if (AutoHideModePanel)
                         panel.SetState(false, true);

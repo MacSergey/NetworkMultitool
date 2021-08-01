@@ -117,31 +117,11 @@ namespace NetworkMultitool
         private bool Union(ushort sourceId, ushort targetId)
         {
             var sourceNode = sourceId.GetNode();
-            var targetNode = targetId.GetNode();
             var segmentIds = sourceNode.SegmentIds().ToArray();
             var terrainRect = GetTerrainRect(segmentIds);
 
             foreach (var segmentId in segmentIds)
-            {
-                var segment = segmentId.GetSegment();
-                var otherNodeId = segment.GetOtherNode(sourceId);
-                var info = segment.Info;
-                var otherDir = segment.IsStartNode(sourceId) ? segment.m_endDirection : segment.m_startDirection;
-                var sourceDir = segment.IsStartNode(sourceId) ? segment.m_startDirection : segment.m_endDirection;
-                var invert = segment.IsStartNode(sourceId) ^ segment.IsInvert();
-
-                var otherNode = otherNodeId.GetNode();
-
-                var oldDir = new StraightTrajectory(otherNode.m_position.MakeFlat(), sourceNode.m_position.MakeFlat());
-                var newDir = new StraightTrajectory(otherNode.m_position.MakeFlat(), targetNode.m_position.MakeFlat());
-                var angle = MathExtention.GetAngle(oldDir.Direction, newDir.Direction);
-
-                otherDir = otherDir.TurnRad(angle, false);
-                sourceDir = sourceDir.TurnRad(angle, false);
-
-                RemoveSegment(segmentId);
-                CreateSegment(out _, info, otherNodeId, targetId, otherDir, sourceDir, invert);
-            }
+                RelinkSegment(segmentId, sourceId, targetId);
 
             RemoveNode(sourceId);
             UpdateTerrain(terrainRect);

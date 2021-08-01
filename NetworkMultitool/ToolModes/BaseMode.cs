@@ -26,6 +26,7 @@ namespace NetworkMultitool
         public string Title => SingletonMod<Mod>.Instance.GetLocalizeString(Type.GetAttr<DescriptionAttribute, ToolModeType>().Description);
         protected abstract bool IsReseted { get; }
         protected virtual bool CanSwitchUnderground => true;
+        private bool ForbiddenSwitchUnderground { get; set; }
 
         private List<ModeButton> Buttons { get; } = new List<ModeButton>();
         public NetworkMultitoolShortcut ActivationShortcut => NetworkMultitoolTool.ModeShortcuts[Type];
@@ -44,6 +45,7 @@ namespace NetworkMultitool
         public override void Activate(IToolMode prevMode)
         {
             base.Activate(prevMode);
+            ForbiddenSwitchUnderground = false;
             foreach (var button in Buttons)
                 button.Activate = true;
         }
@@ -63,13 +65,14 @@ namespace NetworkMultitool
         {
             base.OnToolUpdate();
 
-            if (CanSwitchUnderground)
-            {
-                if (!Underground && Utility.OnlyShiftIsPressed)
-                    Underground = true;
-                else if (Underground && !Utility.OnlyShiftIsPressed)
-                    Underground = false;
-            }
+            if (!CanSwitchUnderground)
+                ForbiddenSwitchUnderground = Utility.ShiftIsPressed && !Underground;
+            else if (ForbiddenSwitchUnderground)
+                ForbiddenSwitchUnderground = Utility.ShiftIsPressed;
+            else if (!Underground && Utility.OnlyShiftIsPressed)
+                Underground = true;
+            else if (Underground && !Utility.OnlyShiftIsPressed)
+                Underground = false;
         }
         protected virtual void Apply() { }
         public override bool OnEscape()
@@ -128,6 +131,29 @@ namespace NetworkMultitool
                     new NodeSelection(segment.m_endNode).Render(data);
             }
         }
+        protected void RelinkSegment(ushort segmentId, ushort sourceNodeId, ushort targetNodeId)
+        {
+            var segment = segmentId.GetSegment();
+            var otherNodeId = segment.GetOtherNode(sourceNodeId);
+            var info = segment.Info;
+            var otherDir = segment.IsStartNode(sourceNodeId) ? segment.m_endDirection : segment.m_startDirection;
+            var sourceDir = segment.IsStartNode(sourceNodeId) ? segment.m_startDirection : segment.m_endDirection;
+            var invert = segment.IsStartNode(sourceNodeId) ^ segment.IsInvert();
+
+            var otherNode = otherNodeId.GetNode();
+
+            var sourceNode = sourceNodeId.GetNode();
+            var targetNode = targetNodeId.GetNode();
+            var oldDir = new StraightTrajectory(otherNode.m_position.MakeFlat(), sourceNode.m_position.MakeFlat());
+            var newDir = new StraightTrajectory(otherNode.m_position.MakeFlat(), targetNode.m_position.MakeFlat());
+            var angle = MathExtention.GetAngle(oldDir.Direction, newDir.Direction);
+
+            otherDir = otherDir.TurnRad(angle, false);
+            sourceDir = sourceDir.TurnRad(angle, false);
+
+            RemoveSegment(segmentId);
+            CreateSegment(out _, info, otherNodeId, targetNodeId, otherDir, sourceDir, invert);
+        }
         protected Rect GetTerrainRect(params ushort[] segmentIds) => segmentIds.Select(i => (ITrajectory)new BezierTrajectory(i)).GetRect();
         protected void UpdateTerrain(params ushort[] segmentIds)
         {
@@ -170,12 +196,18 @@ namespace NetworkMultitool
         [Description(nameof(Localize.Mode_UnionNode))]
         UnionNode = RemoveNode << 1,
 
+        [Description(nameof(Localize.Mode_SplitNode))]
+        SplitNode = UnionNode << 1,
+
 
         [Description(nameof(Localize.Mode_IntersectSegment))]
-        IntersectSegment = UnionNode << 1,
+        IntersectSegment = SplitNode << 1,
+
+        [Description(nameof(Localize.Mode_InvertSegment))]
+        InvertSegment = IntersectSegment << 1,
 
         [Description(nameof(Localize.Mode_SlopeNode))]
-        SlopeNode = IntersectSegment << 1,
+        SlopeNode = InvertSegment << 1,
 
         [Description(nameof(Localize.Mode_ArrangeAtLine))]
         ArrangeAtLine = SlopeNode << 1,
@@ -186,6 +218,7 @@ namespace NetworkMultitool
 
         [Description(nameof(Localize.Mode_CreateConnection))]
         CreateConnection = CreateLoop << 1,
+
 
         [NotItem]
         Line = SlopeNode | ArrangeAtLine,

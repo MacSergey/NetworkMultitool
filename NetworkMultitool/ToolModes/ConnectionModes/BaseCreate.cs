@@ -1,5 +1,6 @@
 ﻿using ColossalFramework;
 using ColossalFramework.UI;
+using HarmonyLib;
 using ModsCommon;
 using ModsCommon.Utilities;
 using System;
@@ -14,6 +15,7 @@ namespace NetworkMultitool
 {
     public abstract class BaseCreateMode : BaseNetworkMultitoolMode
     {
+        protected static Func<float> MaxLengthGetter { get; private set; }
         protected override bool IsReseted => !IsFirst;
         protected override bool CanSwitchUnderground => !IsBoth;
 
@@ -46,6 +48,22 @@ namespace NetworkMultitool
             DecreaseRadiusShortcut = GetShortcut(KeyCode.Minus, DecreaseRadius, ToolModeType.Create, repeat: true, ignoreModifiers: true);
             IncreaseRadiusNumPadShortcut = GetShortcut(KeyCode.KeypadPlus, IncreaseRadius, ToolModeType.Create, repeat: true, ignoreModifiers: true);
             DecreaseRadiusNumPadShortcut = GetShortcut(KeyCode.KeypadMinus, DecreaseRadius, ToolModeType.Create, repeat: true, ignoreModifiers: true);
+
+            if (Mod.IsNodeSpacer)
+            {
+                try
+                {
+                    var method = AccessTools.Method(System.Type.GetType("NodeSpacer.NT_CreateNode"), "GetMaxLength");
+                    MaxLengthGetter = AccessTools.MethodDelegate<Func<float>>(method);
+                    SingletonMod<Mod>.Logger.Debug("Segment length linked to Node Spacer");
+                    return;
+                }
+                catch (Exception error)
+                {
+                    SingletonMod<Mod>.Logger.Error("Cant access to Node Spacer", error);
+                }
+            }
+            MaxLengthGetter = () => Settings.SegmentLength;
         }
 
         protected SegmentSelection First { get; set; }
@@ -108,7 +126,7 @@ namespace NetworkMultitool
             var curveLenght = radius * Mathf.Abs(angle);
 
             var minByLenght = Mathf.CeilToInt(curveLenght / 50f);
-            var maxByLenght = Mathf.CeilToInt(curveLenght / Settings.SegmentLenght);
+            var maxByLenght = Mathf.CeilToInt(curveLenght / MaxLengthGetter());
             var maxByAngle = Mathf.CeilToInt(Mathf.Abs(angle) / Mathf.PI * 3);
 
             var curveCount = Math.Max(maxByLenght, Mathf.Min(minByLenght, maxByAngle));
@@ -123,7 +141,7 @@ namespace NetworkMultitool
         protected static IEnumerable<Point> GetStraightParts(StraightTrajectory straight)
         {
             var lenght = straight.Length;
-            var count = Mathf.CeilToInt(lenght / Settings.SegmentLenght);
+            var count = Mathf.CeilToInt(lenght / MaxLengthGetter());
             for (var i = 1; i < count; i += 1)
             {
                 var point = new Point(straight.Position(1f / count * i), straight.Direction);
@@ -201,6 +219,7 @@ namespace NetworkMultitool
                 Reset(this);
             }
         }
+        public void Recalculate() => State = Result.None;
         protected abstract void IncreaseRadius();
         protected abstract void DecreaseRadius();
 
