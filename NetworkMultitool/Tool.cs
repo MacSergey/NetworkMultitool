@@ -69,6 +69,7 @@ namespace NetworkMultitool
         }
 
         public override Shortcut Activation => ActivationShortcut;
+        public override bool MouseRayValid => !UIView.HasModalInput() && (UIInput.hoveredComponent?.isInteractive != true || UIInput.hoveredComponent is InfoLabel) && Cursor.visible;
         protected override bool ShowToolTip => (base.ShowToolTip || UIInput.hoveredComponent is InfoLabel) && Settings.ShowToolTip;
         private IToolMode LastMode { get; set; }
         protected override IToolMode DefaultMode => LastMode ?? ToolModes[ToolModeType.AddNode];
@@ -111,6 +112,8 @@ namespace NetworkMultitool
             yield return CreateToolMode<ArrangeLineMode>();
             yield return CreateToolMode<CreateLoopMode>();
             yield return CreateToolMode<CreateConnectionMode>();
+            yield return CreateToolMode<CreateConnectionMoveCircleMode>();
+            yield return CreateToolMode<CreateConnectionChangeRadiusMode>();
         }
         protected override void OnReset()
         {

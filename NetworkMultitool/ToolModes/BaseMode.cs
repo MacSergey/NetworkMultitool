@@ -24,6 +24,7 @@ namespace NetworkMultitool
         protected static NetworkMultitoolShortcut GetShortcut(KeyCode keyCode, string name, string labelKey, Action action, ToolModeType mode = ToolModeType.Any, bool ctrl = false, bool shift = false, bool alt = false, bool repeat = false, bool ignoreModifiers = false) => new NetworkMultitoolShortcut(name, labelKey, SavedInputKey.Encode(keyCode, ctrl, shift, alt), action, mode) { CanRepeat = repeat, IgnoreModifiers = ignoreModifiers };
 
         public abstract ToolModeType Type { get; }
+        public virtual bool CreateButton => true;
         public string Title => SingletonMod<Mod>.Instance.GetLocalizeString(Type.GetAttr<DescriptionAttribute, ToolModeType>().Description);
         protected abstract bool IsReseted { get; }
         protected virtual bool CanSwitchUnderground => true;
@@ -266,6 +267,14 @@ namespace NetworkMultitool
 
         [Description(nameof(Localize.Mode_CreateConnection))]
         CreateConnection = CreateLoop << 1,
+
+        [NotItem]
+        [Description(nameof(Localize.Mode_CreateConnection))]
+        CreateConnectionMoveCircle = CreateConnection << 1,
+
+        [NotItem]
+        [Description(nameof(Localize.Mode_CreateConnection))]
+        CreateConnectionChangeRadius = CreateConnectionMoveCircle << 1,
 
 
         [NotItem]

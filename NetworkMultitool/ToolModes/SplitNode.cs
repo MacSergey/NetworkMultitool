@@ -78,7 +78,9 @@ namespace NetworkMultitool
             }
             else if (IsHoverSegment)
             {
-                if (Segments.Contains(HoverSegment))
+                if (!IsSource)
+                    return;
+                else if (Segments.Contains(HoverSegment))
                     Segments.Remove(HoverSegment);
                 else if (CanAddSegment)
                     Segments.Add(HoverSegment);

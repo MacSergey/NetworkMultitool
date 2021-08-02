@@ -12,7 +12,7 @@ using static ModsCommon.Utilities.VectorUtilsExtensions;
 
 namespace NetworkMultitool
 {
-    public class CreateConnectionMode : BaseCreateMode
+    public class CreateConnectionMode : BaseCreateConnectionMode
     {
         public static NetworkMultitoolShortcut SwitchSelectShortcut = GetShortcut(KeyCode.Tab, nameof(SwitchSelectShortcut), nameof(Localize.Settings_Shortcut_SwitchSelect), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as CreateConnectionMode)?.SwitchSelectRadius());
         public static NetworkMultitoolShortcut IncreaseOneRadiusShortcut { get; } = GetShortcut(KeyCode.RightBracket, nameof(IncreaseOneRadiusShortcut), nameof(Localize.Settings_Shortcut_IncreaseOneRadius), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as CreateConnectionMode)?.IncreaseOneRadius(), ToolModeType.CreateConnection, repeat: true, ignoreModifiers: true);
@@ -21,8 +21,6 @@ namespace NetworkMultitool
         public static NetworkMultitoolShortcut SwitchOffsetShortcut = GetShortcut(KeyCode.Tab, nameof(SwitchOffsetShortcut), nameof(Localize.Settings_Shortcut_SwitchOffset), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as CreateConnectionMode)?.SwitchSelectOffset(), ctrl: true);
         public static NetworkMultitoolShortcut IncreaseOffsetShortcut { get; } = GetShortcut(KeyCode.Backslash, nameof(IncreaseOffsetShortcut), nameof(Localize.Settings_Shortcut_IncreaseOffset), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as CreateConnectionMode)?.IncreaseOffset(), ToolModeType.CreateConnection, repeat: true, ignoreModifiers: true);
         public static NetworkMultitoolShortcut DecreaseOffsetShortcut { get; } = GetShortcut(KeyCode.Quote, nameof(DecreaseOffsetShortcut), nameof(Localize.Settings_Shortcut_DecreaseOffset), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as CreateConnectionMode)?.DecreaseOffset(), ToolModeType.CreateConnection, repeat: true, ignoreModifiers: true);
-
-        public override ToolModeType Type => ToolModeType.CreateConnection;
 
         public override IEnumerable<NetworkMultitoolShortcut> Shortcuts
         {
@@ -41,32 +39,12 @@ namespace NetworkMultitool
             }
         }
 
-        private bool SelectRadius { get; set; }
-        private bool SelectOffset { get; set; }
-        private bool? FirstSide { get; set; }
-        private bool? SecondSide { get; set; }
-        private float? FirstRadius { get; set; }
-        private float? SecondRadius { get; set; }
-        private float FirstOffset { get; set; }
-        private float SecondOffset { get; set; }
+        public override ToolModeType Type => ToolModeType.CreateConnection;
 
-        private Vector3 FirstStart { get; set; }
-        private Vector3 SecondStart { get; set; }
-        private Vector3 FirstCenter { get; set; }
-        private Vector3 SecondCenter { get; set; }
-        private Vector3 FirstCenterDir { get; set; }
-        private Vector3 SecondCenterDir { get; set; }
-        private Vector3 FirstStartCurve { get; set; }
-        private Vector3 SecondStartCurve { get; set; }
-        private Vector3 FirstEndCurve { get; set; }
-        private Vector3 SecondEndCurve { get; set; }
-        private float FirstAngle { get; set; }
-        private float SecondAngle { get; set; }
-
-        private InfoLabel FirstRadiusLabel { get; set; }
-        private InfoLabel SecondRadiusLabel { get; set; }
-        private InfoLabel FirstOffsetLabel { get; set; }
-        private InfoLabel SecondOffsetLabel { get; set; }
+        public int HoverCenter { get; private set; }
+        protected bool IsHoverCenter => HoverCenter != -1;
+        public int HoverCircle { get; private set; }
+        protected bool IsHoverCircle => HoverCircle != -1;
 
         protected override string GetInfo()
         {
@@ -103,254 +81,84 @@ namespace NetworkMultitool
                     string.Format(Localize.Mode_Info_ChangeOffset, DecreaseOffsetShortcut, IncreaseOffsetShortcut) + "\n" +
                     string.Format(Localize.Mode_Info_Create, ApplyShortcut);
         }
-        protected override void Reset(IToolMode prevMode)
-        {
-            base.Reset(prevMode);
-            FirstRadiusLabel = AddLabel();
-            SecondRadiusLabel = AddLabel();
-            FirstOffsetLabel = AddLabel();
-            SecondOffsetLabel = AddLabel();
-        }
-        protected override void ResetParams()
-        {
-            base.ResetParams();
-            FirstRadius = null;
-            SecondRadius = null;
-            FirstSide = null;
-            SecondSide = null;
-            FirstOffset = 0f;
-            SecondOffset = 0f;
-        }
         public override void OnToolUpdate()
         {
             base.OnToolUpdate();
 
-            if (State == Result.Calculated)
+            if (State != Result.None)
             {
-                FirstRadiusLabel.isVisible = true;
-                FirstRadiusLabel.text = $"{GetRadiusString(FirstRadius.Value)}\n{GetAngleString(Mathf.Abs(FirstAngle))}";
-                FirstRadiusLabel.WorldPosition = FirstCenter + FirstCenterDir * 5f;
-                FirstRadiusLabel.Direction = FirstCenterDir;
-
-                SecondRadiusLabel.isVisible = true;
-                SecondRadiusLabel.text = $"{GetRadiusString(SecondRadius.Value)}\n{GetAngleString(Mathf.Abs(SecondAngle))}";
-                SecondRadiusLabel.WorldPosition = SecondCenter + SecondCenterDir * 5f;
-                SecondRadiusLabel.Direction = SecondCenterDir;
-
-
-                var info = Info;
-
-                FirstOffsetLabel.isVisible = true;
-                FirstOffsetLabel.text = GetRadiusString(FirstOffset);
-                FirstOffsetLabel.Direction = (FirstStartCurve - FirstCenter).normalized;
-                FirstOffsetLabel.WorldPosition = (FirstStart + FirstStartCurve) / 2f + FirstOffsetLabel.Direction * (info.m_halfWidth + 7f);
-
-                SecondOffsetLabel.isVisible = true;
-                SecondOffsetLabel.text = GetRadiusString(SecondOffset);
-                SecondOffsetLabel.Direction = (SecondStartCurve - SecondCenter).normalized;
-                SecondOffsetLabel.WorldPosition = (SecondStart + SecondStartCurve) / 2f + SecondOffsetLabel.Direction * (info.m_halfWidth + 7f);
-            }
-            else
-            {
-                FirstRadiusLabel.isVisible = false;
-                SecondRadiusLabel.isVisible = false;
-                FirstOffsetLabel.isVisible = false;
-                SecondOffsetLabel.isVisible = false;
-            }
-        }
-
-        protected override IEnumerable<Point> Calculate(StraightTrajectory firstTrajectory, StraightTrajectory secondTrajectory)
-        {
-            FirstStart = firstTrajectory.StartPosition;
-            SecondStart = secondTrajectory.StartPosition;
-            FirstStartCurve = firstTrajectory.Position(FirstOffset);
-            SecondStartCurve = secondTrajectory.Position(SecondOffset);
-
-            GetSides(firstTrajectory, secondTrajectory);
-
-            var firstStartRadiusDir = -firstTrajectory.Direction.Turn90(FirstSide.Value);
-            var secondStartRadiusDir = -secondTrajectory.Direction.Turn90(SecondSide.Value);
-
-            GetRadii(firstStartRadiusDir, secondStartRadiusDir);
-
-            var centerConnect = new StraightTrajectory(FirstCenter.MakeFlat(), SecondCenter.MakeFlat());
-            GetAngles(centerConnect, firstStartRadiusDir, secondStartRadiusDir);
-
-            var firstEndRadiusDir = firstStartRadiusDir.TurnRad(FirstAngle, true);
-            var secondEndRadiusDir = secondStartRadiusDir.TurnRad(SecondAngle, true);
-
-            FirstEndCurve = FirstCenter + firstEndRadiusDir * FirstRadius.Value;
-            SecondEndCurve = SecondCenter + secondEndRadiusDir * SecondRadius.Value;
-
-            if (!CheckRadii(centerConnect))
-                return new Point[0];
-
-            var connectEnds = new StraightTrajectory(FirstEndCurve.MakeFlat(), SecondEndCurve.MakeFlat(), false);
-            FixAngles(firstTrajectory, secondTrajectory, connectEnds);
-
-            FirstCenterDir = (connectEnds.Direction - firstTrajectory.Direction).normalized;
-            SecondCenterDir = (-connectEnds.Direction - secondTrajectory.Direction).normalized;
-
-            State = Result.Calculated;
-            return GetParts(firstTrajectory, secondTrajectory, connectEnds);
-        }
-        private void GetSides(StraightTrajectory firstTrajectory, StraightTrajectory secondTrajectory)
-        {
-            if (FirstSide != null && SecondSide != null)
-                return;
-
-            var connect = new StraightTrajectory(FirstStartCurve.MakeFlat(), SecondStartCurve.MakeFlat());
-
-            FirstSide = CrossXZ(firstTrajectory.Direction, connect.Direction) >= 0;
-            SecondSide = CrossXZ(secondTrajectory.Direction, -connect.Direction) >= 0;
-            var firstDot = DotXZ(firstTrajectory.Direction, connect.Direction) >= 0;
-            var secondDot = DotXZ(secondTrajectory.Direction, -connect.Direction) >= 0;
-
-            if (firstDot != secondDot && FirstSide != SecondSide)
-            {
-                if (!firstDot)
-                    FirstSide = !FirstSide;
-                else if (!secondDot)
-                    SecondSide = !SecondSide;
-            }
-        }
-        private void GetRadii(Vector3 firstRadiusDir, Vector3 secondRadiusDir)
-        {
-            FirstRadius = Mathf.Clamp(FirstRadius ?? 50f, MinPossibleRadius, 1000f);
-            SecondRadius = Mathf.Clamp(SecondRadius ?? 50f, MinPossibleRadius, 1000f);
-
-            FirstCenter = FirstStartCurve - firstRadiusDir * FirstRadius.Value;
-            SecondCenter = SecondStartCurve - secondRadiusDir * SecondRadius.Value;
-        }
-        private void GetAngles(StraightTrajectory centerConnect, Vector3 firstRadiusDir, Vector3 secondRadiusDir)
-        {
-            if (FirstSide == SecondSide)
-            {
-                var delta = centerConnect.Length / (FirstRadius.Value + SecondRadius.Value) * FirstRadius.Value;
-                var deltaAngle = Mathf.Acos(FirstRadius.Value / delta);
-
-                FirstAngle = GetAngle(firstRadiusDir, centerConnect.Direction, deltaAngle, FirstSide.Value);
-                SecondAngle = GetAngle(secondRadiusDir, -centerConnect.Direction, deltaAngle, SecondSide.Value);
-            }
-            else
-            {
-                var deltaAngle = Mathf.Asin(Mathf.Abs(FirstRadius.Value - SecondRadius.Value) / centerConnect.Length);
-
-                FirstAngle = GetAngle(firstRadiusDir, centerConnect.Direction, Mathf.PI / 2f + Mathf.Sign(SecondRadius.Value - FirstRadius.Value) * deltaAngle, FirstSide.Value);
-                SecondAngle = GetAngle(secondRadiusDir, -centerConnect.Direction, Mathf.PI / 2f + Mathf.Sign(FirstRadius.Value - SecondRadius.Value) * deltaAngle, SecondSide.Value);
-            }
-
-            static float GetAngle(Vector3 radiusDir, Vector3 connectDir, float deltaAngle, bool cross)
-            {
-                var angle = MathExtention.GetAngle(radiusDir, connectDir);
-                if (angle > 0f == cross)
-                    angle -= Mathf.Sign(angle) * 2 * Mathf.PI;
-                angle = -Mathf.Sign(angle) * (Mathf.Abs(angle) - deltaAngle);
-                return angle;
-            }
-        }
-        private bool CheckRadii(StraightTrajectory centerConnect)
-        {
-            if (FirstSide.Value == SecondSide.Value)
-            {
-                if (centerConnect.Length < FirstRadius.Value + SecondRadius.Value)
+                HoverCenter = -1;
+                HoverCircle = -1;
+                if (!IsHoverNode)
                 {
-                    State = Result.BigRadius;
-                    return false;
+                    var position = XZ(Tool.MouseWorldPosition);
+                    for (var i = 0; i < Count; i += 1)
+                    {
+                        if ((XZ(CenterPos[i]) - position).sqrMagnitude <= 25f)
+                        {
+                            HoverCenter = i;
+                            break;
+                        }
+                    }
+                    for (var i = 0; i < Count; i += 1)
+                    {
+                        var magnitude = (XZ(CenterPos[i]) - position).magnitude;
+                        if (Radius[i] - 5f <= magnitude && magnitude <= Radius[i] + 5f)
+                        {
+                            HoverCircle = i;
+                            break;
+                        }
+                    }
                 }
             }
-            else
-            {
-                if (centerConnect.Length + FirstRadius.Value < SecondRadius.Value || centerConnect.Length + SecondRadius.Value < FirstRadius.Value)
-                {
-                    State = Result.WrongShape;
-                    return false;
-                }
-            }
-            return true;
         }
-        private void FixAngles(StraightTrajectory firstTrajectory, StraightTrajectory secondTrajectory, StraightTrajectory connectEnds)
+        public override void OnPrimaryMouseClicked(Event e)
         {
-            if (Mathf.Abs(FirstAngle) < Mathf.PI && Intersection.CalculateSingle(firstTrajectory, connectEnds, out var firstT, out _) && firstT < FirstOffset)
-                FirstAngle = FirstAngle - Mathf.Sign(FirstAngle) * 2 * Mathf.PI;
-            if (Mathf.Abs(SecondAngle) < Mathf.PI && Intersection.CalculateSingle(secondTrajectory, connectEnds, out var secondT, out _) && secondT < SecondOffset)
-                SecondAngle = SecondAngle - Mathf.Sign(SecondAngle) * 2 * Mathf.PI;
+            if (IsHoverCenter)
+                SelectCircle = HoverCenter;
+            else if (!IsHoverCircle)
+                base.OnPrimaryMouseClicked(e);
         }
-        private IEnumerable<Point> GetParts(StraightTrajectory firstTrajectory, StraightTrajectory secondTrajectory, StraightTrajectory centerConnection)
+        public override void OnMouseDown(Event e)
         {
-            if (FirstOffset >= 8f)
-            {
-                var offset = firstTrajectory.Cut(0f, FirstOffset);
-                foreach (var point in GetStraightParts(offset))
-                    yield return point;
-
-                yield return new Point(firstTrajectory.Position(FirstOffset), firstTrajectory.Direction);
-            }
-
-            foreach (var point in GetCurveParts(FirstCenter, FirstStartCurve - FirstCenter, firstTrajectory.Direction, FirstRadius.Value, FirstAngle))
-                yield return point;
-
-            if (centerConnection.Length >= 8f)
-            {
-                yield return new Point(centerConnection.StartPosition, centerConnection.Direction);
-                foreach (var point in GetStraightParts(centerConnection))
-                    yield return point;
-                yield return new Point(centerConnection.EndPosition, centerConnection.Direction);
-            }
-            else
-                yield return new Point(centerConnection.Position(0.5f), centerConnection.Direction);
-
-            foreach (var point in GetCurveParts(SecondCenter, SecondEndCurve - SecondCenter, centerConnection.Direction, SecondRadius.Value, -SecondAngle))
-                yield return point;
-
-            if (SecondOffset >= 8f)
-            {
-                yield return new Point(secondTrajectory.Position(SecondOffset), -secondTrajectory.Direction);
-
-                var offset = secondTrajectory.Cut(SecondOffset, 0f);
-                foreach (var point in GetStraightParts(offset))
-                    yield return point;
-            }
+            if (IsHoverCenter)
+                SelectCircle = HoverCenter;
         }
-
-        protected override void SetFirstNode(ref NetSegment segment, ushort nodeId)
+        public override void OnMouseDrag(Event e)
         {
-            base.SetFirstNode(ref segment, nodeId);
-            if (FirstSide.HasValue)
-                FirstSide = !FirstSide;
+            if (IsHoverCenter)
+                Tool.SetMode(ToolModeType.CreateConnectionMoveCircle);
+            else if(IsHoverCircle)
+                Tool.SetMode(ToolModeType.CreateConnectionChangeRadius);
         }
-        protected override void SetSecondNode(ref NetSegment segment, ushort nodeId)
+        protected override void ResetParams()
         {
-            base.SetSecondNode(ref segment, nodeId);
-            if (SecondSide.HasValue)
-                SecondSide = !SecondSide;
+            base.ResetParams();
+
+            HoverCenter = -1;
+            HoverCircle = -1;
         }
+
         protected override void IncreaseRadius()
         {
-            FirstRadius = ChangeRadius(FirstRadius, true);
-            SecondRadius = ChangeRadius(SecondRadius, true);
+            Radius[0] = ChangeRadius(Radius[0], true);
+            Radius[1] = ChangeRadius(Radius[1], true);
             State = Result.None;
         }
         protected override void DecreaseRadius()
         {
-            FirstRadius = ChangeRadius(FirstRadius, false);
-            SecondRadius = ChangeRadius(SecondRadius, false);
+            Radius[0] = ChangeRadius(Radius[0], false);
+            Radius[1] = ChangeRadius(Radius[1], false);
             State = Result.None;
         }
         private void IncreaseOneRadius()
         {
-            if (SelectRadius)
-                FirstRadius = ChangeRadius(FirstRadius, true);
-            else
-                SecondRadius = ChangeRadius(SecondRadius, true);
+            Radius[SelectCircle] = ChangeRadius(Radius[SelectCircle], true);
             State = Result.None;
         }
         private void DecreaseOneRadius()
         {
-            if (SelectRadius)
-                FirstRadius = ChangeRadius(FirstRadius, false);
-            else
-                SecondRadius = ChangeRadius(SecondRadius, false);
+            Radius[SelectCircle] = ChangeRadius(Radius[SelectCircle], false);
             State = Result.None;
         }
         private float? ChangeRadius(float? radius, bool increase)
@@ -363,22 +171,16 @@ namespace NetworkMultitool
             else
                 return radius;
         }
-        private void SwitchSelectRadius() => SelectRadius = !SelectRadius;
+        private void SwitchSelectRadius() => SelectCircle = (SelectCircle + 1) % Count;
 
         private void IncreaseOffset()
         {
-            if (SelectOffset)
-                FirstOffset = ChangeOffset(FirstOffset, true);
-            else
-                SecondOffset = ChangeOffset(SecondOffset, true);
+            Offset[SelectOffset] = ChangeOffset(Offset[SelectOffset], true);
             State = Result.None;
         }
         private void DecreaseOffset()
         {
-            if (SelectOffset)
-                FirstOffset = ChangeOffset(FirstOffset, false);
-            else
-                SecondOffset = ChangeOffset(SecondOffset, false);
+            Offset[SelectOffset] = ChangeOffset(Offset[SelectOffset], false);
             State = Result.None;
         }
         private float ChangeOffset(float offset, bool increase)
@@ -386,41 +188,84 @@ namespace NetworkMultitool
             var step = Step;
             return Mathf.Clamp((offset + (increase ? step : -step)).RoundToNearest(step), 0f, 500f);
         }
-        private void SwitchSelectOffset() => SelectOffset = !SelectOffset;
+        private void SwitchSelectOffset() => SelectOffset = (SelectOffset + 1) % Count;
 
         protected override void RenderCalculatedOverlay(RenderManager.CameraInfo cameraInfo, NetInfo info)
         {
-            //FirstCenter.RenderCircle(new OverlayData(cameraInfo) { Width = FirstRadius.Value * 2f, Color = Color.red });
-            //SecondCenter.RenderCircle(new OverlayData(cameraInfo) { Width = SecondRadius.Value * 2f, Color = Color.red });
+            for (var i = 0; i < Count; i += 1)
+                RenderCircle(cameraInfo, i, i == HoverCircle ? Colors.Blue : Colors.Green.SetAlpha(64));
 
-            //new StraightTrajectory(FirstStartCurve, SecondStartCurve).Render(new OverlayData(cameraInfo) { Color = Color.black });
-            //new StraightTrajectory(FirstCenter, SecondCenter).Render(new OverlayData(cameraInfo) { Color = Color.black });
+            base.RenderCalculatedOverlay(cameraInfo, info);
 
-            RenderCenter(cameraInfo, info, FirstCenter, FirstStartCurve, FirstEndCurve, FirstRadius.Value);
-            RenderCenter(cameraInfo, info, SecondCenter, SecondStartCurve, SecondEndCurve, SecondRadius.Value);
-            (SelectRadius ? FirstCenter : SecondCenter).RenderCircle(new OverlayData(cameraInfo) { Color = Colors.Yellow, RenderLimit = Underground }, 7f, 5f);
-
-            RenderScale(cameraInfo, FirstStart, FirstStartCurve, (FirstStartCurve - FirstCenter).normalized, info, SelectOffset ? Colors.Yellow : Colors.White);
-            RenderScale(cameraInfo, SecondStart, SecondStartCurve, (SecondStartCurve - SecondCenter).normalized, info, !SelectOffset ? Colors.Yellow : Colors.White);
-
-            //new StraightTrajectory(FirstStartCurve, FirstEndCurve).Render(new OverlayData(cameraInfo));
-            //new StraightTrajectory(SecondStartCurve, SecondEndCurve).Render(new OverlayData(cameraInfo));
-            //new StraightTrajectory(FirstEndCurve, SecondEndCurve).Render(new OverlayData(cameraInfo));
+            for (var i = 0; i < Count; i += 1)
+                RenderCenter(cameraInfo, i);
         }
         protected override void RenderFailedOverlay(RenderManager.CameraInfo cameraInfo, NetInfo info)
         {
-            if (State == Result.BigRadius || State == Result.SmallRadius || State == Result.WrongShape)
+            for (var i = 0; i < Count; i += 1)
+                RenderCircle(cameraInfo, i, i == HoverCircle ? Colors.Blue : Colors.Red);
+
+            base.RenderFailedOverlay(cameraInfo, info);
+
+            for (var i = 0; i < Count; i += 1)
+                RenderCenter(cameraInfo, i);
+        }
+        private void RenderCenter(RenderManager.CameraInfo cameraInfo, int i)
+        {
+            if (i == HoverCenter)
+                RenderCenter(cameraInfo, i, Colors.Blue);
+            else if (i == SelectCircle)
+                RenderCenter(cameraInfo, i, Colors.Yellow);
+        }
+    }
+
+    public class CreateConnectionMoveCircleMode : BaseAdditionalCreateConnectionMode
+    {
+        public override ToolModeType Type => ToolModeType.CreateConnectionMoveCircle;
+
+        protected override void Reset(IToolMode prevMode)
+        {
+            base.Reset(prevMode);
+
+            if (prevMode is CreateConnectionMode connectionMode)
+                Edit = connectionMode.HoverCenter;
+        }
+        public override void OnMouseDrag(Event e)
+        {
+            if (IsEdit)
             {
-                FirstCenter.RenderCircle(new OverlayData(cameraInfo) { Width = FirstRadius.Value * 2f, Color = Color.red, RenderLimit = Underground });
-                SecondCenter.RenderCircle(new OverlayData(cameraInfo) { Width = SecondRadius.Value * 2f, Color = Color.red, RenderLimit = Underground });
+                var line = new StraightTrajectory(StartPos[Edit], StartPos[Edit] + StartDir[Edit], false);
+                var normal = new StraightTrajectory(Tool.MouseWorldPosition, Tool.MouseWorldPosition + (CenterPos[Edit] - CurveStart[Edit]).normalized, false);
 
-                RenderRadius(cameraInfo, info, FirstCenter, FirstStartCurve, FirstRadius.Value, Colors.Red);
-                RenderCenter(cameraInfo, FirstCenter, Colors.Red);
+                Intersection.CalculateSingle(line, normal, out var t, out _);
+                Offset[Edit] = Mathf.Clamp(t, 0f, 500f);
+                State = Result.None;
+            }
+        }
+    }
 
-                RenderRadius(cameraInfo, info, SecondCenter, SecondStartCurve, SecondRadius.Value, Colors.Red);
-                RenderCenter(cameraInfo, SecondCenter, Colors.Red);
+    public class CreateConnectionChangeRadiusMode : BaseAdditionalCreateConnectionMode
+    {
+        public override ToolModeType Type => ToolModeType.CreateConnectionChangeRadius;
 
-                (SelectRadius ? FirstCenter : SecondCenter).RenderCircle(new OverlayData(cameraInfo) { RenderLimit = Underground }, 7f, 5f);
+        private Vector2 BeginPos { get; set; }
+
+        protected override void Reset(IToolMode prevMode)
+        {
+            base.Reset(prevMode);
+
+            if (prevMode is CreateConnectionMode connectionMode)
+            {
+                Edit = connectionMode.HoverCircle;
+                BeginPos = XZ(connectionMode.CenterPos[Edit]);
+            }
+        }
+        public override void OnMouseDrag(Event e)
+        {
+            if (IsEdit)
+            {
+                Radius[Edit] = (XZ(Tool.MouseWorldPosition) - BeginPos).magnitude;
+                State = Result.None;
             }
         }
     }

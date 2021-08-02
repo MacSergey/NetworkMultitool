@@ -24,7 +24,7 @@ namespace NetworkMultitool
 
 
         protected override Color32 SegmentColor => Colors.Blue;
-        protected override Color32 NodeColor => Colors.Green;
+        protected override Color32 NodeColor => Colors.Blue;
 
         protected override bool IsValidSegment(ushort segmentId) => !IsBoth && segmentId != First?.Id && segmentId != Second?.Id;
         protected override bool IsValidNode(ushort nodeId) => base.IsValidNode(nodeId) && IsBoth && (First.Id.GetSegment().Contains(nodeId) || Second.Id.GetSegment().Contains(nodeId));
@@ -211,8 +211,8 @@ namespace NetworkMultitool
             }
         }
         public void Recalculate() => State = Result.None;
-        protected abstract void IncreaseRadius();
-        protected abstract void DecreaseRadius();
+        protected virtual void IncreaseRadius() { }
+        protected virtual void DecreaseRadius() { }
 
         protected float Step
         {
@@ -236,7 +236,7 @@ namespace NetworkMultitool
             var color = State switch
             {
                 Result.BigRadius or Result.SmallRadius or Result.WrongShape => Colors.Red,
-                Result.Calculated => new Color32(255, 255, 255, 64),
+                Result.Calculated => Colors.White.SetAlpha(64),
                 _ => Colors.White,
             };
 
