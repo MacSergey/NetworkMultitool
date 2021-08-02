@@ -47,6 +47,10 @@ namespace NetworkMultitool
                 yield return CreateConnectionMode.IncreaseOneRadiusShortcut;
                 yield return CreateConnectionMode.DecreaseOneRadiusShortcut;
 
+                yield return CreateConnectionMode.SwitchOffsetShortcut;
+                yield return CreateConnectionMode.IncreaseOffsetShortcut;
+                yield return CreateConnectionMode.DecreaseOffsetShortcut;
+
                 yield return CreateLoopMode.SwitchIsLoopShortcut;
             }
         }
@@ -65,7 +69,7 @@ namespace NetworkMultitool
         }
 
         public override Shortcut Activation => ActivationShortcut;
-        protected override bool ShowToolTip => base.ShowToolTip && Settings.ShowToolTip;
+        protected override bool ShowToolTip => (base.ShowToolTip || UIInput.hoveredComponent is InfoLabel) && Settings.ShowToolTip;
         private IToolMode LastMode { get; set; }
         protected override IToolMode DefaultMode => LastMode ?? ToolModes[ToolModeType.AddNode];
 

@@ -292,6 +292,7 @@ namespace NetworkMultitool
             isVisible = false;
             color = Colors.White;
             textScale = 2f;
+            textAlignment = UIHorizontalAlignment.Center;
         }
 
         public override void Update()

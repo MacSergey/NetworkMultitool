@@ -148,8 +148,23 @@ Too close to nearby node</value>
   <data name="Mode_Info_Apply" xml:space="preserve">
     <value>Press {0} to apply</value>
   </data>
+  <data name="Mode_Info_ChangeAllRadius" xml:space="preserve">
+    <value>Press {0} or {1} to change all radii</value>
+  </data>
+  <data name="Mode_Info_ChangeBothRadius" xml:space="preserve">
+    <value>Press {0} or {1} to change both radii</value>
+  </data>
   <data name="Mode_Info_ChangeCircle" xml:space="preserve">
     <value>Press {0} to switch selected circle</value>
+  </data>
+  <data name="Mode_Info_ChangeOffset" xml:space="preserve">
+    <value>Press {0} or {1} to change curse start offset</value>
+  </data>
+  <data name="Mode_Info_ChangeOneRadius" xml:space="preserve">
+    <value>Press {0} or {1} to change one radius</value>
+  </data>
+  <data name="Mode_Info_ChangeRadius" xml:space="preserve">
+    <value>Press {0} or {1} to change radius</value>
   </data>
   <data name="Mode_Info_ChooseDirestion" xml:space="preserve">
     <value>Choose nodes to select create direction</value>
@@ -172,30 +187,6 @@ Too close to nearby node</value>
   <data name="Mode_Info_CurveDurection" xml:space="preserve">
     <value>Click on node to change curve direction</value>
   </data>
-  <data name="Mode_Info_DecreaseAllRadius" xml:space="preserve">
-    <value>Press {0} to decrease all radii</value>
-  </data>
-  <data name="Mode_Info_DecreaseBothRadius" xml:space="preserve">
-    <value>Press {0} to decrease both radii</value>
-  </data>
-  <data name="Mode_Info_DecreaseOneRadius" xml:space="preserve">
-    <value>Press {0} to decrease one radius</value>
-  </data>
-  <data name="Mode_Info_DecreaseRadius" xml:space="preserve">
-    <value>Press {0} to decrease radius</value>
-  </data>
-  <data name="Mode_Info_IncreaseAllRadius" xml:space="preserve">
-    <value>Press {0} to increase all radii</value>
-  </data>
-  <data name="Mode_Info_IncreaseBothRadius" xml:space="preserve">
-    <value>Press {0} to increase both radii</value>
-  </data>
-  <data name="Mode_Info_IncreaseOneRadius" xml:space="preserve">
-    <value>Press {0} to increase one radius</value>
-  </data>
-  <data name="Mode_Info_IncreaseRadius" xml:space="preserve">
-    <value>Press {0} to increase radius</value>
-  </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
     <value>Radius too big</value>
   </data>
@@ -210,6 +201,9 @@ Too close to nearby node</value>
   </data>
   <data name="Mode_Info_SelectSegment" xml:space="preserve">
     <value>Select segment</value>
+  </data>
+  <data name="Mode_Info_SwitchOffset" xml:space="preserve">
+    <value>Press {0} to switch selected offset</value>
   </data>
   <data name="Mode_Info_UndergroundMode" xml:space="preserve">
     <value>Hold Shift to underground mode</value>
@@ -316,11 +310,17 @@ Click with Shift to split node and set source height</value>
   <data name="Settings_Shortcut_Apply" xml:space="preserve">
     <value>Apply mode action</value>
   </data>
+  <data name="Settings_Shortcut_DecreaseOffset" xml:space="preserve">
+    <value>Decrease circle start offset</value>
+  </data>
   <data name="Settings_Shortcut_DecreaseOneRadius" xml:space="preserve">
     <value>Decrease one radius</value>
   </data>
   <data name="Settings_Shortcut_DecreaseRadius" xml:space="preserve">
     <value>Decrease radii</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
+    <value>Increase circle start offset</value>
   </data>
   <data name="Settings_Shortcut_IncreaseOneRadius" xml:space="preserve">
     <value>Increase one radius</value>
@@ -330,6 +330,9 @@ Click with Shift to split node and set source height</value>
   </data>
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
     <value>Switch loop direction</value>
+  </data>
+  <data name="Settings_Shortcut_SwitchOffset" xml:space="preserve">
+    <value>Switch selected offset</value>
   </data>
   <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
     <value>Switch selected circle</value>

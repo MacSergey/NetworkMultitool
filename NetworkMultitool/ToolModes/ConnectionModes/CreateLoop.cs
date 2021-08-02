@@ -65,8 +65,7 @@ namespace NetworkMultitool
             else
                 return
                     Localize.Mode_Info_ChooseDirestion + "\n\n" +
-                    string.Format(Localize.Mode_Info_DecreaseRadius, DecreaseRadiusShortcut) + "\n" +
-                    string.Format(Localize.Mode_Info_IncreaseRadius, IncreaseRadiusShortcut) + "\n" +
+                    string.Format(Localize.Mode_Info_ChangeRadius, DecreaseRadiusShortcut, IncreaseRadiusShortcut) + "\n" +
                     string.Format(Localize.Mode_CreateLoop_Info_Change, SwitchIsLoopShortcut) + "\n" +
                     string.Format(Localize.Mode_Info_Create, ApplyShortcut);
         }

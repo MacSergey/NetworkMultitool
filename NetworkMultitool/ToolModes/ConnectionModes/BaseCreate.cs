@@ -236,6 +236,7 @@ namespace NetworkMultitool
             var color = State switch
             {
                 Result.BigRadius or Result.SmallRadius or Result.WrongShape => Colors.Red,
+                Result.Calculated => new Color32(255, 255, 255, 64),
                 _ => Colors.White,
             };
 
@@ -263,9 +264,9 @@ namespace NetworkMultitool
         protected virtual void RenderFailedOverlay(RenderManager.CameraInfo cameraInfo, NetInfo info) { }
         protected void RenderCenter(RenderManager.CameraInfo cameraInfo, NetInfo info, Vector3 center, Vector3 startCurve, Vector3 endCurve, float radius)
         {
-            RenderRadius(cameraInfo, info, center, startCurve, radius, Colors.Yellow);
-            RenderRadius(cameraInfo, info, center, endCurve, radius, Colors.Yellow);
-            RenderCenter(cameraInfo, center, Colors.Yellow);
+            RenderRadius(cameraInfo, info, center, startCurve, radius, Colors.White);
+            RenderRadius(cameraInfo, info, center, endCurve, radius, Colors.White);
+            RenderCenter(cameraInfo, center, Colors.White);
         }
         protected void RenderRadius(RenderManager.CameraInfo cameraInfo, NetInfo info, Vector3 center, Vector3 curve, float radius, Color color)
         {
@@ -275,6 +276,31 @@ namespace NetworkMultitool
         protected void RenderCenter(RenderManager.CameraInfo cameraInfo, Vector3 center, Color color)
         {
             center.RenderCircle(new OverlayData(cameraInfo) { Color = color, RenderLimit = Underground }, 5f, 0f);
+        }
+        protected void RenderScale(RenderManager.CameraInfo cameraInfo, Vector3 start, Vector3 end, Vector3 dir, NetInfo info, Color color)
+        {
+            var data = new OverlayData(cameraInfo) { RenderLimit = Underground };
+            var dataArrow = new OverlayData(cameraInfo) { Color = color, RenderLimit = Underground };
+
+            var dir90 = (end - start).normalized;
+            var isShort = (start - end).magnitude <= 10f;
+
+            var startShift = start + dir * (info.m_halfWidth + 5f) + (isShort ? -dir90 : dir90) * 0.5f;
+            var endShift = end + dir * (info.m_halfWidth + 5f) + (isShort ? dir90 : -dir90) * 0.5f;
+
+            new StraightTrajectory(start + dir * info.m_halfWidth, start + dir * (info.m_halfWidth + 7f)).Render(data);
+            new StraightTrajectory(end + dir * info.m_halfWidth, end + dir * (info.m_halfWidth + 7f)).Render(data);
+            new StraightTrajectory(startShift, endShift).Render(dataArrow);
+
+            var cross = CrossXZ(dir, dir90) > 0f;
+            var dirP45 = dir.TurnDeg(45f, isShort ^ cross);
+            var dirM45 = dir.TurnDeg(45f, !isShort ^ cross);
+
+            new StraightTrajectory(startShift, startShift + dirP45 * 3f).Render(dataArrow);
+            new StraightTrajectory(startShift, startShift - dirM45 * 3f).Render(dataArrow);
+
+            new StraightTrajectory(endShift, endShift - dirP45 * 3f).Render(dataArrow);
+            new StraightTrajectory(endShift, endShift + dirM45 * 3f).Render(dataArrow);
         }
 
         protected enum Result
