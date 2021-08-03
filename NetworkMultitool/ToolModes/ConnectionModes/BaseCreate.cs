@@ -341,7 +341,10 @@ namespace NetworkMultitool
                 {
                     _label = value;
                     if (_label != null)
+                    {
                         _label.textScale = 1.5f;
+                        _label.opacity = 0.75f;
+                    }
                 }
             }
 
@@ -471,7 +474,10 @@ namespace NetworkMultitool
                 {
                     _label = value;
                     if (_label != null)
+                    {
                         _label.textScale = 1.5f;
+                        _label.opacity = 0.75f;
+                    }
                 }
             }
 
@@ -509,10 +515,10 @@ namespace NetworkMultitool
                     }
                 }
             }
-            public void Render(RenderManager.CameraInfo cameraInfo, NetInfo info, Color color, bool underground)
+            public void Render(RenderManager.CameraInfo cameraInfo, NetInfo info, Color color, Color colorArrow, bool underground)
             {
-                var data = new OverlayData(cameraInfo) { RenderLimit = underground };
-                var dataArrow = new OverlayData(cameraInfo) { Color = color, RenderLimit = underground };
+                var data = new OverlayData(cameraInfo) { Color = color, RenderLimit = underground };
+                var dataArrow = new OverlayData(cameraInfo) { Color = colorArrow, RenderLimit = underground };
 
                 var dir = LabelDir;
                 var isShort = Length <= 10f;

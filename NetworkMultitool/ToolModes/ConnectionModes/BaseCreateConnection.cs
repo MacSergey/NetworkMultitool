@@ -211,9 +211,9 @@ namespace NetworkMultitool
         protected override void RenderCalculatedOverlay(RenderManager.CameraInfo cameraInfo, NetInfo info)
         {
             foreach (var circle in Circles)
-                circle.Render(cameraInfo, info, Colors.White, Underground);
+                circle.Render(cameraInfo, info, Colors.Gray224, Underground);
             foreach (var straight in Straights)
-                straight.Render(cameraInfo, info, Colors.White, Underground);
+                straight.Render(cameraInfo, info, Colors.Gray224, Colors.Gray224, Underground);
         }
         protected override void RenderFailedOverlay(RenderManager.CameraInfo cameraInfo, NetInfo info)
         {

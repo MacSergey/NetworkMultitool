@@ -23,6 +23,8 @@ namespace NetworkMultitool
         protected static NetworkMultitoolShortcut GetShortcut(KeyCode keyCode, Action action, ToolModeType mode = ToolModeType.Any, bool ctrl = false, bool shift = false, bool alt = false, bool repeat = false, bool ignoreModifiers = false) => GetShortcut(keyCode, string.Empty, string.Empty, action, mode, ctrl, shift, alt, repeat, ignoreModifiers);
         protected static NetworkMultitoolShortcut GetShortcut(KeyCode keyCode, string name, string labelKey, Action action, ToolModeType mode = ToolModeType.Any, bool ctrl = false, bool shift = false, bool alt = false, bool repeat = false, bool ignoreModifiers = false) => new NetworkMultitoolShortcut(name, labelKey, SavedInputKey.Encode(keyCode, ctrl, shift, alt), action, mode) { CanRepeat = repeat, IgnoreModifiers = ignoreModifiers };
 
+        private static Dictionary<ToolModeType, List<ModeButton>> ButtonsDic { get; } = new Dictionary<ToolModeType, List<ModeButton>>();
+
         public abstract ToolModeType Type { get; }
         public virtual bool CreateButton => true;
         public string Title => SingletonMod<Mod>.Instance.GetLocalizeString(Type.GetAttr<DescriptionAttribute, ToolModeType>().Description);
@@ -30,7 +32,6 @@ namespace NetworkMultitool
         protected virtual bool CanSwitchUnderground => true;
         private bool ForbiddenSwitchUnderground { get; set; }
 
-        private List<ModeButton> Buttons { get; } = new List<ModeButton>();
         public NetworkMultitoolShortcut ActivationShortcut => NetworkMultitoolTool.ModeShortcuts[Type];
         public virtual IEnumerable<NetworkMultitoolShortcut> Shortcuts
         {
@@ -48,14 +49,20 @@ namespace NetworkMultitool
         {
             base.Activate(prevMode);
             ForbiddenSwitchUnderground = false;
-            foreach (var button in Buttons)
-                button.Activate = true;
+            if (ButtonsDic.TryGetValue(Type & ToolModeType.Group, out var buttons))
+            {
+                foreach (var button in buttons)
+                    button.Activate = true;
+            }
         }
         public override void Deactivate()
         {
             base.Deactivate();
-            foreach (var button in Buttons)
-                button.Activate = false;
+            if (ButtonsDic.TryGetValue(Type & ToolModeType.Group, out var buttons))
+            {
+                foreach (var button in buttons)
+                    button.Activate = false;
+            }
             ClearLabels();
         }
         protected override void Reset(IToolMode prevMode)
@@ -92,7 +99,13 @@ namespace NetworkMultitool
             var button = parent.AddUIComponent<ModeButton>();
             button.Init(this, Type.ToString());
             button.eventClicked += ButtonClicked;
-            Buttons.Add(button);
+
+            if(!ButtonsDic.TryGetValue(Type & ToolModeType.Group, out var buttons))
+            {
+                buttons = new List<ModeButton>();
+                ButtonsDic[Type & ToolModeType.Group] = buttons;
+            }
+            buttons.Add(button);
         }
         private void ButtonClicked(UIComponent component, UIMouseEventParameter eventParam) => Tool.SetMode(this);
 
@@ -236,45 +249,49 @@ namespace NetworkMultitool
         [NotItem]
         None = 0,
 
+        [NotItem]
+        Group = int.MaxValue << 8,
+
+
         [Description(nameof(Localize.Mode_AddNode))]
-        AddNode = 1,
+        AddNode = 1 << 8,
 
         [Description(nameof(Localize.Mode_RemoveNode))]
-        RemoveNode = AddNode << 1,
+        RemoveNode = 2 << 8,
 
         [Description(nameof(Localize.Mode_UnionNode))]
-        UnionNode = RemoveNode << 1,
+        UnionNode = 3 << 8,
 
         [Description(nameof(Localize.Mode_SplitNode))]
-        SplitNode = UnionNode << 1,
+        SplitNode = 4 << 8,
 
 
         [Description(nameof(Localize.Mode_IntersectSegment))]
-        IntersectSegment = SplitNode << 1,
+        IntersectSegment = 5 << 8,
 
         [Description(nameof(Localize.Mode_InvertSegment))]
-        InvertSegment = IntersectSegment << 1,
+        InvertSegment = 6 << 8,
 
         [Description(nameof(Localize.Mode_SlopeNode))]
-        SlopeNode = InvertSegment << 1,
+        SlopeNode = 7 << 8,
 
         [Description(nameof(Localize.Mode_ArrangeAtLine))]
-        ArrangeAtLine = SlopeNode << 1,
+        ArrangeAtLine = 8 << 8,
 
 
         [Description(nameof(Localize.Mode_CreateLoop))]
-        CreateLoop = ArrangeAtLine << 1,
+        CreateLoop = 9 << 8,
 
         [Description(nameof(Localize.Mode_CreateConnection))]
-        CreateConnection = CreateLoop << 1,
-
-        [NotItem]
-        [Description(nameof(Localize.Mode_CreateConnection))]
-        CreateConnectionMoveCircle = CreateConnection << 1,
+        CreateConnection = 10 << 8,
 
         [NotItem]
         [Description(nameof(Localize.Mode_CreateConnection))]
-        CreateConnectionChangeRadius = CreateConnectionMoveCircle << 1,
+        CreateConnectionMoveCircle = CreateConnection + 1,
+
+        [NotItem]
+        [Description(nameof(Localize.Mode_CreateConnection))]
+        CreateConnectionChangeRadius = CreateConnection + 2,
 
 
         [NotItem]

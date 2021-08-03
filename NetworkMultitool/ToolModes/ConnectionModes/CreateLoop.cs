@@ -161,9 +161,9 @@ namespace NetworkMultitool
         }
         protected override void RenderCalculatedOverlay(RenderManager.CameraInfo cameraInfo, NetInfo info)
         {
-            Circle.Render(cameraInfo, info, Colors.White, Underground);
-            StartStraight.Render(cameraInfo, info, Colors.White, Underground);
-            EndStraight.Render(cameraInfo, info, Colors.White, Underground);
+            Circle.Render(cameraInfo, info, Colors.Gray224, Underground);
+            StartStraight.Render(cameraInfo, info, Colors.Gray224, Colors.Gray224, Underground);
+            EndStraight.Render(cameraInfo, info, Colors.Gray224, Colors.Gray224, Underground);
         }
 
         protected class MiddleCircle : Circle
