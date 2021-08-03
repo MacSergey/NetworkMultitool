@@ -161,7 +161,7 @@ namespace NetworkMultitool
             Labels.Remove(label);
             Destroy(label.gameObject);
         }
-        private void ClearLabels()
+        protected virtual void ClearLabels()
         {
             foreach (var label in Labels)
                 Destroy(label.gameObject);
@@ -307,7 +307,10 @@ namespace NetworkMultitool
         public override void Update()
         {
             base.Update();
-
+            UpdateInfo();
+        }
+        public void UpdateInfo()
+        {
             var uIView = GetUIView();
             var startScreenPosition = Camera.main.WorldToScreenPoint(WorldPosition);
             var endScreenPosition = Camera.main.WorldToScreenPoint(WorldPosition + Direction);

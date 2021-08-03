@@ -45,6 +45,8 @@ namespace NetworkMultitool
         protected bool IsHoverCenter => HoverCenter != -1;
         public int HoverCircle { get; private set; }
         protected bool IsHoverCircle => HoverCircle != -1;
+        public int HoverStraight { get; private set; }
+        protected bool IsHoverStraight => HoverStraight != -1;
 
         protected override string GetInfo()
         {
@@ -89,23 +91,34 @@ namespace NetworkMultitool
             {
                 HoverCenter = -1;
                 HoverCircle = -1;
+                HoverStraight = -1;
                 if (!IsHoverNode)
                 {
                     var position = XZ(Tool.MouseWorldPosition);
-                    for (var i = 0; i < Count; i += 1)
+                    for (var i = 0; i < Circles.Count; i += 1)
                     {
-                        if ((XZ(CenterPos[i]) - position).sqrMagnitude <= 25f)
+                        if ((XZ(Circles[i].CenterPos) - position).sqrMagnitude <= 25f)
                         {
                             HoverCenter = i;
                             break;
                         }
                     }
-                    for (var i = 0; i < Count; i += 1)
+                    for (var i = 0; i < Circles.Count; i += 1)
                     {
-                        var magnitude = (XZ(CenterPos[i]) - position).magnitude;
-                        if (Radius[i] - 5f <= magnitude && magnitude <= Radius[i] + 5f)
+                        var magnitude = (XZ(Circles[i].CenterPos) - position).magnitude;
+                        if (Circles[i].Radius - 5f <= magnitude && magnitude <= Circles[i].Radius + 5f)
                         {
                             HoverCircle = i;
+                            break;
+                        }
+                    }
+                    var info = Info;
+                    for (var i = 1; i < Straights.Count - 1; i += 1)
+                    {
+                        var normal = new StraightTrajectory(Tool.MouseWorldPosition, Tool.MouseWorldPosition + Straights[i].Direction.Turn90(true), false);
+                        if (Intersection.CalculateSingle(Straights[i], normal, out _, out var t) && Mathf.Abs(t) <= info.m_halfWidth)
+                        {
+                            HoverStraight = i;
                             break;
                         }
                     }
@@ -119,6 +132,19 @@ namespace NetworkMultitool
             else if (!IsHoverCircle)
                 base.OnPrimaryMouseClicked(e);
         }
+        public override void OnPrimaryMouseDoubleClicked(Event e)
+        {
+            if (IsHoverCenter)
+            {
+                Circles[SelectCircle].Direction = Circles[SelectCircle].Direction == Direction.Right ? Direction.Left : Direction.Right;
+                State = Result.None;
+            }
+        }
+        public override void OnSecondaryMouseClicked()
+        {
+            if (!IsHoverCenter)
+                base.OnSecondaryMouseClicked();
+        }
         public override void OnMouseDown(Event e)
         {
             if (IsHoverCenter)
@@ -128,7 +154,7 @@ namespace NetworkMultitool
         {
             if (IsHoverCenter)
                 Tool.SetMode(ToolModeType.CreateConnectionMoveCircle);
-            else if(IsHoverCircle)
+            else if (IsHoverCircle)
                 Tool.SetMode(ToolModeType.CreateConnectionChangeRadius);
         }
         protected override void ResetParams()
@@ -137,91 +163,97 @@ namespace NetworkMultitool
 
             HoverCenter = -1;
             HoverCircle = -1;
+            HoverStraight = -1;
         }
 
         protected override void IncreaseRadius()
         {
-            Radius[0] = ChangeRadius(Radius[0], true);
-            Radius[1] = ChangeRadius(Radius[1], true);
+            foreach (var circle in Circles)
+                ChangeRadius(circle, true);
+
             State = Result.None;
         }
         protected override void DecreaseRadius()
         {
-            Radius[0] = ChangeRadius(Radius[0], false);
-            Radius[1] = ChangeRadius(Radius[1], false);
+            foreach (var circle in Circles)
+                ChangeRadius(circle, false);
+
             State = Result.None;
         }
         private void IncreaseOneRadius()
         {
-            Radius[SelectCircle] = ChangeRadius(Radius[SelectCircle], true);
+            ChangeRadius(Circles[SelectCircle], true);
             State = Result.None;
         }
         private void DecreaseOneRadius()
         {
-            Radius[SelectCircle] = ChangeRadius(Radius[SelectCircle], false);
+            ChangeRadius(Circles[SelectCircle], false);
             State = Result.None;
         }
-        private float? ChangeRadius(float? radius, bool increase)
+        private void ChangeRadius(Circle circle, bool increase)
         {
-            if (radius != null)
-            {
-                var step = Step;
-                return (radius.Value + (increase ? step : -step)).RoundToNearest(step);
-            }
-            else
-                return radius;
+            var step = Step;
+            circle.Radius = (circle.Radius + (increase ? step : -step)).RoundToNearest(step);
         }
-        private void SwitchSelectRadius() => SelectCircle = (SelectCircle + 1) % Count;
+        private void SwitchSelectRadius() => SelectCircle = (SelectCircle + 1) % Circles.Count;
 
         private void IncreaseOffset()
         {
-            Offset[SelectOffset] = ChangeOffset(Offset[SelectOffset], true);
+            ChangeOffset((SelectOffset ? Circles.First() : Circles.Last()) as EdgeCircle, true);
             State = Result.None;
         }
         private void DecreaseOffset()
         {
-            Offset[SelectOffset] = ChangeOffset(Offset[SelectOffset], false);
+            ChangeOffset((SelectOffset ? Circles.First() : Circles.Last()) as EdgeCircle, false);
             State = Result.None;
         }
-        private float ChangeOffset(float offset, bool increase)
+        private void ChangeOffset(EdgeCircle circle, bool increase)
         {
             var step = Step;
-            return Mathf.Clamp((offset + (increase ? step : -step)).RoundToNearest(step), 0f, 500f);
+            circle.Offset = Mathf.Clamp((circle.Offset + (increase ? step : -step)).RoundToNearest(step), 0f, 500f);
         }
-        private void SwitchSelectOffset() => SelectOffset = (SelectOffset + 1) % Count;
+        private void SwitchSelectOffset() => SelectOffset = !SelectOffset;
 
         protected override void RenderCalculatedOverlay(RenderManager.CameraInfo cameraInfo, NetInfo info)
         {
-            for (var i = 0; i < Count; i += 1)
-                RenderCircle(cameraInfo, i, i == HoverCircle ? Colors.Blue : Colors.Green.SetAlpha(64));
+            if (IsHoverStraight)
+                Straights[HoverStraight].Render(new OverlayData(cameraInfo) { Width = info.m_halfWidth * 2f + 0.5f, RenderLimit = Underground });
 
-            base.RenderCalculatedOverlay(cameraInfo, info);
+            for (var i = 0; i < Circles.Count; i += 1)
+                Circles[i].RenderCircle(cameraInfo, i == HoverCircle ? Colors.Blue : Colors.Green.SetAlpha(64), Underground);
 
-            for (var i = 0; i < Count; i += 1)
+            foreach (var circle in Circles)
+                circle.Render(cameraInfo, info, Colors.White, Underground);
+
+            for (var i = 0; i < Straights.Count; i += 1)
+                Straights[i].Render(cameraInfo, info, i == (SelectOffset ? 0 : Straights.Count - 1) ? Colors.Yellow : Colors.White, Underground);
+
+            for (var i = 0; i < Circles.Count; i += 1)
                 RenderCenter(cameraInfo, i);
         }
         protected override void RenderFailedOverlay(RenderManager.CameraInfo cameraInfo, NetInfo info)
         {
-            for (var i = 0; i < Count; i += 1)
-                RenderCircle(cameraInfo, i, i == HoverCircle ? Colors.Blue : Colors.Red);
+            for (var i = 0; i < Circles.Count; i += 1)
+                Circles[i].RenderCircle(cameraInfo, i == HoverCircle ? Colors.Blue : Colors.Red, Underground);
 
             base.RenderFailedOverlay(cameraInfo, info);
 
-            for (var i = 0; i < Count; i += 1)
+            for (var i = 0; i < Circles.Count; i += 1)
                 RenderCenter(cameraInfo, i);
         }
         private void RenderCenter(RenderManager.CameraInfo cameraInfo, int i)
         {
             if (i == HoverCenter)
-                RenderCenter(cameraInfo, i, Colors.Blue);
+                Circles[i].RenderCenterHover(cameraInfo, Colors.Blue, Underground);
             else if (i == SelectCircle)
-                RenderCenter(cameraInfo, i, Colors.Yellow);
+                Circles[i].RenderCenterHover(cameraInfo, Colors.Yellow, Underground);
         }
     }
 
     public class CreateConnectionMoveCircleMode : BaseAdditionalCreateConnectionMode
     {
         public override ToolModeType Type => ToolModeType.CreateConnectionMoveCircle;
+        public override bool CreateButton => false;
 
         protected override void Reset(IToolMode prevMode)
         {
@@ -232,13 +264,9 @@ namespace NetworkMultitool
         }
         public override void OnMouseDrag(Event e)
         {
-            if (IsEdit)
+            if (IsEdit && Circles[Edit] is Circle circle)
             {
-                var line = new StraightTrajectory(StartPos[Edit], StartPos[Edit] + StartDir[Edit], false);
-                var normal = new StraightTrajectory(Tool.MouseWorldPosition, Tool.MouseWorldPosition + (CenterPos[Edit] - CurveStart[Edit]).normalized, false);
-
-                Intersection.CalculateSingle(line, normal, out var t, out _);
-                Offset[Edit] = Mathf.Clamp(t, 0f, 500f);
+                circle.CenterPos = Tool.MouseWorldPosition;
                 State = Result.None;
             }
         }
@@ -247,6 +275,7 @@ namespace NetworkMultitool
     public class CreateConnectionChangeRadiusMode : BaseAdditionalCreateConnectionMode
     {
         public override ToolModeType Type => ToolModeType.CreateConnectionChangeRadius;
+        public override bool CreateButton => false;
 
         private Vector2 BeginPos { get; set; }
 
@@ -257,14 +286,19 @@ namespace NetworkMultitool
             if (prevMode is CreateConnectionMode connectionMode)
             {
                 Edit = connectionMode.HoverCircle;
-                BeginPos = XZ(connectionMode.CenterPos[Edit]);
+                BeginPos = XZ(Circles[Edit].CenterPos);
             }
+        }
+        public override void OnToolUpdate()
+        {
+            base.OnToolUpdate();
+            BeginPos = XZ(Circles[Edit].CenterPos);
         }
         public override void OnMouseDrag(Event e)
         {
-            if (IsEdit)
+            if (IsEdit && Circles[Edit] is Circle circle)
             {
-                Radius[Edit] = (XZ(Tool.MouseWorldPosition) - BeginPos).magnitude;
+                circle.Radius = (XZ(Tool.MouseWorldPosition) - BeginPos).magnitude;
                 State = Result.None;
             }
         }

@@ -14,23 +14,11 @@ namespace NetworkMultitool
 {
     public abstract class BaseCreateConnectionMode : BaseCreateMode
     {
-        protected int Count => 2;
+        public List<Circle> Circles { get; private set; } = new List<Circle>();
+        public List<Straight> Straights { get; private set; } = new List<Straight>();
+
         public int SelectCircle { get; protected set; }
-        public int SelectOffset { get; protected set; }
-        public List<bool?> Side { get; private set; }
-        public List<float?> Radius { get; private set; }
-        public List<float> Offset { get; private set; }
-
-        public List<Vector3> StartPos { get; private set; }
-        public List<Vector3> StartDir { get; private set; }
-        public List<Vector3> CenterPos { get; private set; }
-        public List<Vector3> CenterDir { get; private set; }
-        public List<Vector3> CurveStart { get; private set; }
-        public List<Vector3> CurveEnd { get; private set; }
-        public List<float> Angle { get; private set; }
-
-        public List<InfoLabel> RadiusLabel { get; private set; }
-        public List<InfoLabel> OffsetLabel { get; private set; }
+        public bool SelectOffset { get; protected set; }
 
         protected override void Reset(IToolMode prevMode)
         {
@@ -43,253 +31,295 @@ namespace NetworkMultitool
                 IsFirstStart = connectionMode.IsFirstStart;
                 IsSecondStart = connectionMode.IsSecondStart;
 
+                FirstTrajectory = connectionMode.FirstTrajectory;
+                SecondTrajectory = connectionMode.SecondTrajectory;
+
                 SelectCircle = connectionMode.SelectCircle;
                 SelectOffset = connectionMode.SelectOffset;
-                Side = connectionMode.Side;
-                Radius = connectionMode.Radius;
-                Offset = connectionMode.Offset;
-            }
 
-            RadiusLabel = new List<InfoLabel>() { AddLabel(), AddLabel() };
-            OffsetLabel = new List<InfoLabel>() { AddLabel(), AddLabel() };
+                Circles.AddRange(connectionMode.Circles);
+                foreach (var circle in Circles)
+                {
+                    if (circle != null)
+                        circle.Label = AddLabel();
+                }
+
+                Straights.AddRange(connectionMode.Straights);
+                foreach (var straight in Straights)
+                {
+                    if (straight != null)
+                        straight.Label = AddLabel();
+                }
+            }
         }
         protected override void ResetParams()
         {
             base.ResetParams();
 
-            StartPos = new List<Vector3>() { Vector3.zero, Vector3.zero };
-            StartDir = new List<Vector3>() { Vector3.zero, Vector3.zero };
-            CenterPos = new List<Vector3>() { Vector3.zero, Vector3.zero };
-            CenterDir = new List<Vector3>() { Vector3.zero, Vector3.zero };
-            CurveStart = new List<Vector3>() { Vector3.zero, Vector3.zero };
-            CurveEnd = new List<Vector3>() { Vector3.zero, Vector3.zero };
-            Angle = new List<float>() { 0f, 0f };
+            foreach (var circle in Circles)
+            {
+                if (circle.Label != null)
+                {
+                    RemoveLabel(circle.Label);
+                    circle.Label = null;
+                }
+            }
+            foreach (var straight in Straights)
+            {
+                if (straight.Label != null)
+                {
+                    RemoveLabel(straight.Label);
+                    straight.Label = null;
+                }
+            }
 
-            Radius = new List<float?>() { null, null };
-            Side = new List<bool?>() { null, null };
-            Offset = new List<float>() { 0f, 0f };
+            Circles.Clear();
+            Straights.Clear();
+        }
+        protected override void ClearLabels()
+        {
+            base.ClearLabels();
+
+            foreach (var circle in Circles)
+                circle.Label = null;
+            foreach (var straight in Straights)
+                straight.Label = null;
         }
         public override void OnToolUpdate()
         {
             base.OnToolUpdate();
-            Setlabels();
-        }
-        private void Setlabels()
-        {
-            for (var i = 0; i < Count; i += 1)
+
+            if (State != Result.None)
             {
-                if (State == Result.Calculated)
+                foreach (var circle in Circles)
+                    circle?.Update(State == Result.Calculated);
+
+                var info = Info;
+                foreach (var straight in Straights)
+                    straight?.Update(info, State == Result.Calculated);
+            }
+        }
+
+        protected override void Init(StraightTrajectory firstTrajectory, StraightTrajectory secondTrajectory)
+        {
+            var first = new EdgeCircle(CircleType.First, AddLabel(), firstTrajectory);
+            var last = new EdgeCircle(CircleType.Last, AddLabel(), secondTrajectory);
+            Circles.Add(first);
+            Circles.Add(last);
+            Straights.Add(null);
+            Straights.Add(null);
+            Straights.Add(null);
+
+            EdgeCircle.GetSides(first, last);
+            Circle.SetConnect(first, last);
+        }
+        protected override IEnumerable<Point> Calculate()
+        {
+            var minRadius = MinPossibleRadius;
+            var maxRadius = 1000f;
+            foreach (var circle in Circles)
+            {
+                if (!circle.Calculate(minRadius, maxRadius, out var result))
                 {
-                    var info = Info;
+                    State = result;
+                    return new Point[0];
+                }
+            }
 
-                    RadiusLabel[i].isVisible = true;
-                    RadiusLabel[i].text = $"{GetRadiusString(Radius[i].Value)}\n{GetAngleString(Mathf.Abs(Angle[i]))}";
-                    RadiusLabel[i].Direction = Mathf.Abs(Angle[i]) <= Mathf.PI ? CenterDir[i] : -CenterDir[i];
-                    RadiusLabel[i].WorldPosition = CenterPos[i] + RadiusLabel[i].Direction * 5f;
+            for (var i = 1; i < Circles.Count; i += 1)
+            {
+                var isCorrect = Circle.CheckRadii(Circles[i - 1], Circles[i]);
+                Circles[i - 1].IsCorrect = isCorrect;
+                Circles[i].IsCorrect = isCorrect;
+            }
 
-                    OffsetLabel[i].isVisible = true;
-                    OffsetLabel[i].text = GetRadiusString(Offset[i]);
-                    OffsetLabel[i].Direction = (CurveStart[i] - CenterPos[i]).normalized;
-                    OffsetLabel[i].WorldPosition = (StartPos[i] + CurveStart[i]) / 2f + OffsetLabel[i].Direction * (info.m_halfWidth + 7f);
+            if (Circles.Any(c => !c.IsCorrect))
+            {
+                State = Result.WrongShape;
+                return new Point[0];
+            }
+
+            for (var i = 0; i < Straights.Count; i += 1)
+            {
+                var label = Straights[i]?.Label ?? AddLabel();
+
+                if (i == 0)
+                    Straights[i] = (Circles.FirstOrDefault() as EdgeCircle).GetStraight(label);
+                else if (i == Straights.Count - 1)
+                    Straights[i] = (Circles.LastOrDefault() as EdgeCircle).GetStraight(label);
+                else
+                {
+                    Circle.SetConnect(Circles[i - 1], Circles[i]);
+                    Straights[i] = Circle.GetStraight(Circles[i - 1], Circles[i], label);
+                }
+            }
+
+            State = Result.Calculated;
+            return GetParts();
+        }
+        private IEnumerable<Point> GetParts()
+        {
+            var firstStr = Straights.First();
+            if (firstStr.Length >= 8f)
+            {
+                foreach (var part in firstStr.Parts)
+                    yield return part;
+                yield return new Point(firstStr.EndPosition, firstStr.Direction);
+            }
+
+            for (var i = 0; i < Circles.Count + Straights.Count - 2; i += 1)
+            {
+                if (i % 2 == 0)
+                {
+                    foreach (var part in Circles[i / 2].Parts)
+                        yield return part;
                 }
                 else
                 {
-                    RadiusLabel[i].isVisible = false;
-                    OffsetLabel[i].isVisible = false;
+                    var straight = Straights[i / 2 + 1];
+                    if (straight.Length >= 8f)
+                    {
+                        yield return new Point(straight.StartPosition, straight.Direction);
+                        foreach (var part in straight.Parts)
+                            yield return part;
+                        yield return new Point(straight.EndPosition, straight.Direction);
+                    }
+                    else
+                        yield return new Point(straight.Position(0.5f), straight.Tangent(0.5f));
                 }
             }
-        }
 
-        protected override IEnumerable<Point> Calculate(StraightTrajectory firstTrajectory, StraightTrajectory secondTrajectory)
-        {
-            StartPos[0] = firstTrajectory.StartPosition;
-            StartPos[1] = secondTrajectory.StartPosition;
-            StartDir[0] = firstTrajectory.Direction;
-            StartDir[1] = secondTrajectory.Direction;
-            CurveStart[0] = firstTrajectory.Position(Offset[0]);
-            CurveStart[1] = secondTrajectory.Position(Offset[1]);
-
-            GetSides(firstTrajectory, secondTrajectory);
-
-            var firstStartRadiusDir = -firstTrajectory.Direction.Turn90(Side[0].Value);
-            var secondStartRadiusDir = -secondTrajectory.Direction.Turn90(Side[1].Value);
-
-            GetRadii(firstStartRadiusDir, secondStartRadiusDir);
-
-            var centerConnect = new StraightTrajectory(CenterPos[0].MakeFlat(), CenterPos[1].MakeFlat());
-            GetAngles(centerConnect, firstStartRadiusDir, secondStartRadiusDir);
-
-            var firstEndRadiusDir = firstStartRadiusDir.TurnRad(Angle[0], true);
-            var secondEndRadiusDir = secondStartRadiusDir.TurnRad(Angle[1], true);
-
-            CurveEnd[0] = CenterPos[0] + firstEndRadiusDir * Radius[0].Value;
-            CurveEnd[1] = CenterPos[1] + secondEndRadiusDir * Radius[1].Value;
-
-            if (!CheckRadii(centerConnect))
-                return new Point[0];
-
-            var connectEnds = new StraightTrajectory(CurveEnd[0].MakeFlat(), CurveEnd[1].MakeFlat(), false);
-            FixAngles(firstTrajectory, secondTrajectory, connectEnds);
-
-            CenterDir[0] = (connectEnds.Direction - firstTrajectory.Direction).normalized;
-            CenterDir[1] = (-connectEnds.Direction - secondTrajectory.Direction).normalized;
-
-            State = Result.Calculated;
-            return GetParts(firstTrajectory, secondTrajectory, connectEnds);
-        }
-        private void GetSides(StraightTrajectory firstTrajectory, StraightTrajectory secondTrajectory)
-        {
-            if (Side[0] != null && Side[1] != null)
-                return;
-
-            var connect = new StraightTrajectory(CurveStart[0].MakeFlat(), CurveStart[1].MakeFlat());
-
-            Side[0] = CrossXZ(firstTrajectory.Direction, connect.Direction) >= 0;
-            Side[1] = CrossXZ(secondTrajectory.Direction, -connect.Direction) >= 0;
-            var firstDot = DotXZ(firstTrajectory.Direction, connect.Direction) >= 0;
-            var secondDot = DotXZ(secondTrajectory.Direction, -connect.Direction) >= 0;
-
-            if (firstDot != secondDot && Side[0] != Side[1])
+            var lastStr = Straights.Last();
+            if (lastStr.Length >= 8f)
             {
-                if (!firstDot)
-                    Side[0] = !Side[0];
-                else if (!secondDot)
-                    Side[1] = !Side[1];
+                yield return new Point(lastStr.StartPosition, lastStr.Direction);
+                foreach (var part in lastStr.Parts)
+                    yield return part;
             }
-        }
-        private void GetRadii(Vector3 firstRadiusDir, Vector3 secondRadiusDir)
-        {
-            Radius[0] = Mathf.Clamp(Radius[0] ?? 50f, MinPossibleRadius, 1000f);
-            Radius[1] = Mathf.Clamp(Radius[1] ?? 50f, MinPossibleRadius, 1000f);
-
-            CenterPos[0] = CurveStart[0] - firstRadiusDir * Radius[0].Value;
-            CenterPos[1] = CurveStart[1] - secondRadiusDir * Radius[1].Value;
-        }
-        private void GetAngles(StraightTrajectory centerConnect, Vector3 firstRadiusDir, Vector3 secondRadiusDir)
-        {
-            if (Side[0] == Side[1])
-            {
-                var delta = centerConnect.Length / (Radius[0].Value + Radius[1].Value) * Radius[0].Value;
-                var deltaAngle = Mathf.Acos(Radius[0].Value / delta);
-
-                Angle[0] = GetAngle(firstRadiusDir, centerConnect.Direction, deltaAngle, Side[0].Value);
-                Angle[1] = GetAngle(secondRadiusDir, -centerConnect.Direction, deltaAngle, Side[1].Value);
-            }
-            else
-            {
-                var deltaAngle = Mathf.Asin(Mathf.Abs(Radius[0].Value - Radius[1].Value) / centerConnect.Length);
-
-                Angle[0] = GetAngle(firstRadiusDir, centerConnect.Direction, Mathf.PI / 2f + Mathf.Sign(Radius[1].Value - Radius[0].Value) * deltaAngle, Side[0].Value);
-                Angle[1] = GetAngle(secondRadiusDir, -centerConnect.Direction, Mathf.PI / 2f + Mathf.Sign(Radius[0].Value - Radius[1].Value) * deltaAngle, Side[1].Value);
-            }
-
-            static float GetAngle(Vector3 radiusDir, Vector3 connectDir, float deltaAngle, bool cross)
-            {
-                var angle = MathExtention.GetAngle(radiusDir, connectDir);
-                if (angle > 0f == cross)
-                    angle -= Mathf.Sign(angle) * 2 * Mathf.PI;
-                angle = -Mathf.Sign(angle) * (Mathf.Abs(angle) - deltaAngle);
-                return angle;
-            }
-        }
-        private bool CheckRadii(StraightTrajectory centerConnect)
-        {
-            if (Side[0].Value == Side[1].Value)
-            {
-                if (centerConnect.Length < Radius[0].Value + Radius[1].Value)
-                {
-                    State = Result.BigRadius;
-                    return false;
-                }
-            }
-            else
-            {
-                if (centerConnect.Length + Radius[0].Value < Radius[1].Value || centerConnect.Length + Radius[1].Value < Radius[0].Value)
-                {
-                    State = Result.WrongShape;
-                    return false;
-                }
-            }
-            return true;
-        }
-        private void FixAngles(StraightTrajectory firstTrajectory, StraightTrajectory secondTrajectory, StraightTrajectory connectEnds)
-        {
-            if (Mathf.Abs(Angle[0]) < Mathf.PI && Intersection.CalculateSingle(firstTrajectory, connectEnds, out var firstT, out _) && firstT < Offset[0])
-                Angle[0] = Angle[0] - Mathf.Sign(Angle[0]) * 2 * Mathf.PI;
-            if (Mathf.Abs(Angle[1]) < Mathf.PI && Intersection.CalculateSingle(secondTrajectory, connectEnds, out var secondT, out _) && secondT < Offset[1])
-                Angle[1] = Angle[1] - Mathf.Sign(Angle[1]) * 2 * Mathf.PI;
-        }
-        private IEnumerable<Point> GetParts(StraightTrajectory firstTrajectory, StraightTrajectory secondTrajectory, StraightTrajectory centerConnection)
-        {
-            if (Offset[0] >= 8f)
-            {
-                var offset = firstTrajectory.Cut(0f, Offset[0]);
-                foreach (var point in GetStraightParts(offset))
-                    yield return point;
-
-                yield return new Point(firstTrajectory.Position(Offset[0]), firstTrajectory.Direction);
-            }
-
-            foreach (var point in GetCurveParts(CenterPos[0], CurveStart[0] - CenterPos[0], firstTrajectory.Direction, Radius[0].Value, Angle[0]))
-                yield return point;
-
-            if (centerConnection.Length >= 8f)
-            {
-                yield return new Point(centerConnection.StartPosition, centerConnection.Direction);
-                foreach (var point in GetStraightParts(centerConnection))
-                    yield return point;
-                yield return new Point(centerConnection.EndPosition, centerConnection.Direction);
-            }
-            else
-                yield return new Point(centerConnection.Position(0.5f), centerConnection.Direction);
-
-            foreach (var point in GetCurveParts(CenterPos[1], CurveEnd[1] - CenterPos[1], centerConnection.Direction, Radius[1].Value, -Angle[1]))
-                yield return point;
-
-            if (Offset[1] >= 8f)
-            {
-                yield return new Point(secondTrajectory.Position(Offset[1]), -secondTrajectory.Direction);
-
-                var offset = secondTrajectory.Cut(Offset[1], 0f);
-                foreach (var point in GetStraightParts(offset))
-                    yield return point;
-            }
-        }
-
-        protected override void SetFirstNode(ref NetSegment segment, ushort nodeId)
-        {
-            base.SetFirstNode(ref segment, nodeId);
-            if (Side[0].HasValue)
-                Side[0] = !Side[0];
-        }
-        protected override void SetSecondNode(ref NetSegment segment, ushort nodeId)
-        {
-            base.SetSecondNode(ref segment, nodeId);
-            if (Side[1].HasValue)
-                Side[1] = !Side[1];
         }
 
         protected override void RenderCalculatedOverlay(RenderManager.CameraInfo cameraInfo, NetInfo info)
         {
-            for (var i = 0; i < Count; i += 1)
-            {
-                RenderCenter(cameraInfo, info, CenterPos[i], CurveStart[i], CurveEnd[i], Radius[i].Value);
-                RenderScale(cameraInfo, StartPos[i], CurveStart[i], (CurveStart[i] - CenterPos[i]).normalized, info, SelectOffset == i ? Colors.Yellow : Colors.White);
-            }
+            foreach (var circle in Circles)
+                circle.Render(cameraInfo, info, Colors.White, Underground);
+            foreach (var straight in Straights)
+                straight.Render(cameraInfo, info, Colors.White, Underground);
         }
         protected override void RenderFailedOverlay(RenderManager.CameraInfo cameraInfo, NetInfo info)
         {
             if (State == Result.BigRadius || State == Result.SmallRadius || State == Result.WrongShape)
             {
-                for (var i = 0; i < Count; i += 1)
-                {
-                    RenderRadius(cameraInfo, info, CenterPos[i], CurveStart[i], Radius[i].Value, Colors.Red);
-                    RenderCenter(cameraInfo, CenterPos[i], Colors.Red);
-                }
+                foreach (var circle in Circles)
+                    circle.RenderCircle(cameraInfo, circle.IsCorrect ? Colors.Green : Colors.Red, Underground);
             }
         }
-        protected void RenderCenter(RenderManager.CameraInfo cameraInfo, int i, Color32 color) => CenterPos[i].RenderCircle(new OverlayData(cameraInfo) { Color = color, RenderLimit = Underground }, 7f, 5f);
-        protected void RenderCircle(RenderManager.CameraInfo cameraInfo, int i, Color32 color) => CenterPos[i].RenderCircle(new OverlayData(cameraInfo) { Width = Radius[i].Value * 2f, Color = color, RenderLimit = Underground });
+
+        protected class EdgeCircle : Circle
+        {
+            public CircleType Type { get; }
+            private StraightTrajectory Guide { get; }
+
+            public override Vector3 CenterPos
+            {
+                get => base.CenterPos;
+                set
+                {
+                    var dir = Type switch
+                    {
+                        CircleType.First => StartRadiusDir,
+                        CircleType.Last => EndRadiusDir,
+                    };
+                    var normal = new StraightTrajectory(value, value + dir, false);
+
+                    Intersection.CalculateSingle(Guide, normal, out var t, out _);
+                    Offset = Mathf.Clamp(t, 0f, 500f);
+                }
+            }
+            public override Vector3 StartRadiusDir
+            {
+                get => base.StartRadiusDir;
+                set
+                {
+                    if (Type == CircleType.Last)
+                        base.StartRadiusDir = value;
+                }
+            }
+            public override Vector3 EndRadiusDir
+            {
+                get => base.EndRadiusDir;
+                set
+                {
+                    if (Type == CircleType.First)
+                        base.EndRadiusDir = value;
+                }
+            }
+
+            public override Vector3 StartPos => Type == CircleType.First ? Guide.Position(Offset) : base.StartPos;
+            public override Vector3 EndPos => Type == CircleType.Last ? Guide.Position(Offset) : base.EndPos;
+            public override Vector3 StartDir => Type == CircleType.First ? Guide.Direction : base.StartDir;
+            public override Vector3 EndDir => Type == CircleType.Last ? -Guide.Direction : base.EndDir;
+
+            private float _offset;
+            public float Offset
+            {
+                get => _offset;
+                set => _offset = Mathf.Max(value, 0f);
+            }
+
+            public EdgeCircle(CircleType type, InfoLabel label, StraightTrajectory guide) : base(label)
+            {
+                Type = type;
+                Guide = guide;
+            }
+
+            public override bool Calculate(float minRadius, float maxRadius, out Result result)
+            {
+                if (!base.Calculate(minRadius, maxRadius, out result))
+                    return false;
+
+                var dir = Guide.Direction.Turn90(Direction == Direction.Right);
+                if (Type == CircleType.First)
+                    base.StartRadiusDir = -dir;
+                else
+                    base.EndRadiusDir = dir;
+
+                base.CenterPos = Guide.StartPosition + (Type == CircleType.First ? dir : -dir) * Radius + Guide.Direction * Offset;
+
+                result = Result.Calculated;
+                return true;
+            }
+            public Straight GetStraight(InfoLabel label) => Type switch
+            {
+                CircleType.First => new Straight(Guide.StartPosition, StartPos, StartRadiusDir, label),
+                CircleType.Last => new Straight(EndPos, Guide.StartPosition, EndRadiusDir, label),
+            };
+
+            public static void GetSides(EdgeCircle first, EdgeCircle last)
+            {
+                var connect = new StraightTrajectory(first.StartPos.MakeFlat(), last.EndPos.MakeFlat());
+
+                var firstDir = CrossXZ(first.StartDir, connect.Direction) >= 0;
+                var lastDir = CrossXZ(-last.EndDir, -connect.Direction) >= 0;
+                var firstDot = DotXZ(first.StartDir, connect.Direction) >= 0;
+                var lastDot = DotXZ(-last.EndDir, -connect.Direction) >= 0;
+
+                if (firstDot != lastDot && firstDir != lastDir)
+                {
+                    if (!firstDot)
+                        lastDir = !lastDir;
+                    else if (!lastDot)
+                        lastDir = !lastDir;
+                }
+
+                first.Direction = firstDir ? Direction.Right : Direction.Left;
+                last.Direction = lastDir ? Direction.Left : Direction.Right;
+            }
+        }
+        public enum CircleType
+        {
+            First,
+            Last,
+        }
     }
     public abstract class BaseAdditionalCreateConnectionMode : BaseCreateConnectionMode
     {
@@ -303,15 +333,15 @@ namespace NetworkMultitool
 
         protected override void RenderCalculatedOverlay(RenderManager.CameraInfo cameraInfo, NetInfo info)
         {
-            for (var i = 0; i < Count; i += 1)
-                RenderCircle(cameraInfo, i, i == Edit ? Colors.Green : Colors.Green.SetAlpha(64));
+            for (var i = 0; i < Circles.Count; i += 1)
+                Circles[i].RenderCircle(cameraInfo, i == Edit ? Colors.Green : Colors.Green.SetAlpha(64), Underground);
 
             base.RenderCalculatedOverlay(cameraInfo, info);
         }
         protected override void RenderFailedOverlay(RenderManager.CameraInfo cameraInfo, NetInfo info)
         {
-            for (var i = 0; i < Count; i += 1)
-                RenderCircle(cameraInfo, i, Colors.Red);
+            for (var i = 0; i < Circles.Count; i += 1)
+                Circles[i].RenderCircle(cameraInfo, Colors.Red, Underground);
 
             base.RenderFailedOverlay(cameraInfo, info);
         }

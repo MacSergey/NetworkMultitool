@@ -115,7 +115,7 @@ namespace NetworkMultitool
                 Target.Render(new OverlayData(cameraInfo) { Color = Colors.Green, RenderLimit = Underground });
             }
         }
-        protected override bool AllowRenderNear(ushort nodeId) => base.AllowRenderNear(nodeId) && (IsSource || nodeId != Source.Id);
+        protected override bool AllowRenderNear(ushort nodeId) => base.AllowRenderNear(nodeId) && (!IsSource || nodeId != Source.Id);
 
         private bool Union(ushort sourceId, ushort targetId)
         {
