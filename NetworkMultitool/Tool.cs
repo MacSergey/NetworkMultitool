@@ -39,7 +39,18 @@ namespace NetworkMultitool
                     yield return shortcut;
 
                 yield return BaseNetworkMultitoolMode.ApplyShortcut;
+
+                yield return BaseCreateMode.IncreaseRadiusShortcut;
+                yield return BaseCreateMode.DecreaseRadiusShortcut;
+
                 yield return CreateConnectionMode.SwitchSelectShortcut;
+                yield return CreateConnectionMode.IncreaseOneRadiusShortcut;
+                yield return CreateConnectionMode.DecreaseOneRadiusShortcut;
+
+                yield return CreateConnectionMode.SwitchOffsetShortcut;
+                yield return CreateConnectionMode.IncreaseOffsetShortcut;
+                yield return CreateConnectionMode.DecreaseOffsetShortcut;
+
                 yield return CreateLoopMode.SwitchIsLoopShortcut;
             }
         }
@@ -58,7 +69,8 @@ namespace NetworkMultitool
         }
 
         public override Shortcut Activation => ActivationShortcut;
-        protected override bool ShowToolTip => base.ShowToolTip && Settings.ShowToolTip;
+        public override bool MouseRayValid => !UIView.HasModalInput() && (UIInput.hoveredComponent?.isInteractive != true || UIInput.hoveredComponent is InfoLabel) && Cursor.visible;
+        protected override bool ShowToolTip => (base.ShowToolTip || UIInput.hoveredComponent is InfoLabel) && Settings.ShowToolTip;
         private IToolMode LastMode { get; set; }
         protected override IToolMode DefaultMode => LastMode ?? ToolModes[ToolModeType.AddNode];
 
@@ -100,6 +112,8 @@ namespace NetworkMultitool
             yield return CreateToolMode<ArrangeLineMode>();
             yield return CreateToolMode<CreateLoopMode>();
             yield return CreateToolMode<CreateConnectionMode>();
+            yield return CreateToolMode<CreateConnectionMoveCircleMode>();
+            yield return CreateToolMode<CreateConnectionChangeRadiusMode>();
         }
         protected override void OnReset()
         {

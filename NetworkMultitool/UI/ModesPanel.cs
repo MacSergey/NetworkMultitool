@@ -64,7 +64,10 @@ namespace NetworkMultitool.UI
             SingletonTool<NetworkMultitoolTool>.Instance.OnStateChanged += ToolStateChanged;
 
             foreach (var mode in SingletonTool<NetworkMultitoolTool>.Instance.Modes.OfType<BaseNetworkMultitoolMode>())
-                mode.AddButton(this);
+            {
+                if (mode.CreateButton)
+                    mode.AddButton(this);
+            }
 
             parent.eventMouseEnter += ParentMouseEnter;
             parent.eventMouseLeave += ParentMouseLeave;
@@ -123,7 +126,7 @@ namespace NetworkMultitool.UI
             {
                 if (State != OpenState.Open && State != OpenState.Opening)
                 {
-                    if(enabled && ((!auto && (!autoHide || isHover)) || (auto && autoHide)))
+                    if (enabled && ((!auto && (!autoHide || isHover)) || (auto && autoHide)))
                     {
                         StartOpening();
                         SetOpenSide();

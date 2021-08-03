@@ -61,7 +61,7 @@ namespace NetworkMultitool
                 return Localize.Mode_UnionNode_Info_NoCommon;
             else if (!IsCorrectCount)
                 return Localize.Mode_UnionNode_Info_Overflow + StepOverInfo;
-            else if(IsFar)
+            else if (IsFar)
                 return Localize.Mode_UnionNode_Info_TooFar + StepOverInfo;
             else
                 return Localize.Mode_UnionNode_Info_ClickUnion + StepOverInfo;
@@ -90,6 +90,8 @@ namespace NetworkMultitool
         }
         public override void RenderOverlay(RenderManager.CameraInfo cameraInfo)
         {
+            RenderNearNodes(cameraInfo);
+
             if (!IsSource)
             {
                 if (IsHoverNode)
@@ -113,6 +115,7 @@ namespace NetworkMultitool
                 Target.Render(new OverlayData(cameraInfo) { Color = Colors.Green, RenderLimit = Underground });
             }
         }
+        protected override bool AllowRenderNear(ushort nodeId) => base.AllowRenderNear(nodeId) && (!IsSource || nodeId != Source.Id);
 
         private bool Union(ushort sourceId, ushort targetId)
         {

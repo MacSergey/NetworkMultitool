@@ -20,22 +20,24 @@ namespace NetworkMultitool
         public static SavedInt SlopeUnite { get; } = new SavedInt(nameof(SlopeUnite), SettingsFile, 0, true);
         public static SavedInt SegmentLength { get; } = new SavedInt(nameof(SegmentLength), SettingsFile, 80, true);
 
+        protected UIAdvancedHelper ShortcutsTab => GetTab(nameof(ShortcutsTab));
+
         #endregion
 
         #region BASIC
 
+        protected override IEnumerable<KeyValuePair<string, string>> AdditionalTabs
+        {
+            get
+            {
+                yield return new KeyValuePair<string, string>(nameof(ShortcutsTab), CommonLocalize.Settings_Shortcuts);
+            }
+        }
         protected override void FillSettings()
         {
             base.FillSettings();
 
             AddLanguage(GeneralTab);
-
-            var keymappingsGroup = GeneralTab.AddGroup(CommonLocalize.Settings_Shortcuts);
-            var keymappings = AddKeyMappingPanel(keymappingsGroup);
-            keymappings.AddKeymapping(NetworkMultitoolTool.ActivationShortcut);
-            foreach (var shortcut in NetworkMultitoolTool.BindShortcuts)
-                keymappings.AddKeymapping(shortcut);
-
 
             var generalGroup = GeneralTab.AddGroup(CommonLocalize.Settings_General);
             AddCheckBox(generalGroup, CommonLocalize.Settings_ShowTooltips, ShowToolTip);
@@ -45,6 +47,12 @@ namespace NetworkMultitool
                 AddIntField(generalGroup, Localize.Settings_SegmentLength, SegmentLength, 80, 50, 200);
 
             AddNotifications(GeneralTab);
+
+            var keymappingsGroup = ShortcutsTab.AddGroup();
+            var keymappings = AddKeyMappingPanel(keymappingsGroup);
+            keymappings.AddKeymapping(NetworkMultitoolTool.ActivationShortcut);
+            foreach (var shortcut in NetworkMultitoolTool.BindShortcuts)
+                keymappings.AddKeymapping(shortcut);
 #if DEBUG
             AddDebug(DebugTab);
 #endif

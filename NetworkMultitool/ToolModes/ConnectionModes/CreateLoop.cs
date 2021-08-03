@@ -29,16 +29,9 @@ namespace NetworkMultitool
             }
         }
 
-
-        private float? Radius { get; set; }
-        private Vector3 Center { get; set; }
-        private Vector3 CenterDir { get; set; }
-        private Vector3 StartCurve { get; set; }
-        private Vector3 EndCurve { get; set; }
-        private float Angle { get; set; }
-
-        private bool IsLoop { get; set; }
-        private InfoLabel Label { get; set; }
+        private MiddleCircle Circle { get; set; }
+        private Straight StartStraight { get; set; }
+        private Straight EndStraight { get; set; }
 
         protected override string GetInfo()
         {
@@ -56,144 +49,205 @@ namespace NetworkMultitool
                 else
                     return Localize.Mode_Info_ClickSecondSegment + StepOverInfo;
             }
+            else if (IsHoverNode)
+                return Localize.Mode_Info_ClickToChangeCreateDir;
             else if (State == Result.BigRadius)
                 return Localize.Mode_Info_RadiusTooBig;
             else if (State == Result.SmallRadius)
                 return Localize.Mode_Info_RadiusTooSmall;
             else if (State != Result.Calculated)
-                return Localize.Mode_Info_ChooseDirestion;
+                return Localize.Mode_Info_ClickOnNodeToChangeCreateDir;
             else
                 return
-                    Localize.Mode_Info_ChooseDirestion + "\n\n" +
-                    string.Format(Localize.Mode_Info_DecreaseRadius, DecreaseRadiusShortcut) + "\n" +
-                    string.Format(Localize.Mode_Info_IncreaseRadius, IncreaseRadiusShortcut) + "\n" +
+                    Localize.Mode_Info_ClickOnNodeToChangeCreateDir + "\n\n" +
+                    string.Format(Localize.Mode_Info_ChangeRadius, DecreaseRadiusShortcut, IncreaseRadiusShortcut) + "\n" +
                     string.Format(Localize.Mode_CreateLoop_Info_Change, SwitchIsLoopShortcut) + "\n" +
                     string.Format(Localize.Mode_Info_Create, ApplyShortcut);
         }
 
-        protected override void Reset(IToolMode prevMode)
-        {
-            base.Reset(prevMode);
-            IsLoop = false;
-            Label = AddLabel();
-        }
         protected override void ResetParams()
         {
             base.ResetParams();
-            Radius = null;
+
+            if (Circle is MiddleCircle circle)
+                RemoveLabel(circle.Label);
+            if (StartStraight is Straight oldStart)
+                RemoveLabel(oldStart.Label);
+            if (EndStraight is Straight oldEnd)
+                RemoveLabel(oldEnd.Label);
+
+            Circle = null;
+            StartStraight = null;
+            EndStraight = null;
         }
+
         public override void OnToolUpdate()
         {
             base.OnToolUpdate();
 
-            if (State == Result.Calculated)
+            if (State != Result.None)
             {
-                Label.isVisible = true;
-                Label.text = $"{GetRadiusString(Radius.Value)}\n{GetAngleString(Mathf.Abs(Angle))}";
-                Label.WorldPosition = Center + CenterDir * 5f;
-                Label.Direction = CenterDir;
+                var info = Info;
+                Circle.Update(State == Result.Calculated);
+                StartStraight.Update(info, State == Result.Calculated);
+                EndStraight.Update(info, State == Result.Calculated);
             }
-            else
-                Label.isVisible = false;
         }
-        protected override IEnumerable<Point> Calculate(StraightTrajectory firstTrajectory, StraightTrajectory secondTrajectory)
+        protected override void Init(StraightTrajectory firstTrajectory, StraightTrajectory secondTrajectory)
         {
             if (!Intersection.CalculateSingle(firstTrajectory, secondTrajectory, out var firtsT, out var secondT))
             {
                 State = Result.NotIntersect;
-                yield break;
+                return;
             }
 
-            var angle = MathExtention.GetAngle(firstTrajectory.Direction, secondTrajectory.Direction);
-            var halfAbsAngle = Mathf.Abs(angle) / 2f;
-
-            var direct = firtsT >= 0f && secondT >= 0f && !IsLoop;
-            float minRadius;
-            float maxRadius;
-            if (direct)
+            Circle = new MiddleCircle(Circle?.Label ?? AddLabel(), firstTrajectory, secondTrajectory);
+        }
+        protected override IEnumerable<Point> Calculate()
+        {
+            if (!Circle.Calculate(MinPossibleRadius, float.MaxValue, out var result))
             {
-                minRadius = MinPossibleRadius;
-                maxRadius = Mathf.Tan(halfAbsAngle) * Mathf.Min(firtsT, secondT);
-            }
-            else
-            {
-                minRadius = Mathf.Max(Mathf.Tan(halfAbsAngle) * Mathf.Max(-Mathf.Min(firtsT, 0f), -Mathf.Min(secondT, 0f)), MinPossibleRadius);
-                maxRadius = Mathf.Max(minRadius + 200f, 500f);
-            }
-            Radius = Mathf.Clamp(Radius ?? 50f, minRadius, maxRadius);
-            if(Radius.Value > 1000f)
-            {
-                State = Result.BigRadius;
-                yield break;
-            }
-            if(maxRadius < minRadius)
-            {
-                State = Result.SmallRadius;
-                yield break;
+                State = result;
+                return new Point[0];
             }
 
-            var delta = Radius.Value / Mathf.Tan(halfAbsAngle);
-            var startLenght = direct ? firtsT - delta : firtsT + delta;
-            var endLenght = direct ? secondT - delta : secondT + delta;
-
-            var sign = direct ? -1 : 1;
-            var intersect = (firstTrajectory.Position(firtsT) + secondTrajectory.Position(secondT)) / 2f;
-            CenterDir = sign * (firstTrajectory.Direction + secondTrajectory.Direction).normalized;
-            var distant = Radius.Value / Mathf.Sin(halfAbsAngle);
-            Center = intersect + CenterDir * distant;
-
-            Angle = -sign * Mathf.Sign(angle) * (Mathf.PI + sign * Mathf.Abs(angle));
-
-            StartCurve = firstTrajectory.Position(startLenght);
-            EndCurve = secondTrajectory.Position(endLenght);
-
-            if (startLenght >= 8f)
-            {
-                foreach (var point in GetStraightParts(new StraightTrajectory(firstTrajectory.StartPosition, firstTrajectory.Position(startLenght))))
-                    yield return point;
-                yield return new Point(StartCurve, firstTrajectory.Direction);
-            }
-
-            foreach (var point in GetCurveParts(Center, StartCurve - Center, firstTrajectory.Direction, Radius.Value, Angle))
-                yield return point;
-
-            if (endLenght >= 8f)
-            {
-                yield return new Point(EndCurve, -secondTrajectory.Direction);
-                foreach (var point in GetStraightParts(new StraightTrajectory(secondTrajectory.Position(endLenght), secondTrajectory.StartPosition)))
-                    yield return point;
-            }
+            Circle.GetStraight(StartStraight?.Label ?? AddLabel(), EndStraight?.Label ?? AddLabel(), out var start, out var end);
+            StartStraight = start;
+            EndStraight = end;
 
             State = Result.Calculated;
+            return GetParts();
+        }
+        private IEnumerable<Point> GetParts()
+        {
+            if (StartStraight.Length >= 8f)
+            {
+                foreach (var point in StartStraight.Parts)
+                    yield return point;
+                yield return new Point(Circle.StartPos, StartStraight.Direction);
+            }
+            foreach (var point in Circle.Parts)
+                yield return point;
+
+            if (EndStraight.Length >= 8f)
+            {
+                yield return new Point(Circle.EndPos, EndStraight.Direction);
+                foreach (var point in EndStraight.Parts)
+                    yield return point;
+            }
         }
 
         protected override void IncreaseRadius()
         {
-            if (Radius != null)
-            {
-                var step = Step;
-                Radius = (Radius.Value + step).RoundToNearest(step);
-                State = Result.None;
-            }
+            var step = Step;
+            Circle.Radius = (Circle.Radius + step).RoundToNearest(step);
+            State = Result.None;
         }
         protected override void DecreaseRadius()
         {
-            if (Radius != null)
-            {
-                var step = Step;
-                Radius = (Radius.Value - step).RoundToNearest(step);
-                State = Result.None;
-            }
+            var step = Step;
+            Circle.Radius = (Circle.Radius - step).RoundToNearest(step);
+            State = Result.None;
         }
         private void SwitchIsLoop()
         {
-            IsLoop = !IsLoop;
-            Radius = null;
+            Circle.IsLoop = !Circle.IsLoop;
             State = Result.None;
         }
         protected override void RenderCalculatedOverlay(RenderManager.CameraInfo cameraInfo, NetInfo info)
         {
-            RenderCenter(cameraInfo, info, Center, StartCurve, EndCurve, Radius.Value);
+            Circle.Render(cameraInfo, info, Colors.White, Underground);
+            StartStraight.Render(cameraInfo, info, Colors.White, Underground);
+            EndStraight.Render(cameraInfo, info, Colors.White, Underground);
+        }
+
+        protected class MiddleCircle : Circle
+        {
+            private StraightTrajectory StartGuide { get; }
+            private StraightTrajectory EndGuide { get; }
+
+            public override Vector3 CenterPos
+            {
+                get => base.CenterPos;
+                set { }
+            }
+            public override Vector3 StartRadiusDir
+            {
+                get => base.StartRadiusDir;
+                set { }
+            }
+            public override Vector3 EndRadiusDir
+            {
+                get => base.EndRadiusDir;
+                set { }
+            }
+            public override Direction Direction
+            {
+                get => base.Direction;
+                set { }
+            }
+            public bool IsLoop { get; set; }
+
+            public MiddleCircle(InfoLabel label, StraightTrajectory startGuide, StraightTrajectory endGuide) : base(label)
+            {
+                StartGuide = startGuide;
+                EndGuide = endGuide;
+            }
+
+            public override bool Calculate(float minRadius, float maxRadius, out Result result)
+            {
+                var angle = MathExtention.GetAngle(StartGuide.Direction, EndGuide.Direction);
+                var halfAbsAngle = Mathf.Abs(angle) / 2f;
+
+                Intersection.CalculateSingle(StartGuide, EndGuide, out var firtsT, out var secondT);
+                var direct = firtsT >= 0f && secondT >= 0f && !IsLoop;
+
+                base.Direction = direct == angle >= 0 ? Direction.Right : Direction.Left;
+
+                if (direct)
+                    maxRadius = Mathf.Tan(halfAbsAngle) * Mathf.Min(firtsT, secondT);
+                else
+                {
+                    minRadius = Mathf.Max(Mathf.Tan(halfAbsAngle) * Mathf.Max(-Mathf.Min(firtsT, 0f), -Mathf.Min(secondT, 0f)), minRadius);
+                    maxRadius = Mathf.Max(MinRadius + 200f, 500f);
+                }
+
+                if (!base.Calculate(minRadius, maxRadius, out result))
+                    return false;
+
+                if (Radius > 1000f)
+                {
+                    result = Result.BigRadius;
+                    return false;
+                }
+                if (MaxRadius < MinRadius)
+                {
+                    result = Result.SmallRadius;
+                    return false;
+                }
+
+                var delta = Radius / Mathf.Tan(halfAbsAngle);
+                var startLenghth = direct ? firtsT - delta : firtsT + delta;
+                var endLength = direct ? secondT - delta : secondT + delta;
+
+                var sign = direct ? -1 : 1;
+                var intersect = (StartGuide.Position(firtsT) + EndGuide.Position(secondT)) / 2f;
+                var centerDir = sign * (StartGuide.Direction + EndGuide.Direction).normalized;
+                var distant = Radius / Mathf.Sin(halfAbsAngle);
+
+                base.CenterPos = intersect + centerDir * distant;
+                base.StartRadiusDir = (StartGuide.Position(startLenghth) - CenterPos).MakeFlatNormalized();
+                base.EndRadiusDir = (EndGuide.Position(endLength) - CenterPos).MakeFlatNormalized();
+
+                result = Result.Calculated;
+                return true;
+            }
+
+            public void GetStraight(InfoLabel startLabel, InfoLabel endLabel, out Straight start, out Straight end)
+            {
+                start = new Straight(StartGuide.StartPosition, StartPos, StartRadiusDir, startLabel);
+                end = new Straight(EndPos, EndGuide.StartPosition, EndRadiusDir, endLabel);
+            }
         }
     }
 }

@@ -125,6 +125,52 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Double click on circle center
+        ///to change curve direction.
+        /// </summary>
+        internal static string Mode_Connection_Info_DoubleClickOnCenterToChangeDir {
+            get {
+                return ResourceManager.GetString("Mode_Connection_Info_DoubleClickOnCenterToChangeDir", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Double click to add curve to this line.
+        /// </summary>
+        internal static string Mode_Connection_Info_DoubleClickToAdd {
+            get {
+                return ResourceManager.GetString("Mode_Connection_Info_DoubleClickToAdd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Double right click to remove this curve.
+        /// </summary>
+        internal static string Mode_Connection_Info_DoubleClickToRemove {
+            get {
+                return ResourceManager.GetString("Mode_Connection_Info_DoubleClickToRemove", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Drag to change radius.
+        /// </summary>
+        internal static string Mode_Connection_Info_DragToChangeRadius {
+            get {
+                return ResourceManager.GetString("Mode_Connection_Info_DragToChangeRadius", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Drag to move circle.
+        /// </summary>
+        internal static string Mode_Connection_Info_DragToMove {
+            get {
+                return ResourceManager.GetString("Mode_Connection_Info_DragToMove", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Create connection mode.
         /// </summary>
         internal static string Mode_CreateConnection {
@@ -161,6 +207,24 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Press {0} or {1} to change all radii.
+        /// </summary>
+        internal static string Mode_Info_ChangeAllRadius {
+            get {
+                return ResourceManager.GetString("Mode_Info_ChangeAllRadius", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Press {0} or {1} to change both radii.
+        /// </summary>
+        internal static string Mode_Info_ChangeBothRadius {
+            get {
+                return ResourceManager.GetString("Mode_Info_ChangeBothRadius", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Press {0} to switch selected circle.
         /// </summary>
         internal static string Mode_Info_ChangeCircle {
@@ -170,11 +234,29 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Choose nodes to select create direction.
+        ///   Ищет локализованную строку, похожую на Press {0} or {1} to change curse start offset.
         /// </summary>
-        internal static string Mode_Info_ChooseDirestion {
+        internal static string Mode_Info_ChangeOffset {
             get {
-                return ResourceManager.GetString("Mode_Info_ChooseDirestion", resourceCulture);
+                return ResourceManager.GetString("Mode_Info_ChangeOffset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Press {0} or {1} to change one radius.
+        /// </summary>
+        internal static string Mode_Info_ChangeOneRadius {
+            get {
+                return ResourceManager.GetString("Mode_Info_ChangeOneRadius", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Press {0} or {1} to change radius.
+        /// </summary>
+        internal static string Mode_Info_ChangeRadius {
+            get {
+                return ResourceManager.GetString("Mode_Info_ChangeRadius", resourceCulture);
             }
         }
         
@@ -184,6 +266,15 @@ namespace NetworkMultitool {
         internal static string Mode_Info_ClickFirstSegment {
             get {
                 return ResourceManager.GetString("Mode_Info_ClickFirstSegment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Click on node to change create direction.
+        /// </summary>
+        internal static string Mode_Info_ClickOnNodeToChangeCreateDir {
+            get {
+                return ResourceManager.GetString("Mode_Info_ClickOnNodeToChangeCreateDir", resourceCulture);
             }
         }
         
@@ -206,6 +297,15 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Click to change create direction.
+        /// </summary>
+        internal static string Mode_Info_ClickToChangeCreateDir {
+            get {
+                return ResourceManager.GetString("Mode_Info_ClickToChangeCreateDir", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Click to unselect node.
         /// </summary>
         internal static string Mode_Info_ClickUnselectNode {
@@ -220,87 +320,6 @@ namespace NetworkMultitool {
         internal static string Mode_Info_Create {
             get {
                 return ResourceManager.GetString("Mode_Info_Create", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на Click on node to change curve direction.
-        /// </summary>
-        internal static string Mode_Info_CurveDurection {
-            get {
-                return ResourceManager.GetString("Mode_Info_CurveDurection", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на Press {0} to decrease all radii.
-        /// </summary>
-        internal static string Mode_Info_DecreaseAllRadius {
-            get {
-                return ResourceManager.GetString("Mode_Info_DecreaseAllRadius", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на Press {0} to decrease both radii.
-        /// </summary>
-        internal static string Mode_Info_DecreaseBothRadius {
-            get {
-                return ResourceManager.GetString("Mode_Info_DecreaseBothRadius", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на Press {0} to decrease one radius.
-        /// </summary>
-        internal static string Mode_Info_DecreaseOneRadius {
-            get {
-                return ResourceManager.GetString("Mode_Info_DecreaseOneRadius", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на Press {0} to decrease radius.
-        /// </summary>
-        internal static string Mode_Info_DecreaseRadius {
-            get {
-                return ResourceManager.GetString("Mode_Info_DecreaseRadius", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на Press {0} to increase all radii.
-        /// </summary>
-        internal static string Mode_Info_IncreaseAllRadius {
-            get {
-                return ResourceManager.GetString("Mode_Info_IncreaseAllRadius", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на Press {0} to increase both radii.
-        /// </summary>
-        internal static string Mode_Info_IncreaseBothRadius {
-            get {
-                return ResourceManager.GetString("Mode_Info_IncreaseBothRadius", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на Press {0} to increase one radius.
-        /// </summary>
-        internal static string Mode_Info_IncreaseOneRadius {
-            get {
-                return ResourceManager.GetString("Mode_Info_IncreaseOneRadius", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на Press {0} to increase radius.
-        /// </summary>
-        internal static string Mode_Info_IncreaseRadius {
-            get {
-                return ResourceManager.GetString("Mode_Info_IncreaseRadius", resourceCulture);
             }
         }
         
@@ -350,6 +369,15 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Press {0} to switch selected offset.
+        /// </summary>
+        internal static string Mode_Info_SwitchOffset {
+            get {
+                return ResourceManager.GetString("Mode_Info_SwitchOffset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Hold Shift to underground mode.
         /// </summary>
         internal static string Mode_Info_UndergroundMode {
@@ -386,7 +414,7 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на These segments are not intersect.
+        ///   Ищет локализованную строку, похожую на These segments don’t intersect.
         /// </summary>
         internal static string Mode_IntersectSegment_Info_NotIntersect {
             get {
@@ -404,7 +432,7 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Right click to Invert segment
+        ///   Ищет локализованную строку, похожую на Right click to invert segment
         ///Left click to reverse segment.
         /// </summary>
         internal static string Mode_InvertSegment_Info {
@@ -650,11 +678,74 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Decrease circle start offset.
+        /// </summary>
+        internal static string Settings_Shortcut_DecreaseOffset {
+            get {
+                return ResourceManager.GetString("Settings_Shortcut_DecreaseOffset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Decrease one radius.
+        /// </summary>
+        internal static string Settings_Shortcut_DecreaseOneRadius {
+            get {
+                return ResourceManager.GetString("Settings_Shortcut_DecreaseOneRadius", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Decrease radii.
+        /// </summary>
+        internal static string Settings_Shortcut_DecreaseRadius {
+            get {
+                return ResourceManager.GetString("Settings_Shortcut_DecreaseRadius", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Increase circle start offset.
+        /// </summary>
+        internal static string Settings_Shortcut_IncreaseOffset {
+            get {
+                return ResourceManager.GetString("Settings_Shortcut_IncreaseOffset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Increase one radius.
+        /// </summary>
+        internal static string Settings_Shortcut_IncreaseOneRadius {
+            get {
+                return ResourceManager.GetString("Settings_Shortcut_IncreaseOneRadius", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Increase radii.
+        /// </summary>
+        internal static string Settings_Shortcut_IncreaseRadius {
+            get {
+                return ResourceManager.GetString("Settings_Shortcut_IncreaseRadius", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Switch loop direction.
         /// </summary>
         internal static string Settings_Shortcut_SwitchIsLoop {
             get {
                 return ResourceManager.GetString("Settings_Shortcut_SwitchIsLoop", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Switch selected offset.
+        /// </summary>
+        internal static string Settings_Shortcut_SwitchOffset {
+            get {
+                return ResourceManager.GetString("Settings_Shortcut_SwitchOffset", resourceCulture);
             }
         }
         
