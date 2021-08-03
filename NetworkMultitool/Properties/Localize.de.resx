@@ -136,6 +136,12 @@ Zu nah an einem anderen Netzwerk-Knoten</value>
   <data name="Mode_ArrangeAtLine" xml:space="preserve">
     <value>In Reihe anordnen</value>
   </data>
+  <data name="Mode_ArrangeLine_Info_ClickToSelectDirection" xml:space="preserve">
+    <value>Click to select arrange direction</value>
+  </data>
+  <data name="Mode_ArrangeLine_Info_SelectDirection" xml:space="preserve">
+    <value>Select segment to set arrange direction</value>
+  </data>
   <data name="Mode_Connection_Info_DoubleClickOnCenterToChangeDir" xml:space="preserve">
     <value>Double click on circle center
 to change curve direction</value>
@@ -243,6 +249,19 @@ to change curve direction</value>
     <value>Right click to invert segment
 Left click to reverse segment</value>
   </data>
+  <data name="Mode_MakeTouchable" xml:space="preserve">
+    <value>Make Touchable mode</value>
+  </data>
+  <data name="Mode_MakeTouchable_Info_ChangeTouchability" xml:space="preserve">
+    <value>Select segment to change
+its touchability</value>
+  </data>
+  <data name="Mode_MakeTouchable_Info_MakeTouchable" xml:space="preserve">
+    <value>Click to make this segment touchable</value>
+  </data>
+  <data name="Mode_MakeTouchable_Info_MakeUntouchable" xml:space="preserve">
+    <value>Click to make this segment untouchable</value>
+  </data>
   <data name="Mode_NodeLine_Info_NotConnected" xml:space="preserve">
     <value>Dieser Netzwerk-Knoten kann nicht ausgewählt werden,
 da er nicht mit anderen verbunden ist</value>
@@ -279,7 +298,7 @@ da er nicht mit anderen verbunden ist</value>
 Click with Shift to split node and set source height</value>
   </data>
   <data name="Mode_SplitNode_Info_NotAllowedSplit" xml:space="preserve">
-    <value>Not allowed split node with only one segment</value>
+    <value>Not possible split node with only one segment</value>
   </data>
   <data name="Mode_SplitNode_Info_OrderIsFull" xml:space="preserve">
     <value>Not possible add more segments to split order</value>
@@ -288,7 +307,7 @@ Click with Shift to split node and set source height</value>
     <value>Select segments to split</value>
   </data>
   <data name="Mode_SplitNode_Info_TooFar" xml:space="preserve">
-    <value>Position is far from source node</value>
+    <value>Position is too far from source node</value>
   </data>
   <data name="Mode_UnionNode" xml:space="preserve">
     <value>Netzwerk-Knoten vereinen</value>

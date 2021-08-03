@@ -136,21 +136,27 @@
   <data name="Mode_ArrangeAtLine" xml:space="preserve">
     <value>선 위에 정렬 모드</value>
   </data>
+  <data name="Mode_ArrangeLine_Info_ClickToSelectDirection" xml:space="preserve">
+    <value>Click to select arrange direction</value>
+  </data>
+  <data name="Mode_ArrangeLine_Info_SelectDirection" xml:space="preserve">
+    <value>Select segment to set arrange direction</value>
+  </data>
   <data name="Mode_Connection_Info_DoubleClickOnCenterToChangeDir" xml:space="preserve">
-    <value>Double click on circle center
-to change curve direction</value>
+    <value>원 중심을 더블 클릭해
+커브의 방향 변경</value>
   </data>
   <data name="Mode_Connection_Info_DoubleClickToAdd" xml:space="preserve">
-    <value>Double click to add curve to this line</value>
+    <value>더블 클릭해 이 선에 커브 추가</value>
   </data>
   <data name="Mode_Connection_Info_DoubleClickToRemove" xml:space="preserve">
-    <value>Double right click to remove this curve</value>
+    <value>더블 우클릭해 커브 제거</value>
   </data>
   <data name="Mode_Connection_Info_DragToChangeRadius" xml:space="preserve">
-    <value>Drag to change radius</value>
+    <value>드래그해 반경 변경</value>
   </data>
   <data name="Mode_Connection_Info_DragToMove" xml:space="preserve">
-    <value>Drag to move circle</value>
+    <value>드래그해 원 움직이기</value>
   </data>
   <data name="Mode_CreateConnection" xml:space="preserve">
     <value>연결 생성 모드</value>
@@ -165,28 +171,28 @@ to change curve direction</value>
     <value>{0}을 눌러 적용</value>
   </data>
   <data name="Mode_Info_ChangeAllRadius" xml:space="preserve">
-    <value>Press {0} or {1} to change all radii</value>
+    <value>{0}이나 {1}을 눌러 모든 반지름 변경</value>
   </data>
   <data name="Mode_Info_ChangeBothRadius" xml:space="preserve">
-    <value>Press {0} or {1} to change both radii</value>
+    <value>{0}이나 {1}을 눌러 두 반지름 모두 변경</value>
   </data>
   <data name="Mode_Info_ChangeCircle" xml:space="preserve">
     <value>{0}을 눌러 선택한 원 변경</value>
   </data>
   <data name="Mode_Info_ChangeOffset" xml:space="preserve">
-    <value>Press {0} or {1} to change curse start offset</value>
+    <value>{0}이나 {1}을 눌러 커브 시작점 오프셋 변경</value>
   </data>
   <data name="Mode_Info_ChangeOneRadius" xml:space="preserve">
-    <value>Press {0} or {1} to change one radius</value>
+    <value>{0}이나 {1}을 눌러 반지름 1개 변경</value>
   </data>
   <data name="Mode_Info_ChangeRadius" xml:space="preserve">
-    <value>Press {0} or {1} to change radius</value>
+    <value>{0}이나 {1}을 눌러 반지름 변경</value>
   </data>
   <data name="Mode_Info_ClickFirstSegment" xml:space="preserve">
     <value>클릭해 첫 세그먼트 선택</value>
   </data>
   <data name="Mode_Info_ClickOnNodeToChangeCreateDir" xml:space="preserve">
-    <value>Click on node to change create direction</value>
+    <value>노드를 클릭해 제작 방향 변경</value>
   </data>
   <data name="Mode_Info_ClickSecondSegment" xml:space="preserve">
     <value>클릭해 두 번째 세그먼트 선택</value>
@@ -195,7 +201,7 @@ to change curve direction</value>
     <value>클릭하여 노드 선택</value>
   </data>
   <data name="Mode_Info_ClickToChangeCreateDir" xml:space="preserve">
-    <value>Click to change create direction</value>
+    <value>클릭해 제작 방향 변경</value>
   </data>
   <data name="Mode_Info_ClickUnselectNode" xml:space="preserve">
     <value>클릭하여 노드 선택 취소</value>
@@ -219,7 +225,7 @@ to change curve direction</value>
     <value>세그먼트 선택</value>
   </data>
   <data name="Mode_Info_SwitchOffset" xml:space="preserve">
-    <value>Press {0} to switch selected offset</value>
+    <value>{0}을 눌러 선택한 오프셋 변경</value>
   </data>
   <data name="Mode_Info_UndergroundMode" xml:space="preserve">
     <value>시프트를 꾹 눌러 지하 모드</value>
@@ -242,6 +248,19 @@ to change curve direction</value>
   <data name="Mode_InvertSegment_Info" xml:space="preserve">
     <value>우클릭으로 세그먼트 반전
 좌클릭으로 세그먼트 뒤집기</value>
+  </data>
+  <data name="Mode_MakeTouchable" xml:space="preserve">
+    <value>Make Touchable mode</value>
+  </data>
+  <data name="Mode_MakeTouchable_Info_ChangeTouchability" xml:space="preserve">
+    <value>Select segment to change
+its touchability</value>
+  </data>
+  <data name="Mode_MakeTouchable_Info_MakeTouchable" xml:space="preserve">
+    <value>Click to make this segment touchable</value>
+  </data>
+  <data name="Mode_MakeTouchable_Info_MakeUntouchable" xml:space="preserve">
+    <value>Click to make this segment untouchable</value>
   </data>
   <data name="Mode_NodeLine_Info_NotConnected" xml:space="preserve">
     <value>이 노드는 다른 노드와
@@ -327,28 +346,28 @@ to change curve direction</value>
     <value>모드 사용사항 적용</value>
   </data>
   <data name="Settings_Shortcut_DecreaseOffset" xml:space="preserve">
-    <value>Decrease circle start offset</value>
+    <value>원 시작 오프셋 감소</value>
   </data>
   <data name="Settings_Shortcut_DecreaseOneRadius" xml:space="preserve">
-    <value>Decrease one radius</value>
+    <value>반경 1개 감소</value>
   </data>
   <data name="Settings_Shortcut_DecreaseRadius" xml:space="preserve">
-    <value>Decrease radii</value>
+    <value>반경 감소</value>
   </data>
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
-    <value>Increase circle start offset</value>
+    <value>원 시작 오프셋 증가</value>
   </data>
   <data name="Settings_Shortcut_IncreaseOneRadius" xml:space="preserve">
-    <value>Increase one radius</value>
+    <value>반경 1개 증가</value>
   </data>
   <data name="Settings_Shortcut_IncreaseRadius" xml:space="preserve">
-    <value>Increase radii</value>
+    <value>반경 증가</value>
   </data>
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
     <value>루프 방향 변경</value>
   </data>
   <data name="Settings_Shortcut_SwitchOffset" xml:space="preserve">
-    <value>Switch selected offset</value>
+    <value>다른 오프셋 선택</value>
   </data>
   <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
     <value>다른 원 선택</value>

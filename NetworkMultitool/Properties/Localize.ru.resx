@@ -136,6 +136,12 @@
   <data name="Mode_ArrangeAtLine" xml:space="preserve">
     <value>Режим выравнивания в линию</value>
   </data>
+  <data name="Mode_ArrangeLine_Info_ClickToSelectDirection" xml:space="preserve">
+    <value>Нажмите для выбора направления выравнивания</value>
+  </data>
+  <data name="Mode_ArrangeLine_Info_SelectDirection" xml:space="preserve">
+    <value>Выберите сегмент для направления выравнивания</value>
+  </data>
   <data name="Mode_Connection_Info_DoubleClickOnCenterToChangeDir" xml:space="preserve">
     <value>Двойное нажатие на центр круга
 для изменения направления кривой</value>
@@ -163,7 +169,7 @@
     <value>Нажмите {0} для изменения петли</value>
   </data>
   <data name="Mode_Info_Apply" xml:space="preserve">
-    <value>Нажмите {0} чтобы применить</value>
+    <value>Нажмите {0} чтобы выполнить действие</value>
   </data>
   <data name="Mode_Info_ChangeAllRadius" xml:space="preserve">
     <value>Нажмите {0} или {1} для изменения всех радиусов</value>
@@ -175,7 +181,7 @@
     <value>Нажмите {0} для смены выбранной окружности</value>
   </data>
   <data name="Mode_Info_ChangeOffset" xml:space="preserve">
-    <value>Нажмите {0} или {1} для изменения отступа начала кривой</value>
+    <value>Нажмите {0} или {1} для изменения отступа</value>
   </data>
   <data name="Mode_Info_ChangeOneRadius" xml:space="preserve">
     <value>Нажмите {0} или {1} для изменения одного радиуса</value>
@@ -187,7 +193,7 @@
     <value>Нажмите для выбора первого сегмента</value>
   </data>
   <data name="Mode_Info_ClickOnNodeToChangeCreateDir" xml:space="preserve">
-    <value>Нажмите на узел для изменения направления строительства</value>
+    <value>Нажмите на узел для изменения направления</value>
   </data>
   <data name="Mode_Info_ClickSecondSegment" xml:space="preserve">
     <value>Нажмите для выбора второго сегмента</value>
@@ -220,7 +226,7 @@
     <value>Выберите сегмент</value>
   </data>
   <data name="Mode_Info_SwitchOffset" xml:space="preserve">
-    <value>Нажмите {0} для смены выбранного отступа начала кривой</value>
+    <value>Нажмите {0} для смены выбранного отступа</value>
   </data>
   <data name="Mode_Info_UndergroundMode" xml:space="preserve">
     <value>Удерживайте Shift для подземного режима</value>
@@ -244,6 +250,19 @@
   <data name="Mode_InvertSegment_Info" xml:space="preserve">
     <value>Нажатие правую кнопку для инверсии
 Нажмите левую кнопку для реверса</value>
+  </data>
+  <data name="Mode_MakeTouchable" xml:space="preserve">
+    <value>Make Touchable mode</value>
+  </data>
+  <data name="Mode_MakeTouchable_Info_ChangeTouchability" xml:space="preserve">
+    <value>Выберите сегмент чтобы изменить
+возможность редактировать его</value>
+  </data>
+  <data name="Mode_MakeTouchable_Info_MakeTouchable" xml:space="preserve">
+    <value>Нажмите чтобы сделать сегмент редактируемым</value>
+  </data>
+  <data name="Mode_MakeTouchable_Info_MakeUntouchable" xml:space="preserve">
+    <value>Нажмите что бы сделать сегмент не редактируемым</value>
   </data>
   <data name="Mode_NodeLine_Info_NotConnected" xml:space="preserve">
     <value>Этот узел не может быть выбран
@@ -326,7 +345,7 @@
     <value>Максимальная длина сегмента</value>
   </data>
   <data name="Settings_Shortcut_Apply" xml:space="preserve">
-    <value>Применить</value>
+    <value>Выполнить действие</value>
   </data>
   <data name="Settings_Shortcut_DecreaseOffset" xml:space="preserve">
     <value>Уменьшить отступ начала кривой</value>

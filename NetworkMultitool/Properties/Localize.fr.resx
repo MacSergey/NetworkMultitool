@@ -136,21 +136,27 @@ Trop proche du nœud voisin</value>
   <data name="Mode_ArrangeAtLine" xml:space="preserve">
     <value>Aligner la route</value>
   </data>
+  <data name="Mode_ArrangeLine_Info_ClickToSelectDirection" xml:space="preserve">
+    <value>Click to select arrange direction</value>
+  </data>
+  <data name="Mode_ArrangeLine_Info_SelectDirection" xml:space="preserve">
+    <value>Select segment to set arrange direction</value>
+  </data>
   <data name="Mode_Connection_Info_DoubleClickOnCenterToChangeDir" xml:space="preserve">
-    <value>Double click on circle center
-to change curve direction</value>
+    <value>Double-cliquez sur le centre du cercle
+pour changer la direction de la courbe</value>
   </data>
   <data name="Mode_Connection_Info_DoubleClickToAdd" xml:space="preserve">
-    <value>Double click to add curve to this line</value>
+    <value>Double-cliquez pour ajouter une courbe à cette ligne</value>
   </data>
   <data name="Mode_Connection_Info_DoubleClickToRemove" xml:space="preserve">
-    <value>Double right click to remove this curve</value>
+    <value>Double-clic droit pour supprimer cette courbe</value>
   </data>
   <data name="Mode_Connection_Info_DragToChangeRadius" xml:space="preserve">
-    <value>Drag to change radius</value>
+    <value>Faites glisser pour changer le rayon</value>
   </data>
   <data name="Mode_Connection_Info_DragToMove" xml:space="preserve">
-    <value>Drag to move circle</value>
+    <value>Faites glisser pour déplacer le cercle</value>
   </data>
   <data name="Mode_CreateConnection" xml:space="preserve">
     <value>Créer une connexion</value>
@@ -186,7 +192,7 @@ to change curve direction</value>
     <value>Cliquez pour sélectionner le premier segment</value>
   </data>
   <data name="Mode_Info_ClickOnNodeToChangeCreateDir" xml:space="preserve">
-    <value>Click on node to change create direction</value>
+    <value>Cliquez sur le nœud pour changer l'orientation de départ</value>
   </data>
   <data name="Mode_Info_ClickSecondSegment" xml:space="preserve">
     <value>Cliquez pour sélectionner le second segment</value>
@@ -195,7 +201,7 @@ to change curve direction</value>
     <value>Cliquez pour sélectionner un nœud</value>
   </data>
   <data name="Mode_Info_ClickToChangeCreateDir" xml:space="preserve">
-    <value>Click to change create direction</value>
+    <value>Cliquez pour changer l'orientation de départ</value>
   </data>
   <data name="Mode_Info_ClickUnselectNode" xml:space="preserve">
     <value>Cliquez pour désélectionner un nœud</value>
@@ -242,6 +248,19 @@ to change curve direction</value>
   <data name="Mode_InvertSegment_Info" xml:space="preserve">
     <value>Clic droit pour inverser le segment
 Clic gauche pour retourner le segment</value>
+  </data>
+  <data name="Mode_MakeTouchable" xml:space="preserve">
+    <value>Rendre accessible</value>
+  </data>
+  <data name="Mode_MakeTouchable_Info_ChangeTouchability" xml:space="preserve">
+    <value>Sélectionnez un segment pour modifier
+sa capacité à être modifié</value>
+  </data>
+  <data name="Mode_MakeTouchable_Info_MakeTouchable" xml:space="preserve">
+    <value>Cliquez pour rendre ce segment modifiable</value>
+  </data>
+  <data name="Mode_MakeTouchable_Info_MakeUntouchable" xml:space="preserve">
+    <value>Cliquez pour rendre ce segment non modifiable</value>
   </data>
   <data name="Mode_NodeLine_Info_NotConnected" xml:space="preserve">
     <value>Ce nœud ne peut pas être sélectionné
@@ -348,7 +367,7 @@ Cliquez avec Maj pour séparer le nœud et définir sa hauteur</value>
     <value>Changer la direction de la boucle</value>
   </data>
   <data name="Settings_Shortcut_SwitchOffset" xml:space="preserve">
-    <value>Changer le début de décalage de la courbe sélectionnée</value>
+    <value>Changer le début de décalage</value>
   </data>
   <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
     <value>Changer de cercle</value>
