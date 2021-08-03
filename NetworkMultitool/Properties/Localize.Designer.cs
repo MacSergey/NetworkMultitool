@@ -125,6 +125,52 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Double click on circle center
+        ///to change curve direction.
+        /// </summary>
+        internal static string Mode_Connection_Info_DoubleClickOnCenterToChangeDir {
+            get {
+                return ResourceManager.GetString("Mode_Connection_Info_DoubleClickOnCenterToChangeDir", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Double click to add curve to this line.
+        /// </summary>
+        internal static string Mode_Connection_Info_DoubleClickToAdd {
+            get {
+                return ResourceManager.GetString("Mode_Connection_Info_DoubleClickToAdd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Double right click to remove this curve.
+        /// </summary>
+        internal static string Mode_Connection_Info_DoubleClickToRemove {
+            get {
+                return ResourceManager.GetString("Mode_Connection_Info_DoubleClickToRemove", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Drag to change radius.
+        /// </summary>
+        internal static string Mode_Connection_Info_DragToChangeRadius {
+            get {
+                return ResourceManager.GetString("Mode_Connection_Info_DragToChangeRadius", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Drag to move circle.
+        /// </summary>
+        internal static string Mode_Connection_Info_DragToMove {
+            get {
+                return ResourceManager.GetString("Mode_Connection_Info_DragToMove", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Create connection mode.
         /// </summary>
         internal static string Mode_CreateConnection {
@@ -215,20 +261,20 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Choose nodes to select create direction.
-        /// </summary>
-        internal static string Mode_Info_ChooseDirestion {
-            get {
-                return ResourceManager.GetString("Mode_Info_ChooseDirestion", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Ищет локализованную строку, похожую на Click to select first segment.
         /// </summary>
         internal static string Mode_Info_ClickFirstSegment {
             get {
                 return ResourceManager.GetString("Mode_Info_ClickFirstSegment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Click on node to change create direction.
+        /// </summary>
+        internal static string Mode_Info_ClickOnNodeToChangeCreateDir {
+            get {
+                return ResourceManager.GetString("Mode_Info_ClickOnNodeToChangeCreateDir", resourceCulture);
             }
         }
         
@@ -251,6 +297,15 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Click to change create direction.
+        /// </summary>
+        internal static string Mode_Info_ClickToChangeCreateDir {
+            get {
+                return ResourceManager.GetString("Mode_Info_ClickToChangeCreateDir", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Click to unselect node.
         /// </summary>
         internal static string Mode_Info_ClickUnselectNode {
@@ -265,15 +320,6 @@ namespace NetworkMultitool {
         internal static string Mode_Info_Create {
             get {
                 return ResourceManager.GetString("Mode_Info_Create", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на Click on node to change curve direction.
-        /// </summary>
-        internal static string Mode_Info_CurveDurection {
-            get {
-                return ResourceManager.GetString("Mode_Info_CurveDurection", resourceCulture);
             }
         }
         

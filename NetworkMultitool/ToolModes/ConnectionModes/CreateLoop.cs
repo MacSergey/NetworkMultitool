@@ -49,15 +49,17 @@ namespace NetworkMultitool
                 else
                     return Localize.Mode_Info_ClickSecondSegment + StepOverInfo;
             }
+            else if (IsHoverNode)
+                return Localize.Mode_Info_ClickToChangeCreateDir;
             else if (State == Result.BigRadius)
                 return Localize.Mode_Info_RadiusTooBig;
             else if (State == Result.SmallRadius)
                 return Localize.Mode_Info_RadiusTooSmall;
             else if (State != Result.Calculated)
-                return Localize.Mode_Info_ChooseDirestion;
+                return Localize.Mode_Info_ClickOnNodeToChangeCreateDir;
             else
                 return
-                    Localize.Mode_Info_ChooseDirestion + "\n\n" +
+                    Localize.Mode_Info_ClickOnNodeToChangeCreateDir + "\n\n" +
                     string.Format(Localize.Mode_Info_ChangeRadius, DecreaseRadiusShortcut, IncreaseRadiusShortcut) + "\n" +
                     string.Format(Localize.Mode_CreateLoop_Info_Change, SwitchIsLoopShortcut) + "\n" +
                     string.Format(Localize.Mode_Info_Create, ApplyShortcut);

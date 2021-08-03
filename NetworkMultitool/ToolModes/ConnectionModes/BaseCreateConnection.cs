@@ -58,7 +58,7 @@ namespace NetworkMultitool
 
             foreach (var circle in Circles)
             {
-                if (circle.Label != null)
+                if (circle?.Label != null)
                 {
                     RemoveLabel(circle.Label);
                     circle.Label = null;
@@ -66,7 +66,7 @@ namespace NetworkMultitool
             }
             foreach (var straight in Straights)
             {
-                if (straight.Label != null)
+                if (straight?.Label != null)
                 {
                     RemoveLabel(straight.Label);
                     straight.Label = null;
@@ -81,9 +81,15 @@ namespace NetworkMultitool
             base.ClearLabels();
 
             foreach (var circle in Circles)
-                circle.Label = null;
+            {
+                if (circle != null)
+                    circle.Label = null;
+            }
             foreach (var straight in Straights)
-                straight.Label = null;
+            {
+                if (straight != null)
+                    straight.Label = null;
+            }
         }
         public override void OnToolUpdate()
         {
@@ -118,25 +124,13 @@ namespace NetworkMultitool
             var minRadius = MinPossibleRadius;
             var maxRadius = 1000f;
             foreach (var circle in Circles)
-            {
-                if (!circle.Calculate(minRadius, maxRadius, out var result))
-                {
-                    State = result;
-                    return new Point[0];
-                }
-            }
+                circle.IsCorrect = circle.Calculate(minRadius, maxRadius, out var result);
 
             for (var i = 1; i < Circles.Count; i += 1)
             {
                 var isCorrect = Circle.CheckRadii(Circles[i - 1], Circles[i]);
-                Circles[i - 1].IsCorrect = isCorrect;
-                Circles[i].IsCorrect = isCorrect;
-            }
-
-            if (Circles.Any(c => !c.IsCorrect))
-            {
-                State = Result.WrongShape;
-                return new Point[0];
+                Circles[i - 1].IsCorrect &= isCorrect;
+                Circles[i].IsCorrect &= isCorrect;
             }
 
             for (var i = 0; i < Straights.Count; i += 1)
@@ -154,7 +148,7 @@ namespace NetworkMultitool
                 }
             }
 
-            State = Result.Calculated;
+            State = Circles.All(c => c.IsCorrect) ? Result.Calculated : Result.WrongShape;
             return GetParts();
         }
         private IEnumerable<Point> GetParts()
@@ -171,12 +165,23 @@ namespace NetworkMultitool
             {
                 if (i % 2 == 0)
                 {
-                    foreach (var part in Circles[i / 2].Parts)
+                    var j = i / 2;
+                    if (!Circles[j].IsCorrect)
+                        continue;
+
+                    foreach (var part in Circles[j].Parts)
                         yield return part;
                 }
                 else
                 {
-                    var straight = Straights[i / 2 + 1];
+                    var j = i / 2 + 1;
+                    if (!Circles[j - 1].IsCorrect && !Circles[j].IsCorrect)
+                    {
+                        yield return Point.Empty;
+                        continue;
+                    }
+
+                    var straight = Straights[j];
                     if (straight.Length >= 8f)
                     {
                         yield return new Point(straight.StartPosition, straight.Direction);
@@ -210,7 +215,10 @@ namespace NetworkMultitool
             if (State == Result.BigRadius || State == Result.SmallRadius || State == Result.WrongShape)
             {
                 foreach (var circle in Circles)
+                {
                     circle.RenderCircle(cameraInfo, circle.IsCorrect ? Colors.Green : Colors.Red, Underground);
+                    circle.RenderCenter(cameraInfo, circle.IsCorrect ? Colors.Green : Colors.Red, Underground);
+                }
             }
         }
 

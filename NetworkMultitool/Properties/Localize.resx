@@ -136,6 +136,22 @@ Too close to nearby node</value>
   <data name="Mode_ArrangeAtLine" xml:space="preserve">
     <value>Arrange at line mode</value>
   </data>
+  <data name="Mode_Connection_Info_DoubleClickOnCenterToChangeDir" xml:space="preserve">
+    <value>Double click on circle center
+to change curve direction</value>
+  </data>
+  <data name="Mode_Connection_Info_DoubleClickToAdd" xml:space="preserve">
+    <value>Double click to add curve to this line</value>
+  </data>
+  <data name="Mode_Connection_Info_DoubleClickToRemove" xml:space="preserve">
+    <value>Double right click to remove this curve</value>
+  </data>
+  <data name="Mode_Connection_Info_DragToChangeRadius" xml:space="preserve">
+    <value>Drag to change radius</value>
+  </data>
+  <data name="Mode_Connection_Info_DragToMove" xml:space="preserve">
+    <value>Drag to move circle</value>
+  </data>
   <data name="Mode_CreateConnection" xml:space="preserve">
     <value>Create connection mode</value>
   </data>
@@ -166,11 +182,11 @@ Too close to nearby node</value>
   <data name="Mode_Info_ChangeRadius" xml:space="preserve">
     <value>Press {0} or {1} to change radius</value>
   </data>
-  <data name="Mode_Info_ChooseDirestion" xml:space="preserve">
-    <value>Choose nodes to select create direction</value>
-  </data>
   <data name="Mode_Info_ClickFirstSegment" xml:space="preserve">
     <value>Click to select first segment</value>
+  </data>
+  <data name="Mode_Info_ClickOnNodeToChangeCreateDir" xml:space="preserve">
+    <value>Click on node to change create direction</value>
   </data>
   <data name="Mode_Info_ClickSecondSegment" xml:space="preserve">
     <value>Click to select second segment</value>
@@ -178,14 +194,14 @@ Too close to nearby node</value>
   <data name="Mode_Info_ClickSelectNode" xml:space="preserve">
     <value>Click to select node</value>
   </data>
+  <data name="Mode_Info_ClickToChangeCreateDir" xml:space="preserve">
+    <value>Click to change create direction</value>
+  </data>
   <data name="Mode_Info_ClickUnselectNode" xml:space="preserve">
     <value>Click to unselect node</value>
   </data>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Press {0} to create</value>
-  </data>
-  <data name="Mode_Info_CurveDurection" xml:space="preserve">
-    <value>Click on node to change curve direction</value>
   </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
     <value>Radius too big</value>

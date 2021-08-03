@@ -244,14 +244,25 @@ namespace NetworkMultitool
                 RenderCalculatedOverlay(cameraInfo, info);
 
                 var data = new OverlayData(cameraInfo) { Color = Colors.Yellow, Width = info.m_halfWidth * 2f, Cut = true, RenderLimit = Underground };
-                for (var i = 1; i < Points.Count; i += 1)
-                {
-                    var trajectory = new BezierTrajectory(Points[i - 1].Position, Points[i - 1].Direction, Points[i].Position, -Points[i].Direction);
-                    trajectory.Render(data);
-                }
+                RenderParts(data);
             }
             else if (State != Result.None)
+            {
                 RenderFailedOverlay(cameraInfo, Info);
+                var data = new OverlayData(cameraInfo) { Cut = true, RenderLimit = Underground };
+                RenderParts(data);
+            }
+        }
+        private void RenderParts(OverlayData data)
+        {
+            for (var i = 1; i < Points.Count; i += 1)
+            {
+                if (Points[i - 1].IsEmpty || Points[i].IsEmpty)
+                    continue;
+
+                var trajectory = new BezierTrajectory(Points[i - 1].Position, Points[i - 1].Direction, Points[i].Position, -Points[i].Direction);
+                trajectory.Render(data);
+            }
         }
         protected virtual void RenderCalculatedOverlay(RenderManager.CameraInfo cameraInfo, NetInfo info) { }
         protected virtual void RenderFailedOverlay(RenderManager.CameraInfo cameraInfo, NetInfo info) { }
@@ -269,12 +280,15 @@ namespace NetworkMultitool
         {
             public Vector3 Position;
             public Vector3 Direction;
+            public bool IsEmpty => Position == Vector3.zero && Direction == Vector3.zero;
 
             public Point(Vector3 position, Vector3 direction)
             {
                 Position = position;
                 Direction = direction;
             }
+
+            public static Point Empty => new Point(Vector3.zero, Vector3.zero);
         }
         public class Circle
         {
@@ -318,7 +332,18 @@ namespace NetworkMultitool
                 }
             }
             public bool ClockWise => Direction == Direction.Right;
-            public InfoLabel Label { get; set; }
+
+            private InfoLabel _label;
+            public InfoLabel Label
+            {
+                get => _label;
+                set
+                {
+                    _label = value;
+                    if (_label != null)
+                        _label.textScale = 1.5f;
+                }
+            }
 
             public IEnumerable<Point> Parts
             {
@@ -349,14 +374,17 @@ namespace NetworkMultitool
 
             public void Update(bool show)
             {
-                Label.isVisible = show;
-                if (show)
+                if (Label is InfoLabel label)
                 {
-                    Label.text = $"{GetRadiusString(Radius)}\n{GetAngleString(Mathf.Abs(Angle))}";
-                    Label.Direction = CenterDir;
-                    Label.WorldPosition = CenterPos + Label.Direction * 5f;
+                    label.isVisible = show;
+                    if (show)
+                    {
+                        label.text = $"{GetRadiusString(Radius)}\n{GetAngleString(Mathf.Abs(Angle))}";
+                        label.Direction = CenterDir;
+                        label.WorldPosition = CenterPos + label.Direction * 5f;
 
-                    Label.UpdateInfo();
+                        label.UpdateInfo();
+                    }
                 }
             }
             public virtual bool Calculate(float minRadius, float maxRadius, out Result result)
@@ -435,7 +463,17 @@ namespace NetworkMultitool
         public class Straight : StraightTrajectory
         {
             public Vector3 LabelDir { get; }
-            public InfoLabel Label { get; set; }
+            private InfoLabel _label;
+            public InfoLabel Label
+            {
+                get => _label;
+                set
+                {
+                    _label = value;
+                    if (_label != null)
+                        _label.textScale = 1.5f;
+                }
+            }
 
             public IEnumerable<Point> Parts
             {
@@ -458,14 +496,17 @@ namespace NetworkMultitool
 
             public void Update(NetInfo info, bool show)
             {
-                Label.isVisible = show;
-                if (show)
+                if (Label is InfoLabel label)
                 {
-                    Label.text = GetRadiusString(Length);
-                    Label.Direction = LabelDir;
-                    Label.WorldPosition = Position(0.5f) + Label.Direction * (info.m_halfWidth + 7f);
+                    label.isVisible = show;
+                    if (show)
+                    {
+                        label.text = GetRadiusString(Length);
+                        label.Direction = LabelDir;
+                        label.WorldPosition = Position(0.5f) + label.Direction * (info.m_halfWidth + 7f);
 
-                    Label.UpdateInfo();
+                        label.UpdateInfo();
+                    }
                 }
             }
             public void Render(RenderManager.CameraInfo cameraInfo, NetInfo info, Color color, bool underground)

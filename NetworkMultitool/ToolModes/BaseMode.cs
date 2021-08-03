@@ -316,7 +316,15 @@ namespace NetworkMultitool
             var endScreenPosition = Camera.main.WorldToScreenPoint(WorldPosition + Direction);
             var screenDir = ((Vector2)(endScreenPosition - startScreenPosition)).normalized;
             screenDir.y *= -1;
-            var relativePosition = uIView.ScreenPointToGUI(startScreenPosition / uIView.inputScale) - size * 0.5f + screenDir * (size.magnitude * 0.5f);
+
+            var dirLine = new Line2(size / 2f, size / 2f + screenDir);
+            var line1 = new Line2(Vector2.zero, Vector2.zero + screenDir.Turn90(true));
+            var line2 = new Line2(new Vector2(width, 0f), new Vector2(width, 0f) + screenDir.Turn90(false));
+            dirLine.Intersect(line1, out var t1, out _);
+            dirLine.Intersect(line2, out var t2, out _);
+            var delta = Mathf.Max(Mathf.Abs(t1), Mathf.Abs(t2));
+
+            var relativePosition = uIView.ScreenPointToGUI(startScreenPosition / uIView.inputScale) - size * 0.5f + screenDir * delta;
 
             this.relativePosition = relativePosition;
         }

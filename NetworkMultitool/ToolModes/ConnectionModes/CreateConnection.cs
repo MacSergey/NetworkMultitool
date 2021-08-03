@@ -64,18 +64,28 @@ namespace NetworkMultitool
                 else
                     return Localize.Mode_Info_ClickSecondSegment + StepOverInfo;
             }
+            else if (IsHoverNode)
+                return Localize.Mode_Info_ClickToChangeCreateDir;
+            else if (IsHoverCenter)
+                return
+                    Localize.Mode_Connection_Info_DragToMove + "\n" +
+                    Localize.Mode_Connection_Info_DoubleClickToRemove;
+            else if (IsHoverCircle)
+                return Localize.Mode_Connection_Info_DragToChangeRadius;
+            else if (IsHoverStraight)
+                return Localize.Mode_Connection_Info_DoubleClickToAdd;
             else if (State == Result.BigRadius)
                 return Localize.Mode_Info_RadiusTooBig;
             else if (State == Result.WrongShape)
                 return Localize.Mode_Info_WrongShape;
             else if (State != Result.Calculated)
                 return
-                    Localize.Mode_Info_ChooseDirestion + "\n" +
-                    Localize.Mode_Info_CurveDurection;
+                    Localize.Mode_Info_ClickOnNodeToChangeCreateDir + "\n" +
+                    Localize.Mode_Connection_Info_DoubleClickOnCenterToChangeDir;
             else
                 return
-                    Localize.Mode_Info_ChooseDirestion + "\n" +
-                    Localize.Mode_Info_CurveDurection + "\n\n" +
+                    Localize.Mode_Info_ClickOnNodeToChangeCreateDir + "\n" +
+                    Localize.Mode_Connection_Info_DoubleClickOnCenterToChangeDir + "\n\n" +
                     string.Format(Localize.Mode_Info_ChangeBothRadius, DecreaseRadiusShortcut, IncreaseRadiusShortcut) + "\n" +
                     string.Format(Localize.Mode_Info_ChangeCircle, SwitchSelectShortcut) + "\n" +
                     string.Format(Localize.Mode_Info_ChangeOneRadius, DecreaseOneRadiusShortcut, IncreaseOneRadiusShortcut) + "\n" +
@@ -97,6 +107,9 @@ namespace NetworkMultitool
                     var position = XZ(Tool.MouseWorldPosition);
                     for (var i = 0; i < Circles.Count; i += 1)
                     {
+                        if (Circles[i] == null)
+                            continue;
+
                         if ((XZ(Circles[i].CenterPos) - position).sqrMagnitude <= 25f)
                         {
                             HoverCenter = i;
@@ -105,6 +118,9 @@ namespace NetworkMultitool
                     }
                     for (var i = 0; i < Circles.Count; i += 1)
                     {
+                        if (Circles[i] == null)
+                            continue;
+
                         var magnitude = (XZ(Circles[i].CenterPos) - position).magnitude;
                         if (Circles[i].Radius - 5f <= magnitude && magnitude <= Circles[i].Radius + 5f)
                         {
@@ -115,6 +131,9 @@ namespace NetworkMultitool
                     var info = Info;
                     for (var i = 1; i < Straights.Count - 1; i += 1)
                     {
+                        if (Straights[i] == null)
+                            continue;
+
                         var normal = new StraightTrajectory(Tool.MouseWorldPosition, Tool.MouseWorldPosition + Straights[i].Direction.Turn90(true), false);
                         if (Intersection.CalculateSingle(Straights[i], normal, out _, out var t) && Mathf.Abs(t) <= info.m_halfWidth)
                         {
@@ -139,12 +158,31 @@ namespace NetworkMultitool
                 Circles[SelectCircle].Direction = Circles[SelectCircle].Direction == Direction.Right ? Direction.Left : Direction.Right;
                 State = Result.None;
             }
+            else if (IsHoverStraight)
+            {
+                var circle = new Circle(AddLabel());
+                circle.CenterPos = Tool.MouseWorldPosition;
+                Circles.Insert(HoverStraight, circle);
+                Straights.Insert(HoverStraight, null);
+                State = Result.None;
+            }
         }
         public override void OnSecondaryMouseClicked()
         {
             if (!IsHoverCenter)
                 base.OnSecondaryMouseClicked();
         }
+        public override void OnSecondaryMouseDoubleClicked()
+        {
+            if (IsHoverCenter && HoverCenter != 0 && HoverCenter != Circles.Count - 1)
+            {
+                RemoveLabel(Circles[HoverCenter].Label);
+                Circles.RemoveAt(HoverCenter);
+                Straights.RemoveAt(HoverCenter + 1);
+                State = Result.None;
+            }
+        }
+
         public override void OnMouseDown(Event e)
         {
             if (IsHoverCenter)
@@ -217,7 +255,7 @@ namespace NetworkMultitool
         protected override void RenderCalculatedOverlay(RenderManager.CameraInfo cameraInfo, NetInfo info)
         {
             if (IsHoverStraight)
-                Straights[HoverStraight].Render(new OverlayData(cameraInfo) { Width = info.m_halfWidth * 2f + 0.5f, RenderLimit = Underground });
+                Straights[HoverStraight].Render(new OverlayData(cameraInfo) { Width = info.m_halfWidth * 2f + 0.7f, RenderLimit = Underground, Cut = true });
 
             for (var i = 0; i < Circles.Count; i += 1)
                 Circles[i].RenderCircle(cameraInfo, i == HoverCircle ? Colors.Blue : Colors.Green.SetAlpha(64), Underground);
