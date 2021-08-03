@@ -55,7 +55,10 @@ namespace NetworkMultitool
         protected override void ResetParams()
         {
             base.ResetParams();
-
+            ResetData();
+        }
+        private void ResetData()
+        {
             foreach (var circle in Circles)
             {
                 if (circle?.Label != null)
@@ -108,6 +111,8 @@ namespace NetworkMultitool
 
         protected override void Init(StraightTrajectory firstTrajectory, StraightTrajectory secondTrajectory)
         {
+            ResetData();
+
             var first = new EdgeCircle(CircleType.First, AddLabel(), firstTrajectory);
             var last = new EdgeCircle(CircleType.Last, AddLabel(), secondTrajectory);
             Circles.Add(first);

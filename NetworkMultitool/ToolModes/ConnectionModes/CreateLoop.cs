@@ -68,7 +68,10 @@ namespace NetworkMultitool
         protected override void ResetParams()
         {
             base.ResetParams();
-
+            ResetData();
+        }
+        private void ResetData()
+        {
             if (Circle is MiddleCircle circle)
                 RemoveLabel(circle.Label);
             if (StartStraight is Straight oldStart)
@@ -95,6 +98,8 @@ namespace NetworkMultitool
         }
         protected override void Init(StraightTrajectory firstTrajectory, StraightTrajectory secondTrajectory)
         {
+            ResetData();
+
             if (!Intersection.CalculateSingle(firstTrajectory, secondTrajectory, out var firtsT, out var secondT))
             {
                 State = Result.NotIntersect;
