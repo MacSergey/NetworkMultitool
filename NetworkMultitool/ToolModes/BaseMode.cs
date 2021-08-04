@@ -23,14 +23,16 @@ namespace NetworkMultitool
         protected static NetworkMultitoolShortcut GetShortcut(KeyCode keyCode, Action action, ToolModeType mode = ToolModeType.Any, bool ctrl = false, bool shift = false, bool alt = false, bool repeat = false, bool ignoreModifiers = false) => GetShortcut(keyCode, string.Empty, string.Empty, action, mode, ctrl, shift, alt, repeat, ignoreModifiers);
         protected static NetworkMultitoolShortcut GetShortcut(KeyCode keyCode, string name, string labelKey, Action action, ToolModeType mode = ToolModeType.Any, bool ctrl = false, bool shift = false, bool alt = false, bool repeat = false, bool ignoreModifiers = false) => new NetworkMultitoolShortcut(name, labelKey, SavedInputKey.Encode(keyCode, ctrl, shift, alt), action, mode) { CanRepeat = repeat, IgnoreModifiers = ignoreModifiers };
 
+        private static Dictionary<ToolModeType, List<ModeButton>> ButtonsDic { get; } = new Dictionary<ToolModeType, List<ModeButton>>();
+
         public abstract ToolModeType Type { get; }
         public virtual bool CreateButton => true;
         public string Title => SingletonMod<Mod>.Instance.GetLocalizeString(Type.GetAttr<DescriptionAttribute, ToolModeType>().Description);
         protected abstract bool IsReseted { get; }
         protected virtual bool CanSwitchUnderground => true;
         private bool ForbiddenSwitchUnderground { get; set; }
+        protected virtual bool AllowUntouch => false;
 
-        private List<ModeButton> Buttons { get; } = new List<ModeButton>();
         public NetworkMultitoolShortcut ActivationShortcut => NetworkMultitoolTool.ModeShortcuts[Type];
         public virtual IEnumerable<NetworkMultitoolShortcut> Shortcuts
         {
@@ -48,14 +50,20 @@ namespace NetworkMultitool
         {
             base.Activate(prevMode);
             ForbiddenSwitchUnderground = false;
-            foreach (var button in Buttons)
-                button.Activate = true;
+            if (ButtonsDic.TryGetValue(Type & ToolModeType.Group, out var buttons))
+            {
+                foreach (var button in buttons)
+                    button.Activate = true;
+            }
         }
         public override void Deactivate()
         {
             base.Deactivate();
-            foreach (var button in Buttons)
-                button.Activate = false;
+            if (ButtonsDic.TryGetValue(Type & ToolModeType.Group, out var buttons))
+            {
+                foreach (var button in buttons)
+                    button.Activate = false;
+            }
             ClearLabels();
         }
         protected override void Reset(IToolMode prevMode)
@@ -92,7 +100,13 @@ namespace NetworkMultitool
             var button = parent.AddUIComponent<ModeButton>();
             button.Init(this, Type.ToString());
             button.eventClicked += ButtonClicked;
-            Buttons.Add(button);
+
+            if(!ButtonsDic.TryGetValue(Type & ToolModeType.Group, out var buttons))
+            {
+                buttons = new List<ModeButton>();
+                ButtonsDic[Type & ToolModeType.Group] = buttons;
+            }
+            buttons.Add(button);
         }
         private void ButtonClicked(UIComponent component, UIMouseEventParameter eventParam) => Tool.SetMode(this);
 
@@ -108,7 +122,7 @@ namespace NetworkMultitool
         protected string StepOverInfo => NetworkMultitoolTool.SelectionStepOverShortcut.NotSet ? string.Empty : "\n\n" + string.Format(CommonLocalize.Tool_InfoSelectionStepOver, NetworkMultitoolTool.SelectionStepOverShortcut.InputKey);
         protected string UndergroundInfo => $"\n{Localize.Mode_Info_UndergroundMode}";
 
-        protected override bool CheckSegment(ushort segmentId) => segmentId.GetSegment().m_flags.CheckFlags(0, NetSegment.Flags.Untouchable) && base.CheckSegment(segmentId);
+        protected override bool CheckSegment(ushort segmentId) => (AllowUntouch || segmentId.GetSegment().m_flags.CheckFlags(0, NetSegment.Flags.Untouchable)) && base.CheckSegment(segmentId);
 
         protected override bool CheckItemClass(ItemClass itemClass) => itemClass.m_layer == ItemClass.Layer.Default || itemClass.m_layer == ItemClass.Layer.MetroTunnels;
 
@@ -139,8 +153,20 @@ namespace NetworkMultitool
             sourceDir = sourceDir.TurnRad(angle, false);
 
             RemoveSegment(segmentId);
-            CreateSegment(out _, info, otherNodeId, targetNodeId, otherDir, sourceDir, invert);
+            CreateSegment(out var newSegmentId, info, otherNodeId, targetNodeId, otherDir, sourceDir, invert);
+            CalculateSegmentDirections(newSegmentId);
         }
+        protected void CalculateSegmentDirections(ushort segmentId)
+        {
+            ref var segment = ref segmentId.GetSegment();
+
+            segment.m_startDirection = NormalizeXZ(segment.m_startDirection);
+            segment.m_endDirection = NormalizeXZ(segment.m_endDirection);
+
+            segment.m_startDirection = segment.FindDirection(segmentId, segment.m_startNode);
+            segment.m_endDirection = segment.FindDirection(segmentId, segment.m_endNode);
+        }
+
         protected Rect GetTerrainRect(params ushort[] segmentIds) => segmentIds.Select(i => (ITrajectory)new BezierTrajectory(i)).GetRect();
         protected void UpdateTerrain(params ushort[] segmentIds)
         {
@@ -230,14 +256,45 @@ namespace NetworkMultitool
             else
                 return true;
         }
+        protected void RenderParts(List<Point> points, RenderManager.CameraInfo cameraInfo, Color? color = null, float? width = null)
+        {
+            var data = new OverlayData(cameraInfo) { Color = color, Width = width, RenderLimit = Underground, Cut = true };
+            for (var i = 1; i < points.Count; i += 1)
+            {
+                if (points[i - 1].IsEmpty || points[i].IsEmpty)
+                    continue;
+
+                var trajectory = new BezierTrajectory(points[i - 1].Position, points[i - 1].Direction, points[i].Position, -points[i].Direction);
+                trajectory.Render(data);
+            }
+        }
+
+        public struct Point
+        {
+            public Vector3 Position;
+            public Vector3 Direction;
+            public bool IsEmpty => Position == Vector3.zero && Direction == Vector3.zero;
+
+            public Point(Vector3 position, Vector3 direction)
+            {
+                Position = position;
+                Direction = direction;
+            }
+
+            public static Point Empty => new Point(Vector3.zero, Vector3.zero);
+        }
     }
     public enum ToolModeType
     {
         [NotItem]
         None = 0,
 
+        [NotItem]
+        Group = int.MaxValue << 8,
+
+
         [Description(nameof(Localize.Mode_AddNode))]
-        AddNode = 1,
+        AddNode = 1 << (1 + 8),
 
         [Description(nameof(Localize.Mode_RemoveNode))]
         RemoveNode = AddNode << 1,
@@ -255,8 +312,11 @@ namespace NetworkMultitool
         [Description(nameof(Localize.Mode_InvertSegment))]
         InvertSegment = IntersectSegment << 1,
 
+        [Description(nameof(Localize.Mode_MakeTouchable))]
+        MakeTouchable = InvertSegment << 1,
+
         [Description(nameof(Localize.Mode_SlopeNode))]
-        SlopeNode = InvertSegment << 1,
+        SlopeNode = MakeTouchable << 1,
 
         [Description(nameof(Localize.Mode_ArrangeAtLine))]
         ArrangeAtLine = SlopeNode << 1,
@@ -270,11 +330,11 @@ namespace NetworkMultitool
 
         [NotItem]
         [Description(nameof(Localize.Mode_CreateConnection))]
-        CreateConnectionMoveCircle = CreateConnection << 1,
+        CreateConnectionMoveCircle = CreateConnection + 1,
 
         [NotItem]
         [Description(nameof(Localize.Mode_CreateConnection))]
-        CreateConnectionChangeRadius = CreateConnectionMoveCircle << 1,
+        CreateConnectionChangeRadius = CreateConnection + 2,
 
 
         [NotItem]

@@ -125,6 +125,24 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Click to select arrange direction.
+        /// </summary>
+        internal static string Mode_ArrangeLine_Info_ClickToSelectDirection {
+            get {
+                return ResourceManager.GetString("Mode_ArrangeLine_Info_ClickToSelectDirection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Select segment to set arrange direction.
+        /// </summary>
+        internal static string Mode_ArrangeLine_Info_SelectDirection {
+            get {
+                return ResourceManager.GetString("Mode_ArrangeLine_Info_SelectDirection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Double click on circle center
         ///to change curve direction.
         /// </summary>
@@ -438,6 +456,43 @@ namespace NetworkMultitool {
         internal static string Mode_InvertSegment_Info {
             get {
                 return ResourceManager.GetString("Mode_InvertSegment_Info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Make Touchable mode.
+        /// </summary>
+        internal static string Mode_MakeTouchable {
+            get {
+                return ResourceManager.GetString("Mode_MakeTouchable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Select segment to change
+        ///its touchability.
+        /// </summary>
+        internal static string Mode_MakeTouchable_Info_ChangeTouchability {
+            get {
+                return ResourceManager.GetString("Mode_MakeTouchable_Info_ChangeTouchability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Click to make this segment touchable.
+        /// </summary>
+        internal static string Mode_MakeTouchable_Info_MakeTouchable {
+            get {
+                return ResourceManager.GetString("Mode_MakeTouchable_Info_MakeTouchable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Click to make this segment untouchable.
+        /// </summary>
+        internal static string Mode_MakeTouchable_Info_MakeUntouchable {
+            get {
+                return ResourceManager.GetString("Mode_MakeTouchable_Info_MakeUntouchable", resourceCulture);
             }
         }
         

@@ -47,6 +47,8 @@ namespace NetworkMultitool
         protected bool IsHoverCircle => HoverCircle != -1;
         public int HoverStraight { get; private set; }
         protected bool IsHoverStraight => HoverStraight != -1;
+        private Vector3 LastPos { get; set; }
+        private float PosTime { get; set; }
 
         protected override string GetInfo()
         {
@@ -67,9 +69,12 @@ namespace NetworkMultitool
             else if (IsHoverNode)
                 return Localize.Mode_Info_ClickToChangeCreateDir;
             else if (IsHoverCenter)
-                return
-                    Localize.Mode_Connection_Info_DragToMove + "\n" +
-                    Localize.Mode_Connection_Info_DoubleClickToRemove;
+            {
+                var result = Localize.Mode_Connection_Info_DragToMove;
+                if(HoverCenter == 0 || HoverCenter == Circles.Count - 1)
+                    result += "\n" + Localize.Mode_Connection_Info_DoubleClickToRemove;
+                return result;
+            }
             else if (IsHoverCircle)
                 return Localize.Mode_Connection_Info_DragToChangeRadius;
             else if (IsHoverStraight)
@@ -83,15 +88,30 @@ namespace NetworkMultitool
                     Localize.Mode_Info_ClickOnNodeToChangeCreateDir + "\n" +
                     Localize.Mode_Connection_Info_DoubleClickOnCenterToChangeDir;
             else
-                return
+            {
+                if (Tool.MousePosition != LastPos)
+                {
+                    LastPos = Tool.MousePosition;
+                    PosTime = Time.realtimeSinceStartup;
+                }
+
+                var text =
                     Localize.Mode_Info_ClickOnNodeToChangeCreateDir + "\n" +
-                    Localize.Mode_Connection_Info_DoubleClickOnCenterToChangeDir + "\n\n" +
+                    Localize.Mode_Connection_Info_DoubleClickOnCenterToChangeDir;
+
+                if (Time.realtimeSinceStartup - PosTime >= 2f)
+                {
+                    text += "\n\n" +
                     string.Format(Localize.Mode_Info_ChangeBothRadius, DecreaseRadiusShortcut, IncreaseRadiusShortcut) + "\n" +
                     string.Format(Localize.Mode_Info_ChangeCircle, SwitchSelectShortcut) + "\n" +
                     string.Format(Localize.Mode_Info_ChangeOneRadius, DecreaseOneRadiusShortcut, IncreaseOneRadiusShortcut) + "\n" +
                     string.Format(Localize.Mode_Info_SwitchOffset, SwitchOffsetShortcut) + "\n" +
                     string.Format(Localize.Mode_Info_ChangeOffset, DecreaseOffsetShortcut, IncreaseOffsetShortcut) + "\n" +
                     string.Format(Localize.Mode_Info_Create, ApplyShortcut);
+                }
+
+                return text;
+            }
         }
         public override void OnToolUpdate()
         {
@@ -261,10 +281,10 @@ namespace NetworkMultitool
                 Circles[i].RenderCircle(cameraInfo, i == HoverCircle ? Colors.Blue : Colors.Green.SetAlpha(64), Underground);
 
             foreach (var circle in Circles)
-                circle.Render(cameraInfo, info, Colors.White, Underground);
+                circle.Render(cameraInfo, info, Colors.Gray224, Underground);
 
             for (var i = 0; i < Straights.Count; i += 1)
-                Straights[i].Render(cameraInfo, info, i == (SelectOffset ? 0 : Straights.Count - 1) ? Colors.Yellow : Colors.White, Underground);
+                Straights[i].Render(cameraInfo, info, Colors.Gray224, i == (SelectOffset ? 0 : Straights.Count - 1) ? Colors.Yellow : Colors.Gray224, Underground);
 
             for (var i = 0; i < Circles.Count; i += 1)
                 RenderCenter(cameraInfo, i);

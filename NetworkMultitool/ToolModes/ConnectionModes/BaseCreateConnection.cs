@@ -55,7 +55,10 @@ namespace NetworkMultitool
         protected override void ResetParams()
         {
             base.ResetParams();
-
+            ResetData();
+        }
+        private void ResetData()
+        {
             foreach (var circle in Circles)
             {
                 if (circle?.Label != null)
@@ -108,6 +111,8 @@ namespace NetworkMultitool
 
         protected override void Init(StraightTrajectory firstTrajectory, StraightTrajectory secondTrajectory)
         {
+            ResetData();
+
             var first = new EdgeCircle(CircleType.First, AddLabel(), firstTrajectory);
             var last = new EdgeCircle(CircleType.Last, AddLabel(), secondTrajectory);
             Circles.Add(first);
@@ -206,9 +211,9 @@ namespace NetworkMultitool
         protected override void RenderCalculatedOverlay(RenderManager.CameraInfo cameraInfo, NetInfo info)
         {
             foreach (var circle in Circles)
-                circle.Render(cameraInfo, info, Colors.White, Underground);
+                circle.Render(cameraInfo, info, Colors.Gray224, Underground);
             foreach (var straight in Straights)
-                straight.Render(cameraInfo, info, Colors.White, Underground);
+                straight.Render(cameraInfo, info, Colors.Gray224, Colors.Gray224, Underground);
         }
         protected override void RenderFailedOverlay(RenderManager.CameraInfo cameraInfo, NetInfo info)
         {
