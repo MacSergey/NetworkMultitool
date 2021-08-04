@@ -24,7 +24,7 @@ namespace NetworkMultitool
         protected List<NodeSelection> Nodes { get; } = new List<NodeSelection>();
         protected NodeSelection LastHover { get; set; }
         protected HashSet<NodeSelection> ToAdd { get; } = new HashSet<NodeSelection>();
-        protected Result State { get; private set; }
+        private AddResult AddState { get; set; }
 
         protected override bool IsValidNode(ushort nodeId)
         {
@@ -45,17 +45,17 @@ namespace NetworkMultitool
             Nodes.Clear();
             ToAdd.Clear();
             LastHover = null;
-            State = Result.None;
+            AddState = AddResult.None;
         }
         protected override string GetInfo()
         {
-            if (State == Result.None)
+            if (AddState == AddResult.None)
                 return Localize.Mode_NodeLine_Info_SelectNode + UndergroundInfo;
-            else if (State == Result.One || State == Result.InStart || State == Result.InEnd)
+            else if (AddState == AddResult.One || AddState == AddResult.InStart || AddState == AddResult.InEnd)
                 return Localize.Mode_Info_ClickSelectNode + StepOverInfo;
-            else if (State == Result.IsFirst || State == Result.IsLast)
+            else if (AddState == AddResult.IsFirst || AddState == AddResult.IsLast)
                 return Localize.Mode_Info_ClickUnselectNode + StepOverInfo;
-            else if (State == Result.NotConnect)
+            else if (AddState == AddResult.NotConnect)
                 return Localize.Mode_NodeLine_Info_NotConnected + StepOverInfo;
             else
                 return string.Format(Localize.Mode_Info_Apply, ApplyShortcut);
@@ -66,36 +66,36 @@ namespace NetworkMultitool
 
             if (!IsHoverNode)
             {
-                State = Result.None;
+                AddState = AddResult.None;
                 LastHover = null;
                 ToAdd.Clear();
             }
-            else if (State == Result.None || !HoverNode.Equals(LastHover))
+            else if (AddState == AddResult.None || !HoverNode.Equals(LastHover))
             {
                 LastHover = HoverNode;
                 ToAdd.Clear();
 
                 if (Nodes.Count == 0)
                 {
-                    State = Result.One;
+                    AddState = AddResult.One;
                     ToAdd.Add(HoverNode);
                 }
                 else if (HoverNode.Id == Nodes[0].Id)
-                    State = Result.IsFirst;
+                    AddState = AddResult.IsFirst;
                 else if (HoverNode.Id == Nodes[Nodes.Count - 1].Id)
-                    State = Result.IsLast;
+                    AddState = AddResult.IsLast;
                 else if (Check(HoverNode.Id, Nodes[0].Id, Nodes[Nodes.Count - 1].Id, (Nodes.Count == 1 ? 0 : Nodes[1].Id), out var toAddStart))
                 {
-                    State = Result.InStart;
+                    AddState = AddResult.InStart;
                     ToAdd.AddRange(toAddStart.Select(i => new NodeSelection(i)));
                 }
                 else if (Check(HoverNode.Id, Nodes[Nodes.Count - 1].Id, Nodes[0].Id, (Nodes.Count == 1 ? 0 : Nodes[Nodes.Count - 2].Id), out var toAddEnd))
                 {
-                    State = Result.InEnd;
+                    AddState = AddResult.InEnd;
                     ToAdd.AddRange(toAddEnd.Select(i => new NodeSelection(i)));
                 }
                 else
-                    State = Result.NotConnect;
+                    AddState = AddResult.NotConnect;
             }
 
         }
@@ -136,19 +136,19 @@ namespace NetworkMultitool
 
         public override void OnPrimaryMouseClicked(Event e)
         {
-            if (State == Result.InStart)
+            if (AddState == AddResult.InStart)
             {
                 foreach (var node in ToAdd)
                     AddFirst(node);
             }
-            else if (State == Result.One || State == Result.InEnd)
+            else if (AddState == AddResult.One || AddState == AddResult.InEnd)
             {
                 foreach (var node in ToAdd)
                     AddLast(node);
             }
-            else if (State == Result.IsFirst)
+            else if (AddState == AddResult.IsFirst)
                 RemoveFirst();
-            else if (State == Result.IsLast)
+            else if (AddState == AddResult.IsLast)
                 RemoveLast();
         }
         protected virtual void AddFirst(NodeSelection selection) => Nodes.Insert(0, selection);
@@ -166,23 +166,23 @@ namespace NetworkMultitool
 
             for (var i = 0; i < Nodes.Count; i += 1)
             {
-                if ((i != 0 || State != Result.IsFirst) && (i != Nodes.Count - 1 || State != Result.IsLast))
+                if ((i != 0 || AddState != AddResult.IsFirst) && (i != Nodes.Count - 1 || AddState != AddResult.IsLast))
                     Nodes[i].Render(new OverlayData(cameraInfo) { Color = Colors.White, RenderLimit = Underground });
             }
 
             if (IsHoverNode)
             {
-                if (State == Result.One || State == Result.InStart || State == Result.InEnd)
+                if (AddState == AddResult.One || AddState == AddResult.InStart || AddState == AddResult.InEnd)
                 {
                     foreach (var node in ToAdd)
                         node.Render(new OverlayData(cameraInfo) { Color = Colors.Green, RenderLimit = Underground });
                 }
                 else
                 {
-                    var color = State switch
+                    var color = AddState switch
                     {
-                        Result.IsFirst or Result.IsLast => Colors.Yellow,
-                        Result.NotConnect => Colors.Red,
+                        AddResult.IsFirst or AddResult.IsLast => Colors.Yellow,
+                        AddResult.NotConnect => Colors.Red,
                         _ => Colors.Red,
                     };
                     HoverNode.Render(new OverlayData(cameraInfo) { Color = color, RenderLimit = Underground });
@@ -192,7 +192,7 @@ namespace NetworkMultitool
         private bool AllowRenderNode(ushort nodeId) => Nodes.All(n => n.Id != nodeId);
         protected override bool AllowRenderNear(ushort nodeId) => base.AllowRenderNear(nodeId) && AllowRenderNode(nodeId) && ToAdd.All(n => n.Id != nodeId);
 
-        protected enum Result
+        private enum AddResult
         {
             None,
             One,

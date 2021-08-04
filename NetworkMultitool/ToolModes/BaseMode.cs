@@ -153,8 +153,20 @@ namespace NetworkMultitool
             sourceDir = sourceDir.TurnRad(angle, false);
 
             RemoveSegment(segmentId);
-            CreateSegment(out _, info, otherNodeId, targetNodeId, otherDir, sourceDir, invert);
+            CreateSegment(out var newSegmentId, info, otherNodeId, targetNodeId, otherDir, sourceDir, invert);
+            CalculateSegmentDirections(newSegmentId);
         }
+        protected void CalculateSegmentDirections(ushort segmentId)
+        {
+            ref var segment = ref segmentId.GetSegment();
+
+            segment.m_startDirection = NormalizeXZ(segment.m_startDirection);
+            segment.m_endDirection = NormalizeXZ(segment.m_endDirection);
+
+            segment.m_startDirection = segment.FindDirection(segmentId, segment.m_startNode);
+            segment.m_endDirection = segment.FindDirection(segmentId, segment.m_endNode);
+        }
+
         protected Rect GetTerrainRect(params ushort[] segmentIds) => segmentIds.Select(i => (ITrajectory)new BezierTrajectory(i)).GetRect();
         protected void UpdateTerrain(params ushort[] segmentIds)
         {
@@ -243,6 +255,33 @@ namespace NetworkMultitool
                 return !HoverSegment.Id.GetSegment().Contains(nodeId);
             else
                 return true;
+        }
+        protected void RenderParts(List<Point> points, RenderManager.CameraInfo cameraInfo, Color? color = null, float? width = null)
+        {
+            var data = new OverlayData(cameraInfo) { Color = color, Width = width, RenderLimit = Underground, Cut = true };
+            for (var i = 1; i < points.Count; i += 1)
+            {
+                if (points[i - 1].IsEmpty || points[i].IsEmpty)
+                    continue;
+
+                var trajectory = new BezierTrajectory(points[i - 1].Position, points[i - 1].Direction, points[i].Position, -points[i].Direction);
+                trajectory.Render(data);
+            }
+        }
+
+        public struct Point
+        {
+            public Vector3 Position;
+            public Vector3 Direction;
+            public bool IsEmpty => Position == Vector3.zero && Direction == Vector3.zero;
+
+            public Point(Vector3 position, Vector3 direction)
+            {
+                Position = position;
+                Direction = direction;
+            }
+
+            public static Point Empty => new Point(Vector3.zero, Vector3.zero);
         }
     }
     public enum ToolModeType

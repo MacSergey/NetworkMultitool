@@ -228,7 +228,7 @@ namespace NetworkMultitool
 
             var color = State switch
             {
-                Result.BigRadius or Result.SmallRadius or Result.WrongShape => Colors.Red,
+                Result.BigRadius or Result.SmallRadius or Result.WrongShape or Result.NotIntersect => Colors.Red,
                 Result.Calculated => Colors.White.SetAlpha(64),
                 _ => Colors.White,
             };
@@ -242,26 +242,12 @@ namespace NetworkMultitool
             {
                 var info = Info;
                 RenderCalculatedOverlay(cameraInfo, info);
-
-                var data = new OverlayData(cameraInfo) { Color = Colors.Yellow, Width = info.m_halfWidth * 2f, Cut = true, RenderLimit = Underground };
-                RenderParts(data);
+                RenderParts(Points, cameraInfo, Colors.Yellow, info.m_halfWidth * 2f);
             }
             else if (State != Result.None)
             {
                 RenderFailedOverlay(cameraInfo, Info);
-                var data = new OverlayData(cameraInfo) { Cut = true, RenderLimit = Underground };
-                RenderParts(data);
-            }
-        }
-        private void RenderParts(OverlayData data)
-        {
-            for (var i = 1; i < Points.Count; i += 1)
-            {
-                if (Points[i - 1].IsEmpty || Points[i].IsEmpty)
-                    continue;
-
-                var trajectory = new BezierTrajectory(Points[i - 1].Position, Points[i - 1].Direction, Points[i].Position, -Points[i].Direction);
-                trajectory.Render(data);
+                RenderParts(Points, cameraInfo);
             }
         }
         protected virtual void RenderCalculatedOverlay(RenderManager.CameraInfo cameraInfo, NetInfo info) { }
@@ -275,20 +261,6 @@ namespace NetworkMultitool
             BigRadius,
             WrongShape,
             Calculated,
-        }
-        public struct Point
-        {
-            public Vector3 Position;
-            public Vector3 Direction;
-            public bool IsEmpty => Position == Vector3.zero && Direction == Vector3.zero;
-
-            public Point(Vector3 position, Vector3 direction)
-            {
-                Position = position;
-                Direction = direction;
-            }
-
-            public static Point Empty => new Point(Vector3.zero, Vector3.zero);
         }
         public class Circle
         {

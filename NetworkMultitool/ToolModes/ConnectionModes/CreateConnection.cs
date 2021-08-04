@@ -69,9 +69,12 @@ namespace NetworkMultitool
             else if (IsHoverNode)
                 return Localize.Mode_Info_ClickToChangeCreateDir;
             else if (IsHoverCenter)
-                return
-                    Localize.Mode_Connection_Info_DragToMove + "\n" +
-                    Localize.Mode_Connection_Info_DoubleClickToRemove;
+            {
+                var result = Localize.Mode_Connection_Info_DragToMove;
+                if(HoverCenter == 0 || HoverCenter == Circles.Count - 1)
+                    result += "\n" + Localize.Mode_Connection_Info_DoubleClickToRemove;
+                return result;
+            }
             else if (IsHoverCircle)
                 return Localize.Mode_Connection_Info_DragToChangeRadius;
             else if (IsHoverStraight)
@@ -86,7 +89,7 @@ namespace NetworkMultitool
                     Localize.Mode_Connection_Info_DoubleClickOnCenterToChangeDir;
             else
             {
-                if(Tool.MousePosition != LastPos)
+                if (Tool.MousePosition != LastPos)
                 {
                     LastPos = Tool.MousePosition;
                     PosTime = Time.realtimeSinceStartup;

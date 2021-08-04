@@ -73,15 +73,46 @@ namespace NetworkMultitool
         private void ResetData()
         {
             if (Circle is MiddleCircle circle)
-                RemoveLabel(circle.Label);
+            {
+                if (circle.Label != null)
+                {
+                    RemoveLabel(circle.Label);
+                    circle.Label = null;
+                }
+            }
             if (StartStraight is Straight oldStart)
-                RemoveLabel(oldStart.Label);
+            {
+                if (oldStart.Label != null)
+                {
+                    RemoveLabel(oldStart.Label);
+                    oldStart.Label = null;
+                }
+            }
             if (EndStraight is Straight oldEnd)
-                RemoveLabel(oldEnd.Label);
+            {
+                if (oldEnd.Label != null)
+                {
+                    RemoveLabel(oldEnd.Label);
+                    oldEnd.Label = null;
+                }
+            }
 
             Circle = null;
             StartStraight = null;
             EndStraight = null;
+        }
+        protected override void ClearLabels()
+        {
+            base.ClearLabels();
+
+            if (Circle != null)
+                Circle.Label = null;
+
+            if (StartStraight != null)
+                StartStraight.Label = null;
+
+            if (EndStraight != null)
+                EndStraight.Label = null;
         }
 
         public override void OnToolUpdate()
@@ -91,9 +122,9 @@ namespace NetworkMultitool
             if (State != Result.None)
             {
                 var info = Info;
-                Circle.Update(State == Result.Calculated);
-                StartStraight.Update(info, State == Result.Calculated);
-                EndStraight.Update(info, State == Result.Calculated);
+                Circle?.Update(State == Result.Calculated);
+                StartStraight?.Update(info, State == Result.Calculated);
+                EndStraight?.Update(info, State == Result.Calculated);
             }
         }
         protected override void Init(StraightTrajectory firstTrajectory, StraightTrajectory secondTrajectory)
@@ -113,7 +144,7 @@ namespace NetworkMultitool
             if (!Circle.Calculate(MinPossibleRadius, float.MaxValue, out var result))
             {
                 State = result;
-                return new Point[0];
+                return new Point[] { Point.Empty };
             }
 
             Circle.GetStraight(StartStraight?.Label ?? AddLabel(), EndStraight?.Label ?? AddLabel(), out var start, out var end);
