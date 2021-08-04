@@ -125,6 +125,24 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Click to select arrange direction.
+        /// </summary>
+        internal static string Mode_ArrangeLine_Info_ClickToSelectDirection {
+            get {
+                return ResourceManager.GetString("Mode_ArrangeLine_Info_ClickToSelectDirection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Select segment to set arrange direction.
+        /// </summary>
+        internal static string Mode_ArrangeLine_Info_SelectDirection {
+            get {
+                return ResourceManager.GetString("Mode_ArrangeLine_Info_SelectDirection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Double click on circle center
         ///to change curve direction.
         /// </summary>

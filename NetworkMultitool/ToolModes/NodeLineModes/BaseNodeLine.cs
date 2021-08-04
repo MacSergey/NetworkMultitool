@@ -24,7 +24,7 @@ namespace NetworkMultitool
         protected List<NodeSelection> Nodes { get; } = new List<NodeSelection>();
         protected NodeSelection LastHover { get; set; }
         protected HashSet<NodeSelection> ToAdd { get; } = new HashSet<NodeSelection>();
-        private AddResult AddState { get; set; }
+        protected AddResult AddState { get; set; }
 
         protected override bool IsValidNode(ushort nodeId)
         {
@@ -84,25 +84,60 @@ namespace NetworkMultitool
                     AddState = AddResult.IsFirst;
                 else if (HoverNode.Id == Nodes[Nodes.Count - 1].Id)
                     AddState = AddResult.IsLast;
-                else if (Check(HoverNode.Id, Nodes[0].Id, Nodes[Nodes.Count - 1].Id, (Nodes.Count == 1 ? 0 : Nodes[1].Id), out var toAddStart))
-                {
-                    AddState = AddResult.InStart;
-                    ToAdd.AddRange(toAddStart.Select(i => new NodeSelection(i)));
-                }
-                else if (Check(HoverNode.Id, Nodes[Nodes.Count - 1].Id, Nodes[0].Id, (Nodes.Count == 1 ? 0 : Nodes[Nodes.Count - 2].Id), out var toAddEnd))
-                {
-                    AddState = AddResult.InEnd;
-                    ToAdd.AddRange(toAddEnd.Select(i => new NodeSelection(i)));
-                }
                 else
-                    AddState = AddResult.NotConnect;
+                {
+                    var inStart = Check(true, HoverNode.Id, Nodes[0].Id, Nodes[Nodes.Count - 1].Id, (Nodes.Count == 1 ? 0 : Nodes[1].Id), out var toAddStart);
+                    var inEnd = Check(false, HoverNode.Id, Nodes[Nodes.Count - 1].Id, Nodes[0].Id, (Nodes.Count == 1 ? 0 : Nodes[Nodes.Count - 2].Id), out var toAddEnd);
+
+                    if (inStart && inEnd)
+                    {
+                        inStart = toAddStart.Count <= toAddEnd.Count;
+                        inEnd = toAddEnd.Count < toAddStart.Count;
+                    }
+
+                    if (inStart)
+                    {
+                        AddState = AddResult.InStart;
+                        ToAdd.AddRange(toAddStart.Select(i => new NodeSelection(i)));
+                    }
+                    else if (inEnd)
+                    {
+                        AddState = AddResult.InEnd;
+                        ToAdd.AddRange(toAddEnd.Select(i => new NodeSelection(i)));
+                    }
+                    else
+                        AddState = AddResult.NotConnect;
+                }
+                //else if(NetExtension.GetCommon(HoverNode.Id, Nodes[0].Id, out _))
+                //{
+                //    AddState = AddResult.InStart;
+                //    ToAdd.Add(HoverNode);
+                //}
+                //else if (NetExtension.GetCommon(HoverNode.Id, Nodes[Nodes.Count - 1].Id, out _))
+                //{
+                //    AddState = AddResult.InEnd;
+                //    ToAdd.Add(HoverNode);
+                //}
+                //else if (Check(HoverNode.Id, Nodes[0].Id, Nodes[Nodes.Count - 1].Id, (Nodes.Count == 1 ? 0 : Nodes[1].Id), out var toAddStart))
+                //{
+                //    AddState = AddResult.InStart;
+                //    ToAdd.AddRange(toAddStart.Select(i => new NodeSelection(i)));
+                //}
+                //else if (Check(HoverNode.Id, Nodes[Nodes.Count - 1].Id, Nodes[0].Id, (Nodes.Count == 1 ? 0 : Nodes[Nodes.Count - 2].Id), out var toAddEnd))
+                //{
+                //    AddState = AddResult.InEnd;
+                //    ToAdd.AddRange(toAddEnd.Select(i => new NodeSelection(i)));
+                //}
+                //else
+                //    AddState = AddResult.NotConnect;
             }
 
         }
-        private bool Check(ushort nodeId, ushort startId, ushort endId, ushort stopId, out HashSet<ushort> toAdd)
+        private bool Check(bool isStart, ushort nodeId, ushort startId, ushort endId, ushort stopId, out HashSet<ushort> toAdd)
         {
             ref var node = ref startId.GetNode();
-            foreach (var id in node.SegmentIds())
+            var segmentIds = isStart ? node.SegmentIds() : node.SegmentIds().Reverse();
+            foreach (var id in segmentIds)
             {
                 var segmentId = id;
                 var nextId = segmentId.GetSegment().GetOtherNode(startId);
@@ -192,7 +227,7 @@ namespace NetworkMultitool
         private bool AllowRenderNode(ushort nodeId) => Nodes.All(n => n.Id != nodeId);
         protected override bool AllowRenderNear(ushort nodeId) => base.AllowRenderNear(nodeId) && AllowRenderNode(nodeId) && ToAdd.All(n => n.Id != nodeId);
 
-        private enum AddResult
+        protected enum AddResult
         {
             None,
             One,
