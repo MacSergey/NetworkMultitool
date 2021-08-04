@@ -247,22 +247,11 @@
   <data name="Mode_InvertSegment" xml:space="preserve">
     <value>Режим инвертирования сегмента</value>
   </data>
-  <data name="Mode_InvertSegment_Info" xml:space="preserve">
-    <value>Нажатие правую кнопку для инверсии
-Нажмите левую кнопку для реверса</value>
+  <data name="Mode_InvertSegment_Info_ClickToReverse" xml:space="preserve">
+    <value>Нажмите чтобы инвертировать сегмент</value>
   </data>
-  <data name="Mode_MakeTouchable" xml:space="preserve">
-    <value>Make Touchable mode</value>
-  </data>
-  <data name="Mode_MakeTouchable_Info_ChangeTouchability" xml:space="preserve">
-    <value>Выберите сегмент чтобы изменить
-возможность редактировать его</value>
-  </data>
-  <data name="Mode_MakeTouchable_Info_MakeTouchable" xml:space="preserve">
-    <value>Нажмите чтобы сделать сегмент редактируемым</value>
-  </data>
-  <data name="Mode_MakeTouchable_Info_MakeUntouchable" xml:space="preserve">
-    <value>Нажмите что бы сделать сегмент не редактируемым</value>
+  <data name="Mode_InvertSegment_Info_SelectToReverse" xml:space="preserve">
+    <value>Выберите сегмент чтобы инвертировать его</value>
   </data>
   <data name="Mode_NodeLine_Info_NotConnected" xml:space="preserve">
     <value>Этот узел не может быть выбран
@@ -334,6 +323,19 @@
   </data>
   <data name="Mode_UnionNode_Info_TooFar" xml:space="preserve">
     <value>Узлы слишком далеко друг от друга</value>
+  </data>
+  <data name="Mode_UnlockSegment" xml:space="preserve">
+    <value>Режим разблокировки сегмента</value>
+  </data>
+  <data name="Mode_UnlockSegment_Info_ChangeLock" xml:space="preserve">
+    <value>Выберите сегмент чтобы
+изменить его блокировку</value>
+  </data>
+  <data name="Mode_UnlockSegment_Info_ClickToLock" xml:space="preserve">
+    <value>Нажмите чтобы разблокировать сегмент</value>
+  </data>
+  <data name="Mode_UnlockSegment_Info_ClickToUnlock" xml:space="preserve">
+    <value>Нажмите чтобы заблокировать сегмент</value>
   </data>
   <data name="Mod_Description" xml:space="preserve">
     <value>Много различных инструментов для работы с сетевыми объектами</value>

@@ -245,22 +245,11 @@ para cambiar la dirección de la curva</value>
   <data name="Mode_InvertSegment" xml:space="preserve">
     <value>Modo de invertir segmento</value>
   </data>
-  <data name="Mode_InvertSegment_Info" xml:space="preserve">
-    <value>Clic derecho para invertir el segmento
-Clic izquierdo para revertir el segmento</value>
+  <data name="Mode_InvertSegment_Info_ClickToReverse" xml:space="preserve">
+    <value>Click to invert segment</value>
   </data>
-  <data name="Mode_MakeTouchable" xml:space="preserve">
-    <value>Modo de alterar</value>
-  </data>
-  <data name="Mode_MakeTouchable_Info_ChangeTouchability" xml:space="preserve">
-    <value>Seleccione segmento para cambiar
-la opción de alterar</value>
-  </data>
-  <data name="Mode_MakeTouchable_Info_MakeTouchable" xml:space="preserve">
-    <value>Clic para poder alterar este segmento</value>
-  </data>
-  <data name="Mode_MakeTouchable_Info_MakeUntouchable" xml:space="preserve">
-    <value>Clic para no poder alterar este segmento</value>
+  <data name="Mode_InvertSegment_Info_SelectToReverse" xml:space="preserve">
+    <value>Select segment to invert it</value>
   </data>
   <data name="Mode_NodeLine_Info_NotConnected" xml:space="preserve">
     <value>Este nodo no se puede seleccionar
@@ -332,6 +321,19 @@ Clic con la tecla "Mayús" para separar el nodo y establecer el alto del origen<
   </data>
   <data name="Mode_UnionNode_Info_TooFar" xml:space="preserve">
     <value>Los nodos están demasiado lejos entre sí</value>
+  </data>
+  <data name="Mode_UnlockSegment" xml:space="preserve">
+    <value>Unlock segment mode</value>
+  </data>
+  <data name="Mode_UnlockSegment_Info_ChangeLock" xml:space="preserve">
+    <value>Select segment to
+lock or unlock it</value>
+  </data>
+  <data name="Mode_UnlockSegment_Info_ClickToLock" xml:space="preserve">
+    <value>Click to lock this segment</value>
+  </data>
+  <data name="Mode_UnlockSegment_Info_ClickToUnlock" xml:space="preserve">
+    <value>Click to unlock this segment</value>
   </data>
   <data name="Mod_Description" xml:space="preserve">
     <value>Conjunto de herramientas diferentes para trabajar con redes</value>

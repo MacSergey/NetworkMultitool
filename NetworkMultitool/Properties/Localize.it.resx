@@ -246,22 +246,11 @@ modalità sotterranea</value>
   <data name="Mode_InvertSegment" xml:space="preserve">
     <value>Modalità inverti segmento</value>
   </data>
-  <data name="Mode_InvertSegment_Info" xml:space="preserve">
-    <value>Right click to invert segment
-Left click to reverse segment</value>
+  <data name="Mode_InvertSegment_Info_ClickToReverse" xml:space="preserve">
+    <value>Click to invert segment</value>
   </data>
-  <data name="Mode_MakeTouchable" xml:space="preserve">
-    <value>Modalità modificabile/non modificabile</value>
-  </data>
-  <data name="Mode_MakeTouchable_Info_ChangeTouchability" xml:space="preserve">
-    <value>Seleziona segmento per cambiare
-la sua modificabilità</value>
-  </data>
-  <data name="Mode_MakeTouchable_Info_MakeTouchable" xml:space="preserve">
-    <value>Fare clic per rendere questo segmento modificabile</value>
-  </data>
-  <data name="Mode_MakeTouchable_Info_MakeUntouchable" xml:space="preserve">
-    <value>Fare clic per rendere questo segmento non modificabile</value>
+  <data name="Mode_InvertSegment_Info_SelectToReverse" xml:space="preserve">
+    <value>Select segment to invert it</value>
   </data>
   <data name="Mode_NodeLine_Info_NotConnected" xml:space="preserve">
     <value>Questo nodo non può essere selezionato
@@ -333,6 +322,19 @@ Fare clic con Maiusc per dividere il nodo e impostare l'altezza della sorgente</
   </data>
   <data name="Mode_UnionNode_Info_TooFar" xml:space="preserve">
     <value>Nodi troppo lontani l'uno dall'altro</value>
+  </data>
+  <data name="Mode_UnlockSegment" xml:space="preserve">
+    <value>Unlock segment mode</value>
+  </data>
+  <data name="Mode_UnlockSegment_Info_ChangeLock" xml:space="preserve">
+    <value>Select segment to
+lock or unlock it</value>
+  </data>
+  <data name="Mode_UnlockSegment_Info_ClickToLock" xml:space="preserve">
+    <value>Click to lock this segment</value>
+  </data>
+  <data name="Mode_UnlockSegment_Info_ClickToUnlock" xml:space="preserve">
+    <value>Click to unlock this segment</value>
   </data>
   <data name="Mod_Description" xml:space="preserve">
     <value>Molti strumenti diversi per lavorare con le reti</value>
