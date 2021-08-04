@@ -18,20 +18,21 @@ namespace NetworkMultitool
         protected override string GetInfo()
         {
             if (!IsHoverSegment)
-                return Localize.Mode_Info_SelectSegment;
+                return Localize.Mode_InvertSegment_Info_SelectToReverse;
             else
-                return Localize.Mode_InvertSegment_Info;
+                return Localize.Mode_InvertSegment_Info_ClickToReverse;
         }
 
         public override void OnPrimaryMouseClicked(Event e)
         {
             if (IsHoverSegment)
-                InvertSegment(HoverSegment.Id);
+                ReverseAndInvert(HoverSegment.Id);
         }
-        public override void OnSecondaryMouseClicked()
+        private void ReverseAndInvert(ushort segmentId)
         {
-            if (IsHoverSegment)
-                ReverseSegment(HoverSegment.Id);
+            var segment = segmentId.GetSegment();
+            RemoveSegment(segmentId);
+            CreateSegment(out _, segment.Info, segment.m_endNode, segment.m_startNode, segment.m_endDirection, segment.m_startDirection, !segment.IsInvert());
         }
         private void InvertSegment(ushort segmentId)
         {

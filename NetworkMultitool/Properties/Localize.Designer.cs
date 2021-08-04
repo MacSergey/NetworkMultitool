@@ -450,49 +450,20 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Right click to invert segment
-        ///Left click to reverse segment.
+        ///   Ищет локализованную строку, похожую на Click to invert segment.
         /// </summary>
-        internal static string Mode_InvertSegment_Info {
+        internal static string Mode_InvertSegment_Info_ClickToReverse {
             get {
-                return ResourceManager.GetString("Mode_InvertSegment_Info", resourceCulture);
+                return ResourceManager.GetString("Mode_InvertSegment_Info_ClickToReverse", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Make Touchable mode.
+        ///   Ищет локализованную строку, похожую на Select segment to invert it.
         /// </summary>
-        internal static string Mode_MakeTouchable {
+        internal static string Mode_InvertSegment_Info_SelectToReverse {
             get {
-                return ResourceManager.GetString("Mode_MakeTouchable", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на Select segment to change
-        ///its touchability.
-        /// </summary>
-        internal static string Mode_MakeTouchable_Info_ChangeTouchability {
-            get {
-                return ResourceManager.GetString("Mode_MakeTouchable_Info_ChangeTouchability", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на Click to make this segment touchable.
-        /// </summary>
-        internal static string Mode_MakeTouchable_Info_MakeTouchable {
-            get {
-                return ResourceManager.GetString("Mode_MakeTouchable_Info_MakeTouchable", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на Click to make this segment untouchable.
-        /// </summary>
-        internal static string Mode_MakeTouchable_Info_MakeUntouchable {
-            get {
-                return ResourceManager.GetString("Mode_MakeTouchable_Info_MakeUntouchable", resourceCulture);
+                return ResourceManager.GetString("Mode_InvertSegment_Info_SelectToReverse", resourceCulture);
             }
         }
         
@@ -543,7 +514,7 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Not allow to remove this node.
+        ///   Ищет локализованную строку, похожую на Not possible to remove this node.
         /// </summary>
         internal static string Mode_RemoveNode_Info_NotAllow {
             get {
@@ -598,7 +569,7 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Not allowed split node with only one segment.
+        ///   Ищет локализованную строку, похожую на Not possible split node with only one segment.
         /// </summary>
         internal static string Mode_SplitNode_Info_NotAllowedSplit {
             get {
@@ -625,7 +596,7 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Position is far from source node.
+        ///   Ищет локализованную строку, похожую на Position is too far from source node.
         /// </summary>
         internal static string Mode_SplitNode_Info_TooFar {
             get {
@@ -652,7 +623,7 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Click to union nodes.
+        ///   Ищет локализованную строку, похожую на Click to unite nodes.
         /// </summary>
         internal static string Mode_UnionNode_Info_ClickUnion {
             get {
@@ -702,6 +673,43 @@ namespace NetworkMultitool {
         internal static string Mode_UnionNode_Info_TooFar {
             get {
                 return ResourceManager.GetString("Mode_UnionNode_Info_TooFar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Unlock segment mode.
+        /// </summary>
+        internal static string Mode_UnlockSegment {
+            get {
+                return ResourceManager.GetString("Mode_UnlockSegment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Select segment to
+        ///lock or unlock it.
+        /// </summary>
+        internal static string Mode_UnlockSegment_Info_ChangeLock {
+            get {
+                return ResourceManager.GetString("Mode_UnlockSegment_Info_ChangeLock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Click to lock this segment.
+        /// </summary>
+        internal static string Mode_UnlockSegment_Info_ClickToLock {
+            get {
+                return ResourceManager.GetString("Mode_UnlockSegment_Info_ClickToLock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Click to unlock this segment.
+        /// </summary>
+        internal static string Mode_UnlockSegment_Info_ClickToUnlock {
+            get {
+                return ResourceManager.GetString("Mode_UnlockSegment_Info_ClickToUnlock", resourceCulture);
             }
         }
         

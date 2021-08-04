@@ -312,11 +312,11 @@ namespace NetworkMultitool
         [Description(nameof(Localize.Mode_InvertSegment))]
         InvertSegment = IntersectSegment << 1,
 
-        [Description(nameof(Localize.Mode_MakeTouchable))]
-        MakeTouchable = InvertSegment << 1,
+        [Description(nameof(Localize.Mode_UnlockSegment))]
+        UnlockSegment = InvertSegment << 1,
 
         [Description(nameof(Localize.Mode_SlopeNode))]
-        SlopeNode = MakeTouchable << 1,
+        SlopeNode = UnlockSegment << 1,
 
         [Description(nameof(Localize.Mode_ArrangeAtLine))]
         ArrangeAtLine = SlopeNode << 1,

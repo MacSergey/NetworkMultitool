@@ -9,9 +9,9 @@ using UnityEngine;
 
 namespace NetworkMultitool
 {
-    public class MakeTouchableMode : BaseNetworkMultitoolMode
+    public class UnlockSegmentMode : BaseNetworkMultitoolMode
     {
-        public override ToolModeType Type => ToolModeType.MakeTouchable;
+        public override ToolModeType Type => ToolModeType.UnlockSegment;
         protected override bool IsReseted => true;
 
         protected override bool SelectNodes => false;
@@ -21,11 +21,11 @@ namespace NetworkMultitool
         protected override string GetInfo()
         {
             if (!IsHoverSegment)
-                return Localize.Mode_MakeTouchable_Info_ChangeTouchability;
+                return Localize.Mode_UnlockSegment_Info_ChangeLock;
             if (HoverSegment.Id.GetSegment().m_flags.IsSet(NetSegment.Flags.Untouchable))
-                return Localize.Mode_MakeTouchable_Info_MakeTouchable + StepOverInfo;
+                return Localize.Mode_UnlockSegment_Info_ClickToUnlock + StepOverInfo;
             else
-                return Localize.Mode_MakeTouchable_Info_MakeUntouchable + StepOverInfo;
+                return Localize.Mode_UnlockSegment_Info_ClickToLock + StepOverInfo;
         }
 
         public override void OnPrimaryMouseClicked(Event e)
