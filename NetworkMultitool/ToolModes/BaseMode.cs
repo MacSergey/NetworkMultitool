@@ -31,6 +31,7 @@ namespace NetworkMultitool
         protected abstract bool IsReseted { get; }
         protected virtual bool CanSwitchUnderground => true;
         private bool ForbiddenSwitchUnderground { get; set; }
+        protected virtual bool AllowUntouch => false;
 
         public NetworkMultitoolShortcut ActivationShortcut => NetworkMultitoolTool.ModeShortcuts[Type];
         public virtual IEnumerable<NetworkMultitoolShortcut> Shortcuts
@@ -121,7 +122,7 @@ namespace NetworkMultitool
         protected string StepOverInfo => NetworkMultitoolTool.SelectionStepOverShortcut.NotSet ? string.Empty : "\n\n" + string.Format(CommonLocalize.Tool_InfoSelectionStepOver, NetworkMultitoolTool.SelectionStepOverShortcut.InputKey);
         protected string UndergroundInfo => $"\n{Localize.Mode_Info_UndergroundMode}";
 
-        protected override bool CheckSegment(ushort segmentId) => segmentId.GetSegment().m_flags.CheckFlags(0, NetSegment.Flags.Untouchable) && base.CheckSegment(segmentId);
+        protected override bool CheckSegment(ushort segmentId) => (AllowUntouch || segmentId.GetSegment().m_flags.CheckFlags(0, NetSegment.Flags.Untouchable)) && base.CheckSegment(segmentId);
 
         protected override bool CheckItemClass(ItemClass itemClass) => itemClass.m_layer == ItemClass.Layer.Default || itemClass.m_layer == ItemClass.Layer.MetroTunnels;
 
@@ -254,36 +255,39 @@ namespace NetworkMultitool
 
 
         [Description(nameof(Localize.Mode_AddNode))]
-        AddNode = 1 << 8,
+        AddNode = 1 << (1 + 8),
 
         [Description(nameof(Localize.Mode_RemoveNode))]
-        RemoveNode = 2 << 8,
+        RemoveNode = AddNode << 1,
 
         [Description(nameof(Localize.Mode_UnionNode))]
-        UnionNode = 3 << 8,
+        UnionNode = RemoveNode << 1,
 
         [Description(nameof(Localize.Mode_SplitNode))]
-        SplitNode = 4 << 8,
+        SplitNode = UnionNode << 1,
 
 
         [Description(nameof(Localize.Mode_IntersectSegment))]
-        IntersectSegment = 5 << 8,
+        IntersectSegment = SplitNode << 1,
 
         [Description(nameof(Localize.Mode_InvertSegment))]
-        InvertSegment = 6 << 8,
+        InvertSegment = IntersectSegment << 1,
+
+        [Description(nameof(Localize.Mode_MakeTouchable))]
+        MakeTouchable = InvertSegment << 1,
 
         [Description(nameof(Localize.Mode_SlopeNode))]
-        SlopeNode = 7 << 8,
+        SlopeNode = MakeTouchable << 1,
 
         [Description(nameof(Localize.Mode_ArrangeAtLine))]
-        ArrangeAtLine = 8 << 8,
+        ArrangeAtLine = SlopeNode << 1,
 
 
         [Description(nameof(Localize.Mode_CreateLoop))]
-        CreateLoop = 9 << 8,
+        CreateLoop = ArrangeAtLine << 1,
 
         [Description(nameof(Localize.Mode_CreateConnection))]
-        CreateConnection = 10 << 8,
+        CreateConnection = CreateLoop << 1,
 
         [NotItem]
         [Description(nameof(Localize.Mode_CreateConnection))]

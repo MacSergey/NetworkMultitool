@@ -442,6 +442,43 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Make Touchable mode.
+        /// </summary>
+        internal static string Mode_MakeTouchable {
+            get {
+                return ResourceManager.GetString("Mode_MakeTouchable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Select segment to change
+        ///its touchability.
+        /// </summary>
+        internal static string Mode_MakeTouchable_Info_ChangeTouchability {
+            get {
+                return ResourceManager.GetString("Mode_MakeTouchable_Info_ChangeTouchability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Click to make this segment touchable.
+        /// </summary>
+        internal static string Mode_MakeTouchable_Info_MakeTouchable {
+            get {
+                return ResourceManager.GetString("Mode_MakeTouchable_Info_MakeTouchable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Click to make this segment untouchable.
+        /// </summary>
+        internal static string Mode_MakeTouchable_Info_MakeUntouchable {
+            get {
+                return ResourceManager.GetString("Mode_MakeTouchable_Info_MakeUntouchable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на This node can&apos;t be selected
         ///because not connected with others.
         /// </summary>

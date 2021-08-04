@@ -243,6 +243,19 @@ to change curve direction</value>
     <value>Right click to invert segment
 Left click to reverse segment</value>
   </data>
+  <data name="Mode_MakeTouchable" xml:space="preserve">
+    <value>Make Touchable mode</value>
+  </data>
+  <data name="Mode_MakeTouchable_Info_ChangeTouchability" xml:space="preserve">
+    <value>Select segment to change
+its touchability</value>
+  </data>
+  <data name="Mode_MakeTouchable_Info_MakeTouchable" xml:space="preserve">
+    <value>Click to make this segment touchable</value>
+  </data>
+  <data name="Mode_MakeTouchable_Info_MakeUntouchable" xml:space="preserve">
+    <value>Click to make this segment untouchable</value>
+  </data>
   <data name="Mode_NodeLine_Info_NotConnected" xml:space="preserve">
     <value>This node can't be selected
 because not connected with others</value>
