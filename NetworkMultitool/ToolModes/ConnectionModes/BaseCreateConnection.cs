@@ -184,7 +184,7 @@ namespace NetworkMultitool
                 else
                 {
                     var j = i / 2;
-                    if (!Circles[j].IsCorrect)
+                    if (!Circles[j].IsCorrect || Circles[j].IsShort)
                         continue;
 
                     if (!Straights[j].IsShort)

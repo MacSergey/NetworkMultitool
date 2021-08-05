@@ -257,6 +257,7 @@ namespace NetworkMultitool
         {
             var view = UIView.GetAView();
             var label = view.AddUIComponent(typeof(InfoLabel)) as InfoLabel;
+            label.zOrder = 0;
             Labels.Add(label);
             return label;
         }

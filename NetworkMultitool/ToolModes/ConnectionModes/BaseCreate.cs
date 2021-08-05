@@ -76,7 +76,7 @@ namespace NetworkMultitool
         private List<Point> Points { get; set; } = new List<Point>();
         protected NetInfo Info => ToolsModifierControl.toolController.Tools.OfType<NetTool>().FirstOrDefault().Prefab?.m_netAI?.m_info ?? First.Id.GetSegment().Info;
         protected float MinPossibleRadius => Info != null ? Info.m_halfWidth * 2f : 16f;
-        protected bool ForceUnderground => First.Id.GetSegment().Nodes().Any(n => n.m_flags.IsSet(NetNode.Flags.Underground)) || Second.Id.GetSegment().Nodes().Any(n => n.m_flags.IsSet(NetNode.Flags.Underground));
+        protected bool ForceUnderground => IsBoth && (First.Id.GetSegment().Nodes().Any(n => n.m_flags.IsSet(NetNode.Flags.Underground)) || Second.Id.GetSegment().Nodes().Any(n => n.m_flags.IsSet(NetNode.Flags.Underground)));
 
         protected override void Reset(IToolMode prevMode)
         {

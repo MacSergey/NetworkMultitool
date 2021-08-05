@@ -107,6 +107,7 @@ namespace NetworkMultitool
                     string.Format(Localize.Mode_Info_ChangeOneRadius, DecreaseOneRadiusShortcut, IncreaseOneRadiusShortcut) + "\n" +
                     string.Format(Localize.Mode_Info_SwitchOffset, SwitchOffsetShortcut) + "\n" +
                     string.Format(Localize.Mode_Info_ChangeOffset, DecreaseOffsetShortcut, IncreaseOffsetShortcut) + "\n" +
+                    Localize.Mode_Info_Step + "\n" +
                     string.Format(Localize.Mode_Info_Create, ApplyShortcut);
                 }
 
@@ -316,6 +317,7 @@ namespace NetworkMultitool
         public override bool CreateButton => false;
         private Vector3 PrevPos { get; set; }
 
+        protected override string GetInfo() => Localize.Mode_Connection_Info_SlowMove;
         protected override void Reset(IToolMode prevMode)
         {
             base.Reset(prevMode);
@@ -353,6 +355,7 @@ namespace NetworkMultitool
 
         private Vector2 PrevPos { get; set; }
 
+        protected override string GetInfo() => Localize.Mode_Connection_Info_RadiusStep;
         protected override void Reset(IToolMode prevMode)
         {
             base.Reset(prevMode);
@@ -363,19 +366,18 @@ namespace NetworkMultitool
                 PrevPos = XZ(Circles[Edit].CenterPos);
             }
         }
-        public override void OnToolUpdate()
-        {
-            base.OnToolUpdate();
-            PrevPos = XZ(Circles[Edit].CenterPos);
-        }
         public override void OnMouseDrag(Event e)
         {
             if (IsEdit && Circles[Edit] is Circle circle)
             {
                 var radius = (XZ(GetMousePosition(PrevPos.y)) - PrevPos).magnitude;
 
-                if (Utility.ShiftIsPressed)
+                if (Utility.OnlyShiftIsPressed)
+                    radius = radius.RoundToNearest(10f);
+                else if (Utility.OnlyCtrlIsPressed)
                     radius = radius.RoundToNearest(1f);
+                else if (Utility.OnlyAltIsPressed)
+                    radius = radius.RoundToNearest(0.1f);
 
                 circle.Radius = radius;
                 State = Result.None;
