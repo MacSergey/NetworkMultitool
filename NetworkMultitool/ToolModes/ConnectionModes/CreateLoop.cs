@@ -131,13 +131,13 @@ namespace NetworkMultitool
         {
             ResetData();
 
-            if (!Intersection.CalculateSingle(firstTrajectory, secondTrajectory, out var firtsT, out var secondT))
+            if (!Intersection.CalculateSingle(firstTrajectory, secondTrajectory, out _, out _))
             {
                 State = Result.NotIntersect;
                 return;
             }
 
-            Circle = new MiddleCircle(Circle?.Label ?? AddLabel(), firstTrajectory, secondTrajectory);
+            Circle = new MiddleCircle(Circle?.Label ?? AddLabel(), firstTrajectory, secondTrajectory, Height);
         }
         protected override IEnumerable<Point> Calculate()
         {
@@ -147,7 +147,7 @@ namespace NetworkMultitool
                 return new Point[] { Point.Empty };
             }
 
-            Circle.GetStraight(StartStraight?.Label ?? AddLabel(), EndStraight?.Label ?? AddLabel(), out var start, out var end);
+            Circle.GetStraight(StartStraight?.Label ?? AddLabel(), EndStraight?.Label ?? AddLabel(), Height, out var start, out var end);
             StartStraight = start;
             EndStraight = end;
 
@@ -224,7 +224,7 @@ namespace NetworkMultitool
             }
             public bool IsLoop { get; set; }
 
-            public MiddleCircle(InfoLabel label, StraightTrajectory startGuide, StraightTrajectory endGuide) : base(label)
+            public MiddleCircle(InfoLabel label, StraightTrajectory startGuide, StraightTrajectory endGuide, float height) : base(label, height)
             {
                 StartGuide = startGuide;
                 EndGuide = endGuide;
@@ -279,10 +279,10 @@ namespace NetworkMultitool
                 return true;
             }
 
-            public void GetStraight(InfoLabel startLabel, InfoLabel endLabel, out Straight start, out Straight end)
+            public void GetStraight(InfoLabel startLabel, InfoLabel endLabel, float height, out Straight start, out Straight end)
             {
-                start = new Straight(StartGuide.StartPosition, StartPos, StartRadiusDir, startLabel);
-                end = new Straight(EndPos, EndGuide.StartPosition, EndRadiusDir, endLabel);
+                start = new Straight(StartGuide.StartPosition, StartPos, StartRadiusDir, startLabel, height);
+                end = new Straight(EndPos, EndGuide.StartPosition, EndRadiusDir, endLabel, height);
             }
         }
     }

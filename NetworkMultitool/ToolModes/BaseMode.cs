@@ -101,7 +101,7 @@ namespace NetworkMultitool
             button.Init(this, Type.ToString());
             button.eventClicked += ButtonClicked;
 
-            if(!ButtonsDic.TryGetValue(Type & ToolModeType.Group, out var buttons))
+            if (!ButtonsDic.TryGetValue(Type & ToolModeType.Group, out var buttons))
             {
                 buttons = new List<ModeButton>();
                 ButtonsDic[Type & ToolModeType.Group] = buttons;
@@ -127,7 +127,44 @@ namespace NetworkMultitool
         protected override bool CheckItemClass(ItemClass itemClass) => itemClass.m_layer == ItemClass.Layer.Default || itemClass.m_layer == ItemClass.Layer.MetroTunnels;
 
 
-        protected bool CreateNode(out ushort newNodeId, NetInfo info, Vector3 position) => Singleton<NetManager>.instance.CreateNode(out newNodeId, ref Singleton<SimulationManager>.instance.m_randomizer, info, position, Singleton<SimulationManager>.instance.m_currentBuildIndex);
+        protected bool CreateNode(out ushort newNodeId, NetInfo info, Vector3 position)
+        {
+            if (Singleton<NetManager>.instance.CreateNode(out newNodeId, ref Singleton<SimulationManager>.instance.m_randomizer, info, position, Singleton<SimulationManager>.instance.m_currentBuildIndex))
+            {
+                ref var node = ref newNodeId.GetNode();
+                var elevated = node.m_position.y - Singleton<TerrainManager>.instance.SampleRawHeightSmooth(node.m_position);
+
+                if (elevated < -8f && (info.m_netAI.SupportUnderground() || info.m_netAI.IsUnderground()))
+                    node.m_flags |= NetNode.Flags.Underground;
+                else if (elevated <= 0.1f && !info.m_netAI.IsOverground())
+                    node.m_flags |= NetNode.Flags.OnGround;
+
+                return true;
+            }
+            else
+                return false;
+        }
+        protected bool CreateSegmentAuto(out ushort newSegmentId, NetInfo info, ushort startId, ushort endId, Vector3 startDir, Vector3 endDir)
+        {
+            ref var startNode = ref startId.GetNode();
+            ref var endNode = ref endId.GetNode();
+            var startPos = startNode.m_position;
+            var endPos = endNode.m_position;
+            var startElevated = startPos.y - Singleton<TerrainManager>.instance.SampleRawHeightSmooth(startPos);
+            var endElevated = endPos.y - Singleton<TerrainManager>.instance.SampleRawHeightSmooth(endPos);
+            var minElevated = Mathf.Min(startElevated, endElevated);
+            var maxElevated = Mathf.Max(startElevated, endElevated);
+
+            var erroe = ToolBase.ToolErrors.None;
+            var selectedInfo = info.m_netAI.GetInfo(minElevated, maxElevated, (endPos - startPos).magnitude, false, false, false, false, ref erroe);
+
+            info = erroe == ToolBase.ToolErrors.None ? selectedInfo : info;
+
+            if (startNode.m_flags.IsSet(NetNode.Flags.Underground) || !endNode.m_flags.IsSet(NetNode.Flags.Underground))
+                return CreateSegment(out newSegmentId, info, startId, endId, startDir, endDir, false);
+            else
+                return CreateSegment(out newSegmentId, info, endId, startId, endDir, startDir,  true);
+        }
         protected bool CreateSegment(out ushort newSegmentId, NetInfo info, ushort startId, ushort endId, Vector3 startDir, Vector3 endDir, bool invert = false) => Singleton<NetManager>.instance.CreateSegment(out newSegmentId, ref Singleton<SimulationManager>.instance.m_randomizer, info, startId, endId, startDir, endDir, Singleton<SimulationManager>.instance.m_currentBuildIndex, Singleton<SimulationManager>.instance.m_currentBuildIndex, invert);
 
         protected void RemoveNode(ushort nodeId) => Singleton<NetManager>.instance.ReleaseNode(nodeId);
@@ -179,7 +216,7 @@ namespace NetworkMultitool
                 var startPos = positionGetter(itemsList[i - 1]);
                 var endPos = positionGetter(itemsList[i]);
                 directionGetter(itemsList[i - 1], itemsList[i], out var startDir, out var endDir);
-              
+
                 startPos.y = 0;
                 endPos.y = 0;
                 startDir = startDir.MakeFlatNormalized();
