@@ -137,10 +137,10 @@ Muy cerca del nodo más cercano</value>
     <value>Modo de organización en línea</value>
   </data>
   <data name="Mode_ArrangeLine_Info_ClickToSelectDirection" xml:space="preserve">
-    <value>Click to select arrange direction</value>
+    <value>Clic para seleccionar ajuste de dirección</value>
   </data>
   <data name="Mode_ArrangeLine_Info_SelectDirection" xml:space="preserve">
-    <value>Select segment to set arrange direction</value>
+    <value>Seleccione el segmento para ajustar la dirección</value>
   </data>
   <data name="Mode_Connection_Info_DoubleClickOnCenterToChangeDir" xml:space="preserve">
     <value>Doble clic en el centro del círculo 
@@ -157,6 +157,15 @@ para cambiar la dirección de la curva</value>
   </data>
   <data name="Mode_Connection_Info_DragToMove" xml:space="preserve">
     <value>Arrastre para mover el círculo</value>
+  </data>
+  <data name="Mode_Connection_Info_RadiusStep" xml:space="preserve">
+    <value>Hold Shift to step 10m
+Hold Ctrl to step 1m
+Hold Alt to step 0.1m</value>
+  </data>
+  <data name="Mode_Connection_Info_SlowMove" xml:space="preserve">
+    <value>Hold Ctrl to move X10 slower
+Hold Alt to move X100 slower</value>
   </data>
   <data name="Mode_CreateConnection" xml:space="preserve">
     <value>Modo de creación de conexión</value>
@@ -224,6 +233,9 @@ para cambiar la dirección de la curva</value>
   <data name="Mode_Info_SelectSegment" xml:space="preserve">
     <value>Seleccione segmento</value>
   </data>
+  <data name="Mode_Info_Step" xml:space="preserve">
+    <value>Shift - X10, Ctrl - X0.1, Alt - X0.01</value>
+  </data>
   <data name="Mode_Info_SwitchOffset" xml:space="preserve">
     <value>Pulsa {0} para cambiar el desplazamiento inicial de la curva seleccionada</value>
   </data>
@@ -246,10 +258,10 @@ para cambiar la dirección de la curva</value>
     <value>Modo de invertir segmento</value>
   </data>
   <data name="Mode_InvertSegment_Info_ClickToReverse" xml:space="preserve">
-    <value>Click to invert segment</value>
+    <value>Clic para invertir segmento</value>
   </data>
   <data name="Mode_InvertSegment_Info_SelectToReverse" xml:space="preserve">
-    <value>Select segment to invert it</value>
+    <value>Seleccione segmento para invertirlo</value>
   </data>
   <data name="Mode_NodeLine_Info_NotConnected" xml:space="preserve">
     <value>Este nodo no se puede seleccionar
@@ -323,17 +335,16 @@ Clic con la tecla "Mayús" para separar el nodo y establecer el alto del origen<
     <value>Los nodos están demasiado lejos entre sí</value>
   </data>
   <data name="Mode_UnlockSegment" xml:space="preserve">
-    <value>Unlock segment mode</value>
+    <value>Modo de desbloqueo de segmento</value>
   </data>
   <data name="Mode_UnlockSegment_Info_ChangeLock" xml:space="preserve">
-    <value>Select segment to
-lock or unlock it</value>
+    <value>Seleccione segmento para bloquear o desbloquear</value>
   </data>
   <data name="Mode_UnlockSegment_Info_ClickToLock" xml:space="preserve">
-    <value>Click to lock this segment</value>
+    <value>Clic para bloquear este segmento</value>
   </data>
   <data name="Mode_UnlockSegment_Info_ClickToUnlock" xml:space="preserve">
-    <value>Click to unlock this segment</value>
+    <value>Clic para desbloquear este segmento</value>
   </data>
   <data name="Mod_Description" xml:space="preserve">
     <value>Conjunto de herramientas diferentes para trabajar con redes</value>

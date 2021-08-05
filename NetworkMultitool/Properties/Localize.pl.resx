@@ -158,6 +158,15 @@ to change curve direction</value>
   <data name="Mode_Connection_Info_DragToMove" xml:space="preserve">
     <value>Drag to move circle</value>
   </data>
+  <data name="Mode_Connection_Info_RadiusStep" xml:space="preserve">
+    <value>Hold Shift to step 10m
+Hold Ctrl to step 1m
+Hold Alt to step 0.1m</value>
+  </data>
+  <data name="Mode_Connection_Info_SlowMove" xml:space="preserve">
+    <value>Hold Ctrl to move X10 slower
+Hold Alt to move X100 slower</value>
+  </data>
   <data name="Mode_CreateConnection" xml:space="preserve">
     <value>Tryb tworzenia połączeń</value>
   </data>
@@ -171,22 +180,22 @@ to change curve direction</value>
     <value>Naciśnij {0}, aby zastosować</value>
   </data>
   <data name="Mode_Info_ChangeAllRadius" xml:space="preserve">
-    <value>Press {0} or {1} to change all radii</value>
+    <value>Naciśnij {0} lub {1} aby zmienić wszystkie promienie</value>
   </data>
   <data name="Mode_Info_ChangeBothRadius" xml:space="preserve">
-    <value>Press {0} or {1} to change both radii</value>
+    <value>Naciśnij {0} lub {1} aby zmienić oba promienie</value>
   </data>
   <data name="Mode_Info_ChangeCircle" xml:space="preserve">
-    <value>Naciśnij {0}, aby przełączyć wybrane koło</value>
+    <value>Naciśnij {0}, aby przełączyć wybrany okręg</value>
   </data>
   <data name="Mode_Info_ChangeOffset" xml:space="preserve">
     <value>Press {0} or {1} to change curse start offset</value>
   </data>
   <data name="Mode_Info_ChangeOneRadius" xml:space="preserve">
-    <value>Press {0} or {1} to change one radius</value>
+    <value>Naciśnij {0} lub {1} aby zmienić jeden promień</value>
   </data>
   <data name="Mode_Info_ChangeRadius" xml:space="preserve">
-    <value>Press {0} or {1} to change radius</value>
+    <value>Naciśnij {0} lub {1} aby zmienić promień</value>
   </data>
   <data name="Mode_Info_ClickFirstSegment" xml:space="preserve">
     <value>Kliknij, aby zaznaczyć pierwszy segment</value>
@@ -222,7 +231,10 @@ to change curve direction</value>
     <value>Zaznacz drugi segment</value>
   </data>
   <data name="Mode_Info_SelectSegment" xml:space="preserve">
-    <value>Select segment</value>
+    <value>Wybierz segment</value>
+  </data>
+  <data name="Mode_Info_Step" xml:space="preserve">
+    <value>Shift - X10, Ctrl - X0.1, Alt - X0.01</value>
   </data>
   <data name="Mode_Info_SwitchOffset" xml:space="preserve">
     <value>Press {0} to switch selected offset</value>
@@ -243,7 +255,7 @@ to change curve direction</value>
     <value>Te segmenty się nie przecinają</value>
   </data>
   <data name="Mode_InvertSegment" xml:space="preserve">
-    <value>Invert segment mode</value>
+    <value>Tryb obracania segmentu</value>
   </data>
   <data name="Mode_InvertSegment_Info_ClickToReverse" xml:space="preserve">
     <value>Click to invert segment</value>
@@ -287,16 +299,16 @@ ponieważ nie jest połączony z pozostałymi</value>
 Click with Shift to split node and set source height</value>
   </data>
   <data name="Mode_SplitNode_Info_NotAllowedSplit" xml:space="preserve">
-    <value>Not possible split node with only one segment</value>
+    <value>Nie da się podzielić węzła z tylko jednym segmentem</value>
   </data>
   <data name="Mode_SplitNode_Info_OrderIsFull" xml:space="preserve">
-    <value>Not possible add more segments to split order</value>
+    <value>Nie da się dodać więcej segmentów do kolejki dzielenia</value>
   </data>
   <data name="Mode_SplitNode_Info_SelectToSplit" xml:space="preserve">
-    <value>Select segments to split</value>
+    <value>Wybierz segmenty do podzielenia</value>
   </data>
   <data name="Mode_SplitNode_Info_TooFar" xml:space="preserve">
-    <value>Position is too far from source node</value>
+    <value>Pozycja jest zbyt daleko od węzła źródłowego</value>
   </data>
   <data name="Mode_UnionNode" xml:space="preserve">
     <value>Tryb łączenia węzłów</value>
@@ -323,17 +335,16 @@ Click with Shift to split node and set source height</value>
     <value>Węzły są zbyt daleko od siebie</value>
   </data>
   <data name="Mode_UnlockSegment" xml:space="preserve">
-    <value>Unlock segment mode</value>
+    <value>Tryb odblokowywania segmentu</value>
   </data>
   <data name="Mode_UnlockSegment_Info_ChangeLock" xml:space="preserve">
-    <value>Select segment to
-lock or unlock it</value>
+    <value>Wybierz segment, aby go zablokować lub odblokować</value>
   </data>
   <data name="Mode_UnlockSegment_Info_ClickToLock" xml:space="preserve">
-    <value>Click to lock this segment</value>
+    <value>Naciśnij aby zablokować ten segment</value>
   </data>
   <data name="Mode_UnlockSegment_Info_ClickToUnlock" xml:space="preserve">
-    <value>Click to unlock this segment</value>
+    <value>Naciśnij aby odblokować ten segment</value>
   </data>
   <data name="Mod_Description" xml:space="preserve">
     <value>Wiele różnych narzędzi do pracy z sieciami</value>
@@ -345,34 +356,34 @@ lock or unlock it</value>
     <value>Maksymalna długość segmentu</value>
   </data>
   <data name="Settings_Shortcut_Apply" xml:space="preserve">
-    <value>Apply mode action</value>
+    <value>Zastosuj akcję trybu</value>
   </data>
   <data name="Settings_Shortcut_DecreaseOffset" xml:space="preserve">
-    <value>Decrease circle start offset</value>
+    <value>Zmniejsz przesunięcie początku okręgu</value>
   </data>
   <data name="Settings_Shortcut_DecreaseOneRadius" xml:space="preserve">
-    <value>Decrease one radius</value>
+    <value>Zmniejsz jeden promień</value>
   </data>
   <data name="Settings_Shortcut_DecreaseRadius" xml:space="preserve">
-    <value>Decrease radii</value>
+    <value>Zmniejsz promień</value>
   </data>
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
-    <value>Increase circle start offset</value>
+    <value>Zwiększ przesunięcie początku okręgu</value>
   </data>
   <data name="Settings_Shortcut_IncreaseOneRadius" xml:space="preserve">
-    <value>Increase one radius</value>
+    <value>Zwiększ jeden promień</value>
   </data>
   <data name="Settings_Shortcut_IncreaseRadius" xml:space="preserve">
-    <value>Increase radii</value>
+    <value>Zwiększ promień</value>
   </data>
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
-    <value>Switch loop direction</value>
+    <value>Przełącz kierunek pętli</value>
   </data>
   <data name="Settings_Shortcut_SwitchOffset" xml:space="preserve">
-    <value>Switch selected offset</value>
+    <value>Przełącz wybrane przesunięcie</value>
   </data>
   <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
-    <value>Switch selected circle</value>
+    <value>Przełącz wybrane koło</value>
   </data>
   <data name="Settings_SlopeUnit" xml:space="preserve">
     <value>Jednostka miary nachylenia</value>

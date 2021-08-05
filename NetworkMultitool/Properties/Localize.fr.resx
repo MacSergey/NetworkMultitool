@@ -137,10 +137,10 @@ Trop proche du nœud voisin</value>
     <value>Aligner la route</value>
   </data>
   <data name="Mode_ArrangeLine_Info_ClickToSelectDirection" xml:space="preserve">
-    <value>Click to select arrange direction</value>
+    <value>Cliquez pour sélectionner la direction de l'alignement</value>
   </data>
   <data name="Mode_ArrangeLine_Info_SelectDirection" xml:space="preserve">
-    <value>Select segment to set arrange direction</value>
+    <value>Sélectionnez un segment pour définir la direction de l'alignement</value>
   </data>
   <data name="Mode_Connection_Info_DoubleClickOnCenterToChangeDir" xml:space="preserve">
     <value>Double-cliquez sur le centre du cercle
@@ -157,6 +157,15 @@ pour changer la direction de la courbe</value>
   </data>
   <data name="Mode_Connection_Info_DragToMove" xml:space="preserve">
     <value>Faites glisser pour déplacer le cercle</value>
+  </data>
+  <data name="Mode_Connection_Info_RadiusStep" xml:space="preserve">
+    <value>Hold Shift to step 10m
+Hold Ctrl to step 1m
+Hold Alt to step 0.1m</value>
+  </data>
+  <data name="Mode_Connection_Info_SlowMove" xml:space="preserve">
+    <value>Hold Ctrl to move X10 slower
+Hold Alt to move X100 slower</value>
   </data>
   <data name="Mode_CreateConnection" xml:space="preserve">
     <value>Créer une connexion</value>
@@ -224,6 +233,9 @@ pour changer la direction de la courbe</value>
   <data name="Mode_Info_SelectSegment" xml:space="preserve">
     <value>Sélectionnez un segment</value>
   </data>
+  <data name="Mode_Info_Step" xml:space="preserve">
+    <value>Shift - X10, Ctrl - X0.1, Alt - X0.01</value>
+  </data>
   <data name="Mode_Info_SwitchOffset" xml:space="preserve">
     <value>Appuyer sur {0} pour modifier le décalage du début de la courbe sélectionnée</value>
   </data>
@@ -246,10 +258,10 @@ pour changer la direction de la courbe</value>
     <value>Inversement de segment</value>
   </data>
   <data name="Mode_InvertSegment_Info_ClickToReverse" xml:space="preserve">
-    <value>Click to invert segment</value>
+    <value>Cliquez pour inverser le segment</value>
   </data>
   <data name="Mode_InvertSegment_Info_SelectToReverse" xml:space="preserve">
-    <value>Select segment to invert it</value>
+    <value>Sélectionnez un segment à inverser</value>
   </data>
   <data name="Mode_NodeLine_Info_NotConnected" xml:space="preserve">
     <value>Ce nœud ne peut pas être sélectionné
@@ -323,17 +335,17 @@ Cliquez avec Maj pour séparer le nœud et définir sa hauteur</value>
     <value>Noeuds trop éloignés l'un de l'autre</value>
   </data>
   <data name="Mode_UnlockSegment" xml:space="preserve">
-    <value>Unlock segment mode</value>
+    <value>Déverrouillage de segments</value>
   </data>
   <data name="Mode_UnlockSegment_Info_ChangeLock" xml:space="preserve">
-    <value>Select segment to
-lock or unlock it</value>
+    <value>Sélectionnez le segment à
+verrouiller ou déverrouiller</value>
   </data>
   <data name="Mode_UnlockSegment_Info_ClickToLock" xml:space="preserve">
-    <value>Click to lock this segment</value>
+    <value>Cliquez pour verrouiller ce segment</value>
   </data>
   <data name="Mode_UnlockSegment_Info_ClickToUnlock" xml:space="preserve">
-    <value>Click to unlock this segment</value>
+    <value>Cliquez pour déverrouiller ce segment</value>
   </data>
   <data name="Mod_Description" xml:space="preserve">
     <value>De nombreux outils pour travailler avec les réseaux</value>

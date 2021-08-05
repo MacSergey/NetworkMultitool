@@ -143,20 +143,29 @@ Te dicht bij een nabijgelegen knooppunt</value>
     <value>Select segment to set arrange direction</value>
   </data>
   <data name="Mode_Connection_Info_DoubleClickOnCenterToChangeDir" xml:space="preserve">
-    <value>Double click on circle center
-to change curve direction</value>
+    <value>Dubbelklik op het midden van de cirkel
+om de richting van de curve te veranderen</value>
   </data>
   <data name="Mode_Connection_Info_DoubleClickToAdd" xml:space="preserve">
-    <value>Double click to add curve to this line</value>
+    <value>Dubbelklik om een curve toe te passen aan deze lijn</value>
   </data>
   <data name="Mode_Connection_Info_DoubleClickToRemove" xml:space="preserve">
-    <value>Double right click to remove this curve</value>
+    <value>Dubbelklik met de rechtermuisknop om deze curve te verwijderen</value>
   </data>
   <data name="Mode_Connection_Info_DragToChangeRadius" xml:space="preserve">
-    <value>Drag to change radius</value>
+    <value>Sleep om de straal te veranderen</value>
   </data>
   <data name="Mode_Connection_Info_DragToMove" xml:space="preserve">
-    <value>Drag to move circle</value>
+    <value>Sleep om de cirkel te verplaatsen</value>
+  </data>
+  <data name="Mode_Connection_Info_RadiusStep" xml:space="preserve">
+    <value>Hold Shift to step 10m
+Hold Ctrl to step 1m
+Hold Alt to step 0.1m</value>
+  </data>
+  <data name="Mode_Connection_Info_SlowMove" xml:space="preserve">
+    <value>Houd Ctrl om met X10 langzamer te bewegen
+Houd Alt om met X100 langzamer te bewegen</value>
   </data>
   <data name="Mode_CreateConnection" xml:space="preserve">
     <value>Creëer verbind-modus</value>
@@ -171,10 +180,10 @@ to change curve direction</value>
     <value>Druk {0} om toe te passen</value>
   </data>
   <data name="Mode_Info_ChangeAllRadius" xml:space="preserve">
-    <value>Press {0} or {1} to change all radii</value>
+    <value>Druk {0} of {1} om de straal te veranderen</value>
   </data>
   <data name="Mode_Info_ChangeBothRadius" xml:space="preserve">
-    <value>Press {0} or {1} to change both radii</value>
+    <value>Druk {0} of {1} om beide stralen te veranderen</value>
   </data>
   <data name="Mode_Info_ChangeCircle" xml:space="preserve">
     <value>Druk {0} om de geselecteerde cirkel om te keren</value>
@@ -223,6 +232,9 @@ to change curve direction</value>
   </data>
   <data name="Mode_Info_SelectSegment" xml:space="preserve">
     <value>Selecteer segment</value>
+  </data>
+  <data name="Mode_Info_Step" xml:space="preserve">
+    <value>Shift - X10, Ctrl - X0.1, Alt - X0.01</value>
   </data>
   <data name="Mode_Info_SwitchOffset" xml:space="preserve">
     <value>Press {0} to switch selected offset</value>
@@ -350,19 +362,19 @@ lock or unlock it</value>
     <value>Decrease circle start offset</value>
   </data>
   <data name="Settings_Shortcut_DecreaseOneRadius" xml:space="preserve">
-    <value>Decrease one radius</value>
+    <value>Verlaag één straal</value>
   </data>
   <data name="Settings_Shortcut_DecreaseRadius" xml:space="preserve">
-    <value>Decrease radii</value>
+    <value>Verlaag de stralen</value>
   </data>
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
     <value>Increase circle start offset</value>
   </data>
   <data name="Settings_Shortcut_IncreaseOneRadius" xml:space="preserve">
-    <value>Increase one radius</value>
+    <value>Verhoog één straal</value>
   </data>
   <data name="Settings_Shortcut_IncreaseRadius" xml:space="preserve">
-    <value>Increase radii</value>
+    <value>Verhoog de stralen</value>
   </data>
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
     <value>Verander lusrichting om</value>

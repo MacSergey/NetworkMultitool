@@ -137,10 +137,10 @@
     <value>Mode: フォーススムージング</value>
   </data>
   <data name="Mode_ArrangeLine_Info_ClickToSelectDirection" xml:space="preserve">
-    <value>Click to select arrange direction</value>
+    <value>クリックして配置と方向を選択</value>
   </data>
   <data name="Mode_ArrangeLine_Info_SelectDirection" xml:space="preserve">
-    <value>Select segment to set arrange direction</value>
+    <value>配置と方向を設定するセグメントを選択</value>
   </data>
   <data name="Mode_Connection_Info_DoubleClickOnCenterToChangeDir" xml:space="preserve">
     <value>サークルの中心をダブルクリックして
@@ -157,6 +157,15 @@
   </data>
   <data name="Mode_Connection_Info_DragToMove" xml:space="preserve">
     <value>ドラッグしてサークルを移動</value>
+  </data>
+  <data name="Mode_Connection_Info_RadiusStep" xml:space="preserve">
+    <value>Shiftキー押下 - 10m刻み
+Ctrlキー押下 - 1m刻み
+Altキー押下 - 0.1m刻み</value>
+  </data>
+  <data name="Mode_Connection_Info_SlowMove" xml:space="preserve">
+    <value>Ctrlキー押下 - x10遅く移動
+Altキー押下 - x100遅く移動</value>
   </data>
   <data name="Mode_CreateConnection" xml:space="preserve">
     <value>Mode: ネットワークの直線接続</value>
@@ -224,6 +233,9 @@
   <data name="Mode_Info_SelectSegment" xml:space="preserve">
     <value>セグメントを選択</value>
   </data>
+  <data name="Mode_Info_Step" xml:space="preserve">
+    <value>Shiftキー x10倍 / Ctrlキー x0.1倍 / Altキー x0.01倍</value>
+  </data>
   <data name="Mode_Info_SwitchOffset" xml:space="preserve">
     <value>{0} でカーブ開始前のオフセットを切り替え</value>
   </data>
@@ -246,10 +258,10 @@
     <value>Mode: セグメントの反転</value>
   </data>
   <data name="Mode_InvertSegment_Info_ClickToReverse" xml:space="preserve">
-    <value>Click to invert segment</value>
+    <value>クリックしてセグメントを反転</value>
   </data>
   <data name="Mode_InvertSegment_Info_SelectToReverse" xml:space="preserve">
-    <value>Select segment to invert it</value>
+    <value>セグメントを選択して反転</value>
   </data>
   <data name="Mode_NodeLine_Info_NotConnected" xml:space="preserve">
     <value>他のノードと未接続です
@@ -323,17 +335,17 @@
     <value>ノード同士が遠すぎます</value>
   </data>
   <data name="Mode_UnlockSegment" xml:space="preserve">
-    <value>Unlock segment mode</value>
+    <value>Mode: アンロックセグメント</value>
   </data>
   <data name="Mode_UnlockSegment_Info_ChangeLock" xml:space="preserve">
-    <value>Select segment to
-lock or unlock it</value>
+    <value>編集不可のセグメントを選択
+ロック・アンロックを切り替え</value>
   </data>
   <data name="Mode_UnlockSegment_Info_ClickToLock" xml:space="preserve">
-    <value>Click to lock this segment</value>
+    <value>クリックしてセグメントをロック</value>
   </data>
   <data name="Mode_UnlockSegment_Info_ClickToUnlock" xml:space="preserve">
-    <value>Click to unlock this segment</value>
+    <value>クリックしてセグメントをアンロック</value>
   </data>
   <data name="Mod_Description" xml:space="preserve">
     <value>ネットワークを操作するための十徳ナイフのようなツール</value>

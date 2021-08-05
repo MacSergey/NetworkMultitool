@@ -137,26 +137,35 @@
     <value>多点均匀功能</value>
   </data>
   <data name="Mode_ArrangeLine_Info_ClickToSelectDirection" xml:space="preserve">
-    <value>Click to select arrange direction</value>
+    <value>点击以选择对齐方向</value>
   </data>
   <data name="Mode_ArrangeLine_Info_SelectDirection" xml:space="preserve">
-    <value>Select segment to set arrange direction</value>
+    <value>选择段落以设定对齐方向</value>
   </data>
   <data name="Mode_Connection_Info_DoubleClickOnCenterToChangeDir" xml:space="preserve">
-    <value>Double click on circle center
-to change curve direction</value>
+    <value>双击圆心
+以改变曲线方向</value>
   </data>
   <data name="Mode_Connection_Info_DoubleClickToAdd" xml:space="preserve">
-    <value>Double click to add curve to this line</value>
+    <value>双击左键在此线添加曲线</value>
   </data>
   <data name="Mode_Connection_Info_DoubleClickToRemove" xml:space="preserve">
-    <value>Double right click to remove this curve</value>
+    <value>双击右键删除此曲线</value>
   </data>
   <data name="Mode_Connection_Info_DragToChangeRadius" xml:space="preserve">
-    <value>Drag to change radius</value>
+    <value>拖动以改变半径</value>
   </data>
   <data name="Mode_Connection_Info_DragToMove" xml:space="preserve">
-    <value>Drag to move circle</value>
+    <value>拖移以移动圆</value>
+  </data>
+  <data name="Mode_Connection_Info_RadiusStep" xml:space="preserve">
+    <value>Hold Shift to step 10m
+Hold Ctrl to step 1m
+Hold Alt to step 0.1m</value>
+  </data>
+  <data name="Mode_Connection_Info_SlowMove" xml:space="preserve">
+    <value>Hold Ctrl to move X10 slower
+Hold Alt to move X100 slower</value>
   </data>
   <data name="Mode_CreateConnection" xml:space="preserve">
     <value>创建连接模式</value>
@@ -171,28 +180,28 @@ to change curve direction</value>
     <value>按下 {0} 以应用</value>
   </data>
   <data name="Mode_Info_ChangeAllRadius" xml:space="preserve">
-    <value>Press {0} or {1} to change all radii</value>
+    <value>按 {0} 或 {1} 更改所有半径</value>
   </data>
   <data name="Mode_Info_ChangeBothRadius" xml:space="preserve">
-    <value>Press {0} or {1} to change both radii</value>
+    <value>按 {0} 或 {1} 来更改两个半径</value>
   </data>
   <data name="Mode_Info_ChangeCircle" xml:space="preserve">
     <value>按 {0} 切换到选中的圆</value>
   </data>
   <data name="Mode_Info_ChangeOffset" xml:space="preserve">
-    <value>Press {0} or {1} to change curse start offset</value>
+    <value>按 {0} 或 {1} 更改曲线起始偏移</value>
   </data>
   <data name="Mode_Info_ChangeOneRadius" xml:space="preserve">
-    <value>Press {0} or {1} to change one radius</value>
+    <value>按 {0} 或 {1} 来更改一个半径</value>
   </data>
   <data name="Mode_Info_ChangeRadius" xml:space="preserve">
-    <value>Press {0} or {1} to change radius</value>
+    <value>按 {0} 或 {1} 更改半径</value>
   </data>
   <data name="Mode_Info_ClickFirstSegment" xml:space="preserve">
     <value>点击选择第一段落</value>
   </data>
   <data name="Mode_Info_ClickOnNodeToChangeCreateDir" xml:space="preserve">
-    <value>Click on node to change create direction</value>
+    <value>点击节点来改变创建方向</value>
   </data>
   <data name="Mode_Info_ClickSecondSegment" xml:space="preserve">
     <value>点击选择第二段落</value>
@@ -201,7 +210,7 @@ to change curve direction</value>
     <value>点击选择节点</value>
   </data>
   <data name="Mode_Info_ClickToChangeCreateDir" xml:space="preserve">
-    <value>Click to change create direction</value>
+    <value>点击来改变创建方向</value>
   </data>
   <data name="Mode_Info_ClickUnselectNode" xml:space="preserve">
     <value>点击撤销选择节点</value>
@@ -222,10 +231,13 @@ to change curve direction</value>
     <value>选择第二段落</value>
   </data>
   <data name="Mode_Info_SelectSegment" xml:space="preserve">
-    <value>Select segment</value>
+    <value>选择段落</value>
+  </data>
+  <data name="Mode_Info_Step" xml:space="preserve">
+    <value>Shift - X10, Ctrl - X0.1, Alt - X0.01</value>
   </data>
   <data name="Mode_Info_SwitchOffset" xml:space="preserve">
-    <value>Press {0} to switch selected offset</value>
+    <value>按 {0} 切换选中偏移</value>
   </data>
   <data name="Mode_Info_UndergroundMode" xml:space="preserve">
     <value>按住 Shift 进入地下模式</value>
@@ -243,13 +255,13 @@ to change curve direction</value>
     <value>这些段落并不相交</value>
   </data>
   <data name="Mode_InvertSegment" xml:space="preserve">
-    <value>Invert segment mode</value>
+    <value>反转段落模式</value>
   </data>
   <data name="Mode_InvertSegment_Info_ClickToReverse" xml:space="preserve">
-    <value>Click to invert segment</value>
+    <value>点击以反转段落</value>
   </data>
   <data name="Mode_InvertSegment_Info_SelectToReverse" xml:space="preserve">
-    <value>Select segment to invert it</value>
+    <value>选择要反转的段落</value>
   </data>
   <data name="Mode_NodeLine_Info_NotConnected" xml:space="preserve">
     <value>不能选择此节点
@@ -274,29 +286,29 @@ to change curve direction</value>
     <value>设置斜坡模式</value>
   </data>
   <data name="Mode_SplitNode" xml:space="preserve">
-    <value>Split node mode</value>
+    <value>拆分节点模式</value>
   </data>
   <data name="Mode_SplitNode_Info_ClickFromOrder" xml:space="preserve">
-    <value>Click to remove segment from split order</value>
+    <value>单击以从就序列表中移除段落</value>
   </data>
   <data name="Mode_SplitNode_Info_ClickToOrder" xml:space="preserve">
-    <value>Click to add segment to split order</value>
+    <value>单击以添加段落到就序列表中</value>
   </data>
   <data name="Mode_SplitNode_Info_ClickToSplit" xml:space="preserve">
-    <value>Click to split node and set terrain height
-Click with Shift to split node and set source height</value>
+    <value>点击以分割节点并设置为地形高度
+按住Shift单击以分割节点并设置为原高度</value>
   </data>
   <data name="Mode_SplitNode_Info_NotAllowedSplit" xml:space="preserve">
-    <value>Not possible split node with only one segment</value>
+    <value>无法分割只与一个段落相交的节点</value>
   </data>
   <data name="Mode_SplitNode_Info_OrderIsFull" xml:space="preserve">
-    <value>Not possible add more segments to split order</value>
+    <value>无法往就序列表中添加更多段落</value>
   </data>
   <data name="Mode_SplitNode_Info_SelectToSplit" xml:space="preserve">
-    <value>Select segments to split</value>
+    <value>选择要拆分的段落</value>
   </data>
   <data name="Mode_SplitNode_Info_TooFar" xml:space="preserve">
-    <value>Position is too far from source node</value>
+    <value>位置离源节点太远</value>
   </data>
   <data name="Mode_UnionNode" xml:space="preserve">
     <value>并合节点模式</value>
@@ -323,17 +335,17 @@ Click with Shift to split node and set source height</value>
     <value>节点间距离太远</value>
   </data>
   <data name="Mode_UnlockSegment" xml:space="preserve">
-    <value>Unlock segment mode</value>
+    <value>解/锁段落模式</value>
   </data>
   <data name="Mode_UnlockSegment_Info_ChangeLock" xml:space="preserve">
-    <value>Select segment to
-lock or unlock it</value>
+    <value>选择要
+锁定或解锁的段落</value>
   </data>
   <data name="Mode_UnlockSegment_Info_ClickToLock" xml:space="preserve">
-    <value>Click to lock this segment</value>
+    <value>点击锁定此段落</value>
   </data>
   <data name="Mode_UnlockSegment_Info_ClickToUnlock" xml:space="preserve">
-    <value>Click to unlock this segment</value>
+    <value>点击解锁此段落</value>
   </data>
   <data name="Mod_Description" xml:space="preserve">
     <value>修改道路网络的许多小工具</value>
@@ -345,34 +357,34 @@ lock or unlock it</value>
     <value>最大段落长度</value>
   </data>
   <data name="Settings_Shortcut_Apply" xml:space="preserve">
-    <value>Apply mode action</value>
+    <value>应用模式</value>
   </data>
   <data name="Settings_Shortcut_DecreaseOffset" xml:space="preserve">
-    <value>Decrease circle start offset</value>
+    <value>减少圆形起点偏移</value>
   </data>
   <data name="Settings_Shortcut_DecreaseOneRadius" xml:space="preserve">
-    <value>Decrease one radius</value>
+    <value>减少一个半径</value>
   </data>
   <data name="Settings_Shortcut_DecreaseRadius" xml:space="preserve">
-    <value>Decrease radii</value>
+    <value>减少半径</value>
   </data>
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
-    <value>Increase circle start offset</value>
+    <value>增加圆形起点偏移</value>
   </data>
   <data name="Settings_Shortcut_IncreaseOneRadius" xml:space="preserve">
-    <value>Increase one radius</value>
+    <value>增大一个半径</value>
   </data>
   <data name="Settings_Shortcut_IncreaseRadius" xml:space="preserve">
-    <value>Increase radii</value>
+    <value>增大半径</value>
   </data>
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
-    <value>Switch loop direction</value>
+    <value>切换回环方向</value>
   </data>
   <data name="Settings_Shortcut_SwitchOffset" xml:space="preserve">
-    <value>Switch selected offset</value>
+    <value>切换选中偏移</value>
   </data>
   <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
-    <value>Switch selected circle</value>
+    <value>切换选中的圆</value>
   </data>
   <data name="Settings_SlopeUnit" xml:space="preserve">
     <value>斜坡度量单位</value>

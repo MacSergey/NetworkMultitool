@@ -143,20 +143,29 @@ Está demasiado perto de outro nó</value>
     <value>Select segment to set arrange direction</value>
   </data>
   <data name="Mode_Connection_Info_DoubleClickOnCenterToChangeDir" xml:space="preserve">
-    <value>Double click on circle center
-to change curve direction</value>
+    <value>Clique duas vezes no centro do círculo
+para mudar a direção da curva</value>
   </data>
   <data name="Mode_Connection_Info_DoubleClickToAdd" xml:space="preserve">
-    <value>Double click to add curve to this line</value>
+    <value>Clique duas vezes para adicionar uma curva a esta reta</value>
   </data>
   <data name="Mode_Connection_Info_DoubleClickToRemove" xml:space="preserve">
-    <value>Double right click to remove this curve</value>
+    <value>Clique duas vezes para remover esta curva</value>
   </data>
   <data name="Mode_Connection_Info_DragToChangeRadius" xml:space="preserve">
-    <value>Drag to change radius</value>
+    <value>Arraste para alterar o raio</value>
   </data>
   <data name="Mode_Connection_Info_DragToMove" xml:space="preserve">
-    <value>Drag to move circle</value>
+    <value>Arraste para mover o círculo</value>
+  </data>
+  <data name="Mode_Connection_Info_RadiusStep" xml:space="preserve">
+    <value>Hold Shift to step 10m
+Hold Ctrl to step 1m
+Hold Alt to step 0.1m</value>
+  </data>
+  <data name="Mode_Connection_Info_SlowMove" xml:space="preserve">
+    <value>Hold Ctrl to move X10 slower
+Hold Alt to move X100 slower</value>
   </data>
   <data name="Mode_CreateConnection" xml:space="preserve">
     <value>Modo de criação de ligação</value>
@@ -183,10 +192,10 @@ to change curve direction</value>
     <value>Pressione {0} ou {1} para alterar o deslocamento inicial da curva</value>
   </data>
   <data name="Mode_Info_ChangeOneRadius" xml:space="preserve">
-    <value>Press {0} or {1} to change one radius</value>
+    <value>Pressione {0} ou {1} para alterar um raio</value>
   </data>
   <data name="Mode_Info_ChangeRadius" xml:space="preserve">
-    <value>Press {0} or {1} to change radius</value>
+    <value>Pressione {0} ou {1} para alterar o raio</value>
   </data>
   <data name="Mode_Info_ClickFirstSegment" xml:space="preserve">
     <value>Clique para selecionar o primeiro segmento</value>
@@ -224,6 +233,9 @@ to change curve direction</value>
   <data name="Mode_Info_SelectSegment" xml:space="preserve">
     <value>Selecione segmento</value>
   </data>
+  <data name="Mode_Info_Step" xml:space="preserve">
+    <value>Shift - X10, Ctrl - X0.1, Alt - X0.01</value>
+  </data>
   <data name="Mode_Info_SwitchOffset" xml:space="preserve">
     <value>Press {0} to switch selected offset</value>
   </data>
@@ -243,13 +255,13 @@ to change curve direction</value>
     <value>Estes segmentos não se intersectam</value>
   </data>
   <data name="Mode_InvertSegment" xml:space="preserve">
-    <value>Invert segment mode</value>
+    <value>Modo de inversão de segmento</value>
   </data>
   <data name="Mode_InvertSegment_Info_ClickToReverse" xml:space="preserve">
-    <value>Click to invert segment</value>
+    <value>Clique para inverter o segmento</value>
   </data>
   <data name="Mode_InvertSegment_Info_SelectToReverse" xml:space="preserve">
-    <value>Select segment to invert it</value>
+    <value>Selecione o segmento para invertê-lo</value>
   </data>
   <data name="Mode_NodeLine_Info_NotConnected" xml:space="preserve">
     <value>Este nó não pode ser selecionado
@@ -293,10 +305,10 @@ Click with Shift to split node and set source height</value>
     <value>Not possible add more segments to split order</value>
   </data>
   <data name="Mode_SplitNode_Info_SelectToSplit" xml:space="preserve">
-    <value>Select segments to split</value>
+    <value>Selecione segmentos para dividir</value>
   </data>
   <data name="Mode_SplitNode_Info_TooFar" xml:space="preserve">
-    <value>Position is too far from source node</value>
+    <value>A posição está muito longe do nó de origem</value>
   </data>
   <data name="Mode_UnionNode" xml:space="preserve">
     <value>Modo de união de nós</value>

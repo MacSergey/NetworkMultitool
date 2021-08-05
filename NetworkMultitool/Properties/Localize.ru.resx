@@ -159,6 +159,15 @@
   <data name="Mode_Connection_Info_DragToMove" xml:space="preserve">
     <value>Перетащите для перемещения круга</value>
   </data>
+  <data name="Mode_Connection_Info_RadiusStep" xml:space="preserve">
+    <value>Shift для шага в 10м
+Ctrl для шага в 1м
+Alt для шага в 0.1м</value>
+  </data>
+  <data name="Mode_Connection_Info_SlowMove" xml:space="preserve">
+    <value>Ctrl для перемещения в 10 раз медленнее
+Alt для перемещения в 100 раз медленнее</value>
+  </data>
   <data name="Mode_CreateConnection" xml:space="preserve">
     <value>Режим создания соединения</value>
   </data>
@@ -224,6 +233,9 @@
   </data>
   <data name="Mode_Info_SelectSegment" xml:space="preserve">
     <value>Выберите сегмент</value>
+  </data>
+  <data name="Mode_Info_Step" xml:space="preserve">
+    <value>Shift - X10, Ctrl - X0.1, Alt - X0.01</value>
   </data>
   <data name="Mode_Info_SwitchOffset" xml:space="preserve">
     <value>Нажмите {0} для смены выбранного отступа</value>

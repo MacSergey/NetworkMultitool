@@ -137,10 +137,10 @@
     <value>선 위에 정렬 모드</value>
   </data>
   <data name="Mode_ArrangeLine_Info_ClickToSelectDirection" xml:space="preserve">
-    <value>Click to select arrange direction</value>
+    <value>클릭해 배열 방향 선택</value>
   </data>
   <data name="Mode_ArrangeLine_Info_SelectDirection" xml:space="preserve">
-    <value>Select segment to set arrange direction</value>
+    <value>세그먼트를 클릭해 배열 방향 선택</value>
   </data>
   <data name="Mode_Connection_Info_DoubleClickOnCenterToChangeDir" xml:space="preserve">
     <value>원 중심을 더블 클릭해
@@ -157,6 +157,15 @@
   </data>
   <data name="Mode_Connection_Info_DragToMove" xml:space="preserve">
     <value>드래그해 원 움직이기</value>
+  </data>
+  <data name="Mode_Connection_Info_RadiusStep" xml:space="preserve">
+    <value>Shift를 꾹 눌러 10m씩
+Ctrl을 꾹 눌러 1m씩
+Alt를 꾹 눌러 0.1m씩</value>
+  </data>
+  <data name="Mode_Connection_Info_SlowMove" xml:space="preserve">
+    <value>Ctrl을 꾹 눌러 10배 정교하게
+Alt를 꾹 눌러 100배 정교하게</value>
   </data>
   <data name="Mode_CreateConnection" xml:space="preserve">
     <value>연결 생성 모드</value>
@@ -224,6 +233,9 @@
   <data name="Mode_Info_SelectSegment" xml:space="preserve">
     <value>세그먼트 선택</value>
   </data>
+  <data name="Mode_Info_Step" xml:space="preserve">
+    <value>Shift - 10배, Ctrl - 0.1배, Alt - 0.01배</value>
+  </data>
   <data name="Mode_Info_SwitchOffset" xml:space="preserve">
     <value>{0}을 눌러 선택한 오프셋 변경</value>
   </data>
@@ -246,10 +258,10 @@
     <value>세그먼트 반전 모드</value>
   </data>
   <data name="Mode_InvertSegment_Info_ClickToReverse" xml:space="preserve">
-    <value>Click to invert segment</value>
+    <value>클릭해 세그먼트 반전</value>
   </data>
   <data name="Mode_InvertSegment_Info_SelectToReverse" xml:space="preserve">
-    <value>Select segment to invert it</value>
+    <value>세그먼트를 선택해 반전</value>
   </data>
   <data name="Mode_NodeLine_Info_NotConnected" xml:space="preserve">
     <value>이 노드는 다른 노드와
@@ -323,17 +335,17 @@
     <value>두 노드가 너무 멀리 떨어짐</value>
   </data>
   <data name="Mode_UnlockSegment" xml:space="preserve">
-    <value>Unlock segment mode</value>
+    <value>세그먼트 모드 잠금 해제</value>
   </data>
   <data name="Mode_UnlockSegment_Info_ChangeLock" xml:space="preserve">
-    <value>Select segment to
-lock or unlock it</value>
+    <value>세그먼트를 선택해
+잠금 혹은 잠금 해제</value>
   </data>
   <data name="Mode_UnlockSegment_Info_ClickToLock" xml:space="preserve">
-    <value>Click to lock this segment</value>
+    <value>클릭해 이 세그먼트 잠금</value>
   </data>
   <data name="Mode_UnlockSegment_Info_ClickToUnlock" xml:space="preserve">
-    <value>Click to unlock this segment</value>
+    <value>클릭해 이 세그먼트 잠금 해제</value>
   </data>
   <data name="Mod_Description" xml:space="preserve">
     <value>네트워크를 위한 여러 가지 도구</value>
