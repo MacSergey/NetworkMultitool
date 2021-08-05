@@ -101,6 +101,8 @@ namespace NetworkMultitool
                 Points = Calculate().ToList();
                 Points.Insert(0, new Point(FirstTrajectory.StartPosition, FirstTrajectory.Direction));
                 Points.Add(new Point(SecondTrajectory.StartPosition, -SecondTrajectory.Direction));
+                if (State == Result.Calculated)
+                    SetSlope(Points);
             }
         }
         protected abstract IEnumerable<Point> Calculate();
@@ -196,9 +198,11 @@ namespace NetworkMultitool
                 nodeIds.Add(IsSecondStart ? Second.Id.GetSegment().m_startNode : Second.Id.GetSegment().m_endNode);
 
                 for (var i = 1; i < nodeIds.Count; i += 1)
-                    CreateSegment(out _, info, nodeIds[i - 1], nodeIds[i], Points[i - 1].Direction, -Points[i].Direction);
+                {
+                    CreateSegment(out var newSegmentId, info, nodeIds[i - 1], nodeIds[i], Points[i - 1].Direction, -Points[i].Direction);
+                    CalculateSegmentDirections(newSegmentId);
+                }
 
-                Tool.SetSlope(nodeIds.ToArray());
 
                 Reset(this);
             }

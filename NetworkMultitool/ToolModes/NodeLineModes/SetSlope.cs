@@ -23,10 +23,34 @@ namespace NetworkMultitool
         {
             if (Nodes.Count >= 3)
             {
-                Tool.SetSlope(Nodes.Select(n => n.Id).ToArray());
+                SetSlope(Nodes, PositionGetter, DirectionGetter, PositionSetter);
+                for(var i = 1; i < Nodes.Count; i += 1)
+                {
+                    NetExtension.GetCommon(Nodes[i - 1].Id, Nodes[i].Id, out var segmentId);
+                    CalculateSegmentDirections(segmentId);
+                }
                 RefreshLabels();
             }
         }
+        private static Vector3 PositionGetter(NodeSelection node) => node.Id.GetNode().m_position;
+        private static void DirectionGetter(NodeSelection first, NodeSelection second, out Vector3 firstDir, out Vector3 secondDir)
+        {
+            NetExtension.GetCommon(first.Id, second.Id, out var commonSegmentId);
+
+            var segment = commonSegmentId.GetSegment();
+
+            if (segment.IsStartNode(first.Id))
+            {
+                firstDir = segment.m_startDirection;
+                secondDir = segment.m_endDirection;
+            }
+            else
+            {
+                firstDir = segment.m_endDirection;
+                secondDir = segment.m_startDirection;
+            }
+        }
+        private static void PositionSetter(NodeSelection node, Vector3 position) => NetManager.instance.MoveNode(node.Id, position);
 
         protected override void AddFirst(NodeSelection selection)
         {

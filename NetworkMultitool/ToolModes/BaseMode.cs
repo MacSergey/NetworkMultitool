@@ -166,6 +166,47 @@ namespace NetworkMultitool
             segment.m_startDirection = segment.FindDirection(segmentId, segment.m_startNode);
             segment.m_endDirection = segment.FindDirection(segmentId, segment.m_endNode);
         }
+        protected delegate void DirectionGetterDelegate<Type>(Type first, Type second, out Vector3 firstDir, out Vector3 secondDir);
+        protected void SetSlope<Type>(IEnumerable<Type> items, Func<Type, Vector3> positionGetter, DirectionGetterDelegate<Type> directionGetter, Action<Type, Vector3> positionSetter)
+        {
+            var itemsList = items.ToArray();
+            var startY = positionGetter(itemsList[0]).y;
+            var endY = positionGetter(itemsList[itemsList.Length - 1]).y;
+
+            var list = new List<ITrajectory>();
+            for (var i = 1; i < itemsList.Length; i += 1)
+            {
+                var startPos = positionGetter(itemsList[i - 1]);
+                var endPos = positionGetter(itemsList[i]);
+                directionGetter(itemsList[i - 1], itemsList[i], out var startDir, out var endDir);
+              
+                startPos.y = 0;
+                endPos.y = 0;
+                startDir = startDir.MakeFlatNormalized();
+                endDir = endDir.MakeFlatNormalized();
+
+                list.Add(new BezierTrajectory(startPos, startDir, endPos, endDir));
+            }
+
+            var sumLenght = list.Sum(t => t.Length);
+            var currentLenght = 0f;
+
+            for (var i = 1; i < itemsList.Length - 1; i += 1)
+            {
+                currentLenght += list[i - 1].Length;
+                var position = positionGetter(itemsList[i]);
+                position.y = Mathf.Lerp(startY, endY, currentLenght / sumLenght);
+                positionSetter(itemsList[i], position);
+            }
+        }
+        protected void SetSlope(IEnumerable<Point> points) => SetSlope(points, PositionGetter, DirectionGetter, PositionSetter);
+        private static Vector3 PositionGetter(Point point) => point.Position;
+        private static void DirectionGetter(Point first, Point second, out Vector3 firstDir, out Vector3 secondDir)
+        {
+            firstDir = first.Direction;
+            secondDir = -second.Direction;
+        }
+        private static void PositionSetter(Point point, Vector3 position) => point.Position = position;
 
         protected Rect GetTerrainRect(params ushort[] segmentIds) => segmentIds.Select(i => (ITrajectory)new BezierTrajectory(i)).GetRect();
         protected void UpdateTerrain(params ushort[] segmentIds)
@@ -269,7 +310,7 @@ namespace NetworkMultitool
             }
         }
 
-        public struct Point
+        public class Point
         {
             public Vector3 Position;
             public Vector3 Direction;
