@@ -70,6 +70,19 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на - Added Split node mode: Select segments and split it to new node.
+        ///- Added Unlock segment mode: Unlock building&apos;s segments to change it, or lock segments to prevent delete it.
+        ///- Added Invert segment mode: Ability to invert non-symmetrical segments.
+        ///- Updated Arrange in line mode: Added overlay of arrange result; Added ability to set arrange direction by choose guide segment; line calculated more smooth; height of nodes no more changing; fixed segment directions after move nodes.
+        ///- Added the ability to c [остаток строки не уместился]&quot;;.
+        /// </summary>
+        internal static string Mod_WhatsNewMessage1_1 {
+            get {
+                return ResourceManager.GetString("Mod_WhatsNewMessage1_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Add node mode.
         /// </summary>
         internal static string Mode_AddNode {
