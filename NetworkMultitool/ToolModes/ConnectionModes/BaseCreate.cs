@@ -26,8 +26,9 @@ namespace NetworkMultitool
         protected override Color32 SegmentColor => Colors.Blue;
         protected override Color32 NodeColor => Colors.Blue;
 
+        protected override bool CheckUnderground => !IsBoth;
         protected override bool IsValidSegment(ushort segmentId) => !IsBoth && segmentId != First?.Id && segmentId != Second?.Id;
-        protected override bool IsValidNode(ushort nodeId) => base.IsValidNode(nodeId) && IsBoth && (First.Id.GetSegment().Contains(nodeId) || Second.Id.GetSegment().Contains(nodeId));
+        protected override bool IsValidNode(ushort nodeId) => (!IsBoth && base.IsValidNode(nodeId)) || (IsBoth && (First.Id.GetSegment().Contains(nodeId) || Second.Id.GetSegment().Contains(nodeId)));
 
         public override IEnumerable<NetworkMultitoolShortcut> Shortcuts
         {
@@ -66,6 +67,7 @@ namespace NetworkMultitool
         protected bool IsSecond => Second != null;
         protected bool IsBoth => IsFirst && IsSecond;
 
+        protected float Height { get; set; }
         protected StraightTrajectory FirstTrajectory { get; set; }
         protected StraightTrajectory SecondTrajectory { get; set; }
 
@@ -74,6 +76,7 @@ namespace NetworkMultitool
         private List<Point> Points { get; set; } = new List<Point>();
         protected NetInfo Info => ToolsModifierControl.toolController.Tools.OfType<NetTool>().FirstOrDefault().Prefab?.m_netAI?.m_info ?? First.Id.GetSegment().Info;
         protected float MinPossibleRadius => Info != null ? Info.m_halfWidth * 2f : 16f;
+        protected bool ForceUnderground => IsBoth && (First.Id.GetSegment().Nodes().Any(n => n.m_flags.IsSet(NetNode.Flags.Underground)) || Second.Id.GetSegment().Nodes().Any(n => n.m_flags.IsSet(NetNode.Flags.Underground)));
 
         protected override void Reset(IToolMode prevMode)
         {
@@ -101,6 +104,8 @@ namespace NetworkMultitool
                 Points = Calculate().ToList();
                 Points.Insert(0, new Point(FirstTrajectory.StartPosition, FirstTrajectory.Direction));
                 Points.Add(new Point(SecondTrajectory.StartPosition, -SecondTrajectory.Direction));
+                if (State == Result.Calculated)
+                    SetSlope(Points);
             }
         }
         protected abstract IEnumerable<Point> Calculate();
@@ -117,6 +122,7 @@ namespace NetworkMultitool
                 if (IsHoverSegment)
                 {
                     Second = HoverSegment;
+                    Underground = ForceUnderground;
                     Init();
                 }
             }
@@ -142,6 +148,10 @@ namespace NetworkMultitool
             var secondPos = (IsSecondStart ? secondSegment.m_startNode : secondSegment.m_endNode).GetNode().m_position;
             var firstDir = -(IsFirstStart ? firstSegment.m_startDirection : firstSegment.m_endDirection).MakeFlatNormalized();
             var secondDir = -(IsSecondStart ? secondSegment.m_startDirection : secondSegment.m_endDirection).MakeFlatNormalized();
+
+            Height = (firstPos.y + secondPos.y) / 2f;
+            firstPos.y = Height;
+            secondPos.y = Height;
 
             FirstTrajectory = new StraightTrajectory(firstPos, firstPos + firstDir, false);
             SecondTrajectory = new StraightTrajectory(secondPos, secondPos + secondDir, false);
@@ -196,9 +206,11 @@ namespace NetworkMultitool
                 nodeIds.Add(IsSecondStart ? Second.Id.GetSegment().m_startNode : Second.Id.GetSegment().m_endNode);
 
                 for (var i = 1; i < nodeIds.Count; i += 1)
-                    CreateSegment(out _, info, nodeIds[i - 1], nodeIds[i], Points[i - 1].Direction, -Points[i].Direction);
+                {
+                    CreateSegmentAuto(out var newSegmentId, info, nodeIds[i - 1], nodeIds[i], Points[i - 1].Direction, -Points[i].Direction);
+                    CalculateSegmentDirections(newSegmentId);
+                }
 
-                Tool.SetSlope(nodeIds.ToArray());
 
                 Reset(this);
             }
@@ -224,8 +236,6 @@ namespace NetworkMultitool
 
         public override void RenderOverlay(RenderManager.CameraInfo cameraInfo)
         {
-            base.RenderOverlay(cameraInfo);
-
             var color = State switch
             {
                 Result.BigRadius or Result.SmallRadius or Result.WrongShape or Result.NotIntersect => Colors.Red,
@@ -249,9 +259,12 @@ namespace NetworkMultitool
                 RenderFailedOverlay(cameraInfo, Info);
                 RenderParts(Points, cameraInfo);
             }
+
+            base.RenderOverlay(cameraInfo);
         }
         protected virtual void RenderCalculatedOverlay(RenderManager.CameraInfo cameraInfo, NetInfo info) { }
         protected virtual void RenderFailedOverlay(RenderManager.CameraInfo cameraInfo, NetInfo info) { }
+        protected Vector3 GetMousePosition(float height) => Underground ? Tool.Ray.GetRayPosition(height, out _) : Tool.MouseWorldPosition;
 
         public enum Result
         {
@@ -264,7 +277,17 @@ namespace NetworkMultitool
         }
         public class Circle
         {
-            public virtual Vector3 CenterPos { get; set; }
+            public float Height { get; }
+            private Vector3 _centerPos;
+            public virtual Vector3 CenterPos
+            {
+                get => _centerPos;
+                set
+                {
+                    _centerPos = value;
+                    _centerPos.y = Height;
+                }
+            }
             public virtual Vector3 StartRadiusDir { get; set; }
             public virtual Vector3 EndRadiusDir { get; set; }
             public virtual Direction Direction { get; set; }
@@ -304,6 +327,8 @@ namespace NetworkMultitool
                 }
             }
             public bool ClockWise => Direction == Direction.Right;
+            public float Length => Radius * Angle;
+            public bool IsShort => Length < 8f;
 
             private InfoLabel _label;
             public InfoLabel Label
@@ -329,7 +354,7 @@ namespace NetworkMultitool
 
                     var minByLenght = Mathf.CeilToInt(curveLenght / 50f);
                     var maxByLenght = Mathf.CeilToInt(curveLenght / MaxLengthGetter());
-                    var maxByAngle = Mathf.CeilToInt(Mathf.Abs(angle) / Mathf.PI * 3);
+                    var maxByAngle = Mathf.CeilToInt(Mathf.Abs(angle) / Mathf.PI * 2f);
 
                     var curveCount = Math.Max(maxByLenght, Mathf.Min(minByLenght, maxByAngle));
 
@@ -342,8 +367,9 @@ namespace NetworkMultitool
                 }
             }
 
-            public Circle(InfoLabel label)
+            public Circle(InfoLabel label, float height)
             {
+                Height = height;
                 Label = label;
             }
 
@@ -398,7 +424,7 @@ namespace NetworkMultitool
                 else
                     return first.Radius + second.Radius <= centerConnect.Length;
             }
-            public static Straight GetStraight(Circle first, Circle second, InfoLabel label)
+            public static Straight GetStraight(Circle first, Circle second, InfoLabel label, float height)
             {
                 Vector3 labelDir;
                 if (first.Direction == second.Direction)
@@ -408,7 +434,7 @@ namespace NetworkMultitool
                 else
                     labelDir = -second.StartRadiusDir;
 
-                var straight = new Straight(first.EndPos, second.StartPos, labelDir, label);
+                var straight = new Straight(first.EndPos, second.StartPos, labelDir, label, height);
                 return straight;
             }
 
@@ -452,6 +478,7 @@ namespace NetworkMultitool
                     }
                 }
             }
+            public bool IsShort => Length < 8f;
 
             public IEnumerable<Point> Parts
             {
@@ -466,10 +493,15 @@ namespace NetworkMultitool
                 }
             }
 
-            public Straight(Vector3 start, Vector3 end, Vector3 labelDir, InfoLabel label) : base(start, end)
+            public Straight(Vector3 start, Vector3 end, Vector3 labelDir, InfoLabel label, float height) : base(SetHeight(start, height), SetHeight(end, height))
             {
                 LabelDir = labelDir;
                 Label = label;
+            }
+            static Vector3 SetHeight(Vector3 vector, float height)
+            {
+                vector.y = height;
+                return vector;
             }
 
             public void Update(NetInfo info, bool show)

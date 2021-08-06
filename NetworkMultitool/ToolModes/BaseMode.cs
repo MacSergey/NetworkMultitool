@@ -101,7 +101,7 @@ namespace NetworkMultitool
             button.Init(this, Type.ToString());
             button.eventClicked += ButtonClicked;
 
-            if(!ButtonsDic.TryGetValue(Type & ToolModeType.Group, out var buttons))
+            if (!ButtonsDic.TryGetValue(Type & ToolModeType.Group, out var buttons))
             {
                 buttons = new List<ModeButton>();
                 ButtonsDic[Type & ToolModeType.Group] = buttons;
@@ -127,7 +127,44 @@ namespace NetworkMultitool
         protected override bool CheckItemClass(ItemClass itemClass) => itemClass.m_layer == ItemClass.Layer.Default || itemClass.m_layer == ItemClass.Layer.MetroTunnels;
 
 
-        protected bool CreateNode(out ushort newNodeId, NetInfo info, Vector3 position) => Singleton<NetManager>.instance.CreateNode(out newNodeId, ref Singleton<SimulationManager>.instance.m_randomizer, info, position, Singleton<SimulationManager>.instance.m_currentBuildIndex);
+        protected bool CreateNode(out ushort newNodeId, NetInfo info, Vector3 position)
+        {
+            if (Singleton<NetManager>.instance.CreateNode(out newNodeId, ref Singleton<SimulationManager>.instance.m_randomizer, info, position, Singleton<SimulationManager>.instance.m_currentBuildIndex))
+            {
+                ref var node = ref newNodeId.GetNode();
+                var elevated = node.m_position.y - Singleton<TerrainManager>.instance.SampleRawHeightSmooth(node.m_position);
+
+                if (elevated < -8f && (info.m_netAI.SupportUnderground() || info.m_netAI.IsUnderground()))
+                    node.m_flags |= NetNode.Flags.Underground;
+                else if (elevated <= 0.1f && !info.m_netAI.IsOverground())
+                    node.m_flags |= NetNode.Flags.OnGround;
+
+                return true;
+            }
+            else
+                return false;
+        }
+        protected bool CreateSegmentAuto(out ushort newSegmentId, NetInfo info, ushort startId, ushort endId, Vector3 startDir, Vector3 endDir)
+        {
+            ref var startNode = ref startId.GetNode();
+            ref var endNode = ref endId.GetNode();
+            var startPos = startNode.m_position;
+            var endPos = endNode.m_position;
+            var startElevated = startPos.y - Singleton<TerrainManager>.instance.SampleRawHeightSmooth(startPos);
+            var endElevated = endPos.y - Singleton<TerrainManager>.instance.SampleRawHeightSmooth(endPos);
+            var minElevated = Mathf.Min(startElevated, endElevated);
+            var maxElevated = Mathf.Max(startElevated, endElevated);
+
+            var erroe = ToolBase.ToolErrors.None;
+            var selectedInfo = info.m_netAI.GetInfo(minElevated, maxElevated, (endPos - startPos).magnitude, false, false, false, false, ref erroe);
+
+            info = erroe == ToolBase.ToolErrors.None ? selectedInfo : info;
+
+            if (startNode.m_flags.IsSet(NetNode.Flags.Underground) || !endNode.m_flags.IsSet(NetNode.Flags.Underground))
+                return CreateSegment(out newSegmentId, info, startId, endId, startDir, endDir, false);
+            else
+                return CreateSegment(out newSegmentId, info, endId, startId, endDir, startDir,  true);
+        }
         protected bool CreateSegment(out ushort newSegmentId, NetInfo info, ushort startId, ushort endId, Vector3 startDir, Vector3 endDir, bool invert = false) => Singleton<NetManager>.instance.CreateSegment(out newSegmentId, ref Singleton<SimulationManager>.instance.m_randomizer, info, startId, endId, startDir, endDir, Singleton<SimulationManager>.instance.m_currentBuildIndex, Singleton<SimulationManager>.instance.m_currentBuildIndex, invert);
 
         protected void RemoveNode(ushort nodeId) => Singleton<NetManager>.instance.ReleaseNode(nodeId);
@@ -166,6 +203,47 @@ namespace NetworkMultitool
             segment.m_startDirection = segment.FindDirection(segmentId, segment.m_startNode);
             segment.m_endDirection = segment.FindDirection(segmentId, segment.m_endNode);
         }
+        protected delegate void DirectionGetterDelegate<Type>(Type first, Type second, out Vector3 firstDir, out Vector3 secondDir);
+        protected void SetSlope<Type>(IEnumerable<Type> items, Func<Type, Vector3> positionGetter, DirectionGetterDelegate<Type> directionGetter, Action<Type, Vector3> positionSetter)
+        {
+            var itemsList = items.ToArray();
+            var startY = positionGetter(itemsList[0]).y;
+            var endY = positionGetter(itemsList[itemsList.Length - 1]).y;
+
+            var list = new List<ITrajectory>();
+            for (var i = 1; i < itemsList.Length; i += 1)
+            {
+                var startPos = positionGetter(itemsList[i - 1]);
+                var endPos = positionGetter(itemsList[i]);
+                directionGetter(itemsList[i - 1], itemsList[i], out var startDir, out var endDir);
+
+                startPos.y = 0;
+                endPos.y = 0;
+                startDir = startDir.MakeFlatNormalized();
+                endDir = endDir.MakeFlatNormalized();
+
+                list.Add(new BezierTrajectory(startPos, startDir, endPos, endDir));
+            }
+
+            var sumLenght = list.Sum(t => t.Length);
+            var currentLenght = 0f;
+
+            for (var i = 1; i < itemsList.Length - 1; i += 1)
+            {
+                currentLenght += list[i - 1].Length;
+                var position = positionGetter(itemsList[i]);
+                position.y = Mathf.Lerp(startY, endY, currentLenght / sumLenght);
+                positionSetter(itemsList[i], position);
+            }
+        }
+        protected void SetSlope(IEnumerable<Point> points) => SetSlope(points, PositionGetter, DirectionGetter, PositionSetter);
+        private static Vector3 PositionGetter(Point point) => point.Position;
+        private static void DirectionGetter(Point first, Point second, out Vector3 firstDir, out Vector3 secondDir)
+        {
+            firstDir = first.Direction;
+            secondDir = -second.Direction;
+        }
+        private static void PositionSetter(Point point, Vector3 position) => point.Position = position;
 
         protected Rect GetTerrainRect(params ushort[] segmentIds) => segmentIds.Select(i => (ITrajectory)new BezierTrajectory(i)).GetRect();
         protected void UpdateTerrain(params ushort[] segmentIds)
@@ -179,6 +257,7 @@ namespace NetworkMultitool
         {
             var view = UIView.GetAView();
             var label = view.AddUIComponent(typeof(InfoLabel)) as InfoLabel;
+            label.zOrder = 0;
             Labels.Add(label);
             return label;
         }
@@ -269,7 +348,7 @@ namespace NetworkMultitool
             }
         }
 
-        public struct Point
+        public class Point
         {
             public Vector3 Position;
             public Vector3 Direction;
@@ -324,6 +403,10 @@ namespace NetworkMultitool
 
         [Description(nameof(Localize.Mode_CreateLoop))]
         CreateLoop = ArrangeAtLine << 1,
+
+        [NotItem]
+        [Description(nameof(Localize.Mode_CreateLoop))]
+        CreateLoopMoveCircle = CreateLoop + 1,
 
         [Description(nameof(Localize.Mode_CreateConnection))]
         CreateConnection = CreateLoop << 1,

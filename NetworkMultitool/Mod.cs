@@ -108,6 +108,7 @@ namespace NetworkMultitool
         {
             var enabledProperty = AccessTools.PropertyGetter(typeof(UnityEngine.Behaviour), nameof(UnityEngine.Behaviour.enabled));
             var netToolField = AccessTools.Field(Type.GetType("FineRoadTool.FineRoadTool"), "m_netTool");
+            var prefabField = AccessTools.Field(typeof(NetTool), nameof(NetTool.m_prefab));
             var prev = default(CodeInstruction);
             foreach (var instruction in instructions)
             {
@@ -116,10 +117,15 @@ namespace NetworkMultitool
                 {
                     yield return new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(Patcher), nameof(Patcher.Enabled)));
                 }
+                else if(instruction.opcode == OpCodes.Ldfld && instruction.operand == prefabField)
+                {
+                    yield return new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(Patcher), nameof(Patcher.GetPrefab)));
+                }
                 prev = instruction;
             }
         }
         private static bool Enabled(bool netToolEnabled) => netToolEnabled || SingletonTool<NetworkMultitoolTool>.Instance.enabled;
+        private static NetInfo GetPrefab(NetInfo info) => info ?? PrefabCollection<NetInfo>.FindLoaded("Basic Road");
 
         public static void NodeSpacerPostfix(UISlider ___m_maxLengthSlider)
         {

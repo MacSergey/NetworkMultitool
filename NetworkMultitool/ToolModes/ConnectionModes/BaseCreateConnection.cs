@@ -34,6 +34,8 @@ namespace NetworkMultitool
                 FirstTrajectory = connectionMode.FirstTrajectory;
                 SecondTrajectory = connectionMode.SecondTrajectory;
 
+                Height = connectionMode.Height;
+
                 SelectCircle = connectionMode.SelectCircle;
                 SelectOffset = connectionMode.SelectOffset;
 
@@ -50,6 +52,8 @@ namespace NetworkMultitool
                     if (straight != null)
                         straight.Label = AddLabel();
                 }
+
+                Underground = ForceUnderground;
             }
         }
         protected override void ResetParams()
@@ -113,8 +117,8 @@ namespace NetworkMultitool
         {
             ResetData();
 
-            var first = new EdgeCircle(CircleType.First, AddLabel(), firstTrajectory);
-            var last = new EdgeCircle(CircleType.Last, AddLabel(), secondTrajectory);
+            var first = new EdgeCircle(CircleType.First, AddLabel(), firstTrajectory, Height);
+            var last = new EdgeCircle(CircleType.Last, AddLabel(), secondTrajectory, Height);
             Circles.Add(first);
             Circles.Add(last);
             Straights.Add(null);
@@ -149,7 +153,7 @@ namespace NetworkMultitool
                 else
                 {
                     Circle.SetConnect(Circles[i - 1], Circles[i]);
-                    Straights[i] = Circle.GetStraight(Circles[i - 1], Circles[i], label);
+                    Straights[i] = Circle.GetStraight(Circles[i - 1], Circles[i], label, Height);
                 }
             }
 
@@ -158,29 +162,12 @@ namespace NetworkMultitool
         }
         private IEnumerable<Point> GetParts()
         {
-            var firstStr = Straights.First();
-            if (firstStr.Length >= 8f)
-            {
-                foreach (var part in firstStr.Parts)
-                    yield return part;
-                yield return new Point(firstStr.EndPosition, firstStr.Direction);
-            }
-
-            for (var i = 0; i < Circles.Count + Straights.Count - 2; i += 1)
+            for (var i = 0; i < Circles.Count + Straights.Count; i += 1)
             {
                 if (i % 2 == 0)
                 {
                     var j = i / 2;
-                    if (!Circles[j].IsCorrect)
-                        continue;
-
-                    foreach (var part in Circles[j].Parts)
-                        yield return part;
-                }
-                else
-                {
-                    var j = i / 2 + 1;
-                    if (!Circles[j - 1].IsCorrect && !Circles[j].IsCorrect)
+                    if (j != 0 && j != Straights.Count - 1 && !Circles[j - 1].IsCorrect && !Circles[j].IsCorrect)
                     {
                         yield return Point.Empty;
                         continue;
@@ -189,22 +176,27 @@ namespace NetworkMultitool
                     var straight = Straights[j];
                     if (straight.Length >= 8f)
                     {
-                        yield return new Point(straight.StartPosition, straight.Direction);
                         foreach (var part in straight.Parts)
                             yield return part;
-                        yield return new Point(straight.EndPosition, straight.Direction);
                     }
-                    else
+                    else if (j != 0 && j != Straights.Count - 1 && !Circles[j - 1].IsShort && !Circles[j].IsShort)
                         yield return new Point(straight.Position(0.5f), straight.Tangent(0.5f));
                 }
-            }
+                else
+                {
+                    var j = i / 2;
+                    if (!Circles[j].IsCorrect || Circles[j].IsShort)
+                        continue;
 
-            var lastStr = Straights.Last();
-            if (lastStr.Length >= 8f)
-            {
-                yield return new Point(lastStr.StartPosition, lastStr.Direction);
-                foreach (var part in lastStr.Parts)
-                    yield return part;
+                    if (!Straights[j].IsShort)
+                        yield return new Point(Circles[j].StartPos, Circles[j].StartDir);
+
+                    foreach (var part in Circles[j].Parts)
+                        yield return part;
+
+                    if (!Straights[j + 1].IsShort)
+                        yield return new Point(Circles[j].EndPos, Circles[j].EndDir);
+                }
             }
         }
 
@@ -279,7 +271,7 @@ namespace NetworkMultitool
                 set => _offset = Mathf.Max(value, 0f);
             }
 
-            public EdgeCircle(CircleType type, InfoLabel label, StraightTrajectory guide) : base(label)
+            public EdgeCircle(CircleType type, InfoLabel label, StraightTrajectory guide, float height) : base(label, height)
             {
                 Type = type;
                 Guide = guide;
@@ -303,8 +295,8 @@ namespace NetworkMultitool
             }
             public Straight GetStraight(InfoLabel label) => Type switch
             {
-                CircleType.First => new Straight(Guide.StartPosition, StartPos, StartRadiusDir, label),
-                CircleType.Last => new Straight(EndPos, Guide.StartPosition, EndRadiusDir, label),
+                CircleType.First => new Straight(Guide.StartPosition, StartPos, StartRadiusDir, label, Height),
+                CircleType.Last => new Straight(EndPos, Guide.StartPosition, EndRadiusDir, label, Height),
             };
 
             public static void GetSides(EdgeCircle first, EdgeCircle last)

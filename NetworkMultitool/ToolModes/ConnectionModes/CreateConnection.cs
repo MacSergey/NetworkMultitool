@@ -71,7 +71,7 @@ namespace NetworkMultitool
             else if (IsHoverCenter)
             {
                 var result = Localize.Mode_Connection_Info_DragToMove;
-                if(HoverCenter == 0 || HoverCenter == Circles.Count - 1)
+                if (HoverCenter == 0 || HoverCenter == Circles.Count - 1)
                     result += "\n" + Localize.Mode_Connection_Info_DoubleClickToRemove;
                 return result;
             }
@@ -107,6 +107,7 @@ namespace NetworkMultitool
                     string.Format(Localize.Mode_Info_ChangeOneRadius, DecreaseOneRadiusShortcut, IncreaseOneRadiusShortcut) + "\n" +
                     string.Format(Localize.Mode_Info_SwitchOffset, SwitchOffsetShortcut) + "\n" +
                     string.Format(Localize.Mode_Info_ChangeOffset, DecreaseOffsetShortcut, IncreaseOffsetShortcut) + "\n" +
+                    Localize.Mode_Info_Step + "\n" +
                     string.Format(Localize.Mode_Info_Create, ApplyShortcut);
                 }
 
@@ -124,13 +125,13 @@ namespace NetworkMultitool
                 HoverStraight = -1;
                 if (!IsHoverNode)
                 {
-                    var position = XZ(Tool.MouseWorldPosition);
                     for (var i = 0; i < Circles.Count; i += 1)
                     {
                         if (Circles[i] == null)
                             continue;
 
-                        if ((XZ(Circles[i].CenterPos) - position).sqrMagnitude <= 25f)
+                        var mousePosition = GetMousePosition(Circles[i].CenterPos.y);
+                        if ((XZ(Circles[i].CenterPos) - XZ(mousePosition)).sqrMagnitude <= 25f)
                         {
                             HoverCenter = i;
                             break;
@@ -141,7 +142,8 @@ namespace NetworkMultitool
                         if (Circles[i] == null)
                             continue;
 
-                        var magnitude = (XZ(Circles[i].CenterPos) - position).magnitude;
+                        var mousePosition = GetMousePosition(Circles[i].CenterPos.y);
+                        var magnitude = (XZ(Circles[i].CenterPos) - XZ(mousePosition)).magnitude;
                         if (Circles[i].Radius - 5f <= magnitude && magnitude <= Circles[i].Radius + 5f)
                         {
                             HoverCircle = i;
@@ -151,10 +153,11 @@ namespace NetworkMultitool
                     var info = Info;
                     for (var i = 1; i < Straights.Count - 1; i += 1)
                     {
-                        if (Straights[i] == null)
+                        if (Straights[i] == null || Straights[i].IsShort)
                             continue;
 
-                        var normal = new StraightTrajectory(Tool.MouseWorldPosition, Tool.MouseWorldPosition + Straights[i].Direction.Turn90(true), false);
+                        var mousePosition = GetMousePosition(Circles[i].CenterPos.y);
+                        var normal = new StraightTrajectory(mousePosition, mousePosition + Straights[i].Direction.Turn90(true), false);
                         if (Intersection.CalculateSingle(Straights[i], normal, out _, out var t) && Mathf.Abs(t) <= info.m_halfWidth)
                         {
                             HoverStraight = i;
@@ -180,7 +183,7 @@ namespace NetworkMultitool
             }
             else if (IsHoverStraight)
             {
-                var circle = new Circle(AddLabel());
+                var circle = new Circle(AddLabel(), Height);
                 circle.CenterPos = Tool.MouseWorldPosition;
                 Circles.Insert(HoverStraight, circle);
                 Straights.Insert(HoverStraight, null);
@@ -312,19 +315,34 @@ namespace NetworkMultitool
     {
         public override ToolModeType Type => ToolModeType.CreateConnectionMoveCircle;
         public override bool CreateButton => false;
+        private Vector3 PrevPos { get; set; }
 
+        protected override string GetInfo() => Localize.Mode_Connection_Info_SlowMove;
         protected override void Reset(IToolMode prevMode)
         {
             base.Reset(prevMode);
 
             if (prevMode is CreateConnectionMode connectionMode)
+            {
                 Edit = connectionMode.HoverCenter;
+                PrevPos = GetMousePosition(Circles[Edit].CenterPos.y);
+            }
         }
         public override void OnMouseDrag(Event e)
         {
             if (IsEdit && Circles[Edit] is Circle circle)
             {
-                circle.CenterPos = Tool.MouseWorldPosition;
+                var newPos = GetMousePosition(circle.CenterPos.y);
+                var dir = newPos - PrevPos;
+                PrevPos = newPos;
+
+                if (Utility.OnlyCtrlIsPressed)
+                    circle.CenterPos += dir * 0.1f;
+                else if (Utility.OnlyAltIsPressed)
+                    circle.CenterPos += dir * 0.01f;
+                else
+                    circle.CenterPos += dir;
+
                 State = Result.None;
             }
         }
@@ -335,8 +353,9 @@ namespace NetworkMultitool
         public override ToolModeType Type => ToolModeType.CreateConnectionChangeRadius;
         public override bool CreateButton => false;
 
-        private Vector2 BeginPos { get; set; }
+        private Vector2 PrevPos { get; set; }
 
+        protected override string GetInfo() => Localize.Mode_Connection_Info_RadiusStep;
         protected override void Reset(IToolMode prevMode)
         {
             base.Reset(prevMode);
@@ -344,19 +363,23 @@ namespace NetworkMultitool
             if (prevMode is CreateConnectionMode connectionMode)
             {
                 Edit = connectionMode.HoverCircle;
-                BeginPos = XZ(Circles[Edit].CenterPos);
+                PrevPos = XZ(Circles[Edit].CenterPos);
             }
-        }
-        public override void OnToolUpdate()
-        {
-            base.OnToolUpdate();
-            BeginPos = XZ(Circles[Edit].CenterPos);
         }
         public override void OnMouseDrag(Event e)
         {
             if (IsEdit && Circles[Edit] is Circle circle)
             {
-                circle.Radius = (XZ(Tool.MouseWorldPosition) - BeginPos).magnitude;
+                var radius = (XZ(GetMousePosition(PrevPos.y)) - PrevPos).magnitude;
+
+                if (Utility.OnlyShiftIsPressed)
+                    radius = radius.RoundToNearest(10f);
+                else if (Utility.OnlyCtrlIsPressed)
+                    radius = radius.RoundToNearest(1f);
+                else if (Utility.OnlyAltIsPressed)
+                    radius = radius.RoundToNearest(0.1f);
+
+                circle.Radius = radius;
                 State = Result.None;
             }
         }

@@ -189,6 +189,27 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Hold Shift to step 10m
+        ///Hold Ctrl to step 1m
+        ///Hold Alt to step 0.1m.
+        /// </summary>
+        internal static string Mode_Connection_Info_RadiusStep {
+            get {
+                return ResourceManager.GetString("Mode_Connection_Info_RadiusStep", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Hold Ctrl to move X10 slower
+        ///Hold Alt to move X100 slower.
+        /// </summary>
+        internal static string Mode_Connection_Info_SlowMove {
+            get {
+                return ResourceManager.GetString("Mode_Connection_Info_SlowMove", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Create connection mode.
         /// </summary>
         internal static string Mode_CreateConnection {
@@ -383,6 +404,15 @@ namespace NetworkMultitool {
         internal static string Mode_Info_SelectSegment {
             get {
                 return ResourceManager.GetString("Mode_Info_SelectSegment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Shift - X10, Ctrl - X0.1, Alt - X0.01.
+        /// </summary>
+        internal static string Mode_Info_Step {
+            get {
+                return ResourceManager.GetString("Mode_Info_Step", resourceCulture);
             }
         }
         
