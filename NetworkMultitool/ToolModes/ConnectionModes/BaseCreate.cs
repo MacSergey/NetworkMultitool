@@ -264,6 +264,7 @@ namespace NetworkMultitool
         }
         protected virtual void RenderCalculatedOverlay(RenderManager.CameraInfo cameraInfo, NetInfo info) { }
         protected virtual void RenderFailedOverlay(RenderManager.CameraInfo cameraInfo, NetInfo info) { }
+        protected Vector3 GetMousePosition(float height) => Underground ? Tool.Ray.GetRayPosition(height, out _) : Tool.MouseWorldPosition;
 
         public enum Result
         {
@@ -492,7 +493,7 @@ namespace NetworkMultitool
                 }
             }
 
-            public Straight(Vector3 start, Vector3 end, Vector3 labelDir, InfoLabel label, float height) : base(SetHeight(start, height), SetHeight(end,height))
+            public Straight(Vector3 start, Vector3 end, Vector3 labelDir, InfoLabel label, float height) : base(SetHeight(start, height), SetHeight(end, height))
             {
                 LabelDir = labelDir;
                 Label = label;
@@ -524,6 +525,7 @@ namespace NetworkMultitool
                 var dataArrow = new OverlayData(cameraInfo) { Color = colorArrow, RenderLimit = underground };
 
                 var dir = LabelDir;
+                var normal = LabelDir.Turn90(true);
                 var isShort = Length <= 10f;
 
                 var startShift = StartPosition + dir * (info.m_halfWidth + 5f) + (isShort ? -Direction : Direction) * 0.5f;

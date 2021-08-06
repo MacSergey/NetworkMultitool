@@ -31,9 +31,10 @@ namespace NetworkMultitool
                 IsFirstStart = connectionMode.IsFirstStart;
                 IsSecondStart = connectionMode.IsSecondStart;
 
-                Height = connectionMode.Height;
                 FirstTrajectory = connectionMode.FirstTrajectory;
                 SecondTrajectory = connectionMode.SecondTrajectory;
+
+                Height = connectionMode.Height;
 
                 SelectCircle = connectionMode.SelectCircle;
                 SelectOffset = connectionMode.SelectOffset;
@@ -217,7 +218,6 @@ namespace NetworkMultitool
                 }
             }
         }
-        protected Vector3 GetMousePosition(float height) => Underground ? Tool.Ray.GetRayPosition(height, out _) : Tool.MouseWorldPosition;
 
         protected class EdgeCircle : Circle
         {

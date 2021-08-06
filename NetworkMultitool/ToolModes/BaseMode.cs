@@ -404,6 +404,10 @@ namespace NetworkMultitool
         [Description(nameof(Localize.Mode_CreateLoop))]
         CreateLoop = ArrangeAtLine << 1,
 
+        [NotItem]
+        [Description(nameof(Localize.Mode_CreateLoop))]
+        CreateLoopMoveCircle = CreateLoop + 1,
+
         [Description(nameof(Localize.Mode_CreateConnection))]
         CreateConnection = CreateLoop << 1,
 

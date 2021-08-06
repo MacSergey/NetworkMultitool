@@ -112,6 +112,7 @@ namespace NetworkMultitool
             yield return CreateToolMode<SlopeNodeMode>();
             yield return CreateToolMode<ArrangeLineMode>();
             yield return CreateToolMode<CreateLoopMode>();
+            yield return CreateToolMode<CreateLoopMoveCircleMode>();
             yield return CreateToolMode<CreateConnectionMode>();
             yield return CreateToolMode<CreateConnectionMoveCircleMode>();
             yield return CreateToolMode<CreateConnectionChangeRadiusMode>();
