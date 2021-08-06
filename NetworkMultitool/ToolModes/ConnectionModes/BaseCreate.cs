@@ -525,7 +525,6 @@ namespace NetworkMultitool
                 var dataArrow = new OverlayData(cameraInfo) { Color = colorArrow, RenderLimit = underground };
 
                 var dir = LabelDir;
-                var normal = LabelDir.Turn90(true);
                 var isShort = Length <= 10f;
 
                 var startShift = StartPosition + dir * (info.m_halfWidth + 5f) + (isShort ? -Direction : Direction) * 0.5f;
