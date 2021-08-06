@@ -137,10 +137,10 @@ Muy cerca del nodo más cercano</value>
     <value>Modo de organización en línea</value>
   </data>
   <data name="Mode_ArrangeLine_Info_ClickToSelectDirection" xml:space="preserve">
-    <value>Clic para seleccionar ajuste de dirección</value>
+    <value>Clic para seleccionar dirección de organización</value>
   </data>
   <data name="Mode_ArrangeLine_Info_SelectDirection" xml:space="preserve">
-    <value>Seleccione el segmento para ajustar la dirección</value>
+    <value>Seleccione el segmento para establecer la dirección de organización</value>
   </data>
   <data name="Mode_Connection_Info_DoubleClickOnCenterToChangeDir" xml:space="preserve">
     <value>Doble clic en el centro del círculo 
@@ -159,13 +159,13 @@ para cambiar la dirección de la curva</value>
     <value>Arrastre para mover el círculo</value>
   </data>
   <data name="Mode_Connection_Info_RadiusStep" xml:space="preserve">
-    <value>Hold Shift to step 10m
-Hold Ctrl to step 1m
-Hold Alt to step 0.1m</value>
+    <value>Mantiene pulsado Mayús para el paso de 10m
+Mantiene pulsado Ctrl para el paso de 1m
+Mantiene pulsado Alt para el paso de 0.1m</value>
   </data>
   <data name="Mode_Connection_Info_SlowMove" xml:space="preserve">
-    <value>Hold Ctrl to move X10 slower
-Hold Alt to move X100 slower</value>
+    <value>Mantiene pulsado Ctrl para mover X10 más lento
+Mantiene pulsado Alt para moverte X100 más lento</value>
   </data>
   <data name="Mode_CreateConnection" xml:space="preserve">
     <value>Modo de creación de conexión</value>
@@ -234,7 +234,7 @@ Hold Alt to move X100 slower</value>
     <value>Seleccione segmento</value>
   </data>
   <data name="Mode_Info_Step" xml:space="preserve">
-    <value>Shift - X10, Ctrl - X0.1, Alt - X0.01</value>
+    <value>Mayús - X10, Ctrl - X0.1, Alt - X0.01</value>
   </data>
   <data name="Mode_Info_SwitchOffset" xml:space="preserve">
     <value>Pulsa {0} para cambiar el desplazamiento inicial de la curva seleccionada</value>
@@ -348,6 +348,26 @@ Clic con la tecla "Mayús" para separar el nodo y establecer el alto del origen<
   </data>
   <data name="Mod_Description" xml:space="preserve">
     <value>Conjunto de herramientas diferentes para trabajar con redes</value>
+  </data>
+  <data name="Mod_WhatsNewMessage1_1" xml:space="preserve">
+    <value>- Added Split node mode: Select segments and split it to new node.
+- Added Unlock segment mode: Unlock building's segments to change it, or lock segments to prevent delete it.
+- Added Invert segment mode: Ability to invert non-symmetrical segments.
+- Updated Arrange in line mode: Added overlay of arrange result; Added ability to set arrange direction by choose guide segment; line calculated more smooth; height of nodes no more changing; fixed segment directions after move nodes.
+- Added the ability to change binding keys for all functions.
+- Added overlay for nearest nodes to cursor.
+- Added the ability select many nodes at one time in Slope and Arrange modes.
+- Added the ability to add curves additional curves in Create connection mode.
+- Added curse start offset to Create connection mode.
+- Added the ability to change curve's radius and start offset by dragging in Create loop and connection modes.
+- Create loop and connection modes will select road types dependence of terrain and water like default net tool does it. To build specific type of road, you need select it in Fine Road Tool.
+- Create loop and connection modes will auto unite too short segments in one.
+- Added display of length of straight road parts in Create loop and connection modes.
+- Added the ability to change created segments max length by change value in Node Spacer mod.
+- Fixed interaction with Fine Road Tool: its button will not show at center of screen anymore.
+- Fixed segment direction when slope road.
+- Fixed overlay in underground mode.
+- Added Hungarian and Korean translations.</value>
   </data>
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>Esconder panel de modos automáticamente</value>

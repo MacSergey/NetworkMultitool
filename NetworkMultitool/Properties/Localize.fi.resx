@@ -349,6 +349,26 @@ lock or unlock it</value>
   <data name="Mod_Description" xml:space="preserve">
     <value>Työkaluja verkostojen muokkaamiseen</value>
   </data>
+  <data name="Mod_WhatsNewMessage1_1" xml:space="preserve">
+    <value>- Added Split node mode: Select segments and split it to new node.
+- Added Unlock segment mode: Unlock building's segments to change it, or lock segments to prevent delete it.
+- Added Invert segment mode: Ability to invert non-symmetrical segments.
+- Updated Arrange in line mode: Added overlay of arrange result; Added ability to set arrange direction by choose guide segment; line calculated more smooth; height of nodes no more changing; fixed segment directions after move nodes.
+- Added the ability to change binding keys for all functions.
+- Added overlay for nearest nodes to cursor.
+- Added the ability select many nodes at one time in Slope and Arrange modes.
+- Added the ability to add curves additional curves in Create connection mode.
+- Added curse start offset to Create connection mode.
+- Added the ability to change curve's radius and start offset by dragging in Create loop and connection modes.
+- Create loop and connection modes will select road types dependence of terrain and water like default net tool does it. To build specific type of road, you need select it in Fine Road Tool.
+- Create loop and connection modes will auto unite too short segments in one.
+- Added display of length of straight road parts in Create loop and connection modes.
+- Added the ability to change created segments max length by change value in Node Spacer mod.
+- Fixed interaction with Fine Road Tool: its button will not show at center of screen anymore.
+- Fixed segment direction when slope road.
+- Fixed overlay in underground mode.
+- Added Hungarian and Korean translations.</value>
+  </data>
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>Piilota valikko automaattisesti</value>
   </data>
