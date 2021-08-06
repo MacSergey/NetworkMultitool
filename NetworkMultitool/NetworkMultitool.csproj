@@ -140,6 +140,7 @@
     <EmbeddedResource Include="Properties\Localize.es.resx" />
     <EmbeddedResource Include="Properties\Localize.fi.resx" />
     <EmbeddedResource Include="Properties\Localize.fr.resx" />
+    <EmbeddedResource Include="Properties\Localize.hu.resx" />
     <EmbeddedResource Include="Properties\Localize.it.resx" />
     <EmbeddedResource Include="Properties\Localize.ja.resx" />
     <EmbeddedResource Include="Properties\Localize.ko.resx" />
@@ -194,6 +195,7 @@
   <Import Project="..\ModsCommon\LocalizeShared\LocalizeShared.fi.projitems" Label="Shared" />
   <Import Project="..\ModsCommon\LocalizeShared\LocalizeShared.pt.projitems" Label="Shared" />
   <Import Project="..\ModsCommon\LocalizeShared\LocalizeShared.ko.projitems" Label="Shared" />
+  <Import Project="..\ModsCommon\LocalizeShared\LocalizeShared.hu.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup Condition="'$(Configuration)' == 'Stable Release' OR '$(Configuration)' == 'Stable Debug'">
     <WorkshopId>2560782729</WorkshopId>
