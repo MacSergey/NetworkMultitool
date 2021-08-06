@@ -27,6 +27,7 @@ namespace NetworkMultitool
         protected override Color32 NodeColor => Colors.Blue;
 
         protected override bool CheckUnderground => !IsBoth;
+        protected override bool SelectNodes => IsBoth;
         protected override bool IsValidSegment(ushort segmentId) => !IsBoth && segmentId != First?.Id && segmentId != Second?.Id;
         protected override bool IsValidNode(ushort nodeId) => (!IsBoth && base.IsValidNode(nodeId)) || (IsBoth && (First.Id.GetSegment().Contains(nodeId) || Second.Id.GetSegment().Contains(nodeId)));
 
