@@ -116,7 +116,7 @@ namespace NetworkMultitool
         {
             ResetData();
 
-            if (!Intersection.CalculateSingle(firstTrajectory, secondTrajectory, out _, out _))
+            if (!Intersection.CalculateSingle(firstTrajectory, secondTrajectory, out var firstT, out var secondT) || Mathf.Abs(firstT) > 5000f || Mathf.Abs(secondT) > 5000f)
             {
                 State = Result.NotIntersect;
                 return;
@@ -163,7 +163,7 @@ namespace NetworkMultitool
             StartStraight.Render(cameraInfo, info, Colors.Gray224, Colors.Gray224, Underground);
             EndStraight.Render(cameraInfo, info, Colors.Gray224, Colors.Gray224, Underground);
 
-            if(IsHoverCenter)
+            if (IsHoverCenter)
                 Circle.RenderCenterHover(cameraInfo, Colors.Blue, Underground);
         }
         protected override void RenderFailedOverlay(RenderManager.CameraInfo cameraInfo, NetInfo info)
@@ -303,6 +303,8 @@ namespace NetworkMultitool
 
         public override ToolModeType Type => ToolModeType.CreateLoop;
 
+        protected bool IsPressedCenter { get; private set; }
+
         public override IEnumerable<NetworkMultitoolShortcut> Shortcuts
         {
             get
@@ -346,14 +348,19 @@ namespace NetworkMultitool
                     Localize.Mode_Info_Step + "\n" +
                     string.Format(Localize.Mode_Info_Create, ApplyShortcut);
         }
+        protected override void ResetParams()
+        {
+            base.ResetParams();
+            IsPressedCenter = false;
+        }
         public override void OnToolUpdate()
         {
             base.OnToolUpdate();
 
-            if (State != Result.None)
+            if (State == Result.Calculated)
             {
                 IsHoverCenter = false;
-                if (!IsHoverNode)
+                if (!IsHoverNode && Tool.MouseRayValid)
                 {
                     var mousePosition = GetMousePosition(Circle.CenterPos.y);
                     if ((XZ(Circle.CenterPos) - XZ(mousePosition)).sqrMagnitude <= 25f)
@@ -361,9 +368,18 @@ namespace NetworkMultitool
                 }
             }
         }
+        public override void OnMouseDown(Event e)
+        {
+            IsPressedCenter = IsHoverCenter;
+        }
+        public override void OnPrimaryMouseClicked(Event e)
+        {
+            IsPressedCenter = false;
+            base.OnPrimaryMouseClicked(e);
+        }
         public override void OnMouseDrag(Event e)
         {
-            if (IsHoverCenter)
+            if (IsPressedCenter)
                 Tool.SetMode(ToolModeType.CreateLoopMoveCircle);
         }
         protected override void IncreaseRadius()

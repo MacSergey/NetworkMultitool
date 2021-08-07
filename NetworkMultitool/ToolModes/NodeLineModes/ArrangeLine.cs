@@ -178,7 +178,14 @@ namespace NetworkMultitool
             }
 
             newPos.y = node.m_position.y;
+            var oldPos = node.m_position;
             NetManager.instance.MoveNode(nodeId, newPos);
+
+            if(node.m_building != 0)
+            {
+                BuildingManager.instance.m_buildings.m_buffer[node.m_building].m_position += (newPos - oldPos);
+                BuildingManager.instance.UpdateBuilding(node.m_building);
+            }
 
             foreach (var segmentId in segmentIds)
             {
