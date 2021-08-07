@@ -158,15 +158,8 @@
   <data name="Mode_Connection_Info_DragToMove" xml:space="preserve">
     <value>拖移以移动圆</value>
   </data>
-  <data name="Mode_Connection_Info_RadiusStep" xml:space="preserve">
-    <value>Hold Shift to step 10m
-Hold Ctrl to step 1m
-Hold Alt to step 0.1m</value>
-  </data>
-  <data name="Mode_Connection_Info_SlowMove" xml:space="preserve">
-    <value>Hold Ctrl to move X10 slower
-Hold Alt to move X100 slower</value>
-  </data>
+  
+  
   <data name="Mode_CreateConnection" xml:space="preserve">
     <value>创建连接模式</value>
   </data>
@@ -233,9 +226,7 @@ Hold Alt to move X100 slower</value>
   <data name="Mode_Info_SelectSegment" xml:space="preserve">
     <value>选择段落</value>
   </data>
-  <data name="Mode_Info_Step" xml:space="preserve">
-    <value>Shift - X10, Ctrl - X0.1, Alt - X0.01</value>
-  </data>
+  
   <data name="Mode_Info_SwitchOffset" xml:space="preserve">
     <value>按 {0} 切换选中偏移</value>
   </data>
@@ -350,26 +341,7 @@ Hold Alt to move X100 slower</value>
   <data name="Mod_Description" xml:space="preserve">
     <value>修改道路网络的许多小工具</value>
   </data>
-  <data name="Mod_WhatsNewMessage1_1" xml:space="preserve">
-    <value>- Added Split node mode: Select segments and split it to new node.
-- Added Unlock segment mode: Unlock building's segments to change it, or lock segments to prevent delete it.
-- Added Invert segment mode: Ability to invert non-symmetrical segments.
-- Updated Arrange in line mode: Added overlay of arrange result; Added ability to set arrange direction by choose guide segment; Line calculated more smooth; Height of nodes no more changing; Pillars moving with nodes; Fixed segment directions after move nodes.
-- Added the ability to change binding keys for all functions.
-- Added overlay for nearest nodes to cursor.
-- Added the ability select many nodes at one time in Slope and Arrange modes.
-- Added the ability to add curves additional curves in Create connection mode.
-- Added curve start offset to Create connection mode.
-- Added the ability to change curve's radius and start offset by dragging in Create loop and connection modes.
-- Create loop and connection modes will select road types dependence of terrain and water like default net tool does it. To build specific type of road, you need select it in Fine Road Tool.
-- Create loop and connection modes will auto unite too short segments in one.
-- Added display of length of straight road parts in Create loop and connection modes.
-- Added the ability to change created segments max length by change value in Node Spacer mod.
-- Fixed interaction with Fine Road Tool: its button will not show at center of screen anymore.
-- Fixed segment direction when slope road.
-- Fixed overlay in underground mode.
-- Added Hungarian and Korean translations.</value>
-  </data>
+  
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>自动隐藏模式面板</value>
   </data>

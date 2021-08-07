@@ -136,12 +136,8 @@ Está demasiado perto de outro nó</value>
   <data name="Mode_ArrangeAtLine" xml:space="preserve">
     <value>Ajustar em modo de linha</value>
   </data>
-  <data name="Mode_ArrangeLine_Info_ClickToSelectDirection" xml:space="preserve">
-    <value>Click to select arrange direction</value>
-  </data>
-  <data name="Mode_ArrangeLine_Info_SelectDirection" xml:space="preserve">
-    <value>Select segment to set arrange direction</value>
-  </data>
+  
+  
   <data name="Mode_Connection_Info_DoubleClickOnCenterToChangeDir" xml:space="preserve">
     <value>Clique duas vezes no centro do círculo
 para mudar a direção da curva</value>
@@ -158,15 +154,8 @@ para mudar a direção da curva</value>
   <data name="Mode_Connection_Info_DragToMove" xml:space="preserve">
     <value>Arraste para mover o círculo</value>
   </data>
-  <data name="Mode_Connection_Info_RadiusStep" xml:space="preserve">
-    <value>Hold Shift to step 10m
-Hold Ctrl to step 1m
-Hold Alt to step 0.1m</value>
-  </data>
-  <data name="Mode_Connection_Info_SlowMove" xml:space="preserve">
-    <value>Hold Ctrl to move X10 slower
-Hold Alt to move X100 slower</value>
-  </data>
+  
+  
   <data name="Mode_CreateConnection" xml:space="preserve">
     <value>Modo de criação de ligação</value>
   </data>
@@ -200,18 +189,14 @@ Hold Alt to move X100 slower</value>
   <data name="Mode_Info_ClickFirstSegment" xml:space="preserve">
     <value>Clique para selecionar o primeiro segmento</value>
   </data>
-  <data name="Mode_Info_ClickOnNodeToChangeCreateDir" xml:space="preserve">
-    <value>Click on node to change create direction</value>
-  </data>
+  
   <data name="Mode_Info_ClickSecondSegment" xml:space="preserve">
     <value>Clique para selecionar o primeiro segmento</value>
   </data>
   <data name="Mode_Info_ClickSelectNode" xml:space="preserve">
     <value>Clique para inserir nó</value>
   </data>
-  <data name="Mode_Info_ClickToChangeCreateDir" xml:space="preserve">
-    <value>Click to change create direction</value>
-  </data>
+  
   <data name="Mode_Info_ClickUnselectNode" xml:space="preserve">
     <value>Clique para desselecionar o nó</value>
   </data>
@@ -233,12 +218,8 @@ Hold Alt to move X100 slower</value>
   <data name="Mode_Info_SelectSegment" xml:space="preserve">
     <value>Selecione segmento</value>
   </data>
-  <data name="Mode_Info_Step" xml:space="preserve">
-    <value>Shift - X10, Ctrl - X0.1, Alt - X0.01</value>
-  </data>
-  <data name="Mode_Info_SwitchOffset" xml:space="preserve">
-    <value>Press {0} to switch selected offset</value>
-  </data>
+  
+  
   <data name="Mode_Info_UndergroundMode" xml:space="preserve">
     <value>Segure Shift para o modo subterrâneo</value>
   </data>
@@ -288,22 +269,11 @@ porque não está ligado a outros</value>
   <data name="Mode_SplitNode" xml:space="preserve">
     <value>Modo nó dividido</value>
   </data>
-  <data name="Mode_SplitNode_Info_ClickFromOrder" xml:space="preserve">
-    <value>Click to remove segment from split order</value>
-  </data>
-  <data name="Mode_SplitNode_Info_ClickToOrder" xml:space="preserve">
-    <value>Click to add segment to split order</value>
-  </data>
-  <data name="Mode_SplitNode_Info_ClickToSplit" xml:space="preserve">
-    <value>Click to split node and align to terrain height
-Click with Shift to split node and align to source height</value>
-  </data>
-  <data name="Mode_SplitNode_Info_NotAllowedSplit" xml:space="preserve">
-    <value>Not possible split node with only one segment</value>
-  </data>
-  <data name="Mode_SplitNode_Info_OrderIsFull" xml:space="preserve">
-    <value>Not possible add more segments to split order</value>
-  </data>
+  
+  
+  
+  
+  
   <data name="Mode_SplitNode_Info_SelectToSplit" xml:space="preserve">
     <value>Selecione segmentos para dividir</value>
   </data>
@@ -334,78 +304,30 @@ Click with Shift to split node and align to source height</value>
   <data name="Mode_UnionNode_Info_TooFar" xml:space="preserve">
     <value>Nós muito distantes um do outro</value>
   </data>
-  <data name="Mode_UnlockSegment" xml:space="preserve">
-    <value>Unlock segment mode</value>
-  </data>
-  <data name="Mode_UnlockSegment_Info_ChangeLock" xml:space="preserve">
-    <value>Select segment to
-lock or unlock it</value>
-  </data>
-  <data name="Mode_UnlockSegment_Info_ClickToLock" xml:space="preserve">
-    <value>Click to lock this segment</value>
-  </data>
-  <data name="Mode_UnlockSegment_Info_ClickToUnlock" xml:space="preserve">
-    <value>Click to unlock this segment</value>
-  </data>
+  
+  
+  
+  
   <data name="Mod_Description" xml:space="preserve">
     <value>Muitas ferramentas diferentes para trabalhar com redes</value>
   </data>
-  <data name="Mod_WhatsNewMessage1_1" xml:space="preserve">
-    <value>- Added Split node mode: Select segments and split it to new node.
-- Added Unlock segment mode: Unlock building's segments to change it, or lock segments to prevent delete it.
-- Added Invert segment mode: Ability to invert non-symmetrical segments.
-- Updated Arrange in line mode: Added overlay of arrange result; Added ability to set arrange direction by choose guide segment; Line calculated more smooth; Height of nodes no more changing; Pillars moving with nodes; Fixed segment directions after move nodes.
-- Added the ability to change binding keys for all functions.
-- Added overlay for nearest nodes to cursor.
-- Added the ability select many nodes at one time in Slope and Arrange modes.
-- Added the ability to add curves additional curves in Create connection mode.
-- Added curve start offset to Create connection mode.
-- Added the ability to change curve's radius and start offset by dragging in Create loop and connection modes.
-- Create loop and connection modes will select road types dependence of terrain and water like default net tool does it. To build specific type of road, you need select it in Fine Road Tool.
-- Create loop and connection modes will auto unite too short segments in one.
-- Added display of length of straight road parts in Create loop and connection modes.
-- Added the ability to change created segments max length by change value in Node Spacer mod.
-- Fixed interaction with Fine Road Tool: its button will not show at center of screen anymore.
-- Fixed segment direction when slope road.
-- Fixed overlay in underground mode.
-- Added Hungarian and Korean translations.</value>
-  </data>
+  
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>Ocultar automaticamente o painel de modos</value>
   </data>
   <data name="Settings_SegmentLength" xml:space="preserve">
     <value>Comprimento máximo do segmento</value>
   </data>
-  <data name="Settings_Shortcut_Apply" xml:space="preserve">
-    <value>Apply mode action</value>
-  </data>
-  <data name="Settings_Shortcut_DecreaseOffset" xml:space="preserve">
-    <value>Decrease circle start offset</value>
-  </data>
-  <data name="Settings_Shortcut_DecreaseOneRadius" xml:space="preserve">
-    <value>Decrease one radius</value>
-  </data>
-  <data name="Settings_Shortcut_DecreaseRadius" xml:space="preserve">
-    <value>Decrease radii</value>
-  </data>
-  <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
-    <value>Increase circle start offset</value>
-  </data>
-  <data name="Settings_Shortcut_IncreaseOneRadius" xml:space="preserve">
-    <value>Increase one radius</value>
-  </data>
-  <data name="Settings_Shortcut_IncreaseRadius" xml:space="preserve">
-    <value>Increase radii</value>
-  </data>
-  <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
-    <value>Switch loop direction</value>
-  </data>
-  <data name="Settings_Shortcut_SwitchOffset" xml:space="preserve">
-    <value>Switch selected offset</value>
-  </data>
-  <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
-    <value>Switch selected circle</value>
-  </data>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   <data name="Settings_SlopeUnit" xml:space="preserve">
     <value>Unidade de medida de inclinação</value>
   </data>
