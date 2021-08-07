@@ -137,35 +137,35 @@ Se on liian lähellä toista risteystä</value>
     <value>Tien suoristus</value>
   </data>
   <data name="Mode_ArrangeLine_Info_ClickToSelectDirection" xml:space="preserve">
-    <value>Click to select arrange direction</value>
+    <value>Napauta valitaksesi suunta</value>
   </data>
   <data name="Mode_ArrangeLine_Info_SelectDirection" xml:space="preserve">
-    <value>Select segment to set arrange direction</value>
+    <value>Valitse tie asettaaksesi suunta</value>
   </data>
   <data name="Mode_Connection_Info_DoubleClickOnCenterToChangeDir" xml:space="preserve">
-    <value>Double click on circle center
-to change curve direction</value>
+    <value>Kaksoisnapauta ympyrän keskustaa
+muuttaaksesi mutkan suuntaa</value>
   </data>
   <data name="Mode_Connection_Info_DoubleClickToAdd" xml:space="preserve">
-    <value>Double click to add curve to this line</value>
+    <value>Kaksoisnapauta lisätäksesi mutkia</value>
   </data>
   <data name="Mode_Connection_Info_DoubleClickToRemove" xml:space="preserve">
-    <value>Double right click to remove this curve</value>
+    <value>Tuplanapauta hiiren oikealla napilla poistaaksesi tämä mutka</value>
   </data>
   <data name="Mode_Connection_Info_DragToChangeRadius" xml:space="preserve">
-    <value>Drag to change radius</value>
+    <value>Vedä muutaaksesi sädettä</value>
   </data>
   <data name="Mode_Connection_Info_DragToMove" xml:space="preserve">
-    <value>Drag to move circle</value>
+    <value>Vedä siirtääksesi ympyrää</value>
   </data>
   <data name="Mode_Connection_Info_RadiusStep" xml:space="preserve">
-    <value>Hold Shift to step 10m
-Hold Ctrl to step 1m
-Hold Alt to step 0.1m</value>
+    <value>Shift - 10m askelväli
+Ctrl - 1m askelväli
+Alt - 0,1m askelväli</value>
   </data>
   <data name="Mode_Connection_Info_SlowMove" xml:space="preserve">
-    <value>Hold Ctrl to move X10 slower
-Hold Alt to move X100 slower</value>
+    <value>Pidä Ctrl pohjassa siirtääksesi X10 hitaammin
+Pidä Alt pohjassa siirtääksesi X100 hitaammin</value>
   </data>
   <data name="Mode_CreateConnection" xml:space="preserve">
     <value>Teiden yhdistys</value>
@@ -189,19 +189,19 @@ Hold Alt to move X100 slower</value>
     <value>Paina {0} valitaksesi toinen ympyrä</value>
   </data>
   <data name="Mode_Info_ChangeOffset" xml:space="preserve">
-    <value>Press {0} or {1} to change curve start offset</value>
+    <value>Muuta mutkan siirtymää painamalla {0} tai {1}</value>
   </data>
   <data name="Mode_Info_ChangeOneRadius" xml:space="preserve">
-    <value>Press {0} or {1} to change one radius</value>
+    <value>Muuta sädettä painamalla {0} tai {1}</value>
   </data>
   <data name="Mode_Info_ChangeRadius" xml:space="preserve">
-    <value>Press {0} or {1} to change radius</value>
+    <value>Muuta sädettä painamalla {0} tai {1}</value>
   </data>
   <data name="Mode_Info_ClickFirstSegment" xml:space="preserve">
     <value>Napsauta valitaksesi ensimmäinen tie</value>
   </data>
   <data name="Mode_Info_ClickOnNodeToChangeCreateDir" xml:space="preserve">
-    <value>Click on node to change create direction</value>
+    <value>Napauta risteystä vaihtaaksesi suuntaa</value>
   </data>
   <data name="Mode_Info_ClickSecondSegment" xml:space="preserve">
     <value>Napsauta valitaksesi toinen tie</value>
@@ -210,7 +210,7 @@ Hold Alt to move X100 slower</value>
     <value>Napauta valitaksesi risteyksen</value>
   </data>
   <data name="Mode_Info_ClickToChangeCreateDir" xml:space="preserve">
-    <value>Click to change create direction</value>
+    <value>Napauta vaihtaaksesi suuntaa</value>
   </data>
   <data name="Mode_Info_ClickUnselectNode" xml:space="preserve">
     <value>Napauta poistaaksesi risteyksen valinta</value>
@@ -237,7 +237,7 @@ Hold Alt to move X100 slower</value>
     <value>Shift - X10, Ctrl - X0.1, Alt - X0.01</value>
   </data>
   <data name="Mode_Info_SwitchOffset" xml:space="preserve">
-    <value>Press {0} to switch selected offset</value>
+    <value>Paina {0} valitaksesi toinen siirtymä</value>
   </data>
   <data name="Mode_Info_UndergroundMode" xml:space="preserve">
     <value>Pidä Shift-näppäintä pohjassa nähdäksesi maanalaiset tiet</value>
@@ -255,13 +255,13 @@ Hold Alt to move X100 slower</value>
     <value>Nämä tiet eivät risteä</value>
   </data>
   <data name="Mode_InvertSegment" xml:space="preserve">
-    <value>Invert segment mode</value>
+    <value>Käännä tie</value>
   </data>
   <data name="Mode_InvertSegment_Info_ClickToReverse" xml:space="preserve">
-    <value>Click to invert segment</value>
+    <value>Napauta kääntääksesi tie</value>
   </data>
   <data name="Mode_InvertSegment_Info_SelectToReverse" xml:space="preserve">
-    <value>Select segment to invert it</value>
+    <value>Valitse tie kääntääksesi se</value>
   </data>
   <data name="Mode_NodeLine_Info_NotConnected" xml:space="preserve">
     <value>Tätä risteystä ei voi valita, koske se ei ole yhteydessä muihin</value>
@@ -285,29 +285,29 @@ Hold Alt to move X100 slower</value>
     <value>Tasaa kaltevuus</value>
   </data>
   <data name="Mode_SplitNode" xml:space="preserve">
-    <value>Split node mode</value>
+    <value>Jaa risteys useammaksi</value>
   </data>
   <data name="Mode_SplitNode_Info_ClickFromOrder" xml:space="preserve">
-    <value>Click to remove segment from split order</value>
+    <value>Napauta poistaaksesi tie erotettavien listalta</value>
   </data>
   <data name="Mode_SplitNode_Info_ClickToOrder" xml:space="preserve">
-    <value>Click to add segment to split order</value>
+    <value>Napauta lisätäksesi tie erotettavien listalle</value>
   </data>
   <data name="Mode_SplitNode_Info_ClickToSplit" xml:space="preserve">
-    <value>Click to split node and align to terrain height
-Click with Shift to split node and align to source height</value>
+    <value>Napauta jakaaksesi risteys maaston korkeuteen
+Napauta shift-näppäin pohjassa jakaaksesi risteys lähtökorkeuteen</value>
   </data>
   <data name="Mode_SplitNode_Info_NotAllowedSplit" xml:space="preserve">
-    <value>Not possible split node with only one segment</value>
+    <value>Vain yhtä tietä ei voi erottaa</value>
   </data>
   <data name="Mode_SplitNode_Info_OrderIsFull" xml:space="preserve">
-    <value>Not possible add more segments to split order</value>
+    <value>Useampaa tietä ei ole mahdollista erottaa</value>
   </data>
   <data name="Mode_SplitNode_Info_SelectToSplit" xml:space="preserve">
-    <value>Select segments to split</value>
+    <value>Valitse erotettavat tiet</value>
   </data>
   <data name="Mode_SplitNode_Info_TooFar" xml:space="preserve">
-    <value>Position is too far from source node</value>
+    <value>Sijainti on liian kaukana alkuperäisestä risteyksestä</value>
   </data>
   <data name="Mode_UnionNode" xml:space="preserve">
     <value>Yhdistä risteykset</value>
@@ -334,17 +334,17 @@ Click with Shift to split node and align to source height</value>
     <value>Risteykset ovat liian kaukana toisistaan</value>
   </data>
   <data name="Mode_UnlockSegment" xml:space="preserve">
-    <value>Unlock segment mode</value>
+    <value>Vapauta tie</value>
   </data>
   <data name="Mode_UnlockSegment_Info_ChangeLock" xml:space="preserve">
-    <value>Select segment to
-lock or unlock it</value>
+    <value>Valitse tie lukitaksesi
+tai avataksesi se</value>
   </data>
   <data name="Mode_UnlockSegment_Info_ClickToLock" xml:space="preserve">
-    <value>Click to lock this segment</value>
+    <value>Napauta lukitaksesi tie</value>
   </data>
   <data name="Mode_UnlockSegment_Info_ClickToUnlock" xml:space="preserve">
-    <value>Click to unlock this segment</value>
+    <value>Napauta vapauttaaksesi tie</value>
   </data>
   <data name="Mod_Description" xml:space="preserve">
     <value>Työkaluja verkostojen muokkaamiseen</value>
@@ -376,7 +376,7 @@ lock or unlock it</value>
     <value>Pisin tien pituus</value>
   </data>
   <data name="Settings_Shortcut_Apply" xml:space="preserve">
-    <value>Apply mode action</value>
+    <value>Toteuta toiminto</value>
   </data>
   <data name="Settings_Shortcut_DecreaseOffset" xml:space="preserve">
     <value>Pienennä kaarteen siirtymää</value>

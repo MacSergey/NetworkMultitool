@@ -294,8 +294,8 @@ ponieważ nie jest połączony z pozostałymi</value>
     <value>Naciśnij, aby dodać segment do kolejki dzielenia</value>
   </data>
   <data name="Mode_SplitNode_Info_ClickToSplit" xml:space="preserve">
-    <value>Naciśnij, aby podzielić węzeł i ustawić wysokość terenu
-Naciśnij trzymając Shift aby podzielić węzeł i ustawić wysokość źródłową</value>
+    <value>Naciśnij, aby podzielić węzeł i wyrównać do wysokości terenu
+Naciśnij trzymając Shift aby podzielić węzeł i wyrównać do wysokości źródłowej</value>
   </data>
   <data name="Mode_SplitNode_Info_NotAllowedSplit" xml:space="preserve">
     <value>Nie da się podzielić węzła z tylko jednym segmentem</value>
