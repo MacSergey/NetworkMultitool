@@ -180,16 +180,16 @@ Hold Alt to move X100 slower</value>
     <value>Aseta painamalla {0}</value>
   </data>
   <data name="Mode_Info_ChangeAllRadius" xml:space="preserve">
-    <value>Press {0} or {1} to change all radii</value>
+    <value>Muuta kaikkia säteitä painamalla {0} tai {1}</value>
   </data>
   <data name="Mode_Info_ChangeBothRadius" xml:space="preserve">
-    <value>Press {0} or {1} to change both radii</value>
+    <value>Muuta molempia säteitä painamalla {0} tai {1}</value>
   </data>
   <data name="Mode_Info_ChangeCircle" xml:space="preserve">
     <value>Paina {0} valitaksesi toinen ympyrä</value>
   </data>
   <data name="Mode_Info_ChangeOffset" xml:space="preserve">
-    <value>Press {0} or {1} to change curse start offset</value>
+    <value>Press {0} or {1} to change curve start offset</value>
   </data>
   <data name="Mode_Info_ChangeOneRadius" xml:space="preserve">
     <value>Press {0} or {1} to change one radius</value>
@@ -231,7 +231,7 @@ Hold Alt to move X100 slower</value>
     <value>Valitse toinen tie</value>
   </data>
   <data name="Mode_Info_SelectSegment" xml:space="preserve">
-    <value>Select segment</value>
+    <value>Valitse tie</value>
   </data>
   <data name="Mode_Info_Step" xml:space="preserve">
     <value>Shift - X10, Ctrl - X0.1, Alt - X0.01</value>
@@ -294,8 +294,8 @@ Hold Alt to move X100 slower</value>
     <value>Click to add segment to split order</value>
   </data>
   <data name="Mode_SplitNode_Info_ClickToSplit" xml:space="preserve">
-    <value>Click to split node and set terrain height
-Click with Shift to split node and set source height</value>
+    <value>Click to split node and align to terrain height
+Click with Shift to split node and align to source height</value>
   </data>
   <data name="Mode_SplitNode_Info_NotAllowedSplit" xml:space="preserve">
     <value>Not possible split node with only one segment</value>
@@ -358,7 +358,7 @@ lock or unlock it</value>
 - Added overlay for nearest nodes to cursor.
 - Added the ability select many nodes at one time in Slope and Arrange modes.
 - Added the ability to add curves additional curves in Create connection mode.
-- Added curse start offset to Create connection mode.
+- Added curve start offset to Create connection mode.
 - Added the ability to change curve's radius and start offset by dragging in Create loop and connection modes.
 - Create loop and connection modes will select road types dependence of terrain and water like default net tool does it. To build specific type of road, you need select it in Fine Road Tool.
 - Create loop and connection modes will auto unite too short segments in one.
@@ -379,31 +379,31 @@ lock or unlock it</value>
     <value>Apply mode action</value>
   </data>
   <data name="Settings_Shortcut_DecreaseOffset" xml:space="preserve">
-    <value>Decrease circle start offset</value>
+    <value>Pienennä kaarteen siirtymää</value>
   </data>
   <data name="Settings_Shortcut_DecreaseOneRadius" xml:space="preserve">
-    <value>Decrease one radius</value>
+    <value>Pienennä sädettä</value>
   </data>
   <data name="Settings_Shortcut_DecreaseRadius" xml:space="preserve">
-    <value>Decrease radii</value>
+    <value>Pienennä säteitä</value>
   </data>
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
-    <value>Increase circle start offset</value>
+    <value>Kasvata kaarteen siirtymää</value>
   </data>
   <data name="Settings_Shortcut_IncreaseOneRadius" xml:space="preserve">
-    <value>Increase one radius</value>
+    <value>Suurenna sädettä</value>
   </data>
   <data name="Settings_Shortcut_IncreaseRadius" xml:space="preserve">
-    <value>Increase radii</value>
+    <value>Suurenna säteitä</value>
   </data>
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
-    <value>Switch loop direction</value>
+    <value>Vaihda silmukan suunta</value>
   </data>
   <data name="Settings_Shortcut_SwitchOffset" xml:space="preserve">
-    <value>Switch selected offset</value>
+    <value>Vaihda valittu siirtymä</value>
   </data>
   <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
-    <value>Switch selected circle</value>
+    <value>Vaihda valittu ympyrä</value>
   </data>
   <data name="Settings_SlopeUnit" xml:space="preserve">
     <value>Kaltevuuden yksikkö</value>

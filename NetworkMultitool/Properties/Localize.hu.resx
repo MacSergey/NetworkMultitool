@@ -359,7 +359,7 @@ zároláshoz vagy feloldáshoz</value>
 - Added overlay for nearest nodes to cursor.
 - Added the ability select many nodes at one time in Slope and Arrange modes.
 - Added the ability to add curves additional curves in Create connection mode.
-- Added curse start offset to Create connection mode.
+- Added curve start offset to Create connection mode.
 - Added the ability to change curve's radius and start offset by dragging in Create loop and connection modes.
 - Create loop and connection modes will select road types dependence of terrain and water like default net tool does it. To build specific type of road, you need select it in Fine Road Tool.
 - Create loop and connection modes will auto unite too short segments in one.

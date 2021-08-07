@@ -189,7 +189,7 @@ Houd Alt om met X100 langzamer te bewegen</value>
     <value>Druk {0} om de geselecteerde cirkel om te keren</value>
   </data>
   <data name="Mode_Info_ChangeOffset" xml:space="preserve">
-    <value>Press {0} or {1} to change curse start offset</value>
+    <value>Press {0} or {1} to change curve start offset</value>
   </data>
   <data name="Mode_Info_ChangeOneRadius" xml:space="preserve">
     <value>Press {0} or {1} to change one radius</value>
@@ -294,8 +294,8 @@ Houd Alt om met X100 langzamer te bewegen</value>
     <value>Click to add segment to split order</value>
   </data>
   <data name="Mode_SplitNode_Info_ClickToSplit" xml:space="preserve">
-    <value>Click to split node and set terrain height
-Click with Shift to split node and set source height</value>
+    <value>Click to split node and align to terrain height
+Click with Shift to split node and align to source height</value>
   </data>
   <data name="Mode_SplitNode_Info_NotAllowedSplit" xml:space="preserve">
     <value>Not possible split node with only one segment</value>
@@ -358,7 +358,7 @@ lock or unlock it</value>
 - Added overlay for nearest nodes to cursor.
 - Added the ability select many nodes at one time in Slope and Arrange modes.
 - Added the ability to add curves additional curves in Create connection mode.
-- Added curse start offset to Create connection mode.
+- Added curve start offset to Create connection mode.
 - Added the ability to change curve's radius and start offset by dragging in Create loop and connection modes.
 - Create loop and connection modes will select road types dependence of terrain and water like default net tool does it. To build specific type of road, you need select it in Fine Road Tool.
 - Create loop and connection modes will auto unite too short segments in one.

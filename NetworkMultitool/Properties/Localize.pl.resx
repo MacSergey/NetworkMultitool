@@ -121,7 +121,7 @@
     <value>Tryb dodawania węzłów</value>
   </data>
   <data name="Mode_AddNode_Info_ClickToAdd" xml:space="preserve">
-    <value>Naciśnij aby wstawić węzeł</value>
+    <value>Kliknij, aby wstawić węzeł</value>
   </data>
   <data name="Mode_AddNode_Info_SelectToAdd" xml:space="preserve">
     <value>Wybierz segment, aby dodać węzeł</value>
@@ -134,13 +134,13 @@ Za blisko sąsiedniego węzła</value>
     <value>{0}°</value>
   </data>
   <data name="Mode_ArrangeAtLine" xml:space="preserve">
-    <value>Tryb układania w linii</value>
+    <value>Tryb porządkowania w linii</value>
   </data>
   <data name="Mode_ArrangeLine_Info_ClickToSelectDirection" xml:space="preserve">
-    <value>Click to select arrange direction</value>
+    <value>Kliknij, aby wybrać kierunek porządkowania</value>
   </data>
   <data name="Mode_ArrangeLine_Info_SelectDirection" xml:space="preserve">
-    <value>Select segment to set arrange direction</value>
+    <value>Wybierz segment, aby ustawić kierunek porządkowania</value>
   </data>
   <data name="Mode_Connection_Info_DoubleClickOnCenterToChangeDir" xml:space="preserve">
     <value>Kliknij dwukrotnie na środku okręgu, aby zmienić kierunek zakrętu</value>
@@ -188,7 +188,7 @@ Przytrzymaj Alt, aby przesuwać 100x wolniej</value>
     <value>Naciśnij {0}, aby przełączyć wybrany okręg</value>
   </data>
   <data name="Mode_Info_ChangeOffset" xml:space="preserve">
-    <value>Naciśnij {0} lub {1}, aby zmienić przesunięcie startowe</value>
+    <value>Naciśnij {0} lub {1}, aby zmienić przesunięcie początku zakrętu</value>
   </data>
   <data name="Mode_Info_ChangeOneRadius" xml:space="preserve">
     <value>Naciśnij {0} lub {1} aby zmienić jeden promień</value>
@@ -209,7 +209,7 @@ Przytrzymaj Alt, aby przesuwać 100x wolniej</value>
     <value>Kliknij, aby zaznaczyć węzeł</value>
   </data>
   <data name="Mode_Info_ClickToChangeCreateDir" xml:space="preserve">
-    <value>Naciśnij, aby zmienić kierunek tworzenia</value>
+    <value>Kliknij, aby zmienić kierunek tworzenia</value>
   </data>
   <data name="Mode_Info_ClickUnselectNode" xml:space="preserve">
     <value>Kliknij, aby odznaczyć węzeł</value>
@@ -257,7 +257,7 @@ Przytrzymaj Alt, aby przesuwać 100x wolniej</value>
     <value>Tryb obracania segmentu</value>
   </data>
   <data name="Mode_InvertSegment_Info_ClickToReverse" xml:space="preserve">
-    <value>Naciśnij, aby odwrócić segment</value>
+    <value>Kliknij, aby odwrócić segment</value>
   </data>
   <data name="Mode_InvertSegment_Info_SelectToReverse" xml:space="preserve">
     <value>Wybierz segment, aby go odwrócić</value>
@@ -340,10 +340,10 @@ Naciśnij trzymając Shift aby podzielić węzeł i ustawić wysokość źródł
     <value>Wybierz segment, aby go zablokować lub odblokować</value>
   </data>
   <data name="Mode_UnlockSegment_Info_ClickToLock" xml:space="preserve">
-    <value>Naciśnij aby zablokować ten segment</value>
+    <value>Kliknij, aby zablokować ten segment</value>
   </data>
   <data name="Mode_UnlockSegment_Info_ClickToUnlock" xml:space="preserve">
-    <value>Naciśnij aby odblokować ten segment</value>
+    <value>Kliknij, aby odblokować ten segment</value>
   </data>
   <data name="Mod_Description" xml:space="preserve">
     <value>Wiele różnych narzędzi do pracy z sieciami</value>
@@ -357,7 +357,7 @@ Naciśnij trzymając Shift aby podzielić węzeł i ustawić wysokość źródł
 - Added overlay for nearest nodes to cursor.
 - Added the ability select many nodes at one time in Slope and Arrange modes.
 - Added the ability to add curves additional curves in Create connection mode.
-- Added curse start offset to Create connection mode.
+- Added curve start offset to Create connection mode.
 - Added the ability to change curve's radius and start offset by dragging in Create loop and connection modes.
 - Create loop and connection modes will select road types dependence of terrain and water like default net tool does it. To build specific type of road, you need select it in Fine Road Tool.
 - Create loop and connection modes will auto unite too short segments in one.
@@ -414,7 +414,7 @@ Naciśnij trzymając Shift aby podzielić węzeł i ustawić wysokość źródł
     <value>Procenty</value>
   </data>
   <data name="Tool_RemoveNode_Info_ClickToRemove" xml:space="preserve">
-    <value>Kliknij, aby usunąć</value>
+    <value>Naciśnij, aby usunąć</value>
   </data>
   <data name="Tool_RemoveNode_Info_Select" xml:space="preserve">
     <value>Wybierz węzeł, aby go usunąć</value>
