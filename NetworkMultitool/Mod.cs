@@ -11,6 +11,7 @@ using System.Linq;
 using System.Reflection.Emit;
 using System.Resources;
 using System.Text;
+using static ColossalFramework.Plugins.PluginManager;
 
 namespace NetworkMultitool
 {
@@ -21,6 +22,7 @@ namespace NetworkMultitool
         protected override string IdRaw => nameof(NetworkMultitool);
         public override List<Version> Versions { get; } = new List<Version>
         {
+            new Version("1.1"),
             new Version("1.0")
         };
 
@@ -42,6 +44,7 @@ namespace NetworkMultitool
 
         public static bool IsFRT => FRTSearcher.GetPlugin() != null;
         public static bool IsNodeSpacer => NodeSpacerSearcher.GetPlugin() != null;
+        public static bool NodeSpacerEnable => NodeSpacerSearcher.GetPlugin() is PluginInfo plugin && plugin.isEnabled;
 
         #region BASIC
 
