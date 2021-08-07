@@ -143,29 +143,28 @@ Za blisko sąsiedniego węzła</value>
     <value>Select segment to set arrange direction</value>
   </data>
   <data name="Mode_Connection_Info_DoubleClickOnCenterToChangeDir" xml:space="preserve">
-    <value>Double click on circle center
-to change curve direction</value>
+    <value>Kliknij dwukrotnie na środku okręgu, aby zmienić kierunek zakrętu</value>
   </data>
   <data name="Mode_Connection_Info_DoubleClickToAdd" xml:space="preserve">
-    <value>Double click to add curve to this line</value>
+    <value>Kliknij dwukrotnie, aby dodać zakręt do tej linii</value>
   </data>
   <data name="Mode_Connection_Info_DoubleClickToRemove" xml:space="preserve">
-    <value>Double right click to remove this curve</value>
+    <value>Kliknij dwukrotnie, aby usunąć ten zakręt</value>
   </data>
   <data name="Mode_Connection_Info_DragToChangeRadius" xml:space="preserve">
-    <value>Drag to change radius</value>
+    <value>Przeciągnij, aby zmienić promień</value>
   </data>
   <data name="Mode_Connection_Info_DragToMove" xml:space="preserve">
-    <value>Drag to move circle</value>
+    <value>Przeciągnij, aby przesunąć okrąg</value>
   </data>
   <data name="Mode_Connection_Info_RadiusStep" xml:space="preserve">
-    <value>Hold Shift to step 10m
-Hold Ctrl to step 1m
-Hold Alt to step 0.1m</value>
+    <value>Przytrzymaj Shift, aby przesunąć o 10m
+Przytrzymaj Ctrl, aby przesunąć o 1m
+Przytrzymaj Alt, aby przesunąć o 0.1m</value>
   </data>
   <data name="Mode_Connection_Info_SlowMove" xml:space="preserve">
-    <value>Hold Ctrl to move X10 slower
-Hold Alt to move X100 slower</value>
+    <value>Przytrzymaj Ctrl, aby przesuwać 10x wolniej
+Przytrzymaj Alt, aby przesuwać 100x wolniej</value>
   </data>
   <data name="Mode_CreateConnection" xml:space="preserve">
     <value>Tryb tworzenia połączeń</value>
@@ -189,7 +188,7 @@ Hold Alt to move X100 slower</value>
     <value>Naciśnij {0}, aby przełączyć wybrany okręg</value>
   </data>
   <data name="Mode_Info_ChangeOffset" xml:space="preserve">
-    <value>Press {0} or {1} to change curse start offset</value>
+    <value>Naciśnij {0} lub {1}, aby zmienić przesunięcie startowe</value>
   </data>
   <data name="Mode_Info_ChangeOneRadius" xml:space="preserve">
     <value>Naciśnij {0} lub {1} aby zmienić jeden promień</value>
@@ -201,7 +200,7 @@ Hold Alt to move X100 slower</value>
     <value>Kliknij, aby zaznaczyć pierwszy segment</value>
   </data>
   <data name="Mode_Info_ClickOnNodeToChangeCreateDir" xml:space="preserve">
-    <value>Click on node to change create direction</value>
+    <value>Kliknij na węźle, aby zmienić kierunek tworzenia</value>
   </data>
   <data name="Mode_Info_ClickSecondSegment" xml:space="preserve">
     <value>Kliknij, aby zaznaczyć drugi segment</value>
@@ -210,7 +209,7 @@ Hold Alt to move X100 slower</value>
     <value>Kliknij, aby zaznaczyć węzeł</value>
   </data>
   <data name="Mode_Info_ClickToChangeCreateDir" xml:space="preserve">
-    <value>Click to change create direction</value>
+    <value>Naciśnij, aby zmienić kierunek tworzenia</value>
   </data>
   <data name="Mode_Info_ClickUnselectNode" xml:space="preserve">
     <value>Kliknij, aby odznaczyć węzeł</value>
@@ -237,7 +236,7 @@ Hold Alt to move X100 slower</value>
     <value>Shift - X10, Ctrl - X0.1, Alt - X0.01</value>
   </data>
   <data name="Mode_Info_SwitchOffset" xml:space="preserve">
-    <value>Press {0} to switch selected offset</value>
+    <value>Naciśnij {0}, aby przełączyć wybrane przesunięcie</value>
   </data>
   <data name="Mode_Info_UndergroundMode" xml:space="preserve">
     <value>Przytrzymaj Shift, aby przejść w tryb podziemny</value>
@@ -258,10 +257,10 @@ Hold Alt to move X100 slower</value>
     <value>Tryb obracania segmentu</value>
   </data>
   <data name="Mode_InvertSegment_Info_ClickToReverse" xml:space="preserve">
-    <value>Click to invert segment</value>
+    <value>Naciśnij, aby odwrócić segment</value>
   </data>
   <data name="Mode_InvertSegment_Info_SelectToReverse" xml:space="preserve">
-    <value>Select segment to invert it</value>
+    <value>Wybierz segment, aby go odwrócić</value>
   </data>
   <data name="Mode_NodeLine_Info_NotConnected" xml:space="preserve">
     <value>Ten węzeł nie może być zaznaczony
@@ -286,17 +285,17 @@ ponieważ nie jest połączony z pozostałymi</value>
     <value>Tryb ustawiania nachylenia</value>
   </data>
   <data name="Mode_SplitNode" xml:space="preserve">
-    <value>Split node mode</value>
+    <value>Tryb podziału węzła</value>
   </data>
   <data name="Mode_SplitNode_Info_ClickFromOrder" xml:space="preserve">
-    <value>Click to remove segment from split order</value>
+    <value>Naciśnij, aby usunąć segment z kolejki dzielenia</value>
   </data>
   <data name="Mode_SplitNode_Info_ClickToOrder" xml:space="preserve">
-    <value>Click to add segment to split order</value>
+    <value>Naciśnij, aby dodać segment do kolejki dzielenia</value>
   </data>
   <data name="Mode_SplitNode_Info_ClickToSplit" xml:space="preserve">
-    <value>Click to split node and set terrain height
-Click with Shift to split node and set source height</value>
+    <value>Naciśnij, aby podzielić węzeł i ustawić wysokość terenu
+Naciśnij trzymając Shift aby podzielić węzeł i ustawić wysokość źródłową</value>
   </data>
   <data name="Mode_SplitNode_Info_NotAllowedSplit" xml:space="preserve">
     <value>Nie da się podzielić węzła z tylko jednym segmentem</value>
@@ -353,7 +352,7 @@ Click with Shift to split node and set source height</value>
     <value>- Added Split node mode: Select segments and split it to new node.
 - Added Unlock segment mode: Unlock building's segments to change it, or lock segments to prevent delete it.
 - Added Invert segment mode: Ability to invert non-symmetrical segments.
-- Updated Arrange in line mode: Added overlay of arrange result; Added ability to set arrange direction by choose guide segment; line calculated more smooth; height of nodes no more changing; fixed segment directions after move nodes.
+- Updated Arrange in line mode: Added overlay of arrange result; Added ability to set arrange direction by choose guide segment; Line calculated more smooth; Height of nodes no more changing; Pillars moving with nodes; Fixed segment directions after move nodes.
 - Added the ability to change binding keys for all functions.
 - Added overlay for nearest nodes to cursor.
 - Added the ability select many nodes at one time in Slope and Arrange modes.

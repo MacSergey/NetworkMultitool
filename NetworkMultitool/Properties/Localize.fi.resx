@@ -353,7 +353,7 @@ lock or unlock it</value>
     <value>- Added Split node mode: Select segments and split it to new node.
 - Added Unlock segment mode: Unlock building's segments to change it, or lock segments to prevent delete it.
 - Added Invert segment mode: Ability to invert non-symmetrical segments.
-- Updated Arrange in line mode: Added overlay of arrange result; Added ability to set arrange direction by choose guide segment; line calculated more smooth; height of nodes no more changing; fixed segment directions after move nodes.
+- Updated Arrange in line mode: Added overlay of arrange result; Added ability to set arrange direction by choose guide segment; Line calculated more smooth; Height of nodes no more changing; Pillars moving with nodes; Fixed segment directions after move nodes.
 - Added the ability to change binding keys for all functions.
 - Added overlay for nearest nodes to cursor.
 - Added the ability select many nodes at one time in Slope and Arrange modes.
