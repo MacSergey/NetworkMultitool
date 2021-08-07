@@ -163,7 +163,7 @@ namespace NetworkMultitool
             StartStraight.Render(cameraInfo, info, Colors.Gray224, Colors.Gray224, Underground);
             EndStraight.Render(cameraInfo, info, Colors.Gray224, Colors.Gray224, Underground);
 
-            if(IsHoverCenter)
+            if (IsHoverCenter)
                 Circle.RenderCenterHover(cameraInfo, Colors.Blue, Underground);
         }
         protected override void RenderFailedOverlay(RenderManager.CameraInfo cameraInfo, NetInfo info)
@@ -303,6 +303,8 @@ namespace NetworkMultitool
 
         public override ToolModeType Type => ToolModeType.CreateLoop;
 
+        protected bool IsPressedCenter { get; private set; }
+
         public override IEnumerable<NetworkMultitoolShortcut> Shortcuts
         {
             get
@@ -346,6 +348,11 @@ namespace NetworkMultitool
                     Localize.Mode_Info_Step + "\n" +
                     string.Format(Localize.Mode_Info_Create, ApplyShortcut);
         }
+        protected override void ResetParams()
+        {
+            base.ResetParams();
+            IsPressedCenter = false;
+        }
         public override void OnToolUpdate()
         {
             base.OnToolUpdate();
@@ -353,7 +360,7 @@ namespace NetworkMultitool
             if (State != Result.None)
             {
                 IsHoverCenter = false;
-                if (!IsHoverNode)
+                if (!IsHoverNode && Tool.MouseRayValid)
                 {
                     var mousePosition = GetMousePosition(Circle.CenterPos.y);
                     if ((XZ(Circle.CenterPos) - XZ(mousePosition)).sqrMagnitude <= 25f)
@@ -361,9 +368,18 @@ namespace NetworkMultitool
                 }
             }
         }
+        public override void OnMouseDown(Event e)
+        {
+            IsPressedCenter = IsHoverCenter;
+        }
+        public override void OnPrimaryMouseClicked(Event e)
+        {
+            IsPressedCenter = false;
+            base.OnPrimaryMouseClicked(e);
+        }
         public override void OnMouseDrag(Event e)
         {
-            if (IsHoverCenter)
+            if (IsPressedCenter)
                 Tool.SetMode(ToolModeType.CreateLoopMoveCircle);
         }
         protected override void IncreaseRadius()

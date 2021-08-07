@@ -47,6 +47,11 @@ namespace NetworkMultitool
         protected bool IsHoverCircle => HoverCircle != -1;
         public int HoverStraight { get; private set; }
         protected bool IsHoverStraight => HoverStraight != -1;
+        public int PressedCenter { get; private set; }
+        protected bool IsPressedCenter => PressedCenter != -1;
+        public int PressedCircle { get; private set; }
+        protected bool IsPressedCircle => PressedCircle != -1;
+
         private Vector3 LastPos { get; set; }
         private float PosTime { get; set; }
 
@@ -123,7 +128,7 @@ namespace NetworkMultitool
                 HoverCenter = -1;
                 HoverCircle = -1;
                 HoverStraight = -1;
-                if (!IsHoverNode)
+                if (!IsHoverNode && Tool.MouseRayValid)
                 {
                     for (var i = 0; i < Circles.Count; i += 1)
                     {
@@ -169,6 +174,9 @@ namespace NetworkMultitool
         }
         public override void OnPrimaryMouseClicked(Event e)
         {
+            PressedCenter = -1;
+            PressedCircle = -1;
+
             if (IsHoverCenter)
                 SelectCircle = HoverCenter;
             else if (!IsHoverCircle)
@@ -200,6 +208,7 @@ namespace NetworkMultitool
             if (IsHoverCenter && HoverCenter != 0 && HoverCenter != Circles.Count - 1)
             {
                 RemoveLabel(Circles[HoverCenter].Label);
+                RemoveLabel(Straights[HoverCenter + 1].Label);
                 Circles.RemoveAt(HoverCenter);
                 Straights.RemoveAt(HoverCenter + 1);
                 State = Result.None;
@@ -208,14 +217,17 @@ namespace NetworkMultitool
 
         public override void OnMouseDown(Event e)
         {
+            PressedCenter = HoverCenter;
+            PressedCircle = HoverCircle;
+
             if (IsHoverCenter)
                 SelectCircle = HoverCenter;
         }
         public override void OnMouseDrag(Event e)
         {
-            if (IsHoverCenter)
+            if (IsPressedCenter)
                 Tool.SetMode(ToolModeType.CreateConnectionMoveCircle);
-            else if (IsHoverCircle)
+            else if (IsPressedCircle)
                 Tool.SetMode(ToolModeType.CreateConnectionChangeRadius);
         }
         protected override void ResetParams()
@@ -225,6 +237,8 @@ namespace NetworkMultitool
             HoverCenter = -1;
             HoverCircle = -1;
             HoverStraight = -1;
+            PressedCenter = -1;
+            PressedCircle = -1;
         }
 
         protected override void IncreaseRadius()
@@ -324,7 +338,7 @@ namespace NetworkMultitool
 
             if (prevMode is CreateConnectionMode connectionMode)
             {
-                Edit = connectionMode.HoverCenter;
+                Edit = connectionMode.PressedCenter;
                 PrevPos = GetMousePosition(Circles[Edit].CenterPos.y);
             }
         }
@@ -362,7 +376,7 @@ namespace NetworkMultitool
 
             if (prevMode is CreateConnectionMode connectionMode)
             {
-                Edit = connectionMode.HoverCircle;
+                Edit = connectionMode.PressedCircle;
                 PrevPos = XZ(Circles[Edit].CenterPos);
             }
         }
