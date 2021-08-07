@@ -1,6 +1,5 @@
 ﻿using ColossalFramework;
 using ColossalFramework.UI;
-using HarmonyLib;
 using ModsCommon;
 using ModsCommon.Utilities;
 using System;
@@ -46,8 +45,8 @@ namespace NetworkMultitool
             {
                 try
                 {
-                    var method = AccessTools.Method(System.Type.GetType("NodeSpacer.NT_CreateNode"), "GetMaxLength");
-                    MaxLengthGetter = AccessTools.MethodDelegate<Func<float>>(method);
+                    var method = System.Type.GetType("NodeSpacer.NT_CreateNode").GetMethod("GetMaxLength");
+                    MaxLengthGetter = (Func<float>)Delegate.CreateDelegate(typeof(Func<float>), method);
                     SingletonMod<Mod>.Logger.Debug("Segment length linked to Node Spacer");
                     return;
                 }
