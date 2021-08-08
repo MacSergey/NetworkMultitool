@@ -141,18 +141,17 @@ namespace NetworkMultitool
         }
         private IEnumerable<Point> GetParts()
         {
-            if (StartStraight.Length >= 8f)
+            if (!StartStraight.IsShort)
             {
                 foreach (var point in StartStraight.Parts)
                     yield return point;
-                yield return new Point(Circle.StartPos, StartStraight.Direction);
             }
-            foreach (var point in Circle.Parts)
-                yield return point;
 
-            if (EndStraight.Length >= 8f)
+            foreach (var part in Circle.GetParts(StartStraight, EndStraight))
+                yield return part;
+
+            if (!EndStraight.IsShort)
             {
-                yield return new Point(Circle.EndPos, EndStraight.Direction);
                 foreach (var point in EndStraight.Parts)
                     yield return point;
             }

@@ -101,14 +101,58 @@ namespace NetworkMultitool
 
             if (IsBoth && State == Result.None)
             {
-                Points = Calculate().ToList();
-                Points.Insert(0, new Point(FirstTrajectory.StartPosition, FirstTrajectory.Direction));
+                Points = new List<Point>();
+
+                Points.Add(new Point(FirstTrajectory.StartPosition, FirstTrajectory.Direction));
+                Points.AddRange(Calculate());
                 Points.Add(new Point(SecondTrajectory.StartPosition, -SecondTrajectory.Direction));
+
                 if (State == Result.Calculated)
+                {
+                    FixEdgePoint(true, Points[0], Points[1]);
+                    FixEdgePoint(false, Points[Points.Count - 1], Points[Points.Count - 2]);
                     SetSlope(Points);
+                }
             }
         }
         protected abstract IEnumerable<Point> Calculate();
+        protected void FixEdgePoint(bool isFirst, Point point, Point nextPoint)
+        {
+            ref var selectSegment = ref (isFirst ? First : Second).Id.GetSegment();
+            var nodeId = (isFirst ? IsFirstStart : IsSecondStart) ? selectSegment.m_startNode : selectSegment.m_endNode;
+            ref var node = ref nodeId.GetNode();
+
+            foreach (var segmentId in node.SegmentIds())
+            {
+                ref var segment = ref segmentId.GetSegment();
+                var startDir = segment.IsStartNode(nodeId) ? segment.m_startDirection : segment.m_endDirection;
+                var segmentAngle = MathExtention.GetAngle(isFirst ? point.Direction : -point.Direction, startDir);
+
+                if (Mathf.Abs(segmentAngle) < Mathf.PI / 180f)
+                {
+                    var otherNodeId = segment.GetOtherNode(nodeId);
+                    ref var otherNode = ref otherNodeId.GetNode();
+                    var partDir = nextPoint.Position - point.Position;
+                    var segmentDir = otherNode.m_position - node.m_position;
+                    var angle = MathExtention.GetAngle(partDir, segmentDir);
+
+                    if (segmentAngle == 0)
+                        point.Direction = point.Direction.TurnRad(Mathf.PI / 180f, angle >= 0);
+                    else if (Mathf.Sign(angle) == Mathf.Sign(segmentAngle))
+                    {
+                        var delta = Mathf.PI / 180f - Mathf.Abs(segmentAngle);
+                        point.Direction = point.Direction.TurnRad(delta, segmentAngle >= 0);
+                    }
+                    else
+                    {
+                        var delta = Mathf.PI / 180f + Mathf.Abs(segmentAngle);
+                        point.Direction = point.Direction.TurnRad(delta, segmentAngle <= 0);
+
+                    }
+                    break;
+                }
+            }
+        }
 
         public override void OnPrimaryMouseClicked(Event e)
         {
@@ -141,8 +185,8 @@ namespace NetworkMultitool
         {
             State = Result.None;
 
-            var firstSegment = First.Id.GetSegment();
-            var secondSegment = Second.Id.GetSegment();
+            ref var firstSegment = ref First.Id.GetSegment();
+            ref var secondSegment = ref Second.Id.GetSegment();
 
             var firstPos = (IsFirstStart ? firstSegment.m_startNode : firstSegment.m_endNode).GetNode().m_position;
             var secondPos = (IsSecondStart ? secondSegment.m_startNode : secondSegment.m_endNode).GetNode().m_position;
@@ -366,6 +410,16 @@ namespace NetworkMultitool
                     }
                 }
             }
+            public Point StartPoint => new Point(StartPos, StartDir);
+            public Point MiddlePoint
+            {
+                get
+                {
+                    var angle = Angle / 2f;
+                    return new Point(CenterPos + StartRadiusDir.TurnRad(angle, ClockWise) * Radius, StartDir.TurnRad(angle, ClockWise));
+                }
+            }
+            public Point EndPoint => new Point(EndPos, EndDir);
 
             public Circle(InfoLabel label, float height)
             {
@@ -437,6 +491,22 @@ namespace NetworkMultitool
                 var straight = new Straight(first.EndPos, second.StartPos, labelDir, label, height);
                 return straight;
             }
+            public IEnumerable<Point> GetParts(Straight before, Straight after)
+            {
+                if (!IsShort)
+                {
+                    if (!before.IsShort)
+                        yield return StartPoint;
+
+                    foreach (var part in Parts)
+                        yield return part;
+
+                    if (!after.IsShort)
+                        yield return EndPoint;
+                }
+                else if (!before.IsShort && !after.IsShort)
+                    yield return MiddlePoint;
+            }
 
             public void Render(RenderManager.CameraInfo cameraInfo, NetInfo info, Color32 color, bool underground)
             {
@@ -492,6 +562,7 @@ namespace NetworkMultitool
                     }
                 }
             }
+            public Point MiddlePoint => new Point(Position(0.5f), Tangent(0.5f));
 
             public Straight(Vector3 start, Vector3 end, Vector3 labelDir, InfoLabel label, float height) : base(SetHeight(start, height), SetHeight(end, height))
             {
