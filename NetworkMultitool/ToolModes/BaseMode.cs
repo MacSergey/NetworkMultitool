@@ -23,8 +23,6 @@ namespace NetworkMultitool
         protected static NetworkMultitoolShortcut GetShortcut(KeyCode keyCode, Action action, ToolModeType mode = ToolModeType.Any, bool ctrl = false, bool shift = false, bool alt = false, bool repeat = false, bool ignoreModifiers = false) => GetShortcut(keyCode, string.Empty, string.Empty, action, mode, ctrl, shift, alt, repeat, ignoreModifiers);
         protected static NetworkMultitoolShortcut GetShortcut(KeyCode keyCode, string name, string labelKey, Action action, ToolModeType mode = ToolModeType.Any, bool ctrl = false, bool shift = false, bool alt = false, bool repeat = false, bool ignoreModifiers = false) => new NetworkMultitoolShortcut(name, labelKey, SavedInputKey.Encode(keyCode, ctrl, shift, alt), action, mode) { CanRepeat = repeat, IgnoreModifiers = ignoreModifiers };
 
-        private static Dictionary<ToolModeType, List<ModeButton>> ButtonsDic { get; } = new Dictionary<ToolModeType, List<ModeButton>>();
-
         public abstract ToolModeType Type { get; }
         public virtual bool CreateButton => true;
         public string Title => SingletonMod<Mod>.Instance.GetLocalizeString(Type.GetAttr<DescriptionAttribute, ToolModeType>().Description);
@@ -50,20 +48,12 @@ namespace NetworkMultitool
         {
             base.Activate(prevMode);
             ForbiddenSwitchUnderground = false;
-            if (ButtonsDic.TryGetValue(Type & ToolModeType.Group, out var buttons))
-            {
-                foreach (var button in buttons)
-                    button.Activate = true;
-            }
+            ModeButton.SetState(Type, true);
         }
         public override void Deactivate()
         {
             base.Deactivate();
-            if (ButtonsDic.TryGetValue(Type & ToolModeType.Group, out var buttons))
-            {
-                foreach (var button in buttons)
-                    button.Activate = false;
-            }
+            ModeButton.SetState(Type, false);
             ClearLabels();
         }
         protected override void Reset(IToolMode prevMode)
@@ -95,20 +85,6 @@ namespace NetworkMultitool
             else
                 return false;
         }
-        public void AddButton(UIComponent parent)
-        {
-            var button = parent.AddUIComponent<ModeButton>();
-            button.Init(this, Type.ToString());
-            button.eventClicked += ButtonClicked;
-
-            if (!ButtonsDic.TryGetValue(Type & ToolModeType.Group, out var buttons))
-            {
-                buttons = new List<ModeButton>();
-                ButtonsDic[Type & ToolModeType.Group] = buttons;
-            }
-            buttons.Add(button);
-        }
-        private void ButtonClicked(UIComponent component, UIMouseEventParameter eventParam) => Tool.SetMode(this);
 
         public sealed override string GetToolInfo()
         {
