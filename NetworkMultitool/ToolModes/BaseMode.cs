@@ -112,7 +112,7 @@ namespace NetworkMultitool
 
                 if (elevated < -8f && (info.m_netAI.SupportUnderground() || info.m_netAI.IsUnderground()))
                     node.m_flags |= NetNode.Flags.Underground;
-                else if (elevated <= 0.1f && !info.m_netAI.IsOverground())
+                else if (elevated <= 1f && !info.m_netAI.IsOverground())
                     node.m_flags |= NetNode.Flags.OnGround;
 
                 return true;
@@ -126,8 +126,14 @@ namespace NetworkMultitool
             ref var endNode = ref endId.GetNode();
             var startPos = startNode.m_position;
             var endPos = endNode.m_position;
+
             var startElevated = startPos.y - Singleton<TerrainManager>.instance.SampleRawHeightSmooth(startPos);
             var endElevated = endPos.y - Singleton<TerrainManager>.instance.SampleRawHeightSmooth(endPos);
+            if (0f < startElevated && startElevated <= 1f)
+                startElevated = 0f;
+            if (0f < endElevated && endElevated <= 1f)
+                endElevated = 0f;
+
             var minElevated = Mathf.Min(startElevated, endElevated);
             var maxElevated = Mathf.Max(startElevated, endElevated);
 

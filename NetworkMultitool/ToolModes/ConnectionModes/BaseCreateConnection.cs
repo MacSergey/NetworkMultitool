@@ -174,28 +174,22 @@ namespace NetworkMultitool
                     }
 
                     var straight = Straights[j];
-                    if (straight.Length >= 8f)
+                    if (!straight.IsShort)
                     {
                         foreach (var part in straight.Parts)
                             yield return part;
                     }
                     else if (j != 0 && j != Straights.Count - 1 && !Circles[j - 1].IsShort && !Circles[j].IsShort)
-                        yield return new Point(straight.Position(0.5f), straight.Tangent(0.5f));
+                        yield return straight.MiddlePoint;
                 }
                 else
                 {
                     var j = i / 2;
-                    if (!Circles[j].IsCorrect || Circles[j].IsShort)
-                        continue;
-
-                    if (!Straights[j].IsShort)
-                        yield return new Point(Circles[j].StartPos, Circles[j].StartDir);
-
-                    foreach (var part in Circles[j].Parts)
-                        yield return part;
-
-                    if (!Straights[j + 1].IsShort)
-                        yield return new Point(Circles[j].EndPos, Circles[j].EndDir);
+                    if (Circles[j].IsCorrect)
+                    {
+                        foreach (var part in Circles[j].GetParts(Straights[j], Straights[j + 1]))
+                            yield return part;
+                    }                   
                 }
             }
         }
