@@ -9,14 +9,17 @@
 [*] Add node mode: add node to exist segment
 [*] Remove node mode: remove node and join segments
 [*] Union nodes mode: union two nodes in one
+[*] Split node mode: select segments and split it to new node
 [*] Intersect segments mode: make node in segment intersection point
+[*] Unlock segment mode: unlock building's segments to change it, or lock segments to prevent delete it
+[*] Invert segment mode: ability to invert non-symmetrical segments.
 [*] Align in line mode: Changes the position of the nodes so that they line up in one smooth line
 [*] Slope nodes mode: Changes the height of the nodes so that the slope between them becomes the same value
 [*] Create loop mode: Creates a loop that connects two segments with an even curve (straight - curve - straight)
 [*] Create connection mode: Creates a connection for any two segments with even curves (curve - straight - curve)
 [/list]
 
-[img]https://i.imgur.com/8Ff2swh.png[/img]
+[img]https://i.imgur.com/EddJJLl.png[/img]
 
 Available translations: Chinese, Finnish, French, German, Japanese, Polish, Portuguese, Russian, Spanish
 
@@ -28,6 +31,13 @@ Available translations: Chinese, Finnish, French, German, Japanese, Polish, Port
 
 [*] Use [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2255219025]UnifiedUI[/url] mod
 [/olist]
+
+[HR][/HR] 
+[h1]Recommended additional mods[/h1]
+[list] 
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1844442251]Fine Road Tool[/url] - To build specific road type
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2085018096]Node Spacer[/url] - To change max segment lenght
+[/list]
 
 [HR][/HR]
 [h1]Join to discord for discussion and support[/h1]

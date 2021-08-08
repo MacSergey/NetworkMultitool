@@ -66,7 +66,7 @@ namespace NetworkMultitool.UI
             foreach (var mode in SingletonTool<NetworkMultitoolTool>.Instance.Modes.OfType<BaseNetworkMultitoolMode>())
             {
                 if (mode.CreateButton)
-                    mode.AddButton(this);
+                    ModeButton.Add(this, mode);
             }
 
             parent.eventMouseEnter += ParentMouseEnter;
@@ -77,6 +77,13 @@ namespace NetworkMultitool.UI
                 root = root.parent;
 
             root.eventPositionChanged += ParentPositionChanged;
+        }
+        public override void OnDestroy()
+        {
+            base.OnDestroy();
+
+            SingletonTool<NetworkMultitoolTool>.Instance.OnStateChanged -= ToolStateChanged;
+            ValueAnimator.Cancel(AnimationId);
         }
 
         private void ToolStateChanged(bool state) => SetState(state);

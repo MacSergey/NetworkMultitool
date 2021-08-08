@@ -123,11 +123,6 @@ namespace NetworkMultitool
             base.OnReset();
             Singleton<InfoManager>.instance.SetCurrentMode(InfoManager.InfoMode.None, InfoManager.SubInfoMode.Default);
         }
-        protected override void InitProcess()
-        {
-            base.InitProcess();
-            AddModePanel();
-        }
         protected override void SetModeNow(IToolMode mode)
         {
             base.SetModeNow(mode);
@@ -140,12 +135,7 @@ namespace NetworkMultitool
         public override void RegisterUUI()
         {
             base.RegisterUUI();
-            if (IsInit)
-                AddModePanel();
-        }
-        private void AddModePanel()
-        {
-            if (UUIRegistered)
+            if (IsInit && UUIRegistered)
                 UUIButton.AddUIComponent<ModesPanel>();
         }
 
@@ -161,5 +151,5 @@ namespace NetworkMultitool
         public NetworkMultitoolShortcut(string name, string labelKey, InputKey key, Action action = null, ToolModeType modeType = ToolModeType.Any) : base(name, labelKey, key, action, modeType) { }
     }
     public class NetworkMultitoolThreadingExtension : BaseUUIThreadingExtension<NetworkMultitoolTool> { }
-    public class NetworkMultitoolLoadingExtension : BaseToolLoadingExtension<NetworkMultitoolTool> { }
+    public class NetworkMultitoolLoadingExtension : BaseUUIToolLoadingExtension<NetworkMultitoolTool> { }
 }

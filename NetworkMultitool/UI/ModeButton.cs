@@ -1,4 +1,5 @@
 ﻿using ColossalFramework.UI;
+using ModsCommon;
 using ModsCommon.UI;
 using ModsCommon.Utilities;
 using NetworkMultitool.Utilities;
@@ -12,6 +13,8 @@ namespace NetworkMultitool.UI
 {
     public class ModeButton : CustomUIButton
     {
+        private static Dictionary<ToolModeType, List<ModeButton>> ButtonsDic { get; } = new Dictionary<ToolModeType, List<ModeButton>>();
+
         public static int Size => IconSize + 2 * IconPadding;
         public static int IconSize => 25;
         public static int IconPadding => 2;
@@ -41,7 +44,6 @@ namespace NetworkMultitool.UI
                 }
             } 
         }
-
         public ModeButton()
         {
             atlas = CommonTextures.Atlas;
@@ -60,23 +62,54 @@ namespace NetworkMultitool.UI
 
             Activate = false;
         }
-        public void Init(BaseNetworkMultitoolMode mode, string sprite)
+        public static void SetState(ToolModeType modeType, bool state)
         {
-            Mode = mode;
-            Icon.normalBgSprite = sprite;
-            Icon.hoveredBgSprite = sprite;
-            Icon.pressedBgSprite = sprite;
+            if (ButtonsDic.TryGetValue(modeType & ToolModeType.Group, out var buttons))
+            {
+                foreach (var button in buttons)
+                    button.Activate = state;
+            }
         }
+
         public override void Update()
         {
             base.Update();
             if (state == ButtonState.Focused)
                 state = ButtonState.Normal;
         }
+        public override void OnDestroy()
+        {
+            base.OnDestroy();
+            if (ButtonsDic.TryGetValue(Mode.Type & ToolModeType.Group, out var buttons))
+                buttons.Remove(this);
+        }
         protected override void OnTooltipEnter(UIMouseEventParameter p)
         {
             tooltip = $"{Mode.Title} ({Mode.ActivationShortcut})";
             base.OnTooltipEnter(p);
+        }
+
+        public static void Add(UIComponent parent, BaseNetworkMultitoolMode mode)
+        {
+            var button = parent.AddUIComponent<ModeButton>();
+
+            button.Mode = mode;
+            var sprite = mode.Type.ToString();
+            button.Icon.normalBgSprite = sprite;
+            button.Icon.hoveredBgSprite = sprite;
+            button.Icon.pressedBgSprite = sprite;
+
+            if (!ButtonsDic.TryGetValue(mode.Type & ToolModeType.Group, out var buttons))
+            {
+                buttons = new List<ModeButton>();
+                ButtonsDic[mode.Type & ToolModeType.Group] = buttons;
+            }
+            buttons.Add(button);
+        }
+        protected override void OnClick(UIMouseEventParameter p)
+        {
+            base.OnClick(p);
+            SingletonTool<NetworkMultitoolTool>.Instance.SetMode(Mode);
         }
     }
 }

@@ -139,12 +139,5 @@ namespace NetworkMultitool
             };
         }
     }
-    public class LoadingExtension : BaseLoadingExtension<Mod>
-    {
-        protected override void OnLoad()
-        {
-            SingletonTool<NetworkMultitoolTool>.Instance.RegisterUUI();
-            base.OnLoad();
-        }
-    }
+    public class LoadingExtension : BaseLoadingExtension<Mod> { }
 }

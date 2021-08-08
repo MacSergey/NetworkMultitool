@@ -108,28 +108,6 @@ namespace NetworkMultitool
                     else
                         AddState = AddResult.NotConnect;
                 }
-                //else if(NetExtension.GetCommon(HoverNode.Id, Nodes[0].Id, out _))
-                //{
-                //    AddState = AddResult.InStart;
-                //    ToAdd.Add(HoverNode);
-                //}
-                //else if (NetExtension.GetCommon(HoverNode.Id, Nodes[Nodes.Count - 1].Id, out _))
-                //{
-                //    AddState = AddResult.InEnd;
-                //    ToAdd.Add(HoverNode);
-                //}
-                //else if (Check(HoverNode.Id, Nodes[0].Id, Nodes[Nodes.Count - 1].Id, (Nodes.Count == 1 ? 0 : Nodes[1].Id), out var toAddStart))
-                //{
-                //    AddState = AddResult.InStart;
-                //    ToAdd.AddRange(toAddStart.Select(i => new NodeSelection(i)));
-                //}
-                //else if (Check(HoverNode.Id, Nodes[Nodes.Count - 1].Id, Nodes[0].Id, (Nodes.Count == 1 ? 0 : Nodes[Nodes.Count - 2].Id), out var toAddEnd))
-                //{
-                //    AddState = AddResult.InEnd;
-                //    ToAdd.AddRange(toAddEnd.Select(i => new NodeSelection(i)));
-                //}
-                //else
-                //    AddState = AddResult.NotConnect;
             }
 
         }
