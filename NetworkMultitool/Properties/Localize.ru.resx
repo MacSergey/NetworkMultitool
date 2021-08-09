@@ -168,6 +168,9 @@ Alt для шага в 0.1м</value>
     <value>Ctrl для перемещения в 10 раз медленнее
 Alt для перемещения в 100 раз медленнее</value>
   </data>
+  <data name="Mode_CreateBezier" xml:space="preserve">
+    <value>Режим создания кривой Безье</value>
+  </data>
   <data name="Mode_CreateConnection" xml:space="preserve">
     <value>Режим создания соединения</value>
   </data>
@@ -218,6 +221,13 @@ Alt для перемещения в 100 раз медленнее</value>
   </data>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Нажмите {0} чтобы создать</value>
+  </data>
+  <data name="Mode_Info_CreateBezier_MoveGiude" xml:space="preserve">
+    <value>Двигайте направляющие кривой Безье
+для изменения формы</value>
+  </data>
+  <data name="Mode_Info_OutOfMap" xml:space="preserve">
+    <value>За пределами карты</value>
   </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
     <value>Радиус слишком большой</value>

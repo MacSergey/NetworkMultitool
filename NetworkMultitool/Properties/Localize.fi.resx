@@ -167,6 +167,7 @@ Alt - 0,1m askelväli</value>
     <value>Pidä Ctrl pohjassa siirtääksesi X10 hitaammin
 Pidä Alt pohjassa siirtääksesi X100 hitaammin</value>
   </data>
+  
   <data name="Mode_CreateConnection" xml:space="preserve">
     <value>Teiden yhdistys</value>
   </data>
@@ -218,6 +219,8 @@ Pidä Alt pohjassa siirtääksesi X100 hitaammin</value>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Luo painamalla {0}</value>
   </data>
+  
+  
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
     <value>Liian suuri säde</value>
   </data>

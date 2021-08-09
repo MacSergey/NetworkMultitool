@@ -167,6 +167,7 @@ Alt-ot nyomva tartva 0,1m lépésköz</value>
     <value>Ctrl-t nyomva tartva 10x lassabb a mozgatás
 Alt-ot nyomva tartva 100x lassabb a mozgatás</value>
   </data>
+  
   <data name="Mode_CreateConnection" xml:space="preserve">
     <value>Kapcsolat létrehozása mód</value>
   </data>
@@ -218,6 +219,8 @@ Alt-ot nyomva tartva 100x lassabb a mozgatás</value>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Nyomj {0}-t a létrehozáshoz</value>
   </data>
+  
+  
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
     <value>Túl nagy a sugár</value>
   </data>

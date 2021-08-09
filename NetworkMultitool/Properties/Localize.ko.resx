@@ -167,6 +167,9 @@ Alt를 꾹 눌러 0.1m씩</value>
     <value>Ctrl을 꾹 눌러 10배 정교하게
 Alt를 꾹 눌러 100배 정교하게</value>
   </data>
+  <data name="Mode_CreateBezier" xml:space="preserve">
+    <value>베지어 곡선 생성 모드</value>
+  </data>
   <data name="Mode_CreateConnection" xml:space="preserve">
     <value>연결 생성 모드</value>
   </data>
@@ -217,6 +220,10 @@ Alt를 꾹 눌러 100배 정교하게</value>
   </data>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>{0}을(를) 눌러서 생성</value>
+  </data>
+  
+  <data name="Mode_Info_OutOfMap" xml:space="preserve">
+    <value>지도 밖</value>
   </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
     <value>반지름 너무 큼</value>
@@ -335,7 +342,7 @@ Alt를 꾹 눌러 100배 정교하게</value>
     <value>두 노드가 너무 멀리 떨어짐</value>
   </data>
   <data name="Mode_UnlockSegment" xml:space="preserve">
-    <value>세그먼트 모드 잠금 해제</value>
+    <value>세그먼트 잠금해제 모드</value>
   </data>
   <data name="Mode_UnlockSegment_Info_ChangeLock" xml:space="preserve">
     <value>세그먼트를 선택해

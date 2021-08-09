@@ -159,14 +159,15 @@ para cambiar la dirección de la curva</value>
     <value>Arrastre para mover el círculo</value>
   </data>
   <data name="Mode_Connection_Info_RadiusStep" xml:space="preserve">
-    <value>Mantiene pulsado Mayús para el paso de 10m
-Mantiene pulsado Ctrl para el paso de 1m
-Mantiene pulsado Alt para el paso de 0.1m</value>
+    <value>Mantener pulsada la tecla "Mayús" para el paso de 10m
+Mantener pulsada la tecla "Ctrl" para el paso de 1m
+Mantener pulsada la tecla "Alt" para el paso de 0.1m</value>
   </data>
   <data name="Mode_Connection_Info_SlowMove" xml:space="preserve">
-    <value>Mantiene pulsado Ctrl para mover X10 más lento
-Mantiene pulsado Alt para moverte X100 más lento</value>
+    <value>Mantener pulsada la tecla "Ctrl" para mover X10 más lento
+Mantener pulsada la tecla "Alt" para mover X100 más lento</value>
   </data>
+  
   <data name="Mode_CreateConnection" xml:space="preserve">
     <value>Modo de creación de conexión</value>
   </data>
@@ -218,6 +219,10 @@ Mantiene pulsado Alt para moverte X100 más lento</value>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Pulsa {0} para crear</value>
   </data>
+  
+  <data name="Mode_Info_OutOfMap" xml:space="preserve">
+    <value>Fuera del Mapa</value>
+  </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
     <value>El radio es muy grande</value>
   </data>
@@ -240,7 +245,7 @@ Mantiene pulsado Alt para moverte X100 más lento</value>
     <value>Pulsa {0} para cambiar el desplazamiento inicial de la curva seleccionada</value>
   </data>
   <data name="Mode_Info_UndergroundMode" xml:space="preserve">
-    <value>Mantén presionada la tecla "Mayús" para modo subterráneo</value>
+    <value>Mantener pulsada la tecla "Mayús" para modo subterráneo</value>
   </data>
   <data name="Mode_Info_WrongShape" xml:space="preserve">
     <value>Forma incorrecta</value>

@@ -156,6 +156,7 @@ para mudar a direção da curva</value>
   </data>
   
   
+  
   <data name="Mode_CreateConnection" xml:space="preserve">
     <value>Modo de criação de ligação</value>
   </data>
@@ -203,6 +204,8 @@ para mudar a direção da curva</value>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Pressione {0} para criar</value>
   </data>
+  
+  
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
     <value>Raio muito grande</value>
   </data>

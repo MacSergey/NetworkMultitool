@@ -167,6 +167,9 @@ Hold Alt to step 0.1m</value>
     <value>Hold Ctrl to move X10 slower
 Hold Alt to move X100 slower</value>
   </data>
+  <data name="Mode_CreateBezier" xml:space="preserve">
+    <value>Create Bezier curve mode</value>
+  </data>
   <data name="Mode_CreateConnection" xml:space="preserve">
     <value>Create connection mode</value>
   </data>
@@ -217,6 +220,12 @@ Hold Alt to move X100 slower</value>
   </data>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Press {0} to create</value>
+  </data>
+  <data name="Mode_Info_CreateBezier_MoveGiude" xml:space="preserve">
+    <value>Move Bezier curve guides to change shape</value>
+  </data>
+  <data name="Mode_Info_OutOfMap" xml:space="preserve">
+    <value>Out of map</value>
   </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
     <value>Radius too big</value>

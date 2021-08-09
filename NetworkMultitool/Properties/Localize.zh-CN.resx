@@ -167,6 +167,7 @@
     <value>按住 Ctrl 可减慢移动10倍
 按住Alt 可减慢移动X100倍</value>
   </data>
+  
   <data name="Mode_CreateConnection" xml:space="preserve">
     <value>创建连接模式</value>
   </data>
@@ -217,6 +218,10 @@
   </data>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>按 {0} 以创建</value>
+  </data>
+  
+  <data name="Mode_Info_OutOfMap" xml:space="preserve">
+    <value>超出地图</value>
   </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
     <value>半径过大</value>

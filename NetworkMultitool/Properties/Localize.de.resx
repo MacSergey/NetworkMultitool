@@ -167,6 +167,7 @@ Alt halten für 0.1m Schritte</value>
     <value>Strg halten, um 10x langsamer zu bewegen
 Alt halten, um 100x langsamer zu bewegen</value>
   </data>
+  
   <data name="Mode_CreateConnection" xml:space="preserve">
     <value>Verbindung erstellen</value>
   </data>
@@ -217,6 +218,10 @@ Alt halten, um 100x langsamer zu bewegen</value>
   </data>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Drücke {0} zum Erstellen</value>
+  </data>
+  
+  <data name="Mode_Info_OutOfMap" xml:space="preserve">
+    <value>Außerhalb der Karte</value>
   </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
     <value>Radius zu groß</value>

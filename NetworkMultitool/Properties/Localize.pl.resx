@@ -166,6 +166,7 @@ Przytrzymaj Alt, aby przesunąć o 0.1m</value>
     <value>Przytrzymaj Ctrl, aby przesuwać 10x wolniej
 Przytrzymaj Alt, aby przesuwać 100x wolniej</value>
   </data>
+  
   <data name="Mode_CreateConnection" xml:space="preserve">
     <value>Tryb tworzenia połączeń</value>
   </data>
@@ -216,6 +217,10 @@ Przytrzymaj Alt, aby przesuwać 100x wolniej</value>
   </data>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Naciśnij {0}, aby utworzyć</value>
+  </data>
+  
+  <data name="Mode_Info_OutOfMap" xml:space="preserve">
+    <value>Poza mapą</value>
   </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
     <value>Promień jest za duży</value>

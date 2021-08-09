@@ -157,6 +157,7 @@ om de richting van de curve te veranderen</value>
     <value>Houd Ctrl om met X10 langzamer te bewegen
 Houd Alt om met X100 langzamer te bewegen</value>
   </data>
+  
   <data name="Mode_CreateConnection" xml:space="preserve">
     <value>Creëer verbind-modus</value>
   </data>
@@ -198,6 +199,8 @@ Houd Alt om met X100 langzamer te bewegen</value>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Druk {0} om te creëren</value>
   </data>
+  
+  
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
     <value>Straal te groot</value>
   </data>
