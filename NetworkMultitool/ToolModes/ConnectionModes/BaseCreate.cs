@@ -14,7 +14,6 @@ namespace NetworkMultitool
 {
     public abstract class BaseCreateMode : BaseNetworkMultitoolMode
     {
-        protected static Func<float> MaxLengthGetter { get; private set; }
         protected override bool IsReseted => !IsFirst;
         protected override bool CanSwitchUnderground => !IsBoth;
 
@@ -39,24 +38,6 @@ namespace NetworkMultitool
                 yield return DecreaseRadiusShortcut;
             }
         }
-        static BaseCreateMode()
-        {
-            if (Mod.IsNodeSpacer)
-            {
-                try
-                {
-                    var method = System.Type.GetType("NodeSpacer.NT_CreateNode").GetMethod("GetMaxLength");
-                    MaxLengthGetter = (Func<float>)Delegate.CreateDelegate(typeof(Func<float>), method);
-                    SingletonMod<Mod>.Logger.Debug("Segment length linked to Node Spacer");
-                    return;
-                }
-                catch (Exception error)
-                {
-                    SingletonMod<Mod>.Logger.Error("Cant access to Node Spacer", error);
-                }
-            }
-            MaxLengthGetter = () => Settings.SegmentLength;
-        }
 
         protected SegmentSelection First { get; set; }
         protected SegmentSelection Second { get; set; }
@@ -77,6 +58,32 @@ namespace NetworkMultitool
         protected NetInfo Info => ToolsModifierControl.toolController.Tools.OfType<NetTool>().FirstOrDefault().Prefab?.m_netAI?.m_info ?? First.Id.GetSegment().Info;
         protected float MinPossibleRadius => Info != null ? Info.m_halfWidth * 2f : 16f;
         protected bool ForceUnderground => IsBoth && (First.Id.GetSegment().Nodes().Any(n => n.m_flags.IsSet(NetNode.Flags.Underground)) || Second.Id.GetSegment().Nodes().Any(n => n.m_flags.IsSet(NetNode.Flags.Underground)));
+
+        protected static Func<float> MaxLengthGetter { get; private set; }
+        private static Func<float> DefaultMaxLengthGetter { get; } = () => Settings.SegmentLength;
+
+        public BaseCreateMode()
+        {
+            if (Mod.NodeSpacerEnabled)
+            {
+                try
+                {
+                    var method = System.Type.GetType("NodeSpacer.NT_CreateNode").GetMethod("GetMaxLength");
+                    if (MaxLengthGetter?.Method != method)
+                    {
+                        MaxLengthGetter = (Func<float>)Delegate.CreateDelegate(typeof(Func<float>), method);
+                        SingletonMod<Mod>.Logger.Debug("Segment length linked to Node Spacer");
+                    }
+                    return;
+                }
+                catch (Exception error)
+                {
+                    SingletonMod<Mod>.Logger.Error("Cant access to Node Spacer", error);
+                }
+            }
+
+            MaxLengthGetter = DefaultMaxLengthGetter;
+        }
 
         protected override void Reset(IToolMode prevMode)
         {
@@ -153,7 +160,6 @@ namespace NetworkMultitool
                 }
             }
         }
-
         public override void OnPrimaryMouseClicked(Event e)
         {
             if (!IsFirst)
