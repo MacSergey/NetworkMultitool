@@ -73,8 +73,7 @@ namespace NetworkMultitool {
         ///   Ищет локализованную строку, похожую на - Added Split node mode: Select segments and split it to new node.
         ///- Added Unlock segment mode: Unlock building&apos;s segments to change it, or lock segments to prevent delete it.
         ///- Added Invert segment mode: Ability to invert non-symmetrical segments.
-        ///- Updated Arrange in line mode: Added overlay of arrange result; Added ability to set arrange direction by choose guide segment; line calculated more smooth; height of nodes no more changing; fixed segment directions after move nodes.
-        ///- Added the ability to c [остаток строки не уместился]&quot;;.
+        ///- Updated Arrange in line mode: Added overlay of arrange result; Added ability to set arrange direction by choose guide segment; Line calculated more smooth; Height of nodes no more changing; Pillars moving with nodes; Fixed segment directions after move nodes [остаток строки не уместился]&quot;;.
         /// </summary>
         internal static string Mod_WhatsNewMessage1_1 {
             get {
@@ -286,7 +285,7 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Press {0} or {1} to change curse start offset.
+        ///   Ищет локализованную строку, похожую на Press {0} or {1} to change curve start offset.
         /// </summary>
         internal static string Mode_Info_ChangeOffset {
             get {
@@ -372,6 +371,15 @@ namespace NetworkMultitool {
         internal static string Mode_Info_Create {
             get {
                 return ResourceManager.GetString("Mode_Info_Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Out of map.
+        /// </summary>
+        internal static string Mode_Info_OutOfMap {
+            get {
+                return ResourceManager.GetString("Mode_Info_OutOfMap", resourceCulture);
             }
         }
         
@@ -602,8 +610,8 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Click to split node and set terrain height
-        ///Click with Shift to split node and set source height.
+        ///   Ищет локализованную строку, похожую на Click to split node and align to terrain height
+        ///Click with Shift to split node and align to source height.
         /// </summary>
         internal static string Mode_SplitNode_Info_ClickToSplit {
             get {

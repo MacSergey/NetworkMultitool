@@ -112,32 +112,25 @@ namespace NetworkMultitool
                 EndStraight?.Update(info, State == Result.Calculated);
             }
         }
-        protected override void Init(StraightTrajectory firstTrajectory, StraightTrajectory secondTrajectory)
+        protected override Result Init(StraightTrajectory firstTrajectory, StraightTrajectory secondTrajectory)
         {
             ResetData();
 
             if (!Intersection.CalculateSingle(firstTrajectory, secondTrajectory, out var firstT, out var secondT) || Mathf.Abs(firstT) > 5000f || Mathf.Abs(secondT) > 5000f)
-            {
-                State = Result.NotIntersect;
-                return;
-            }
+                return Result.NotIntersect;
 
             Circle = new MiddleCircle(Circle?.Label ?? AddLabel(), firstTrajectory, secondTrajectory, Height);
+            return Result.None;
         }
-        protected override IEnumerable<Point> Calculate()
+        protected override Point[] Calculate(out Result result)
         {
-            if (!Circle.Calculate(MinPossibleRadius, float.MaxValue, out var result))
-            {
-                State = result;
-                return new Point[] { Point.Empty };
-            }
-
+            Circle.Calculate(MinPossibleRadius, MaxPossibleRadius);
             Circle.GetStraight(StartStraight?.Label ?? AddLabel(), EndStraight?.Label ?? AddLabel(), Height, out var start, out var end);
             StartStraight = start;
             EndStraight = end;
 
-            State = Result.Calculated;
-            return GetParts();
+            result = Result.Calculated;
+            return GetParts().ToArray();
         }
         private IEnumerable<Point> GetParts()
         {
@@ -263,30 +256,15 @@ namespace NetworkMultitool
                 CenterLine = new StraightTrajectory(intersect, intersect + centerDir, false);
             }
 
-            public override bool Calculate(float minRadius, float maxRadius, out Result result)
+            public override void Calculate(float minRadius, float maxRadius)
             {
                 MinInsideRadius = minRadius;
                 MaxInsideRadius = Mathf.Tan(HalfAbsGuideAngle) * Mathf.Min(StartT, EndT);
 
                 MinOutsideRadius = Mathf.Max(Mathf.Tan(HalfAbsGuideAngle) * Mathf.Max(-Mathf.Min(StartT, 0f), -Mathf.Min(EndT, 0f)), minRadius);
-                MaxOutsideRadius = Mathf.Max(MinOutsideRadius + 200f, 500f);
+                MaxOutsideRadius = Mathf.Max(MinOutsideRadius + 200f, maxRadius);
 
-                if (!base.Calculate(minRadius, maxRadius, out result))
-                    return false;
-
-                if (Radius > 1000f)
-                {
-                    result = Result.BigRadius;
-                    return false;
-                }
-                if (MaxRadius < MinRadius)
-                {
-                    result = Result.SmallRadius;
-                    return false;
-                }
-
-                result = Result.Calculated;
-                return true;
+                base.Calculate(minRadius, maxRadius);
             }
 
             public void GetStraight(InfoLabel startLabel, InfoLabel endLabel, float height, out Straight start, out Straight end)
@@ -337,6 +315,8 @@ namespace NetworkMultitool
                 return Localize.Mode_Info_RadiusTooBig;
             else if (State == Result.SmallRadius)
                 return Localize.Mode_Info_RadiusTooSmall;
+            else if (State == Result.OutOfMap)
+                return Localize.Mode_Info_OutOfMap;
             else if (State != Result.Calculated)
                 return Localize.Mode_Info_ClickOnNodeToChangeCreateDir;
             else
@@ -385,18 +365,18 @@ namespace NetworkMultitool
         {
             var step = Step;
             Circle.Radius = (Circle.Radius + step).RoundToNearest(step);
-            State = Result.None;
+            Recalculate();
         }
         protected override void DecreaseRadius()
         {
             var step = Step;
             Circle.Radius = (Circle.Radius - step).RoundToNearest(step);
-            State = Result.None;
+            Recalculate();
         }
         private void SwitchIsLoop()
         {
             Circle.ForceLoop = !Circle.ForceLoop;
-            State = Result.None;
+            Recalculate();
         }
     }
     public class CreateLoopMoveCircleMode : BaseCreateLoopMode
@@ -430,7 +410,7 @@ namespace NetworkMultitool
                 else
                     circle.CenterPos += dir;
 
-                State = Result.None;
+                Recalculate();
             }
         }
     }
