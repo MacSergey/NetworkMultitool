@@ -85,7 +85,8 @@ namespace NetworkMultitool.UI
         }
         protected override void OnTooltipEnter(UIMouseEventParameter p)
         {
-            tooltip = $"{Mode.Title} ({Mode.ActivationShortcut})";
+            var shortcut = Mode.ActivationShortcut;
+            tooltip = shortcut?.NotSet != false ? Mode.Title : $"{Mode.Title} ({shortcut})";
             base.OnTooltipEnter(p);
         }
 

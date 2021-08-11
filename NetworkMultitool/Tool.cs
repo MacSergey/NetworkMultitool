@@ -94,6 +94,7 @@ namespace NetworkMultitool
             AddModeShortcut(ToolModeType.ArrangeAtLine, KeyCode.Alpha6);
             AddModeShortcut(ToolModeType.CreateLoop, KeyCode.Alpha7);
             AddModeShortcut(ToolModeType.CreateConnection, KeyCode.Alpha8);
+            AddModeShortcut(ToolModeType.CreateBezier, KeyCode.Alpha2, false, false, true);
             AddModeShortcut(ToolModeType.UnlockSegment, KeyCode.Alpha1, false, false, true);
         }
         private static void AddModeShortcut(ToolModeType mode, KeyCode key, bool ctrl = true, bool shift = false, bool alt = false)
@@ -116,6 +117,7 @@ namespace NetworkMultitool
             yield return CreateToolMode<CreateConnectionMode>();
             yield return CreateToolMode<CreateConnectionMoveCircleMode>();
             yield return CreateToolMode<CreateConnectionChangeRadiusMode>();
+            yield return CreateToolMode<CreateBezierMode>();
             yield return CreateToolMode<UnlockSegmentMode>();
         }
         protected override void OnReset()

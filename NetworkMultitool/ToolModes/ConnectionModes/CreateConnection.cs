@@ -57,22 +57,8 @@ namespace NetworkMultitool
 
         protected override string GetInfo()
         {
-            if (!IsFirst)
-            {
-                if (!IsHoverSegment)
-                    return Localize.Mode_Info_SelectFirstSegment + UndergroundInfo;
-                else
-                    return Localize.Mode_Info_ClickFirstSegment + StepOverInfo;
-            }
-            else if (!IsSecond)
-            {
-                if (!IsHoverSegment)
-                    return Localize.Mode_Info_SelectSecondSegment + UndergroundInfo;
-                else
-                    return Localize.Mode_Info_ClickSecondSegment + StepOverInfo;
-            }
-            else if (IsHoverNode)
-                return Localize.Mode_Info_ClickToChangeCreateDir;
+            if (GetBaseInfo() is string baseInfo)
+                return baseInfo;
             else if (IsHoverCenter)
             {
                 var result = Localize.Mode_Connection_Info_DragToMove;
@@ -88,6 +74,8 @@ namespace NetworkMultitool
                 return Localize.Mode_Info_RadiusTooBig;
             else if (State == Result.WrongShape)
                 return Localize.Mode_Info_WrongShape;
+            else if (State == Result.OutOfMap)
+                return Localize.Mode_Info_OutOfMap;
             else if (State != Result.Calculated)
                 return
                     Localize.Mode_Info_ClickOnNodeToChangeCreateDir + "\n" +
@@ -187,7 +175,7 @@ namespace NetworkMultitool
             if (IsHoverCenter)
             {
                 Circles[SelectCircle].Direction = Circles[SelectCircle].Direction == Direction.Right ? Direction.Left : Direction.Right;
-                State = Result.None;
+                Recalculate();
             }
             else if (IsHoverStraight)
             {
@@ -195,7 +183,7 @@ namespace NetworkMultitool
                 circle.CenterPos = Tool.MouseWorldPosition;
                 Circles.Insert(HoverStraight, circle);
                 Straights.Insert(HoverStraight, null);
-                State = Result.None;
+                Recalculate();
             }
         }
         public override void OnSecondaryMouseClicked()
@@ -211,7 +199,7 @@ namespace NetworkMultitool
                 RemoveLabel(Straights[HoverCenter + 1].Label);
                 Circles.RemoveAt(HoverCenter);
                 Straights.RemoveAt(HoverCenter + 1);
-                State = Result.None;
+                Recalculate();
             }
         }
 
@@ -246,24 +234,24 @@ namespace NetworkMultitool
             foreach (var circle in Circles)
                 ChangeRadius(circle, true);
 
-            State = Result.None;
+            Recalculate();
         }
         protected override void DecreaseRadius()
         {
             foreach (var circle in Circles)
                 ChangeRadius(circle, false);
 
-            State = Result.None;
+            Recalculate();
         }
         private void IncreaseOneRadius()
         {
             ChangeRadius(Circles[SelectCircle], true);
-            State = Result.None;
+            Recalculate();
         }
         private void DecreaseOneRadius()
         {
             ChangeRadius(Circles[SelectCircle], false);
-            State = Result.None;
+            Recalculate();
         }
         private void ChangeRadius(Circle circle, bool increase)
         {
@@ -275,12 +263,12 @@ namespace NetworkMultitool
         private void IncreaseOffset()
         {
             ChangeOffset((SelectOffset ? Circles.First() : Circles.Last()) as EdgeCircle, true);
-            State = Result.None;
+            Recalculate();
         }
         private void DecreaseOffset()
         {
             ChangeOffset((SelectOffset ? Circles.First() : Circles.Last()) as EdgeCircle, false);
-            State = Result.None;
+            Recalculate();
         }
         private void ChangeOffset(EdgeCircle circle, bool increase)
         {
@@ -357,7 +345,7 @@ namespace NetworkMultitool
                 else
                     circle.CenterPos += dir;
 
-                State = Result.None;
+                Recalculate();
             }
         }
     }
@@ -394,7 +382,7 @@ namespace NetworkMultitool
                     radius = radius.RoundToNearest(0.1f);
 
                 circle.Radius = radius;
-                State = Result.None;
+                Recalculate();
             }
         }
     }

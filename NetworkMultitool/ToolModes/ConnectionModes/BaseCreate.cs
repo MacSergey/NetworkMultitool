@@ -14,7 +14,6 @@ namespace NetworkMultitool
 {
     public abstract class BaseCreateMode : BaseNetworkMultitoolMode
     {
-        protected static Func<float> MaxLengthGetter { get; private set; }
         protected override bool IsReseted => !IsFirst;
         protected override bool CanSwitchUnderground => !IsBoth;
 
@@ -39,24 +38,6 @@ namespace NetworkMultitool
                 yield return DecreaseRadiusShortcut;
             }
         }
-        static BaseCreateMode()
-        {
-            if (Mod.IsNodeSpacer)
-            {
-                try
-                {
-                    var method = System.Type.GetType("NodeSpacer.NT_CreateNode").GetMethod("GetMaxLength");
-                    MaxLengthGetter = (Func<float>)Delegate.CreateDelegate(typeof(Func<float>), method);
-                    SingletonMod<Mod>.Logger.Debug("Segment length linked to Node Spacer");
-                    return;
-                }
-                catch (Exception error)
-                {
-                    SingletonMod<Mod>.Logger.Error("Cant access to Node Spacer", error);
-                }
-            }
-            MaxLengthGetter = () => Settings.SegmentLength;
-        }
 
         protected SegmentSelection First { get; set; }
         protected SegmentSelection Second { get; set; }
@@ -71,13 +52,62 @@ namespace NetworkMultitool
         protected StraightTrajectory FirstTrajectory { get; set; }
         protected StraightTrajectory SecondTrajectory { get; set; }
 
-        protected Result State { get; set; }
+        protected Result State { get; private set; }
 
         private List<Point> Points { get; set; } = new List<Point>();
         protected NetInfo Info => ToolsModifierControl.toolController.Tools.OfType<NetTool>().FirstOrDefault().Prefab?.m_netAI?.m_info ?? First.Id.GetSegment().Info;
         protected float MinPossibleRadius => Info != null ? Info.m_halfWidth * 2f : 16f;
+        protected float MaxPossibleRadius => 3000f;
+
         protected bool ForceUnderground => IsBoth && (First.Id.GetSegment().Nodes().Any(n => n.m_flags.IsSet(NetNode.Flags.Underground)) || Second.Id.GetSegment().Nodes().Any(n => n.m_flags.IsSet(NetNode.Flags.Underground)));
 
+        protected static Func<float> MaxLengthGetter { get; private set; }
+        private static Func<float> DefaultMaxLengthGetter { get; } = () => Settings.SegmentLength;
+
+        public BaseCreateMode()
+        {
+            if (Mod.NodeSpacerEnabled)
+            {
+                try
+                {
+                    var method = System.Type.GetType("NodeSpacer.NT_CreateNode").GetMethod("GetMaxLength");
+                    if (MaxLengthGetter?.Method != method)
+                    {
+                        MaxLengthGetter = (Func<float>)Delegate.CreateDelegate(typeof(Func<float>), method);
+                        SingletonMod<Mod>.Logger.Debug("Segment length linked to Node Spacer");
+                    }
+                    return;
+                }
+                catch (Exception error)
+                {
+                    SingletonMod<Mod>.Logger.Error("Cant access to Node Spacer", error);
+                }
+            }
+
+            MaxLengthGetter = DefaultMaxLengthGetter;
+        }
+
+        protected string GetBaseInfo()
+        {
+            if (!IsFirst)
+            {
+                if (!IsHoverSegment)
+                    return Localize.Mode_Info_SelectFirstSegment + UndergroundInfo;
+                else
+                    return Localize.Mode_Info_ClickFirstSegment + StepOverInfo;
+            }
+            else if (!IsSecond)
+            {
+                if (!IsHoverSegment)
+                    return Localize.Mode_Info_SelectSecondSegment + UndergroundInfo;
+                else
+                    return Localize.Mode_Info_ClickSecondSegment + StepOverInfo;
+            }
+            else if (IsHoverNode)
+                return Localize.Mode_Info_ClickToChangeCreateDir;
+            else
+                return null;
+        }
         protected override void Reset(IToolMode prevMode)
         {
             base.Reset(prevMode);
@@ -104,19 +134,36 @@ namespace NetworkMultitool
                 Points = new List<Point>();
 
                 Points.Add(new Point(FirstTrajectory.StartPosition, FirstTrajectory.Direction));
-                Points.AddRange(Calculate());
+                Points.AddRange(Calculate(out var result));
                 Points.Add(new Point(SecondTrajectory.StartPosition, -SecondTrajectory.Direction));
 
+                State = result;
                 if (State == Result.Calculated)
                 {
-                    FixEdgePoint(true, Points[0], Points[1]);
-                    FixEdgePoint(false, Points[Points.Count - 1], Points[Points.Count - 2]);
-                    SetSlope(Points);
+                    if (!CheckOutOfMap())
+                        State = Result.OutOfMap;
+                    else
+                    {
+                        FixEdgePoint(true, Points[0], Points[1]);
+                        FixEdgePoint(false, Points[Points.Count - 1], Points[Points.Count - 2]);
+                        SetSlope(Points);
+                    }
                 }
             }
         }
-        protected abstract IEnumerable<Point> Calculate();
-        protected void FixEdgePoint(bool isFirst, Point point, Point nextPoint)
+        protected abstract Point[] Calculate(out Result result);
+
+        private bool CheckOutOfMap()
+        {
+            var delta = Info.m_halfWidth;
+            foreach (var point in Points)
+            {
+                if (Math.Abs(point.Position.x) + delta > 8640f || Math.Abs(point.Position.z) + delta > 8640f)
+                    return false;
+            }
+            return true;
+        }
+        private void FixEdgePoint(bool isFirst, Point point, Point nextPoint)
         {
             ref var selectSegment = ref (isFirst ? First : Second).Id.GetSegment();
             var nodeId = (isFirst ? IsFirstStart : IsSecondStart) ? selectSegment.m_startNode : selectSegment.m_endNode;
@@ -153,7 +200,6 @@ namespace NetworkMultitool
                 }
             }
         }
-
         public override void OnPrimaryMouseClicked(Event e)
         {
             if (!IsFirst)
@@ -200,9 +246,9 @@ namespace NetworkMultitool
             FirstTrajectory = new StraightTrajectory(firstPos, firstPos + firstDir, false);
             SecondTrajectory = new StraightTrajectory(secondPos, secondPos + secondDir, false);
 
-            Init(FirstTrajectory, SecondTrajectory);
+            State = Init(FirstTrajectory, SecondTrajectory);
         }
-        protected abstract void Init(StraightTrajectory firstTrajectory, StraightTrajectory secondTrajectory);
+        protected abstract Result Init(StraightTrajectory firstTrajectory, StraightTrajectory secondTrajectory);
 
         protected virtual void SetFirstNode(ref NetSegment segment, ushort nodeId)
         {
@@ -313,11 +359,18 @@ namespace NetworkMultitool
         public enum Result
         {
             None,
+            Inited,
             NotIntersect,
             SmallRadius,
             BigRadius,
             WrongShape,
+            OutOfMap,
             Calculated,
+        }
+        public enum Direction
+        {
+            Right,
+            Left,
         }
         public class Circle
         {
@@ -442,13 +495,11 @@ namespace NetworkMultitool
                     }
                 }
             }
-            public virtual bool Calculate(float minRadius, float maxRadius, out Result result)
+            public virtual void Calculate(float minRadius, float maxRadius)
             {
                 MinRadius = minRadius;
                 MaxRadius = maxRadius;
                 Radius = Mathf.Clamp(Radius, MinRadius, MaxRadius);
-                result = Result.Calculated;
-                return true;
             }
 
             private static StraightTrajectory GetConnectCenter(Circle first, Circle second) => new StraightTrajectory(first.CenterPos.MakeFlat(), second.CenterPos.MakeFlat());
@@ -525,11 +576,6 @@ namespace NetworkMultitool
                 bezier.Render(new OverlayData(cameraInfo) { Color = color, RenderLimit = underground });
             }
             public void RenderCircle(RenderManager.CameraInfo cameraInfo, Color32 color, bool underground) => CenterPos.RenderCircle(new OverlayData(cameraInfo) { Width = Radius * 2f, Color = color, RenderLimit = underground });
-        }
-        public enum Direction
-        {
-            Right,
-            Left,
         }
         public class Straight : StraightTrajectory
         {

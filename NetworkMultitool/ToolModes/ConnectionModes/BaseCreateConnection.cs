@@ -113,7 +113,7 @@ namespace NetworkMultitool
             }
         }
 
-        protected override void Init(StraightTrajectory firstTrajectory, StraightTrajectory secondTrajectory)
+        protected override Result Init(StraightTrajectory firstTrajectory, StraightTrajectory secondTrajectory)
         {
             ResetData();
 
@@ -127,13 +127,13 @@ namespace NetworkMultitool
 
             EdgeCircle.GetSides(first, last);
             Circle.SetConnect(first, last);
+
+            return Result.None;
         }
-        protected override IEnumerable<Point> Calculate()
+        protected override Point[] Calculate(out Result result)
         {
-            var minRadius = MinPossibleRadius;
-            var maxRadius = 1000f;
             foreach (var circle in Circles)
-                circle.IsCorrect = circle.Calculate(minRadius, maxRadius, out var result);
+                circle.Calculate(MinPossibleRadius, MaxPossibleRadius);
 
             for (var i = 1; i < Circles.Count; i += 1)
             {
@@ -157,8 +157,8 @@ namespace NetworkMultitool
                 }
             }
 
-            State = Circles.All(c => c.IsCorrect) ? Result.Calculated : Result.WrongShape;
-            return GetParts();
+            result = Circles.All(c => c.IsCorrect) ? Result.Calculated : Result.WrongShape;
+            return GetParts().ToArray();
         }
         private IEnumerable<Point> GetParts()
         {
@@ -271,10 +271,9 @@ namespace NetworkMultitool
                 Guide = guide;
             }
 
-            public override bool Calculate(float minRadius, float maxRadius, out Result result)
+            public override void Calculate(float minRadius, float maxRadius)
             {
-                if (!base.Calculate(minRadius, maxRadius, out result))
-                    return false;
+                base.Calculate(minRadius, maxRadius);
 
                 var dir = Guide.Direction.Turn90(Direction == Direction.Right);
                 if (Type == CircleType.First)
@@ -283,9 +282,6 @@ namespace NetworkMultitool
                     base.EndRadiusDir = dir;
 
                 base.CenterPos = Guide.StartPosition + (Type == CircleType.First ? dir : -dir) * Radius + Guide.Direction * Offset;
-
-                result = Result.Calculated;
-                return true;
             }
             public Straight GetStraight(InfoLabel label) => Type switch
             {

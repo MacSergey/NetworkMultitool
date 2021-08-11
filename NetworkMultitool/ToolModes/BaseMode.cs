@@ -25,13 +25,13 @@ namespace NetworkMultitool
 
         public abstract ToolModeType Type { get; }
         public virtual bool CreateButton => true;
-        public string Title => SingletonMod<Mod>.Instance.GetLocalizeString(Type.GetAttr<DescriptionAttribute, ToolModeType>().Description);
+        public string Title => SingletonMod<Mod>.Instance.GetLocalizeString(Type.GetAttr<DescriptionAttribute, ToolModeType>()?.Description);
         protected abstract bool IsReseted { get; }
         protected virtual bool CanSwitchUnderground => true;
         private bool ForbiddenSwitchUnderground { get; set; }
         protected virtual bool AllowUntouch => false;
 
-        public NetworkMultitoolShortcut ActivationShortcut => NetworkMultitoolTool.ModeShortcuts[Type];
+        public NetworkMultitoolShortcut ActivationShortcut => NetworkMultitoolTool.ModeShortcuts.TryGetValue(Type, out var shortcut) ? shortcut : null;
         public virtual IEnumerable<NetworkMultitoolShortcut> Shortcuts
         {
             get
@@ -400,6 +400,9 @@ namespace NetworkMultitool
         [NotItem]
         [Description(nameof(Localize.Mode_CreateConnection))]
         CreateConnectionChangeRadius = CreateConnection + 2,
+
+        [Description(nameof(Localize.Mode_CreateBezier))]
+        CreateBezier = CreateConnection << 1,
 
 
         [NotItem]

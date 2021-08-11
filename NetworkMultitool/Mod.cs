@@ -44,7 +44,7 @@ namespace NetworkMultitool
 
         public static bool IsFRT => FRTSearcher.GetPlugin() != null;
         public static bool IsNodeSpacer => NodeSpacerSearcher.GetPlugin() != null;
-        public static bool NodeSpacerEnable => NodeSpacerSearcher.GetPlugin() is PluginInfo plugin && plugin.isEnabled;
+        public static bool NodeSpacerEnabled => NodeSpacerSearcher.GetPlugin() is PluginInfo plugin && plugin.isEnabled;
 
         #region BASIC
 
