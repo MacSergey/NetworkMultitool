@@ -57,22 +57,8 @@ namespace NetworkMultitool
 
         protected override string GetInfo()
         {
-            if (!IsFirst)
-            {
-                if (!IsHoverSegment)
-                    return Localize.Mode_Info_SelectFirstSegment + UndergroundInfo;
-                else
-                    return Localize.Mode_Info_ClickFirstSegment + StepOverInfo;
-            }
-            else if (!IsSecond)
-            {
-                if (!IsHoverSegment)
-                    return Localize.Mode_Info_SelectSecondSegment + UndergroundInfo;
-                else
-                    return Localize.Mode_Info_ClickSecondSegment + StepOverInfo;
-            }
-            else if (IsHoverNode)
-                return Localize.Mode_Info_ClickToChangeCreateDir;
+            if (GetBaseInfo() is string baseInfo)
+                return baseInfo;
             else if (IsHoverCenter)
             {
                 var result = Localize.Mode_Connection_Info_DragToMove;

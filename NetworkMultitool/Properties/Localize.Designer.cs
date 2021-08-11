@@ -222,6 +222,15 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Create bezier mode.
+        /// </summary>
+        internal static string Mode_CreateBezier {
+            get {
+                return ResourceManager.GetString("Mode_CreateBezier", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Create connection mode.
         /// </summary>
         internal static string Mode_CreateConnection {
@@ -371,6 +380,15 @@ namespace NetworkMultitool {
         internal static string Mode_Info_Create {
             get {
                 return ResourceManager.GetString("Mode_Info_Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Move bezier guides to change shape.
+        /// </summary>
+        internal static string Mode_Info_CreateBezier_MoveGiude {
+            get {
+                return ResourceManager.GetString("Mode_Info_CreateBezier_MoveGiude", resourceCulture);
             }
         }
         

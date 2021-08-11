@@ -87,6 +87,27 @@ namespace NetworkMultitool
             MaxLengthGetter = DefaultMaxLengthGetter;
         }
 
+        protected string GetBaseInfo()
+        {
+            if (!IsFirst)
+            {
+                if (!IsHoverSegment)
+                    return Localize.Mode_Info_SelectFirstSegment + UndergroundInfo;
+                else
+                    return Localize.Mode_Info_ClickFirstSegment + StepOverInfo;
+            }
+            else if (!IsSecond)
+            {
+                if (!IsHoverSegment)
+                    return Localize.Mode_Info_SelectSecondSegment + UndergroundInfo;
+                else
+                    return Localize.Mode_Info_ClickSecondSegment + StepOverInfo;
+            }
+            else if (IsHoverNode)
+                return Localize.Mode_Info_ClickToChangeCreateDir;
+            else
+                return null;
+        }
         protected override void Reset(IToolMode prevMode)
         {
             base.Reset(prevMode);
@@ -135,7 +156,7 @@ namespace NetworkMultitool
         private bool CheckOutOfMap()
         {
             var delta = Info.m_halfWidth;
-            foreach(var point in Points)
+            foreach (var point in Points)
             {
                 if (Math.Abs(point.Position.x) + delta > 8640f || Math.Abs(point.Position.z) + delta > 8640f)
                     return false;
