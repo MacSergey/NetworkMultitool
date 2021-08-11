@@ -276,7 +276,7 @@ namespace NetworkMultitool
     }
     public class CreateLoopMode : BaseCreateLoopMode
     {
-        public static NetworkMultitoolShortcut SwitchIsLoopShortcut = GetShortcut(KeyCode.Tab, nameof(SwitchIsLoopShortcut), nameof(Localize.Settings_Shortcut_SwitchIsLoop), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as CreateLoopMode)?.SwitchIsLoop());
+        public static NetworkMultitoolShortcut SwitchIsLoopShortcut { get; } = GetShortcut(KeyCode.Tab, nameof(SwitchIsLoopShortcut), nameof(Localize.Settings_Shortcut_SwitchIsLoop), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as CreateLoopMode)?.SwitchIsLoop());
 
         public override ToolModeType Type => ToolModeType.CreateLoop;
 

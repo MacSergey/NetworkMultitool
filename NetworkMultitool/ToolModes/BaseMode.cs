@@ -96,7 +96,7 @@ namespace NetworkMultitool
         }
         protected virtual string GetInfo() => string.Empty;
         protected string StepOverInfo => NetworkMultitoolTool.SelectionStepOverShortcut.NotSet ? string.Empty : "\n\n" + string.Format(CommonLocalize.Tool_InfoSelectionStepOver, NetworkMultitoolTool.SelectionStepOverShortcut.InputKey);
-        protected string UndergroundInfo => $"\n{Localize.Mode_Info_UndergroundMode}";
+        protected string UndergroundInfo => $"\n\n{Localize.Mode_Info_UndergroundMode}";
 
         protected override bool CheckSegment(ushort segmentId) => (AllowUntouch || segmentId.GetSegment().m_flags.CheckFlags(0, NetSegment.Flags.Untouchable)) && base.CheckSegment(segmentId);
 
@@ -344,6 +344,52 @@ namespace NetworkMultitool
 
             public static Point Empty => new Point(Vector3.zero, Vector3.zero);
         }
+
+        public class BaseStraight : StraightTrajectory
+        {
+            public Vector3 LabelDir { get; }
+            private InfoLabel _label;
+            public InfoLabel Label
+            {
+                get => _label;
+                set
+                {
+                    _label = value;
+                    if (_label != null)
+                    {
+                        _label.textScale = 1.5f;
+                        _label.opacity = 0.75f;
+                    }
+                }
+            }
+
+            public BaseStraight(Vector3 start, Vector3 end, Vector3 labelDir, InfoLabel label, float height) : base(SetHeight(start, height), SetHeight(end, height))
+            {
+                LabelDir = labelDir;
+                Label = label;
+            }
+            static Vector3 SetHeight(Vector3 vector, float height)
+            {
+                vector.y = height;
+                return vector;
+            }
+
+            public void Update(float shift, bool show)
+            {
+                if (Label is InfoLabel label)
+                {
+                    label.isVisible = show;
+                    if (show)
+                    {
+                        label.text = GetRadiusString(Length);
+                        label.Direction = LabelDir;
+                        label.WorldPosition = Position(0.5f) + label.Direction * shift;
+
+                        label.UpdateInfo();
+                    }
+                }
+            }
+        }
     }
     public enum ToolModeType
     {
@@ -404,12 +450,15 @@ namespace NetworkMultitool
         [Description(nameof(Localize.Mode_CreateBezier))]
         CreateBezier = CreateConnection << 1,
 
+        [Description(nameof(Localize.Mode_CreateParallerl))]
+        CreateParallel = CreateBezier << 1,
+
 
         [NotItem]
         Line = SlopeNode | ArrangeAtLine,
 
         [NotItem]
-        Create = CreateLoop | CreateConnection,
+        Create = CreateLoop | CreateConnection | CreateBezier | CreateParallel,
 
         [NotItem]
         Any = int.MaxValue,

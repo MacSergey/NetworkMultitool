@@ -222,7 +222,7 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Create bezier mode.
+        ///   Ищет локализованную строку, похожую на Create Bezier curve mode.
         /// </summary>
         internal static string Mode_CreateBezier {
             get {
@@ -254,6 +254,15 @@ namespace NetworkMultitool {
         internal static string Mode_CreateLoop_Info_Change {
             get {
                 return ResourceManager.GetString("Mode_CreateLoop_Info_Change", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Create parallel mode.
+        /// </summary>
+        internal static string Mode_CreateParallerl {
+            get {
+                return ResourceManager.GetString("Mode_CreateParallerl", resourceCulture);
             }
         }
         
@@ -321,6 +330,15 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Press {0} or {1} to change shift.
+        /// </summary>
+        internal static string Mode_Info_ChangeShift {
+            get {
+                return ResourceManager.GetString("Mode_Info_ChangeShift", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Click to select first segment.
         /// </summary>
         internal static string Mode_Info_ClickFirstSegment {
@@ -384,7 +402,7 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Move bezier guides to change shape.
+        ///   Ищет локализованную строку, похожую на Move Bezier curve guides to change shape.
         /// </summary>
         internal static string Mode_Info_CreateBezier_MoveGiude {
             get {
@@ -398,6 +416,15 @@ namespace NetworkMultitool {
         internal static string Mode_Info_OutOfMap {
             get {
                 return ResourceManager.GetString("Mode_Info_OutOfMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Press {0} to invert shift.
+        /// </summary>
+        internal static string Mode_Info_Parallel_ChangeShift {
+            get {
+                return ResourceManager.GetString("Mode_Info_Parallel_ChangeShift", resourceCulture);
             }
         }
         
@@ -837,6 +864,15 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Decrease shift.
+        /// </summary>
+        internal static string Settings_Shortcut_DecreaseShift {
+            get {
+                return ResourceManager.GetString("Settings_Shortcut_DecreaseShift", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Increase circle start offset.
         /// </summary>
         internal static string Settings_Shortcut_IncreaseOffset {
@@ -860,6 +896,24 @@ namespace NetworkMultitool {
         internal static string Settings_Shortcut_IncreaseRadius {
             get {
                 return ResourceManager.GetString("Settings_Shortcut_IncreaseRadius", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Increase shift.
+        /// </summary>
+        internal static string Settings_Shortcut_IncreaseShift {
+            get {
+                return ResourceManager.GetString("Settings_Shortcut_IncreaseShift", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Invert shift.
+        /// </summary>
+        internal static string Settings_Shortcut_InvertShift {
+            get {
+                return ResourceManager.GetString("Settings_Shortcut_InvertShift", resourceCulture);
             }
         }
         

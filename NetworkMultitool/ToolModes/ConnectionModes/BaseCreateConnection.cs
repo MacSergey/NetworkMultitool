@@ -133,7 +133,10 @@ namespace NetworkMultitool
         protected override Point[] Calculate(out Result result)
         {
             foreach (var circle in Circles)
+            {
                 circle.Calculate(MinPossibleRadius, MaxPossibleRadius);
+                circle.IsCorrect = true;
+            }
 
             for (var i = 1; i < Circles.Count; i += 1)
             {

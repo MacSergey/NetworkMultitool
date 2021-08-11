@@ -14,6 +14,16 @@ namespace NetworkMultitool
         public override ToolModeType Type => ToolModeType.SlopeNode;
         private List<InfoLabel> OrderLabels { get; } = new List<InfoLabel>();
 
+        protected override string GetInfo()
+        {
+            if (AddState == AddResult.None && Nodes.Count >= 3)
+                return
+                    Localize.Mode_NodeLine_Info_SelectNode + "\n" +
+                    string.Format(Localize.Mode_Info_Create, ApplyShortcut) +
+                    UndergroundInfo;
+            else
+                return base.GetInfo();
+        }
         protected override void Reset(IToolMode prevMode)
         {
             base.Reset(prevMode);

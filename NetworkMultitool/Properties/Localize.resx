@@ -179,6 +179,9 @@ Hold Alt to move X100 slower</value>
   <data name="Mode_CreateLoop_Info_Change" xml:space="preserve">
     <value>Press {0} to change loop</value>
   </data>
+  <data name="Mode_CreateParallerl" xml:space="preserve">
+    <value>Create parallel mode</value>
+  </data>
   <data name="Mode_Info_Apply" xml:space="preserve">
     <value>Press {0} to apply</value>
   </data>
@@ -199,6 +202,9 @@ Hold Alt to move X100 slower</value>
   </data>
   <data name="Mode_Info_ChangeRadius" xml:space="preserve">
     <value>Press {0} or {1} to change radius</value>
+  </data>
+  <data name="Mode_Info_ChangeShift" xml:space="preserve">
+    <value>Press {0} or {1} to change shift</value>
   </data>
   <data name="Mode_Info_ClickFirstSegment" xml:space="preserve">
     <value>Click to select first segment</value>
@@ -226,6 +232,9 @@ Hold Alt to move X100 slower</value>
   </data>
   <data name="Mode_Info_OutOfMap" xml:space="preserve">
     <value>Out of map</value>
+  </data>
+  <data name="Mode_Info_Parallel_ChangeShift" xml:space="preserve">
+    <value>Press {0} to invert shift</value>
   </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
     <value>Radius too big</value>
@@ -397,6 +406,9 @@ lock or unlock it</value>
   <data name="Settings_Shortcut_DecreaseRadius" xml:space="preserve">
     <value>Decrease radii</value>
   </data>
+  <data name="Settings_Shortcut_DecreaseShift" xml:space="preserve">
+    <value>Decrease shift</value>
+  </data>
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
     <value>Increase circle start offset</value>
   </data>
@@ -405,6 +417,12 @@ lock or unlock it</value>
   </data>
   <data name="Settings_Shortcut_IncreaseRadius" xml:space="preserve">
     <value>Increase radii</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseShift" xml:space="preserve">
+    <value>Increase shift</value>
+  </data>
+  <data name="Settings_Shortcut_InvertShift" xml:space="preserve">
+    <value>Invert shift</value>
   </data>
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
     <value>Switch loop direction</value>

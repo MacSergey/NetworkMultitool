@@ -14,11 +14,11 @@ namespace NetworkMultitool
 {
     public class CreateConnectionMode : BaseCreateConnectionMode
     {
-        public static NetworkMultitoolShortcut SwitchSelectShortcut = GetShortcut(KeyCode.Tab, nameof(SwitchSelectShortcut), nameof(Localize.Settings_Shortcut_SwitchSelect), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as CreateConnectionMode)?.SwitchSelectRadius());
+        public static NetworkMultitoolShortcut SwitchSelectShortcut { get; } = GetShortcut(KeyCode.Tab, nameof(SwitchSelectShortcut), nameof(Localize.Settings_Shortcut_SwitchSelect), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as CreateConnectionMode)?.SwitchSelectRadius());
         public static NetworkMultitoolShortcut IncreaseOneRadiusShortcut { get; } = GetShortcut(KeyCode.RightBracket, nameof(IncreaseOneRadiusShortcut), nameof(Localize.Settings_Shortcut_IncreaseOneRadius), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as CreateConnectionMode)?.IncreaseOneRadius(), ToolModeType.CreateConnection, repeat: true, ignoreModifiers: true);
         public static NetworkMultitoolShortcut DecreaseOneRadiusShortcut { get; } = GetShortcut(KeyCode.LeftBracket, nameof(DecreaseOneRadiusShortcut), nameof(Localize.Settings_Shortcut_DecreaseOneRadius), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as CreateConnectionMode)?.DecreaseOneRadius(), ToolModeType.CreateConnection, repeat: true, ignoreModifiers: true);
 
-        public static NetworkMultitoolShortcut SwitchOffsetShortcut = GetShortcut(KeyCode.Tab, nameof(SwitchOffsetShortcut), nameof(Localize.Settings_Shortcut_SwitchOffset), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as CreateConnectionMode)?.SwitchSelectOffset(), ctrl: true);
+        public static NetworkMultitoolShortcut SwitchOffsetShortcut { get; } = GetShortcut(KeyCode.Tab, nameof(SwitchOffsetShortcut), nameof(Localize.Settings_Shortcut_SwitchOffset), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as CreateConnectionMode)?.SwitchSelectOffset(), ctrl: true);
         public static NetworkMultitoolShortcut IncreaseOffsetShortcut { get; } = GetShortcut(KeyCode.Backslash, nameof(IncreaseOffsetShortcut), nameof(Localize.Settings_Shortcut_IncreaseOffset), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as CreateConnectionMode)?.IncreaseOffset(), ToolModeType.CreateConnection, repeat: true, ignoreModifiers: true);
         public static NetworkMultitoolShortcut DecreaseOffsetShortcut { get; } = GetShortcut(KeyCode.Quote, nameof(DecreaseOffsetShortcut), nameof(Localize.Settings_Shortcut_DecreaseOffset), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as CreateConnectionMode)?.DecreaseOffset(), ToolModeType.CreateConnection, repeat: true, ignoreModifiers: true);
 

@@ -36,7 +36,8 @@ namespace NetworkMultitool
             else if (AddState == AddResult.None && Nodes.Count >= 3)
                 return
                     Localize.Mode_NodeLine_Info_SelectNode + "\n" +
-                    Localize.Mode_ArrangeLine_Info_SelectDirection +
+                    Localize.Mode_ArrangeLine_Info_SelectDirection + "\n" +
+                    string.Format(Localize.Mode_Info_Create, ApplyShortcut) +
                     UndergroundInfo;
             else
                 return base.GetInfo();
@@ -181,7 +182,7 @@ namespace NetworkMultitool
             var oldPos = node.m_position;
             NetManager.instance.MoveNode(nodeId, newPos);
 
-            if(node.m_building != 0)
+            if (node.m_building != 0)
             {
                 BuildingManager.instance.m_buildings.m_buffer[node.m_building].m_position += (newPos - oldPos);
                 BuildingManager.instance.UpdateBuilding(node.m_building);
