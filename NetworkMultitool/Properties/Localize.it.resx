@@ -133,9 +133,11 @@ Troppo vicino ad un altro nodo</value>
   <data name="Mode_AngleFormat" xml:space="preserve">
     <value>{0}°</value>
   </data>
+  
   <data name="Mode_ArrangeAtLine" xml:space="preserve">
     <value>Organizza in modalità linea</value>
   </data>
+  
   <data name="Mode_ArrangeLine_Info_ClickToSelectDirection" xml:space="preserve">
     <value>Fare clic per selezionare l'impostazione della direzione</value>
   </data>
@@ -167,7 +169,9 @@ Tieni premuto il tasto Alt per passo 0.1m</value>
     <value>Tieni premuto Ctrl per spostare X10 più lento
 Tieni premuto Alt per spostare X100 più lento</value>
   </data>
-  
+  <data name="Mode_CreateBezier" xml:space="preserve">
+    <value>Modalità Crea curva di Bezier</value>
+  </data>
   <data name="Mode_CreateConnection" xml:space="preserve">
     <value>Crea modalità connessione</value>
   </data>
@@ -177,6 +181,7 @@ Tieni premuto Alt per spostare X100 più lento</value>
   <data name="Mode_CreateLoop_Info_Change" xml:space="preserve">
     <value>Premi {0} per cambiare ciclo</value>
   </data>
+  
   <data name="Mode_Info_Apply" xml:space="preserve">
     <value>Premi {0} per applicare</value>
   </data>
@@ -198,6 +203,7 @@ Tieni premuto Alt per spostare X100 più lento</value>
   <data name="Mode_Info_ChangeRadius" xml:space="preserve">
     <value>Premi {0} o {1} per modificare il raggio</value>
   </data>
+  
   <data name="Mode_Info_ClickFirstSegment" xml:space="preserve">
     <value>Fare clic per selezionare il primo segmento</value>
   </data>
@@ -219,10 +225,13 @@ Tieni premuto Alt per spostare X100 più lento</value>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Premi {0} per creare</value>
   </data>
-  
+  <data name="Mode_Info_CreateBezier_MoveGiude" xml:space="preserve">
+    <value>Sposta le guide della curva di Bezier per cambiare forma</value>
+  </data>
   <data name="Mode_Info_OutOfMap" xml:space="preserve">
     <value>Fuori dalla mappa</value>
   </data>
+  
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
     <value>Raggio troppo grande</value>
   </data>
@@ -360,6 +369,7 @@ bloccarlo o sbloccarlo</value>
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>Nascondi automaticamente il pannello modalità</value>
   </data>
+  
   <data name="Settings_SegmentLength" xml:space="preserve">
     <value>Lunghezza Massima Del Segmento</value>
   </data>
@@ -375,6 +385,7 @@ bloccarlo o sbloccarlo</value>
   <data name="Settings_Shortcut_DecreaseRadius" xml:space="preserve">
     <value>Diminuisci raggi</value>
   </data>
+  
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
     <value>Aumenta spostamento inizio cerchio</value>
   </data>
@@ -384,6 +395,8 @@ bloccarlo o sbloccarlo</value>
   <data name="Settings_Shortcut_IncreaseRadius" xml:space="preserve">
     <value>Aumenta i raggi</value>
   </data>
+  
+  
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
     <value>Cambia direzione ciclo</value>
   </data>

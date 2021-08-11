@@ -133,9 +133,11 @@ Se on liian lähellä toista risteystä</value>
   <data name="Mode_AngleFormat" xml:space="preserve">
     <value>{0}°</value>
   </data>
+  
   <data name="Mode_ArrangeAtLine" xml:space="preserve">
     <value>Tien suoristus</value>
   </data>
+  
   <data name="Mode_ArrangeLine_Info_ClickToSelectDirection" xml:space="preserve">
     <value>Napauta valitaksesi suunta</value>
   </data>
@@ -177,6 +179,7 @@ Pidä Alt pohjassa siirtääksesi X100 hitaammin</value>
   <data name="Mode_CreateLoop_Info_Change" xml:space="preserve">
     <value>Napauta {0} vaihtaaksesi kaarteen suunta</value>
   </data>
+  
   <data name="Mode_Info_Apply" xml:space="preserve">
     <value>Aseta painamalla {0}</value>
   </data>
@@ -198,6 +201,7 @@ Pidä Alt pohjassa siirtääksesi X100 hitaammin</value>
   <data name="Mode_Info_ChangeRadius" xml:space="preserve">
     <value>Muuta sädettä painamalla {0} tai {1}</value>
   </data>
+  
   <data name="Mode_Info_ClickFirstSegment" xml:space="preserve">
     <value>Napsauta valitaksesi ensimmäinen tie</value>
   </data>
@@ -219,6 +223,7 @@ Pidä Alt pohjassa siirtääksesi X100 hitaammin</value>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Luo painamalla {0}</value>
   </data>
+  
   
   
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
@@ -356,6 +361,7 @@ tai avataksesi se</value>
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>Piilota valikko automaattisesti</value>
   </data>
+  
   <data name="Settings_SegmentLength" xml:space="preserve">
     <value>Pisin tien pituus</value>
   </data>
@@ -371,6 +377,7 @@ tai avataksesi se</value>
   <data name="Settings_Shortcut_DecreaseRadius" xml:space="preserve">
     <value>Pienennä säteitä</value>
   </data>
+  
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
     <value>Kasvata kaarteen siirtymää</value>
   </data>
@@ -380,6 +387,8 @@ tai avataksesi se</value>
   <data name="Settings_Shortcut_IncreaseRadius" xml:space="preserve">
     <value>Suurenna säteitä</value>
   </data>
+  
+  
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
     <value>Vaihda silmukan suunta</value>
   </data>

@@ -133,9 +133,11 @@ Túl közel egy másik csomóponthoz</value>
   <data name="Mode_AngleFormat" xml:space="preserve">
     <value>{0}°</value>
   </data>
+  
   <data name="Mode_ArrangeAtLine" xml:space="preserve">
     <value>Vonalhoz rendezés mód</value>
   </data>
+  
   <data name="Mode_ArrangeLine_Info_ClickToSelectDirection" xml:space="preserve">
     <value>Kattints a rendezés irányának kiválasztásához</value>
   </data>
@@ -177,6 +179,7 @@ Alt-ot nyomva tartva 100x lassabb a mozgatás</value>
   <data name="Mode_CreateLoop_Info_Change" xml:space="preserve">
     <value>Nyomd meg {0}-t a hurok megváltoztatásához</value>
   </data>
+  
   <data name="Mode_Info_Apply" xml:space="preserve">
     <value>Nyomj {0}-t a végrehajtáshoz</value>
   </data>
@@ -198,6 +201,7 @@ Alt-ot nyomva tartva 100x lassabb a mozgatás</value>
   <data name="Mode_Info_ChangeRadius" xml:space="preserve">
     <value>Nyomj {0}-t vagy {1}-t a sugár változtatásához</value>
   </data>
+  
   <data name="Mode_Info_ClickFirstSegment" xml:space="preserve">
     <value>Kattints az első szegmens kiválasztásához</value>
   </data>
@@ -219,6 +223,7 @@ Alt-ot nyomva tartva 100x lassabb a mozgatás</value>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Nyomj {0}-t a létrehozáshoz</value>
   </data>
+  
   
   
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
@@ -357,6 +362,7 @@ zároláshoz vagy feloldáshoz</value>
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>Mód panel automatikus elrejtése</value>
   </data>
+  
   <data name="Settings_SegmentLength" xml:space="preserve">
     <value>Maximális szegmens hossz</value>
   </data>
@@ -372,6 +378,7 @@ zároláshoz vagy feloldáshoz</value>
   <data name="Settings_Shortcut_DecreaseRadius" xml:space="preserve">
     <value>Sugár csökkentése</value>
   </data>
+  
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
     <value>A görbe kezdési eltolásának növelése</value>
   </data>
@@ -381,6 +388,8 @@ zároláshoz vagy feloldáshoz</value>
   <data name="Settings_Shortcut_IncreaseRadius" xml:space="preserve">
     <value>Sugár növelése</value>
   </data>
+  
+  
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
     <value>Hurok irányának váltása</value>
   </data>

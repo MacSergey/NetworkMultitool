@@ -136,6 +136,8 @@ Te dicht bij een nabijgelegen knooppunt</value>
   
   
   
+  
+  
   <data name="Mode_Connection_Info_DoubleClickOnCenterToChangeDir" xml:space="preserve">
     <value>Dubbelklik op het midden van de cirkel
 om de richting van de curve te veranderen</value>
@@ -167,6 +169,7 @@ Houd Alt om met X100 langzamer te bewegen</value>
   <data name="Mode_CreateLoop_Info_Change" xml:space="preserve">
     <value>Druk {0} om de lus te wijzigen</value>
   </data>
+  
   <data name="Mode_Info_Apply" xml:space="preserve">
     <value>Druk {0} om toe te passen</value>
   </data>
@@ -179,6 +182,7 @@ Houd Alt om met X100 langzamer te bewegen</value>
   <data name="Mode_Info_ChangeCircle" xml:space="preserve">
     <value>Druk {0} om de geselecteerde cirkel om te keren</value>
   </data>
+  
   
   
   
@@ -199,6 +203,7 @@ Houd Alt om met X100 langzamer te bewegen</value>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Druk {0} om te creëren</value>
   </data>
+  
   
   
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
@@ -294,6 +299,7 @@ Houd Alt om met X100 langzamer te bewegen</value>
   
   
   
+  
   <data name="Settings_SegmentLength" xml:space="preserve">
     <value>Maximale Segmentlengte</value>
   </data>
@@ -306,12 +312,15 @@ Houd Alt om met X100 langzamer te bewegen</value>
     <value>Verlaag de stralen</value>
   </data>
   
+  
   <data name="Settings_Shortcut_IncreaseOneRadius" xml:space="preserve">
     <value>Verhoog één straal</value>
   </data>
   <data name="Settings_Shortcut_IncreaseRadius" xml:space="preserve">
     <value>Verhoog de stralen</value>
   </data>
+  
+  
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
     <value>Verander lusrichting om</value>
   </data>

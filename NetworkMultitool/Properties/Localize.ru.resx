@@ -133,8 +133,14 @@
   <data name="Mode_AngleFormat" xml:space="preserve">
     <value>{0}°</value>
   </data>
+  <data name="Mode_ArrangeAtCircle" xml:space="preserve">
+    <value>Режим выравнивания в круг</value>
+  </data>
   <data name="Mode_ArrangeAtLine" xml:space="preserve">
     <value>Режим выравнивания в линию</value>
+  </data>
+  <data name="Mode_ArrangeCircle_Info_ClickToComplite" xml:space="preserve">
+    <value>Нажмите чтобы завершить выделение круга</value>
   </data>
   <data name="Mode_ArrangeLine_Info_ClickToSelectDirection" xml:space="preserve">
     <value>Нажмите для выбора направления выравнивания</value>
@@ -180,6 +186,9 @@ Alt для перемещения в 100 раз медленнее</value>
   <data name="Mode_CreateLoop_Info_Change" xml:space="preserve">
     <value>Нажмите {0} для изменения петли</value>
   </data>
+  <data name="Mode_CreateParallerl" xml:space="preserve">
+    <value>Режим создания параллельных</value>
+  </data>
   <data name="Mode_Info_Apply" xml:space="preserve">
     <value>Нажмите {0} чтобы выполнить действие</value>
   </data>
@@ -200,6 +209,9 @@ Alt для перемещения в 100 раз медленнее</value>
   </data>
   <data name="Mode_Info_ChangeRadius" xml:space="preserve">
     <value>Нажмите {0} или {1} для изменения радиуса</value>
+  </data>
+  <data name="Mode_Info_ChangeShift" xml:space="preserve">
+    <value>Нажмите {0} или {1} для изменения отступа</value>
   </data>
   <data name="Mode_Info_ClickFirstSegment" xml:space="preserve">
     <value>Нажмите для выбора первого сегмента</value>
@@ -228,6 +240,9 @@ Alt для перемещения в 100 раз медленнее</value>
   </data>
   <data name="Mode_Info_OutOfMap" xml:space="preserve">
     <value>За пределами карты</value>
+  </data>
+  <data name="Mode_Info_Parallel_ChangeShift" xml:space="preserve">
+    <value>Нажмите {0} чтобы изменить сторону</value>
   </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
     <value>Радиус слишком большой</value>
@@ -385,6 +400,9 @@ Alt для перемещения в 100 раз медленнее</value>
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>Автоматически скрывать панель выбора режимов</value>
   </data>
+  <data name="Settings_PanelColumns" xml:space="preserve">
+    <value>Количество колонок на панели</value>
+  </data>
   <data name="Settings_SegmentLength" xml:space="preserve">
     <value>Максимальная длина сегмента</value>
   </data>
@@ -400,6 +418,9 @@ Alt для перемещения в 100 раз медленнее</value>
   <data name="Settings_Shortcut_DecreaseRadius" xml:space="preserve">
     <value>Уменьшить радиусы</value>
   </data>
+  <data name="Settings_Shortcut_DecreaseShift" xml:space="preserve">
+    <value>Уменьшить отступ</value>
+  </data>
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
     <value>Увеличить отступ начала кривой</value>
   </data>
@@ -408,6 +429,12 @@ Alt для перемещения в 100 раз медленнее</value>
   </data>
   <data name="Settings_Shortcut_IncreaseRadius" xml:space="preserve">
     <value>Увеличить радиусы</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseShift" xml:space="preserve">
+    <value>Увеличить отступ</value>
+  </data>
+  <data name="Settings_Shortcut_InvertShift" xml:space="preserve">
+    <value>Изменить сторону создания</value>
   </data>
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
     <value>Сменить направление петли</value>

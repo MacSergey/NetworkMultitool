@@ -133,9 +133,11 @@ Está demasiado perto de outro nó</value>
   <data name="Mode_AngleFormat" xml:space="preserve">
     <value>{0}°</value>
   </data>
+  
   <data name="Mode_ArrangeAtLine" xml:space="preserve">
     <value>Ajustar em modo de linha</value>
   </data>
+  
   
   
   <data name="Mode_Connection_Info_DoubleClickOnCenterToChangeDir" xml:space="preserve">
@@ -166,6 +168,7 @@ para mudar a direção da curva</value>
   <data name="Mode_CreateLoop_Info_Change" xml:space="preserve">
     <value>Pressione {0} para alterar o loop</value>
   </data>
+  
   <data name="Mode_Info_Apply" xml:space="preserve">
     <value>Pressione {0} para aplicar</value>
   </data>
@@ -187,6 +190,7 @@ para mudar a direção da curva</value>
   <data name="Mode_Info_ChangeRadius" xml:space="preserve">
     <value>Pressione {0} ou {1} para alterar o raio</value>
   </data>
+  
   <data name="Mode_Info_ClickFirstSegment" xml:space="preserve">
     <value>Clique para selecionar o primeiro segmento</value>
   </data>
@@ -204,6 +208,7 @@ para mudar a direção da curva</value>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Pressione {0} para criar</value>
   </data>
+  
   
   
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
@@ -318,9 +323,13 @@ porque não está ligado a outros</value>
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>Ocultar automaticamente o painel de modos</value>
   </data>
+  
   <data name="Settings_SegmentLength" xml:space="preserve">
     <value>Comprimento máximo do segmento</value>
   </data>
+  
+  
+  
   
   
   

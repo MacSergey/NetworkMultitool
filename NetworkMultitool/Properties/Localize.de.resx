@@ -133,9 +133,11 @@ Zu nah an einem anderen Netzwerk-Knoten</value>
   <data name="Mode_AngleFormat" xml:space="preserve">
     <value>{0}°</value>
   </data>
+  
   <data name="Mode_ArrangeAtLine" xml:space="preserve">
     <value>In Reihe anordnen</value>
   </data>
+  
   <data name="Mode_ArrangeLine_Info_ClickToSelectDirection" xml:space="preserve">
     <value>Klicken, um die Ausrichtung auszuwählen</value>
   </data>
@@ -167,7 +169,9 @@ Alt halten für 0.1m Schritte</value>
     <value>Strg halten, um 10x langsamer zu bewegen
 Alt halten, um 100x langsamer zu bewegen</value>
   </data>
-  
+  <data name="Mode_CreateBezier" xml:space="preserve">
+    <value>Bézierkurve erstellen</value>
+  </data>
   <data name="Mode_CreateConnection" xml:space="preserve">
     <value>Verbindung erstellen</value>
   </data>
@@ -177,6 +181,7 @@ Alt halten, um 100x langsamer zu bewegen</value>
   <data name="Mode_CreateLoop_Info_Change" xml:space="preserve">
     <value>Drücke {0}, um die Schleife zu ändern</value>
   </data>
+  
   <data name="Mode_Info_Apply" xml:space="preserve">
     <value>Drücke {0} zum Anwenden</value>
   </data>
@@ -198,6 +203,7 @@ Alt halten, um 100x langsamer zu bewegen</value>
   <data name="Mode_Info_ChangeRadius" xml:space="preserve">
     <value>Drücke {0} oder {1}, um den Radius zu ändern</value>
   </data>
+  
   <data name="Mode_Info_ClickFirstSegment" xml:space="preserve">
     <value>Klicken, um das erste Segment auszuwählen</value>
   </data>
@@ -219,10 +225,13 @@ Alt halten, um 100x langsamer zu bewegen</value>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Drücke {0} zum Erstellen</value>
   </data>
-  
+  <data name="Mode_Info_CreateBezier_MoveGiude" xml:space="preserve">
+    <value>Bézierkurven-Hilfslinien verschieben, um die Form zu ändern</value>
+  </data>
   <data name="Mode_Info_OutOfMap" xml:space="preserve">
     <value>Außerhalb der Karte</value>
   </data>
+  
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
     <value>Radius zu groß</value>
   </data>
@@ -359,6 +368,7 @@ oder Entsperren auswählen</value>
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>Panel automatisch ausblenden</value>
   </data>
+  
   <data name="Settings_SegmentLength" xml:space="preserve">
     <value>Maximale Segmentlänge</value>
   </data>
@@ -374,6 +384,7 @@ oder Entsperren auswählen</value>
   <data name="Settings_Shortcut_DecreaseRadius" xml:space="preserve">
     <value>Radien verkleinern</value>
   </data>
+  
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
     <value>Abstand des Start-Kreises vergrößern</value>
   </data>
@@ -383,6 +394,8 @@ oder Entsperren auswählen</value>
   <data name="Settings_Shortcut_IncreaseRadius" xml:space="preserve">
     <value>Radien vergrößern</value>
   </data>
+  
+  
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
     <value>Schleifenrichtung ändern</value>
   </data>
