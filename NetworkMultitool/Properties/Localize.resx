@@ -391,6 +391,9 @@ lock or unlock it</value>
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>Auto hide modes panel</value>
   </data>
+  <data name="Settings_PanelColumns" xml:space="preserve">
+    <value>Panel columns count</value>
+  </data>
   <data name="Settings_SegmentLength" xml:space="preserve">
     <value>Max Segment Length</value>
   </data>

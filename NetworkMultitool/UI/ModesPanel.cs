@@ -15,6 +15,7 @@ namespace NetworkMultitool.UI
     {
         public static float ModeButtonSize => 29f;
         public static float Padding => 2f;
+        public static int InRow => Settings.PanelColumns;
         private IEnumerable<ModeButton> Buttons => components.OfType<ModeButton>();
         private string AnimationId => $"{nameof(ModesPanel)}{GetHashCode()}";
         public Vector2 DefaultSize
@@ -22,7 +23,7 @@ namespace NetworkMultitool.UI
             get
             {
                 var count = Buttons.Count();
-                return new Vector2(2 * Padding + Mathf.Min(count, 2) * ModeButtonSize, 2 * Padding + (count / 2 + count % 2) * ModeButtonSize);
+                return new Vector2(2 * Padding + Mathf.Min(count, InRow) * ModeButtonSize, 2 * Padding + (count / InRow + Math.Min(count % InRow, 1)) * ModeButtonSize);
             }
         }
         public bool IsHover
@@ -35,19 +36,7 @@ namespace NetworkMultitool.UI
             }
         }
         private OpenState State { get; set; } = OpenState.Close;
-        private OpenSide _openSide = OpenSide.Down;
-        private OpenSide OpenSide
-        {
-            get => _openSide;
-            set
-            {
-                if (value != _openSide)
-                {
-                    _openSide = value;
-                    SetPosition();
-                }
-            }
-        }
+        private OpenSide OpenSide { get; set; } = OpenSide.Down;
         public ModesPanel()
         {
             size = new Vector2(ModeButtonSize, 0f);
@@ -108,21 +97,32 @@ namespace NetworkMultitool.UI
             base.OnComponentRemoved(child);
             FitChildren();
         }
-        private void ParentPositionChanged(UIComponent parent, Vector2 value) => SetOpenSide();
-        private new void FitChildren()
+        private void ParentPositionChanged(UIComponent parent, Vector2 value) => SetOpenSide(true);
+        public new void FitChildren()
         {
             size = DefaultSize;
             SetOpenSide();
             SetPosition();
             SetButtonsPosition();
         }
-        private void SetOpenSide()
+        private void SetOpenSide(bool forceSetPosition = false)
         {
             UIView uiView = parent.GetUIView();
             var screen = uiView.GetScreenResolution();
+            var oldSide = OpenSide;
             OpenSide = parent.absolutePosition.y + parent.height + DefaultSize.y <= screen.y ? OpenSide.Down : OpenSide.Up;
+            if (oldSide != OpenSide || forceSetPosition)
+                SetPosition();
         }
-        private void SetPosition() => relativePosition = new Vector2((parent.width - width) / 2f, OpenSide == OpenSide.Down ? parent.height : -height);
+        private void SetPosition()
+        {
+            UIView uiView = parent.GetUIView();
+            var screen = uiView.GetScreenResolution();
+            var parentPos = parent.absolutePosition;
+            var x = Mathf.Max(Mathf.Min(parentPos.x + (parent.width - width) / 2f, screen.x - width), 0f);
+            var y = parentPos.y + (OpenSide == OpenSide.Down ? parent.height : -height);
+            absolutePosition = new Vector2(x, y);
+        }
 
         public void SetState(bool show, bool auto = false)
         {
@@ -177,8 +177,8 @@ namespace NetworkMultitool.UI
 
             for (var i = 0; i < buttons.Length; i += 1)
             {
-                var x = Padding + (i % 2) * ModeButtonSize;
-                var y = Padding + (i / 2) * ModeButtonSize + (OpenSide == OpenSide.Down ? delta : 0f);
+                var x = Padding + (i % InRow) * ModeButtonSize;
+                var y = Padding + (i / InRow) * ModeButtonSize + (OpenSide == OpenSide.Down ? delta : 0f);
                 buttons[i].relativePosition = new Vector2(x, y);
             }
         }

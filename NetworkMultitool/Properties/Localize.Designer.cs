@@ -819,6 +819,15 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Panel columns count.
+        /// </summary>
+        internal static string Settings_PanelColumns {
+            get {
+                return ResourceManager.GetString("Settings_PanelColumns", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Max Segment Length.
         /// </summary>
         internal static string Settings_SegmentLength {
