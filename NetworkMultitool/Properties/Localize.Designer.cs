@@ -128,11 +128,29 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Arrange at circle mode.
+        /// </summary>
+        internal static string Mode_ArrangeAtCircle {
+            get {
+                return ResourceManager.GetString("Mode_ArrangeAtCircle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Arrange at line mode.
         /// </summary>
         internal static string Mode_ArrangeAtLine {
             get {
                 return ResourceManager.GetString("Mode_ArrangeAtLine", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Click to complite circle selection.
+        /// </summary>
+        internal static string Mode_ArrangeCircle_Info_ClickToComplite {
+            get {
+                return ResourceManager.GetString("Mode_ArrangeCircle_Info_ClickToComplite", resourceCulture);
             }
         }
         

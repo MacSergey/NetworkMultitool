@@ -74,6 +74,10 @@ namespace NetworkMultitool
             else if (Underground && !Utility.OnlyShiftIsPressed)
                 Underground = false;
         }
+        protected void BaseToolUpdate()
+        {
+
+        }
         protected virtual void Apply() { }
         public override bool OnEscape()
         {
@@ -145,7 +149,7 @@ namespace NetworkMultitool
             if (startNode.m_flags.IsSet(NetNode.Flags.Underground) || !endNode.m_flags.IsSet(NetNode.Flags.Underground))
                 return CreateSegment(out newSegmentId, info, startId, endId, startDir, endDir, false);
             else
-                return CreateSegment(out newSegmentId, info, endId, startId, endDir, startDir,  true);
+                return CreateSegment(out newSegmentId, info, endId, startId, endDir, startDir, true);
         }
         protected bool CreateSegment(out ushort newSegmentId, NetInfo info, ushort startId, ushort endId, Vector3 startDir, Vector3 endDir, bool invert = false) => Singleton<NetManager>.instance.CreateSegment(out newSegmentId, ref Singleton<SimulationManager>.instance.m_randomizer, info, startId, endId, startDir, endDir, Singleton<SimulationManager>.instance.m_currentBuildIndex, Singleton<SimulationManager>.instance.m_currentBuildIndex, invert);
 
@@ -174,6 +178,61 @@ namespace NetworkMultitool
             RemoveSegment(segmentId);
             CreateSegment(out var newSegmentId, info, otherNodeId, targetNodeId, otherDir, sourceDir, invert);
             CalculateSegmentDirections(newSegmentId);
+        }
+        protected void MoveNode(ushort nodeId, Vector3 newPos)
+        {
+            ref var node = ref nodeId.GetNode();
+            var segmentIds = node.SegmentIds().ToArray();
+
+            var startDirections = new Dictionary<ushort, Vector3>();
+            foreach (var segmentId in segmentIds)
+            {
+                ref var otherNode = ref segmentId.GetSegment().GetOtherNode(nodeId).GetNode();
+                var dir = (node.m_position - otherNode.m_position).MakeFlat();
+                startDirections[segmentId] = dir;
+            }
+
+            newPos.y = node.m_position.y;
+            var oldPos = node.m_position;
+            NetManager.instance.MoveNode(nodeId, newPos);
+
+            if (node.m_building != 0)
+            {
+                BuildingManager.instance.m_buildings.m_buffer[node.m_building].m_position += (newPos - oldPos);
+                BuildingManager.instance.UpdateBuilding(node.m_building);
+            }
+
+            foreach (var segmentId in segmentIds)
+            {
+                ref var otherNode = ref segmentId.GetSegment().GetOtherNode(nodeId).GetNode();
+                var newDir = (node.m_position - otherNode.m_position).MakeFlat();
+                var oldDir = startDirections[segmentId];
+
+                var delta = MathExtention.GetAngle(oldDir, newDir);
+                ref var segment = ref segmentId.GetSegment();
+                if (segment.IsStartNode(nodeId))
+                    segment.m_startDirection = segment.m_startDirection.TurnRad(delta, false);
+                else
+                    segment.m_endDirection = segment.m_endDirection.TurnRad(delta, false);
+
+                NetManager.instance.UpdateSegmentRenderer(segmentId, true);
+            }
+        }
+        protected void SetSegmentDirection(ushort nodeId, ushort anotherNodeId, Vector3 direction)
+        {
+            if (NetExtension.GetCommon(nodeId, anotherNodeId, out var commonId))
+                SetSegmentDirection(commonId, commonId.GetSegment().IsStartNode(nodeId), direction);
+        }
+        protected void SetSegmentDirection(ushort segmentId, bool start, Vector3 direction)
+        {
+            ref var segment = ref segmentId.GetSegment();
+            if (start)
+                segment.m_startDirection = direction;
+            else
+                segment.m_endDirection = direction;
+
+            CalculateSegmentDirections(segmentId);
+            NetManager.instance.UpdateSegmentRenderer(segmentId, true);
         }
         protected void CalculateSegmentDirections(ushort segmentId)
         {
@@ -428,9 +487,12 @@ namespace NetworkMultitool
         [Description(nameof(Localize.Mode_ArrangeAtLine))]
         ArrangeAtLine = SlopeNode << 1,
 
+        [Description(nameof(Localize.Mode_ArrangeAtCircle))]
+        ArrangeAtCircle = ArrangeAtLine << 1,
+
 
         [Description(nameof(Localize.Mode_CreateLoop))]
-        CreateLoop = ArrangeAtLine << 1,
+        CreateLoop = ArrangeAtCircle << 1,
 
         [NotItem]
         [Description(nameof(Localize.Mode_CreateLoop))]
@@ -447,11 +509,11 @@ namespace NetworkMultitool
         [Description(nameof(Localize.Mode_CreateConnection))]
         CreateConnectionChangeRadius = CreateConnection + 2,
 
-        [Description(nameof(Localize.Mode_CreateBezier))]
-        CreateBezier = CreateConnection << 1,
-
         [Description(nameof(Localize.Mode_CreateParallerl))]
-        CreateParallel = CreateBezier << 1,
+        CreateParallel = CreateConnection << 1,
+
+        [Description(nameof(Localize.Mode_CreateBezier))]
+        CreateBezier = CreateParallel << 1,
 
 
         [NotItem]

@@ -18,7 +18,7 @@ namespace NetworkMultitool
         private ushort FirstGuide { get; set; }
         private ushort LastGuide { get; set; }
 
-        private bool IsHoverEnd
+        private bool IsHoverGuideSegment
         {
             get
             {
@@ -31,13 +31,13 @@ namespace NetworkMultitool
 
         protected override string GetInfo()
         {
-            if (IsHoverEnd)
+            if (IsHoverGuideSegment)
                 return Localize.Mode_ArrangeLine_Info_ClickToSelectDirection + UndergroundInfo;
             else if (AddState == AddResult.None && Nodes.Count >= 3)
                 return
                     Localize.Mode_NodeLine_Info_SelectNode + "\n" +
                     Localize.Mode_ArrangeLine_Info_SelectDirection + "\n" +
-                    string.Format(Localize.Mode_Info_Create, ApplyShortcut) +
+                    string.Format(Localize.Mode_Info_Apply, ApplyShortcut) +
                     UndergroundInfo;
             else
                 return base.GetInfo();
@@ -113,7 +113,7 @@ namespace NetworkMultitool
         {
             base.OnPrimaryMouseClicked(e);
 
-            if (IsHoverEnd)
+            if (IsHoverGuideSegment)
             {
                 ref var segment = ref HoverSegment.Id.GetSegment();
                 if (segment.Contains(Nodes[0].Id))
@@ -155,54 +155,15 @@ namespace NetworkMultitool
                 var dir = trajectory.Tangent(ts[i]).normalized;
 
                 if (i != 0)
-                    SetDirection(Nodes[i].Id, Nodes[i - 1].Id, -dir);
+                    SetSegmentDirection(Nodes[i].Id, Nodes[i - 1].Id, -dir);
                 if (i != Nodes.Count - 1)
-                    SetDirection(Nodes[i].Id, Nodes[i + 1].Id, dir);
+                    SetSegmentDirection(Nodes[i].Id, Nodes[i + 1].Id, dir);
             }
 
             foreach (var node in Nodes)
                 NetManager.instance.UpdateNode(node.Id);
 
             UpdateTerrain(terrainRect);
-        }
-        private void MoveNode(ushort nodeId, Vector3 newPos)
-        {
-            ref var node = ref nodeId.GetNode();
-            var segmentIds = node.SegmentIds().ToArray();
-
-            var startDirections = new Dictionary<ushort, Vector3>();
-            foreach (var segmentId in segmentIds)
-            {
-                ref var otherNode = ref segmentId.GetSegment().GetOtherNode(nodeId).GetNode();
-                var dir = (node.m_position - otherNode.m_position).MakeFlat();
-                startDirections[segmentId] = dir;
-            }
-
-            newPos.y = node.m_position.y;
-            var oldPos = node.m_position;
-            NetManager.instance.MoveNode(nodeId, newPos);
-
-            if (node.m_building != 0)
-            {
-                BuildingManager.instance.m_buildings.m_buffer[node.m_building].m_position += (newPos - oldPos);
-                BuildingManager.instance.UpdateBuilding(node.m_building);
-            }
-
-            foreach (var segmentId in segmentIds)
-            {
-                ref var otherNode = ref segmentId.GetSegment().GetOtherNode(nodeId).GetNode();
-                var newDir = (node.m_position - otherNode.m_position).MakeFlat();
-                var oldDir = startDirections[segmentId];
-
-                var delta = MathExtention.GetAngle(oldDir, newDir);
-                ref var segment = ref segmentId.GetSegment();
-                if (segment.IsStartNode(nodeId))
-                    segment.m_startDirection = segment.m_startDirection.TurnRad(delta, false);
-                else
-                    segment.m_endDirection = segment.m_endDirection.TurnRad(delta, false);
-
-                NetManager.instance.UpdateSegmentRenderer(segmentId, true);
-            }
         }
         private ITrajectory GetTrajectory()
         {
@@ -235,20 +196,6 @@ namespace NetworkMultitool
                     return -(segment.IsStartNode(nodeId) ? segment.m_startDirection : segment.m_endDirection);
             }
         }
-        private void SetDirection(ushort nodeId, ushort anotherNodeId, Vector3 direction)
-        {
-            if (!NetExtension.GetCommon(nodeId, anotherNodeId, out var commonId))
-                return;
-
-            ref var segment = ref commonId.GetSegment();
-            if (segment.IsStartNode(nodeId))
-                segment.m_startDirection = direction;
-            else
-                segment.m_endDirection = direction;
-
-            CalculateSegmentDirections(commonId);
-            NetManager.instance.UpdateSegmentRenderer(commonId, true);
-        }
         public override void RenderOverlay(RenderManager.CameraInfo cameraInfo)
         {
             if (Nodes.Count >= 3)
@@ -267,8 +214,8 @@ namespace NetworkMultitool
 
             base.RenderOverlay(cameraInfo);
 
-            if (IsHoverEnd)
-                HoverSegment.Render(new OverlayData(cameraInfo) { Color = Colors.Blue });
+            if (IsHoverGuideSegment)
+                HoverSegment.Render(new OverlayData(cameraInfo) { Color = Colors.Purple });
         }
     }
 }
