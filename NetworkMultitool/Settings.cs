@@ -38,6 +38,20 @@ namespace NetworkMultitool
         {
             base.FillSettings();
 
+            AddGeneral();
+            AddShortcuts();
+#if DEBUG
+            AddDebug(DebugTab);
+#endif
+            
+        }
+
+        #endregion
+
+        #region GENERAL
+
+        private void AddGeneral()
+        {
             AddLanguage(GeneralTab);
 
             var generalGroup = GeneralTab.AddGroup(CommonLocalize.Settings_General);
@@ -50,14 +64,6 @@ namespace NetworkMultitool
 
             AddNotifications(GeneralTab);
 
-            var keymappingsGroup = ShortcutsTab.AddGroup();
-            var keymappings = AddKeyMappingPanel(keymappingsGroup);
-            keymappings.AddKeymapping(NetworkMultitoolTool.ActivationShortcut);
-            foreach (var shortcut in NetworkMultitoolTool.BindShortcuts)
-                keymappings.AddKeymapping(shortcut);
-#if DEBUG
-            AddDebug(DebugTab);
-#endif
             static void OnAutoHideChanged()
             {
                 foreach (var panel in UIView.GetAView().GetComponentsInChildren<ModesPanel>())
@@ -82,7 +88,44 @@ namespace NetworkMultitool
 
         #endregion
 
-        #region GENERAL
+        #region SHORTCUTS
+
+        private void AddShortcuts()
+        {
+            var modesGroup = ShortcutsTab.AddGroup(Localize.Settings_ActivationShortcuts);
+            var modesKeymapping = AddKeyMappingPanel(modesGroup);
+            modesKeymapping.AddKeymapping(NetworkMultitoolTool.ActivationShortcut);
+            foreach (var shortcut in NetworkMultitoolTool.ModeShortcuts.Values)
+                modesKeymapping.AddKeymapping(shortcut);
+
+            var generalGroup = ShortcutsTab.AddGroup(Localize.Settings_CommonShortcuts);
+            var generalKeymapping = AddKeyMappingPanel(generalGroup);
+            generalKeymapping.AddKeymapping(NetworkMultitoolTool.SelectionStepOverShortcut);
+            generalKeymapping.AddKeymapping(BaseNetworkMultitoolMode.ApplyShortcut);
+
+            var connectionGroup = ShortcutsTab.AddGroup(Localize.Mode_CreateConnection);
+            var connectionKeymapping = AddKeyMappingPanel(connectionGroup);
+            connectionKeymapping.AddKeymapping(CreateConnectionMode.IncreaseRadiiShortcut);
+            connectionKeymapping.AddKeymapping(CreateConnectionMode.DecreaseRadiiShortcut);
+            connectionKeymapping.AddKeymapping(CreateConnectionMode.SwitchSelectShortcut);
+            connectionKeymapping.AddKeymapping(CreateConnectionMode.IncreaseOneRadiusShortcut);
+            connectionKeymapping.AddKeymapping(CreateConnectionMode.DecreaseOneRadiusShortcut);
+            connectionKeymapping.AddKeymapping(CreateConnectionMode.SwitchOffsetShortcut);
+            connectionKeymapping.AddKeymapping(CreateConnectionMode.IncreaseOffsetShortcut);
+            connectionKeymapping.AddKeymapping(CreateConnectionMode.DecreaseOffsetShortcut);
+
+            var loopGroup = ShortcutsTab.AddGroup(Localize.Mode_CreateLoop);
+            var loopKeymapping = AddKeyMappingPanel(loopGroup);
+            loopKeymapping.AddKeymapping(CreateLoopMode.IncreaseRadiusShortcut);
+            loopKeymapping.AddKeymapping(CreateLoopMode.DecreaseRadiusShortcut);
+            loopKeymapping.AddKeymapping(CreateLoopMode.SwitchIsLoopShortcut);
+
+            var parallelGroup = ShortcutsTab.AddGroup(Localize.Mode_CreateParallerl);
+            var parallelKeymapping = AddKeyMappingPanel(parallelGroup);
+            parallelKeymapping.AddKeymapping(CreateParallelMode.IncreaseShiftShortcut);
+            parallelKeymapping.AddKeymapping(CreateParallelMode.DecreaseShiftShortcut);
+            parallelKeymapping.AddKeymapping(CreateParallelMode.InvertShiftShortcut);
+        }
 
         #endregion
 

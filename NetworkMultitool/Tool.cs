@@ -31,33 +31,6 @@ namespace NetworkMultitool
                     yield return shortcut;
             }
         }
-        public static IEnumerable<Shortcut> BindShortcuts
-        {
-            get
-            {
-                foreach (var shortcut in ToolShortcuts)
-                    yield return shortcut;
-
-                yield return BaseNetworkMultitoolMode.ApplyShortcut;
-
-                yield return BaseCreateMode.IncreaseRadiusShortcut;
-                yield return BaseCreateMode.DecreaseRadiusShortcut;
-
-                yield return CreateConnectionMode.SwitchSelectShortcut;
-                yield return CreateConnectionMode.IncreaseOneRadiusShortcut;
-                yield return CreateConnectionMode.DecreaseOneRadiusShortcut;
-
-                yield return CreateConnectionMode.SwitchOffsetShortcut;
-                yield return CreateConnectionMode.IncreaseOffsetShortcut;
-                yield return CreateConnectionMode.DecreaseOffsetShortcut;
-
-                yield return CreateLoopMode.SwitchIsLoopShortcut;
-
-                yield return CreateParallelMode.IncreaseShiftShortcut;
-                yield return CreateParallelMode.DecreaseShiftShortcut;
-                yield return CreateParallelMode.InvertShiftShortcut;
-            }
-        }
         public override IEnumerable<Shortcut> Shortcuts
         {
             get
