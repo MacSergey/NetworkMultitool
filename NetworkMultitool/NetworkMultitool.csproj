@@ -114,11 +114,15 @@
     <Compile Include="Tool.cs" />
     <Compile Include="ToolModes\AddNode.cs" />
     <Compile Include="ToolModes\BaseMode.cs" />
+    <Compile Include="ToolModes\BaseNodeSet.cs" />
     <Compile Include="ToolModes\ConnectionModes\BaseCreate.cs" />
     <Compile Include="ToolModes\ConnectionModes\BaseCreateConnection.cs" />
     <Compile Include="ToolModes\ConnectionModes\CreateBezier.cs" />
     <Compile Include="ToolModes\ConnectionModes\CreateConnection.cs" />
     <Compile Include="ToolModes\InvertSegment.cs" />
+    <Compile Include="ToolModes\NodeCircleMode\ArrangeCircle.cs" />
+    <Compile Include="ToolModes\NodeCircleMode\BaseNodeCircle.cs" />
+    <Compile Include="ToolModes\NodeLineModes\CreateParallel.cs" />
     <Compile Include="ToolModes\UnlockSegment.cs" />
     <Compile Include="ToolModes\NodeLineModes\ArrangeLine.cs" />
     <Compile Include="ToolModes\NodeLineModes\BaseNodeLine.cs" />
@@ -131,6 +135,7 @@
     <Compile Include="UI\Button.cs" />
     <Compile Include="UI\ModeButton.cs" />
     <Compile Include="UI\ModesPanel.cs" />
+    <Compile Include="Utilities\RenderExtension.cs" />
     <Compile Include="Utilities\Textures.cs" />
   </ItemGroup>
   <ItemGroup>

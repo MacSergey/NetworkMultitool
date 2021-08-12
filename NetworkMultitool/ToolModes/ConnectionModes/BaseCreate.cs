@@ -2,6 +2,7 @@
 using ColossalFramework.UI;
 using ModsCommon;
 using ModsCommon.Utilities;
+using NetworkMultitool.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -577,23 +578,8 @@ namespace NetworkMultitool
             }
             public void RenderCircle(RenderManager.CameraInfo cameraInfo, Color32 color, bool underground) => CenterPos.RenderCircle(new OverlayData(cameraInfo) { Width = Radius * 2f, Color = color, RenderLimit = underground });
         }
-        public class Straight : StraightTrajectory
+        public class Straight : BaseStraight
         {
-            public Vector3 LabelDir { get; }
-            private InfoLabel _label;
-            public InfoLabel Label
-            {
-                get => _label;
-                set
-                {
-                    _label = value;
-                    if (_label != null)
-                    {
-                        _label.textScale = 1.5f;
-                        _label.opacity = 0.75f;
-                    }
-                }
-            }
             public bool IsShort => Length < 8f;
 
             public IEnumerable<Point> Parts
@@ -610,57 +596,11 @@ namespace NetworkMultitool
             }
             public Point MiddlePoint => new Point(Position(0.5f), Tangent(0.5f));
 
-            public Straight(Vector3 start, Vector3 end, Vector3 labelDir, InfoLabel label, float height) : base(SetHeight(start, height), SetHeight(end, height))
-            {
-                LabelDir = labelDir;
-                Label = label;
-            }
-            static Vector3 SetHeight(Vector3 vector, float height)
-            {
-                vector.y = height;
-                return vector;
-            }
+            public Straight(Vector3 start, Vector3 end, Vector3 labelDir, InfoLabel label, float height) : base(start, end, labelDir, label, height) { }
 
-            public void Update(NetInfo info, bool show)
-            {
-                if (Label is InfoLabel label)
-                {
-                    label.isVisible = show;
-                    if (show)
-                    {
-                        label.text = GetRadiusString(Length);
-                        label.Direction = LabelDir;
-                        label.WorldPosition = Position(0.5f) + label.Direction * (info.m_halfWidth + 7f);
+            public void Update(NetInfo info, bool show) => Update(info.m_halfWidth + 7f, show);
 
-                        label.UpdateInfo();
-                    }
-                }
-            }
-            public void Render(RenderManager.CameraInfo cameraInfo, NetInfo info, Color color, Color colorArrow, bool underground)
-            {
-                var data = new OverlayData(cameraInfo) { Color = color, RenderLimit = underground };
-                var dataArrow = new OverlayData(cameraInfo) { Color = colorArrow, RenderLimit = underground };
-
-                var dir = LabelDir;
-                var isShort = Length <= 10f;
-
-                var startShift = StartPosition + dir * (info.m_halfWidth + 5f) + (isShort ? -Direction : Direction) * 0.5f;
-                var endShift = EndPosition + dir * (info.m_halfWidth + 5f) + (isShort ? Direction : -Direction) * 0.5f;
-
-                new StraightTrajectory(StartPosition + dir * info.m_halfWidth, StartPosition + dir * (info.m_halfWidth + 7f)).Render(data);
-                new StraightTrajectory(EndPosition + dir * info.m_halfWidth, EndPosition + dir * (info.m_halfWidth + 7f)).Render(data);
-                new StraightTrajectory(startShift, endShift).Render(dataArrow);
-
-                var cross = CrossXZ(dir, Direction) > 0f;
-                var dirP45 = dir.TurnDeg(45f, isShort ^ cross);
-                var dirM45 = dir.TurnDeg(45f, !isShort ^ cross);
-
-                new StraightTrajectory(startShift, startShift + dirP45 * 3f).Render(dataArrow);
-                new StraightTrajectory(startShift, startShift - dirM45 * 3f).Render(dataArrow);
-
-                new StraightTrajectory(endShift, endShift - dirP45 * 3f).Render(dataArrow);
-                new StraightTrajectory(endShift, endShift + dirM45 * 3f).Render(dataArrow);
-            }
+            public void Render(RenderManager.CameraInfo cameraInfo, NetInfo info, Color color, Color colorArrow, bool underground) => this.RenderMeasure(cameraInfo, info.m_halfWidth, 5f, LabelDir, color, colorArrow, underground);
         }
     }
 }
