@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Mode_AddNode" xml:space="preserve">
-    <value>Modo de adição de nós</value>
+    <value>Modo de adição de nó</value>
   </data>
   <data name="Mode_AddNode_Info_ClickToAdd" xml:space="preserve">
     <value>Clique para adicionar nó</value>
@@ -133,9 +133,11 @@ Está demasiado perto de outro nó</value>
   <data name="Mode_AngleFormat" xml:space="preserve">
     <value>{0}°</value>
   </data>
-  
+  <data name="Mode_ArrangeAtCircle" xml:space="preserve">
+    <value>Modo ajustar em círculo</value>
+  </data>
   <data name="Mode_ArrangeAtLine" xml:space="preserve">
-    <value>Ajustar em modo de linha</value>
+    <value>Modo ajustar em linha</value>
   </data>
   
   
@@ -156,9 +158,18 @@ para mudar a direção da curva</value>
   <data name="Mode_Connection_Info_DragToMove" xml:space="preserve">
     <value>Arraste para mover o círculo</value>
   </data>
-  
-  
-  
+  <data name="Mode_Connection_Info_RadiusStep" xml:space="preserve">
+    <value>Segure Shift para passo 10m
+Segure Ctrl para passo 1m
+Segure Alt para passo 0.1m</value>
+  </data>
+  <data name="Mode_Connection_Info_SlowMove" xml:space="preserve">
+    <value>Manhtenha Ctrl para mover X10 mais lento
+Manhtenha Alt para mover X100 mais lento</value>
+  </data>
+  <data name="Mode_CreateBezier" xml:space="preserve">
+    <value>Modo de criação de curva de Bezier</value>
+  </data>
   <data name="Mode_CreateConnection" xml:space="preserve">
     <value>Modo de criação de ligação</value>
   </data>
@@ -172,6 +183,24 @@ para mudar a direção da curva</value>
   <data name="Mode_Info_Apply" xml:space="preserve">
     <value>Pressione {0} para aplicar</value>
   </data>
+  
+  
+  
+  
+  
+  
+  
+  <data name="Mode_Info_ArrangeCircle_MoveAll" xml:space="preserve">
+    <value>Mantenha Shift para mover todos os nós
+ao mesmo tempo</value>
+  </data>
+  
+  
+  <data name="Mode_Info_ArrangeCircle_PressToReset" xml:space="preserve">
+    <value>Pressione {0} para redefinir os parâmetros</value>
+  </data>
+  
+  
   <data name="Mode_Info_ChangeAllRadius" xml:space="preserve">
     <value>Pressione {0} ou {1} para alterar todos os raios</value>
   </data>
@@ -190,7 +219,9 @@ para mudar a direção da curva</value>
   <data name="Mode_Info_ChangeRadius" xml:space="preserve">
     <value>Pressione {0} ou {1} para alterar o raio</value>
   </data>
-  
+  <data name="Mode_Info_ChangeShift" xml:space="preserve">
+    <value>Pressione {0} ou {1} para alterar deslocamento</value>
+  </data>
   <data name="Mode_Info_ClickFirstSegment" xml:space="preserve">
     <value>Clique para selecionar o primeiro segmento</value>
   </data>
@@ -201,14 +232,23 @@ para mudar a direção da curva</value>
   <data name="Mode_Info_ClickSelectNode" xml:space="preserve">
     <value>Clique para inserir nó</value>
   </data>
-  
+  <data name="Mode_Info_ClickToChangeCreateDir" xml:space="preserve">
+    <value>Clique para alterar a direção da criação</value>
+  </data>
   <data name="Mode_Info_ClickUnselectNode" xml:space="preserve">
     <value>Clique para desselecionar o nó</value>
   </data>
+  
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Pressione {0} para criar</value>
   </data>
+  <data name="Mode_Info_CreateBezier_MoveGiude" xml:space="preserve">
+    <value>Mova os guias da curva de Bezier para mudar a forma</value>
+  </data>
   
+  <data name="Mode_Info_OutOfMap" xml:space="preserve">
+    <value>Fora do mapa</value>
+  </data>
   
   
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
@@ -226,8 +266,15 @@ para mudar a direção da curva</value>
   <data name="Mode_Info_SelectSegment" xml:space="preserve">
     <value>Selecione segmento</value>
   </data>
-  
-  
+  <data name="Mode_Info_Slope_Apply" xml:space="preserve">
+    <value>Pressione {0} para aplicar inclinação</value>
+  </data>
+  <data name="Mode_Info_Step" xml:space="preserve">
+    <value>Shift - X10, Ctrl - X0.1, Alt - X0.01</value>
+  </data>
+  <data name="Mode_Info_SwitchOffset" xml:space="preserve">
+    <value>Pressione {0} para alternar deslocamento selecionado</value>
+  </data>
   <data name="Mode_Info_UndergroundMode" xml:space="preserve">
     <value>Segure Shift para o modo subterrâneo</value>
   </data>
@@ -312,15 +359,23 @@ porque não está ligado a outros</value>
   <data name="Mode_UnionNode_Info_TooFar" xml:space="preserve">
     <value>Nós muito distantes um do outro</value>
   </data>
+  <data name="Mode_UnlockSegment" xml:space="preserve">
+    <value>Modo de desbloqueio de segmento</value>
+  </data>
   
-  
-  
-  
+  <data name="Mode_UnlockSegment_Info_ClickToLock" xml:space="preserve">
+    <value>Clique para bloquear este segmento</value>
+  </data>
+  <data name="Mode_UnlockSegment_Info_ClickToUnlock" xml:space="preserve">
+    <value>Clique para desbloquear este segmento</value>
+  </data>
   <data name="Mod_Description" xml:space="preserve">
     <value>Muitas ferramentas diferentes para trabalhar com redes</value>
   </data>
   
-  
+  <data name="Settings_ActivationShortcuts" xml:space="preserve">
+    <value>Atalhos de ativação</value>
+  </data>
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>Ocultar automaticamente o painel de modos</value>
   </data>
@@ -330,15 +385,30 @@ porque não está ligado a outros</value>
     <value>Comprimento máximo do segmento</value>
   </data>
   
+  <data name="Settings_Shortcut_DecreaseOffset" xml:space="preserve">
+    <value>Diminuir o deslocamento inicial do círculo</value>
+  </data>
   
   
+  <data name="Settings_Shortcut_DecreaseRadius" xml:space="preserve">
+    <value>Diminuir o raio</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseShift" xml:space="preserve">
+    <value>Diminuir deslocamento</value>
+  </data>
   
   
+  <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
+    <value>Aumentar o deslocamento inicial do círculo</value>
+  </data>
   
   
-  
-  
-  
+  <data name="Settings_Shortcut_IncreaseRadius" xml:space="preserve">
+    <value>Aumentar o raio</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseShift" xml:space="preserve">
+    <value>Aumentar o deslocamento</value>
+  </data>
   
   
   

@@ -133,11 +133,15 @@ Muy cerca del nodo más cercano</value>
   <data name="Mode_AngleFormat" xml:space="preserve">
     <value>{0}°</value>
   </data>
-  
+  <data name="Mode_ArrangeAtCircle" xml:space="preserve">
+    <value>Modo de organización en círculo</value>
+  </data>
   <data name="Mode_ArrangeAtLine" xml:space="preserve">
     <value>Modo de organización en línea</value>
   </data>
-  
+  <data name="Mode_ArrangeCircle_Info_ClickToComplite" xml:space="preserve">
+    <value>Clic para completar selección del círculo</value>
+  </data>
   <data name="Mode_ArrangeLine_Info_ClickToSelectDirection" xml:space="preserve">
     <value>Clic para seleccionar dirección de organización</value>
   </data>
@@ -187,6 +191,33 @@ Mantener pulsada la tecla "Alt" para mover X100 más lento</value>
   <data name="Mode_Info_Apply" xml:space="preserve">
     <value>Pulsa {0} para aplicar</value>
   </data>
+  <data name="Mode_Info_ArrangeCircle_Apply" xml:space="preserve">
+    <value>Pulsa {0} para organizar en el círculo</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_BigDelta" xml:space="preserve">
+    <value>Angulo demasiado grande entre los nodos
+el circulo no será perfecto</value>
+  </data>
+  
+  
+  
+  
+  
+  <data name="Mode_Info_ArrangeCircle_MoveAll" xml:space="preserve">
+    <value>Mantener pulsada la tecla "Mayús" para mover 
+todos los nodos al mismo tiempo</value>
+  </data>
+  
+  
+  <data name="Mode_Info_ArrangeCircle_PressToReset" xml:space="preserve">
+    <value>Pulsa {0} para restablecer los parámetros</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_WrongOrder" xml:space="preserve">
+    <value>Orden incorrecto de nodos</value>
+  </data>
+  <data name="Mode_Info_ArrangeLine_Apply" xml:space="preserve">
+    <value>Pulsa {0} para organizar en línea</value>
+  </data>
   <data name="Mode_Info_ChangeAllRadius" xml:space="preserve">
     <value>Pulsa {0} o {1} para cambiar todos los radios</value>
   </data>
@@ -205,7 +236,9 @@ Mantener pulsada la tecla "Alt" para mover X100 más lento</value>
   <data name="Mode_Info_ChangeRadius" xml:space="preserve">
     <value>Pulsa {0} o {1} para cambiar el radio</value>
   </data>
-  
+  <data name="Mode_Info_ChangeShift" xml:space="preserve">
+    <value>Pulsa {0} o {1} para ajustar la separación</value>
+  </data>
   <data name="Mode_Info_ClickFirstSegment" xml:space="preserve">
     <value>Clic para seleccionar el primer segmento</value>
   </data>
@@ -224,16 +257,27 @@ Mantener pulsada la tecla "Alt" para mover X100 más lento</value>
   <data name="Mode_Info_ClickUnselectNode" xml:space="preserve">
     <value>Clic para deseleccionar nodo</value>
   </data>
+  <data name="Mode_Info_Connection_Create" xml:space="preserve">
+    <value>Pulsa {0} para crear conexión</value>
+  </data>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Pulsa {0} para crear</value>
   </data>
   <data name="Mode_Info_CreateBezier_MoveGiude" xml:space="preserve">
     <value>Mover guías de curva Bézier para cambiar la forma</value>
   </data>
+  <data name="Mode_Info_Loop_Create" xml:space="preserve">
+    <value>Pulsa {0} para crear curva</value>
+  </data>
   <data name="Mode_Info_OutOfMap" xml:space="preserve">
     <value>Fuera del mapa</value>
   </data>
-  
+  <data name="Mode_Info_Parallel_ChangeShift" xml:space="preserve">
+    <value>Pulsa {0} para cambiar el lado de creación</value>
+  </data>
+  <data name="Mode_Info_Parallel_Create" xml:space="preserve">
+    <value>Pulsa {0} para crear red paralela</value>
+  </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
     <value>El radio es muy grande</value>
   </data>
@@ -248,6 +292,9 @@ Mantener pulsada la tecla "Alt" para mover X100 más lento</value>
   </data>
   <data name="Mode_Info_SelectSegment" xml:space="preserve">
     <value>Seleccione segmento</value>
+  </data>
+  <data name="Mode_Info_Slope_Apply" xml:space="preserve">
+    <value>Pulsa {0} para aplicar pendiente</value>
   </data>
   <data name="Mode_Info_Step" xml:space="preserve">
     <value>Mayús - X10, Ctrl - X0.1, Alt - X0.01</value>
@@ -366,11 +413,15 @@ Clic con la tecla "Mayús" para separar el nodo y establecer el alto del origen<
     <value>Conjunto de herramientas diferentes para trabajar con redes</value>
   </data>
   
-  
+  <data name="Settings_ActivationShortcuts" xml:space="preserve">
+    <value>Atajos de activación</value>
+  </data>
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>Esconder panel de modos automáticamente</value>
   </data>
-  
+  <data name="Settings_CommonShortcuts" xml:space="preserve">
+    <value>Atajos comunes de los modos</value>
+  </data>
   <data name="Settings_PanelColumns" xml:space="preserve">
     <value>Número de columnas del panel</value>
   </data>
@@ -386,7 +437,15 @@ Clic con la tecla "Mayús" para separar el nodo y establecer el alto del origen<
   <data name="Settings_Shortcut_DecreaseOneRadius" xml:space="preserve">
     <value>Disminuir un radio</value>
   </data>
-  
+  <data name="Settings_Shortcut_DecreaseRadii" xml:space="preserve">
+    <value>Disminuir radios</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseRadius" xml:space="preserve">
+    <value>Disminuir radio</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseShift" xml:space="preserve">
+    <value>Disminuir separación</value>
+  </data>
   
   
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
@@ -395,10 +454,21 @@ Clic con la tecla "Mayús" para separar el nodo y establecer el alto del origen<
   <data name="Settings_Shortcut_IncreaseOneRadius" xml:space="preserve">
     <value>Incrementar un radio</value>
   </data>
-  
-  
-  
-  
+  <data name="Settings_Shortcut_IncreaseRadii" xml:space="preserve">
+    <value>Incrementar radios</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseRadius" xml:space="preserve">
+    <value>Incrementar radio</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseShift" xml:space="preserve">
+    <value>Incrementar separación</value>
+  </data>
+  <data name="Settings_Shortcut_InvertShift" xml:space="preserve">
+    <value>Cambiar lado de creación</value>
+  </data>
+  <data name="Settings_Shortcut_ResetArrangeCircle" xml:space="preserve">
+    <value>Restablecer círculo predeterminado</value>
+  </data>
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
     <value>Cambiar dirección de la curva</value>
   </data>

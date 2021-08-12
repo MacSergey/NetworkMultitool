@@ -133,11 +133,15 @@ Trop proche du nœud voisin</value>
   <data name="Mode_AngleFormat" xml:space="preserve">
     <value>{0}°</value>
   </data>
-  
+  <data name="Mode_ArrangeAtCircle" xml:space="preserve">
+    <value>Aligner en cercle</value>
+  </data>
   <data name="Mode_ArrangeAtLine" xml:space="preserve">
     <value>Aligner la route</value>
   </data>
-  
+  <data name="Mode_ArrangeCircle_Info_ClickToComplite" xml:space="preserve">
+    <value>Cliquez pour compléter la sélection du cercle</value>
+  </data>
   <data name="Mode_ArrangeLine_Info_ClickToSelectDirection" xml:space="preserve">
     <value>Cliquez pour sélectionner la direction de l'alignement</value>
   </data>
@@ -187,6 +191,49 @@ Maintenez Alt pour déplacer X100 plus lentement</value>
   <data name="Mode_Info_Apply" xml:space="preserve">
     <value>Appuyez sur {0} pour appliquer</value>
   </data>
+  <data name="Mode_Info_ArrangeCircle_Apply" xml:space="preserve">
+    <value>Appuyez sur {0} pour aligner en cercle</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_BigDelta" xml:space="preserve">
+    <value>Angle trop important entre les nœuds
+La forme ronde ne sera pas parfaite</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_DoubleClickToResetCenter" xml:space="preserve">
+    <value>Double-cliquez pour réinitialiser la position du centre</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_DoubleClickToResetNode" xml:space="preserve">
+    <value>Double-cliquez pour réinitialiser la position du nœud</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_DragToChangeRadius" xml:space="preserve">
+    <value>Faites glisser pour changer le rayon</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_DragToMoveCenter" xml:space="preserve">
+    <value>Faites glisser pour déplacer le cercle</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_DragToMoveNode" xml:space="preserve">
+    <value>Faites glisser pour déplacer le nœud</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_MoveAll" xml:space="preserve">
+    <value>Maintenez Shift pour déplacer
+tous les nœuds simultanément</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_PressToDistributeBetweenIntersections" xml:space="preserve">
+    <value>Appuyez sur {0} pour répartir uniformément
+les nœuds entre les intersections</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_PressToDistributeEvenly" xml:space="preserve">
+    <value>Appuyez sur {0} pour répartir uniformément
+les nœuds sur le cercle</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_PressToReset" xml:space="preserve">
+    <value>Appuyez sur {0} pour réinitialiser les paramètres</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_WrongOrder" xml:space="preserve">
+    <value>Ordre des nœuds incorrect</value>
+  </data>
+  <data name="Mode_Info_ArrangeLine_Apply" xml:space="preserve">
+    <value>Appuyez sur {0} pour aligner</value>
+  </data>
   <data name="Mode_Info_ChangeAllRadius" xml:space="preserve">
     <value>Appuyez sur {0} ou {1} pour modifier tous les rayons</value>
   </data>
@@ -205,7 +252,9 @@ Maintenez Alt pour déplacer X100 plus lentement</value>
   <data name="Mode_Info_ChangeRadius" xml:space="preserve">
     <value>Appuyez sur {0} ou {1} pour modifier le rayon</value>
   </data>
-  
+  <data name="Mode_Info_ChangeShift" xml:space="preserve">
+    <value>Appuyez sur {0} ou {1} pour modifier le décalage</value>
+  </data>
   <data name="Mode_Info_ClickFirstSegment" xml:space="preserve">
     <value>Cliquez pour sélectionner le premier segment</value>
   </data>
@@ -224,16 +273,27 @@ Maintenez Alt pour déplacer X100 plus lentement</value>
   <data name="Mode_Info_ClickUnselectNode" xml:space="preserve">
     <value>Cliquez pour désélectionner un nœud</value>
   </data>
+  <data name="Mode_Info_Connection_Create" xml:space="preserve">
+    <value>Appuyez sur {0} pour créer une connexion</value>
+  </data>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Appuyez sur {0} pour créer</value>
   </data>
   <data name="Mode_Info_CreateBezier_MoveGiude" xml:space="preserve">
     <value>Déplacez les points de contrôle de Bézier pour modifier la courbe</value>
   </data>
+  <data name="Mode_Info_Loop_Create" xml:space="preserve">
+    <value>Appuyez sur {0} pour créer une boucle</value>
+  </data>
   <data name="Mode_Info_OutOfMap" xml:space="preserve">
     <value>Hors de la carte</value>
   </data>
-  
+  <data name="Mode_Info_Parallel_ChangeShift" xml:space="preserve">
+    <value>Appuyez sur {0} pour changer de côté</value>
+  </data>
+  <data name="Mode_Info_Parallel_Create" xml:space="preserve">
+    <value>Appuyez sur {0} pour créer en parallèle</value>
+  </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
     <value>Rayon trop important</value>
   </data>
@@ -248,6 +308,9 @@ Maintenez Alt pour déplacer X100 plus lentement</value>
   </data>
   <data name="Mode_Info_SelectSegment" xml:space="preserve">
     <value>Sélectionnez un segment</value>
+  </data>
+  <data name="Mode_Info_Slope_Apply" xml:space="preserve">
+    <value>Appuyez sur {0} pour appliquer la pente</value>
   </data>
   <data name="Mode_Info_Step" xml:space="preserve">
     <value>Maj - X10, Ctrl - X0.1, Alt - X0.01</value>
@@ -392,12 +455,18 @@ verrouiller ou déverrouiller</value>
 - Correction de l'affichage en mode souterrain.
 - Ajout des traductions hongroises et coréennes.</value>
   </data>
-  
+  <data name="Settings_ActivationShortcuts" xml:space="preserve">
+    <value>Raccourcis d'activation</value>
+  </data>
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>Masquer automatiquement le panneau</value>
   </data>
-  
-  
+  <data name="Settings_CommonShortcuts" xml:space="preserve">
+    <value>Raccourcis communs des modes</value>
+  </data>
+  <data name="Settings_PanelColumns" xml:space="preserve">
+    <value>Nombre de colonnes de l'interface</value>
+  </data>
   <data name="Settings_SegmentLength" xml:space="preserve">
     <value>Longueur maximale du segment</value>
   </data>
@@ -410,19 +479,42 @@ verrouiller ou déverrouiller</value>
   <data name="Settings_Shortcut_DecreaseOneRadius" xml:space="preserve">
     <value>Diminuer un rayon</value>
   </data>
-  
-  
-  
+  <data name="Settings_Shortcut_DecreaseRadii" xml:space="preserve">
+    <value>Diminuer les rayons</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseRadius" xml:space="preserve">
+    <value>Diminuer le rayon</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseShift" xml:space="preserve">
+    <value>Diminuer le décalage</value>
+  </data>
+  <data name="Settings_Shortcut_DistributeBetweenIntersections" xml:space="preserve">
+    <value>Répartir uniformément les nœuds entre les intersections</value>
+  </data>
+  <data name="Settings_Shortcut_DistributeEvenly" xml:space="preserve">
+    <value>Répartir uniformément les nœuds sur le cercle</value>
+  </data>
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
     <value>Augmenter le décalage de début de la courbe</value>
   </data>
   <data name="Settings_Shortcut_IncreaseOneRadius" xml:space="preserve">
     <value>Augmenter un rayon</value>
   </data>
-  
-  
-  
-  
+  <data name="Settings_Shortcut_IncreaseRadii" xml:space="preserve">
+    <value>Augmenter les rayons</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseRadius" xml:space="preserve">
+    <value>Augmenter le rayon</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseShift" xml:space="preserve">
+    <value>Augmenter le décalage</value>
+  </data>
+  <data name="Settings_Shortcut_InvertShift" xml:space="preserve">
+    <value>Changer le côté de création</value>
+  </data>
+  <data name="Settings_Shortcut_ResetArrangeCircle" xml:space="preserve">
+    <value>Réinitialiser le cercle</value>
+  </data>
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
     <value>Changer la direction de la boucle</value>
   </data>

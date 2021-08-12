@@ -133,11 +133,15 @@ Za blisko sąsiedniego węzła</value>
   <data name="Mode_AngleFormat" xml:space="preserve">
     <value>{0}°</value>
   </data>
-  
+  <data name="Mode_ArrangeAtCircle" xml:space="preserve">
+    <value>Tryb układania w okręgu</value>
+  </data>
   <data name="Mode_ArrangeAtLine" xml:space="preserve">
     <value>Tryb porządkowania w linii</value>
   </data>
-  
+  <data name="Mode_ArrangeCircle_Info_ClickToComplite" xml:space="preserve">
+    <value>Naciśnij aby zakończyć wybór okręgu</value>
+  </data>
   <data name="Mode_ArrangeLine_Info_ClickToSelectDirection" xml:space="preserve">
     <value>Kliknij, aby wybrać kierunek porządkowania</value>
   </data>
@@ -186,6 +190,19 @@ Przytrzymaj Alt, aby przesuwać 100x wolniej</value>
   <data name="Mode_Info_Apply" xml:space="preserve">
     <value>Naciśnij {0}, aby zastosować</value>
   </data>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   <data name="Mode_Info_ChangeAllRadius" xml:space="preserve">
     <value>Naciśnij {0} lub {1} aby zmienić wszystkie promienie</value>
   </data>
@@ -204,7 +221,9 @@ Przytrzymaj Alt, aby przesuwać 100x wolniej</value>
   <data name="Mode_Info_ChangeRadius" xml:space="preserve">
     <value>Naciśnij {0} lub {1} aby zmienić promień</value>
   </data>
-  
+  <data name="Mode_Info_ChangeShift" xml:space="preserve">
+    <value>Naciśnij {0} lub {1} aby zmienić przesunięcie</value>
+  </data>
   <data name="Mode_Info_ClickFirstSegment" xml:space="preserve">
     <value>Kliknij, aby zaznaczyć pierwszy segment</value>
   </data>
@@ -223,14 +242,19 @@ Przytrzymaj Alt, aby przesuwać 100x wolniej</value>
   <data name="Mode_Info_ClickUnselectNode" xml:space="preserve">
     <value>Kliknij, aby odznaczyć węzeł</value>
   </data>
+  
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Naciśnij {0}, aby utworzyć</value>
   </data>
   <data name="Mode_Info_CreateBezier_MoveGiude" xml:space="preserve">
     <value>Przesuń wskaźniki krzywej Beziera aby zmienić kształt</value>
   </data>
+  
   <data name="Mode_Info_OutOfMap" xml:space="preserve">
     <value>Poza mapą</value>
+  </data>
+  <data name="Mode_Info_Parallel_ChangeShift" xml:space="preserve">
+    <value>Naciśnij {0}, aby zmienić stronę tworzenia</value>
   </data>
   
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
@@ -248,6 +272,7 @@ Przytrzymaj Alt, aby przesuwać 100x wolniej</value>
   <data name="Mode_Info_SelectSegment" xml:space="preserve">
     <value>Wybierz segment</value>
   </data>
+  
   <data name="Mode_Info_Step" xml:space="preserve">
     <value>Shift - X10, Ctrl - X0.1, Alt - X0.01</value>
   </data>
@@ -365,11 +390,15 @@ Naciśnij trzymając Shift aby podzielić węzeł i wyrównać do wysokości źr
     <value>Wiele różnych narzędzi do pracy z sieciami</value>
   </data>
   
-  
+  <data name="Settings_ActivationShortcuts" xml:space="preserve">
+    <value>Skróty aktywacji</value>
+  </data>
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>Automatyczne ukrywanie panelu trybów</value>
   </data>
-  
+  <data name="Settings_CommonShortcuts" xml:space="preserve">
+    <value>Wspólne skróty trybów</value>
+  </data>
   <data name="Settings_PanelColumns" xml:space="preserve">
     <value>Liczba kolumn panelu</value>
   </data>
@@ -385,7 +414,15 @@ Naciśnij trzymając Shift aby podzielić węzeł i wyrównać do wysokości źr
   <data name="Settings_Shortcut_DecreaseOneRadius" xml:space="preserve">
     <value>Zmniejsz jeden promień</value>
   </data>
-  
+  <data name="Settings_Shortcut_DecreaseRadii" xml:space="preserve">
+    <value>Zmniejsz promienie</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseRadius" xml:space="preserve">
+    <value>Zmniejsz promień</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseShift" xml:space="preserve">
+    <value>Zmniejsz przesunięcie</value>
+  </data>
   
   
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
@@ -394,9 +431,18 @@ Naciśnij trzymając Shift aby podzielić węzeł i wyrównać do wysokości źr
   <data name="Settings_Shortcut_IncreaseOneRadius" xml:space="preserve">
     <value>Zwiększ jeden promień</value>
   </data>
-  
-  
-  
+  <data name="Settings_Shortcut_IncreaseRadii" xml:space="preserve">
+    <value>Zwiększ promienie</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseRadius" xml:space="preserve">
+    <value>Zwiększ promień</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseShift" xml:space="preserve">
+    <value>Zwiększ przesunięcie</value>
+  </data>
+  <data name="Settings_Shortcut_InvertShift" xml:space="preserve">
+    <value>Przełącz stronę tworzenia</value>
+  </data>
   
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
     <value>Przełącz kierunek pętli</value>

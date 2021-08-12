@@ -173,6 +173,19 @@ Houd Alt om met X100 langzamer te bewegen</value>
   <data name="Mode_Info_Apply" xml:space="preserve">
     <value>Druk {0} om toe te passen</value>
   </data>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   <data name="Mode_Info_ChangeAllRadius" xml:space="preserve">
     <value>Druk {0} of {1} om de straal te veranderen</value>
   </data>
@@ -200,9 +213,12 @@ Houd Alt om met X100 langzamer te bewegen</value>
   <data name="Mode_Info_ClickUnselectNode" xml:space="preserve">
     <value>Klik om een knooppunt te deselecteren</value>
   </data>
+  
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Druk {0} om te creëren</value>
   </data>
+  
+  
   
   
   
@@ -221,6 +237,7 @@ Houd Alt om met X100 langzamer te bewegen</value>
   <data name="Mode_Info_SelectSegment" xml:space="preserve">
     <value>Selecteer segment</value>
   </data>
+  
   
   
   <data name="Mode_Info_UndergroundMode" xml:space="preserve">
@@ -314,9 +331,12 @@ Houd Alt om met X100 langzamer te bewegen</value>
   
   
   
+  
+  
   <data name="Settings_Shortcut_IncreaseOneRadius" xml:space="preserve">
     <value>Verhoog één straal</value>
   </data>
+  
   
   
   

@@ -130,12 +130,18 @@
     <value>Kan ikke tilføje note
 For tæt på nærliggende note</value>
   </data>
-  
-  
+  <data name="Mode_AngleFormat" xml:space="preserve">
+    <value>{0}°</value>
+  </data>
+  <data name="Mode_ArrangeAtCircle" xml:space="preserve">
+    <value>Arrangér i cirkeltilstand</value>
+  </data>
   <data name="Mode_ArrangeAtLine" xml:space="preserve">
     <value>Arranger i linjetilstand</value>
   </data>
-  
+  <data name="Mode_ArrangeCircle_Info_ClickToComplite" xml:space="preserve">
+    <value>Klik for at færdiggøre cirkelvalg</value>
+  </data>
   <data name="Mode_ArrangeLine_Info_ClickToSelectDirection" xml:space="preserve">
     <value>Klik for at vælge retning</value>
   </data>
@@ -158,10 +164,67 @@ for at ændre kurve retning</value>
   <data name="Mode_Connection_Info_DragToMove" xml:space="preserve">
     <value>Træk for at flytte cirkel</value>
   </data>
+  <data name="Mode_Connection_Info_RadiusStep" xml:space="preserve">
+    <value>Hold Shift nede for at rykke 10m
+Hold Ctrl nede for at rykke 1m
+Hold Alt nede for at rykke 0,1 m</value>
+  </data>
+  <data name="Mode_Connection_Info_SlowMove" xml:space="preserve">
+    <value>Hold Ctrl nede for at flytte X10 langsommere
+Hold Alt for at flytte X100 langsommere</value>
+  </data>
+  
+  <data name="Mode_CreateConnection" xml:space="preserve">
+    <value>Opret forbindelsestype</value>
+  </data>
+  <data name="Mode_CreateLoop" xml:space="preserve">
+    <value>Opret løkke tilstand</value>
+  </data>
+  <data name="Mode_CreateLoop_Info_Change" xml:space="preserve">
+    <value>Tryk på {0} for at ændre løkke</value>
+  </data>
+  <data name="Mode_CreateParallerl" xml:space="preserve">
+    <value>Opret parallel tilstand</value>
+  </data>
+  <data name="Mode_Info_Apply" xml:space="preserve">
+    <value>Tryk på {0} for at anvende</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_Apply" xml:space="preserve">
+    <value>Tryk på {0} for at arrangere cirkel</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_BigDelta" xml:space="preserve">
+    <value>For stor vinkel mellem punkter rundingen 
+vil ikke være perfekt</value>
+  </data>
   
   
   
   
+  
+  <data name="Mode_Info_ArrangeCircle_MoveAll" xml:space="preserve">
+    <value>Hold Shift nede for at flytte alle noder
+på samme tid</value>
+  </data>
+  
+  
+  <data name="Mode_Info_ArrangeCircle_PressToReset" xml:space="preserve">
+    <value>Tryk på {0} for at nulstille parametrene</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_WrongOrder" xml:space="preserve">
+    <value>Forkert node rækkefølge</value>
+  </data>
+  <data name="Mode_Info_ArrangeLine_Apply" xml:space="preserve">
+    <value>Tryk {0} for at arrangere på linje</value>
+  </data>
+  <data name="Mode_Info_ChangeAllRadius" xml:space="preserve">
+    <value>Tryk på {0} eller {1} for at ændre radius på alle</value>
+  </data>
+  <data name="Mode_Info_ChangeBothRadius" xml:space="preserve">
+    <value>Tryk på {0} eller {1} for at ændre radius på begge</value>
+  </data>
+  <data name="Mode_Info_ChangeCircle" xml:space="preserve">
+    <value>Tryk på {0} for at ændre valgte cirkel</value>
+  </data>
   
   
   

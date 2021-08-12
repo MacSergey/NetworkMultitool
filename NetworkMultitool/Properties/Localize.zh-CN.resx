@@ -133,11 +133,15 @@
   <data name="Mode_AngleFormat" xml:space="preserve">
     <value>{0}°</value>
   </data>
-  
+  <data name="Mode_ArrangeAtCircle" xml:space="preserve">
+    <value>圆圈对齐模式</value>
+  </data>
   <data name="Mode_ArrangeAtLine" xml:space="preserve">
     <value>多点均匀功能</value>
   </data>
-  
+  <data name="Mode_ArrangeCircle_Info_ClickToComplite" xml:space="preserve">
+    <value>点击以完成圆圈选择</value>
+  </data>
   <data name="Mode_ArrangeLine_Info_ClickToSelectDirection" xml:space="preserve">
     <value>点击以选择对齐方向</value>
   </data>
@@ -181,9 +185,38 @@
   <data name="Mode_CreateLoop_Info_Change" xml:space="preserve">
     <value>按 {0} 更改环形</value>
   </data>
-  
+  <data name="Mode_CreateParallerl" xml:space="preserve">
+    <value>创建并行模式</value>
+  </data>
   <data name="Mode_Info_Apply" xml:space="preserve">
     <value>按下 {0} 以应用</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_Apply" xml:space="preserve">
+    <value>按 {0} 来以圆圈对齐</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_BigDelta" xml:space="preserve">
+    <value>节点间角度太大
+会导致圆形形状缺陷</value>
+  </data>
+  
+  
+  
+  
+  
+  <data name="Mode_Info_ArrangeCircle_MoveAll" xml:space="preserve">
+    <value>按住 Shift 键
+同时移动所有节点</value>
+  </data>
+  
+  
+  <data name="Mode_Info_ArrangeCircle_PressToReset" xml:space="preserve">
+    <value>按 {0} 重置参数</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_WrongOrder" xml:space="preserve">
+    <value>错误的节点顺序</value>
+  </data>
+  <data name="Mode_Info_ArrangeLine_Apply" xml:space="preserve">
+    <value>按下 {0} 来按直线对齐</value>
   </data>
   <data name="Mode_Info_ChangeAllRadius" xml:space="preserve">
     <value>按 {0} 或 {1} 更改所有半径</value>
@@ -203,7 +236,9 @@
   <data name="Mode_Info_ChangeRadius" xml:space="preserve">
     <value>按 {0} 或 {1} 更改半径</value>
   </data>
-  
+  <data name="Mode_Info_ChangeShift" xml:space="preserve">
+    <value>按 {0} 或 {1} 更改偏移</value>
+  </data>
   <data name="Mode_Info_ClickFirstSegment" xml:space="preserve">
     <value>点击选择第一段落</value>
   </data>
@@ -222,16 +257,27 @@
   <data name="Mode_Info_ClickUnselectNode" xml:space="preserve">
     <value>点击撤销选择节点</value>
   </data>
+  <data name="Mode_Info_Connection_Create" xml:space="preserve">
+    <value>按 {0} 创建连接</value>
+  </data>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>按 {0} 以创建</value>
   </data>
   <data name="Mode_Info_CreateBezier_MoveGiude" xml:space="preserve">
     <value>移动贝塞尔曲线把手以更改形状</value>
   </data>
+  <data name="Mode_Info_Loop_Create" xml:space="preserve">
+    <value>按 {0} 创建环形</value>
+  </data>
   <data name="Mode_Info_OutOfMap" xml:space="preserve">
     <value>超出地图</value>
   </data>
-  
+  <data name="Mode_Info_Parallel_ChangeShift" xml:space="preserve">
+    <value>按下 {0} 切换创建边</value>
+  </data>
+  <data name="Mode_Info_Parallel_Create" xml:space="preserve">
+    <value>按 {0} 创建平行</value>
+  </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
     <value>半径过大</value>
   </data>
@@ -246,6 +292,9 @@
   </data>
   <data name="Mode_Info_SelectSegment" xml:space="preserve">
     <value>选择段落</value>
+  </data>
+  <data name="Mode_Info_Slope_Apply" xml:space="preserve">
+    <value>按下 {0} 以应用斜坡</value>
   </data>
   <data name="Mode_Info_Step" xml:space="preserve">
     <value>Shift - 10倍, Ctrl - 0.1倍, Alt - 0.01倍</value>
@@ -365,11 +414,15 @@
     <value>修改道路网络的许多小工具</value>
   </data>
   
-  
+  <data name="Settings_ActivationShortcuts" xml:space="preserve">
+    <value>激活快捷键</value>
+  </data>
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>自动隐藏模式面板</value>
   </data>
-  
+  <data name="Settings_CommonShortcuts" xml:space="preserve">
+    <value>模组共同快捷键</value>
+  </data>
   <data name="Settings_PanelColumns" xml:space="preserve">
     <value>面板栏数</value>
   </data>
@@ -385,7 +438,15 @@
   <data name="Settings_Shortcut_DecreaseOneRadius" xml:space="preserve">
     <value>减少一个半径</value>
   </data>
-  
+  <data name="Settings_Shortcut_DecreaseRadii" xml:space="preserve">
+    <value>减少半径</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseRadius" xml:space="preserve">
+    <value>减少半径</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseShift" xml:space="preserve">
+    <value>减少偏移</value>
+  </data>
   
   
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
@@ -394,10 +455,21 @@
   <data name="Settings_Shortcut_IncreaseOneRadius" xml:space="preserve">
     <value>增大一个半径</value>
   </data>
-  
-  
-  
-  
+  <data name="Settings_Shortcut_IncreaseRadii" xml:space="preserve">
+    <value>增大半径</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseRadius" xml:space="preserve">
+    <value>增大半径</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseShift" xml:space="preserve">
+    <value>增加偏移</value>
+  </data>
+  <data name="Settings_Shortcut_InvertShift" xml:space="preserve">
+    <value>切换创建边</value>
+  </data>
+  <data name="Settings_Shortcut_ResetArrangeCircle" xml:space="preserve">
+    <value>重置为默认圆形</value>
+  </data>
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
     <value>切换回环方向</value>
   </data>

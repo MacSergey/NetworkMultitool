@@ -59,46 +59,46 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"></xsd:import>
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0"></xsd:element>
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" use="required" type="xsd:string"></xsd:attribute>
+              <xsd:attribute name="type" type="xsd:string"></xsd:attribute>
+              <xsd:attribute name="mimetype" type="xsd:string"></xsd:attribute>
+              <xsd:attribute ref="xml:space"></xsd:attribute>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="alias" type="xsd:string"></xsd:attribute>
+              <xsd:attribute name="name" type="xsd:string"></xsd:attribute>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"></xsd:element>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"></xsd:element>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"></xsd:attribute>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"></xsd:attribute>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"></xsd:attribute>
+              <xsd:attribute ref="xml:space"></xsd:attribute>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"></xsd:element>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
+              <xsd:attribute name="name" type="xsd:string" use="required"></xsd:attribute>
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -191,6 +191,48 @@ Hold Alt to move X100 slower</value>
   <data name="Mode_Info_Apply" xml:space="preserve">
     <value>Press {0} to apply</value>
   </data>
+  <data name="Mode_Info_ArrangeCircle_Apply" xml:space="preserve">
+    <value>Press {0} to arrange at circle</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_BigDelta" xml:space="preserve">
+    <value>Too big angle between nodes
+round shape willn't be perfect</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_DoubleClickToResetCenter" xml:space="preserve">
+    <value>Double click to reset center position</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_DoubleClickToResetNode" xml:space="preserve">
+    <value>Double click to reset node position</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_DragToChangeRadius" xml:space="preserve">
+    <value>Drag to change radius</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_DragToMoveCenter" xml:space="preserve">
+    <value>Drag to move circle</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_DragToMoveNode" xml:space="preserve">
+    <value>Drag to move node</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_MoveAll" xml:space="preserve">
+    <value>Hold Shift to move all nodes
+at the same time</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_PressToDistributeBetweenIntersections" xml:space="preserve">
+    <value>Press {0} to distirbute nodes
+evenly between intersections</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_PressToDistributeEvenly" xml:space="preserve">
+    <value>Press {0} to distirbute nodes evenly on circle</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_PressToReset" xml:space="preserve">
+    <value>Press {0} to reset parameters</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_WrongOrder" xml:space="preserve">
+    <value>Wrong nodes order</value>
+  </data>
+  <data name="Mode_Info_ArrangeLine_Apply" xml:space="preserve">
+    <value>Press {0} to arrange at line</value>
+  </data>
   <data name="Mode_Info_ChangeAllRadius" xml:space="preserve">
     <value>Press {0} or {1} to change all radii</value>
   </data>
@@ -230,17 +272,26 @@ Hold Alt to move X100 slower</value>
   <data name="Mode_Info_ClickUnselectNode" xml:space="preserve">
     <value>Click to unselect node</value>
   </data>
+  <data name="Mode_Info_Connection_Create" xml:space="preserve">
+    <value>Press {0} to create connection</value>
+  </data>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Press {0} to create</value>
   </data>
   <data name="Mode_Info_CreateBezier_MoveGiude" xml:space="preserve">
     <value>Move Bezier curve guides to change shape</value>
   </data>
+  <data name="Mode_Info_Loop_Create" xml:space="preserve">
+    <value>Press {0} to create loop</value>
+  </data>
   <data name="Mode_Info_OutOfMap" xml:space="preserve">
     <value>Out of map</value>
   </data>
   <data name="Mode_Info_Parallel_ChangeShift" xml:space="preserve">
     <value>Press {0} to switch creation side</value>
+  </data>
+  <data name="Mode_Info_Parallel_Create" xml:space="preserve">
+    <value>Press {0} to create parallel</value>
   </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
     <value>Radius too big</value>
@@ -256,6 +307,9 @@ Hold Alt to move X100 slower</value>
   </data>
   <data name="Mode_Info_SelectSegment" xml:space="preserve">
     <value>Select segment</value>
+  </data>
+  <data name="Mode_Info_Slope_Apply" xml:space="preserve">
+    <value>Press {0} to apply slope</value>
   </data>
   <data name="Mode_Info_Step" xml:space="preserve">
     <value>Shift - X10, Ctrl - X0.1, Alt - X0.01</value>
@@ -427,6 +481,12 @@ lock or unlock it</value>
   <data name="Settings_Shortcut_DecreaseShift" xml:space="preserve">
     <value>Decrease offset</value>
   </data>
+  <data name="Settings_Shortcut_DistributeBetweenIntersections" xml:space="preserve">
+    <value>Distribute nodes evenly between intersections</value>
+  </data>
+  <data name="Settings_Shortcut_DistributeEvenly" xml:space="preserve">
+    <value>Distribute nodes evenly on circle</value>
+  </data>
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
     <value>Increase circle start offset</value>
   </data>
@@ -444,6 +504,9 @@ lock or unlock it</value>
   </data>
   <data name="Settings_Shortcut_InvertShift" xml:space="preserve">
     <value>Switch creation side</value>
+  </data>
+  <data name="Settings_Shortcut_ResetArrangeCircle" xml:space="preserve">
+    <value>Reset to default circle</value>
   </data>
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
     <value>Switch loop direction</value>

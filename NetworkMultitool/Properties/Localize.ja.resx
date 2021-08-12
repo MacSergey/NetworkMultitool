@@ -133,11 +133,15 @@
   <data name="Mode_AngleFormat" xml:space="preserve">
     <value>{0}°</value>
   </data>
-  
+  <data name="Mode_ArrangeAtCircle" xml:space="preserve">
+    <value>Mode: フォースサークル</value>
+  </data>
   <data name="Mode_ArrangeAtLine" xml:space="preserve">
     <value>Mode: フォーススムージング</value>
   </data>
-  
+  <data name="Mode_ArrangeCircle_Info_ClickToComplite" xml:space="preserve">
+    <value>クリックしてサークルの作成を確認</value>
+  </data>
   <data name="Mode_ArrangeLine_Info_ClickToSelectDirection" xml:space="preserve">
     <value>クリックしてアレンジ方向を選択</value>
   </data>
@@ -166,8 +170,8 @@ Ctrlキー押下 - 1m刻み
 Altキー押下 - 0.1m刻み</value>
   </data>
   <data name="Mode_Connection_Info_SlowMove" xml:space="preserve">
-    <value>Ctrlキー押下 - x10遅く移動
-Altキー押下 - x100遅く移動</value>
+    <value>Ctrlキー押下 - x10低速移動
+Altキー押下 - x100低速移動</value>
   </data>
   <data name="Mode_CreateBezier" xml:space="preserve">
     <value>Mode: ベジェ曲線敷設</value>
@@ -185,7 +189,34 @@ Altキー押下 - x100遅く移動</value>
     <value>Mode: パラレル敷設</value>
   </data>
   <data name="Mode_Info_Apply" xml:space="preserve">
-    <value>{0} で敷設を適用</value>
+    <value>{0} で作業を確定</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_Apply" xml:space="preserve">
+    <value>{0} でサークル作成を確定</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_BigDelta" xml:space="preserve">
+    <value>ノード間の角度が大きすぎます
+円の形状が完璧ではありません</value>
+  </data>
+  
+  
+  
+  
+  
+  <data name="Mode_Info_ArrangeCircle_MoveAll" xml:space="preserve">
+    <value>Shiftキーを押して
+全てのノードを同時に移動</value>
+  </data>
+  
+  
+  <data name="Mode_Info_ArrangeCircle_PressToReset" xml:space="preserve">
+    <value>{0} で設定をリセット</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_WrongOrder" xml:space="preserve">
+    <value>ノードの順序が不適切</value>
+  </data>
+  <data name="Mode_Info_ArrangeLine_Apply" xml:space="preserve">
+    <value>{0} でスムージングを確定</value>
   </data>
   <data name="Mode_Info_ChangeAllRadius" xml:space="preserve">
     <value>{0} or {1} で全ての半径を変更</value>
@@ -205,7 +236,9 @@ Altキー押下 - x100遅く移動</value>
   <data name="Mode_Info_ChangeRadius" xml:space="preserve">
     <value>{0} or {1} で半径を変更</value>
   </data>
-  
+  <data name="Mode_Info_ChangeShift" xml:space="preserve">
+    <value>{0} or {1} でオフセットを変更</value>
+  </data>
   <data name="Mode_Info_ClickFirstSegment" xml:space="preserve">
     <value>クリックして1つ目のセグメントを選択</value>
   </data>
@@ -224,16 +257,27 @@ Altキー押下 - x100遅く移動</value>
   <data name="Mode_Info_ClickUnselectNode" xml:space="preserve">
     <value>クリックしてノードの選択を解除</value>
   </data>
+  <data name="Mode_Info_Connection_Create" xml:space="preserve">
+    <value>{0} で直線接続を確定</value>
+  </data>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>{0} で敷設を確定</value>
   </data>
   <data name="Mode_Info_CreateBezier_MoveGiude" xml:space="preserve">
     <value>形状の変更はポイントを選択して伸縮</value>
   </data>
+  <data name="Mode_Info_Loop_Create" xml:space="preserve">
+    <value>{0} で曲線接続を確定</value>
+  </data>
   <data name="Mode_Info_OutOfMap" xml:space="preserve">
     <value>マップ圏外</value>
   </data>
-  
+  <data name="Mode_Info_Parallel_ChangeShift" xml:space="preserve">
+    <value>{0} で作成側の向きを切り替え</value>
+  </data>
+  <data name="Mode_Info_Parallel_Create" xml:space="preserve">
+    <value>{0} をパラレル敷設を確定</value>
+  </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
     <value>半径が大き過ぎます</value>
   </data>
@@ -249,8 +293,11 @@ Altキー押下 - x100遅く移動</value>
   <data name="Mode_Info_SelectSegment" xml:space="preserve">
     <value>セグメントを選択</value>
   </data>
+  <data name="Mode_Info_Slope_Apply" xml:space="preserve">
+    <value>{0} でスロープ化を確定</value>
+  </data>
   <data name="Mode_Info_Step" xml:space="preserve">
-    <value>Shiftキー x10倍 / Ctrlキー x0.1倍 / Altキー x0.01倍</value>
+    <value>Shift x10倍 / Ctrl x0.1倍 / Alt x0.01倍</value>
   </data>
   <data name="Mode_Info_SwitchOffset" xml:space="preserve">
     <value>{0} でカーブ開始前のオフセットを切り替え</value>
@@ -367,11 +414,15 @@ Altキー押下 - x100遅く移動</value>
     <value>ネットワークを操作するための十徳ナイフのようなツール</value>
   </data>
   
-  
+  <data name="Settings_ActivationShortcuts" xml:space="preserve">
+    <value>Mode・ツールの有効化</value>
+  </data>
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>自動的にUIパネルを折り畳む</value>
   </data>
-  
+  <data name="Settings_CommonShortcuts" xml:space="preserve">
+    <value>Mode共通のショートカット</value>
+  </data>
   <data name="Settings_PanelColumns" xml:space="preserve">
     <value>パネルの列数</value>
   </data>
@@ -379,7 +430,7 @@ Altキー押下 - x100遅く移動</value>
     <value>セグメントの最大長</value>
   </data>
   <data name="Settings_Shortcut_Apply" xml:space="preserve">
-    <value>アクションを適用</value>
+    <value>アクションを確定</value>
   </data>
   <data name="Settings_Shortcut_DecreaseOffset" xml:space="preserve">
     <value>カーブ開始前のオフセットを伸ばす</value>
@@ -387,7 +438,15 @@ Altキー押下 - x100遅く移動</value>
   <data name="Settings_Shortcut_DecreaseOneRadius" xml:space="preserve">
     <value>半径を1回だけ縮小</value>
   </data>
-  
+  <data name="Settings_Shortcut_DecreaseRadii" xml:space="preserve">
+    <value>半径を縮小</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseRadius" xml:space="preserve">
+    <value>半径を減少</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseShift" xml:space="preserve">
+    <value>オフセットを減少</value>
+  </data>
   
   
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
@@ -396,15 +455,26 @@ Altキー押下 - x100遅く移動</value>
   <data name="Settings_Shortcut_IncreaseOneRadius" xml:space="preserve">
     <value>半径を1回だけ拡大</value>
   </data>
-  
-  
-  
-  
+  <data name="Settings_Shortcut_IncreaseRadii" xml:space="preserve">
+    <value>半径を拡大</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseRadius" xml:space="preserve">
+    <value>半径を拡大</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseShift" xml:space="preserve">
+    <value>オフセットを増加</value>
+  </data>
+  <data name="Settings_Shortcut_InvertShift" xml:space="preserve">
+    <value>作成側の向きを切り替え</value>
+  </data>
+  <data name="Settings_Shortcut_ResetArrangeCircle" xml:space="preserve">
+    <value>既定のサークルにリセット</value>
+  </data>
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
     <value>ループの方向を切り替え</value>
   </data>
   <data name="Settings_Shortcut_SwitchOffset" xml:space="preserve">
-    <value>カーブ開始前のオフセットの選択を切り替え</value>
+    <value>カーブ開始前のオフセットを切り替え</value>
   </data>
   <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
     <value>選択したサークルを切り替え</value>
