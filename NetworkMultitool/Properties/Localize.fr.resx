@@ -392,9 +392,11 @@ verrouiller ou déverrouiller</value>
 - Correction de l'affichage en mode souterrain.
 - Ajout des traductions hongroises et coréennes.</value>
   </data>
+  
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>Masquer automatiquement le panneau</value>
   </data>
+  
   
   <data name="Settings_SegmentLength" xml:space="preserve">
     <value>Longueur maximale du segment</value>
@@ -408,9 +410,8 @@ verrouiller ou déverrouiller</value>
   <data name="Settings_Shortcut_DecreaseOneRadius" xml:space="preserve">
     <value>Diminuer un rayon</value>
   </data>
-  <data name="Settings_Shortcut_DecreaseRadius" xml:space="preserve">
-    <value>Diminuer les rayons</value>
-  </data>
+  
+  
   
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
     <value>Augmenter le décalage de début de la courbe</value>
@@ -418,9 +419,8 @@ verrouiller ou déverrouiller</value>
   <data name="Settings_Shortcut_IncreaseOneRadius" xml:space="preserve">
     <value>Augmenter un rayon</value>
   </data>
-  <data name="Settings_Shortcut_IncreaseRadius" xml:space="preserve">
-    <value>Augmenter les rayons</value>
-  </data>
+  
+  
   
   
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">

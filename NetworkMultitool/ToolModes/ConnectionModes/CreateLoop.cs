@@ -14,10 +14,23 @@ namespace NetworkMultitool
 {
     public abstract class BaseCreateLoopMode : BaseCreateMode
     {
+        public static NetworkMultitoolShortcut IncreaseRadiusShortcut { get; } = GetShortcut(KeyCode.Equals, nameof(IncreaseRadiusShortcut), nameof(Localize.Settings_Shortcut_IncreaseRadius), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as BaseCreateLoopMode)?.IncreaseRadius(), ToolModeType.Create, repeat: true, ignoreModifiers: true);
+        public static NetworkMultitoolShortcut DecreaseRadiusShortcut { get; } = GetShortcut(KeyCode.Minus, nameof(DecreaseRadiusShortcut), nameof(Localize.Settings_Shortcut_DecreaseRadius), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as BaseCreateLoopMode)?.DecreaseRadius(), ToolModeType.Create, repeat: true, ignoreModifiers: true);
+
         public MiddleCircle Circle { get; private set; }
         public Straight StartStraight { get; private set; }
         public Straight EndStraight { get; private set; }
         public bool IsHoverCenter { get; protected set; }
+
+        public override IEnumerable<NetworkMultitoolShortcut> Shortcuts
+        {
+            get
+            {
+                yield return ApplyShortcut;
+                yield return IncreaseRadiusShortcut;
+                yield return DecreaseRadiusShortcut;
+            }
+        }
 
         protected override void Reset(IToolMode prevMode)
         {

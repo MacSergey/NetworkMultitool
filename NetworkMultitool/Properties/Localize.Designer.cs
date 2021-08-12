@@ -348,7 +348,7 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Press {0} or {1} to change shift.
+        ///   Ищет локализованную строку, похожую на Press {0} or {1} to change offset.
         /// </summary>
         internal static string Mode_Info_ChangeShift {
             get {
@@ -438,7 +438,7 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Press {0} to invert shift.
+        ///   Ищет локализованную строку, похожую на Press {0} to switch creation side.
         /// </summary>
         internal static string Mode_Info_Parallel_ChangeShift {
             get {
@@ -828,11 +828,29 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Activation shortcuts.
+        /// </summary>
+        internal static string Settings_ActivationShortcuts {
+            get {
+                return ResourceManager.GetString("Settings_ActivationShortcuts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Auto hide modes panel.
         /// </summary>
         internal static string Settings_AutoHideModePanel {
             get {
                 return ResourceManager.GetString("Settings_AutoHideModePanel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Modes&apos; common shortcuts.
+        /// </summary>
+        internal static string Settings_CommonShortcuts {
+            get {
+                return ResourceManager.GetString("Settings_CommonShortcuts", resourceCulture);
             }
         }
         
@@ -884,6 +902,15 @@ namespace NetworkMultitool {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Decrease radii.
         /// </summary>
+        internal static string Settings_Shortcut_DecreaseRadii {
+            get {
+                return ResourceManager.GetString("Settings_Shortcut_DecreaseRadii", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Decrease radius.
+        /// </summary>
         internal static string Settings_Shortcut_DecreaseRadius {
             get {
                 return ResourceManager.GetString("Settings_Shortcut_DecreaseRadius", resourceCulture);
@@ -891,7 +918,7 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Decrease shift.
+        ///   Ищет локализованную строку, похожую на Decrease offset.
         /// </summary>
         internal static string Settings_Shortcut_DecreaseShift {
             get {
@@ -920,6 +947,15 @@ namespace NetworkMultitool {
         /// <summary>
         ///   Ищет локализованную строку, похожую на Increase radii.
         /// </summary>
+        internal static string Settings_Shortcut_IncreaseRadii {
+            get {
+                return ResourceManager.GetString("Settings_Shortcut_IncreaseRadii", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Increase radius.
+        /// </summary>
         internal static string Settings_Shortcut_IncreaseRadius {
             get {
                 return ResourceManager.GetString("Settings_Shortcut_IncreaseRadius", resourceCulture);
@@ -927,7 +963,7 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Increase shift.
+        ///   Ищет локализованную строку, похожую на Increase offset.
         /// </summary>
         internal static string Settings_Shortcut_IncreaseShift {
             get {
@@ -936,7 +972,7 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Invert shift.
+        ///   Ищет локализованную строку, похожую на Switch creation side.
         /// </summary>
         internal static string Settings_Shortcut_InvertShift {
             get {

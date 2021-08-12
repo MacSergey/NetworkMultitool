@@ -397,8 +397,14 @@ Alt для перемещения в 100 раз медленнее</value>
 - Исправлена подсветка в подземном режиме.
 - Добавлены переводы на венгерский и корейский.</value>
   </data>
+  <data name="Settings_ActivationShortcuts" xml:space="preserve">
+    <value>Горячие клавиши активации</value>
+  </data>
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>Автоматически скрывать панель выбора режимов</value>
+  </data>
+  <data name="Settings_CommonShortcuts" xml:space="preserve">
+    <value>Общие горячие клавиши режимов</value>
   </data>
   <data name="Settings_PanelColumns" xml:space="preserve">
     <value>Количество колонок на панели</value>
@@ -415,8 +421,11 @@ Alt для перемещения в 100 раз медленнее</value>
   <data name="Settings_Shortcut_DecreaseOneRadius" xml:space="preserve">
     <value>Уменьшить один радиус</value>
   </data>
-  <data name="Settings_Shortcut_DecreaseRadius" xml:space="preserve">
+  <data name="Settings_Shortcut_DecreaseRadii" xml:space="preserve">
     <value>Уменьшить радиусы</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseRadius" xml:space="preserve">
+    <value>Уменьшить радиус</value>
   </data>
   <data name="Settings_Shortcut_DecreaseShift" xml:space="preserve">
     <value>Уменьшить отступ</value>
@@ -427,8 +436,11 @@ Alt для перемещения в 100 раз медленнее</value>
   <data name="Settings_Shortcut_IncreaseOneRadius" xml:space="preserve">
     <value>Увеличить один радиус</value>
   </data>
-  <data name="Settings_Shortcut_IncreaseRadius" xml:space="preserve">
+  <data name="Settings_Shortcut_IncreaseRadii" xml:space="preserve">
     <value>Увеличить радиусы</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseRadius" xml:space="preserve">
+    <value>Увеличить радиус</value>
   </data>
   <data name="Settings_Shortcut_IncreaseShift" xml:space="preserve">
     <value>Увеличить отступ</value>

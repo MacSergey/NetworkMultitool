@@ -366,9 +366,11 @@ bloccarlo o sbloccarlo</value>
     <value>Molti strumenti diversi per lavorare con le reti</value>
   </data>
   
+  
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>Nascondi automaticamente il pannello modalità</value>
   </data>
+  
   
   <data name="Settings_SegmentLength" xml:space="preserve">
     <value>Lunghezza Massima Del Segmento</value>
@@ -382,9 +384,8 @@ bloccarlo o sbloccarlo</value>
   <data name="Settings_Shortcut_DecreaseOneRadius" xml:space="preserve">
     <value>Diminuisci un raggio</value>
   </data>
-  <data name="Settings_Shortcut_DecreaseRadius" xml:space="preserve">
-    <value>Diminuisci raggi</value>
-  </data>
+  
+  
   
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
     <value>Aumenta spostamento inizio cerchio</value>
@@ -392,9 +393,8 @@ bloccarlo o sbloccarlo</value>
   <data name="Settings_Shortcut_IncreaseOneRadius" xml:space="preserve">
     <value>Aumenta un raggio</value>
   </data>
-  <data name="Settings_Shortcut_IncreaseRadius" xml:space="preserve">
-    <value>Aumenta i raggi</value>
-  </data>
+  
+  
   
   
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">

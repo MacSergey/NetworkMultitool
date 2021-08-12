@@ -373,9 +373,11 @@ Alt를 꾹 눌러 100배 정교하게</value>
     <value>네트워크를 위한 여러 가지 도구</value>
   </data>
   
+  
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>모드 패널 자동으로 숨김</value>
   </data>
+  
   <data name="Settings_PanelColumns" xml:space="preserve">
     <value>패널 열 갯수</value>
   </data>
@@ -391,9 +393,8 @@ Alt를 꾹 눌러 100배 정교하게</value>
   <data name="Settings_Shortcut_DecreaseOneRadius" xml:space="preserve">
     <value>반경 1개 감소</value>
   </data>
-  <data name="Settings_Shortcut_DecreaseRadius" xml:space="preserve">
-    <value>반경 감소</value>
-  </data>
+  
+  
   
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
     <value>원 시작 오프셋 증가</value>
@@ -401,9 +402,8 @@ Alt를 꾹 눌러 100배 정교하게</value>
   <data name="Settings_Shortcut_IncreaseOneRadius" xml:space="preserve">
     <value>반경 1개 증가</value>
   </data>
-  <data name="Settings_Shortcut_IncreaseRadius" xml:space="preserve">
-    <value>반경 증가</value>
-  </data>
+  
+  
   
   
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">

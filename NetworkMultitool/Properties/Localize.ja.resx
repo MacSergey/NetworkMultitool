@@ -367,9 +367,11 @@ Altキー押下 - x100遅く移動</value>
     <value>ネットワークを操作するための十徳ナイフのようなツール</value>
   </data>
   
+  
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>自動的にUIパネルを折り畳む</value>
   </data>
+  
   <data name="Settings_PanelColumns" xml:space="preserve">
     <value>パネルの列数</value>
   </data>
@@ -385,9 +387,8 @@ Altキー押下 - x100遅く移動</value>
   <data name="Settings_Shortcut_DecreaseOneRadius" xml:space="preserve">
     <value>半径を1回だけ縮小</value>
   </data>
-  <data name="Settings_Shortcut_DecreaseRadius" xml:space="preserve">
-    <value>半径を縮小</value>
-  </data>
+  
+  
   
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
     <value>カーブ開始前のオフセットを縮める</value>
@@ -395,9 +396,8 @@ Altキー押下 - x100遅く移動</value>
   <data name="Settings_Shortcut_IncreaseOneRadius" xml:space="preserve">
     <value>半径を1回だけ拡大</value>
   </data>
-  <data name="Settings_Shortcut_IncreaseRadius" xml:space="preserve">
-    <value>半径を拡大</value>
-  </data>
+  
+  
   
   
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">

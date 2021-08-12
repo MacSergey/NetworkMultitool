@@ -300,6 +300,8 @@ Houd Alt om met X100 langzamer te bewegen</value>
   
   
   
+  
+  
   <data name="Settings_SegmentLength" xml:space="preserve">
     <value>Maximale Segmentlengte</value>
   </data>
@@ -308,17 +310,15 @@ Houd Alt om met X100 langzamer te bewegen</value>
   <data name="Settings_Shortcut_DecreaseOneRadius" xml:space="preserve">
     <value>Verlaag één straal</value>
   </data>
-  <data name="Settings_Shortcut_DecreaseRadius" xml:space="preserve">
-    <value>Verlaag de stralen</value>
-  </data>
+  
+  
   
   
   <data name="Settings_Shortcut_IncreaseOneRadius" xml:space="preserve">
     <value>Verhoog één straal</value>
   </data>
-  <data name="Settings_Shortcut_IncreaseRadius" xml:space="preserve">
-    <value>Verhoog de stralen</value>
-  </data>
+  
+  
   
   
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">

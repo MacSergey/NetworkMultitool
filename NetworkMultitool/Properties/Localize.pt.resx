@@ -320,13 +320,17 @@ porque não está ligado a outros</value>
     <value>Muitas ferramentas diferentes para trabalhar com redes</value>
   </data>
   
+  
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>Ocultar automaticamente o painel de modos</value>
   </data>
   
+  
   <data name="Settings_SegmentLength" xml:space="preserve">
     <value>Comprimento máximo do segmento</value>
   </data>
+  
+  
   
   
   

@@ -366,9 +366,11 @@ Clic con la tecla "Mayús" para separar el nodo y establecer el alto del origen<
     <value>Conjunto de herramientas diferentes para trabajar con redes</value>
   </data>
   
+  
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>Esconder panel de modos automáticamente</value>
   </data>
+  
   <data name="Settings_PanelColumns" xml:space="preserve">
     <value>Número de columnas del panel</value>
   </data>
@@ -384,9 +386,8 @@ Clic con la tecla "Mayús" para separar el nodo y establecer el alto del origen<
   <data name="Settings_Shortcut_DecreaseOneRadius" xml:space="preserve">
     <value>Disminuir un radio</value>
   </data>
-  <data name="Settings_Shortcut_DecreaseRadius" xml:space="preserve">
-    <value>Disminuir radio</value>
-  </data>
+  
+  
   
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
     <value>Incrementar el desplazamiento de curva</value>
@@ -394,9 +395,8 @@ Clic con la tecla "Mayús" para separar el nodo y establecer el alto del origen<
   <data name="Settings_Shortcut_IncreaseOneRadius" xml:space="preserve">
     <value>Incrementar un radio</value>
   </data>
-  <data name="Settings_Shortcut_IncreaseRadius" xml:space="preserve">
-    <value>Incrementar radio</value>
-  </data>
+  
+  
   
   
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">

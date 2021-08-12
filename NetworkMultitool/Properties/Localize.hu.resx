@@ -359,9 +359,11 @@ zároláshoz vagy feloldáshoz</value>
     <value>Sokféle eszköz a hálózatokkal való munkavégzéshez</value>
   </data>
   
+  
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>Mód panel automatikus elrejtése</value>
   </data>
+  
   
   <data name="Settings_SegmentLength" xml:space="preserve">
     <value>Maximális szegmens hossz</value>
@@ -375,9 +377,8 @@ zároláshoz vagy feloldáshoz</value>
   <data name="Settings_Shortcut_DecreaseOneRadius" xml:space="preserve">
     <value>Az egyik sugár csökkentése</value>
   </data>
-  <data name="Settings_Shortcut_DecreaseRadius" xml:space="preserve">
-    <value>Sugár csökkentése</value>
-  </data>
+  
+  
   
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
     <value>A görbe kezdési eltolásának növelése</value>
@@ -385,9 +386,8 @@ zároláshoz vagy feloldáshoz</value>
   <data name="Settings_Shortcut_IncreaseOneRadius" xml:space="preserve">
     <value>Az egyik sugár növelése</value>
   </data>
-  <data name="Settings_Shortcut_IncreaseRadius" xml:space="preserve">
-    <value>Sugár növelése</value>
-  </data>
+  
+  
   
   
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">

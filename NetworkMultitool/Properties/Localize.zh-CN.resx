@@ -365,9 +365,11 @@
     <value>修改道路网络的许多小工具</value>
   </data>
   
+  
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>自动隐藏模式面板</value>
   </data>
+  
   <data name="Settings_PanelColumns" xml:space="preserve">
     <value>面板栏数</value>
   </data>
@@ -383,9 +385,8 @@
   <data name="Settings_Shortcut_DecreaseOneRadius" xml:space="preserve">
     <value>减少一个半径</value>
   </data>
-  <data name="Settings_Shortcut_DecreaseRadius" xml:space="preserve">
-    <value>减少半径</value>
-  </data>
+  
+  
   
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
     <value>增加圆形起点偏移</value>
@@ -393,9 +394,8 @@
   <data name="Settings_Shortcut_IncreaseOneRadius" xml:space="preserve">
     <value>增大一个半径</value>
   </data>
-  <data name="Settings_Shortcut_IncreaseRadius" xml:space="preserve">
-    <value>增大半径</value>
-  </data>
+  
+  
   
   
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">

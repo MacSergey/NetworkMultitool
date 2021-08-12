@@ -14,6 +14,8 @@ namespace NetworkMultitool
 {
     public class CreateConnectionMode : BaseCreateConnectionMode
     {
+        public static NetworkMultitoolShortcut IncreaseRadiiShortcut { get; } = GetShortcut(KeyCode.Equals, nameof(IncreaseRadiiShortcut), nameof(Localize.Settings_Shortcut_IncreaseRadii), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as CreateConnectionMode)?.IncreaseRadius(), ToolModeType.Create, repeat: true, ignoreModifiers: true);
+        public static NetworkMultitoolShortcut DecreaseRadiiShortcut { get; } = GetShortcut(KeyCode.Minus, nameof(DecreaseRadiiShortcut), nameof(Localize.Settings_Shortcut_DecreaseRadii), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as CreateConnectionMode)?.DecreaseRadius(), ToolModeType.Create, repeat: true, ignoreModifiers: true);
         public static NetworkMultitoolShortcut SwitchSelectShortcut { get; } = GetShortcut(KeyCode.Tab, nameof(SwitchSelectShortcut), nameof(Localize.Settings_Shortcut_SwitchSelect), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as CreateConnectionMode)?.SwitchSelectRadius());
         public static NetworkMultitoolShortcut IncreaseOneRadiusShortcut { get; } = GetShortcut(KeyCode.RightBracket, nameof(IncreaseOneRadiusShortcut), nameof(Localize.Settings_Shortcut_IncreaseOneRadius), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as CreateConnectionMode)?.IncreaseOneRadius(), ToolModeType.CreateConnection, repeat: true, ignoreModifiers: true);
         public static NetworkMultitoolShortcut DecreaseOneRadiusShortcut { get; } = GetShortcut(KeyCode.LeftBracket, nameof(DecreaseOneRadiusShortcut), nameof(Localize.Settings_Shortcut_DecreaseOneRadius), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as CreateConnectionMode)?.DecreaseOneRadius(), ToolModeType.CreateConnection, repeat: true, ignoreModifiers: true);
@@ -26,8 +28,9 @@ namespace NetworkMultitool
         {
             get
             {
-                foreach (var shortcut in base.Shortcuts)
-                    yield return shortcut;
+                yield return ApplyShortcut;
+                yield return IncreaseRadiiShortcut;
+                yield return DecreaseRadiiShortcut;
 
                 yield return SwitchSelectShortcut;
                 yield return IncreaseOneRadiusShortcut;
@@ -95,7 +98,7 @@ namespace NetworkMultitool
                 if (Time.realtimeSinceStartup - PosTime >= 2f)
                 {
                     text += "\n\n" +
-                    string.Format(Localize.Mode_Info_ChangeBothRadius, DecreaseRadiusShortcut, IncreaseRadiusShortcut) + "\n" +
+                    string.Format(Localize.Mode_Info_ChangeBothRadius, DecreaseRadiiShortcut, IncreaseRadiiShortcut) + "\n" +
                     string.Format(Localize.Mode_Info_ChangeCircle, SwitchSelectShortcut) + "\n" +
                     string.Format(Localize.Mode_Info_ChangeOneRadius, DecreaseOneRadiusShortcut, IncreaseOneRadiusShortcut) + "\n" +
                     string.Format(Localize.Mode_Info_SwitchOffset, SwitchOffsetShortcut) + "\n" +

@@ -365,9 +365,11 @@ oder Entsperren auswählen</value>
     <value>Viele verschiedene Werkzeuge für die Arbeit mit Netzwerken</value>
   </data>
   
+  
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>Panel automatisch ausblenden</value>
   </data>
+  
   
   <data name="Settings_SegmentLength" xml:space="preserve">
     <value>Maximale Segmentlänge</value>
@@ -381,9 +383,8 @@ oder Entsperren auswählen</value>
   <data name="Settings_Shortcut_DecreaseOneRadius" xml:space="preserve">
     <value>Einen Radius verkleinern</value>
   </data>
-  <data name="Settings_Shortcut_DecreaseRadius" xml:space="preserve">
-    <value>Radien verkleinern</value>
-  </data>
+  
+  
   
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
     <value>Abstand des Start-Kreises vergrößern</value>
@@ -391,9 +392,8 @@ oder Entsperren auswählen</value>
   <data name="Settings_Shortcut_IncreaseOneRadius" xml:space="preserve">
     <value>Einen Radius vergrößern</value>
   </data>
-  <data name="Settings_Shortcut_IncreaseRadius" xml:space="preserve">
-    <value>Radien vergrößern</value>
-  </data>
+  
+  
   
   
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
