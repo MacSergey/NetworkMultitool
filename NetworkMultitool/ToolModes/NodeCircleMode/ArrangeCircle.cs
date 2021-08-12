@@ -31,22 +31,72 @@ namespace NetworkMultitool
         {
             base.Complite();
 
-            var center = Vector3.zero;
-            foreach (var node in Nodes)
-            {
-                var pos = node.Id.GetNode().m_position.MakeFlat();
-                center += pos;
-            }
-            Center = center / Nodes.Count;
+            var points = Nodes.Select(n => n.Id.GetNode().m_position).ToArray();
 
-            var radius = 0f;
-            foreach (var node in Nodes)
+            var centre = Vector3.zero;
+            var radius = 1000f;
+
+            for (var i = 0; i < points.Length; i += 1)
             {
-                var pos = node.Id.GetNode().m_position.MakeFlat();
-                var magnitude = (Center - pos).magnitude;
-                radius += magnitude;
+                for (var j = i + 1; j < points.Length; j += 1)
+                {
+                    GetCircle2Points(points, i, j, ref centre, ref radius);
+
+                    for (var k = j + 1; k < points.Length; k += 1)
+                        GetCircle3Points(points, i, j, k, ref centre, ref radius);
+                }
             }
-            Radius = radius / Nodes.Count;
+
+            Center = centre;
+            Radius = radius;
+        }
+        private void GetCircle2Points(Vector3[] points, int i, int j, ref Vector3 centre, ref float radius)
+        {
+            var newCentre = (points[i] + points[j]) / 2;
+            var newRadius = (points[i] - points[j]).magnitude / 2;
+
+            if (newRadius >= radius)
+                return;
+
+            if (AllPointsInCircle(points, newCentre, newRadius, i, j))
+            {
+                centre = newCentre;
+                radius = newRadius;
+            }
+        }
+        private void GetCircle3Points(Vector3[] points, int i, int j, int k, ref Vector3 centre, ref float radius)
+        {
+            var pos1 = (points[i] + points[j]) / 2;
+            var pos2 = (points[j] + points[k]) / 2;
+
+            var dir1 = (points[i] - points[j]).Turn90(true).normalized;
+            var dir2 = (points[j] - points[k]).Turn90(true).normalized;
+
+            Line2.Intersect(XZ(pos1), XZ(pos1 + dir1), XZ(pos2), XZ(pos2 + dir2), out float p, out _);
+            var newCentre = pos1 + dir1 * p;
+            var newRadius = (newCentre - points[i]).magnitude;
+
+            if (newRadius >= radius)
+                return;
+
+            if (AllPointsInCircle(points, newCentre, newRadius, i, j, k))
+            {
+                centre = newCentre;
+                radius = newRadius;
+            }
+        }
+        private bool AllPointsInCircle(Vector3[] points, Vector3 centre, float radius, params int[] ignore)
+        {
+            for (var i = 0; i < points.Length; i += 1)
+            {
+                if (ignore.Any(j => j == i))
+                    continue;
+
+                if ((centre - points[i]).magnitude > radius)
+                    return false;
+            }
+
+            return true;
         }
         protected override void Apply()
         {
