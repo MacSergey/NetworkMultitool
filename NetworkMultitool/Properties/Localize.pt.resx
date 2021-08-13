@@ -196,6 +196,7 @@ ao mesmo tempo</value>
   </data>
   
   
+  
   <data name="Mode_Info_ArrangeCircle_PressToReset" xml:space="preserve">
     <value>Pressione {0} para redefinir os parâmetros</value>
   </data>
@@ -397,6 +398,7 @@ porque não está ligado a outros</value>
   <data name="Settings_Shortcut_DecreaseShift" xml:space="preserve">
     <value>Diminuir deslocamento</value>
   </data>
+  
   
   
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">

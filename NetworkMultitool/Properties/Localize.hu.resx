@@ -196,6 +196,7 @@ Alt-ot nyomva tartva 100x lassabb a mozgatás</value>
   
   
   
+  
   <data name="Mode_Info_ChangeAllRadius" xml:space="preserve">
     <value>Nyomj {0}-t vagy {1}-t minden sugár változtatásához</value>
   </data>
@@ -395,6 +396,7 @@ zároláshoz vagy feloldáshoz</value>
   <data name="Settings_Shortcut_DecreaseOneRadius" xml:space="preserve">
     <value>Az egyik sugár csökkentése</value>
   </data>
+  
   
   
   

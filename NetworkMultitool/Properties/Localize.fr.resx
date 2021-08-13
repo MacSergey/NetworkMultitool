@@ -225,6 +225,7 @@ les nœuds entre les intersections</value>
     <value>Appuyez sur {0} pour répartir uniformément
 les nœuds sur le cercle</value>
   </data>
+  
   <data name="Mode_Info_ArrangeCircle_PressToReset" xml:space="preserve">
     <value>Appuyez sur {0} pour réinitialiser les paramètres</value>
   </data>
@@ -495,6 +496,7 @@ verrouiller ou déverrouiller</value>
   <data name="Settings_Shortcut_DistributeEvenly" xml:space="preserve">
     <value>Répartir uniformément les nœuds sur le cercle</value>
   </data>
+  
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
     <value>Augmenter le décalage de début de la courbe</value>
   </data>

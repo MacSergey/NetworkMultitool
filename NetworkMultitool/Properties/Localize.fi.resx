@@ -196,6 +196,7 @@ Pidä Alt pohjassa siirtääksesi X100 hitaammin</value>
   
   
   
+  
   <data name="Mode_Info_ChangeAllRadius" xml:space="preserve">
     <value>Muuta kaikkia säteitä painamalla {0} tai {1}</value>
   </data>
@@ -394,6 +395,7 @@ tai avataksesi se</value>
   <data name="Settings_Shortcut_DecreaseOneRadius" xml:space="preserve">
     <value>Pienennä sädettä</value>
   </data>
+  
   
   
   

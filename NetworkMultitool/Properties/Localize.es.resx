@@ -225,6 +225,10 @@ de manera uniforme entre las intersecciones</value>
     <value>Pulsa {0} para distribuir los nodos 
 de manera uniforme en el círculo</value>
   </data>
+  <data name="Mode_Info_ArrangeCircle_PressToDistributeIntersections" xml:space="preserve">
+    <value>Pulsa {0} para distribuir los nodos 
+de manera uniforme en el círculo</value>
+  </data>
   <data name="Mode_Info_ArrangeCircle_PressToReset" xml:space="preserve">
     <value>Pulsa {0} para restablecer los parámetros</value>
   </data>
@@ -469,6 +473,9 @@ Clic con la tecla "Mayús" para separar el nodo y establecer el alto del origen<
     <value>Distribuir los nodos de manera uniforme entre las intersecciones</value>
   </data>
   <data name="Settings_Shortcut_DistributeEvenly" xml:space="preserve">
+    <value>Distribuir los nodos de manera uniforme en el círculo</value>
+  </data>
+  <data name="Settings_Shortcut_DistributeIntersections" xml:space="preserve">
     <value>Distribuir los nodos de manera uniforme en el círculo</value>
   </data>
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">

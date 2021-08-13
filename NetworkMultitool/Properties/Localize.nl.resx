@@ -186,6 +186,7 @@ Houd Alt om met X100 langzamer te bewegen</value>
   
   
   
+  
   <data name="Mode_Info_ChangeAllRadius" xml:space="preserve">
     <value>Druk {0} of {1} om de straal te veranderen</value>
   </data>
@@ -328,6 +329,7 @@ Houd Alt om met X100 langzamer te bewegen</value>
   <data name="Settings_Shortcut_DecreaseOneRadius" xml:space="preserve">
     <value>Verlaag één straal</value>
   </data>
+  
   
   
   

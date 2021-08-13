@@ -226,6 +226,10 @@ Alt для перемещения в 100 раз медленнее</value>
     <value>Нажмите {0} чтобы распределить
 узлы равномерно по кругу</value>
   </data>
+  <data name="Mode_Info_ArrangeCircle_PressToDistributeIntersections" xml:space="preserve">
+    <value>Нажмите {0} чтобы распределить
+перекрестки равномерно по кругу</value>
+  </data>
   <data name="Mode_Info_ArrangeCircle_PressToReset" xml:space="preserve">
     <value>Нажмите {0} для сброса параметров</value>
   </data>
@@ -493,6 +497,9 @@ Alt для перемещения в 100 раз медленнее</value>
   </data>
   <data name="Settings_Shortcut_DistributeEvenly" xml:space="preserve">
     <value>Распределение узлов равномерно по кругу</value>
+  </data>
+  <data name="Settings_Shortcut_DistributeIntersections" xml:space="preserve">
+    <value>Распределение перекрестков равномерно по кругу</value>
   </data>
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
     <value>Увеличить отступ начала кривой</value>

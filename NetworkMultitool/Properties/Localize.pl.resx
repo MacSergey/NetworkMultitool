@@ -203,6 +203,7 @@ Przytrzymaj Alt, aby przesuwać 100x wolniej</value>
   
   
   
+  
   <data name="Mode_Info_ChangeAllRadius" xml:space="preserve">
     <value>Naciśnij {0} lub {1} aby zmienić wszystkie promienie</value>
   </data>
@@ -424,6 +425,7 @@ Naciśnij trzymając Shift aby podzielić węzeł i wyrównać do wysokości źr
   <data name="Settings_Shortcut_DecreaseShift" xml:space="preserve">
     <value>Zmniejsz przesunięcie</value>
   </data>
+  
   
   
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">

@@ -191,19 +191,51 @@ Tieni premuto Alt per spostare X100 più lento</value>
   <data name="Mode_Info_Apply" xml:space="preserve">
     <value>Premi {0} per applicare</value>
   </data>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+  <data name="Mode_Info_ArrangeCircle_Apply" xml:space="preserve">
+    <value>Premi {0} per regolare cerchio</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_BigDelta" xml:space="preserve">
+    <value>Angolo troppo grande tra i nodi
+la forma rotonda non sarà perfetta</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_DoubleClickToResetCenter" xml:space="preserve">
+    <value>Doppio clic per reimpostare la posizione del centro</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_DoubleClickToResetNode" xml:space="preserve">
+    <value>Doppio clic per reimpostare la posizione del nodo</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_DragToChangeRadius" xml:space="preserve">
+    <value>Trascina per cambiare la rotazione</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_DragToMoveCenter" xml:space="preserve">
+    <value>Trascina per spostare il cerchio</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_DragToMoveNode" xml:space="preserve">
+    <value>Trascina per spostare il nodo</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_MoveAll" xml:space="preserve">
+    <value>Tieni premuto Maiusc per spostare tutti i nodi
+allo stesso tempo</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_PressToDistributeBetweenIntersections" xml:space="preserve">
+    <value>Premi {0} per distribuire i nodi
+in modo uniforme tra le intersezioni</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_PressToDistributeEvenly" xml:space="preserve">
+    <value>Premi {0} per distribuire i nodi in modo uniforme sul cerchio</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_PressToDistributeIntersections" xml:space="preserve">
+    <value>Premi {0} per distribuire le intersezioni in modo uniforme sul cerchio</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_PressToReset" xml:space="preserve">
+    <value>Premi {0} per reimpostare i parametri</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_WrongOrder" xml:space="preserve">
+    <value>Ordine dei nodi errato</value>
+  </data>
+  <data name="Mode_Info_ArrangeLine_Apply" xml:space="preserve">
+    <value>Premi {0} per regolare alla linea</value>
+  </data>
   <data name="Mode_Info_ChangeAllRadius" xml:space="preserve">
     <value>Premi {0} o {1} per modificare tutti i raggi</value>
   </data>
@@ -243,21 +275,27 @@ Tieni premuto Alt per spostare X100 più lento</value>
   <data name="Mode_Info_ClickUnselectNode" xml:space="preserve">
     <value>Clicca per deselezionare il nodo</value>
   </data>
-  
+  <data name="Mode_Info_Connection_Create" xml:space="preserve">
+    <value>Premi {0} per creare una connessione</value>
+  </data>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Premi {0} per creare</value>
   </data>
   <data name="Mode_Info_CreateBezier_MoveGiude" xml:space="preserve">
     <value>Sposta le guide della curva di Bezier per cambiare forma</value>
   </data>
-  
+  <data name="Mode_Info_Loop_Create" xml:space="preserve">
+    <value>Premi {0} per cambiare ciclo</value>
+  </data>
   <data name="Mode_Info_OutOfMap" xml:space="preserve">
     <value>Fuori dalla mappa</value>
   </data>
   <data name="Mode_Info_Parallel_ChangeShift" xml:space="preserve">
     <value>Premi {0} per cambiare il lato della creazione</value>
   </data>
-  
+  <data name="Mode_Info_Parallel_Create" xml:space="preserve">
+    <value>Premi {0} per creare parallele</value>
+  </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
     <value>Raggio troppo grande</value>
   </data>
@@ -273,7 +311,9 @@ Tieni premuto Alt per spostare X100 più lento</value>
   <data name="Mode_Info_SelectSegment" xml:space="preserve">
     <value>Seleziona un segmento</value>
   </data>
-  
+  <data name="Mode_Info_Slope_Apply" xml:space="preserve">
+    <value>Premi {0} per applicare la pendenza</value>
+  </data>
   <data name="Mode_Info_Step" xml:space="preserve">
     <value>Maiusc - X10, Ctrl - X0.1, Alt - X0.01</value>
   </data>
@@ -405,7 +445,9 @@ bloccarlo o sbloccarlo</value>
   <data name="Settings_PanelColumns" xml:space="preserve">
     <value>Pannello Numero colonne</value>
   </data>
-  
+  <data name="Settings_PlayEffects" xml:space="preserve">
+    <value>Riproduci effetti sonori e visivi</value>
+  </data>
   <data name="Settings_SegmentLength" xml:space="preserve">
     <value>Lunghezza Massima Del Segmento</value>
   </data>
@@ -427,8 +469,15 @@ bloccarlo o sbloccarlo</value>
   <data name="Settings_Shortcut_DecreaseShift" xml:space="preserve">
     <value>Diminuisci spostamento</value>
   </data>
-  
-  
+  <data name="Settings_Shortcut_DistributeBetweenIntersections" xml:space="preserve">
+    <value>Distribuisci i nodi in modo uniforme tra le intersezioni</value>
+  </data>
+  <data name="Settings_Shortcut_DistributeEvenly" xml:space="preserve">
+    <value>Distribuisci i nodi in modo uniforme sul cerchio</value>
+  </data>
+  <data name="Settings_Shortcut_DistributeIntersections" xml:space="preserve">
+    <value>Distribuisci le intersezioni in modo uniforme sul cerchio</value>
+  </data>
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
     <value>Aumenta spostamento inizio cerchio</value>
   </data>
@@ -447,7 +496,9 @@ bloccarlo o sbloccarlo</value>
   <data name="Settings_Shortcut_InvertShift" xml:space="preserve">
     <value>Cambia lato di creazione</value>
   </data>
-  
+  <data name="Settings_Shortcut_ResetArrangeCircle" xml:space="preserve">
+    <value>Ripristina al cerchio predefinito</value>
+  </data>
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
     <value>Cambia direzione ciclo</value>
   </data>

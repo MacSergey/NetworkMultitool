@@ -118,17 +118,17 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Mode_AddNode" xml:space="preserve">
-    <value>Tilføj note</value>
+    <value>Tilføj ny node</value>
   </data>
   <data name="Mode_AddNode_Info_ClickToAdd" xml:space="preserve">
-    <value>Klik for at tilføje noter</value>
+    <value>Klik for at tilføje node</value>
   </data>
   <data name="Mode_AddNode_Info_SelectToAdd" xml:space="preserve">
-    <value>Vælg område for at tilføje note</value>
+    <value>Vælg element for at tilføje note</value>
   </data>
   <data name="Mode_AddNode_Info_TooCloseNode" xml:space="preserve">
-    <value>Kan ikke tilføje note
-For tæt på nærliggende note</value>
+    <value>Kan ikke tilføje node
+For tæt på nærliggende node</value>
   </data>
   <data name="Mode_AngleFormat" xml:space="preserve">
     <value>{0}°</value>
@@ -221,6 +221,10 @@ jævnt mellem kryds</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_PressToDistributeEvenly" xml:space="preserve">
     <value>Tryk på {0} for at distribuere noder jævnt på cirklen</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_PressToDistributeIntersections" xml:space="preserve">
+    <value>Tryk {0} for at fordele
+skæringspunkter jævnt på cirkel</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_PressToReset" xml:space="preserve">
     <value>Tryk på {0} for at nulstille parametrene</value>
@@ -381,48 +385,138 @@ Klik med Shift for at opdele node og justere til kildehøjde</value>
   <data name="Mode_SplitNode_Info_SelectToSplit" xml:space="preserve">
     <value>Udvælg indlæg der skal deles</value>
   </data>
+  <data name="Mode_SplitNode_Info_TooFar" xml:space="preserve">
+    <value>Position er for langt fra source node</value>
+  </data>
+  <data name="Mode_UnionNode" xml:space="preserve">
+    <value>Sammenkæd nodes</value>
+  </data>
+  <data name="Mode_UnionNode_Info_ClickSource" xml:space="preserve">
+    <value>Klik for at vælge source node</value>
+  </data>
+  <data name="Mode_UnionNode_Info_ClickUnion" xml:space="preserve">
+    <value>Klik for at forene noder</value>
+  </data>
+  <data name="Mode_UnionNode_Info_NoCommon" xml:space="preserve">
+    <value>Disse nodes har fælles elementer</value>
+  </data>
+  <data name="Mode_UnionNode_Info_Overflow" xml:space="preserve">
+    <value>Samlet antal nodes må ikke være mere end 8</value>
+  </data>
+  <data name="Mode_UnionNode_Info_SelectSource" xml:space="preserve">
+    <value>Vælg kilde node</value>
+  </data>
+  <data name="Mode_UnionNode_Info_SelectTarget" xml:space="preserve">
+    <value>Vælg slut node</value>
+  </data>
+  <data name="Mode_UnionNode_Info_TooFar" xml:space="preserve">
+    <value>Noder for langt fra hinanden</value>
+  </data>
+  <data name="Mode_UnlockSegment" xml:space="preserve">
+    <value>Oplås element tilstand</value>
+  </data>
+  <data name="Mode_UnlockSegment_Info_ChangeLock" xml:space="preserve">
+    <value>Vælg element for at
+låse eller låse det op</value>
+  </data>
+  <data name="Mode_UnlockSegment_Info_ClickToLock" xml:space="preserve">
+    <value>Klik for at låse dette element</value>
+  </data>
+  <data name="Mode_UnlockSegment_Info_ClickToUnlock" xml:space="preserve">
+    <value>Klik for at låse dette element op</value>
+  </data>
+  <data name="Mod_Description" xml:space="preserve">
+    <value>Mange forskellige værktøjer til at arbejde med netværk</value>
+  </data>
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+  <data name="Settings_ActivationShortcuts" xml:space="preserve">
+    <value>Aktiveringsgenveje</value>
+  </data>
+  <data name="Settings_AutoHideModePanel" xml:space="preserve">
+    <value>Skjul tilstandspanelet automatisk</value>
+  </data>
+  <data name="Settings_CommonShortcuts" xml:space="preserve">
+    <value>Almindelige genveje for tilstandene</value>
+  </data>
+  <data name="Settings_PanelColumns" xml:space="preserve">
+    <value>Antal kolonner i panel</value>
+  </data>
+  <data name="Settings_PlayEffects" xml:space="preserve">
+    <value>Afspil lyd- og visuelle effekter</value>
+  </data>
+  <data name="Settings_SegmentLength" xml:space="preserve">
+    <value>Maks Element længde</value>
+  </data>
+  <data name="Settings_Shortcut_Apply" xml:space="preserve">
+    <value>Anvend tilstand</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseOffset" xml:space="preserve">
+    <value>Reducer cirklens start forskydning</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseOneRadius" xml:space="preserve">
+    <value>Formindsk én radius</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseRadii" xml:space="preserve">
+    <value>Formindsk radier</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseRadius" xml:space="preserve">
+    <value>Formindsk radius</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseShift" xml:space="preserve">
+    <value>Formindsk offset</value>
+  </data>
+  <data name="Settings_Shortcut_DistributeBetweenIntersections" xml:space="preserve">
+    <value>Tryk på for at fordele noder jævnt mellem kryds</value>
+  </data>
+  <data name="Settings_Shortcut_DistributeEvenly" xml:space="preserve">
+    <value>Fordel noder jævnt på cirkel</value>
+  </data>
+  <data name="Settings_Shortcut_DistributeIntersections" xml:space="preserve">
+    <value>Fordel kryds jævnt på cirkel</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
+    <value>Forøg cirklens startforskydning</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseOneRadius" xml:space="preserve">
+    <value>Forøg en radius</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseRadii" xml:space="preserve">
+    <value>Forøg radier</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseRadius" xml:space="preserve">
+    <value>Forøg radius</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseShift" xml:space="preserve">
+    <value>Forøg forskydning</value>
+  </data>
+  <data name="Settings_Shortcut_InvertShift" xml:space="preserve">
+    <value>Skift side for oprettelse</value>
+  </data>
+  <data name="Settings_Shortcut_ResetArrangeCircle" xml:space="preserve">
+    <value>Nulstil til standardcirkel</value>
+  </data>
+  <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
+    <value>Skift loop retning</value>
+  </data>
+  <data name="Settings_Shortcut_SwitchOffset" xml:space="preserve">
+    <value>Skift valgte forskydning</value>
+  </data>
+  <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
+    <value>Skift valgte cirkel</value>
+  </data>
+  <data name="Settings_SlopeUnit" xml:space="preserve">
+    <value>Skråningsenhed til måling</value>
+  </data>
+  <data name="Settings_SlopeUnitDegrees" xml:space="preserve">
+    <value>Grader</value>
+  </data>
+  <data name="Settings_SlopeUnitPercentages" xml:space="preserve">
+    <value>Procent</value>
+  </data>
+  <data name="Tool_RemoveNode_Info_ClickToRemove" xml:space="preserve">
+    <value>Slet</value>
+  </data>
+  <data name="Tool_RemoveNode_Info_Select" xml:space="preserve">
+    <value>Vælg node for at fjerne den</value>
+  </data>
 </root>

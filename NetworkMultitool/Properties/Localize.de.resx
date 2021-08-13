@@ -222,6 +222,7 @@ gleichmäßig zwischen den Kreuzungen zu verteilen</value>
   <data name="Mode_Info_ArrangeCircle_PressToDistributeEvenly" xml:space="preserve">
     <value>Drücke {0}, um die Netzwerk-Knoten gleichmäßig auf den Kreis zu verteilen</value>
   </data>
+  
   <data name="Mode_Info_ArrangeCircle_PressToReset" xml:space="preserve">
     <value>Drücke {0}, um die Parameter zurückzusetzen</value>
   </data>
@@ -453,6 +454,7 @@ oder Entsperren auswählen</value>
   <data name="Settings_Shortcut_DistributeEvenly" xml:space="preserve">
     <value>Netzwerk-Knoten gleichmäßig auf den Kreis verteilen</value>
   </data>
+  
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
     <value>Abstand des Start-Kreises vergrößern</value>
   </data>

@@ -224,6 +224,10 @@
   <data name="Mode_Info_ArrangeCircle_PressToDistributeEvenly" xml:space="preserve">
     <value>按下 {0} 在圆圈上平均分布节点</value>
   </data>
+  <data name="Mode_Info_ArrangeCircle_PressToDistributeIntersections" xml:space="preserve">
+    <value>按下 {0} 在圆圈上
+平均分布交叉口</value>
+  </data>
   <data name="Mode_Info_ArrangeCircle_PressToReset" xml:space="preserve">
     <value>按 {0} 重置参数</value>
   </data>
@@ -470,6 +474,9 @@
   </data>
   <data name="Settings_Shortcut_DistributeEvenly" xml:space="preserve">
     <value>在圆圈上平均分布节点</value>
+  </data>
+  <data name="Settings_Shortcut_DistributeIntersections" xml:space="preserve">
+    <value>在圆圈上平均分布交叉口</value>
   </data>
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
     <value>增加圆形起点偏移</value>

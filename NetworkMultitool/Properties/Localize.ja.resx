@@ -198,17 +198,34 @@ Altキー押下 - x100低速移動</value>
     <value>ノード間の角度が大きすぎます
 円の形状が完璧ではありません</value>
   </data>
-  
-  
-  
-  
-  
+  <data name="Mode_Info_ArrangeCircle_DoubleClickToResetCenter" xml:space="preserve">
+    <value>ダブルクリックで中心位置をリセット</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_DoubleClickToResetNode" xml:space="preserve">
+    <value>ダブルクリックでノード位置をリセット</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_DragToChangeRadius" xml:space="preserve">
+    <value>ドラッグして半径を変更</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_DragToMoveCenter" xml:space="preserve">
+    <value>ドラッグしてサークルを移動</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_DragToMoveNode" xml:space="preserve">
+    <value>ドラッグしてノードを移動</value>
+  </data>
   <data name="Mode_Info_ArrangeCircle_MoveAll" xml:space="preserve">
     <value>Shiftキーを押して
 全てのノードを同時に移動</value>
   </data>
-  
-  
+  <data name="Mode_Info_ArrangeCircle_PressToDistributeBetweenIntersections" xml:space="preserve">
+    <value>{0} で交差点間のノードを均等配置</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_PressToDistributeEvenly" xml:space="preserve">
+    <value>{0} で円周上にノードを均等配置</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_PressToDistributeIntersections" xml:space="preserve">
+    <value>{0} で交差点間の円周上で均等配置</value>
+  </data>
   <data name="Mode_Info_ArrangeCircle_PressToReset" xml:space="preserve">
     <value>{0} で設定をリセット</value>
   </data>
@@ -426,7 +443,9 @@ Altキー押下 - x100低速移動</value>
   <data name="Settings_PanelColumns" xml:space="preserve">
     <value>パネルの列数</value>
   </data>
-  
+  <data name="Settings_PlayEffects" xml:space="preserve">
+    <value>オーディオと視覚効果を再生</value>
+  </data>
   <data name="Settings_SegmentLength" xml:space="preserve">
     <value>セグメントの最大長</value>
   </data>
@@ -448,8 +467,15 @@ Altキー押下 - x100低速移動</value>
   <data name="Settings_Shortcut_DecreaseShift" xml:space="preserve">
     <value>オフセットを減少</value>
   </data>
-  
-  
+  <data name="Settings_Shortcut_DistributeBetweenIntersections" xml:space="preserve">
+    <value>交差点間のノードを均等配置</value>
+  </data>
+  <data name="Settings_Shortcut_DistributeEvenly" xml:space="preserve">
+    <value>円周上にノードを均等配置</value>
+  </data>
+  <data name="Settings_Shortcut_DistributeIntersections" xml:space="preserve">
+    <value>交差点間の円周上で均等配置</value>
+  </data>
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
     <value>カーブ開始前のオフセットを縮める</value>
   </data>
