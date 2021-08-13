@@ -1,4 +1,5 @@
-﻿using ColossalFramework.Math;
+﻿using ColossalFramework;
+using ColossalFramework.Math;
 using ModsCommon;
 using ModsCommon.Utilities;
 using System;
@@ -44,7 +45,15 @@ namespace NetworkMultitool
         public override void OnPrimaryMouseClicked(Event e)
         {
             if (IsHoverSegment && IsPossibleInsertNode)
-                InsertNode(HoverSegment.Id, InsertPosition);
+            {
+                var segmentId = HoverSegment.Id;
+                var position = InsertPosition;
+                SimulationManager.instance.AddAction(() =>
+                {
+                    InsertNode(segmentId, position);
+                    PlayEffect(new EffectInfo.SpawnArea(position, Vector3.zero, segmentId.GetSegment().Info.m_halfWidth), true);
+                });
+            }
         }
         public bool PossibleInsertNode(Vector3 position)
         {
@@ -60,7 +69,7 @@ namespace NetworkMultitool
 
             return true;
         }
-        private bool InsertNode(ushort segmentId, Vector3 position)
+        private static bool InsertNode(ushort segmentId, Vector3 position)
         {
             var segment = segmentId.GetSegment();
             segment.GetClosestPositionAndDirection(position, out var pos, out var dir);

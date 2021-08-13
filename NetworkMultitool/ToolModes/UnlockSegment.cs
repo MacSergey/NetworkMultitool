@@ -32,13 +32,22 @@ namespace NetworkMultitool
         {
             if(IsHoverSegment)
             {
-                ref var segment = ref HoverSegment.Id.GetSegment();
-
-                if (segment.m_flags.IsSet(NetSegment.Flags.Untouchable))
-                    segment.m_flags &= ~NetSegment.Flags.Untouchable;
-                else
-                    segment.m_flags |= NetSegment.Flags.Untouchable;
+                var segmentId = HoverSegment.Id;
+                SimulationManager.instance.AddAction(() =>
+                {
+                    ChangeLock(segmentId);
+                    PlaySegmentEffect(segmentId, true);
+                });
             }
+        }
+        private static void ChangeLock(ushort segmentId)
+        {
+            ref var segment = ref segmentId.GetSegment();
+
+            if (segment.m_flags.IsSet(NetSegment.Flags.Untouchable))
+                segment.m_flags &= ~NetSegment.Flags.Untouchable;
+            else
+                segment.m_flags |= NetSegment.Flags.Untouchable;
         }
     }
 }

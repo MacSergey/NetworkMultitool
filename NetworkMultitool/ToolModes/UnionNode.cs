@@ -79,7 +79,14 @@ namespace NetworkMultitool
                 Source = HoverNode;
             else if (IsCorrect)
             {
-                Union(Source.Id, Target.Id);
+                var sourceId = Source.Id;
+                var targetId = Target.Id;
+                SimulationManager.instance.AddAction(() =>
+                {
+                    Union(sourceId, targetId);
+                    PlayNodeEffect(targetId, true);
+                });
+
                 Reset(this);
             }
         }
@@ -117,7 +124,7 @@ namespace NetworkMultitool
         }
         protected override bool AllowRenderNear(ushort nodeId) => base.AllowRenderNear(nodeId) && (!IsSource || nodeId != Source.Id);
 
-        private bool Union(ushort sourceId, ushort targetId)
+        private static bool Union(ushort sourceId, ushort targetId)
         {
             var sourceNode = sourceId.GetNode();
             var segmentIds = sourceNode.SegmentIds().ToArray();

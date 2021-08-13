@@ -126,51 +126,59 @@ namespace NetworkMultitool
         {
             if (Nodes.Count >= 3)
             {
-                Arrange();
+                var nodeIds = Nodes.Select(n => n.Id).ToArray();
+                var firstGuide = FirstGuide;
+                var lastGuide = LastGuide;
+                SimulationManager.instance.AddAction(() =>
+                {
+                    Arrange(nodeIds, firstGuide, lastGuide);
+                    PlayAudio(true);
+                });
+
                 Reset(this);
             }
         }
 
-        private void Arrange()
+        private static void Arrange(ushort[] nodeIds, ushort firstGuideId, ushort lastGuideId)
         {
-            var segmentIds = new ushort[Nodes.Count - 1];
-            for (var i = 1; i < Nodes.Count; i += 1)
-                NetExtension.GetCommon(Nodes[i - 1].Id, Nodes[i].Id, out segmentIds[i - 1]);
+            var segmentIds = new ushort[nodeIds.Length - 1];
+            for (var i = 1; i < nodeIds.Length; i += 1)
+                NetExtension.GetCommon(nodeIds[i - 1], nodeIds[i], out segmentIds[i - 1]);
             var terrainRect = GetTerrainRect(segmentIds);
 
-            var trajectory = GetTrajectory();
-            var partLength = trajectory.Length / (Nodes.Count - 1);
+            var trajectory = GetTrajectory(nodeIds, firstGuideId, lastGuideId);
+            var partLength = trajectory.Length / (nodeIds.Length - 1);
             var ts = new List<float>() { 0f };
-            for (var i = 1; i < Nodes.Count - 1; i += 1)
+            for (var i = 1; i < nodeIds.Length - 1; i += 1)
                 ts.Add(trajectory.Travel(ts.Last(), partLength));
             ts.Add(1f);
 
-            for (var i = 1; i < Nodes.Count - 1; i += 1)
+            for (var i = 1; i < nodeIds.Length - 1; i += 1)
             {
                 var pos = trajectory.Position(ts[i]);
-                MoveNode(Nodes[i].Id, pos);
+                MoveNode(nodeIds[i], pos);
             }
-            for (var i = 0; i < Nodes.Count; i += 1)
+            for (var i = 0; i < nodeIds.Length; i += 1)
             {
                 var dir = trajectory.Tangent(ts[i]).normalized;
 
                 if (i != 0)
-                    SetSegmentDirection(Nodes[i].Id, Nodes[i - 1].Id, -dir);
-                if (i != Nodes.Count - 1)
-                    SetSegmentDirection(Nodes[i].Id, Nodes[i + 1].Id, dir);
+                    SetSegmentDirection(nodeIds[i], nodeIds[i - 1], -dir);
+                if (i != nodeIds.Length - 1)
+                    SetSegmentDirection(nodeIds[i], nodeIds[i + 1], dir);
             }
 
-            foreach (var node in Nodes)
-                NetManager.instance.UpdateNode(node.Id);
+            foreach (var nodeId in nodeIds)
+                NetManager.instance.UpdateNode(nodeId);
 
             UpdateTerrain(terrainRect);
         }
-        private ITrajectory GetTrajectory()
+        private static ITrajectory GetTrajectory(ushort[] nodeIds, ushort firstGuideId, ushort lastGuideId)
         {
-            var startPos = Nodes[0].Id.GetNode().m_position;
-            var endPos = Nodes[Nodes.Count - 1].Id.GetNode().m_position;
-            var startDir = NormalizeXZ(GetDirection(true, out var firstCount));
-            var endDir = NormalizeXZ(GetDirection(false, out var secondCount));
+            var startPos = nodeIds[0].GetNode().m_position;
+            var endPos = nodeIds[nodeIds.Length - 1].GetNode().m_position;
+            var startDir = NormalizeXZ(GetDirection(nodeIds, true, firstGuideId, out var firstCount));
+            var endDir = NormalizeXZ(GetDirection(nodeIds, false, lastGuideId, out var secondCount));
 
             if (firstCount == 1 && secondCount == 1)
                 return new StraightTrajectory(startPos, endPos);
@@ -181,16 +189,16 @@ namespace NetworkMultitool
             else
                 return new BezierTrajectory(startPos, startDir, endPos, endDir, forceSmooth: true);
         }
-        private Vector3 GetDirection(bool isFirst, out int segmentCount)
+        private static Vector3 GetDirection(ushort[] nodeIds, bool isFirst, ushort guideId, out int segmentCount)
         {
-            var nodeId = (isFirst ? Nodes[0] : Nodes[Nodes.Count - 1]).Id;
+            var nodeId = isFirst ? nodeIds[0] : nodeIds[nodeIds.Length - 1];
             segmentCount = nodeId.GetNode().CountSegments();
             if (nodeId.GetNode().CountSegments() == 1)
                 return Vector3.zero;
             else
             {
-                var segment = (isFirst ? FirstGuide : LastGuide).GetSegment();
-                if (segment.Contains((isFirst ? Nodes[1] : Nodes[Nodes.Count - 2]).Id))
+                var segment = guideId.GetSegment();
+                if (segment.Contains(isFirst ? nodeIds[1] : nodeIds[nodeIds.Length - 2]))
                     return segment.IsStartNode(nodeId) ? segment.m_startDirection : segment.m_endDirection;
                 else
                     return -(segment.IsStartNode(nodeId) ? segment.m_startDirection : segment.m_endDirection);
@@ -200,7 +208,8 @@ namespace NetworkMultitool
         {
             if (Nodes.Count >= 3)
             {
-                var trajectory = GetTrajectory();
+                var nodeIds = Nodes.Select(n => n.Id).ToArray();
+                var trajectory = GetTrajectory(nodeIds, FirstGuide, LastGuide);
                 var partLength = trajectory.Length / (Nodes.Count - 1);
                 var ts = new List<float>() { 0f };
                 for (var i = 1; i < Nodes.Count - 1; i += 1)

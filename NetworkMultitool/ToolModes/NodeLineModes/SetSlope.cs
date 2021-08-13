@@ -13,6 +13,7 @@ namespace NetworkMultitool
     {
         public override ToolModeType Type => ToolModeType.SlopeNode;
         private List<InfoLabel> OrderLabels { get; } = new List<InfoLabel>();
+        private bool NeedRefreshLabels { get; set; } = false;
 
         protected override string GetInfo()
         {
@@ -28,28 +29,48 @@ namespace NetworkMultitool
         {
             base.Reset(prevMode);
             OrderLabels.Clear();
+            NeedRefreshLabels = false;
+        }
+        public override void OnToolUpdate()
+        {
+            base.OnToolUpdate();
+
+            if(NeedRefreshLabels)
+            {
+                NeedRefreshLabels = false;
+                RefreshLabels();
+            }
         }
         protected override void Apply()
         {
             if (Nodes.Count >= 3)
             {
-                SetSlope(Nodes, PositionGetter, DirectionGetter, PositionSetter);
-                for(var i = 1; i < Nodes.Count; i += 1)
+                var nodeIds = Nodes.Select(n => n.Id).ToArray();
+                SimulationManager.instance.AddAction(() =>
                 {
-                    NetExtension.GetCommon(Nodes[i - 1].Id, Nodes[i].Id, out var segmentId);
-                    CalculateSegmentDirections(segmentId);
-                }
-                RefreshLabels();
+                    SetSlope(nodeIds);
+                    PlayAudio(true);
+                    NeedRefreshLabels = true;
+                });
             }
         }
-        private static Vector3 PositionGetter(NodeSelection node) => node.Id.GetNode().m_position;
-        private static void DirectionGetter(NodeSelection first, NodeSelection second, out Vector3 firstDir, out Vector3 secondDir)
+        private static void SetSlope(ushort[] nodeIds)
         {
-            NetExtension.GetCommon(first.Id, second.Id, out var commonSegmentId);
+            SetSlope(nodeIds, PositionGetter, DirectionGetter, PositionSetter);
+            for (var i = 1; i < nodeIds.Length; i += 1)
+            {
+                NetExtension.GetCommon(nodeIds[i - 1], nodeIds[i], out var segmentId);
+                CalculateSegmentDirections(segmentId);
+            }
+        }
+        private static Vector3 PositionGetter(ushort nodeId) => nodeId.GetNode().m_position;
+        private static void DirectionGetter(ushort firstId, ushort secondId, out Vector3 firstDir, out Vector3 secondDir)
+        {
+            NetExtension.GetCommon(firstId, secondId, out var commonSegmentId);
 
             var segment = commonSegmentId.GetSegment();
 
-            if (segment.IsStartNode(first.Id))
+            if (segment.IsStartNode(firstId))
             {
                 firstDir = segment.m_startDirection;
                 secondDir = segment.m_endDirection;
@@ -60,7 +81,7 @@ namespace NetworkMultitool
                 secondDir = segment.m_startDirection;
             }
         }
-        private static void PositionSetter(NodeSelection node, Vector3 position) => NetManager.instance.MoveNode(node.Id, position);
+        private static void PositionSetter(ushort nodeId, Vector3 position) => NetManager.instance.MoveNode(nodeId, position);
 
         protected override void AddFirst(NodeSelection selection)
         {
