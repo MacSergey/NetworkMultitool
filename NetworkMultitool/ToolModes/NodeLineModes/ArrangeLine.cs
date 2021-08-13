@@ -37,7 +37,7 @@ namespace NetworkMultitool
                 return
                     Localize.Mode_NodeLine_Info_SelectNode + "\n" +
                     Localize.Mode_ArrangeLine_Info_SelectDirection + "\n" +
-                    string.Format(Localize.Mode_Info_Apply, ApplyShortcut) +
+                    string.Format(Localize.Mode_Info_ArrangeLine_Apply, ApplyShortcut) +
                     UndergroundInfo;
             else
                 return base.GetInfo();

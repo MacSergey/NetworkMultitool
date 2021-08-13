@@ -24,6 +24,7 @@ namespace NetworkMultitool
 
         protected override bool CheckUnderground => !IsBoth;
         protected override bool SelectNodes => IsBoth;
+        private static float TurnAngle { get; } = Mathf.PI / 90f;
         protected override bool IsValidSegment(ushort segmentId) => !IsBoth && segmentId != First?.Id && segmentId != Second?.Id;
         protected override bool IsValidNode(ushort nodeId) => (!IsBoth && base.IsValidNode(nodeId)) || (IsBoth && (First.Id.GetSegment().Contains(nodeId) || Second.Id.GetSegment().Contains(nodeId)));
 
@@ -164,7 +165,7 @@ namespace NetworkMultitool
                 var startDir = segment.IsStartNode(nodeId) ? segment.m_startDirection : segment.m_endDirection;
                 var segmentAngle = MathExtention.GetAngle(isFirst ? point.Direction : -point.Direction, startDir);
 
-                if (Mathf.Abs(segmentAngle) < Mathf.PI / 180f)
+                if (Mathf.Abs(segmentAngle) < TurnAngle)
                 {
                     var otherNodeId = segment.GetOtherNode(nodeId);
                     ref var otherNode = ref otherNodeId.GetNode();
@@ -173,15 +174,15 @@ namespace NetworkMultitool
                     var angle = MathExtention.GetAngle(partDir, segmentDir);
 
                     if (segmentAngle == 0)
-                        point.Direction = point.Direction.TurnRad(Mathf.PI / 180f, angle >= 0);
+                        point.Direction = point.Direction.TurnRad(TurnAngle, angle >= 0);
                     else if (Mathf.Sign(angle) == Mathf.Sign(segmentAngle))
                     {
-                        var delta = Mathf.PI / 180f - Mathf.Abs(segmentAngle);
+                        var delta = TurnAngle - Mathf.Abs(segmentAngle);
                         point.Direction = point.Direction.TurnRad(delta, segmentAngle >= 0);
                     }
                     else
                     {
-                        var delta = Mathf.PI / 180f + Mathf.Abs(segmentAngle);
+                        var delta = TurnAngle + Mathf.Abs(segmentAngle);
                         point.Direction = point.Direction.TurnRad(delta, segmentAngle <= 0);
 
                     }
@@ -343,7 +344,6 @@ namespace NetworkMultitool
         }
         protected virtual void RenderCalculatedOverlay(RenderManager.CameraInfo cameraInfo, NetInfo info) { }
         protected virtual void RenderFailedOverlay(RenderManager.CameraInfo cameraInfo, NetInfo info) { }
-        protected Vector3 GetMousePosition(float height) => Underground ? Tool.Ray.GetRayPosition(height, out _) : Tool.MouseWorldPosition;
 
         public enum Result
         {

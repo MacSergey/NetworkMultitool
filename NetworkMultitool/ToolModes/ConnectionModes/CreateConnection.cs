@@ -104,7 +104,7 @@ namespace NetworkMultitool
                     string.Format(Localize.Mode_Info_SwitchOffset, SwitchOffsetShortcut) + "\n" +
                     string.Format(Localize.Mode_Info_ChangeOffset, DecreaseOffsetShortcut, IncreaseOffsetShortcut) + "\n" +
                     Localize.Mode_Info_Step + "\n" +
-                    string.Format(Localize.Mode_Info_Create, ApplyShortcut);
+                    string.Format(Localize.Mode_Info_Connection_Create, ApplyShortcut);
                 }
 
                 return text;

@@ -48,7 +48,7 @@ namespace NetworkMultitool
                     string.Format(Localize.Mode_Info_ChangeShift, DecreaseShiftShortcut, IncreaseShiftShortcut) + "\n" +
                     string.Format(Localize.Mode_Info_Parallel_ChangeShift, InvertShiftShortcut) + "\n" +
                     Localize.Mode_Info_Step + "\n" +
-                    string.Format(Localize.Mode_Info_Create, ApplyShortcut) +
+                    string.Format(Localize.Mode_Info_Parallel_Create, ApplyShortcut) +
                     UndergroundInfo;
             else
                 return base.GetInfo();

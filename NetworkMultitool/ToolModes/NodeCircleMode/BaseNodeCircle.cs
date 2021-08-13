@@ -15,8 +15,6 @@ namespace NetworkMultitool
         protected override bool CanSwitchUnderground => !CircleComplete;
         protected override bool SelectNodes => !CircleComplete;
 
-        protected override bool IsValidNode(ushort nodeId) => base.IsValidNode(nodeId) && (Nodes.Count == 0 || nodeId.GetNode().CountSegments() >= 3);
-
         protected override void Reset(IToolMode prevMode)
         {
             base.Reset(prevMode);
@@ -126,8 +124,5 @@ namespace NetworkMultitool
         {
             CircleComplete = true;
         }
-
-
-        protected override bool AllowRenderNode(ushort nodeId) => base.AllowRenderNode(nodeId) && (Nodes.Count == 0 || nodeId.GetNode().CountSegments() >= 3);
     }
 }
