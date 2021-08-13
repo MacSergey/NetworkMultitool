@@ -395,41 +395,52 @@ namespace NetworkMultitool
         }
         protected override void Apply()
         {
-            if (IsWrongOrder)
-                return;
+            if (!IsWrongOrder)
+            {
+                var nodes = Nodes.ToArray();
+                var center = Center;
+                var radius = Radius;
+                SimulationManager.instance.AddAction(() =>
+                {
+                    Arrange(nodes, center, radius);
+                    PlayAudio(true);
+                });
 
-            var segmentIds = new ushort[Nodes.Count];
-            for (var i = 0; i < Nodes.Count; i += 1)
-                NetExtension.GetCommon(Nodes[i].Id, Nodes[(i + 1) % Nodes.Count].Id, out segmentIds[i]);
+                Tool.SetMode(ToolModeType.ArrangeAtCircle);
+            }
+        }
+        private static void Arrange(CirclePoint[] nodes, Vector3 center, float radius)
+        {
+            var segmentIds = new ushort[nodes.Length];
+            for (var i = 0; i < nodes.Length; i += 1)
+                NetExtension.GetCommon(nodes[i].Id, nodes[(i + 1) % nodes.Length].Id, out segmentIds[i]);
             var terrainRect = GetTerrainRect(segmentIds);
 
-            foreach (var node in Nodes)
+            foreach (var node in nodes)
             {
-                node.GetPositions(Center, Radius, out _, out var newPos);
+                node.GetPositions(center, radius, out _, out var newPos);
                 MoveNode(node.Id, newPos);
             }
-            for (var i = 0; i < Nodes.Count; i += 1)
+            for (var i = 0; i < nodes.Length; i += 1)
             {
-                SetDirection(i, (i + 1) % Nodes.Count);
-                SetDirection(i, (i + Nodes.Count - 1) % Nodes.Count);
+                SetDirection(nodes, i, (i + 1) % nodes.Length, center);
+                SetDirection(nodes, i, (i + nodes.Length - 1) % nodes.Length, center);
             }
 
-            foreach (var node in Nodes)
+            foreach (var node in nodes)
                 NetManager.instance.UpdateNode(node.Id);
 
             UpdateTerrain(terrainRect);
-
-            Tool.SetMode(ToolModeType.ArrangeAtCircle);
         }
-        private void SetDirection(int i, int j)
+        private static void SetDirection(CirclePoint[] nodes, int i, int j, Vector3 center)
         {
-            var centerDir = (Nodes[i].Id.GetNode().m_position - Center).MakeFlatNormalized();
+            var centerDir = (nodes[i].Id.GetNode().m_position - center).MakeFlatNormalized();
 
-            NetExtension.GetCommon(Nodes[i].Id, Nodes[j].Id, out var segmentId);
+            NetExtension.GetCommon(nodes[i].Id, nodes[j].Id, out var segmentId);
             ref var segment = ref segmentId.GetSegment();
-            var direction = Nodes[j].Id.GetNode().m_position - Nodes[i].Id.GetNode().m_position;
+            var direction = nodes[j].Id.GetNode().m_position - nodes[i].Id.GetNode().m_position;
             var newDirection = centerDir.Turn90(NormalizeCrossXZ(centerDir, direction) >= 0f);
-            SetSegmentDirection(segmentId, segment.IsStartNode(Nodes[i].Id), newDirection);
+            SetSegmentDirection(segmentId, segment.IsStartNode(nodes[i].Id), newDirection);
         }
         private void DistributeBetweenIntersections()
         {

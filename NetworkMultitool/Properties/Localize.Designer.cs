@@ -303,7 +303,7 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Too big angel between nodes
+        ///   Ищет локализованную строку, похожую на Too big angle between nodes
         ///round shape willn&apos;t be perfect.
         /// </summary>
         internal static string Mode_Info_ArrangeCircle_BigDelta {
@@ -340,7 +340,7 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Drag to move center.
+        ///   Ищет локализованную строку, похожую на Drag to move circle.
         /// </summary>
         internal static string Mode_Info_ArrangeCircle_DragToMoveCenter {
             get {
@@ -368,7 +368,7 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Press {0} to disterbute nodes
+        ///   Ищет локализованную строку, похожую на Press {0} to distribute nodes
         ///evenly between intersections.
         /// </summary>
         internal static string Mode_Info_ArrangeCircle_PressToDistributeBetweenIntersections {
@@ -378,7 +378,7 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Press {0} to disterbute nodes evenly on circle.
+        ///   Ищет локализованную строку, похожую на Press {0} to distribute nodes evenly on circle.
         /// </summary>
         internal static string Mode_Info_ArrangeCircle_PressToDistributeEvenly {
             get {
@@ -1016,6 +1016,15 @@ namespace NetworkMultitool {
         internal static string Settings_PanelColumns {
             get {
                 return ResourceManager.GetString("Settings_PanelColumns", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Play audio and visual effects.
+        /// </summary>
+        internal static string Settings_PlayEffects {
+            get {
+                return ResourceManager.GetString("Settings_PlayEffects", resourceCulture);
             }
         }
         

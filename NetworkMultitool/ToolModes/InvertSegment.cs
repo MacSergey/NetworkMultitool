@@ -26,21 +26,28 @@ namespace NetworkMultitool
         public override void OnPrimaryMouseClicked(Event e)
         {
             if (IsHoverSegment)
-                ReverseAndInvert(HoverSegment.Id);
+            {
+                var segmentId = HoverSegment.Id;
+                SimulationManager.instance.AddAction(() =>
+                {
+                    ReverseAndInvert(ref segmentId);
+                    PlaySegmentEffect(segmentId, true);
+                });
+            }
         }
-        private void ReverseAndInvert(ushort segmentId)
+        private static void ReverseAndInvert(ref ushort segmentId)
         {
             var segment = segmentId.GetSegment();
             RemoveSegment(segmentId);
-            CreateSegment(out _, segment.Info, segment.m_endNode, segment.m_startNode, segment.m_endDirection, segment.m_startDirection, !segment.IsInvert());
+            CreateSegment(out segmentId, segment.Info, segment.m_endNode, segment.m_startNode, segment.m_endDirection, segment.m_startDirection, !segment.IsInvert());
         }
-        private void InvertSegment(ushort segmentId)
+        private static void InvertSegment(ushort segmentId)
         {
             var segment = segmentId.GetSegment();
             RemoveSegment(segmentId);
             CreateSegment(out _, segment.Info, segment.m_startNode, segment.m_endNode, segment.m_startDirection, segment.m_endDirection, !segment.IsInvert());
         }
-        private void ReverseSegment(ushort segmentId)
+        private static void ReverseSegment(ushort segmentId)
         {
             var segment = segmentId.GetSegment();
             RemoveSegment(segmentId);

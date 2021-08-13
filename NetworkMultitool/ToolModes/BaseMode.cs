@@ -1,6 +1,7 @@
 ﻿using ColossalFramework;
 using ColossalFramework.Math;
 using ColossalFramework.UI;
+using HarmonyLib;
 using ModsCommon;
 using ModsCommon.UI;
 using ModsCommon.Utilities;
@@ -10,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using UnityEngine;
 using static ColossalFramework.Math.VectorUtils;
@@ -40,6 +42,41 @@ namespace NetworkMultitool
             }
         }
         protected List<InfoLabel> Labels { get; } = new List<InfoLabel>();
+
+        protected static Func<bool> UndergroundDefaultGetter { get; private set; }
+        private static Func<bool> DefaultUndergroundDefaultGetter { get; } = () => false;
+        public BaseNetworkMultitoolMode()
+        {
+            if (Mod.FRTEnabled)
+            {
+                try
+                {
+                    if (UndergroundDefaultGetter == null || UndergroundDefaultGetter == DefaultUndergroundDefaultGetter)
+                    {
+                        var definition = new DynamicMethod("UndergroundGetter", typeof(bool), new Type[0], true);
+                        var generator = definition.GetILGenerator();
+
+                        var instanceField = AccessTools.Field(System.Type.GetType("FineRoadTool.FineRoadTool"), "instance");
+                        generator.Emit(OpCodes.Ldsfld, instanceField);
+                        var modeField = AccessTools.Field(System.Type.GetType("FineRoadTool.FineRoadTool"), "m_mode");
+                        generator.Emit(OpCodes.Ldfld, modeField);
+                        generator.Emit(OpCodes.Ldc_I4_S, 4);
+                        generator.Emit(OpCodes.Ceq);
+                        generator.Emit(OpCodes.Ret);
+
+                        UndergroundDefaultGetter = (Func<bool>)definition.CreateDelegate(typeof(Func<bool>));
+                    }
+                    return;
+                }
+                catch (Exception error)
+                {
+                    SingletonMod<Mod>.Logger.Error("Cant access to Node Spacer", error);
+                }
+            }
+
+            UndergroundDefaultGetter = DefaultUndergroundDefaultGetter;
+        }
+
         protected static string GetRadiusString(float radius, string format = "0.0") => string.Format(Localize.Mode_RadiusFormat, radius.ToString(format));
         protected static string GetAngleString(float angle, string format = "0") => string.Format(Localize.Mode_AngleFormat, (angle * Mathf.Rad2Deg).ToString(format));
         protected static string GetPercentagesString(float percent, string format = "0.0") => string.Format(Localize.Mode_PercentagesFormat, percent.ToString(format));
@@ -69,9 +106,9 @@ namespace NetworkMultitool
                 ForbiddenSwitchUnderground = Utility.ShiftIsPressed && !Underground;
             else if (ForbiddenSwitchUnderground)
                 ForbiddenSwitchUnderground = Utility.ShiftIsPressed;
-            else if (!Underground && Utility.OnlyShiftIsPressed)
+            else if (!Underground && (Utility.OnlyShiftIsPressed ^ UndergroundDefaultGetter()))
                 Underground = true;
-            else if (Underground && !Utility.OnlyShiftIsPressed)
+            else if (Underground && !(Utility.OnlyShiftIsPressed ^ UndergroundDefaultGetter()))
                 Underground = false;
         }
         protected virtual void Apply() { }
@@ -103,7 +140,7 @@ namespace NetworkMultitool
         protected override bool CheckItemClass(ItemClass itemClass) => itemClass.m_layer == ItemClass.Layer.Default || itemClass.m_layer == ItemClass.Layer.MetroTunnels;
 
 
-        protected bool CreateNode(out ushort newNodeId, NetInfo info, Vector3 position)
+        protected static bool CreateNode(out ushort newNodeId, NetInfo info, Vector3 position)
         {
             if (Singleton<NetManager>.instance.CreateNode(out newNodeId, ref Singleton<SimulationManager>.instance.m_randomizer, info, position, Singleton<SimulationManager>.instance.m_currentBuildIndex))
             {
@@ -120,7 +157,7 @@ namespace NetworkMultitool
             else
                 return false;
         }
-        protected bool CreateSegmentAuto(out ushort newSegmentId, NetInfo info, ushort startId, ushort endId, Vector3 startDir, Vector3 endDir)
+        protected static bool CreateSegmentAuto(out ushort newSegmentId, NetInfo info, ushort startId, ushort endId, Vector3 startDir, Vector3 endDir)
         {
             ref var startNode = ref startId.GetNode();
             ref var endNode = ref endId.GetNode();
@@ -147,11 +184,11 @@ namespace NetworkMultitool
             else
                 return CreateSegment(out newSegmentId, info, endId, startId, endDir, startDir, true);
         }
-        protected bool CreateSegment(out ushort newSegmentId, NetInfo info, ushort startId, ushort endId, Vector3 startDir, Vector3 endDir, bool invert = false) => Singleton<NetManager>.instance.CreateSegment(out newSegmentId, ref Singleton<SimulationManager>.instance.m_randomizer, info, startId, endId, startDir, endDir, Singleton<SimulationManager>.instance.m_currentBuildIndex, Singleton<SimulationManager>.instance.m_currentBuildIndex, invert);
+        protected static bool CreateSegment(out ushort newSegmentId, NetInfo info, ushort startId, ushort endId, Vector3 startDir, Vector3 endDir, bool invert = false) => Singleton<NetManager>.instance.CreateSegment(out newSegmentId, ref Singleton<SimulationManager>.instance.m_randomizer, info, startId, endId, startDir, endDir, Singleton<SimulationManager>.instance.m_currentBuildIndex, Singleton<SimulationManager>.instance.m_currentBuildIndex, invert);
 
-        protected void RemoveNode(ushort nodeId) => Singleton<NetManager>.instance.ReleaseNode(nodeId);
-        protected void RemoveSegment(ushort segmentId, bool keepNodes = true) => Singleton<NetManager>.instance.ReleaseSegment(segmentId, keepNodes);
-        protected void RelinkSegment(ushort segmentId, ushort sourceNodeId, ushort targetNodeId)
+        protected static void RemoveNode(ushort nodeId) => Singleton<NetManager>.instance.ReleaseNode(nodeId);
+        protected static void RemoveSegment(ushort segmentId, bool keepNodes = true) => Singleton<NetManager>.instance.ReleaseSegment(segmentId, keepNodes);
+        protected static void RelinkSegment(ushort segmentId, ushort sourceNodeId, ushort targetNodeId)
         {
             var segment = segmentId.GetSegment();
             var otherNodeId = segment.GetOtherNode(sourceNodeId);
@@ -175,7 +212,7 @@ namespace NetworkMultitool
             CreateSegment(out var newSegmentId, info, otherNodeId, targetNodeId, otherDir, sourceDir, invert);
             CalculateSegmentDirections(newSegmentId);
         }
-        protected void MoveNode(ushort nodeId, Vector3 newPos)
+        protected static void MoveNode(ushort nodeId, Vector3 newPos)
         {
             ref var node = ref nodeId.GetNode();
             var segmentIds = node.SegmentIds().ToArray();
@@ -211,15 +248,14 @@ namespace NetworkMultitool
 
                 CalculateSegmentDirections(segmentId);
                 NetManager.instance.UpdateSegment(segmentId);
-                //NetManager.instance.UpdateSegmentRenderer(segmentId, true);
             }
         }
-        protected void SetSegmentDirection(ushort nodeId, ushort anotherNodeId, Vector3 direction)
+        protected static void SetSegmentDirection(ushort nodeId, ushort anotherNodeId, Vector3 direction)
         {
             if (NetExtension.GetCommon(nodeId, anotherNodeId, out var commonId))
                 SetSegmentDirection(commonId, commonId.GetSegment().IsStartNode(nodeId), direction);
         }
-        protected void SetSegmentDirection(ushort segmentId, bool start, Vector3 direction)
+        protected static void SetSegmentDirection(ushort segmentId, bool start, Vector3 direction)
         {
             ref var segment = ref segmentId.GetSegment();
             if (start)
@@ -229,9 +265,8 @@ namespace NetworkMultitool
 
             CalculateSegmentDirections(segmentId);
             NetManager.instance.UpdateSegment(segmentId);
-            //NetManager.instance.UpdateSegmentRenderer(segmentId, true);
         }
-        protected void CalculateSegmentDirections(ushort segmentId)
+        protected static void CalculateSegmentDirections(ushort segmentId)
         {
             ref var segment = ref segmentId.GetSegment();
 
@@ -242,7 +277,7 @@ namespace NetworkMultitool
             segment.m_endDirection = segment.FindDirection(segmentId, segment.m_endNode);
         }
         protected delegate void DirectionGetterDelegate<Type>(Type first, Type second, out Vector3 firstDir, out Vector3 secondDir);
-        protected void SetSlope<Type>(IEnumerable<Type> items, Func<Type, Vector3> positionGetter, DirectionGetterDelegate<Type> directionGetter, Action<Type, Vector3> positionSetter)
+        protected static void SetSlope<Type>(IEnumerable<Type> items, Func<Type, Vector3> positionGetter, DirectionGetterDelegate<Type> directionGetter, Action<Type, Vector3> positionSetter)
         {
             var itemsList = items.ToArray();
             var startY = positionGetter(itemsList[0]).y;
@@ -263,14 +298,14 @@ namespace NetworkMultitool
                 list.Add(new BezierTrajectory(startPos, startDir, endPos, endDir));
             }
 
-            var sumLenght = list.Sum(t => t.Length);
-            var currentLenght = 0f;
+            var sumLength = list.Sum(t => t.Length);
+            var currentLength = 0f;
 
             for (var i = 1; i < itemsList.Length - 1; i += 1)
             {
-                currentLenght += list[i - 1].Length;
+                currentLength += list[i - 1].Length;
                 var position = positionGetter(itemsList[i]);
-                position.y = Mathf.Lerp(startY, endY, currentLenght / sumLenght);
+                position.y = Mathf.Lerp(startY, endY, currentLength / sumLength);
                 positionSetter(itemsList[i], position);
             }
         }
@@ -283,13 +318,13 @@ namespace NetworkMultitool
         }
         private static void PositionSetter(Point point, Vector3 position) => point.Position = position;
 
-        protected Rect GetTerrainRect(params ushort[] segmentIds) => segmentIds.Select(i => (ITrajectory)new BezierTrajectory(i)).GetRect();
-        protected void UpdateTerrain(params ushort[] segmentIds)
+        protected static Rect GetTerrainRect(params ushort[] segmentIds) => segmentIds.Select(i => (ITrajectory)new BezierTrajectory(i)).GetRect();
+        protected static void UpdateTerrain(params ushort[] segmentIds)
         {
             if (segmentIds.Length != 0)
                 UpdateTerrain(GetTerrainRect(segmentIds));
         }
-        protected void UpdateTerrain(Rect rect) => TerrainModify.UpdateArea(rect.xMin, rect.yMin, rect.xMax, rect.yMax, true, true, false);
+        protected static void UpdateTerrain(Rect rect) => TerrainModify.UpdateArea(rect.xMin, rect.yMin, rect.xMax, rect.yMax, true, true, false);
 
         protected InfoLabel AddLabel()
         {
@@ -374,17 +409,40 @@ namespace NetworkMultitool
             else
                 return true;
         }
+        protected static BezierTrajectory GetTrajectory(Point first, Point second) => new BezierTrajectory(first.Position, first.Direction, second.Position, -second.Direction);
         protected void RenderParts(List<Point> points, RenderManager.CameraInfo cameraInfo, Color? color = null, float? width = null)
         {
             var data = new OverlayData(cameraInfo) { Color = color, Width = width, RenderLimit = Underground, Cut = true };
             for (var i = 1; i < points.Count; i += 1)
             {
-                if (points[i - 1].IsEmpty || points[i].IsEmpty)
-                    continue;
-
-                var trajectory = new BezierTrajectory(points[i - 1].Position, points[i - 1].Direction, points[i].Position, -points[i].Direction);
-                trajectory.Render(data);
+                if (!points[i - 1].IsEmpty && !points[i].IsEmpty)
+                    GetTrajectory(points[i - 1], points[i]).Render(data);
             }
+        }
+        protected static void PlayEffect(EffectInfo.SpawnArea spawnArea, bool create)
+        {
+            if (Settings.PlayEffects)
+            {
+                var effectInfo = create ? Singleton<NetManager>.instance.m_properties.m_placementEffect : Singleton<NetManager>.instance.m_properties.m_bulldozeEffect;
+                Singleton<EffectManager>.instance.DispatchEffect(effectInfo, spawnArea, Vector3.zero, 0f, 1f, Singleton<AudioManager>.instance.DefaultGroup, 0u, avoidMultipleAudio: true);
+            }
+        }
+        protected static void PlayEffect(BezierTrajectory trajectory, float halfWidth, bool create) => PlayEffect(new EffectInfo.SpawnArea(trajectory.Trajectory, halfWidth, 0f), create);
+        protected static void PlaySegmentEffect(ushort segmentId, bool create) => PlayEffect(new EffectInfo.SpawnArea(new BezierTrajectory(segmentId).Trajectory, segmentId.GetSegment().Info.m_halfWidth, 0f), create);
+        protected static void PlayNodeEffect(ushort nodeId, bool create)
+        {
+            ref var node = ref nodeId.GetNode();
+            PlayEffect(new EffectInfo.SpawnArea(node.m_position, Vector3.zero, node.Info.m_halfWidth), create);
+        }
+        protected static void PlayEffect(Point[] points, float halfWidth, bool create)
+        {
+            for (var i = 1; i < points.Length; i += 1)
+                PlayEffect(GetTrajectory(points[i - 1], points[i]), halfWidth, true);
+        }
+        protected static void PlayAudio(bool create)
+        {
+            var effectInfo = create ? Singleton<NetManager>.instance.m_properties.m_placementEffect : Singleton<NetManager>.instance.m_properties.m_bulldozeEffect;
+            Singleton<EffectManager>.instance.DispatchEffect(effectInfo, new EffectInfo.SpawnArea(), Vector3.zero, 0f, 1f, Singleton<AudioManager>.instance.DefaultGroup, 0u, avoidMultipleAudio: true);
         }
 
         public class Point

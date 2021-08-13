@@ -87,7 +87,15 @@ namespace NetworkMultitool
             }
             else if (State == Result.Correct)
             {
-                IntersectSegments(First.Id, Second.Id);
+                var firstId = First.Id;
+                var secondId = Second.Id;
+                SimulationManager.instance.AddAction(() =>
+                {
+                    IntersectSegments(firstId, secondId);
+                    PlaySegmentEffect(firstId, true);
+                    PlaySegmentEffect(secondId, true);
+                });
+
                 Reset(this);
             }
         }
@@ -97,7 +105,7 @@ namespace NetworkMultitool
                 Reset(this);
         }
 
-        private bool IntersectSegments(ushort firstId, ushort secondId)
+        private static bool IntersectSegments(ushort firstId, ushort secondId)
         {
             if (firstId == 0 || secondId == 0 || firstId == secondId)
                 return false;

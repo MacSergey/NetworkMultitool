@@ -23,6 +23,8 @@ namespace NetworkMultitool
         private bool Calculated { get; set; }
         private List<Point> Points { get; set; }
         protected NetInfo Info => ToolsModifierControl.toolController.Tools.OfType<NetTool>().FirstOrDefault().Prefab?.m_netAI?.m_info ?? Nodes[0].Id.GetNode().Info;
+
+        private bool Side { get; set; }
         private float Shift { get; set; }
         private Straight StartLine { get; set; }
         private Straight EndLine { get; set; }
@@ -58,6 +60,7 @@ namespace NetworkMultitool
             base.Reset(prevMode);
             Calculated = false;
             Shift = 16f;
+            Side = true;
 
             if (StartLine != null && StartLine.Label != null)
             {
@@ -115,9 +118,9 @@ namespace NetworkMultitool
                 if (i != 0 && i != Nodes.Count - 1)
                     direction /= 2f;
 
-                var shiftDir = direction.Turn90(true).MakeFlatNormalized();
+                var shiftDir = direction.Turn90(false).MakeFlatNormalized();
                 ref var node = ref Nodes[i].Id.GetNode();
-                Points.Add(new Point(node.m_position + shiftDir * Shift, direction));
+                Points.Add(new Point(node.m_position + shiftDir * (Side ? Shift : -Shift), direction));
             }
 
             Calculated = true;
@@ -125,33 +128,49 @@ namespace NetworkMultitool
             ref var startNode = ref Nodes[0].Id.GetNode();
             ref var endNode = ref Nodes[Nodes.Count - 1].Id.GetNode();
 
-            var startDir = (Points[0].Position - startNode.m_position).Turn90(Shift >= 0f).MakeFlatNormalized();
-            var endDir = (Points[Points.Count - 1].Position - endNode.m_position).Turn90(Shift <= 0f).MakeFlatNormalized();
+            var startDir = (Points[0].Position - startNode.m_position).Turn90(!Side).MakeFlatNormalized();
+            var endDir = (Points[Points.Count - 1].Position - endNode.m_position).Turn90(Side).MakeFlatNormalized();
 
-            var startLenght = startNode.Segments().Max(s => s.Info.m_halfWidth) + 2f;
-            var endLenght = endNode.Segments().Max(s => s.Info.m_halfWidth) + 2f;
+            var startLength = startNode.Segments().Max(s => s.Info.m_halfWidth) + 2f;
+            var endLength = endNode.Segments().Max(s => s.Info.m_halfWidth) + 2f;
 
-            StartLine = new Straight(startNode.m_position, Points[0].Position, startDir, startLenght, StartLine?.Label ?? AddLabel(), startNode.m_position.y);
-            EndLine = new Straight(endNode.m_position, Points[Points.Count - 1].Position, endDir, endLenght, EndLine?.Label ?? AddLabel(), endNode.m_position.y);
+            StartLine = new Straight(startNode.m_position, Points[0].Position, startDir, startLength, StartLine?.Label ?? AddLabel(), startNode.m_position.y);
+            EndLine = new Straight(endNode.m_position, Points[Points.Count - 1].Position, endDir, endLength, EndLine?.Label ?? AddLabel(), endNode.m_position.y);
         }
         protected override void Apply()
         {
             if (Nodes.Count >= 2)
             {
-                var nodeIds = new List<ushort>();
+                var points = Points.ToArray();
+                var side = Side;
                 var info = Info;
 
-                for (var i = 0; i < Points.Count; i += 1)
+                SimulationManager.instance.AddAction(() =>
                 {
-                    CreateNode(out var newNodeId, info, Points[i].Position);
-                    nodeIds.Add(newNodeId);
-                }
+                    Create(points, side, info);
+                    PlayEffect(points, info.m_halfWidth, true);
+                });
+            }
+        }
+        private static void Create(Point[] points, bool side, NetInfo info)
+        {
+            var nodeIds = new List<ushort>();
 
-                for (var i = 1; i < nodeIds.Count; i += 1)
-                {
-                    CreateSegmentAuto(out var newSegmentId, info, nodeIds[i - 1], nodeIds[i], Points[i - 1].Direction, -Points[i].Direction);
-                    CalculateSegmentDirections(newSegmentId);
-                }
+            for (var i = 0; i < points.Length; i += 1)
+            {
+                CreateNode(out var newNodeId, info, points[i].Position);
+                nodeIds.Add(newNodeId);
+            }
+
+            for (var i = 1; i < nodeIds.Count; i += 1)
+            {
+                ushort newSegmentId;
+                if (side)
+                    CreateSegmentAuto(out newSegmentId, info, nodeIds[i - 1], nodeIds[i], points[i - 1].Direction, -points[i].Direction);
+                else
+                    CreateSegmentAuto(out newSegmentId, info, nodeIds[i], nodeIds[i - 1], -points[i].Direction, points[i - 1].Direction);
+
+                CalculateSegmentDirections(newSegmentId);
             }
         }
         private void IncreaseShift() => ChangeShift(true);
@@ -166,12 +185,12 @@ namespace NetworkMultitool
             else if (Utility.OnlyAltIsPressed)
                 step = 0.01f;
 
-            Shift = (Shift + (increase ? step : -step)).RoundToNearest(step);
+            Shift = Mathf.Max((Shift + (increase ? step : -step)).RoundToNearest(step), 0f);
             Calculated = false;
         }
         private void InvertShift()
         {
-            Shift = -Shift;
+            Side = !Side;
             Calculated = false;
         }
         protected override void AddFirst(NodeSelection selection)
@@ -217,7 +236,7 @@ namespace NetworkMultitool
             }
 
             public void Update(bool show) => Update(MeasureLength, show);
-            public void Render(RenderManager.CameraInfo cameraInfo, Color color, Color colorArrow, bool underground) => this.RenderMeasure(cameraInfo, 0f, MeasureLength + 2f, LabelDir, color, colorArrow, underground);
+            public void Render(RenderManager.CameraInfo cameraInfo, Color color, Color colorArrow, bool underground) => this.RenderMeasure(cameraInfo, 0f, MeasureLength, LabelDir, color, colorArrow, underground);
         }
     }
 }

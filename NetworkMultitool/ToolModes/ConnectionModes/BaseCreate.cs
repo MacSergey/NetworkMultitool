@@ -275,24 +275,36 @@ namespace NetworkMultitool
         {
             if (State == Result.Calculated && Info is NetInfo info)
             {
-                var nodeIds = new List<ushort>();
-
-                nodeIds.Add(IsFirstStart ? First.Id.GetSegment().m_startNode : First.Id.GetSegment().m_endNode);
-                for (var i = 1; i < Points.Count - 1; i += 1)
+                var points = Points.ToArray();
+                var firstId = First.Id;
+                var secondId = Second.Id;
+                var isFirstStart = IsFirstStart;
+                var isSecondStart = IsSecondStart;
+                SimulationManager.instance.AddAction(() =>
                 {
-                    CreateNode(out var newNodeId, info, Points[i].Position);
-                    nodeIds.Add(newNodeId);
-                }
-                nodeIds.Add(IsSecondStart ? Second.Id.GetSegment().m_startNode : Second.Id.GetSegment().m_endNode);
-
-                for (var i = 1; i < nodeIds.Count; i += 1)
-                {
-                    CreateSegmentAuto(out var newSegmentId, info, nodeIds[i - 1], nodeIds[i], Points[i - 1].Direction, -Points[i].Direction);
-                    CalculateSegmentDirections(newSegmentId);
-                }
-
+                    Create(points, firstId, secondId, isFirstStart, isSecondStart, info);
+                    PlayEffect(points, info.m_halfWidth, true);
+                });
 
                 Reset(this);
+            }
+        }
+        private static void Create(Point[] points, ushort firstId, ushort secondId, bool isFirstStart, bool isSecondStart, NetInfo info)
+        {
+            var nodeIds = new List<ushort>();
+
+            nodeIds.Add(isFirstStart ? firstId.GetSegment().m_startNode : firstId.GetSegment().m_endNode);
+            for (var i = 1; i < points.Length - 1; i += 1)
+            {
+                CreateNode(out var newNodeId, info, points[i].Position);
+                nodeIds.Add(newNodeId);
+            }
+            nodeIds.Add(isSecondStart ? secondId.GetSegment().m_startNode : secondId.GetSegment().m_endNode);
+
+            for (var i = 1; i < nodeIds.Count; i += 1)
+            {
+                CreateSegmentAuto(out var newSegmentId, info, nodeIds[i - 1], nodeIds[i], points[i - 1].Direction, -points[i].Direction);
+                CalculateSegmentDirections(newSegmentId);
             }
         }
         public void Recalculate() => State = Result.None;
@@ -436,13 +448,13 @@ namespace NetworkMultitool
                 get
                 {
                     var angle = Angle;
-                    var curveLenght = Radius * Mathf.Abs(angle);
+                    var curveLength = Radius * Mathf.Abs(angle);
 
-                    var minByLenght = Mathf.CeilToInt(curveLenght / 50f);
-                    var maxByLenght = Mathf.CeilToInt(curveLenght / MaxLengthGetter());
+                    var minByLength = Mathf.CeilToInt(curveLength / 50f);
+                    var maxByLength = Mathf.CeilToInt(curveLength / MaxLengthGetter());
                     var maxByAngle = Mathf.CeilToInt(Mathf.Abs(angle) / Mathf.PI * 2f);
 
-                    var curveCount = Math.Max(maxByLenght, Mathf.Min(minByLenght, maxByAngle));
+                    var curveCount = Math.Max(maxByLength, Mathf.Min(minByLength, maxByAngle));
 
                     for (var i = 1; i < curveCount; i += 1)
                     {

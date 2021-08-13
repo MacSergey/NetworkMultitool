@@ -25,7 +25,7 @@ namespace NetworkMultitool
         private bool CanAddSegment => Segments.Count < Source.Id.GetNode().CountSegments() - 1;
         private bool IsFar => (Source.Id.GetNode().m_position - Tool.MouseWorldPosition).sqrMagnitude > 40000f;
         private bool IsReady => IsSource && IsSegments;
-        private bool IsCorrct => IsReady && !IsFar;
+        private bool IsCorrect => IsReady && !IsFar;
 
         protected override string GetInfo()
         {
@@ -85,9 +85,19 @@ namespace NetworkMultitool
                 else if (CanAddSegment)
                     Segments.Add(HoverSegment);
             }
-            else if (IsCorrct)
+            else if (IsCorrect)
             {
-                Split(Source.Id, Segments);
+                var sourceId = Source.Id;
+                var segments = Segments.ToArray();
+                var newPosition = Tool.MouseWorldPosition;
+                if (Utility.OnlyShiftIsPressed)
+                    newPosition.y = sourceId.GetNode().m_position.y;
+                SimulationManager.instance.AddAction(() =>
+                {
+                    Split(sourceId, newPosition, segments);
+                    PlayNodeEffect(sourceId, true);
+                });
+
                 Reset(this);
             }
         }
@@ -101,14 +111,11 @@ namespace NetworkMultitool
                 base.OnSecondaryMouseClicked();
         }
 
-        private bool Split(ushort nodeId, HashSet<Selection> segments)
+        private static bool Split(ushort nodeId, Vector3 newPosition, IEnumerable<Selection> segments)
         {
             var sourceNode = nodeId.GetNode();
             var terrainRect = GetTerrainRect(segments.Select(s => s.Id).ToArray());
 
-            var newPosition = Tool.MouseWorldPosition;
-            if (Utility.OnlyShiftIsPressed)
-                newPosition.y = sourceNode.m_position.y;
             CreateNode(out var newNodeId, sourceNode.Info, newPosition);
 
             foreach (var segment in segments)

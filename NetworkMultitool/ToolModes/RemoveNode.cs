@@ -20,7 +20,7 @@ namespace NetworkMultitool
         {
             if (!IsHoverNode)
                 return Localize.Tool_RemoveNode_Info_Select + UndergroundInfo;
-            else if(!IsCorrect)
+            else if (!IsCorrect)
                 return Localize.Mode_RemoveNode_Info_NotAllow + StepOverInfo;
             else
                 return Localize.Tool_RemoveNode_Info_ClickToRemove + StepOverInfo;
@@ -30,11 +30,17 @@ namespace NetworkMultitool
         {
             if (IsCorrect)
             {
-                RemoveNode(HoverNode.Id);
+                var nodeId = HoverNode.Id;
+                SimulationManager.instance.AddAction(() =>
+                {
+                    RemoveNode(nodeId);
+                    PlayNodeEffect(nodeId, true);
+                });
+
                 Reset(this);
             }
         }
-        private new bool RemoveNode(ushort nodeId)
+        private static new bool RemoveNode(ushort nodeId)
         {
             var node = nodeId.GetNode();
             var segmentIds = node.SegmentIds().ToArray();
@@ -55,7 +61,7 @@ namespace NetworkMultitool
                 RemoveSegment(segmentIds[i]);
             }
 
-            base.RemoveNode(nodeId);
+            BaseNetworkMultitoolMode.RemoveNode(nodeId);
 
             return CreateSegment(out _, info, nodeIds[0], nodeIds[1], directions[0], directions[1], invert);
         }
