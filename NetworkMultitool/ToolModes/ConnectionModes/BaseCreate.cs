@@ -448,13 +448,13 @@ namespace NetworkMultitool
                 get
                 {
                     var angle = Angle;
-                    var curveLenght = Radius * Mathf.Abs(angle);
+                    var curveLength = Radius * Mathf.Abs(angle);
 
-                    var minByLenght = Mathf.CeilToInt(curveLenght / 50f);
-                    var maxByLenght = Mathf.CeilToInt(curveLenght / MaxLengthGetter());
+                    var minByLength = Mathf.CeilToInt(curveLength / 50f);
+                    var maxByLength = Mathf.CeilToInt(curveLength / MaxLengthGetter());
                     var maxByAngle = Mathf.CeilToInt(Mathf.Abs(angle) / Mathf.PI * 2f);
 
-                    var curveCount = Math.Max(maxByLenght, Mathf.Min(minByLenght, maxByAngle));
+                    var curveCount = Math.Max(maxByLength, Mathf.Min(minByLength, maxByAngle));
 
                     for (var i = 1; i < curveCount; i += 1)
                     {

@@ -298,14 +298,14 @@ namespace NetworkMultitool
                 list.Add(new BezierTrajectory(startPos, startDir, endPos, endDir));
             }
 
-            var sumLenght = list.Sum(t => t.Length);
-            var currentLenght = 0f;
+            var sumLength = list.Sum(t => t.Length);
+            var currentLength = 0f;
 
             for (var i = 1; i < itemsList.Length - 1; i += 1)
             {
-                currentLenght += list[i - 1].Length;
+                currentLength += list[i - 1].Length;
                 var position = positionGetter(itemsList[i]);
-                position.y = Mathf.Lerp(startY, endY, currentLenght / sumLenght);
+                position.y = Mathf.Lerp(startY, endY, currentLength / sumLength);
                 positionSetter(itemsList[i], position);
             }
         }
