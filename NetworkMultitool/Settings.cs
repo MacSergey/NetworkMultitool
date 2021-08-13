@@ -125,6 +125,10 @@ namespace NetworkMultitool
             parallelKeymapping.AddKeymapping(CreateParallelMode.IncreaseShiftShortcut);
             parallelKeymapping.AddKeymapping(CreateParallelMode.DecreaseShiftShortcut);
             parallelKeymapping.AddKeymapping(CreateParallelMode.InvertShiftShortcut);
+
+            var arrangeCircleGroup = ShortcutsTab.AddGroup(Localize.Mode_ArrangeAtCircle);
+            var arrangeCircleKeymapping = AddKeyMappingPanel(arrangeCircleGroup);
+            arrangeCircleKeymapping.AddKeymapping(ArrangeCircleCompleteMode.ResetArrangeCircleShortcut);
         }
 
         #endregion

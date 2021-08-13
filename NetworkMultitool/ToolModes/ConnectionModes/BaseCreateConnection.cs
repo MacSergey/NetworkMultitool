@@ -324,9 +324,11 @@ namespace NetworkMultitool
         public int Edit { get; protected set; }
         protected bool IsEdit => Edit != -1;
 
-        public override void OnMouseUp(Event e)
+        public override void OnMouseUp(Event e) => Tool.SetMode(ToolModeType.CreateConnection);
+        public override bool OnEscape()
         {
             Tool.SetMode(ToolModeType.CreateConnection);
+            return true;
         }
 
         protected override void RenderCalculatedOverlay(RenderManager.CameraInfo cameraInfo, NetInfo info)

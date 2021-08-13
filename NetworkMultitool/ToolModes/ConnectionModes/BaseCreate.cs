@@ -343,7 +343,6 @@ namespace NetworkMultitool
         }
         protected virtual void RenderCalculatedOverlay(RenderManager.CameraInfo cameraInfo, NetInfo info) { }
         protected virtual void RenderFailedOverlay(RenderManager.CameraInfo cameraInfo, NetInfo info) { }
-        protected Vector3 GetMousePosition(float height) => Underground ? Tool.Ray.GetRayPosition(height, out _) : Tool.MouseWorldPosition;
 
         public enum Result
         {

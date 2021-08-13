@@ -19,7 +19,7 @@ namespace NetworkMultitool
             if (AddState == AddResult.None && Nodes.Count >= 3)
                 return
                     Localize.Mode_NodeLine_Info_SelectNode + "\n" +
-                    string.Format(Localize.Mode_Info_Apply, ApplyShortcut) +
+                    string.Format(Localize.Mode_Info_Slope_Apply, ApplyShortcut) +
                     UndergroundInfo;
             else
                 return base.GetInfo();

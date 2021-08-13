@@ -87,7 +87,7 @@ namespace NetworkMultitool
             }
             else if (IsCorrct)
             {
-                Split();
+                Split(Source.Id, Segments);
                 Reset(this);
             }
         }
@@ -101,18 +101,18 @@ namespace NetworkMultitool
                 base.OnSecondaryMouseClicked();
         }
 
-        private bool Split()
+        private bool Split(ushort nodeId, HashSet<Selection> segments)
         {
-            var sourceNode = Source.Id.GetNode();
-            var terrainRect = GetTerrainRect(Segments.Select(s => s.Id).ToArray());
+            var sourceNode = nodeId.GetNode();
+            var terrainRect = GetTerrainRect(segments.Select(s => s.Id).ToArray());
 
             var newPosition = Tool.MouseWorldPosition;
             if (Utility.OnlyShiftIsPressed)
                 newPosition.y = sourceNode.m_position.y;
             CreateNode(out var newNodeId, sourceNode.Info, newPosition);
 
-            foreach (var segment in Segments)
-                RelinkSegment(segment.Id, Source.Id, newNodeId);
+            foreach (var segment in segments)
+                RelinkSegment(segment.Id, nodeId, newNodeId);
 
             UpdateTerrain(terrainRect);
             return true;

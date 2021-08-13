@@ -294,6 +294,62 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Press {0} to arrange at circle.
+        /// </summary>
+        internal static string Mode_Info_ArrangeCircle_Apply {
+            get {
+                return ResourceManager.GetString("Mode_Info_ArrangeCircle_Apply", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Too big angel between nodes
+        ///round shape willn&apos;t be perfect.
+        /// </summary>
+        internal static string Mode_Info_ArrangeCircle_BigDelta {
+            get {
+                return ResourceManager.GetString("Mode_Info_ArrangeCircle_BigDelta", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Hold Shift to move all nodes
+        ///at the same time.
+        /// </summary>
+        internal static string Mode_Info_ArrangeCircle_MoveAll {
+            get {
+                return ResourceManager.GetString("Mode_Info_ArrangeCircle_MoveAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Press {0} to reset parameters.
+        /// </summary>
+        internal static string Mode_Info_ArrangeCircle_PressToReset {
+            get {
+                return ResourceManager.GetString("Mode_Info_ArrangeCircle_PressToReset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Wrong nodes order.
+        /// </summary>
+        internal static string Mode_Info_ArrangeCircle_WrongOrder {
+            get {
+                return ResourceManager.GetString("Mode_Info_ArrangeCircle_WrongOrder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Press {0} to arrange at line.
+        /// </summary>
+        internal static string Mode_Info_ArrangeLine_Apply {
+            get {
+                return ResourceManager.GetString("Mode_Info_ArrangeLine_Apply", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Press {0} or {1} to change all radii.
         /// </summary>
         internal static string Mode_Info_ChangeAllRadius {
@@ -411,6 +467,15 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Press {0} to create connection.
+        /// </summary>
+        internal static string Mode_Info_Connection_Create {
+            get {
+                return ResourceManager.GetString("Mode_Info_Connection_Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Press {0} to create.
         /// </summary>
         internal static string Mode_Info_Create {
@@ -429,6 +494,15 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Press {0} to create loop.
+        /// </summary>
+        internal static string Mode_Info_Loop_Create {
+            get {
+                return ResourceManager.GetString("Mode_Info_Loop_Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Out of map.
         /// </summary>
         internal static string Mode_Info_OutOfMap {
@@ -443,6 +517,15 @@ namespace NetworkMultitool {
         internal static string Mode_Info_Parallel_ChangeShift {
             get {
                 return ResourceManager.GetString("Mode_Info_Parallel_ChangeShift", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Press {0} to create parallel.
+        /// </summary>
+        internal static string Mode_Info_Parallel_Create {
+            get {
+                return ResourceManager.GetString("Mode_Info_Parallel_Create", resourceCulture);
             }
         }
         
@@ -488,6 +571,15 @@ namespace NetworkMultitool {
         internal static string Mode_Info_SelectSegment {
             get {
                 return ResourceManager.GetString("Mode_Info_SelectSegment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Press {0} to apply slope.
+        /// </summary>
+        internal static string Mode_Info_Slope_Apply {
+            get {
+                return ResourceManager.GetString("Mode_Info_Slope_Apply", resourceCulture);
             }
         }
         
@@ -977,6 +1069,15 @@ namespace NetworkMultitool {
         internal static string Settings_Shortcut_InvertShift {
             get {
                 return ResourceManager.GetString("Settings_Shortcut_InvertShift", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Reset to default circle.
+        /// </summary>
+        internal static string Settings_Shortcut_ResetArrangeCircle {
+            get {
+                return ResourceManager.GetString("Settings_Shortcut_ResetArrangeCircle", resourceCulture);
             }
         }
         

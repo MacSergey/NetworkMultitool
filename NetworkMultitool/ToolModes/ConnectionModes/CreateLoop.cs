@@ -324,7 +324,7 @@ namespace NetworkMultitool
                     string.Format(Localize.Mode_Info_ChangeRadius, DecreaseRadiusShortcut, IncreaseRadiusShortcut) + "\n" +
                     string.Format(Localize.Mode_CreateLoop_Info_Change, SwitchIsLoopShortcut) + "\n" +
                     Localize.Mode_Info_Step + "\n" +
-                    string.Format(Localize.Mode_Info_Create, ApplyShortcut);
+                    string.Format(Localize.Mode_Info_Loop_Create, ApplyShortcut);
         }
         protected override void ResetParams()
         {
@@ -390,10 +390,13 @@ namespace NetworkMultitool
             base.Reset(prevMode);
             PrevPos = GetMousePosition(Circle.CenterPos.y);
         }
-        public override void OnMouseUp(Event e)
+        public override void OnMouseUp(Event e) => Tool.SetMode(ToolModeType.CreateLoop);
+        public override bool OnEscape()
         {
             Tool.SetMode(ToolModeType.CreateLoop);
+            return true;
         }
+
         public override void OnMouseDrag(Event e)
         {
             if (Circle is Circle circle)

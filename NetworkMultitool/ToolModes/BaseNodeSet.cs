@@ -22,6 +22,7 @@ namespace NetworkMultitool
         }
 
         protected List<NodeSelection> Nodes { get; } = new List<NodeSelection>();
+        public IEnumerable<NodeSelection> SelectedNodes => Nodes;
         protected HashSet<NodeSelection> ToAdd { get; } = new HashSet<NodeSelection>();
         protected AddResult AddState { get; set; }
 

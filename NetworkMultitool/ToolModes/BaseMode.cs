@@ -74,10 +74,6 @@ namespace NetworkMultitool
             else if (Underground && !Utility.OnlyShiftIsPressed)
                 Underground = false;
         }
-        protected void BaseToolUpdate()
-        {
-
-        }
         protected virtual void Apply() { }
         public override bool OnEscape()
         {
@@ -210,12 +206,12 @@ namespace NetworkMultitool
 
                 var delta = MathExtention.GetAngle(oldDir, newDir);
                 ref var segment = ref segmentId.GetSegment();
-                if (segment.IsStartNode(nodeId))
-                    segment.m_startDirection = segment.m_startDirection.TurnRad(delta, false);
-                else
-                    segment.m_endDirection = segment.m_endDirection.TurnRad(delta, false);
+                segment.m_startDirection = segment.m_startDirection.TurnRad(delta, false);
+                segment.m_endDirection = segment.m_endDirection.TurnRad(delta, false);
 
-                NetManager.instance.UpdateSegmentRenderer(segmentId, true);
+                CalculateSegmentDirections(segmentId);
+                NetManager.instance.UpdateSegment(segmentId);
+                //NetManager.instance.UpdateSegmentRenderer(segmentId, true);
             }
         }
         protected void SetSegmentDirection(ushort nodeId, ushort anotherNodeId, Vector3 direction)
@@ -232,7 +228,8 @@ namespace NetworkMultitool
                 segment.m_endDirection = direction;
 
             CalculateSegmentDirections(segmentId);
-            NetManager.instance.UpdateSegmentRenderer(segmentId, true);
+            NetManager.instance.UpdateSegment(segmentId);
+            //NetManager.instance.UpdateSegmentRenderer(segmentId, true);
         }
         protected void CalculateSegmentDirections(ushort segmentId)
         {
@@ -315,6 +312,7 @@ namespace NetworkMultitool
             Labels.Clear();
         }
 
+        protected Vector3 GetMousePosition(float height) => Underground ? Tool.Ray.GetRayPosition(height, out _) : Tool.MouseWorldPosition;
         protected void RenderSegmentNodes(RenderManager.CameraInfo cameraInfo, Func<ushort, bool> isAllow = null)
         {
             if (IsHoverSegment)
@@ -489,6 +487,22 @@ namespace NetworkMultitool
 
         [Description(nameof(Localize.Mode_ArrangeAtCircle))]
         ArrangeAtCircle = ArrangeAtLine << 1,
+
+        [NotItem]
+        [Description(nameof(Localize.Mode_ArrangeAtCircle))]
+        ArrangeAtCircleComplete = ArrangeAtCircle + 1,
+
+        [NotItem]
+        [Description(nameof(Localize.Mode_ArrangeAtCircle))]
+        ArrangeAtCircleMoveCenter = ArrangeAtCircle + 2,
+
+        [NotItem]
+        [Description(nameof(Localize.Mode_ArrangeAtCircle))]
+        ArrangeAtCircleRadius = ArrangeAtCircle + 3,
+
+        [NotItem]
+        [Description(nameof(Localize.Mode_ArrangeAtCircle))]
+        ArrangeAtCircleMoveNode = ArrangeAtCircle + 4,
 
 
         [Description(nameof(Localize.Mode_CreateLoop))]
