@@ -196,17 +196,32 @@ Hold Alt for at flytte X100 langsommere</value>
     <value>For stor vinkel mellem punkter rundingen 
 vil ikke være perfekt</value>
   </data>
-  
-  
-  
-  
-  
+  <data name="Mode_Info_ArrangeCircle_DoubleClickToResetCenter" xml:space="preserve">
+    <value>Dobbeltklik for at nulstille centerposition</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_DoubleClickToResetNode" xml:space="preserve">
+    <value>Dobbeltklik for at nulstille nodeposition</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_DragToChangeRadius" xml:space="preserve">
+    <value>Træk for at ændre radius</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_DragToMoveCenter" xml:space="preserve">
+    <value>Træk for at flytte cirkel</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_DragToMoveNode" xml:space="preserve">
+    <value>Træk for at flytte node</value>
+  </data>
   <data name="Mode_Info_ArrangeCircle_MoveAll" xml:space="preserve">
     <value>Hold Shift nede for at flytte alle noder
 på samme tid</value>
   </data>
-  
-  
+  <data name="Mode_Info_ArrangeCircle_PressToDistributeBetweenIntersections" xml:space="preserve">
+    <value>Tryk på {0} for at distribuere noder
+jævnt mellem kryds</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_PressToDistributeEvenly" xml:space="preserve">
+    <value>Tryk på {0} for at distribuere noder jævnt på cirklen</value>
+  </data>
   <data name="Mode_Info_ArrangeCircle_PressToReset" xml:space="preserve">
     <value>Tryk på {0} for at nulstille parametrene</value>
   </data>
@@ -225,52 +240,147 @@ på samme tid</value>
   <data name="Mode_Info_ChangeCircle" xml:space="preserve">
     <value>Tryk på {0} for at ændre valgte cirkel</value>
   </data>
+  <data name="Mode_Info_ChangeOffset" xml:space="preserve">
+    <value>Tryk på {0} eller {1} for at ændre kurve start offset</value>
+  </data>
+  <data name="Mode_Info_ChangeOneRadius" xml:space="preserve">
+    <value>Tryk på {0} eller {1} for at ændre en radius</value>
+  </data>
+  <data name="Mode_Info_ChangeRadius" xml:space="preserve">
+    <value>Tryk på {0} eller {1} for at ændre radius</value>
+  </data>
+  <data name="Mode_Info_ChangeShift" xml:space="preserve">
+    <value>Tryk {0} eller {1} for at ændre offset</value>
+  </data>
+  <data name="Mode_Info_ClickFirstSegment" xml:space="preserve">
+    <value>Klik for at vælge første segment</value>
+  </data>
+  <data name="Mode_Info_ClickOnNodeToChangeCreateDir" xml:space="preserve">
+    <value>Klik på node for at ændre oprettelsesretning</value>
+  </data>
+  <data name="Mode_Info_ClickSecondSegment" xml:space="preserve">
+    <value>Klik for at vælge det andet segment</value>
+  </data>
+  <data name="Mode_Info_ClickSelectNode" xml:space="preserve">
+    <value>Klik for at vælge node</value>
+  </data>
+  <data name="Mode_Info_ClickToChangeCreateDir" xml:space="preserve">
+    <value>Klik for at ændre oprettelsesretning</value>
+  </data>
+  <data name="Mode_Info_ClickUnselectNode" xml:space="preserve">
+    <value>Klik for at fravælge node</value>
+  </data>
+  <data name="Mode_Info_Connection_Create" xml:space="preserve">
+    <value>Tryk på {0} for at oprette forbindelse</value>
+  </data>
+  <data name="Mode_Info_Create" xml:space="preserve">
+    <value>Tryk på {0} for at oprette</value>
+  </data>
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+  <data name="Mode_Info_Loop_Create" xml:space="preserve">
+    <value>Tryk på {0} for at oprette loop</value>
+  </data>
+  <data name="Mode_Info_OutOfMap" xml:space="preserve">
+    <value>Uden for kortet</value>
+  </data>
+  <data name="Mode_Info_Parallel_ChangeShift" xml:space="preserve">
+    <value>Tryk på {0} for at skifte side for oprettelse</value>
+  </data>
+  <data name="Mode_Info_Parallel_Create" xml:space="preserve">
+    <value>Tryk på {0} for at oprette parallel</value>
+  </data>
+  <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
+    <value>Radius for stor</value>
+  </data>
+  <data name="Mode_Info_RadiusTooSmall" xml:space="preserve">
+    <value>Radius for lille</value>
+  </data>
+  <data name="Mode_Info_SelectFirstSegment" xml:space="preserve">
+    <value>Vælg første segment</value>
+  </data>
+  <data name="Mode_Info_SelectSecondSegment" xml:space="preserve">
+    <value>Vælg andet segment</value>
+  </data>
+  <data name="Mode_Info_SelectSegment" xml:space="preserve">
+    <value>Vælg segment</value>
+  </data>
+  <data name="Mode_Info_Slope_Apply" xml:space="preserve">
+    <value>Tryk {0} for at anvende hældning</value>
+  </data>
+  <data name="Mode_Info_Step" xml:space="preserve">
+    <value>Shift - X10, Ctrl - X0.1, Alt - X0.01</value>
+  </data>
+  <data name="Mode_Info_SwitchOffset" xml:space="preserve">
+    <value>Tryk på {0} for at skifte valgte offset</value>
+  </data>
+  <data name="Mode_Info_UndergroundMode" xml:space="preserve">
+    <value>Hold Shift nede for undergrundstilstand</value>
+  </data>
+  <data name="Mode_Info_WrongShape" xml:space="preserve">
+    <value>Forkert form</value>
+  </data>
+  <data name="Mode_IntersectSegment" xml:space="preserve">
+    <value>Vejkryds tilstand</value>
+  </data>
+  <data name="Mode_IntersectSegment_Info_EdgeTooClose" xml:space="preserve">
+    <value>Kanten af den ene vej er for tæt på slutningen af den anden vej</value>
+  </data>
+  <data name="Mode_IntersectSegment_Info_NotIntersect" xml:space="preserve">
+    <value>Disse veje overlapper ikke hinanden</value>
+  </data>
+  <data name="Mode_InvertSegment" xml:space="preserve">
+    <value>Ændre Vejkryds tilstand</value>
+  </data>
+  <data name="Mode_InvertSegment_Info_ClickToReverse" xml:space="preserve">
+    <value>Klik for at ændre retning</value>
+  </data>
+  <data name="Mode_InvertSegment_Info_SelectToReverse" xml:space="preserve">
+    <value>Vælg vejstykke for at ændre retning</value>
+  </data>
+  <data name="Mode_NodeLine_Info_NotConnected" xml:space="preserve">
+    <value>Denne node kan ikke vælges
+fordi den ikke er forbundet med andre</value>
+  </data>
+  <data name="Mode_NodeLine_Info_SelectNode" xml:space="preserve">
+    <value>Vælg node for at tilføje den til eksisterende</value>
+  </data>
+  <data name="Mode_PercentagesFormat" xml:space="preserve">
+    <value>{0}%</value>
+  </data>
+  <data name="Mode_RadiusFormat" xml:space="preserve">
+    <value>{0}min</value>
+  </data>
+  <data name="Mode_RemoveNode" xml:space="preserve">
+    <value>Fjern node</value>
+  </data>
+  <data name="Mode_RemoveNode_Info_NotAllow" xml:space="preserve">
+    <value>Ikke muligt at fjerne denne node</value>
+  </data>
+  <data name="Mode_SlopeNode" xml:space="preserve">
+    <value>Angiv hældning</value>
+  </data>
+  <data name="Mode_SplitNode" xml:space="preserve">
+    <value>Del node</value>
+  </data>
+  <data name="Mode_SplitNode_Info_ClickFromOrder" xml:space="preserve">
+    <value>Klik for at fjerne element fra delt rækkefølge</value>
+  </data>
+  <data name="Mode_SplitNode_Info_ClickToOrder" xml:space="preserve">
+    <value>Klik for at tilføje element til opdelt rækkefølge</value>
+  </data>
+  <data name="Mode_SplitNode_Info_ClickToSplit" xml:space="preserve">
+    <value>Klik for at opdele node og justere til terrænhøjde
+Klik med Shift for at opdele node og justere til kildehøjde</value>
+  </data>
+  <data name="Mode_SplitNode_Info_NotAllowedSplit" xml:space="preserve">
+    <value>Ikke muligt at opdele node med kun et element</value>
+  </data>
+  <data name="Mode_SplitNode_Info_OrderIsFull" xml:space="preserve">
+    <value>Ikke muligt at tilføje flere elementer til delt rækkefølge</value>
+  </data>
+  <data name="Mode_SplitNode_Info_SelectToSplit" xml:space="preserve">
+    <value>Udvælg indlæg der skal deles</value>
+  </data>
   
   
   

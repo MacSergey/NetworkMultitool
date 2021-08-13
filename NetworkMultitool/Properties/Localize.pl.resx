@@ -402,6 +402,7 @@ Naciśnij trzymając Shift aby podzielić węzeł i wyrównać do wysokości źr
   <data name="Settings_PanelColumns" xml:space="preserve">
     <value>Liczba kolumn panelu</value>
   </data>
+  
   <data name="Settings_SegmentLength" xml:space="preserve">
     <value>Maksymalna długość segmentu</value>
   </data>

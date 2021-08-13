@@ -196,17 +196,32 @@ Alt halten, um 100x langsamer zu bewegen</value>
     <value>Zu großer Winkel zwischen den Netzwerk-Knoten
 Runde Form wird nicht perfekt sein</value>
   </data>
-  
-  
-  
-  
-  
+  <data name="Mode_Info_ArrangeCircle_DoubleClickToResetCenter" xml:space="preserve">
+    <value>Doppelklick, um die Position der Mitte zurückzusetzen</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_DoubleClickToResetNode" xml:space="preserve">
+    <value>Doppelklicken, um die Netzwerk-Knoten-Position zurückzusetzen</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_DragToChangeRadius" xml:space="preserve">
+    <value>Ziehen, um den Radius zu ändern</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_DragToMoveCenter" xml:space="preserve">
+    <value>Ziehen, um den Kreis zu bewegen</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_DragToMoveNode" xml:space="preserve">
+    <value>Ziehen, um den Netzwerk-Knoten zu bewegen</value>
+  </data>
   <data name="Mode_Info_ArrangeCircle_MoveAll" xml:space="preserve">
     <value>Halte Shift gedrückt, um alle Netzwerk-Knoten
 gleichzeitig zu bewegen</value>
   </data>
-  
-  
+  <data name="Mode_Info_ArrangeCircle_PressToDistributeBetweenIntersections" xml:space="preserve">
+    <value>Drücke {0}, um die Netzwerk-Knoten
+gleichmäßig zwischen den Kreuzungen zu verteilen</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_PressToDistributeEvenly" xml:space="preserve">
+    <value>Drücke {0}, um die Netzwerk-Knoten gleichmäßig auf den Kreis zu verteilen</value>
+  </data>
   <data name="Mode_Info_ArrangeCircle_PressToReset" xml:space="preserve">
     <value>Drücke {0}, um die Parameter zurückzusetzen</value>
   </data>
@@ -414,6 +429,9 @@ oder Entsperren auswählen</value>
   </data>
   
   
+  <data name="Settings_PlayEffects" xml:space="preserve">
+    <value>Audio- und visuelle Effekte abspielen</value>
+  </data>
   <data name="Settings_SegmentLength" xml:space="preserve">
     <value>Maximale Segmentlänge</value>
   </data>
@@ -429,8 +447,12 @@ oder Entsperren auswählen</value>
   
   
   
-  
-  
+  <data name="Settings_Shortcut_DistributeBetweenIntersections" xml:space="preserve">
+    <value>Netzwerk-Knoten gleichmäßig zwischen Kreuzungen verteilen</value>
+  </data>
+  <data name="Settings_Shortcut_DistributeEvenly" xml:space="preserve">
+    <value>Netzwerk-Knoten gleichmäßig auf den Kreis verteilen</value>
+  </data>
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
     <value>Abstand des Start-Kreises vergrößern</value>
   </data>

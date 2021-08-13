@@ -467,6 +467,7 @@ verrouiller ou déverrouiller</value>
   <data name="Settings_PanelColumns" xml:space="preserve">
     <value>Nombre de colonnes de l'interface</value>
   </data>
+  
   <data name="Settings_SegmentLength" xml:space="preserve">
     <value>Longueur maximale du segment</value>
   </data>

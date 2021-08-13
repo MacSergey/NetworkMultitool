@@ -405,6 +405,7 @@ bloccarlo o sbloccarlo</value>
   <data name="Settings_PanelColumns" xml:space="preserve">
     <value>Pannello Numero colonne</value>
   </data>
+  
   <data name="Settings_SegmentLength" xml:space="preserve">
     <value>Lunghezza Massima Del Segmento</value>
   </data>

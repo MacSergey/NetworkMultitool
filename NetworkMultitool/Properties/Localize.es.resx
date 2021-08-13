@@ -198,17 +198,33 @@ Mantener pulsada la tecla "Alt" para mover X100 más lento</value>
     <value>Angulo demasiado grande entre los nodos
 el circulo no será perfecto</value>
   </data>
-  
-  
-  
-  
-  
+  <data name="Mode_Info_ArrangeCircle_DoubleClickToResetCenter" xml:space="preserve">
+    <value>Doble clic para restablecer la posición central</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_DoubleClickToResetNode" xml:space="preserve">
+    <value>Doble clic para restablecer la posición del nodo</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_DragToChangeRadius" xml:space="preserve">
+    <value>Arrastre para cambiar radio</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_DragToMoveCenter" xml:space="preserve">
+    <value>Arrastre para mover el círculo</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_DragToMoveNode" xml:space="preserve">
+    <value>Arrastre para mover el nodo</value>
+  </data>
   <data name="Mode_Info_ArrangeCircle_MoveAll" xml:space="preserve">
     <value>Mantener pulsada la tecla "Mayús" para mover 
 todos los nodos al mismo tiempo</value>
   </data>
-  
-  
+  <data name="Mode_Info_ArrangeCircle_PressToDistributeBetweenIntersections" xml:space="preserve">
+    <value>Pulsa {0} para distribuir los nodos 
+de manera uniforme entre las intersecciones</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_PressToDistributeEvenly" xml:space="preserve">
+    <value>Pulsa {0} para distribuir los nodos 
+de manera uniforme en el círculo</value>
+  </data>
   <data name="Mode_Info_ArrangeCircle_PressToReset" xml:space="preserve">
     <value>Pulsa {0} para restablecer los parámetros</value>
   </data>
@@ -425,6 +441,9 @@ Clic con la tecla "Mayús" para separar el nodo y establecer el alto del origen<
   <data name="Settings_PanelColumns" xml:space="preserve">
     <value>Número de columnas del panel</value>
   </data>
+  <data name="Settings_PlayEffects" xml:space="preserve">
+    <value>Activar efectos de audio y visuales</value>
+  </data>
   <data name="Settings_SegmentLength" xml:space="preserve">
     <value>Longitud máxima de segmento</value>
   </data>
@@ -446,8 +465,12 @@ Clic con la tecla "Mayús" para separar el nodo y establecer el alto del origen<
   <data name="Settings_Shortcut_DecreaseShift" xml:space="preserve">
     <value>Disminuir separación</value>
   </data>
-  
-  
+  <data name="Settings_Shortcut_DistributeBetweenIntersections" xml:space="preserve">
+    <value>Distribuir los nodos de manera uniforme entre las intersecciones</value>
+  </data>
+  <data name="Settings_Shortcut_DistributeEvenly" xml:space="preserve">
+    <value>Distribuir los nodos de manera uniforme en el círculo</value>
+  </data>
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
     <value>Incrementar el desplazamiento de curva</value>
   </data>

@@ -198,17 +198,32 @@
     <value>节点间角度太大
 会导致圆形形状缺陷</value>
   </data>
-  
-  
-  
-  
-  
+  <data name="Mode_Info_ArrangeCircle_DoubleClickToResetCenter" xml:space="preserve">
+    <value>双击重置中心位置</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_DoubleClickToResetNode" xml:space="preserve">
+    <value>双击重置节点位置</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_DragToChangeRadius" xml:space="preserve">
+    <value>拖动以改变半径</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_DragToMoveCenter" xml:space="preserve">
+    <value>拖动以移动圆圈</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_DragToMoveNode" xml:space="preserve">
+    <value>拖动以移动节点</value>
+  </data>
   <data name="Mode_Info_ArrangeCircle_MoveAll" xml:space="preserve">
     <value>按住 Shift 键
 同时移动所有节点</value>
   </data>
-  
-  
+  <data name="Mode_Info_ArrangeCircle_PressToDistributeBetweenIntersections" xml:space="preserve">
+    <value>按下 {0} 在交叉口之间
+平均分布节点</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_PressToDistributeEvenly" xml:space="preserve">
+    <value>按下 {0} 在圆圈上平均分布节点</value>
+  </data>
   <data name="Mode_Info_ArrangeCircle_PressToReset" xml:space="preserve">
     <value>按 {0} 重置参数</value>
   </data>
@@ -426,6 +441,9 @@
   <data name="Settings_PanelColumns" xml:space="preserve">
     <value>面板栏数</value>
   </data>
+  <data name="Settings_PlayEffects" xml:space="preserve">
+    <value>开启音频和视觉效果</value>
+  </data>
   <data name="Settings_SegmentLength" xml:space="preserve">
     <value>最大段落长度</value>
   </data>
@@ -447,8 +465,12 @@
   <data name="Settings_Shortcut_DecreaseShift" xml:space="preserve">
     <value>减少偏移</value>
   </data>
-  
-  
+  <data name="Settings_Shortcut_DistributeBetweenIntersections" xml:space="preserve">
+    <value>在交叉口之间平均分布节点</value>
+  </data>
+  <data name="Settings_Shortcut_DistributeEvenly" xml:space="preserve">
+    <value>在圆圈上平均分布节点</value>
+  </data>
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
     <value>增加圆形起点偏移</value>
   </data>

@@ -426,6 +426,7 @@ Alt를 꾹 눌러 100배 정교하게</value>
   <data name="Settings_PanelColumns" xml:space="preserve">
     <value>패널 열 갯수</value>
   </data>
+  
   <data name="Settings_SegmentLength" xml:space="preserve">
     <value>최대 세그먼트 길이</value>
   </data>

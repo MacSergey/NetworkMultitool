@@ -426,6 +426,7 @@ Altキー押下 - x100低速移動</value>
   <data name="Settings_PanelColumns" xml:space="preserve">
     <value>パネルの列数</value>
   </data>
+  
   <data name="Settings_SegmentLength" xml:space="preserve">
     <value>セグメントの最大長</value>
   </data>

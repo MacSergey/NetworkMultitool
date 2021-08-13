@@ -464,6 +464,9 @@ Alt для перемещения в 100 раз медленнее</value>
   <data name="Settings_PanelColumns" xml:space="preserve">
     <value>Количество колонок на панели</value>
   </data>
+  <data name="Settings_PlayEffects" xml:space="preserve">
+    <value>Проигрывать аудио и визуальные эффекты</value>
+  </data>
   <data name="Settings_SegmentLength" xml:space="preserve">
     <value>Максимальная длина сегмента</value>
   </data>
