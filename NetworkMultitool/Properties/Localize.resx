@@ -218,11 +218,11 @@ round shape willn't be perfect</value>
 at the same time</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_PressToDistributeBetweenIntersections" xml:space="preserve">
-    <value>Press {0} to distirbute nodes
+    <value>Press {0} to distribute nodes
 evenly between intersections</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_PressToDistributeEvenly" xml:space="preserve">
-    <value>Press {0} to distirbute nodes evenly on circle</value>
+    <value>Press {0} to distribute nodes evenly on circle</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_PressToReset" xml:space="preserve">
     <value>Press {0} to reset parameters</value>
