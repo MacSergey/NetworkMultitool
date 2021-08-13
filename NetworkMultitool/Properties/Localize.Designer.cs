@@ -313,12 +313,76 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Double click to reset center position.
+        /// </summary>
+        internal static string Mode_Info_ArrangeCircle_DoubleClickToResetCenter {
+            get {
+                return ResourceManager.GetString("Mode_Info_ArrangeCircle_DoubleClickToResetCenter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Double click to reset node position.
+        /// </summary>
+        internal static string Mode_Info_ArrangeCircle_DoubleClickToResetNode {
+            get {
+                return ResourceManager.GetString("Mode_Info_ArrangeCircle_DoubleClickToResetNode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Drag to change radius.
+        /// </summary>
+        internal static string Mode_Info_ArrangeCircle_DragToChangeRadius {
+            get {
+                return ResourceManager.GetString("Mode_Info_ArrangeCircle_DragToChangeRadius", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Drag to move center.
+        /// </summary>
+        internal static string Mode_Info_ArrangeCircle_DragToMoveCenter {
+            get {
+                return ResourceManager.GetString("Mode_Info_ArrangeCircle_DragToMoveCenter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Drag to move node.
+        /// </summary>
+        internal static string Mode_Info_ArrangeCircle_DragToMoveNode {
+            get {
+                return ResourceManager.GetString("Mode_Info_ArrangeCircle_DragToMoveNode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Hold Shift to move all nodes
         ///at the same time.
         /// </summary>
         internal static string Mode_Info_ArrangeCircle_MoveAll {
             get {
                 return ResourceManager.GetString("Mode_Info_ArrangeCircle_MoveAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Press {0} to disterbute nodes
+        ///evenly between intersections.
+        /// </summary>
+        internal static string Mode_Info_ArrangeCircle_PressToDistributeBetweenIntersections {
+            get {
+                return ResourceManager.GetString("Mode_Info_ArrangeCircle_PressToDistributeBetweenIntersections", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Press {0} to disterbute nodes evenly on circle.
+        /// </summary>
+        internal static string Mode_Info_ArrangeCircle_PressToDistributeEvenly {
+            get {
+                return ResourceManager.GetString("Mode_Info_ArrangeCircle_PressToDistributeEvenly", resourceCulture);
             }
         }
         
@@ -1015,6 +1079,24 @@ namespace NetworkMultitool {
         internal static string Settings_Shortcut_DecreaseShift {
             get {
                 return ResourceManager.GetString("Settings_Shortcut_DecreaseShift", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Distribute nodes evenly between intersections.
+        /// </summary>
+        internal static string Settings_Shortcut_DistributeBetweenIntersections {
+            get {
+                return ResourceManager.GetString("Settings_Shortcut_DistributeBetweenIntersections", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Distribute nodes evenly on circle.
+        /// </summary>
+        internal static string Settings_Shortcut_DistributeEvenly {
+            get {
+                return ResourceManager.GetString("Settings_Shortcut_DistributeEvenly", resourceCulture);
             }
         }
         

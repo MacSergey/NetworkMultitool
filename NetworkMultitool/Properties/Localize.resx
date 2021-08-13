@@ -198,9 +198,31 @@ Hold Alt to move X100 slower</value>
     <value>Too big angel between nodes
 round shape willn't be perfect</value>
   </data>
+  <data name="Mode_Info_ArrangeCircle_DoubleClickToResetCenter" xml:space="preserve">
+    <value>Double click to reset center position</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_DoubleClickToResetNode" xml:space="preserve">
+    <value>Double click to reset node position</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_DragToChangeRadius" xml:space="preserve">
+    <value>Drag to change radius</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_DragToMoveCenter" xml:space="preserve">
+    <value>Drag to move center</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_DragToMoveNode" xml:space="preserve">
+    <value>Drag to move node</value>
+  </data>
   <data name="Mode_Info_ArrangeCircle_MoveAll" xml:space="preserve">
     <value>Hold Shift to move all nodes
 at the same time</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_PressToDistributeBetweenIntersections" xml:space="preserve">
+    <value>Press {0} to disterbute nodes
+evenly between intersections</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_PressToDistributeEvenly" xml:space="preserve">
+    <value>Press {0} to disterbute nodes evenly on circle</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_PressToReset" xml:space="preserve">
     <value>Press {0} to reset parameters</value>
@@ -458,6 +480,12 @@ lock or unlock it</value>
   </data>
   <data name="Settings_Shortcut_DecreaseShift" xml:space="preserve">
     <value>Decrease offset</value>
+  </data>
+  <data name="Settings_Shortcut_DistributeBetweenIntersections" xml:space="preserve">
+    <value>Distribute nodes evenly between intersections</value>
+  </data>
+  <data name="Settings_Shortcut_DistributeEvenly" xml:space="preserve">
+    <value>Distribute nodes evenly on circle</value>
   </data>
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
     <value>Increase circle start offset</value>

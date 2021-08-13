@@ -129,6 +129,8 @@ namespace NetworkMultitool
             var arrangeCircleGroup = ShortcutsTab.AddGroup(Localize.Mode_ArrangeAtCircle);
             var arrangeCircleKeymapping = AddKeyMappingPanel(arrangeCircleGroup);
             arrangeCircleKeymapping.AddKeymapping(ArrangeCircleCompleteMode.ResetArrangeCircleShortcut);
+            arrangeCircleKeymapping.AddKeymapping(ArrangeCircleCompleteMode.DistributeEvenlyShortcut);
+            arrangeCircleKeymapping.AddKeymapping(ArrangeCircleCompleteMode.DistributeBetweenIntersectionsShortcut);
         }
 
         #endregion
