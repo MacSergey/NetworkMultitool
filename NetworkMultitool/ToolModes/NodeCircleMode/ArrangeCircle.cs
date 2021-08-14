@@ -53,7 +53,6 @@ namespace NetworkMultitool
     public abstract class BaseArrangeCircleCompleteMode : BaseNetworkMultitoolMode
     {
         protected override bool IsReseted => true;
-        public override bool CreateButton => false;
         protected override bool CanSwitchUnderground => false;
 
         protected List<CirclePoint> Nodes { get; } = new List<CirclePoint>();

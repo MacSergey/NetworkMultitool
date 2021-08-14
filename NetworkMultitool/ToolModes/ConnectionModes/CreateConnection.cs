@@ -319,7 +319,6 @@ namespace NetworkMultitool
     public class CreateConnectionMoveCircleMode : BaseAdditionalCreateConnectionMode
     {
         public override ToolModeType Type => ToolModeType.CreateConnectionMoveCircle;
-        public override bool CreateButton => false;
         private Vector3 PrevPos { get; set; }
 
         protected override string GetInfo() => Localize.Mode_Connection_Info_SlowMove;
@@ -356,7 +355,6 @@ namespace NetworkMultitool
     public class CreateConnectionChangeRadiusMode : BaseAdditionalCreateConnectionMode
     {
         public override ToolModeType Type => ToolModeType.CreateConnectionChangeRadius;
-        public override bool CreateButton => false;
 
         private Vector2 PrevPos { get; set; }
 
