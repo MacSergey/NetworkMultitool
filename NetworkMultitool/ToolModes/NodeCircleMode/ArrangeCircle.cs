@@ -668,7 +668,7 @@ namespace NetworkMultitool
             else if (Utility.OnlyAltIsPressed)
                 radius = radius.RoundToNearest(0.1f);
 
-            Radius = Mathf.Max(radius, MinRadius);
+            Radius = Mathf.Clamp(radius, MinRadius, 3000f);
         }
         public override void RenderOverlay(RenderManager.CameraInfo cameraInfo)
         {
