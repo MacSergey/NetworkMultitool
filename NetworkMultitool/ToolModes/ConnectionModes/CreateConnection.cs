@@ -65,7 +65,7 @@ namespace NetworkMultitool
             else if (IsHoverCenter)
             {
                 var result = Localize.Mode_Connection_Info_DragToMove;
-                if (HoverCenter == 0 || HoverCenter == Circles.Count - 1)
+                if (HoverCenter != 0 && HoverCenter != Circles.Count - 1)
                     result += "\n" + Localize.Mode_Connection_Info_DoubleClickToRemove;
                 return result;
             }
@@ -363,6 +363,7 @@ namespace NetworkMultitool
                 Recalculate();
             }
         }
+        protected override bool IsSnapping(Circle circle) => circle.PossiblePositionSnapping;
     }
 
     public class CreateConnectionChangeRadiusMode : BaseAdditionalCreateConnectionMode
@@ -403,5 +404,6 @@ namespace NetworkMultitool
                 Recalculate();
             }
         }
+        protected override bool IsSnapping(Circle circle) => circle.PossibleRadiusSnapping;
     }
 }

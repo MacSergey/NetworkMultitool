@@ -334,19 +334,39 @@ namespace NetworkMultitool
             }
             protected override void SnappingOnePosition(Circle other)
             {
-                var length = other.Direction == Direction ? Mathf.Abs(other.Radius - Radius) : other.Radius + Radius;
                 var normal = new StraightTrajectory(other.CenterPos, other.CenterPos + MainDir, false);
-                Intersection.CalculateSingle(Guide, normal, out var t, out var otherT);
-                var height = Mathf.Abs(otherT) - Radius;
+                Intersection.CalculateSingle(Guide, normal, out var otherOffset, out var otherHeight);
 
+                var length = other.Direction == Direction ? Mathf.Abs(other.Radius - Radius) : other.Radius + Radius;
+                var height = Mathf.Sign(otherHeight) * (otherHeight - Radius);
                 var delta = Mathf.Sqrt(length * length - height * height);
-                var connect = GetConnectCenter(other, this);
-                var side = NormalizeCrossXZ(connect.Direction, normal.Direction);
 
-                Offset = t + Mathf.Sign(side) * delta;
+                var side = NormalizeDotXZ(GetConnectCenter(other, this).Direction, Guide.Direction);
+                Offset = otherOffset + Mathf.Sign(side) * delta;
             }
             protected override void SnappingTwoPositions(Circle before, Circle after) { }
-            protected override void SnappingRadius(Circle other) { }
+            protected override void SnappingRadius(Circle other)
+            {
+                var normal = new StraightTrajectory(other.CenterPos, other.CenterPos + MainDir, false);
+                Intersection.CalculateSingle(Guide, normal, out var otherOffset, out var otherHeight);
+
+                if (other.Radius + otherHeight <= 0f)
+                    return;
+
+                var delta = Mathf.Abs(Offset - otherOffset);
+                var height = Mathf.Abs(otherHeight);
+                if (otherHeight < 0f)
+                {
+                    var radius = (other.Radius * other.Radius - height * height - delta * delta) / (2f * (height - other.Radius));
+                    Radius = radius;
+                }
+                else
+                {
+                    var radius1 = (other.Radius * other.Radius - height * height - delta * delta) / (2f * (other.Radius - height));
+                    var radius2 = (height * height + delta * delta - other.Radius * other.Radius) / (2f * (other.Radius + height));
+                    Radius = Mathf.Abs(Radius - radius1) < Mathf.Abs(Radius - radius2) ? radius1 : radius2;
+                }
+            }
         }
         public enum CircleType
         {
@@ -370,7 +390,7 @@ namespace NetworkMultitool
         {
             for (var i = 0; i < Circles.Count; i += 1)
             {
-                if (Utility.NotPressed && Math.Abs(i - Edit) == 1 && Circle.IsSnapping(Circles[i], Circles[Edit]))
+                if (IsSnapping(Circles[Edit]) && Utility.NotPressed && Math.Abs(i - Edit) == 1 && Circle.IsSnapping(Circles[i], Circles[Edit]))
                     Circles[i].RenderCircle(cameraInfo, Colors.Orange, Underground);
                 else
                     Circles[i].RenderCircle(cameraInfo, i == Edit ? Colors.Green : Colors.Green.SetAlpha(64), Underground);
@@ -388,5 +408,6 @@ namespace NetworkMultitool
 
             base.RenderFailedOverlay(cameraInfo, info);
         }
+        protected abstract bool IsSnapping(Circle circle);
     }
 }

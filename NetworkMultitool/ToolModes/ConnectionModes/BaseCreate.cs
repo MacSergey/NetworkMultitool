@@ -475,10 +475,10 @@ namespace NetworkMultitool
             }
             public Point EndPoint => new Point(EndPos, EndDir);
 
-            public static float MinShapping => 10f;
+            public static float MinSnapping => 10f;
             public static float MinDelta => 0.01f;
-
-            public float MinSnapping { get; private set; }
+            public virtual bool PossiblePositionSnapping => true;
+            public virtual bool PossibleRadiusSnapping => true;
 
             public Circle(InfoLabel label, float height)
             {
@@ -635,7 +635,7 @@ namespace NetworkMultitool
                 var connect = GetConnectCenter(other, this);
                 if (other.Direction != Direction)
                     CenterPos = other.CenterPos + connect.Direction * (other.Radius + Radius);
-                else if (Math.Abs(Radius - other.Radius) >= MinShapping)
+                else if (Math.Abs(Radius - other.Radius) >= MinSnapping)
                     CenterPos = other.CenterPos + connect.Direction * Mathf.Abs(Radius - other.Radius);
             }
             protected virtual void SnappingTwoPositions(Circle before, Circle after)
@@ -698,7 +698,7 @@ namespace NetworkMultitool
                 var centerConnect = GetConnectCenter(this, other);
                 if (Direction != other.Direction)
                     Radius = centerConnect.Length - other.Radius;
-                else if (centerConnect.Length > MinSnapping / 2f)
+                else if (centerConnect.Length > 0.5f)
                 {
                     var radius1 = other.Radius + centerConnect.Length;
                     var radius2 = other.Radius - centerConnect.Length;
@@ -714,7 +714,7 @@ namespace NetworkMultitool
                     return Mathf.Abs(centerConnect.Length - (first.Radius + second.Radius));
             }
             public static bool IsSnapping(Circle first, Circle second) => first.IsCorrect && second.IsCorrect && CanSnapping(first, second);
-            protected static bool CanSnapping(Circle first, Circle second) => (first.Direction != second.Direction || Math.Abs(first.Radius - second.Radius) >= MinShapping) && GetDelta(first, second) < MinShapping;
+            protected static bool CanSnapping(Circle first, Circle second) => (first.Direction != second.Direction || Math.Abs(first.Radius - second.Radius) >= 1f) && GetDelta(first, second) < MinSnapping;
 
             public void Render(RenderManager.CameraInfo cameraInfo, NetInfo info, Color32 color, bool underground)
             {
