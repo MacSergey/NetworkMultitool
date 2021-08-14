@@ -60,6 +60,7 @@ namespace NetworkMultitool
 
         protected Vector3 Center { get; set; }
         protected float Radius { get; set; }
+        private bool IsClockWise { get; set; }
 
         private List<bool> States { get; } = new List<bool>();
         protected bool IsWrongOrder => States.Any(s => !s);
@@ -88,12 +89,26 @@ namespace NetworkMultitool
             Nodes.Clear();
 
             if (prevMode is ArrangeCircleMode arrangeMode)
-                Calculate(arrangeMode.SelectedNodes, n => n.Id.GetNode().m_position, n => n.Id);
+            {
+                var points = arrangeMode.SelectedNodes.Select(n => n.Id.GetNode().m_position).ToArray();
+                var sumAngle = 0f;
+                for (var i = 0; i < points.Length; i += 1)
+                {
+                    var first = points[i] - points[(i - 1 + points.Length) % points.Length];
+                    var second = points[(i + 1) % points.Length] - points[i];
+                    var angle = MathExtention.GetAngle(first, second);
+                    sumAngle += angle;
+                }
+                IsClockWise = sumAngle >= 0f;
+
+                Calculate(IsClockWise ? arrangeMode.SelectedNodes : arrangeMode.SelectedNodes.Reverse(), n => n.Id.GetNode().m_position, n => n.Id);
+            }
             else if (prevMode is BaseArrangeCircleCompleteMode arrangeCompliteMode)
             {
                 Nodes.AddRange(arrangeCompliteMode.Nodes);
                 Center = arrangeCompliteMode.Center;
                 Radius = arrangeCompliteMode.Radius;
+                IsClockWise = arrangeCompliteMode.IsClockWise;
             }
 
             States.Clear();
@@ -556,7 +571,7 @@ namespace NetworkMultitool
                         break;
                 }
 
-                if(sumDelta + 0.001f < minDelta || (sumDelta - minDelta < 0.001f && Math.Abs(count / 2 - i) < Math.Abs(count / 2 - minI)))
+                if (sumDelta + 0.001f < minDelta || (sumDelta - minDelta < 0.001f && Math.Abs(count / 2 - i) < Math.Abs(count / 2 - minI)))
                 {
                     minDelta = sumDelta;
                     minI = i;
