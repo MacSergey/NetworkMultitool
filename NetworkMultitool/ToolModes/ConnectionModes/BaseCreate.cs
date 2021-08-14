@@ -475,6 +475,9 @@ namespace NetworkMultitool
             }
             public Point EndPoint => new Point(EndPos, EndDir);
 
+            public static float MinShapping => 10f;
+            public static float MinDelta => 0.001f;
+
             public Circle(InfoLabel label, float height)
             {
                 Height = height;
@@ -507,18 +510,36 @@ namespace NetworkMultitool
             public static void SetConnect(Circle first, Circle second)
             {
                 var centerConnect = GetConnectCenter(first, second);
+                var delta = GetDelta(first, second);
 
                 if (first.Direction == second.Direction)
                 {
-                    var deltaAngle = Mathf.Asin(Mathf.Abs(first.Radius - second.Radius) / centerConnect.Length);
-                    first.EndRadiusDir = centerConnect.Direction.TurnRad(Mathf.PI / 2f + (first.Radius >= second.Radius ? -deltaAngle : deltaAngle), !first.ClockWise);
-                    second.StartRadiusDir = -centerConnect.Direction.TurnRad(Mathf.PI / 2f + (second.Radius >= first.Radius ? -deltaAngle : deltaAngle), second.ClockWise);
+                    if (delta < MinDelta)
+                    {
+                        var direction = first.Radius >= second.Radius ? centerConnect.Direction : -centerConnect.Direction;
+                        first.EndRadiusDir = direction;
+                        second.StartRadiusDir = direction;
+                    }
+                    else
+                    {
+                        var deltaAngle = Mathf.Asin(Mathf.Abs(first.Radius - second.Radius) / centerConnect.Length);
+                        first.EndRadiusDir = centerConnect.Direction.TurnRad(Mathf.PI / 2f + (first.Radius >= second.Radius ? -deltaAngle : deltaAngle), !first.ClockWise);
+                        second.StartRadiusDir = -centerConnect.Direction.TurnRad(Mathf.PI / 2f + (second.Radius >= first.Radius ? -deltaAngle : deltaAngle), second.ClockWise);
+                    }
                 }
                 else
                 {
-                    var deltaAngle = Mathf.Acos((first.Radius + second.Radius) / centerConnect.Length);
-                    first.EndRadiusDir = centerConnect.Direction.TurnRad(deltaAngle, second.ClockWise);
-                    second.StartRadiusDir = -centerConnect.Direction.TurnRad(deltaAngle, second.ClockWise);
+                    if (delta < MinDelta)
+                    {
+                        first.EndRadiusDir = centerConnect.Direction;
+                        second.StartRadiusDir = -centerConnect.Direction;
+                    }
+                    else
+                    {
+                        var deltaAngle = Mathf.Acos((first.Radius + second.Radius) / centerConnect.Length);
+                        first.EndRadiusDir = centerConnect.Direction.TurnRad(deltaAngle, !first.ClockWise);
+                        second.StartRadiusDir = -centerConnect.Direction.TurnRad(deltaAngle, second.ClockWise);
+                    }
                 }
             }
             public static bool CheckRadii(Circle first, Circle second)
@@ -526,9 +547,9 @@ namespace NetworkMultitool
                 var centerConnect = GetConnectCenter(first, second);
 
                 if (first.Direction == second.Direction)
-                    return centerConnect.Length + first.Radius >= second.Radius && centerConnect.Length + second.Radius >= first.Radius;
+                    return second.Radius - first.Radius <= centerConnect.Length + MinDelta && first.Radius - second.Radius <= centerConnect.Length + MinDelta;
                 else
-                    return first.Radius + second.Radius <= centerConnect.Length;
+                    return first.Radius + second.Radius <= centerConnect.Length + MinDelta;
             }
             public static Straight GetStraight(Circle first, Circle second, InfoLabel label, float height)
             {
@@ -540,8 +561,27 @@ namespace NetworkMultitool
                 else
                     labelDir = -second.StartRadiusDir;
 
-                var straight = new Straight(first.EndPos, second.StartPos, labelDir, label, height);
-                return straight;
+                var start = first.EndPos;
+                var end = second.StartPos;
+                if ((end - start).sqrMagnitude >= 1f)
+                {
+                    var straight = new Straight(start, end, labelDir, label, height);
+                    return straight;
+                }
+                else if (first.Direction == second.Direction)
+                {
+                    var pos = (start + end) / 2f;
+                    var dir = (first.EndRadiusDir + second.StartRadiusDir).normalized.Turn90(first.ClockWise);
+                    var straight = new Straight(pos - dir, pos + dir, labelDir, label, height);
+                    return straight;
+                }
+                else
+                {
+                    var pos = (start + end) / 2f;
+                    var dir = GetConnectCenter(first, second).Direction.Turn90(first.ClockWise);
+                    var straight = new Straight(pos - dir, pos + dir, labelDir, label, height);
+                    return straight;
+                }
             }
             public IEnumerable<Point> GetParts(Straight before, Straight after)
             {
@@ -559,6 +599,56 @@ namespace NetworkMultitool
                 else if (!before.IsShort && !after.IsShort)
                     yield return MiddlePoint;
             }
+            public virtual void SnappingPosition(List<Circle> circles)
+            {
+                if (circles.Count <= 1)
+                    return;
+
+                var index = circles.IndexOf(this);
+
+                if (index == 0 || index == circles.Count - 1)
+                {
+                    var other = circles[index == 0 ? index + 1 : index - 1];
+                    if (GetDelta(this, other) < MinShapping)
+                        SnappingOnePosition(other);
+                }
+                else
+                {
+                    var first = circles[index - 1];
+                    var second = circles[index + 1];
+
+                    var firstDelta = GetDelta(this, first);
+                    var secondDelta = GetDelta(this, second);
+
+                    if (firstDelta < MinShapping && secondDelta < MinShapping)
+                        SnappingTwoPositions(first, second);
+                    else if (firstDelta < MinShapping)
+                        SnappingOnePosition(first);
+                    else if (secondDelta < MinShapping)
+                        SnappingOnePosition(second);
+                }
+            }
+            protected virtual void SnappingOnePosition(Circle other)
+            {
+                var connect = GetConnectCenter(other, this);
+                if (other.Direction != Direction)
+                    CenterPos = other.CenterPos + connect.Direction * (other.Radius + Radius);
+                else if (Math.Abs(Radius - other.Radius) >= MinShapping)
+                    CenterPos = other.CenterPos + connect.Direction * Mathf.Abs(Radius - other.Radius);
+            }
+            protected virtual void SnappingTwoPositions(Circle first, Circle second)
+            {
+
+            }
+            public static float GetDelta(Circle first, Circle second)
+            {
+                var centerConnect = GetConnectCenter(first, second);
+                if (first.Direction == second.Direction)
+                    return Mathf.Abs(Mathf.Abs(first.Radius - second.Radius) - centerConnect.Length);
+                else
+                    return Mathf.Abs(centerConnect.Length - (first.Radius + second.Radius));
+            }
+            public static bool IsSnapping(Circle first, Circle second) => (first.Direction != second.Direction || Math.Abs(first.Radius - second.Radius) >= MinShapping) && GetDelta(first, second) < MinShapping;
 
             public void Render(RenderManager.CameraInfo cameraInfo, NetInfo info, Color32 color, bool underground)
             {
@@ -594,7 +684,9 @@ namespace NetworkMultitool
                     }
                 }
             }
+            public Point StartPoint => new Point(StartPosition, StartDirection);
             public Point MiddlePoint => new Point(Position(0.5f), Tangent(0.5f));
+            public Point EndPoint => new Point(EndPosition, -EndDirection);
 
             public Straight(Vector3 start, Vector3 end, Vector3 labelDir, InfoLabel label, float height) : base(start, end, labelDir, label, height) { }
 

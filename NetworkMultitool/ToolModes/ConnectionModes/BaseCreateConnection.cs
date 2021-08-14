@@ -108,8 +108,14 @@ namespace NetworkMultitool
                     circle?.Update(State == Result.Calculated);
 
                 var info = Info;
-                foreach (var straight in Straights)
-                    straight?.Update(info, State == Result.Calculated);
+                for (var i = 0; i < Straights.Count; i += 1)
+                {
+                    if(Straights[i] is Straight straight)
+                    {
+                        var show = State == Result.Calculated && (i == 0 || i == Straights.Count - 1 || !straight.IsShort);
+                        straight.Update(info, show);
+                    }
+                }
             }
         }
 
@@ -179,11 +185,24 @@ namespace NetworkMultitool
                     var straight = Straights[j];
                     if (!straight.IsShort)
                     {
+                        if (j != 0 && !Circles[j - 1].IsCorrect)
+                            yield return straight.StartPoint;
+
                         foreach (var part in straight.Parts)
                             yield return part;
+
+                        if (j != Straights.Count - 1 && !Circles[j].IsCorrect)
+                            yield return straight.EndPoint;
                     }
-                    else if (j != 0 && j != Straights.Count - 1 && !Circles[j - 1].IsShort && !Circles[j].IsShort)
-                        yield return straight.MiddlePoint;
+                    else if(j != 0 && j != Straights.Count - 1)
+                    {
+                        if (!Circles[j - 1].IsShort && !Circles[j].IsShort)
+                            yield return straight.MiddlePoint;
+                        else if (!Circles[j - 1].IsShort)
+                            yield return straight.StartPoint;
+                        else if (!Circles[j].IsShort)
+                            yield return straight.EndPoint;
+                    }
                 }
                 else
                 {
@@ -192,7 +211,7 @@ namespace NetworkMultitool
                     {
                         foreach (var part in Circles[j].GetParts(Straights[j], Straights[j + 1]))
                             yield return part;
-                    }                   
+                    }
                 }
             }
         }
@@ -201,8 +220,12 @@ namespace NetworkMultitool
         {
             foreach (var circle in Circles)
                 circle.Render(cameraInfo, info, Colors.Gray224, Underground);
-            foreach (var straight in Straights)
-                straight.Render(cameraInfo, info, Colors.Gray224, Colors.Gray224, Underground);
+
+            for (var i = 0; i < Straights.Count; i += 1)
+            {
+                if (i == 0 || i == Straights.Count - 1 || !Straights[i].IsShort)
+                    Straights[i].Render(cameraInfo, info, Colors.Gray224, Colors.Gray224, Underground);
+            }
         }
         protected override void RenderFailedOverlay(RenderManager.CameraInfo cameraInfo, NetInfo info)
         {
@@ -334,16 +357,20 @@ namespace NetworkMultitool
         protected override void RenderCalculatedOverlay(RenderManager.CameraInfo cameraInfo, NetInfo info)
         {
             for (var i = 0; i < Circles.Count; i += 1)
-                Circles[i].RenderCircle(cameraInfo, i == Edit ? Colors.Green : Colors.Green.SetAlpha(64), Underground);
+                RenderCalculatedCircle(cameraInfo, i);
 
             base.RenderCalculatedOverlay(cameraInfo, info);
         }
         protected override void RenderFailedOverlay(RenderManager.CameraInfo cameraInfo, NetInfo info)
         {
             for (var i = 0; i < Circles.Count; i += 1)
-                Circles[i].RenderCircle(cameraInfo, Colors.Red, Underground);
+            {
+                var color = Circles[i].IsCorrect ? (i == Edit ? Colors.Green : Colors.Green.SetAlpha(64)) : Colors.Red;
+                Circles[i].RenderCircle(cameraInfo, color, Underground);
+            }
 
             base.RenderFailedOverlay(cameraInfo, info);
         }
+        protected virtual void RenderCalculatedCircle(RenderManager.CameraInfo cameraInfo, int i) => Circles[i].RenderCircle(cameraInfo, i == Edit ? Colors.Green : Colors.Green.SetAlpha(64), Underground);
     }
 }
