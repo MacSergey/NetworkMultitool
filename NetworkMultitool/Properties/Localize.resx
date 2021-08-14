@@ -224,6 +224,10 @@ evenly between intersections</value>
   <data name="Mode_Info_ArrangeCircle_PressToDistributeEvenly" xml:space="preserve">
     <value>Press {0} to distribute nodes evenly on circle</value>
   </data>
+  <data name="Mode_Info_ArrangeCircle_PressToDistributeIntersections" xml:space="preserve">
+    <value>Press {0} to distribute
+intersections evenly on circle</value>
+  </data>
   <data name="Mode_Info_ArrangeCircle_PressToReset" xml:space="preserve">
     <value>Press {0} to reset parameters</value>
   </data>
@@ -489,6 +493,9 @@ lock or unlock it</value>
   </data>
   <data name="Settings_Shortcut_DistributeEvenly" xml:space="preserve">
     <value>Distribute nodes evenly on circle</value>
+  </data>
+  <data name="Settings_Shortcut_DistributeIntersections" xml:space="preserve">
+    <value>Distribute intersections evenly on circle</value>
   </data>
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
     <value>Increase circle start offset</value>

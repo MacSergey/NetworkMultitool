@@ -132,6 +132,7 @@ namespace NetworkMultitool
             var arrangeCircleKeymapping = AddKeyMappingPanel(arrangeCircleGroup);
             arrangeCircleKeymapping.AddKeymapping(ArrangeCircleCompleteMode.ResetArrangeCircleShortcut);
             arrangeCircleKeymapping.AddKeymapping(ArrangeCircleCompleteMode.DistributeEvenlyShortcut);
+            arrangeCircleKeymapping.AddKeymapping(ArrangeCircleCompleteMode.DistributeIntersectionsShortcut);
             arrangeCircleKeymapping.AddKeymapping(ArrangeCircleCompleteMode.DistributeBetweenIntersectionsShortcut);
         }
 
