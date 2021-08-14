@@ -114,8 +114,8 @@ namespace NetworkMultitool
         {
             base.SetModeNow(mode);
 
-            if (mode != null)
-                LastMode = Mode;
+            if (mode != null && Mode is BaseNetworkMultitoolMode lastMode)
+                LastMode = ToolModes[lastMode.Type & ToolModeType.Group];
         }
         protected override bool CheckInfoMode(InfoManager.InfoMode mode, InfoManager.SubInfoMode subInfo) => (mode == InfoManager.InfoMode.None || mode == InfoManager.InfoMode.Underground) && subInfo == InfoManager.SubInfoMode.Default;
 

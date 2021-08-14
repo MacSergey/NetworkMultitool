@@ -108,8 +108,14 @@ namespace NetworkMultitool
                     circle?.Update(State == Result.Calculated);
 
                 var info = Info;
-                foreach (var straight in Straights)
-                    straight?.Update(info, State == Result.Calculated);
+                for (var i = 0; i < Straights.Count; i += 1)
+                {
+                    if (Straights[i] is Straight straight)
+                    {
+                        var show = State == Result.Calculated && (i == 0 || i == Straights.Count - 1 || !straight.IsShort);
+                        straight.Update(info, show);
+                    }
+                }
             }
         }
 
@@ -179,11 +185,24 @@ namespace NetworkMultitool
                     var straight = Straights[j];
                     if (!straight.IsShort)
                     {
+                        if (j != 0 && !Circles[j - 1].IsCorrect)
+                            yield return straight.StartPoint;
+
                         foreach (var part in straight.Parts)
                             yield return part;
+
+                        if (j != Straights.Count - 1 && !Circles[j].IsCorrect)
+                            yield return straight.EndPoint;
                     }
-                    else if (j != 0 && j != Straights.Count - 1 && !Circles[j - 1].IsShort && !Circles[j].IsShort)
-                        yield return straight.MiddlePoint;
+                    else if (j != 0 && j != Straights.Count - 1)
+                    {
+                        if (!Circles[j - 1].IsShort && !Circles[j].IsShort)
+                            yield return straight.MiddlePoint;
+                        else if (!Circles[j - 1].IsShort)
+                            yield return straight.StartPoint;
+                        else if (!Circles[j].IsShort)
+                            yield return straight.EndPoint;
+                    }
                 }
                 else
                 {
@@ -192,7 +211,7 @@ namespace NetworkMultitool
                     {
                         foreach (var part in Circles[j].GetParts(Straights[j], Straights[j + 1]))
                             yield return part;
-                    }                   
+                    }
                 }
             }
         }
@@ -201,8 +220,12 @@ namespace NetworkMultitool
         {
             foreach (var circle in Circles)
                 circle.Render(cameraInfo, info, Colors.Gray224, Underground);
-            foreach (var straight in Straights)
-                straight.Render(cameraInfo, info, Colors.Gray224, Colors.Gray224, Underground);
+
+            for (var i = 0; i < Straights.Count; i += 1)
+            {
+                if (i == 0 || i == Straights.Count - 1 || !Straights[i].IsShort)
+                    Straights[i].Render(cameraInfo, info, Colors.Gray224, Colors.Gray224, Underground);
+            }
         }
         protected override void RenderFailedOverlay(RenderManager.CameraInfo cameraInfo, NetInfo info)
         {
@@ -223,18 +246,12 @@ namespace NetworkMultitool
 
             public override Vector3 CenterPos
             {
-                get => base.CenterPos;
+                get => Guide.StartPosition - MainDir * Radius + Guide.Direction * Offset;
                 set
                 {
-                    var dir = Type switch
-                    {
-                        CircleType.First => StartRadiusDir,
-                        CircleType.Last => EndRadiusDir,
-                    };
-                    var normal = new StraightTrajectory(value, value + dir, false);
-
+                    var normal = new StraightTrajectory(value, value + MainDir, false);
                     Intersection.CalculateSingle(Guide, normal, out var t, out _);
-                    Offset = Mathf.Clamp(t, 0f, 500f);
+                    Offset = t;
                 }
             }
             public override Vector3 StartRadiusDir
@@ -255,6 +272,11 @@ namespace NetworkMultitool
                         base.EndRadiusDir = value;
                 }
             }
+            private Vector3 MainDir => Type switch
+            {
+                CircleType.First => StartRadiusDir,
+                CircleType.Last => EndRadiusDir,
+            };
 
             public override Vector3 StartPos => Type == CircleType.First ? Guide.Position(Offset) : base.StartPos;
             public override Vector3 EndPos => Type == CircleType.Last ? Guide.Position(Offset) : base.EndPos;
@@ -265,7 +287,7 @@ namespace NetworkMultitool
             public float Offset
             {
                 get => _offset;
-                set => _offset = Mathf.Max(value, 0f);
+                set => _offset = Mathf.Clamp(value, 0f, 500f);
             }
 
             public EdgeCircle(CircleType type, InfoLabel label, StraightTrajectory guide, float height) : base(label, height)
@@ -283,8 +305,6 @@ namespace NetworkMultitool
                     base.StartRadiusDir = -dir;
                 else
                     base.EndRadiusDir = dir;
-
-                base.CenterPos = Guide.StartPosition + (Type == CircleType.First ? dir : -dir) * Radius + Guide.Direction * Offset;
             }
             public Straight GetStraight(InfoLabel label) => Type switch
             {
@@ -312,6 +332,41 @@ namespace NetworkMultitool
                 first.Direction = firstDir ? Direction.Right : Direction.Left;
                 last.Direction = lastDir ? Direction.Left : Direction.Right;
             }
+            protected override void SnappingOnePosition(Circle other)
+            {
+                var normal = new StraightTrajectory(other.CenterPos, other.CenterPos + MainDir, false);
+                Intersection.CalculateSingle(Guide, normal, out var otherOffset, out var otherHeight);
+
+                var length = other.Direction == Direction ? Mathf.Abs(other.Radius - Radius) : other.Radius + Radius;
+                var height = Mathf.Sign(otherHeight) * (otherHeight - Radius);
+                var delta = Mathf.Sqrt(length * length - height * height);
+
+                var side = NormalizeDotXZ(GetConnectCenter(other, this).Direction, Guide.Direction);
+                Offset = otherOffset + Mathf.Sign(side) * delta;
+            }
+            protected override void SnappingTwoPositions(Circle before, Circle after) { }
+            protected override void SnappingRadius(Circle other)
+            {
+                var normal = new StraightTrajectory(other.CenterPos, other.CenterPos + MainDir, false);
+                Intersection.CalculateSingle(Guide, normal, out var otherOffset, out var otherHeight);
+
+                if (other.Radius + otherHeight <= 0f)
+                    return;
+
+                var delta = Mathf.Abs(Offset - otherOffset);
+                var height = Mathf.Abs(otherHeight);
+                if (otherHeight < 0f)
+                {
+                    var radius = (other.Radius * other.Radius - height * height - delta * delta) / (2f * (height - other.Radius));
+                    Radius = radius;
+                }
+                else
+                {
+                    var radius1 = (other.Radius * other.Radius - height * height - delta * delta) / (2f * (other.Radius - height));
+                    var radius2 = (height * height + delta * delta - other.Radius * other.Radius) / (2f * (other.Radius + height));
+                    Radius = Mathf.Abs(Radius - radius1) < Mathf.Abs(Radius - radius2) ? radius1 : radius2;
+                }
+            }
         }
         public enum CircleType
         {
@@ -334,16 +389,25 @@ namespace NetworkMultitool
         protected override void RenderCalculatedOverlay(RenderManager.CameraInfo cameraInfo, NetInfo info)
         {
             for (var i = 0; i < Circles.Count; i += 1)
-                Circles[i].RenderCircle(cameraInfo, i == Edit ? Colors.Green : Colors.Green.SetAlpha(64), Underground);
+            {
+                if (IsSnapping(Circles[Edit]) && Utility.NotPressed && Math.Abs(i - Edit) == 1 && Circle.IsSnapping(Circles[i], Circles[Edit]))
+                    Circles[i].RenderCircle(cameraInfo, Colors.Orange, Underground);
+                else
+                    Circles[i].RenderCircle(cameraInfo, i == Edit ? Colors.Green : Colors.Green.SetAlpha(64), Underground);
+            }
 
             base.RenderCalculatedOverlay(cameraInfo, info);
         }
         protected override void RenderFailedOverlay(RenderManager.CameraInfo cameraInfo, NetInfo info)
         {
             for (var i = 0; i < Circles.Count; i += 1)
-                Circles[i].RenderCircle(cameraInfo, Colors.Red, Underground);
+            {
+                var color = Circles[i].IsCorrect ? (i == Edit ? Colors.Green : Colors.Green.SetAlpha(64)) : Colors.Red;
+                Circles[i].RenderCircle(cameraInfo, color, Underground);
+            }
 
             base.RenderFailedOverlay(cameraInfo, info);
         }
+        protected abstract bool IsSnapping(Circle circle);
     }
 }

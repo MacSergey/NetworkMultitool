@@ -381,7 +381,6 @@ namespace NetworkMultitool
     public class CreateLoopMoveCircleMode : BaseCreateLoopMode
     {
         public override ToolModeType Type => ToolModeType.CreateLoopMoveCircle;
-        public override bool CreateButton => false;
         private Vector3 PrevPos { get; set; }
 
         protected override string GetInfo() => Localize.Mode_Connection_Info_SlowMove;

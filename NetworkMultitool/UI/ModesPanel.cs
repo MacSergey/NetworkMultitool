@@ -54,7 +54,7 @@ namespace NetworkMultitool.UI
 
             foreach (var mode in SingletonTool<NetworkMultitoolTool>.Instance.Modes.OfType<BaseNetworkMultitoolMode>())
             {
-                if (mode.CreateButton)
+                if (mode.IsMain)
                     ModeButton.Add(this, mode);
             }
 

@@ -65,7 +65,7 @@ namespace NetworkMultitool
             else if (IsHoverCenter)
             {
                 var result = Localize.Mode_Connection_Info_DragToMove;
-                if (HoverCenter == 0 || HoverCenter == Circles.Count - 1)
+                if (HoverCenter != 0 && HoverCenter != Circles.Count - 1)
                     result += "\n" + Localize.Mode_Connection_Info_DoubleClickToRemove;
                 return result;
             }
@@ -292,7 +292,13 @@ namespace NetworkMultitool
                 circle.Render(cameraInfo, info, Colors.Gray224, Underground);
 
             for (var i = 0; i < Straights.Count; i += 1)
-                Straights[i].Render(cameraInfo, info, Colors.Gray224, i == (SelectOffset ? 0 : Straights.Count - 1) ? Colors.Yellow : Colors.Gray224, Underground);
+            {
+                if (i == 0 || i == Straights.Count - 1 || !Straights[i].IsShort)
+                {
+                    var colorArrow = i == (SelectOffset ? 0 : Straights.Count - 1) ? Colors.Yellow : Colors.Gray224;
+                    Straights[i].Render(cameraInfo, info, Colors.Gray224, colorArrow, Underground);
+                }
+            }
 
             for (var i = 0; i < Circles.Count; i += 1)
                 RenderCenter(cameraInfo, i);
@@ -319,8 +325,8 @@ namespace NetworkMultitool
     public class CreateConnectionMoveCircleMode : BaseAdditionalCreateConnectionMode
     {
         public override ToolModeType Type => ToolModeType.CreateConnectionMoveCircle;
-        public override bool CreateButton => false;
-        private Vector3 PrevPos { get; set; }
+        private Vector3 PrevCursor { get; set; }
+        private Vector3 PrevCenter { get; set; }
 
         protected override string GetInfo() => Localize.Mode_Connection_Info_SlowMove;
         protected override void Reset(IToolMode prevMode)
@@ -330,35 +336,41 @@ namespace NetworkMultitool
             if (prevMode is CreateConnectionMode connectionMode)
             {
                 Edit = connectionMode.PressedCenter;
-                PrevPos = GetMousePosition(Circles[Edit].CenterPos.y);
+                PrevCursor = GetMousePosition(Circles[Edit].CenterPos.y);
+                PrevCenter = Circles[Edit].CenterPos;
             }
         }
         public override void OnMouseDrag(Event e)
         {
             if (IsEdit && Circles[Edit] is Circle circle)
             {
-                var newPos = GetMousePosition(circle.CenterPos.y);
-                var dir = newPos - PrevPos;
-                PrevPos = newPos;
+                var newCursor = GetMousePosition(circle.CenterPos.y);
+                var dir = newCursor - PrevCursor;
+                PrevCursor = newCursor;
 
                 if (Utility.OnlyCtrlIsPressed)
                     circle.CenterPos += dir * 0.1f;
                 else if (Utility.OnlyAltIsPressed)
                     circle.CenterPos += dir * 0.01f;
                 else
-                    circle.CenterPos += dir;
+                {
+                    var newCenter = PrevCenter + dir;
+                    circle.CenterPos = newCenter;
+                    PrevCenter = circle.CenterPos;
+                    circle.SnappingPosition(Circles);
+                }
 
                 Recalculate();
             }
         }
+        protected override bool IsSnapping(Circle circle) => circle.PossiblePositionSnapping;
     }
 
     public class CreateConnectionChangeRadiusMode : BaseAdditionalCreateConnectionMode
     {
         public override ToolModeType Type => ToolModeType.CreateConnectionChangeRadius;
-        public override bool CreateButton => false;
 
-        private Vector2 PrevPos { get; set; }
+        private Vector2 PrevCursor { get; set; }
 
         protected override string GetInfo() => Localize.Mode_Connection_Info_RadiusStep;
         protected override void Reset(IToolMode prevMode)
@@ -368,25 +380,30 @@ namespace NetworkMultitool
             if (prevMode is CreateConnectionMode connectionMode)
             {
                 Edit = connectionMode.PressedCircle;
-                PrevPos = XZ(Circles[Edit].CenterPos);
+                PrevCursor = XZ(Circles[Edit].CenterPos);
             }
         }
         public override void OnMouseDrag(Event e)
         {
             if (IsEdit && Circles[Edit] is Circle circle)
             {
-                var radius = (XZ(GetMousePosition(PrevPos.y)) - PrevPos).magnitude;
+                var radius = (XZ(GetMousePosition(PrevCursor.y)) - PrevCursor).magnitude;
 
                 if (Utility.OnlyShiftIsPressed)
-                    radius = radius.RoundToNearest(10f);
+                    circle.Radius = radius.RoundToNearest(10f);
                 else if (Utility.OnlyCtrlIsPressed)
-                    radius = radius.RoundToNearest(1f);
+                    circle.Radius = radius.RoundToNearest(1f);
                 else if (Utility.OnlyAltIsPressed)
-                    radius = radius.RoundToNearest(0.1f);
+                    circle.Radius = radius.RoundToNearest(0.1f);
+                else
+                {
+                    circle.Radius = radius;
+                    circle.SnappingRadius(Circles);
+                }
 
-                circle.Radius = radius;
                 Recalculate();
             }
         }
+        protected override bool IsSnapping(Circle circle) => circle.PossibleRadiusSnapping;
     }
 }

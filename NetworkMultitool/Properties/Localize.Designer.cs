@@ -387,6 +387,16 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Press {0} to distribute
+        ///intersections evenly on circle.
+        /// </summary>
+        internal static string Mode_Info_ArrangeCircle_PressToDistributeIntersections {
+            get {
+                return ResourceManager.GetString("Mode_Info_ArrangeCircle_PressToDistributeIntersections", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Press {0} to reset parameters.
         /// </summary>
         internal static string Mode_Info_ArrangeCircle_PressToReset {
@@ -1106,6 +1116,15 @@ namespace NetworkMultitool {
         internal static string Settings_Shortcut_DistributeEvenly {
             get {
                 return ResourceManager.GetString("Settings_Shortcut_DistributeEvenly", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Distribute intersections evenly on circle.
+        /// </summary>
+        internal static string Settings_Shortcut_DistributeIntersections {
+            get {
+                return ResourceManager.GetString("Settings_Shortcut_DistributeIntersections", resourceCulture);
             }
         }
         
