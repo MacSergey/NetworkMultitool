@@ -476,7 +476,9 @@ namespace NetworkMultitool
             public Point EndPoint => new Point(EndPos, EndDir);
 
             public static float MinShapping => 10f;
-            public static float MinDelta => 0.001f;
+            public static float MinDelta => 0.01f;
+
+            public float MinSnapping { get; private set; }
 
             public Circle(InfoLabel label, float height)
             {
@@ -506,7 +508,7 @@ namespace NetworkMultitool
                 Radius = Mathf.Clamp(Radius, MinRadius, MaxRadius);
             }
 
-            private static StraightTrajectory GetConnectCenter(Circle first, Circle second) => new StraightTrajectory(first.CenterPos.MakeFlat(), second.CenterPos.MakeFlat());
+            protected static StraightTrajectory GetConnectCenter(Circle first, Circle second) => new StraightTrajectory(first.CenterPos.MakeFlat(), second.CenterPos.MakeFlat());
             public static void SetConnect(Circle first, Circle second)
             {
                 var centerConnect = GetConnectCenter(first, second);
@@ -609,23 +611,23 @@ namespace NetworkMultitool
                 if (index == 0 || index == circles.Count - 1)
                 {
                     var other = circles[index == 0 ? index + 1 : index - 1];
-                    if (GetDelta(this, other) < MinShapping)
+                    if (CanSnapping(this, other))
                         SnappingOnePosition(other);
                 }
                 else
                 {
-                    var first = circles[index - 1];
-                    var second = circles[index + 1];
+                    var before = circles[index - 1];
+                    var after = circles[index + 1];
 
-                    var firstDelta = GetDelta(this, first);
-                    var secondDelta = GetDelta(this, second);
+                    var beforeSnapping = CanSnapping(this, before);
+                    var afterSnapping = CanSnapping(this, after);
 
-                    if (firstDelta < MinShapping && secondDelta < MinShapping)
-                        SnappingTwoPositions(first, second);
-                    else if (firstDelta < MinShapping)
-                        SnappingOnePosition(first);
-                    else if (secondDelta < MinShapping)
-                        SnappingOnePosition(second);
+                    if (beforeSnapping && afterSnapping)
+                        SnappingTwoPositions(before, after);
+                    else if (beforeSnapping)
+                        SnappingOnePosition(before);
+                    else if (afterSnapping)
+                        SnappingOnePosition(after);
                 }
             }
             protected virtual void SnappingOnePosition(Circle other)
@@ -636,9 +638,72 @@ namespace NetworkMultitool
                 else if (Math.Abs(Radius - other.Radius) >= MinShapping)
                     CenterPos = other.CenterPos + connect.Direction * Mathf.Abs(Radius - other.Radius);
             }
-            protected virtual void SnappingTwoPositions(Circle first, Circle second)
+            protected virtual void SnappingTwoPositions(Circle before, Circle after)
             {
+                var otherConnect = GetConnectCenter(before, after);
+                var beforeConnect = GetConnectCenter(before, this);
+                var afterConnect = GetConnectCenter(after, this);
 
+                var a = otherConnect.Length;
+                var b = before.Direction == Direction ? Mathf.Abs(before.Radius - Radius) : before.Radius + Radius;
+                var c = Direction == after.Direction ? Mathf.Abs(after.Radius - Radius) : after.Radius + Radius;
+
+                var angleBefore = Mathf.Acos((a * a + b * b - c * c) / (2f * a * b));
+                var angleAfter = Mathf.Acos((a * a + c * c - b * b) / (2f * a * c));
+
+                var beforeClock = NormalizeCrossXZ(otherConnect.Direction, beforeConnect.Direction) >= 0f;
+                var afterClock = NormalizeCrossXZ(-otherConnect.Direction, afterConnect.Direction) >= 0f;
+
+                var posBefore = before.CenterPos + otherConnect.Direction.TurnRad(angleBefore, beforeClock) * b;
+                var posAfter = after.CenterPos - otherConnect.Direction.TurnRad(angleAfter, afterClock) * c;
+
+                CenterPos = (posBefore + posAfter) / 2f;
+            }
+            public virtual void SnappingRadius(List<Circle> circles)
+            {
+                if (circles.Count <= 1)
+                    return;
+
+                var index = circles.IndexOf(this);
+
+                if (index == 0 || index == circles.Count - 1)
+                {
+                    var other = circles[index == 0 ? index + 1 : index - 1];
+                    if (CanSnapping(this, other))
+                        SnappingRadius(other);
+                }
+                else
+                {
+                    var before = circles[index - 1];
+                    var after = circles[index + 1];
+
+                    var beforeSnapping = CanSnapping(this, before);
+                    var afterSnapping = CanSnapping(this, after);
+
+                    if (beforeSnapping && afterSnapping)
+                    {
+                        if (GetDelta(this, before) < GetDelta(this, after))
+                            SnappingRadius(before);
+                        else
+                            SnappingRadius(after);
+                    }
+                    else if (beforeSnapping)
+                        SnappingRadius(before);
+                    else if (afterSnapping)
+                        SnappingRadius(after);
+                }
+            }
+            protected virtual void SnappingRadius(Circle other)
+            {
+                var centerConnect = GetConnectCenter(this, other);
+                if (Direction != other.Direction)
+                    Radius = centerConnect.Length - other.Radius;
+                else if (centerConnect.Length > MinSnapping / 2f)
+                {
+                    var radius1 = other.Radius + centerConnect.Length;
+                    var radius2 = other.Radius - centerConnect.Length;
+                    Radius = Mathf.Abs(Radius - radius1) < Mathf.Abs(Radius - radius2) ? radius1 : radius2;
+                }
             }
             public static float GetDelta(Circle first, Circle second)
             {
@@ -648,7 +713,8 @@ namespace NetworkMultitool
                 else
                     return Mathf.Abs(centerConnect.Length - (first.Radius + second.Radius));
             }
-            public static bool IsSnapping(Circle first, Circle second) => (first.Direction != second.Direction || Math.Abs(first.Radius - second.Radius) >= MinShapping) && GetDelta(first, second) < MinShapping;
+            public static bool IsSnapping(Circle first, Circle second) => first.IsCorrect && second.IsCorrect && CanSnapping(first, second);
+            protected static bool CanSnapping(Circle first, Circle second) => (first.Direction != second.Direction || Math.Abs(first.Radius - second.Radius) >= MinShapping) && GetDelta(first, second) < MinShapping;
 
             public void Render(RenderManager.CameraInfo cameraInfo, NetInfo info, Color32 color, bool underground)
             {
