@@ -604,6 +604,15 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Press {0} to invert network.
+        /// </summary>
+        internal static string Mode_Info_Parallel_Invert {
+            get {
+                return ResourceManager.GetString("Mode_Info_Parallel_Invert", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Radius too big.
         /// </summary>
         internal static string Mode_Info_RadiusTooBig {
@@ -1039,6 +1048,33 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Creation preview.
+        /// </summary>
+        internal static string Settings_PreviewType {
+            get {
+                return ResourceManager.GetString("Settings_PreviewType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Network visualization.
+        /// </summary>
+        internal static string Settings_PreviewTypeMesh {
+            get {
+                return ResourceManager.GetString("Settings_PreviewTypeMesh", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Overlay.
+        /// </summary>
+        internal static string Settings_PreviewTypeOverlay {
+            get {
+                return ResourceManager.GetString("Settings_PreviewTypeOverlay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Max Segment Length.
         /// </summary>
         internal static string Settings_SegmentLength {
@@ -1170,6 +1206,15 @@ namespace NetworkMultitool {
         internal static string Settings_Shortcut_IncreaseShift {
             get {
                 return ResourceManager.GetString("Settings_Shortcut_IncreaseShift", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Invert network.
+        /// </summary>
+        internal static string Settings_Shortcut_InvertNetwork {
+            get {
+                return ResourceManager.GetString("Settings_Shortcut_InvertNetwork", resourceCulture);
             }
         }
         

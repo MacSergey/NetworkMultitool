@@ -161,9 +161,16 @@ namespace NetworkMultitool
         {
             ref var startNode = ref startId.GetNode();
             ref var endNode = ref endId.GetNode();
-            var startPos = startNode.m_position;
-            var endPos = endNode.m_position;
+            info = GetInfo(info, startNode.m_position, endNode.m_position, out var invert);
 
+            if (invert)
+                return CreateSegment(out newSegmentId, info, endId, startId, endDir, startDir, true);
+            else
+                return CreateSegment(out newSegmentId, info, startId, endId, startDir, endDir, false);
+        }
+        protected static bool CreateSegment(out ushort newSegmentId, NetInfo info, ushort startId, ushort endId, Vector3 startDir, Vector3 endDir, bool invert = false) => Singleton<NetManager>.instance.CreateSegment(out newSegmentId, ref Singleton<SimulationManager>.instance.m_randomizer, info, startId, endId, startDir, endDir, Singleton<SimulationManager>.instance.m_currentBuildIndex, Singleton<SimulationManager>.instance.m_currentBuildIndex, invert);
+        protected static NetInfo GetInfo(NetInfo info, Vector3 startPos, Vector3 endPos, out bool invert)
+        {
             var startElevated = startPos.y - Singleton<TerrainManager>.instance.SampleRawHeightSmooth(startPos);
             var endElevated = endPos.y - Singleton<TerrainManager>.instance.SampleRawHeightSmooth(endPos);
             if (0f < startElevated && startElevated <= 1f)
@@ -174,17 +181,13 @@ namespace NetworkMultitool
             var minElevated = Mathf.Min(startElevated, endElevated);
             var maxElevated = Mathf.Max(startElevated, endElevated);
 
-            var erroe = ToolBase.ToolErrors.None;
-            var selectedInfo = info.m_netAI.GetInfo(minElevated, maxElevated, (endPos - startPos).magnitude, false, false, false, false, ref erroe);
+            var error = ToolBase.ToolErrors.None;
+            var selectedInfo = info.m_netAI.GetInfo(minElevated, maxElevated, (endPos - startPos).magnitude, false, false, false, false, ref error);
+            selectedInfo = error == ToolBase.ToolErrors.None ? selectedInfo : info;
 
-            info = erroe == ToolBase.ToolErrors.None ? selectedInfo : info;
-
-            if (startNode.m_flags.IsSet(NetNode.Flags.Underground) || !endNode.m_flags.IsSet(NetNode.Flags.Underground))
-                return CreateSegment(out newSegmentId, info, startId, endId, startDir, endDir, false);
-            else
-                return CreateSegment(out newSegmentId, info, endId, startId, endDir, startDir, true);
+            invert = selectedInfo.m_netAI.IsUnderground() && startElevated > -8f && endElevated <= -8f;
+            return selectedInfo;
         }
-        protected static bool CreateSegment(out ushort newSegmentId, NetInfo info, ushort startId, ushort endId, Vector3 startDir, Vector3 endDir, bool invert = false) => Singleton<NetManager>.instance.CreateSegment(out newSegmentId, ref Singleton<SimulationManager>.instance.m_randomizer, info, startId, endId, startDir, endDir, Singleton<SimulationManager>.instance.m_currentBuildIndex, Singleton<SimulationManager>.instance.m_currentBuildIndex, invert);
 
         protected static void RemoveNode(ushort nodeId) => Singleton<NetManager>.instance.ReleaseNode(nodeId);
         protected static void RemoveSegment(ushort segmentId, bool keepNodes = true) => Singleton<NetManager>.instance.ReleaseSegment(segmentId, keepNodes);
@@ -277,18 +280,18 @@ namespace NetworkMultitool
             segment.m_endDirection = segment.FindDirection(segmentId, segment.m_endNode);
         }
         protected delegate void DirectionGetterDelegate<Type>(Type first, Type second, out Vector3 firstDir, out Vector3 secondDir);
-        protected static void SetSlope<Type>(IEnumerable<Type> items, Func<Type, Vector3> positionGetter, DirectionGetterDelegate<Type> directionGetter, Action<Type, Vector3> positionSetter)
-        {
-            var itemsList = items.ToArray();
-            var startY = positionGetter(itemsList[0]).y;
-            var endY = positionGetter(itemsList[itemsList.Length - 1]).y;
+        protected delegate void PositionSetterDelegate<Type>(ref Type item, Vector3 position);
+        protected delegate void DirectionSetterDelegate<Type>(ref Type item, float position);
 
+        protected static void SetSlope<Type>(Type[] items, float startY, float endY, Func<Type, Vector3> positionGetter, DirectionGetterDelegate<Type> directionGetter, PositionSetterDelegate<Type> positionSetter, out float deltaHeight)
+        {
             var list = new List<ITrajectory>();
-            for (var i = 1; i < itemsList.Length; i += 1)
+
+            for (var i = 1; i < items.Length; i += 1)
             {
-                var startPos = positionGetter(itemsList[i - 1]);
-                var endPos = positionGetter(itemsList[i]);
-                directionGetter(itemsList[i - 1], itemsList[i], out var startDir, out var endDir);
+                var startPos = positionGetter(items[i - 1]);
+                var endPos = positionGetter(items[i]);
+                directionGetter(items[i - 1], items[i], out var startDir, out var endDir);
 
                 startPos.y = 0;
                 endPos.y = 0;
@@ -300,23 +303,41 @@ namespace NetworkMultitool
 
             var sumLength = list.Sum(t => t.Length);
             var currentLength = 0f;
+            deltaHeight = (endY - startY) / sumLength;
 
-            for (var i = 1; i < itemsList.Length - 1; i += 1)
+            for (var i = 1; i < items.Length - 1; i += 1)
             {
                 currentLength += list[i - 1].Length;
-                var position = positionGetter(itemsList[i]);
+                var position = positionGetter(items[i]);
                 position.y = Mathf.Lerp(startY, endY, currentLength / sumLength);
-                positionSetter(itemsList[i], position);
+                positionSetter(ref items[i], position);
             }
         }
-        protected void SetSlope(IEnumerable<Point> points) => SetSlope(points, PositionGetter, DirectionGetter, PositionSetter);
+        protected static void SetSlope<Type>(Type[] items, Func<Type, Vector3> positionGetter, DirectionGetterDelegate<Type> directionGetter, PositionSetterDelegate<Type> positionSetter)
+        {
+            var startY = positionGetter(items[0]).y;
+            var endY = positionGetter(items[items.Length - 1]).y;
+
+            SetSlope(items, startY, endY, positionGetter, directionGetter, positionSetter, out _);
+        }
+        protected void SetSlope(Point[] points, float startY, float endY)
+        {
+            SetSlope(points, startY, endY, PositionGetter, DirectionGetter, PositionSetter, out var deltaHeight);
+
+            for (var i = 1; i < points.Length - 1; i += 1)
+            {
+                var direction = points[i].Direction;
+                direction.y = deltaHeight;
+                points[i].Direction = direction.normalized;
+            }
+        }
         private static Vector3 PositionGetter(Point point) => point.Position;
         private static void DirectionGetter(Point first, Point second, out Vector3 firstDir, out Vector3 secondDir)
         {
             firstDir = first.Direction;
             secondDir = -second.Direction;
         }
-        private static void PositionSetter(Point point, Vector3 position) => point.Position = position;
+        private static void PositionSetter(ref Point point, Vector3 position) => point.Position = position;
 
         protected static Rect GetTerrainRect(params ushort[] segmentIds) => segmentIds.Select(i => (ITrajectory)new BezierTrajectory(i)).GetRect();
         protected static void UpdateTerrain(params ushort[] segmentIds)
@@ -419,6 +440,68 @@ namespace NetworkMultitool
                     GetTrajectory(points[i - 1], points[i]).Render(data);
             }
         }
+        protected void RenderParts(List<Point> points, NetInfo info, bool invert = false)
+        {
+            for (var i = 1; i < points.Count; i += 1)
+            {
+                if (!points[i - 1].IsEmpty && !points[i].IsEmpty)
+                    RenderSegment(points[i - 1], points[i], info, invert);
+            }
+        }
+        protected void RenderSegment(Point start, Point end, NetInfo info, bool forceInvert)
+        {
+            info = GetInfo(info, start.Position, end.Position, out var tunnelInvert);
+
+            var startNormal = start.Direction.Turn90(true).MakeFlatNormalized();
+            var endNormal = end.Direction.Turn90(true).MakeFlatNormalized();
+
+            var right = new BezierTrajectory(start.Position + startNormal * info.m_halfWidth, start.Direction, end.Position + endNormal * info.m_halfWidth, -end.Direction).Trajectory;
+            var left = new BezierTrajectory(start.Position - startNormal * info.m_halfWidth, start.Direction, end.Position - endNormal * info.m_halfWidth, -end.Direction).Trajectory;
+
+            var position = (start.Position + end.Position) / 2f;
+            var vScale = info.m_netAI.GetVScale();
+            var rightMatrix = NetSegment.CalculateControlMatrix(right.a, right.b, right.c, right.d, left.a, left.b, left.c, left.d, position, vScale);
+            var leftMatrix = NetSegment.CalculateControlMatrix(left.a, left.b, left.c, left.d, right.a, right.b, right.c, right.d, position, vScale);
+
+            var instance = NetManager.instance;
+
+            instance.m_materialBlock.Clear();
+            instance.m_materialBlock.SetMatrix(instance.ID_RightMatrix, rightMatrix);
+            instance.m_materialBlock.SetMatrix(instance.ID_LeftMatrix, leftMatrix);
+            instance.m_materialBlock.SetVector(instance.ID_ObjectIndex, RenderManager.DefaultColorLocation);
+            instance.m_materialBlock.SetColor(instance.ID_Color, info.m_color);
+
+            if (info.m_requireSurfaceMaps)
+            {
+                TerrainManager.instance.GetSurfaceMapping(position, out Texture SurfaceTexA, out Texture SurfaceTexB, out Vector4 SurfaceMapping);
+                instance.m_materialBlock.SetTexture(instance.ID_SurfaceTexA, SurfaceTexA);
+                instance.m_materialBlock.SetTexture(instance.ID_SurfaceTexB, SurfaceTexB);
+                instance.m_materialBlock.SetVector(instance.ID_SurfaceMapping, SurfaceMapping);
+            }
+
+            foreach (var segment in info.m_segments)
+            {
+                if (segment.CheckFlags(NetSegment.Flags.None, out var invert))
+                {
+                    var isTunnel = info.m_netAI.IsUnderground();
+                    if (invert ^ (isTunnel ? tunnelInvert : forceInvert))
+                    {
+                        var scale = new Vector4(-0.5f / info.m_halfWidth, -1f / info.m_segmentLength, 1f, 1f);
+                        instance.m_materialBlock.SetVector(instance.ID_MeshScale, scale);
+                    }
+                    else
+                    {
+                        var scale = new Vector4(0.5f / info.m_halfWidth, 1f / info.m_segmentLength, 1f, 1f);
+                        instance.m_materialBlock.SetVector(instance.ID_MeshScale, scale);
+                    }
+
+                    if (info.m_netAI is RoadBaseAI roadAI && !roadAI.IsOverground())
+                        position += Vector3.up;
+
+                    Graphics.DrawMesh(segment.m_segmentMesh, position, Quaternion.identity, segment.m_segmentMaterial, segment.m_layer, null, 0, instance.m_materialBlock);
+                }
+            }
+        }
         protected static void PlayEffect(EffectInfo.SpawnArea spawnArea, bool create)
         {
             if (Settings.PlayEffects)
@@ -478,15 +561,10 @@ namespace NetworkMultitool
                 }
             }
 
-            public BaseStraight(Vector3 start, Vector3 end, Vector3 labelDir, InfoLabel label, float height) : base(SetHeight(start, height), SetHeight(end, height))
+            public BaseStraight(Vector3 start, Vector3 end, Vector3 labelDir, InfoLabel label, float height) : base(start.SetHeight(height), end.SetHeight(height))
             {
                 LabelDir = labelDir;
                 Label = label;
-            }
-            static Vector3 SetHeight(Vector3 vector, float height)
-            {
-                vector.y = height;
-                return vector;
             }
 
             public void Update(float shift, bool show)

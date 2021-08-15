@@ -264,7 +264,7 @@ namespace NetworkMultitool
                 StartT = startT;
                 EndT = endT;
 
-                var intersect = (StartGuide.Position(StartT) + EndGuide.Position(EndT)) / 2f;
+                var intersect = (StartGuide.Position(StartT).SetHeight(Height) + EndGuide.Position(EndT).SetHeight(Height)) / 2f;
                 var centerDir = (StartGuide.Direction + EndGuide.Direction).normalized;
                 CenterLine = new StraightTrajectory(intersect, intersect + centerDir, false);
             }
@@ -282,8 +282,8 @@ namespace NetworkMultitool
 
             public void GetStraight(InfoLabel startLabel, InfoLabel endLabel, float height, out Straight start, out Straight end)
             {
-                start = new Straight(StartGuide.StartPosition, StartPos, StartRadiusDir, startLabel, height);
-                end = new Straight(EndPos, EndGuide.StartPosition, EndRadiusDir, endLabel, height);
+                start = new Straight(StartGuide.StartPosition.SetHeight(Height), StartPos, StartRadiusDir, startLabel, height);
+                end = new Straight(EndPos, EndGuide.StartPosition.SetHeight(Height), EndRadiusDir, endLabel, height);
             }
         }
     }

@@ -17,7 +17,8 @@ namespace NetworkMultitool
     {
         public static NetworkMultitoolShortcut IncreaseShiftShortcut { get; } = GetShortcut(KeyCode.Equals, nameof(IncreaseShiftShortcut), nameof(Localize.Settings_Shortcut_IncreaseShift), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as CreateParallelMode)?.IncreaseShift(), repeat: true, ignoreModifiers: true);
         public static NetworkMultitoolShortcut DecreaseShiftShortcut { get; } = GetShortcut(KeyCode.Minus, nameof(DecreaseShiftShortcut), nameof(Localize.Settings_Shortcut_DecreaseShift), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as CreateParallelMode)?.DecreaseShift(), repeat: true, ignoreModifiers: true);
-        public static NetworkMultitoolShortcut InvertShiftShortcut { get; } = GetShortcut(KeyCode.Tab, nameof(InvertShiftShortcut), nameof(Localize.Settings_Shortcut_InvertShift), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as CreateParallelMode)?.InvertShift());
+        public static NetworkMultitoolShortcut ChangeSideShortcut { get; } = GetShortcut(KeyCode.Tab, nameof(ChangeSideShortcut), nameof(Localize.Settings_Shortcut_InvertShift), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as CreateParallelMode)?.ChangeSide());
+        public static NetworkMultitoolShortcut InvertNetworkShortcut { get; } = GetShortcut(KeyCode.Tab, nameof(InvertNetworkShortcut), nameof(Localize.Settings_Shortcut_InvertNetwork), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as CreateParallelMode)?.SetInvert(), ctrl: true);
 
         public override ToolModeType Type => ToolModeType.CreateParallel;
         private bool Calculated { get; set; }
@@ -25,6 +26,7 @@ namespace NetworkMultitool
         protected NetInfo Info => ToolsModifierControl.toolController.Tools.OfType<NetTool>().FirstOrDefault().Prefab?.m_netAI?.m_info ?? Nodes[0].Id.GetNode().Info;
 
         private bool Side { get; set; }
+        private bool Invert { get; set; }
         private float Shift { get; set; }
         private Straight StartLine { get; set; }
         private Straight EndLine { get; set; }
@@ -38,7 +40,8 @@ namespace NetworkMultitool
 
                 yield return IncreaseShiftShortcut;
                 yield return DecreaseShiftShortcut;
-                yield return InvertShiftShortcut;
+                yield return ChangeSideShortcut;
+                yield return InvertNetworkShortcut;
             }
         }
 
@@ -48,7 +51,8 @@ namespace NetworkMultitool
                 return
                     Localize.Mode_NodeLine_Info_SelectNode + "\n" +
                     string.Format(Localize.Mode_Info_ChangeShift, DecreaseShiftShortcut, IncreaseShiftShortcut) + "\n" +
-                    string.Format(Localize.Mode_Info_Parallel_ChangeShift, InvertShiftShortcut) + "\n" +
+                    string.Format(Localize.Mode_Info_Parallel_ChangeShift, ChangeSideShortcut) + "\n" +
+                    string.Format(Localize.Mode_Info_Parallel_Invert, InvertNetworkShortcut) + "\n" +
                     Localize.Mode_Info_Step + "\n" +
                     string.Format(Localize.Mode_Info_Parallel_Create, ApplyShortcut) +
                     UndergroundInfo;
@@ -61,6 +65,7 @@ namespace NetworkMultitool
             Calculated = false;
             Shift = 16f;
             Side = true;
+            Invert = false;
 
             if (StartLine != null && StartLine.Label != null)
             {
@@ -142,17 +147,17 @@ namespace NetworkMultitool
             if (Nodes.Count >= 2)
             {
                 var points = Points.ToArray();
-                var side = Side;
+                var invert = Side ^ Invert;
                 var info = Info;
 
                 SimulationManager.instance.AddAction(() =>
                 {
-                    Create(points, side, info);
+                    Create(points, invert, info);
                     PlayEffect(points, info.m_halfWidth, true);
                 });
             }
         }
-        private static void Create(Point[] points, bool side, NetInfo info)
+        private static void Create(Point[] points, bool invert, NetInfo info)
         {
             var nodeIds = new List<ushort>();
 
@@ -165,10 +170,10 @@ namespace NetworkMultitool
             for (var i = 1; i < nodeIds.Count; i += 1)
             {
                 ushort newSegmentId;
-                if (side)
-                    CreateSegmentAuto(out newSegmentId, info, nodeIds[i - 1], nodeIds[i], points[i - 1].Direction, -points[i].Direction);
-                else
+                if (invert)
                     CreateSegmentAuto(out newSegmentId, info, nodeIds[i], nodeIds[i - 1], -points[i].Direction, points[i - 1].Direction);
+                else
+                    CreateSegmentAuto(out newSegmentId, info, nodeIds[i - 1], nodeIds[i], points[i - 1].Direction, -points[i].Direction);
 
                 CalculateSegmentDirections(newSegmentId);
             }
@@ -188,9 +193,14 @@ namespace NetworkMultitool
             Shift = Mathf.Max((Shift + (increase ? step : -step)).RoundToNearest(step), 0f);
             Calculated = false;
         }
-        private void InvertShift()
+        private void ChangeSide()
         {
             Side = !Side;
+            Calculated = false;
+        }
+        private void SetInvert()
+        {
+            Invert = !Invert;
             Calculated = false;
         }
         protected override void AddFirst(NodeSelection selection)
@@ -219,12 +229,19 @@ namespace NetworkMultitool
 
             if (Calculated)
             {
-                var info = Info;
-                RenderParts(Points, cameraInfo, Colors.Yellow, info.m_halfWidth * 2f);
+                if (Settings.PreviewType == 0)
+                    RenderParts(Points, cameraInfo, Colors.Yellow, Info.m_halfWidth * 2f);
 
                 StartLine.Render(cameraInfo, Colors.Gray224, Colors.Gray224, Underground);
                 EndLine.Render(cameraInfo, Colors.Gray224, Colors.Gray224, Underground);
             }
+        }
+        public override void RenderGeometry(RenderManager.CameraInfo cameraInfo)
+        {
+            if (Calculated && Settings.PreviewType == 1)
+                RenderParts(Points, Info, Side ^ Invert);
+
+            base.RenderGeometry(cameraInfo);
         }
 
         public class Straight : BaseStraight

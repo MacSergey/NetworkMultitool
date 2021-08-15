@@ -81,7 +81,7 @@ namespace NetworkMultitool
                 secondDir = segment.m_startDirection;
             }
         }
-        private static void PositionSetter(ushort nodeId, Vector3 position) => NetManager.instance.MoveNode(nodeId, position);
+        private static void PositionSetter(ref ushort nodeId, Vector3 position) => NetManager.instance.MoveNode(nodeId, position);
 
         protected override void AddFirst(NodeSelection selection)
         {

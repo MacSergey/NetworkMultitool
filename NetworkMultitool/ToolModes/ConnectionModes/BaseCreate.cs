@@ -123,9 +123,9 @@ namespace NetworkMultitool
             {
                 Points = new List<Point>();
 
-                Points.Add(new Point(FirstTrajectory.StartPosition, FirstTrajectory.Direction));
+                Points.Add(new Point(FirstTrajectory.StartPosition.SetHeight(Height), FirstTrajectory.Direction));
                 Points.AddRange(Calculate(out var result));
-                Points.Add(new Point(SecondTrajectory.StartPosition, -SecondTrajectory.Direction));
+                Points.Add(new Point(SecondTrajectory.StartPosition.SetHeight(Height), -SecondTrajectory.Direction));
 
                 State = result;
                 if (State == Result.Calculated)
@@ -136,7 +136,6 @@ namespace NetworkMultitool
                     {
                         FixEdgePoint(true, Points[0], Points[1]);
                         FixEdgePoint(false, Points[Points.Count - 1], Points[Points.Count - 2]);
-                        SetSlope(Points);
                     }
                 }
             }
@@ -230,8 +229,6 @@ namespace NetworkMultitool
             var secondDir = -(IsSecondStart ? secondSegment.m_startDirection : secondSegment.m_endDirection).MakeFlatNormalized();
 
             Height = (firstPos.y + secondPos.y) / 2f;
-            firstPos.y = Height;
-            secondPos.y = Height;
 
             FirstTrajectory = new StraightTrajectory(firstPos, firstPos + firstDir, false);
             SecondTrajectory = new StraightTrajectory(secondPos, secondPos + secondDir, false);
@@ -276,6 +273,8 @@ namespace NetworkMultitool
             if (State == Result.Calculated && Info is NetInfo info)
             {
                 var points = Points.ToArray();
+                SetSlope(points, FirstTrajectory.StartPosition.y, SecondTrajectory.StartPosition.y);
+
                 var firstId = First.Id;
                 var secondId = Second.Id;
                 var isFirstStart = IsFirstStart;
@@ -343,19 +342,33 @@ namespace NetworkMultitool
             if (State == Result.Calculated)
             {
                 var info = Info;
-                RenderCalculatedOverlay(cameraInfo, info);
-                RenderParts(Points, cameraInfo, Colors.Yellow, info.m_halfWidth * 2f);
+                RenderCalculatedOverlay(cameraInfo, Info);
+                if (Settings.PreviewType == 0)
+                    RenderParts(Points, cameraInfo, Colors.Yellow, info.m_halfWidth * 2f);
             }
             else if (State != Result.None)
             {
-                RenderFailedOverlay(cameraInfo, Info);
-                RenderParts(Points, cameraInfo);
+                var info = Info;
+                RenderFailedOverlay(cameraInfo, info);
+                if (Settings.PreviewType == 0)
+                    RenderParts(Points, cameraInfo);
             }
 
             base.RenderOverlay(cameraInfo);
         }
         protected virtual void RenderCalculatedOverlay(RenderManager.CameraInfo cameraInfo, NetInfo info) { }
         protected virtual void RenderFailedOverlay(RenderManager.CameraInfo cameraInfo, NetInfo info) { }
+        public override void RenderGeometry(RenderManager.CameraInfo cameraInfo)
+        {
+            if (State != Result.None && Settings.PreviewType == 1)
+            {
+                var points = Points.ToArray();
+                SetSlope(points, FirstTrajectory.StartPosition.y, SecondTrajectory.StartPosition.y);
+                RenderParts(new List<Point>(points), Info);
+            }
+
+            base.RenderGeometry(cameraInfo);
+        }
 
         public enum Result
         {

@@ -102,11 +102,9 @@ namespace NetworkMultitool
 
         protected override Result Init(StraightTrajectory firstTrajectory, StraightTrajectory secondTrajectory)
         {
-            var startPos = firstTrajectory.StartPosition;
-            startPos.y = Height;
+            var startPos = firstTrajectory.StartPosition.SetHeight(Height);
             var startDir = firstTrajectory.StartDirection.MakeFlatNormalized();
-            var endPos = secondTrajectory.StartPosition;
-            endPos.y = Height;
+            var endPos = secondTrajectory.StartPosition.SetHeight(Height);
             var endDir = secondTrajectory.StartDirection.MakeFlatNormalized();
 
             Bezier = new BezierTrajectory(startPos, startDir, endPos, endDir, forceSmooth: true);

@@ -297,6 +297,9 @@ intersections evenly on circle</value>
   <data name="Mode_Info_Parallel_Create" xml:space="preserve">
     <value>Press {0} to create parallel</value>
   </data>
+  <data name="Mode_Info_Parallel_Invert" xml:space="preserve">
+    <value>Press {0} to invert network</value>
+  </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
     <value>Radius too big</value>
   </data>
@@ -467,6 +470,15 @@ lock or unlock it</value>
   <data name="Settings_PlayEffects" xml:space="preserve">
     <value>Play audio and visual effects</value>
   </data>
+  <data name="Settings_PreviewType" xml:space="preserve">
+    <value>Creation preview</value>
+  </data>
+  <data name="Settings_PreviewTypeMesh" xml:space="preserve">
+    <value>Network visualization</value>
+  </data>
+  <data name="Settings_PreviewTypeOverlay" xml:space="preserve">
+    <value>Overlay</value>
+  </data>
   <data name="Settings_SegmentLength" xml:space="preserve">
     <value>Max Segment Length</value>
   </data>
@@ -511,6 +523,9 @@ lock or unlock it</value>
   </data>
   <data name="Settings_Shortcut_IncreaseShift" xml:space="preserve">
     <value>Increase offset</value>
+  </data>
+  <data name="Settings_Shortcut_InvertNetwork" xml:space="preserve">
+    <value>Invert network</value>
   </data>
   <data name="Settings_Shortcut_InvertShift" xml:space="preserve">
     <value>Switch creation side</value>
