@@ -27,7 +27,7 @@ namespace NetworkMultitool
         private static float TurnAngle { get; } = Mathf.PI / 90f;
         protected override bool IsValidSegment(ushort segmentId) => !IsBoth && segmentId != First?.Id && segmentId != Second?.Id;
         protected override bool IsValidNode(ushort nodeId) => (!IsBoth && base.IsValidNode(nodeId)) || (IsBoth && (First.Id.GetSegment().Contains(nodeId) || Second.Id.GetSegment().Contains(nodeId)));
-
+        protected override bool AllowUntouch => true;
 
         protected SegmentSelection First { get; set; }
         protected SegmentSelection Second { get; set; }

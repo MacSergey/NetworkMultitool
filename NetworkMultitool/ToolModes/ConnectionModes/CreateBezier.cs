@@ -21,6 +21,7 @@ namespace NetworkMultitool
         private bool? IsStartHover { get; set; }
         private bool? IsStartPressed { get; set; }
         protected override bool SelectNodes => base.SelectNodes && IsStartPressed == null;
+        protected override bool AllowUntouch => true;
 
         protected override string GetInfo()
         {
