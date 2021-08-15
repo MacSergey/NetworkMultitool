@@ -1057,6 +1057,15 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Both.
+        /// </summary>
+        internal static string Settings_PreviewTypeBoth {
+            get {
+                return ResourceManager.GetString("Settings_PreviewTypeBoth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Network visualization.
         /// </summary>
         internal static string Settings_PreviewTypeMesh {

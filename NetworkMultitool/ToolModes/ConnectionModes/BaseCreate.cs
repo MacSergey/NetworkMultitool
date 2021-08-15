@@ -132,11 +132,6 @@ namespace NetworkMultitool
                 {
                     if (!CheckOutOfMap())
                         State = Result.OutOfMap;
-                    else
-                    {
-                        FixEdgePoint(true, Points[0], Points[1]);
-                        FixEdgePoint(false, Points[Points.Count - 1], Points[Points.Count - 2]);
-                    }
                 }
             }
         }
@@ -151,44 +146,7 @@ namespace NetworkMultitool
                     return false;
             }
             return true;
-        }
-        private void FixEdgePoint(bool isFirst, Point point, Point nextPoint)
-        {
-            ref var selectSegment = ref (isFirst ? First : Second).Id.GetSegment();
-            var nodeId = (isFirst ? IsFirstStart : IsSecondStart) ? selectSegment.m_startNode : selectSegment.m_endNode;
-            ref var node = ref nodeId.GetNode();
-
-            foreach (var segmentId in node.SegmentIds())
-            {
-                ref var segment = ref segmentId.GetSegment();
-                var startDir = segment.IsStartNode(nodeId) ? segment.m_startDirection : segment.m_endDirection;
-                var segmentAngle = MathExtention.GetAngle(isFirst ? point.Direction : -point.Direction, startDir);
-
-                if (Mathf.Abs(segmentAngle) < TurnAngle)
-                {
-                    var otherNodeId = segment.GetOtherNode(nodeId);
-                    ref var otherNode = ref otherNodeId.GetNode();
-                    var partDir = nextPoint.Position - point.Position;
-                    var segmentDir = otherNode.m_position - node.m_position;
-                    var angle = MathExtention.GetAngle(partDir, segmentDir);
-
-                    if (segmentAngle == 0)
-                        point.Direction = point.Direction.TurnRad(TurnAngle, angle >= 0);
-                    else if (Mathf.Sign(angle) == Mathf.Sign(segmentAngle))
-                    {
-                        var delta = TurnAngle - Mathf.Abs(segmentAngle);
-                        point.Direction = point.Direction.TurnRad(delta, segmentAngle >= 0);
-                    }
-                    else
-                    {
-                        var delta = TurnAngle + Mathf.Abs(segmentAngle);
-                        point.Direction = point.Direction.TurnRad(delta, segmentAngle <= 0);
-
-                    }
-                    break;
-                }
-            }
-        }
+        }       
         public override void OnPrimaryMouseClicked(Event e)
         {
             if (!IsFirst)
@@ -273,8 +231,6 @@ namespace NetworkMultitool
             if (State == Result.Calculated && Info is NetInfo info)
             {
                 var points = Points.ToArray();
-                SetSlope(points, FirstTrajectory.StartPosition.y, SecondTrajectory.StartPosition.y);
-
                 var firstId = First.Id;
                 var secondId = Second.Id;
                 var isFirstStart = IsFirstStart;
@@ -290,20 +246,64 @@ namespace NetworkMultitool
         }
         private static void Create(Point[] points, ushort firstId, ushort secondId, bool isFirstStart, bool isSecondStart, NetInfo info)
         {
+            var startNodeId = isFirstStart ? firstId.GetSegment().m_startNode : firstId.GetSegment().m_endNode;
+            var endNodeId = isSecondStart ? secondId.GetSegment().m_startNode : secondId.GetSegment().m_endNode;
+
+            SetSlope(points, startNodeId.GetNode().m_position.y, endNodeId.GetNode().m_position.y);
+            FixEdgePoint(true, points[0], points[1], firstId, isFirstStart);
+            FixEdgePoint(false, points[points.Length - 1], points[points.Length - 2], secondId, isSecondStart);
+
             var nodeIds = new List<ushort>();
 
-            nodeIds.Add(isFirstStart ? firstId.GetSegment().m_startNode : firstId.GetSegment().m_endNode);
+            nodeIds.Add(startNodeId);
             for (var i = 1; i < points.Length - 1; i += 1)
             {
                 CreateNode(out var newNodeId, info, points[i].Position);
                 nodeIds.Add(newNodeId);
             }
-            nodeIds.Add(isSecondStart ? secondId.GetSegment().m_startNode : secondId.GetSegment().m_endNode);
+            nodeIds.Add(endNodeId);
 
             for (var i = 1; i < nodeIds.Count; i += 1)
             {
                 CreateSegmentAuto(out var newSegmentId, info, nodeIds[i - 1], nodeIds[i], points[i - 1].Direction, -points[i].Direction);
                 CalculateSegmentDirections(newSegmentId);
+            }
+        }
+        private static void FixEdgePoint(bool isFirst, Point point, Point nextPoint, ushort startSegmentId, bool isStart)
+        {
+            ref var selectSegment = ref startSegmentId.GetSegment();
+            var nodeId = isStart ? selectSegment.m_startNode : selectSegment.m_endNode;
+            ref var node = ref nodeId.GetNode();
+
+            foreach (var segmentId in node.SegmentIds())
+            {
+                ref var segment = ref segmentId.GetSegment();
+                var startDir = segment.IsStartNode(nodeId) ? segment.m_startDirection : segment.m_endDirection;
+                var segmentAngle = MathExtention.GetAngle(isFirst ? point.Direction : -point.Direction, startDir);
+
+                if (Mathf.Abs(segmentAngle) < TurnAngle)
+                {
+                    var otherNodeId = segment.GetOtherNode(nodeId);
+                    ref var otherNode = ref otherNodeId.GetNode();
+                    var partDir = nextPoint.Position - point.Position;
+                    var segmentDir = otherNode.m_position - node.m_position;
+                    var angle = MathExtention.GetAngle(partDir, segmentDir);
+
+                    if (segmentAngle == 0)
+                        point.Direction = point.Direction.TurnRad(TurnAngle, angle >= 0);
+                    else if (Mathf.Sign(angle) == Mathf.Sign(segmentAngle))
+                    {
+                        var delta = TurnAngle - Mathf.Abs(segmentAngle);
+                        point.Direction = point.Direction.TurnRad(delta, segmentAngle >= 0);
+                    }
+                    else
+                    {
+                        var delta = TurnAngle + Mathf.Abs(segmentAngle);
+                        point.Direction = point.Direction.TurnRad(delta, segmentAngle <= 0);
+
+                    }
+                    break;
+                }
             }
         }
         public void Recalculate() => State = Result.None;
@@ -343,14 +343,14 @@ namespace NetworkMultitool
             {
                 var info = Info;
                 RenderCalculatedOverlay(cameraInfo, Info);
-                if (Settings.PreviewType == 0)
+                if (Settings.NetworkPreview != (int)Settings.PreviewType.Mesh)
                     RenderParts(Points, cameraInfo, Colors.Yellow, info.m_halfWidth * 2f);
             }
             else if (State != Result.None)
             {
                 var info = Info;
                 RenderFailedOverlay(cameraInfo, info);
-                if (Settings.PreviewType == 0)
+                if (Settings.NetworkPreview != (int)Settings.PreviewType.Mesh)
                     RenderParts(Points, cameraInfo);
             }
 
@@ -360,7 +360,7 @@ namespace NetworkMultitool
         protected virtual void RenderFailedOverlay(RenderManager.CameraInfo cameraInfo, NetInfo info) { }
         public override void RenderGeometry(RenderManager.CameraInfo cameraInfo)
         {
-            if (State != Result.None && Settings.PreviewType == 1)
+            if (State == Result.Calculated && Settings.NetworkPreview != (int)Settings.PreviewType.Overlay)
             {
                 var points = Points.ToArray();
                 SetSlope(points, FirstTrajectory.StartPosition.y, SecondTrajectory.StartPosition.y);

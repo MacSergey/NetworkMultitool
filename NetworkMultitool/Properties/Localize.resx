@@ -473,6 +473,9 @@ lock or unlock it</value>
   <data name="Settings_PreviewType" xml:space="preserve">
     <value>Creation preview</value>
   </data>
+  <data name="Settings_PreviewTypeBoth" xml:space="preserve">
+    <value>Both</value>
+  </data>
   <data name="Settings_PreviewTypeMesh" xml:space="preserve">
     <value>Network visualization</value>
   </data>

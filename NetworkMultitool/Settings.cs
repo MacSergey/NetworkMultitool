@@ -21,7 +21,7 @@ namespace NetworkMultitool
         public static SavedInt SegmentLength { get; } = new SavedInt(nameof(SegmentLength), SettingsFile, 80, true);
         public static SavedInt PanelColumns { get; } = new SavedInt(nameof(PanelColumns), SettingsFile, 2, true);
         public static SavedBool PlayEffects { get; } = new SavedBool(nameof(PlayEffects), SettingsFile, true, true);
-        public static SavedInt PreviewType { get; } = new SavedInt(nameof(PreviewType), SettingsFile, 0, true);
+        public static SavedInt NetworkPreview { get; } = new SavedInt(nameof(NetworkPreview), SettingsFile, (int)PreviewType.Overlay, true);
 
         protected UIAdvancedHelper ShortcutsTab => GetTab(nameof(ShortcutsTab));
 
@@ -62,7 +62,7 @@ namespace NetworkMultitool
             AddIntField(generalGroup, Localize.Settings_PanelColumns, PanelColumns, 2, 1, 5, OnColumnChanged);
             AddCheckBox(generalGroup, Localize.Settings_PlayEffects, PlayEffects);
             AddCheckboxPanel(generalGroup, Localize.Settings_SlopeUnit, SlopeUnite, new string[] { Localize.Settings_SlopeUnitPercentages, Localize.Settings_SlopeUnitDegrees }, OnSlopeUniteChanged);
-            AddCheckboxPanel(generalGroup, Localize.Settings_PreviewType, PreviewType, new string[] { Localize.Settings_PreviewTypeOverlay, Localize.Settings_PreviewTypeMesh });
+            AddCheckboxPanel(generalGroup, Localize.Settings_PreviewType, NetworkPreview, new string[] { Localize.Settings_PreviewTypeOverlay, Localize.Settings_PreviewTypeMesh, Localize.Settings_PreviewTypeBoth });
             if (Utility.InGame && !Mod.NodeSpacerEnabled)
                 AddIntField(generalGroup, Localize.Settings_SegmentLength, SegmentLength, 80, 50, 200);
 
@@ -154,6 +154,13 @@ namespace NetworkMultitool
         }
 #endif
         #endregion
+
+        public enum PreviewType
+        {
+            Overlay = 0,
+            Mesh = 1,
+            Both = 2,
+        }
     }
 }
 

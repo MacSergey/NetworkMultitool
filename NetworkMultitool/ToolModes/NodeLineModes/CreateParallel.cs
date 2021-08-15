@@ -229,7 +229,7 @@ namespace NetworkMultitool
 
             if (Calculated)
             {
-                if (Settings.PreviewType == 0)
+                if (Settings.NetworkPreview != (int)Settings.PreviewType.Mesh)
                     RenderParts(Points, cameraInfo, Colors.Yellow, Info.m_halfWidth * 2f);
 
                 StartLine.Render(cameraInfo, Colors.Gray224, Colors.Gray224, Underground);
@@ -238,7 +238,7 @@ namespace NetworkMultitool
         }
         public override void RenderGeometry(RenderManager.CameraInfo cameraInfo)
         {
-            if (Calculated && Settings.PreviewType == 1)
+            if (Calculated && Settings.NetworkPreview != (int)Settings.PreviewType.Overlay)
                 RenderParts(Points, Info, Side ^ Invert);
 
             base.RenderGeometry(cameraInfo);

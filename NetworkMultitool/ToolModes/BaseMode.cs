@@ -320,9 +320,12 @@ namespace NetworkMultitool
 
             SetSlope(items, startY, endY, positionGetter, directionGetter, positionSetter, out _);
         }
-        protected void SetSlope(Point[] points, float startY, float endY)
+        protected static void SetSlope(Point[] points, float startY, float endY)
         {
             SetSlope(points, startY, endY, PositionGetter, DirectionGetter, PositionSetter, out var deltaHeight);
+
+            points[0].Position.y = startY;
+            points[points.Length - 1].Position.y = endY;
 
             for (var i = 1; i < points.Length - 1; i += 1)
             {
