@@ -160,15 +160,6 @@ muuttaaksesi mutkan suuntaa</value>
   <data name="Mode_Connection_Info_DragToMove" xml:space="preserve">
     <value>Vedä siirtääksesi ympyrää</value>
   </data>
-  <data name="Mode_Connection_Info_RadiusStep" xml:space="preserve">
-    <value>Shift - 10m askelväli
-Ctrl - 1m askelväli
-Alt - 0,1m askelväli</value>
-  </data>
-  <data name="Mode_Connection_Info_SlowMove" xml:space="preserve">
-    <value>Pidä Ctrl pohjassa siirtääksesi X10 hitaammin
-Pidä Alt pohjassa siirtääksesi X100 hitaammin</value>
-  </data>
   
   <data name="Mode_CreateConnection" xml:space="preserve">
     <value>Teiden yhdistys</value>
@@ -235,9 +226,15 @@ Pidä Alt pohjassa siirtääksesi X100 hitaammin</value>
     <value>Napauta poistaaksesi risteyksen valinta</value>
   </data>
   
+  
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Luo painamalla {0}</value>
   </data>
+  
+  
+  
+  
+  
   
   
   
@@ -249,6 +246,7 @@ Pidä Alt pohjassa siirtääksesi X100 hitaammin</value>
   <data name="Mode_Info_RadiusTooSmall" xml:space="preserve">
     <value>Liian pieni säde</value>
   </data>
+  
   <data name="Mode_Info_SelectFirstSegment" xml:space="preserve">
     <value>Valitse ensimmäinen tie</value>
   </data>
@@ -262,12 +260,11 @@ Pidä Alt pohjassa siirtääksesi X100 hitaammin</value>
   <data name="Mode_Info_Step" xml:space="preserve">
     <value>Shift - X10, Ctrl - X0.1, Alt - X0.01</value>
   </data>
+  
   <data name="Mode_Info_SwitchOffset" xml:space="preserve">
     <value>Paina {0} valitaksesi toinen siirtymä</value>
   </data>
-  <data name="Mode_Info_UndergroundMode" xml:space="preserve">
-    <value>Pidä Shift-näppäintä pohjassa nähdäksesi maanalaiset tiet</value>
-  </data>
+  
   <data name="Mode_Info_WrongShape" xml:space="preserve">
     <value>Väärä muoto</value>
   </data>
@@ -319,10 +316,7 @@ Pidä Alt pohjassa siirtääksesi X100 hitaammin</value>
   <data name="Mode_SplitNode_Info_ClickToOrder" xml:space="preserve">
     <value>Napauta lisätäksesi tie erotettavien listalle</value>
   </data>
-  <data name="Mode_SplitNode_Info_ClickToSplit" xml:space="preserve">
-    <value>Napauta jakaaksesi risteys maaston korkeuteen
-Napauta shift-näppäin pohjassa jakaaksesi risteys lähtökorkeuteen</value>
-  </data>
+  
   <data name="Mode_SplitNode_Info_NotAllowedSplit" xml:space="preserve">
     <value>Vain yhtä tietä ei voi erottaa</value>
   </data>
@@ -383,12 +377,21 @@ tai avataksesi se</value>
   
   
   
+  
+  
+  
+  
+  
+  
+  
+  
   <data name="Settings_SegmentLength" xml:space="preserve">
     <value>Pisin tien pituus</value>
   </data>
   <data name="Settings_Shortcut_Apply" xml:space="preserve">
     <value>Toteuta toiminto</value>
   </data>
+  
   <data name="Settings_Shortcut_DecreaseOffset" xml:space="preserve">
     <value>Pienennä kaarteen siirtymää</value>
   </data>
@@ -401,12 +404,15 @@ tai avataksesi se</value>
   
   
   
+  
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
     <value>Kasvata kaarteen siirtymää</value>
   </data>
   <data name="Settings_Shortcut_IncreaseOneRadius" xml:space="preserve">
     <value>Suurenna sädettä</value>
   </data>
+  
+  
   
   
   

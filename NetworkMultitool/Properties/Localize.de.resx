@@ -164,15 +164,6 @@ um die Kurvenrichtung zu ändern</value>
   <data name="Mode_Connection_Info_DragToMove" xml:space="preserve">
     <value>Ziehen, um den Kreis zu bewegen</value>
   </data>
-  <data name="Mode_Connection_Info_RadiusStep" xml:space="preserve">
-    <value>Shift halten für 10m Schritte
-Strg halten für 1m Schritte
-Alt halten für 0.1m Schritte</value>
-  </data>
-  <data name="Mode_Connection_Info_SlowMove" xml:space="preserve">
-    <value>Strg halten, um 10x langsamer zu bewegen
-Alt halten, um 100x langsamer zu bewegen</value>
-  </data>
   <data name="Mode_CreateBezier" xml:space="preserve">
     <value>Bézierkurve erstellen</value>
   </data>
@@ -185,7 +176,9 @@ Alt halten, um 100x langsamer zu bewegen</value>
   <data name="Mode_CreateLoop_Info_Change" xml:space="preserve">
     <value>Drücke {0}, um die Schleife zu ändern</value>
   </data>
-  
+  <data name="Mode_CreateParallerl" xml:space="preserve">
+    <value>Parallelen erstellen</value>
+  </data>
   <data name="Mode_Info_Apply" xml:space="preserve">
     <value>Drücke {0} zum Anwenden</value>
   </data>
@@ -211,10 +204,7 @@ Runde Form wird nicht perfekt sein</value>
   <data name="Mode_Info_ArrangeCircle_DragToMoveNode" xml:space="preserve">
     <value>Ziehen, um den Netzwerk-Knoten zu bewegen</value>
   </data>
-  <data name="Mode_Info_ArrangeCircle_MoveAll" xml:space="preserve">
-    <value>Halte Shift gedrückt, um alle Netzwerk-Knoten
-gleichzeitig zu bewegen</value>
-  </data>
+  
   <data name="Mode_Info_ArrangeCircle_PressToDistributeBetweenIntersections" xml:space="preserve">
     <value>Drücke {0}, um die Netzwerk-Knoten
 gleichmäßig zwischen den Kreuzungen zu verteilen</value>
@@ -222,7 +212,10 @@ gleichmäßig zwischen den Kreuzungen zu verteilen</value>
   <data name="Mode_Info_ArrangeCircle_PressToDistributeEvenly" xml:space="preserve">
     <value>Drücke {0}, um die Netzwerk-Knoten gleichmäßig auf den Kreis zu verteilen</value>
   </data>
-  
+  <data name="Mode_Info_ArrangeCircle_PressToDistributeIntersections" xml:space="preserve">
+    <value>Drücke {0}, um die Netzwerk-Knoten 
+gleichmäßig auf den Kreis zu verteilen</value>
+  </data>
   <data name="Mode_Info_ArrangeCircle_PressToReset" xml:space="preserve">
     <value>Drücke {0}, um die Parameter zurückzusetzen</value>
   </data>
@@ -250,7 +243,9 @@ gleichmäßig zwischen den Kreuzungen zu verteilen</value>
   <data name="Mode_Info_ChangeRadius" xml:space="preserve">
     <value>Drücke {0} oder {1}, um den Radius zu ändern</value>
   </data>
-  
+  <data name="Mode_Info_ChangeShift" xml:space="preserve">
+    <value>Drücke {0} oder {1}, um den Abstand zu ändern</value>
+  </data>
   <data name="Mode_Info_ClickFirstSegment" xml:space="preserve">
     <value>Klicken, um das erste Segment auszuwählen</value>
   </data>
@@ -272,27 +267,46 @@ gleichmäßig zwischen den Kreuzungen zu verteilen</value>
   <data name="Mode_Info_Connection_Create" xml:space="preserve">
     <value>Drücke {0}, um eine Verbindung zu erstellen</value>
   </data>
+  <data name="Mode_Info_ConstructionCost" xml:space="preserve">
+    <value>Baukosten: {0}</value>
+  </data>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Drücke {0} zum Erstellen</value>
   </data>
   <data name="Mode_Info_CreateBezier_MoveGiude" xml:space="preserve">
     <value>Bézierkurven-Hilfslinien verschieben, um die Form zu ändern</value>
   </data>
+  
+  
   <data name="Mode_Info_Loop_Create" xml:space="preserve">
     <value>Drücke {0}, um eine Schleife zu erstellen</value>
+  </data>
+  <data name="Mode_Info_NotEnoughMoney" xml:space="preserve">
+    <value>Nicht genug Geld</value>
   </data>
   <data name="Mode_Info_OutOfMap" xml:space="preserve">
     <value>Außerhalb der Karte</value>
   </data>
-  
+  <data name="Mode_Info_Parallel_ChangeHeight" xml:space="preserve">
+    <value>Drücke {0} oder {1}, um die Höhe zu ändern</value>
+  </data>
+  <data name="Mode_Info_Parallel_ChangeShift" xml:space="preserve">
+    <value>Drücke {0}, um die Erstellungsseite zu wechseln</value>
+  </data>
   <data name="Mode_Info_Parallel_Create" xml:space="preserve">
     <value>Drücke {0}, um eine Parallele zu erstellen</value>
+  </data>
+  <data name="Mode_Info_Parallel_Invert" xml:space="preserve">
+    <value>Drücke {0}, um das Netzwerk zu invertieren</value>
   </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
     <value>Radius zu groß</value>
   </data>
   <data name="Mode_Info_RadiusTooSmall" xml:space="preserve">
     <value>Radius zu klein</value>
+  </data>
+  <data name="Mode_Info_Refund" xml:space="preserve">
+    <value>Erstattung: {0}</value>
   </data>
   <data name="Mode_Info_SelectFirstSegment" xml:space="preserve">
     <value>Erstes Segment auswählen</value>
@@ -309,12 +323,13 @@ gleichmäßig zwischen den Kreuzungen zu verteilen</value>
   <data name="Mode_Info_Step" xml:space="preserve">
     <value>Shift - 10x, Strg - 0.1x, Alt - 0.01x</value>
   </data>
+  <data name="Mode_Info_SwitchFollowTerrain" xml:space="preserve">
+    <value>Drücke {0}, um "Gelände folgen" umzuschalten</value>
+  </data>
   <data name="Mode_Info_SwitchOffset" xml:space="preserve">
     <value>Drücke {0}, um den ausgewählten Abstand zu wechseln</value>
   </data>
-  <data name="Mode_Info_UndergroundMode" xml:space="preserve">
-    <value>Halte Shift gedrückt für den unterirdischen Modus</value>
-  </data>
+  
   <data name="Mode_Info_WrongShape" xml:space="preserve">
     <value>Falsche Form</value>
   </data>
@@ -367,10 +382,7 @@ da er nicht mit anderen verbunden ist</value>
   <data name="Mode_SplitNode_Info_ClickToOrder" xml:space="preserve">
     <value>Klicken, um das Segment zur Aufteilung hinzuzufügen</value>
   </data>
-  <data name="Mode_SplitNode_Info_ClickToSplit" xml:space="preserve">
-    <value>Klicken, um den Netzwerk-Knoten zu teilen und die Geländehöhe zu verwenden
-Klicke mit Shift um den Netzwerk-Knoten zu teilen und die ursprüngliche Höhe zu verwenden</value>
-  </data>
+  
   <data name="Mode_SplitNode_Info_NotAllowedSplit" xml:space="preserve">
     <value>Nicht möglich einen Netzwerk-Knoten mit nur einem Segment aufzuteilen</value>
   </data>
@@ -424,14 +436,44 @@ oder Entsperren auswählen</value>
     <value>Viele verschiedene Werkzeuge für die Arbeit mit Netzwerken</value>
   </data>
   
-  
+  <data name="Settings_ActivationShortcuts" xml:space="preserve">
+    <value>Aktivierungskurzbefehle</value>
+  </data>
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>Panel automatisch ausblenden</value>
   </data>
-  
-  
+  <data name="Settings_CommonShortcuts" xml:space="preserve">
+    <value>Gemeinsame Tastenkürzel</value>
+  </data>
+  <data name="Settings_FollowTerrain" xml:space="preserve">
+    <value>Straßen die auf dem Boden erstellt werden, folgen dem Gelände</value>
+  </data>
+  <data name="Settings_Gameplay" xml:space="preserve">
+    <value>Spielmechanik</value>
+  </data>
+  <data name="Settings_Interface" xml:space="preserve">
+    <value>Benutzeroberfläche</value>
+  </data>
+  <data name="Settings_NeedMoney" xml:space="preserve">
+    <value>Erfordert Geld zum Bauen</value>
+  </data>
+  <data name="Settings_PanelColumns" xml:space="preserve">
+    <value>Anzahl der Spalten</value>
+  </data>
   <data name="Settings_PlayEffects" xml:space="preserve">
     <value>Audio- und visuelle Effekte abspielen</value>
+  </data>
+  <data name="Settings_PreviewType" xml:space="preserve">
+    <value>Erstellungsvorschau</value>
+  </data>
+  <data name="Settings_PreviewTypeBoth" xml:space="preserve">
+    <value>Beide</value>
+  </data>
+  <data name="Settings_PreviewTypeMesh" xml:space="preserve">
+    <value>Netzwerkvisualisierung</value>
+  </data>
+  <data name="Settings_PreviewTypeOverlay" xml:space="preserve">
+    <value>Überlagerung</value>
   </data>
   <data name="Settings_SegmentLength" xml:space="preserve">
     <value>Maximale Segmentlänge</value>
@@ -439,34 +481,62 @@ oder Entsperren auswählen</value>
   <data name="Settings_Shortcut_Apply" xml:space="preserve">
     <value>Aktion im Modus anwenden</value>
   </data>
+  <data name="Settings_Shortcut_DecreaseHeight" xml:space="preserve">
+    <value>Höhe verringern</value>
+  </data>
   <data name="Settings_Shortcut_DecreaseOffset" xml:space="preserve">
     <value>Abstand des Start-Kreises verringern</value>
   </data>
   <data name="Settings_Shortcut_DecreaseOneRadius" xml:space="preserve">
     <value>Einen Radius verkleinern</value>
   </data>
-  
-  
-  
+  <data name="Settings_Shortcut_DecreaseRadii" xml:space="preserve">
+    <value>Radien verkleinern</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseRadius" xml:space="preserve">
+    <value>Radius verkleinern</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseShift" xml:space="preserve">
+    <value>Verkleinere den Abstand</value>
+  </data>
   <data name="Settings_Shortcut_DistributeBetweenIntersections" xml:space="preserve">
     <value>Netzwerk-Knoten gleichmäßig zwischen Kreuzungen verteilen</value>
   </data>
   <data name="Settings_Shortcut_DistributeEvenly" xml:space="preserve">
     <value>Netzwerk-Knoten gleichmäßig auf den Kreis verteilen</value>
   </data>
-  
+  <data name="Settings_Shortcut_DistributeIntersections" xml:space="preserve">
+    <value>Kreuzungen gleichmäßig auf den Kreis verteilen</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseHeight" xml:space="preserve">
+    <value>Höhe vergrößern</value>
+  </data>
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
     <value>Abstand des Start-Kreises vergrößern</value>
   </data>
   <data name="Settings_Shortcut_IncreaseOneRadius" xml:space="preserve">
     <value>Einen Radius vergrößern</value>
   </data>
-  
-  
-  
-  
+  <data name="Settings_Shortcut_IncreaseRadii" xml:space="preserve">
+    <value>Radien vergrößern</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseRadius" xml:space="preserve">
+    <value>Radius vergrößern</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseShift" xml:space="preserve">
+    <value>Vergrößere den Abstand</value>
+  </data>
+  <data name="Settings_Shortcut_InvertNetwork" xml:space="preserve">
+    <value>Netzwerk invertieren</value>
+  </data>
+  <data name="Settings_Shortcut_InvertShift" xml:space="preserve">
+    <value>Erstellungsseite wechseln</value>
+  </data>
   <data name="Settings_Shortcut_ResetArrangeCircle" xml:space="preserve">
     <value>Auf den Standard-Kreis zurücksetzen</value>
+  </data>
+  <data name="Settings_Shortcut_SwitchFollowTerrain" xml:space="preserve">
+    <value>"Gelände folgen" umschalten</value>
   </data>
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
     <value>Schleifenrichtung ändern</value>

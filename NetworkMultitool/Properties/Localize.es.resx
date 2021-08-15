@@ -164,15 +164,6 @@ para cambiar la dirección de la curva</value>
   <data name="Mode_Connection_Info_DragToMove" xml:space="preserve">
     <value>Arrastre para mover el círculo</value>
   </data>
-  <data name="Mode_Connection_Info_RadiusStep" xml:space="preserve">
-    <value>Mantener pulsada la tecla "Mayús" para el paso de 10m
-Mantener pulsada la tecla "Ctrl" para el paso de 1m
-Mantener pulsada la tecla "Alt" para el paso de 0.1m</value>
-  </data>
-  <data name="Mode_Connection_Info_SlowMove" xml:space="preserve">
-    <value>Mantener pulsada la tecla "Ctrl" para mover X10 más lento
-Mantener pulsada la tecla "Alt" para mover X100 más lento</value>
-  </data>
   <data name="Mode_CreateBezier" xml:space="preserve">
     <value>Modo de creación de curva Bézier</value>
   </data>
@@ -213,10 +204,7 @@ el circulo no será perfecto</value>
   <data name="Mode_Info_ArrangeCircle_DragToMoveNode" xml:space="preserve">
     <value>Arrastre para mover el nodo</value>
   </data>
-  <data name="Mode_Info_ArrangeCircle_MoveAll" xml:space="preserve">
-    <value>Mantener pulsada la tecla "Mayús" para mover 
-todos los nodos al mismo tiempo</value>
-  </data>
+  
   <data name="Mode_Info_ArrangeCircle_PressToDistributeBetweenIntersections" xml:space="preserve">
     <value>Pulsa {0} para distribuir los nodos 
 de manera uniforme entre las intersecciones</value>
@@ -280,17 +268,28 @@ de manera uniforme en el círculo</value>
   <data name="Mode_Info_Connection_Create" xml:space="preserve">
     <value>Pulsa {0} para crear conexión</value>
   </data>
+  <data name="Mode_Info_ConstructionCost" xml:space="preserve">
+    <value>Costo de construcción: {0}</value>
+  </data>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Pulsa {0} para crear</value>
   </data>
   <data name="Mode_Info_CreateBezier_MoveGiude" xml:space="preserve">
     <value>Mover guías de curva Bézier para cambiar la forma</value>
   </data>
+  
+  
   <data name="Mode_Info_Loop_Create" xml:space="preserve">
     <value>Pulsa {0} para crear curva</value>
   </data>
+  <data name="Mode_Info_NotEnoughMoney" xml:space="preserve">
+    <value>Dinero insuficiente</value>
+  </data>
   <data name="Mode_Info_OutOfMap" xml:space="preserve">
     <value>Fuera del mapa</value>
+  </data>
+  <data name="Mode_Info_Parallel_ChangeHeight" xml:space="preserve">
+    <value>Pulsa {0} o {1} para cambiar la altura</value>
   </data>
   <data name="Mode_Info_Parallel_ChangeShift" xml:space="preserve">
     <value>Pulsa {0} para cambiar el lado de creación</value>
@@ -298,11 +297,17 @@ de manera uniforme en el círculo</value>
   <data name="Mode_Info_Parallel_Create" xml:space="preserve">
     <value>Pulsa {0} para crear red paralela</value>
   </data>
+  <data name="Mode_Info_Parallel_Invert" xml:space="preserve">
+    <value>Pulsa {0} para invertir la red</value>
+  </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
     <value>El radio es muy grande</value>
   </data>
   <data name="Mode_Info_RadiusTooSmall" xml:space="preserve">
     <value>El radio es muy pequeño</value>
+  </data>
+  <data name="Mode_Info_Refund" xml:space="preserve">
+    <value>Reembolso: {0}</value>
   </data>
   <data name="Mode_Info_SelectFirstSegment" xml:space="preserve">
     <value>Seleccione el primer segmento</value>
@@ -319,12 +324,11 @@ de manera uniforme en el círculo</value>
   <data name="Mode_Info_Step" xml:space="preserve">
     <value>Mayús - X10, Ctrl - X0.1, Alt - X0.01</value>
   </data>
+  
   <data name="Mode_Info_SwitchOffset" xml:space="preserve">
     <value>Pulsa {0} para cambiar el desplazamiento inicial de la curva seleccionada</value>
   </data>
-  <data name="Mode_Info_UndergroundMode" xml:space="preserve">
-    <value>Mantener pulsada la tecla "Mayús" para modo subterráneo</value>
-  </data>
+  
   <data name="Mode_Info_WrongShape" xml:space="preserve">
     <value>Forma incorrecta</value>
   </data>
@@ -377,10 +381,7 @@ porque no está conectado con otros nodos</value>
   <data name="Mode_SplitNode_Info_ClickToOrder" xml:space="preserve">
     <value>Clic para añadir el segmento al orden de separación</value>
   </data>
-  <data name="Mode_SplitNode_Info_ClickToSplit" xml:space="preserve">
-    <value>Clic para separar el nodo y establecer el alto del terreno
-Clic con la tecla "Mayús" para separar el nodo y establecer el alto del origen</value>
-  </data>
+  
   <data name="Mode_SplitNode_Info_NotAllowedSplit" xml:space="preserve">
     <value>No se puede separar el nodo en un solo segmento</value>
   </data>
@@ -442,17 +443,42 @@ Clic con la tecla "Mayús" para separar el nodo y establecer el alto del origen<
   <data name="Settings_CommonShortcuts" xml:space="preserve">
     <value>Atajos comunes de los modos</value>
   </data>
+  
+  <data name="Settings_Gameplay" xml:space="preserve">
+    <value>Jugabilidad</value>
+  </data>
+  <data name="Settings_Interface" xml:space="preserve">
+    <value>Interfaz</value>
+  </data>
+  <data name="Settings_NeedMoney" xml:space="preserve">
+    <value>Necesita dinero para construir</value>
+  </data>
   <data name="Settings_PanelColumns" xml:space="preserve">
     <value>Número de columnas del panel</value>
   </data>
   <data name="Settings_PlayEffects" xml:space="preserve">
     <value>Activar efectos de audio y visuales</value>
   </data>
+  <data name="Settings_PreviewType" xml:space="preserve">
+    <value>Vista previa de creación</value>
+  </data>
+  <data name="Settings_PreviewTypeBoth" xml:space="preserve">
+    <value>Ambas</value>
+  </data>
+  <data name="Settings_PreviewTypeMesh" xml:space="preserve">
+    <value>Visualización de red</value>
+  </data>
+  <data name="Settings_PreviewTypeOverlay" xml:space="preserve">
+    <value>Resaltar área</value>
+  </data>
   <data name="Settings_SegmentLength" xml:space="preserve">
     <value>Longitud máxima de segmento</value>
   </data>
   <data name="Settings_Shortcut_Apply" xml:space="preserve">
     <value>Aplicar acción de modo</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseHeight" xml:space="preserve">
+    <value>Disminuir altura</value>
   </data>
   <data name="Settings_Shortcut_DecreaseOffset" xml:space="preserve">
     <value>Disminuir el desplazamiento de curva</value>
@@ -478,6 +504,9 @@ Clic con la tecla "Mayús" para separar el nodo y establecer el alto del origen<
   <data name="Settings_Shortcut_DistributeIntersections" xml:space="preserve">
     <value>Distribuir los nodos de manera uniforme en el círculo</value>
   </data>
+  <data name="Settings_Shortcut_IncreaseHeight" xml:space="preserve">
+    <value>Aumentar altura</value>
+  </data>
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
     <value>Incrementar el desplazamiento de curva</value>
   </data>
@@ -493,12 +522,16 @@ Clic con la tecla "Mayús" para separar el nodo y establecer el alto del origen<
   <data name="Settings_Shortcut_IncreaseShift" xml:space="preserve">
     <value>Incrementar separación</value>
   </data>
+  <data name="Settings_Shortcut_InvertNetwork" xml:space="preserve">
+    <value>Invertir red</value>
+  </data>
   <data name="Settings_Shortcut_InvertShift" xml:space="preserve">
     <value>Cambiar lado de creación</value>
   </data>
   <data name="Settings_Shortcut_ResetArrangeCircle" xml:space="preserve">
     <value>Restablecer círculo predeterminado</value>
   </data>
+  
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
     <value>Cambiar dirección de la curva</value>
   </data>

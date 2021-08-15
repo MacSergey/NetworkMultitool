@@ -118,448 +118,361 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Mode_AddNode" xml:space="preserve">
-    <value>添加节点模式</value>
+    <value>Düğüm modu ekleyin</value>
   </data>
   <data name="Mode_AddNode_Info_ClickToAdd" xml:space="preserve">
-    <value>点击添加节点</value>
+    <value>Düğüm eklenemedi</value>
   </data>
   <data name="Mode_AddNode_Info_SelectToAdd" xml:space="preserve">
-    <value>选择要添加节点的部分</value>
+    <value>Düğüm eklemek için sektör seç</value>
   </data>
   <data name="Mode_AddNode_Info_TooCloseNode" xml:space="preserve">
-    <value>无法插入节点
-节点间距过短</value>
+    <value>Düğümün yakınına düğüm eklenemedi</value>
   </data>
   <data name="Mode_AngleFormat" xml:space="preserve">
     <value>{0}°</value>
   </data>
   <data name="Mode_ArrangeAtCircle" xml:space="preserve">
-    <value>圆圈对齐模式</value>
+    <value>Daire modunda ayarla</value>
   </data>
   <data name="Mode_ArrangeAtLine" xml:space="preserve">
-    <value>多点均匀功能</value>
+    <value>Çizgi modunda ayarla</value>
   </data>
   <data name="Mode_ArrangeCircle_Info_ClickToComplite" xml:space="preserve">
-    <value>点击以完成圆圈选择</value>
+    <value>Dairesel seçimi tamamlamak için tıkla</value>
   </data>
   <data name="Mode_ArrangeLine_Info_ClickToSelectDirection" xml:space="preserve">
-    <value>点击以选择对齐方向</value>
+    <value>Yön ayarlamayı seçmek için tıkla</value>
   </data>
   <data name="Mode_ArrangeLine_Info_SelectDirection" xml:space="preserve">
-    <value>选择段落以设定对齐方向</value>
+    <value>Yönünü ayarlamak için sektör seç</value>
   </data>
   <data name="Mode_Connection_Info_DoubleClickOnCenterToChangeDir" xml:space="preserve">
-    <value>双击圆心
-以改变曲线方向</value>
+    <value>Eğim yönünü değiştirmek için daire merkezine çift tıklayın</value>
   </data>
   <data name="Mode_Connection_Info_DoubleClickToAdd" xml:space="preserve">
-    <value>双击左键在此线添加曲线</value>
+    <value>Bu çizgiye eğim eklemek için çift sol tıkla</value>
   </data>
   <data name="Mode_Connection_Info_DoubleClickToRemove" xml:space="preserve">
-    <value>双击右键删除此曲线</value>
+    <value>Bu eğimi silmek için iki kere sağ tıkla</value>
   </data>
   <data name="Mode_Connection_Info_DragToChangeRadius" xml:space="preserve">
-    <value>拖动以改变半径</value>
+    <value>Çapı ayarlamak için tutup çekin</value>
   </data>
   <data name="Mode_Connection_Info_DragToMove" xml:space="preserve">
-    <value>拖移以移动圆</value>
+    <value>Daireyi ayarlamak için tutup çekin</value>
   </data>
-  <data name="Mode_CreateBezier" xml:space="preserve">
-    <value>创建贝塞尔曲线</value>
-  </data>
+  
   <data name="Mode_CreateConnection" xml:space="preserve">
-    <value>创建连接模式</value>
+    <value>Bağlantı modu oluştur</value>
   </data>
   <data name="Mode_CreateLoop" xml:space="preserve">
-    <value>创建环形模式</value>
+    <value>Döngü modu oluştur</value>
   </data>
   <data name="Mode_CreateLoop_Info_Change" xml:space="preserve">
-    <value>按 {0} 更改环形</value>
+    <value>Döngüyü değiştirmek için {0} tuşunu kullan</value>
   </data>
   <data name="Mode_CreateParallerl" xml:space="preserve">
-    <value>创建并行模式</value>
+    <value>Paralel modu oluştur</value>
   </data>
   <data name="Mode_Info_Apply" xml:space="preserve">
-    <value>按下 {0} 以应用</value>
+    <value>{0} kullanarak uygulayınız</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_Apply" xml:space="preserve">
-    <value>按 {0} 来以圆圈对齐</value>
+    <value>Daireleri ayarlamak için {0} tuşunu kullan</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_BigDelta" xml:space="preserve">
-    <value>节点间角度太大
-会导致圆形形状缺陷</value>
+    <value>Acı çok büyük düğümler arası dairesel şekil kusursuz olmayacak</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_DoubleClickToResetCenter" xml:space="preserve">
-    <value>双击重置中心位置</value>
+    <value>Merkez noktayı sıfırlamak için çift tıkla</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_DoubleClickToResetNode" xml:space="preserve">
-    <value>双击重置节点位置</value>
+    <value>Düğüm pozisyonunu sıfırlamak için çift tıkla</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_DragToChangeRadius" xml:space="preserve">
-    <value>拖动以改变半径</value>
+    <value>Çapı ayarlamak için tutup çekin</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_DragToMoveCenter" xml:space="preserve">
-    <value>拖动以移动圆圈</value>
+    <value>Daireyi ayarlamak için tutup çekin</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_DragToMoveNode" xml:space="preserve">
-    <value>拖动以移动节点</value>
+    <value>Düğümü ayarlamak için tutup çekin</value>
   </data>
   
   <data name="Mode_Info_ArrangeCircle_PressToDistributeBetweenIntersections" xml:space="preserve">
-    <value>按下 {0} 在交叉口之间
-平均分布节点</value>
+    <value>{0} tuşuyla düğümleri kesişimler arasında eşit dağıtabilirsiniz</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_PressToDistributeEvenly" xml:space="preserve">
-    <value>按下 {0} 在圆圈上平均分布节点</value>
+    <value>Tüm düğümleri daireye eşit dağıtmak için {0} basın</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_PressToDistributeIntersections" xml:space="preserve">
-    <value>按下 {0} 在圆圈上
-平均分布交叉口</value>
+    <value>Kesişimleri daireye eşit dağıtmak için {0} tuşunu kullanın</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_PressToReset" xml:space="preserve">
-    <value>按 {0} 重置参数</value>
+    <value>Değişkenleri sıfırlamak için {0} tuşunu kullanın</value>
   </data>
-  <data name="Mode_Info_ArrangeCircle_WrongOrder" xml:space="preserve">
-    <value>错误的节点顺序</value>
-  </data>
+  
   <data name="Mode_Info_ArrangeLine_Apply" xml:space="preserve">
-    <value>按下 {0} 来按直线对齐</value>
+    <value>Çizgileri ayarlamak için {0} tuşunu kullanın</value>
   </data>
   <data name="Mode_Info_ChangeAllRadius" xml:space="preserve">
-    <value>按 {0} 或 {1} 更改所有半径</value>
+    <value>Çapı değiştirmek için {0} veya {1} tuşlarını kullanın</value>
   </data>
   <data name="Mode_Info_ChangeBothRadius" xml:space="preserve">
-    <value>按 {0} 或 {1} 来更改两个半径</value>
+    <value>Seçili tüm çapları değiştirmek için {0} veya {1} tuşlarını kullanın</value>
   </data>
   <data name="Mode_Info_ChangeCircle" xml:space="preserve">
-    <value>按 {0} 切换到选中的圆</value>
+    <value>Seçilen daireyi değiştirmek için {0} tuşunu kullanın</value>
   </data>
   <data name="Mode_Info_ChangeOffset" xml:space="preserve">
-    <value>按 {0} 或 {1} 更改曲线起始偏移</value>
+    <value>Eğim başlangıç noktasını ayarlamak için {0} veya {1} tuşlarını kullanın</value>
   </data>
   <data name="Mode_Info_ChangeOneRadius" xml:space="preserve">
-    <value>按 {0} 或 {1} 来更改一个半径</value>
+    <value>Tek bir çapı değiştirmek için {0} veya {1} tuşlarını kullanın</value>
   </data>
   <data name="Mode_Info_ChangeRadius" xml:space="preserve">
-    <value>按 {0} 或 {1} 更改半径</value>
+    <value>Çap değiştirmek için {0} veya {1} tuşlarını kullanın</value>
   </data>
   <data name="Mode_Info_ChangeShift" xml:space="preserve">
-    <value>按 {0} 或 {1} 更改偏移</value>
+    <value>Merkez noktayı değiştirmek için {0} veya {1} tuşlarını kullanın</value>
   </data>
   <data name="Mode_Info_ClickFirstSegment" xml:space="preserve">
-    <value>点击选择第一段落</value>
+    <value>İlk sektörü seçmek için tıkla</value>
   </data>
-  <data name="Mode_Info_ClickOnNodeToChangeCreateDir" xml:space="preserve">
-    <value>点击节点来改变创建方向</value>
-  </data>
+  
   <data name="Mode_Info_ClickSecondSegment" xml:space="preserve">
-    <value>点击选择第二段落</value>
+    <value>İkinci sektör seçmek için tıkla</value>
   </data>
-  <data name="Mode_Info_ClickSelectNode" xml:space="preserve">
-    <value>点击选择节点</value>
-  </data>
-  <data name="Mode_Info_ClickToChangeCreateDir" xml:space="preserve">
-    <value>点击来改变创建方向</value>
-  </data>
-  <data name="Mode_Info_ClickUnselectNode" xml:space="preserve">
-    <value>点击撤销选择节点</value>
-  </data>
+  
+  
+  
   <data name="Mode_Info_Connection_Create" xml:space="preserve">
-    <value>按 {0} 创建连接</value>
+    <value>Bağlantı kurmak için {0} tuşunu kullanın</value>
   </data>
   <data name="Mode_Info_ConstructionCost" xml:space="preserve">
-    <value>建造成本: {0}</value>
+    <value>İnşaat maliyeti: {0}</value>
   </data>
   <data name="Mode_Info_Create" xml:space="preserve">
-    <value>按 {0} 以创建</value>
+    <value>Oluşturmak için {0} tıklayın</value>
   </data>
-  <data name="Mode_Info_CreateBezier_MoveGiude" xml:space="preserve">
-    <value>移动贝塞尔曲线把手以更改形状</value>
-  </data>
+  
   
   
   <data name="Mode_Info_Loop_Create" xml:space="preserve">
-    <value>按 {0} 创建环形</value>
+    <value>Döngü oluşturmak için {0} tıklayın</value>
   </data>
-  <data name="Mode_Info_NotEnoughMoney" xml:space="preserve">
-    <value>资金不足</value>
-  </data>
+  
   <data name="Mode_Info_OutOfMap" xml:space="preserve">
-    <value>超出地图</value>
+    <value>Harita dışında</value>
   </data>
   <data name="Mode_Info_Parallel_ChangeHeight" xml:space="preserve">
-    <value>按 {0} 或 {1} 更改高度</value>
+    <value>Yüksekliği değiştirmek için {0} veya {1} tuşlarını kullanın</value>
   </data>
   <data name="Mode_Info_Parallel_ChangeShift" xml:space="preserve">
-    <value>按下 {0} 切换创建边</value>
+    <value>Oluşturulan tarafı değiştirmek için {0} tuşunu kullan</value>
   </data>
   <data name="Mode_Info_Parallel_Create" xml:space="preserve">
-    <value>按 {0} 创建平行</value>
+    <value>Paralel oluşturmak için {0} tuşunu kullan</value>
   </data>
   <data name="Mode_Info_Parallel_Invert" xml:space="preserve">
-    <value>按 {0} 反转网络</value>
+    <value>Ağı ters çevirmek için {0} tuşunu kullan</value>
   </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
-    <value>半径过大</value>
+    <value>Çap çok büyük</value>
   </data>
   <data name="Mode_Info_RadiusTooSmall" xml:space="preserve">
-    <value>半径过小</value>
+    <value>Çap çok küçük</value>
   </data>
   <data name="Mode_Info_Refund" xml:space="preserve">
-    <value>退款： {0}</value>
+    <value>İade miktarı: {0}</value>
   </data>
   <data name="Mode_Info_SelectFirstSegment" xml:space="preserve">
-    <value>选择第一段落</value>
+    <value>İlk sektörü seçin</value>
   </data>
   <data name="Mode_Info_SelectSecondSegment" xml:space="preserve">
-    <value>选择第二段落</value>
+    <value>İkinci sektörü seçin</value>
   </data>
   <data name="Mode_Info_SelectSegment" xml:space="preserve">
-    <value>选择段落</value>
+    <value>Sektör seçin</value>
   </data>
   <data name="Mode_Info_Slope_Apply" xml:space="preserve">
-    <value>按下 {0} 以应用斜坡</value>
+    <value>Eğim vermek için {0} tuşunu kullanın</value>
   </data>
   <data name="Mode_Info_Step" xml:space="preserve">
-    <value>Shift - 10倍, Ctrl - 0.1倍, Alt - 0.01倍</value>
+    <value>Shift'e basılı tutarken 10 kat hızda, Ctrl'ye basılı tutarken 1/10 hızda, Alt'a basılı tutarken 1/100 hızda hareket eder</value>
   </data>
   <data name="Mode_Info_SwitchFollowTerrain" xml:space="preserve">
-    <value>按下“{0}”以切换至“跟随地形”模式。</value>
+    <value>Arazi takip değişikliği için {0} tuşunu kullanın</value>
   </data>
   <data name="Mode_Info_SwitchOffset" xml:space="preserve">
-    <value>按 {0} 切换选中偏移</value>
+    <value>Seçilen merkezi değiştirmek için {0} tuşunu kullanın</value>
   </data>
   
   <data name="Mode_Info_WrongShape" xml:space="preserve">
-    <value>形状错误</value>
+    <value>Yanlış şekil</value>
   </data>
   <data name="Mode_IntersectSegment" xml:space="preserve">
-    <value>交叉段落模式</value>
+    <value>Kesişen sektör modu</value>
   </data>
   <data name="Mode_IntersectSegment_Info_EdgeTooClose" xml:space="preserve">
-    <value>一个段落的边缘离另一段落终点过近</value>
+    <value>Sektörlerden birinin kenarı diğerine çok yakın</value>
   </data>
   <data name="Mode_IntersectSegment_Info_NotIntersect" xml:space="preserve">
-    <value>这些段落并不相交</value>
+    <value>Bu sektörler kesişmiyor</value>
   </data>
   <data name="Mode_InvertSegment" xml:space="preserve">
-    <value>反转段落模式</value>
+    <value>Sektör modunu tersine çevir</value>
   </data>
   <data name="Mode_InvertSegment_Info_ClickToReverse" xml:space="preserve">
-    <value>点击以反转段落</value>
+    <value>Sektörü tersine çevirmek için tıkla</value>
   </data>
   <data name="Mode_InvertSegment_Info_SelectToReverse" xml:space="preserve">
-    <value>选择要反转的段落</value>
+    <value>Ters çevrilecek sektörü seçin</value>
   </data>
-  <data name="Mode_NodeLine_Info_NotConnected" xml:space="preserve">
-    <value>不能选择此节点
-原因：未与其他节点连接</value>
-  </data>
-  <data name="Mode_NodeLine_Info_SelectNode" xml:space="preserve">
-    <value>选择要均匀的节点</value>
-  </data>
+  
+  
   <data name="Mode_PercentagesFormat" xml:space="preserve">
-    <value>{0}%</value>
+    <value>% {0}</value>
   </data>
   <data name="Mode_RadiusFormat" xml:space="preserve">
-    <value>{0}米</value>
+    <value>{0}m</value>
   </data>
-  <data name="Mode_RemoveNode" xml:space="preserve">
-    <value>删除节点模式</value>
-  </data>
-  <data name="Mode_RemoveNode_Info_NotAllow" xml:space="preserve">
-    <value>不可删除此节点</value>
-  </data>
-  <data name="Mode_SlopeNode" xml:space="preserve">
-    <value>设置斜坡模式</value>
-  </data>
-  <data name="Mode_SplitNode" xml:space="preserve">
-    <value>拆分节点模式</value>
-  </data>
+  
+  
+  
+  
   <data name="Mode_SplitNode_Info_ClickFromOrder" xml:space="preserve">
-    <value>单击以从就序列表中移除段落</value>
+    <value>Sektörü bölünme işleminden çıkartmak için tıkla</value>
   </data>
   <data name="Mode_SplitNode_Info_ClickToOrder" xml:space="preserve">
-    <value>单击以添加段落到就序列表中</value>
+    <value>Sektörü bölünme sırasına eklemek için tıkla</value>
   </data>
   
   <data name="Mode_SplitNode_Info_NotAllowedSplit" xml:space="preserve">
-    <value>无法分割只与一个段落相交的节点</value>
+    <value>Tek sektörlü düğüm bölünemez</value>
   </data>
   <data name="Mode_SplitNode_Info_OrderIsFull" xml:space="preserve">
-    <value>无法往就序列表中添加更多段落</value>
+    <value>Daha fazla sektör bölünme listesine eklenemez</value>
   </data>
   <data name="Mode_SplitNode_Info_SelectToSplit" xml:space="preserve">
-    <value>选择要拆分的段落</value>
-  </data>
-  <data name="Mode_SplitNode_Info_TooFar" xml:space="preserve">
-    <value>位置离源节点太远</value>
-  </data>
-  <data name="Mode_UnionNode" xml:space="preserve">
-    <value>并合节点模式</value>
-  </data>
-  <data name="Mode_UnionNode_Info_ClickSource" xml:space="preserve">
-    <value>点击选择源节点</value>
-  </data>
-  <data name="Mode_UnionNode_Info_ClickUnion" xml:space="preserve">
-    <value>点击以并合节点</value>
-  </data>
-  <data name="Mode_UnionNode_Info_NoCommon" xml:space="preserve">
-    <value>节点间需存在通用段落</value>
-  </data>
-  <data name="Mode_UnionNode_Info_Overflow" xml:space="preserve">
-    <value>节点总数不能超过 8 个</value>
-  </data>
-  <data name="Mode_UnionNode_Info_SelectSource" xml:space="preserve">
-    <value>选择源节点</value>
-  </data>
-  <data name="Mode_UnionNode_Info_SelectTarget" xml:space="preserve">
-    <value>选择目标节点</value>
-  </data>
-  <data name="Mode_UnionNode_Info_TooFar" xml:space="preserve">
-    <value>节点间距离太远</value>
-  </data>
-  <data name="Mode_UnlockSegment" xml:space="preserve">
-    <value>解/锁段落模式</value>
-  </data>
-  <data name="Mode_UnlockSegment_Info_ChangeLock" xml:space="preserve">
-    <value>选择要
-锁定或解锁的段落</value>
-  </data>
-  <data name="Mode_UnlockSegment_Info_ClickToLock" xml:space="preserve">
-    <value>点击锁定此段落</value>
-  </data>
-  <data name="Mode_UnlockSegment_Info_ClickToUnlock" xml:space="preserve">
-    <value>点击解锁此段落</value>
-  </data>
-  <data name="Mod_Description" xml:space="preserve">
-    <value>修改道路网络的许多小工具</value>
+    <value>Bölünecek sektör seç</value>
   </data>
   
-  <data name="Settings_ActivationShortcuts" xml:space="preserve">
-    <value>激活快捷键</value>
+  
+  
+  
+  <data name="Mode_UnionNode_Info_NoCommon" xml:space="preserve">
+    <value>Bu düğümler ortak sektöre sahip</value>
   </data>
-  <data name="Settings_AutoHideModePanel" xml:space="preserve">
-    <value>自动隐藏模式面板</value>
+  
+  
+  
+  
+  <data name="Mode_UnlockSegment" xml:space="preserve">
+    <value>Sektör modunu aktive et</value>
   </data>
-  <data name="Settings_CommonShortcuts" xml:space="preserve">
-    <value>模组共同快捷键</value>
+  <data name="Mode_UnlockSegment_Info_ChangeLock" xml:space="preserve">
+    <value>Açmak veya kapatmak için sektör seç</value>
   </data>
+  <data name="Mode_UnlockSegment_Info_ClickToLock" xml:space="preserve">
+    <value>Sektörü kilitlemek için tıkla</value>
+  </data>
+  <data name="Mode_UnlockSegment_Info_ClickToUnlock" xml:space="preserve">
+    <value>Sektörü açmak için tıkla</value>
+  </data>
+  
+  
+  
+  
+  
   <data name="Settings_FollowTerrain" xml:space="preserve">
-    <value>创建“跟随地形”模式的地面道路。</value>
+    <value>Zemin üstündeki yollar araziyi takip eder</value>
   </data>
-  <data name="Settings_Gameplay" xml:space="preserve">
-    <value>游戏设置</value>
-  </data>
-  <data name="Settings_Interface" xml:space="preserve">
-    <value>界面</value>
-  </data>
-  <data name="Settings_NeedMoney" xml:space="preserve">
-    <value>需要金钱建设</value>
-  </data>
-  <data name="Settings_PanelColumns" xml:space="preserve">
-    <value>面板栏数</value>
-  </data>
-  <data name="Settings_PlayEffects" xml:space="preserve">
-    <value>开启音频和视觉效果</value>
-  </data>
-  <data name="Settings_PreviewType" xml:space="preserve">
-    <value>创建预览</value>
-  </data>
-  <data name="Settings_PreviewTypeBoth" xml:space="preserve">
-    <value>同时启用</value>
-  </data>
-  <data name="Settings_PreviewTypeMesh" xml:space="preserve">
-    <value>网络可视化</value>
-  </data>
-  <data name="Settings_PreviewTypeOverlay" xml:space="preserve">
-    <value>覆盖</value>
-  </data>
+  
+  
+  
+  
+  
+  
+  
+  
+  
   <data name="Settings_SegmentLength" xml:space="preserve">
-    <value>最大段落长度</value>
+    <value>Maksimum sektör uzunluğu</value>
   </data>
-  <data name="Settings_Shortcut_Apply" xml:space="preserve">
-    <value>应用模式</value>
-  </data>
-  <data name="Settings_Shortcut_DecreaseHeight" xml:space="preserve">
-    <value>降低高度</value>
-  </data>
-  <data name="Settings_Shortcut_DecreaseOffset" xml:space="preserve">
-    <value>减少圆形起点偏移</value>
-  </data>
-  <data name="Settings_Shortcut_DecreaseOneRadius" xml:space="preserve">
-    <value>减少一个半径</value>
-  </data>
+  
+  
+  
+  
   <data name="Settings_Shortcut_DecreaseRadii" xml:space="preserve">
-    <value>减少半径</value>
+    <value>Yarıçapı azalt</value>
   </data>
   <data name="Settings_Shortcut_DecreaseRadius" xml:space="preserve">
-    <value>减少半径</value>
+    <value>Çapı azalt</value>
   </data>
   <data name="Settings_Shortcut_DecreaseShift" xml:space="preserve">
-    <value>减少偏移</value>
+    <value>Uzantıyı azalt</value>
   </data>
   <data name="Settings_Shortcut_DistributeBetweenIntersections" xml:space="preserve">
-    <value>在交叉口之间平均分布节点</value>
+    <value>Kesişimler arasında düğümleri eşit dağıt</value>
   </data>
   <data name="Settings_Shortcut_DistributeEvenly" xml:space="preserve">
-    <value>在圆圈上平均分布节点</value>
+    <value>Tüm düğümleri daireye eşit dağıt</value>
   </data>
   <data name="Settings_Shortcut_DistributeIntersections" xml:space="preserve">
-    <value>在圆圈上平均分布交叉口</value>
+    <value>Kesişimleri daireye eşit dağıt</value>
   </data>
   <data name="Settings_Shortcut_IncreaseHeight" xml:space="preserve">
-    <value>增高高度</value>
+    <value>Yüksekliği artır</value>
   </data>
-  <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
-    <value>增加圆形起点偏移</value>
-  </data>
+  
   <data name="Settings_Shortcut_IncreaseOneRadius" xml:space="preserve">
-    <value>增大一个半径</value>
+    <value>Tek bir yarıçapı arttırın</value>
   </data>
   <data name="Settings_Shortcut_IncreaseRadii" xml:space="preserve">
-    <value>增大半径</value>
+    <value>Genişliği arttırın</value>
   </data>
   <data name="Settings_Shortcut_IncreaseRadius" xml:space="preserve">
-    <value>增大半径</value>
+    <value>Çapı arttırın</value>
   </data>
   <data name="Settings_Shortcut_IncreaseShift" xml:space="preserve">
-    <value>增加偏移</value>
+    <value>Uzantıyı arttırın</value>
   </data>
   <data name="Settings_Shortcut_InvertNetwork" xml:space="preserve">
-    <value>反转网络</value>
+    <value>Ağı ters çevir</value>
   </data>
   <data name="Settings_Shortcut_InvertShift" xml:space="preserve">
-    <value>切换创建边</value>
+    <value>Oluşturmaya geç</value>
   </data>
   <data name="Settings_Shortcut_ResetArrangeCircle" xml:space="preserve">
-    <value>重置为默认圆形</value>
+    <value>Varsayılan daireye sıfırla</value>
   </data>
   <data name="Settings_Shortcut_SwitchFollowTerrain" xml:space="preserve">
-    <value>切换"跟随地形"模式。</value>
+    <value>Arazi takibi değiştir</value>
   </data>
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
-    <value>切换回环方向</value>
+    <value>Döngü yönünü değiştir</value>
   </data>
   <data name="Settings_Shortcut_SwitchOffset" xml:space="preserve">
-    <value>切换选中偏移</value>
+    <value>Seçilen noktayı değiştir</value>
   </data>
   <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
-    <value>切换选中的圆</value>
+    <value>Seçilen daireyi değiştir</value>
   </data>
   <data name="Settings_SlopeUnit" xml:space="preserve">
-    <value>斜坡度量单位</value>
+    <value>Eğimin ölçü birimi</value>
   </data>
   <data name="Settings_SlopeUnitDegrees" xml:space="preserve">
-    <value>度</value>
+    <value>Dereceler</value>
   </data>
   <data name="Settings_SlopeUnitPercentages" xml:space="preserve">
-    <value>百分比</value>
+    <value>Yüzde</value>
   </data>
   <data name="Tool_RemoveNode_Info_ClickToRemove" xml:space="preserve">
-    <value>点击以删除</value>
+    <value>Kaldırmak için tıkla</value>
   </data>
   <data name="Tool_RemoveNode_Info_Select" xml:space="preserve">
-    <value>选择要删除的节点</value>
+    <value>Kaldırmak için düğüm seç</value>
   </data>
 </root>

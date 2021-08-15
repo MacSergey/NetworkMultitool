@@ -164,15 +164,6 @@ per cambiare la direzione della curva</value>
   <data name="Mode_Connection_Info_DragToMove" xml:space="preserve">
     <value>Trascina per spostare il cerchio</value>
   </data>
-  <data name="Mode_Connection_Info_RadiusStep" xml:space="preserve">
-    <value>Tieni premuto il tasto Maiusc per passo 10m
-Tieni premuto il tasto Ctrl per passo 1m
-Tieni premuto il tasto Alt per passo 0.1m</value>
-  </data>
-  <data name="Mode_Connection_Info_SlowMove" xml:space="preserve">
-    <value>Tieni premuto Ctrl per spostare X10 più lento
-Tieni premuto Alt per spostare X100 più lento</value>
-  </data>
   <data name="Mode_CreateBezier" xml:space="preserve">
     <value>Modalità Crea curva di Bezier</value>
   </data>
@@ -213,10 +204,7 @@ la forma rotonda non sarà perfetta</value>
   <data name="Mode_Info_ArrangeCircle_DragToMoveNode" xml:space="preserve">
     <value>Trascina per spostare il nodo</value>
   </data>
-  <data name="Mode_Info_ArrangeCircle_MoveAll" xml:space="preserve">
-    <value>Tieni premuto Maiusc per spostare tutti i nodi
-allo stesso tempo</value>
-  </data>
+  
   <data name="Mode_Info_ArrangeCircle_PressToDistributeBetweenIntersections" xml:space="preserve">
     <value>Premi {0} per distribuire i nodi
 in modo uniforme tra le intersezioni</value>
@@ -278,23 +266,31 @@ in modo uniforme tra le intersezioni</value>
   <data name="Mode_Info_Connection_Create" xml:space="preserve">
     <value>Premi {0} per creare una connessione</value>
   </data>
+  
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Premi {0} per creare</value>
   </data>
   <data name="Mode_Info_CreateBezier_MoveGiude" xml:space="preserve">
     <value>Sposta le guide della curva di Bezier per cambiare forma</value>
   </data>
+  
+  
   <data name="Mode_Info_Loop_Create" xml:space="preserve">
     <value>Premi {0} per cambiare ciclo</value>
   </data>
+  
   <data name="Mode_Info_OutOfMap" xml:space="preserve">
     <value>Fuori dalla mappa</value>
   </data>
+  
   <data name="Mode_Info_Parallel_ChangeShift" xml:space="preserve">
     <value>Premi {0} per cambiare il lato della creazione</value>
   </data>
   <data name="Mode_Info_Parallel_Create" xml:space="preserve">
     <value>Premi {0} per creare parallele</value>
+  </data>
+  <data name="Mode_Info_Parallel_Invert" xml:space="preserve">
+    <value>Premi {0} per invertire la rete</value>
   </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
     <value>Raggio troppo grande</value>
@@ -302,6 +298,7 @@ in modo uniforme tra le intersezioni</value>
   <data name="Mode_Info_RadiusTooSmall" xml:space="preserve">
     <value>Raggio troppo piccolo</value>
   </data>
+  
   <data name="Mode_Info_SelectFirstSegment" xml:space="preserve">
     <value>Seleziona il primo segmento</value>
   </data>
@@ -317,13 +314,11 @@ in modo uniforme tra le intersezioni</value>
   <data name="Mode_Info_Step" xml:space="preserve">
     <value>Maiusc - X10, Ctrl - X0.1, Alt - X0.01</value>
   </data>
+  
   <data name="Mode_Info_SwitchOffset" xml:space="preserve">
     <value>Premi {0} per cambiare lo spostamento selezionato</value>
   </data>
-  <data name="Mode_Info_UndergroundMode" xml:space="preserve">
-    <value>Tieni premuto Shift per
-modalità sotterranea</value>
-  </data>
+  
   <data name="Mode_Info_WrongShape" xml:space="preserve">
     <value>Forma sbagliata</value>
   </data>
@@ -376,10 +371,7 @@ perché non è connesso con altri</value>
   <data name="Mode_SplitNode_Info_ClickToOrder" xml:space="preserve">
     <value>Fare clic per aggiungere un segmento all'ordine di divisione</value>
   </data>
-  <data name="Mode_SplitNode_Info_ClickToSplit" xml:space="preserve">
-    <value>Fare clic per dividere il nodo e impostare l'altezza del terreno
-Fare clic con Maiusc per dividere il nodo e impostare l'altezza della sorgente</value>
-  </data>
+  
   <data name="Mode_SplitNode_Info_NotAllowedSplit" xml:space="preserve">
     <value>Non è consentito dividere il nodo con un solo segmento</value>
   </data>
@@ -442,11 +434,27 @@ bloccarlo o sbloccarlo</value>
   <data name="Settings_CommonShortcuts" xml:space="preserve">
     <value>Modalità scorciatoie comuni</value>
   </data>
+  
+  
+  
+  
   <data name="Settings_PanelColumns" xml:space="preserve">
     <value>Pannello Numero colonne</value>
   </data>
   <data name="Settings_PlayEffects" xml:space="preserve">
     <value>Riproduci effetti sonori e visivi</value>
+  </data>
+  <data name="Settings_PreviewType" xml:space="preserve">
+    <value>Anteprima creazione</value>
+  </data>
+  <data name="Settings_PreviewTypeBoth" xml:space="preserve">
+    <value>Entrambi</value>
+  </data>
+  <data name="Settings_PreviewTypeMesh" xml:space="preserve">
+    <value>Visualizzazione della rete</value>
+  </data>
+  <data name="Settings_PreviewTypeOverlay" xml:space="preserve">
+    <value>Sovrapposizione</value>
   </data>
   <data name="Settings_SegmentLength" xml:space="preserve">
     <value>Lunghezza Massima Del Segmento</value>
@@ -454,6 +462,7 @@ bloccarlo o sbloccarlo</value>
   <data name="Settings_Shortcut_Apply" xml:space="preserve">
     <value>Applica l'azione in modalità</value>
   </data>
+  
   <data name="Settings_Shortcut_DecreaseOffset" xml:space="preserve">
     <value>Diminuisci spostamento inizio cerchio</value>
   </data>
@@ -478,6 +487,7 @@ bloccarlo o sbloccarlo</value>
   <data name="Settings_Shortcut_DistributeIntersections" xml:space="preserve">
     <value>Distribuisci le intersezioni in modo uniforme sul cerchio</value>
   </data>
+  
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
     <value>Aumenta spostamento inizio cerchio</value>
   </data>
@@ -493,12 +503,16 @@ bloccarlo o sbloccarlo</value>
   <data name="Settings_Shortcut_IncreaseShift" xml:space="preserve">
     <value>Aumenta lo spostamento</value>
   </data>
+  <data name="Settings_Shortcut_InvertNetwork" xml:space="preserve">
+    <value>Inverti rete</value>
+  </data>
   <data name="Settings_Shortcut_InvertShift" xml:space="preserve">
     <value>Cambia lato di creazione</value>
   </data>
   <data name="Settings_Shortcut_ResetArrangeCircle" xml:space="preserve">
     <value>Ripristina al cerchio predefinito</value>
   </data>
+  
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
     <value>Cambia direzione ciclo</value>
   </data>

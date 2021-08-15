@@ -164,15 +164,6 @@ pour changer la direction de la courbe</value>
   <data name="Mode_Connection_Info_DragToMove" xml:space="preserve">
     <value>Faites glisser pour déplacer le cercle</value>
   </data>
-  <data name="Mode_Connection_Info_RadiusStep" xml:space="preserve">
-    <value>Maintenez Shift pour avancer de 10m
-Maintenez Ctrl pour avancer de 1m
-Maintenez Alt pour avancer de 0.1m</value>
-  </data>
-  <data name="Mode_Connection_Info_SlowMove" xml:space="preserve">
-    <value>Maintenez Ctrl pour déplacer X10 plus lentement
-Maintenez Alt pour déplacer X100 plus lentement</value>
-  </data>
   <data name="Mode_CreateBezier" xml:space="preserve">
     <value>Courbe de Bézier</value>
   </data>
@@ -213,10 +204,7 @@ La forme ronde ne sera pas parfaite</value>
   <data name="Mode_Info_ArrangeCircle_DragToMoveNode" xml:space="preserve">
     <value>Faites glisser pour déplacer le nœud</value>
   </data>
-  <data name="Mode_Info_ArrangeCircle_MoveAll" xml:space="preserve">
-    <value>Maintenez Shift pour déplacer
-tous les nœuds simultanément</value>
-  </data>
+  
   <data name="Mode_Info_ArrangeCircle_PressToDistributeBetweenIntersections" xml:space="preserve">
     <value>Appuyez sur {0} pour répartir uniformément
 les nœuds entre les intersections</value>
@@ -277,30 +265,37 @@ les nœuds sur le cercle</value>
   <data name="Mode_Info_Connection_Create" xml:space="preserve">
     <value>Appuyez sur {0} pour créer une connexion</value>
   </data>
+  
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Appuyez sur {0} pour créer</value>
   </data>
   <data name="Mode_Info_CreateBezier_MoveGiude" xml:space="preserve">
     <value>Déplacez les points de contrôle de Bézier pour modifier la courbe</value>
   </data>
+  
+  
   <data name="Mode_Info_Loop_Create" xml:space="preserve">
     <value>Appuyez sur {0} pour créer une boucle</value>
   </data>
+  
   <data name="Mode_Info_OutOfMap" xml:space="preserve">
     <value>Hors de la carte</value>
   </data>
+  
   <data name="Mode_Info_Parallel_ChangeShift" xml:space="preserve">
     <value>Appuyez sur {0} pour changer de côté</value>
   </data>
   <data name="Mode_Info_Parallel_Create" xml:space="preserve">
     <value>Appuyez sur {0} pour créer en parallèle</value>
   </data>
+  
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
     <value>Rayon trop important</value>
   </data>
   <data name="Mode_Info_RadiusTooSmall" xml:space="preserve">
     <value>Rayon trop petit</value>
   </data>
+  
   <data name="Mode_Info_SelectFirstSegment" xml:space="preserve">
     <value>Sélectionnez le premier segment</value>
   </data>
@@ -316,12 +311,11 @@ les nœuds sur le cercle</value>
   <data name="Mode_Info_Step" xml:space="preserve">
     <value>Maj - X10, Ctrl - X0.1, Alt - X0.01</value>
   </data>
+  
   <data name="Mode_Info_SwitchOffset" xml:space="preserve">
     <value>Appuyer sur {0} pour modifier le décalage du début de la courbe sélectionnée</value>
   </data>
-  <data name="Mode_Info_UndergroundMode" xml:space="preserve">
-    <value>Maintenez Maj pour le mode souterrain</value>
-  </data>
+  
   <data name="Mode_Info_WrongShape" xml:space="preserve">
     <value>Forme incorrecte</value>
   </data>
@@ -374,10 +368,7 @@ car il n'est pas connecté aux autres</value>
   <data name="Mode_SplitNode_Info_ClickToOrder" xml:space="preserve">
     <value>Cliquez pour ajouter le segment à l'action</value>
   </data>
-  <data name="Mode_SplitNode_Info_ClickToSplit" xml:space="preserve">
-    <value>Cliquez pour séparer le nœud et le mettre à la hauteur du terrain
-Cliquez avec Maj pour séparer le nœud et définir sa hauteur</value>
-  </data>
+  
   <data name="Mode_SplitNode_Info_NotAllowedSplit" xml:space="preserve">
     <value>Impossible de séparer un nœud avec un seul segment</value>
   </data>
@@ -465,9 +456,17 @@ verrouiller ou déverrouiller</value>
   <data name="Settings_CommonShortcuts" xml:space="preserve">
     <value>Raccourcis communs des modes</value>
   </data>
+  
+  
+  
+  
   <data name="Settings_PanelColumns" xml:space="preserve">
     <value>Nombre de colonnes de l'interface</value>
   </data>
+  
+  
+  
+  
   
   <data name="Settings_SegmentLength" xml:space="preserve">
     <value>Longueur maximale du segment</value>
@@ -475,6 +474,7 @@ verrouiller ou déverrouiller</value>
   <data name="Settings_Shortcut_Apply" xml:space="preserve">
     <value>Appliquer</value>
   </data>
+  
   <data name="Settings_Shortcut_DecreaseOffset" xml:space="preserve">
     <value>Diminuer le décalage de début de la courbe</value>
   </data>
@@ -497,6 +497,7 @@ verrouiller ou déverrouiller</value>
     <value>Répartir uniformément les nœuds sur le cercle</value>
   </data>
   
+  
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
     <value>Augmenter le décalage de début de la courbe</value>
   </data>
@@ -512,12 +513,14 @@ verrouiller ou déverrouiller</value>
   <data name="Settings_Shortcut_IncreaseShift" xml:space="preserve">
     <value>Augmenter le décalage</value>
   </data>
+  
   <data name="Settings_Shortcut_InvertShift" xml:space="preserve">
     <value>Changer le côté de création</value>
   </data>
   <data name="Settings_Shortcut_ResetArrangeCircle" xml:space="preserve">
     <value>Réinitialiser le cercle</value>
   </data>
+  
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
     <value>Changer la direction de la boucle</value>
   </data>

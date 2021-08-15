@@ -164,15 +164,6 @@
   <data name="Mode_Connection_Info_DragToMove" xml:space="preserve">
     <value>드래그해 원 이동</value>
   </data>
-  <data name="Mode_Connection_Info_RadiusStep" xml:space="preserve">
-    <value>Shift를 꾹 눌러 10m씩
-Ctrl을 꾹 눌러 1m씩
-Alt를 꾹 눌러 0.1m씩</value>
-  </data>
-  <data name="Mode_Connection_Info_SlowMove" xml:space="preserve">
-    <value>Ctrl을 꾹 눌러 10배 정교하게
-Alt를 꾹 눌러 100배 정교하게</value>
-  </data>
   <data name="Mode_CreateBezier" xml:space="preserve">
     <value>베지어 곡선 생성 모드</value>
   </data>
@@ -213,10 +204,7 @@ Alt를 꾹 눌러 100배 정교하게</value>
   <data name="Mode_Info_ArrangeCircle_DragToMoveNode" xml:space="preserve">
     <value>드래그해 노드 이동</value>
   </data>
-  <data name="Mode_Info_ArrangeCircle_MoveAll" xml:space="preserve">
-    <value>Shift를 누른 채로 모든 노드를
-동시에 이동</value>
-  </data>
+  
   <data name="Mode_Info_ArrangeCircle_PressToDistributeBetweenIntersections" xml:space="preserve">
     <value>{0} 키를 눌러 노드를 교차로
 사이에 일정하게 배치</value>
@@ -279,23 +267,31 @@ Alt를 꾹 눌러 100배 정교하게</value>
   <data name="Mode_Info_Connection_Create" xml:space="preserve">
     <value>{0} 키를 눌러서 연결 생성</value>
   </data>
+  
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>{0} 키를 눌러서 생성</value>
   </data>
   <data name="Mode_Info_CreateBezier_MoveGiude" xml:space="preserve">
     <value>베지어 곡선의 제어점을 옮겨 형태 변경</value>
   </data>
+  
+  
   <data name="Mode_Info_Loop_Create" xml:space="preserve">
     <value>{0} 키를 눌러서 루프 생성</value>
   </data>
+  
   <data name="Mode_Info_OutOfMap" xml:space="preserve">
     <value>지도 밖</value>
   </data>
+  
   <data name="Mode_Info_Parallel_ChangeShift" xml:space="preserve">
     <value>{0} 키를 눌러 제작 방향 변경</value>
   </data>
   <data name="Mode_Info_Parallel_Create" xml:space="preserve">
     <value>{0} 키를 눌러서 평행선 생성</value>
+  </data>
+  <data name="Mode_Info_Parallel_Invert" xml:space="preserve">
+    <value>{0} 키를 눌러 네트워크 반전</value>
   </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
     <value>반지름 너무 큼</value>
@@ -303,6 +299,7 @@ Alt를 꾹 눌러 100배 정교하게</value>
   <data name="Mode_Info_RadiusTooSmall" xml:space="preserve">
     <value>반지름 너무 작음</value>
   </data>
+  
   <data name="Mode_Info_SelectFirstSegment" xml:space="preserve">
     <value>첫 세그먼트 선택</value>
   </data>
@@ -318,12 +315,11 @@ Alt를 꾹 눌러 100배 정교하게</value>
   <data name="Mode_Info_Step" xml:space="preserve">
     <value>Shift - 10배, Ctrl - 0.1배, Alt - 0.01배</value>
   </data>
+  
   <data name="Mode_Info_SwitchOffset" xml:space="preserve">
     <value>{0} 키를 눌러 선택한 오프셋 변경</value>
   </data>
-  <data name="Mode_Info_UndergroundMode" xml:space="preserve">
-    <value>시프트를 꾹 눌러 지하 모드</value>
-  </data>
+  
   <data name="Mode_Info_WrongShape" xml:space="preserve">
     <value>틀린 모양</value>
   </data>
@@ -376,10 +372,7 @@ Alt를 꾹 눌러 100배 정교하게</value>
   <data name="Mode_SplitNode_Info_ClickToOrder" xml:space="preserve">
     <value>클릭해 분리 순서에 세그먼트 추가</value>
   </data>
-  <data name="Mode_SplitNode_Info_ClickToSplit" xml:space="preserve">
-    <value>클릭해 노드 분리 및 지형 높이 설정
-쉬프트 클릭해 노드 분리 및 소스 높이 설정</value>
-  </data>
+  
   <data name="Mode_SplitNode_Info_NotAllowedSplit" xml:space="preserve">
     <value>불가능함 1개 세그먼트에서만 노드 분리 가능</value>
   </data>
@@ -442,11 +435,27 @@ Alt를 꾹 눌러 100배 정교하게</value>
   <data name="Settings_CommonShortcuts" xml:space="preserve">
     <value>모드 내 일반 단축키</value>
   </data>
+  
+  
+  
+  
   <data name="Settings_PanelColumns" xml:space="preserve">
     <value>패널 열 갯수</value>
   </data>
   <data name="Settings_PlayEffects" xml:space="preserve">
     <value>음성 및 시각 효과 재생</value>
+  </data>
+  <data name="Settings_PreviewType" xml:space="preserve">
+    <value>생성 미리보기</value>
+  </data>
+  <data name="Settings_PreviewTypeBoth" xml:space="preserve">
+    <value>모두</value>
+  </data>
+  <data name="Settings_PreviewTypeMesh" xml:space="preserve">
+    <value>네트워크 시각화</value>
+  </data>
+  <data name="Settings_PreviewTypeOverlay" xml:space="preserve">
+    <value>오버레이</value>
   </data>
   <data name="Settings_SegmentLength" xml:space="preserve">
     <value>최대 세그먼트 길이</value>
@@ -454,6 +463,7 @@ Alt를 꾹 눌러 100배 정교하게</value>
   <data name="Settings_Shortcut_Apply" xml:space="preserve">
     <value>모드 사용사항 적용</value>
   </data>
+  
   <data name="Settings_Shortcut_DecreaseOffset" xml:space="preserve">
     <value>원 시작 오프셋 감소</value>
   </data>
@@ -478,6 +488,7 @@ Alt를 꾹 눌러 100배 정교하게</value>
   <data name="Settings_Shortcut_DistributeIntersections" xml:space="preserve">
     <value>원 위에 교차로를 일정 간격으로 배치</value>
   </data>
+  
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
     <value>원 시작 오프셋 증가</value>
   </data>
@@ -493,12 +504,16 @@ Alt를 꾹 눌러 100배 정교하게</value>
   <data name="Settings_Shortcut_IncreaseShift" xml:space="preserve">
     <value>오프셋 증가</value>
   </data>
+  <data name="Settings_Shortcut_InvertNetwork" xml:space="preserve">
+    <value>네트워크 반전</value>
+  </data>
   <data name="Settings_Shortcut_InvertShift" xml:space="preserve">
     <value>제작 방향 변경</value>
   </data>
   <data name="Settings_Shortcut_ResetArrangeCircle" xml:space="preserve">
     <value>기본 원으로 초기화</value>
   </data>
+  
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
     <value>루프 방향 변경</value>
   </data>

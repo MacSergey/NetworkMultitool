@@ -158,15 +158,6 @@ para mudar a direção da curva</value>
   <data name="Mode_Connection_Info_DragToMove" xml:space="preserve">
     <value>Arraste para mover o círculo</value>
   </data>
-  <data name="Mode_Connection_Info_RadiusStep" xml:space="preserve">
-    <value>Segure Shift para passo 10m
-Segure Ctrl para passo 1m
-Segure Alt para passo 0.1m</value>
-  </data>
-  <data name="Mode_Connection_Info_SlowMove" xml:space="preserve">
-    <value>Manhtenha Ctrl para mover X10 mais lento
-Manhtenha Alt para mover X100 mais lento</value>
-  </data>
   <data name="Mode_CreateBezier" xml:space="preserve">
     <value>Modo de criação de curva de Bezier</value>
   </data>
@@ -190,10 +181,7 @@ Manhtenha Alt para mover X100 mais lento</value>
   
   
   
-  <data name="Mode_Info_ArrangeCircle_MoveAll" xml:space="preserve">
-    <value>Mantenha Shift para mover todos os nós
-ao mesmo tempo</value>
-  </data>
+  
   
   
   
@@ -240,6 +228,7 @@ ao mesmo tempo</value>
     <value>Clique para desselecionar o nó</value>
   </data>
   
+  
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Pressione {0} para criar</value>
   </data>
@@ -247,9 +236,14 @@ ao mesmo tempo</value>
     <value>Mova os guias da curva de Bezier para mudar a forma</value>
   </data>
   
+  
+  
+  
   <data name="Mode_Info_OutOfMap" xml:space="preserve">
     <value>Fora do mapa</value>
   </data>
+  
+  
   
   
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
@@ -258,6 +252,7 @@ ao mesmo tempo</value>
   <data name="Mode_Info_RadiusTooSmall" xml:space="preserve">
     <value>Raio muito pequeno</value>
   </data>
+  
   <data name="Mode_Info_SelectFirstSegment" xml:space="preserve">
     <value>Selecione o primeiro segmento</value>
   </data>
@@ -273,12 +268,11 @@ ao mesmo tempo</value>
   <data name="Mode_Info_Step" xml:space="preserve">
     <value>Shift - X10, Ctrl - X0.1, Alt - X0.01</value>
   </data>
+  
   <data name="Mode_Info_SwitchOffset" xml:space="preserve">
     <value>Pressione {0} para alternar deslocamento selecionado</value>
   </data>
-  <data name="Mode_Info_UndergroundMode" xml:space="preserve">
-    <value>Segure Shift para o modo subterrâneo</value>
-  </data>
+  
   <data name="Mode_Info_WrongShape" xml:space="preserve">
     <value>Forma errada</value>
   </data>
@@ -383,9 +377,18 @@ porque não está ligado a outros</value>
   
   
   
+  
+  
+  
+  
+  
+  
+  
+  
   <data name="Settings_SegmentLength" xml:space="preserve">
     <value>Comprimento máximo do segmento</value>
   </data>
+  
   
   <data name="Settings_Shortcut_DecreaseOffset" xml:space="preserve">
     <value>Diminuir o deslocamento inicial do círculo</value>
@@ -401,6 +404,7 @@ porque não está ligado a outros</value>
   
   
   
+  
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
     <value>Aumentar o deslocamento inicial do círculo</value>
   </data>
@@ -412,6 +416,8 @@ porque não está ligado a outros</value>
   <data name="Settings_Shortcut_IncreaseShift" xml:space="preserve">
     <value>Aumentar o deslocamento</value>
   </data>
+  
+  
   
   
   

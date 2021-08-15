@@ -160,15 +160,6 @@ kattints duplán a kör közepére</value>
   <data name="Mode_Connection_Info_DragToMove" xml:space="preserve">
     <value>A kör mozgatásához húzd</value>
   </data>
-  <data name="Mode_Connection_Info_RadiusStep" xml:space="preserve">
-    <value>Shift-et nyomva tartva 10m lépésköz
-Ctrl-t nyomva tartva 1m lépésköz
-Alt-ot nyomva tartva 0,1m lépésköz</value>
-  </data>
-  <data name="Mode_Connection_Info_SlowMove" xml:space="preserve">
-    <value>Ctrl-t nyomva tartva 10x lassabb a mozgatás
-Alt-ot nyomva tartva 100x lassabb a mozgatás</value>
-  </data>
   
   <data name="Mode_CreateConnection" xml:space="preserve">
     <value>Kapcsolat létrehozása mód</value>
@@ -235,9 +226,15 @@ Alt-ot nyomva tartva 100x lassabb a mozgatás</value>
     <value>Kattints a csomópont kijelölésének megszüntetéséhez</value>
   </data>
   
+  
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Nyomj {0}-t a létrehozáshoz</value>
   </data>
+  
+  
+  
+  
+  
   
   
   
@@ -249,6 +246,7 @@ Alt-ot nyomva tartva 100x lassabb a mozgatás</value>
   <data name="Mode_Info_RadiusTooSmall" xml:space="preserve">
     <value>Túl kicsi a sugár</value>
   </data>
+  
   <data name="Mode_Info_SelectFirstSegment" xml:space="preserve">
     <value>Válaszd ki az első szegmenst</value>
   </data>
@@ -262,12 +260,11 @@ Alt-ot nyomva tartva 100x lassabb a mozgatás</value>
   <data name="Mode_Info_Step" xml:space="preserve">
     <value>Shift - 10x; Ctrl - 0,1x; Alt - 0,01x</value>
   </data>
+  
   <data name="Mode_Info_SwitchOffset" xml:space="preserve">
     <value>Nyomd meg a {0}-t a kiválasztott görbe indítási eltolásának váltásához</value>
   </data>
-  <data name="Mode_Info_UndergroundMode" xml:space="preserve">
-    <value>Tartsd lenyomva a Shiftet a földalatti módhoz</value>
-  </data>
+  
   <data name="Mode_Info_WrongShape" xml:space="preserve">
     <value>Helytelen alak</value>
   </data>
@@ -320,10 +317,7 @@ mert nincs kapcsolatban másokkal</value>
   <data name="Mode_SplitNode_Info_ClickToOrder" xml:space="preserve">
     <value>Kattintson a szegmens felosztáshoz történő hozzáadáshoz</value>
   </data>
-  <data name="Mode_SplitNode_Info_ClickToSplit" xml:space="preserve">
-    <value>Kattints a csomópont felosztásához és a terep magasságának beállításához
-Kattints a Shift lenyomásával a csomópont felosztásához és a forrás magasságának beállításához</value>
-  </data>
+  
   <data name="Mode_SplitNode_Info_NotAllowedSplit" xml:space="preserve">
     <value>Nem engedélyezett az egy szegmenses csomópont felosztása</value>
   </data>
@@ -384,12 +378,21 @@ zároláshoz vagy feloldáshoz</value>
   
   
   
+  
+  
+  
+  
+  
+  
+  
+  
   <data name="Settings_SegmentLength" xml:space="preserve">
     <value>Maximális szegmens hossz</value>
   </data>
   <data name="Settings_Shortcut_Apply" xml:space="preserve">
     <value>Mód művelet alkalmazása</value>
   </data>
+  
   <data name="Settings_Shortcut_DecreaseOffset" xml:space="preserve">
     <value>A görbe kezdési eltolásának csökkentése</value>
   </data>
@@ -402,12 +405,15 @@ zároláshoz vagy feloldáshoz</value>
   
   
   
+  
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
     <value>A görbe kezdési eltolásának növelése</value>
   </data>
   <data name="Settings_Shortcut_IncreaseOneRadius" xml:space="preserve">
     <value>Az egyik sugár növelése</value>
   </data>
+  
+  
   
   
   

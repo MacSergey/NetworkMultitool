@@ -155,11 +155,6 @@ om de richting van de curve te veranderen</value>
     <value>Sleep om de cirkel te verplaatsen</value>
   </data>
   
-  <data name="Mode_Connection_Info_SlowMove" xml:space="preserve">
-    <value>Houd Ctrl om met X10 langzamer te bewegen
-Houd Alt om met X100 langzamer te bewegen</value>
-  </data>
-  
   <data name="Mode_CreateConnection" xml:space="preserve">
     <value>Creëer verbind-modus</value>
   </data>
@@ -215,9 +210,15 @@ Houd Alt om met X100 langzamer te bewegen</value>
     <value>Klik om een knooppunt te deselecteren</value>
   </data>
   
+  
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Druk {0} om te creëren</value>
   </data>
+  
+  
+  
+  
+  
   
   
   
@@ -229,6 +230,7 @@ Houd Alt om met X100 langzamer te bewegen</value>
   <data name="Mode_Info_RadiusTooSmall" xml:space="preserve">
     <value>Straal te klein</value>
   </data>
+  
   <data name="Mode_Info_SelectFirstSegment" xml:space="preserve">
     <value>Selecteer eerste segment</value>
   </data>
@@ -241,9 +243,8 @@ Houd Alt om met X100 langzamer te bewegen</value>
   
   
   
-  <data name="Mode_Info_UndergroundMode" xml:space="preserve">
-    <value>Houd Shift om in ondergrondse modus te gaan</value>
-  </data>
+  
+  
   <data name="Mode_Info_WrongShape" xml:space="preserve">
     <value>Verkeerde vorm</value>
   </data>
@@ -311,6 +312,9 @@ Houd Alt om met X100 langzamer te bewegen</value>
     <value>Knooppunten te ver van elkaar</value>
   </data>
   
+  <data name="Mode_UnlockSegment_Info_ChangeLock" xml:space="preserve">
+    <value>Selecteer segment om te vergrendelen of te ontgrendelen</value>
+  </data>
   
   
   
@@ -319,11 +323,25 @@ Houd Alt om met X100 langzamer te bewegen</value>
   
   
   
+  
+  
+  
+  
+  <data name="Settings_PlayEffects" xml:space="preserve">
+    <value>Speel audio en visuele effecten</value>
+  </data>
+  <data name="Settings_PreviewType" xml:space="preserve">
+    <value>Creatie voorbeeld</value>
+  </data>
+  <data name="Settings_PreviewTypeBoth" xml:space="preserve">
+    <value>Beide</value>
+  </data>
   
   
   <data name="Settings_SegmentLength" xml:space="preserve">
     <value>Maximale Segmentlengte</value>
   </data>
+  
   
   
   <data name="Settings_Shortcut_DecreaseOneRadius" xml:space="preserve">
@@ -336,8 +354,15 @@ Houd Alt om met X100 langzamer te bewegen</value>
   
   
   
+  
   <data name="Settings_Shortcut_IncreaseOneRadius" xml:space="preserve">
     <value>Verhoog één straal</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseRadii" xml:space="preserve">
+    <value>Vergroot de stralen</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseRadius" xml:space="preserve">
+    <value>Vergroot straal</value>
   </data>
   
   

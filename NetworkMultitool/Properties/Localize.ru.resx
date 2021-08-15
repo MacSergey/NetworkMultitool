@@ -127,7 +127,7 @@
     <value>Выберите сегмент для добавления узла</value>
   </data>
   <data name="Mode_AddNode_Info_TooCloseNode" xml:space="preserve">
-    <value>Невозможно добавить узле
+    <value>Невозможно добавить узел
 Слишком близко к соседнему узлу</value>
   </data>
   <data name="Mode_AngleFormat" xml:space="preserve">
@@ -164,15 +164,6 @@
   </data>
   <data name="Mode_Connection_Info_DragToMove" xml:space="preserve">
     <value>Перетащите для перемещения круга</value>
-  </data>
-  <data name="Mode_Connection_Info_RadiusStep" xml:space="preserve">
-    <value>Shift для шага в 10м
-Ctrl для шага в 1м
-Alt для шага в 0.1м</value>
-  </data>
-  <data name="Mode_Connection_Info_SlowMove" xml:space="preserve">
-    <value>Ctrl для перемещения в 10 раз медленнее
-Alt для перемещения в 100 раз медленнее</value>
   </data>
   <data name="Mode_CreateBezier" xml:space="preserve">
     <value>Режим создания кривой Безье</value>
@@ -215,7 +206,7 @@ Alt для перемещения в 100 раз медленнее</value>
     <value>Перетащите для перемещения узла</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_MoveAll" xml:space="preserve">
-    <value>Удерживайте Shift чтобы двигать
+    <value>Удерживайте {0} чтобы двигать
 все узлы одновременно</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_PressToDistributeBetweenIntersections" xml:space="preserve">
@@ -281,6 +272,9 @@ Alt для перемещения в 100 раз медленнее</value>
   <data name="Mode_Info_Connection_Create" xml:space="preserve">
     <value>Нажмите {0} для создания соединения</value>
   </data>
+  <data name="Mode_Info_ConstructionCost" xml:space="preserve">
+    <value>Стоимость строительства: {0}</value>
+  </data>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Нажмите {0} чтобы создать</value>
   </data>
@@ -288,11 +282,23 @@ Alt для перемещения в 100 раз медленнее</value>
     <value>Двигайте направляющие кривой Безье
 для изменения формы</value>
   </data>
+  <data name="Mode_Info_HoldToMoveSlower" xml:space="preserve">
+    <value>{0} для перемещения в {1} раз медленнее</value>
+  </data>
+  <data name="Mode_Info_HoldToStep" xml:space="preserve">
+    <value>{0} для шага {1}</value>
+  </data>
   <data name="Mode_Info_Loop_Create" xml:space="preserve">
     <value>Нажмите {0} для создания петли</value>
   </data>
+  <data name="Mode_Info_NotEnoughMoney" xml:space="preserve">
+    <value>Недостаточно денег</value>
+  </data>
   <data name="Mode_Info_OutOfMap" xml:space="preserve">
     <value>За пределами карты</value>
+  </data>
+  <data name="Mode_Info_Parallel_ChangeHeight" xml:space="preserve">
+    <value>Нажмите {0} или {1} для изменения высоты</value>
   </data>
   <data name="Mode_Info_Parallel_ChangeShift" xml:space="preserve">
     <value>Нажмите {0} чтобы изменить сторону</value>
@@ -300,11 +306,17 @@ Alt для перемещения в 100 раз медленнее</value>
   <data name="Mode_Info_Parallel_Create" xml:space="preserve">
     <value>Нажмите {0} для создания параллели</value>
   </data>
+  <data name="Mode_Info_Parallel_Invert" xml:space="preserve">
+    <value>Нажмите {0} для инвертирования</value>
+  </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
     <value>Радиус слишком большой</value>
   </data>
   <data name="Mode_Info_RadiusTooSmall" xml:space="preserve">
     <value>Радиус слишком маленький</value>
+  </data>
+  <data name="Mode_Info_Refund" xml:space="preserve">
+    <value>Возврат: {0}</value>
   </data>
   <data name="Mode_Info_SelectFirstSegment" xml:space="preserve">
     <value>Выберите первый сегмент</value>
@@ -321,11 +333,14 @@ Alt для перемещения в 100 раз медленнее</value>
   <data name="Mode_Info_Step" xml:space="preserve">
     <value>Shift - X10, Ctrl - X0.1, Alt - X0.01</value>
   </data>
+  <data name="Mode_Info_SwitchFollowTerrain" xml:space="preserve">
+    <value>Нажмите {0} для переключения следование поверхности</value>
+  </data>
   <data name="Mode_Info_SwitchOffset" xml:space="preserve">
     <value>Нажмите {0} для смены выбранного отступа</value>
   </data>
   <data name="Mode_Info_UndergroundMode" xml:space="preserve">
-    <value>Удерживайте Shift для подземного режима</value>
+    <value>Удерживайте {0} для подземного режима</value>
   </data>
   <data name="Mode_Info_WrongShape" xml:space="preserve">
     <value>Неправильная форма</value>
@@ -382,7 +397,7 @@ Alt для перемещения в 100 раз медленнее</value>
   </data>
   <data name="Mode_SplitNode_Info_ClickToSplit" xml:space="preserve">
     <value>Нажмите чтобы разделить узел и задать высоту поверхности
-Нажмите с Shift чтобы разделить узел и задать высоту источника</value>
+Нажмите с {0} чтобы разделить узел и задать высоту источника</value>
   </data>
   <data name="Mode_SplitNode_Info_NotAllowedSplit" xml:space="preserve">
     <value>Нельзя разделить узел с только одним сегментом</value>
@@ -465,17 +480,44 @@ Alt для перемещения в 100 раз медленнее</value>
   <data name="Settings_CommonShortcuts" xml:space="preserve">
     <value>Общие горячие клавиши режимов</value>
   </data>
+  <data name="Settings_FollowTerrain" xml:space="preserve">
+    <value>Создаваемые догори следуют за поверхностью</value>
+  </data>
+  <data name="Settings_Gameplay" xml:space="preserve">
+    <value>Игровой процесс</value>
+  </data>
+  <data name="Settings_Interface" xml:space="preserve">
+    <value>Интерфейс</value>
+  </data>
+  <data name="Settings_NeedMoney" xml:space="preserve">
+    <value>Для строительства требуются деньги</value>
+  </data>
   <data name="Settings_PanelColumns" xml:space="preserve">
     <value>Количество колонок на панели</value>
   </data>
   <data name="Settings_PlayEffects" xml:space="preserve">
     <value>Проигрывать аудио и визуальные эффекты</value>
   </data>
+  <data name="Settings_PreviewType" xml:space="preserve">
+    <value>Предпросмотр</value>
+  </data>
+  <data name="Settings_PreviewTypeBoth" xml:space="preserve">
+    <value>Оба</value>
+  </data>
+  <data name="Settings_PreviewTypeMesh" xml:space="preserve">
+    <value>Визуализация сети</value>
+  </data>
+  <data name="Settings_PreviewTypeOverlay" xml:space="preserve">
+    <value>Наложение</value>
+  </data>
   <data name="Settings_SegmentLength" xml:space="preserve">
     <value>Максимальная длина сегмента</value>
   </data>
   <data name="Settings_Shortcut_Apply" xml:space="preserve">
     <value>Выполнить действие</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseHeight" xml:space="preserve">
+    <value>Уменьшить высоту</value>
   </data>
   <data name="Settings_Shortcut_DecreaseOffset" xml:space="preserve">
     <value>Уменьшить отступ начала кривой</value>
@@ -501,6 +543,9 @@ Alt для перемещения в 100 раз медленнее</value>
   <data name="Settings_Shortcut_DistributeIntersections" xml:space="preserve">
     <value>Распределение перекрестков равномерно по кругу</value>
   </data>
+  <data name="Settings_Shortcut_IncreaseHeight" xml:space="preserve">
+    <value>Увеличить высоту</value>
+  </data>
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
     <value>Увеличить отступ начала кривой</value>
   </data>
@@ -516,11 +561,17 @@ Alt для перемещения в 100 раз медленнее</value>
   <data name="Settings_Shortcut_IncreaseShift" xml:space="preserve">
     <value>Увеличить отступ</value>
   </data>
+  <data name="Settings_Shortcut_InvertNetwork" xml:space="preserve">
+    <value>Инвертирование сети</value>
+  </data>
   <data name="Settings_Shortcut_InvertShift" xml:space="preserve">
     <value>Изменить сторону создания</value>
   </data>
   <data name="Settings_Shortcut_ResetArrangeCircle" xml:space="preserve">
     <value>Сбросить до по умолчанию</value>
+  </data>
+  <data name="Settings_Shortcut_SwitchFollowTerrain" xml:space="preserve">
+    <value>Переключить следование поверхности</value>
   </data>
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
     <value>Сменить направление петли</value>

@@ -164,15 +164,6 @@
   <data name="Mode_Connection_Info_DragToMove" xml:space="preserve">
     <value>ドラッグしてサークルを移動</value>
   </data>
-  <data name="Mode_Connection_Info_RadiusStep" xml:space="preserve">
-    <value>Shiftキー押下 - 10m刻み
-Ctrlキー押下 - 1m刻み
-Altキー押下 - 0.1m刻み</value>
-  </data>
-  <data name="Mode_Connection_Info_SlowMove" xml:space="preserve">
-    <value>Ctrlキー押下 - x10低速移動
-Altキー押下 - x100低速移動</value>
-  </data>
   <data name="Mode_CreateBezier" xml:space="preserve">
     <value>Mode: ベジェ曲線敷設</value>
   </data>
@@ -213,10 +204,7 @@ Altキー押下 - x100低速移動</value>
   <data name="Mode_Info_ArrangeCircle_DragToMoveNode" xml:space="preserve">
     <value>ドラッグしてノードを移動</value>
   </data>
-  <data name="Mode_Info_ArrangeCircle_MoveAll" xml:space="preserve">
-    <value>Shiftキーを押して
-全てのノードを同時に移動</value>
-  </data>
+  
   <data name="Mode_Info_ArrangeCircle_PressToDistributeBetweenIntersections" xml:space="preserve">
     <value>{0} で交差点間のノードを均等配置</value>
   </data>
@@ -277,17 +265,28 @@ Altキー押下 - x100低速移動</value>
   <data name="Mode_Info_Connection_Create" xml:space="preserve">
     <value>{0} で直線接続を確定</value>
   </data>
+  <data name="Mode_Info_ConstructionCost" xml:space="preserve">
+    <value>建設費: {0}</value>
+  </data>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>{0} で敷設を確定</value>
   </data>
   <data name="Mode_Info_CreateBezier_MoveGiude" xml:space="preserve">
     <value>形状の変更はポイントを選択して伸縮</value>
   </data>
+  
+  
   <data name="Mode_Info_Loop_Create" xml:space="preserve">
     <value>{0} で曲線接続を確定</value>
   </data>
+  <data name="Mode_Info_NotEnoughMoney" xml:space="preserve">
+    <value>資金が足りません</value>
+  </data>
   <data name="Mode_Info_OutOfMap" xml:space="preserve">
     <value>マップ圏外</value>
+  </data>
+  <data name="Mode_Info_Parallel_ChangeHeight" xml:space="preserve">
+    <value>{0} or {1} で高さを変更</value>
   </data>
   <data name="Mode_Info_Parallel_ChangeShift" xml:space="preserve">
     <value>{0} で作成側の向きを切り替え</value>
@@ -295,11 +294,17 @@ Altキー押下 - x100低速移動</value>
   <data name="Mode_Info_Parallel_Create" xml:space="preserve">
     <value>{0} をパラレル敷設を確定</value>
   </data>
+  <data name="Mode_Info_Parallel_Invert" xml:space="preserve">
+    <value>{0} でネットワークを反転</value>
+  </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
     <value>半径が大き過ぎます</value>
   </data>
   <data name="Mode_Info_RadiusTooSmall" xml:space="preserve">
     <value>半径が小さ過ぎます</value>
+  </data>
+  <data name="Mode_Info_Refund" xml:space="preserve">
+    <value>返金: {0}</value>
   </data>
   <data name="Mode_Info_SelectFirstSegment" xml:space="preserve">
     <value>1つ目のセグメントを選択</value>
@@ -316,12 +321,13 @@ Altキー押下 - x100低速移動</value>
   <data name="Mode_Info_Step" xml:space="preserve">
     <value>Shift x10倍 / Ctrl x0.1倍 / Alt x0.01倍</value>
   </data>
+  <data name="Mode_Info_SwitchFollowTerrain" xml:space="preserve">
+    <value>{0} で地形に追従</value>
+  </data>
   <data name="Mode_Info_SwitchOffset" xml:space="preserve">
     <value>{0} でカーブ開始前のオフセットを切り替え</value>
   </data>
-  <data name="Mode_Info_UndergroundMode" xml:space="preserve">
-    <value>Shiftキー押下で、地下表示に切り替え</value>
-  </data>
+  
   <data name="Mode_Info_WrongShape" xml:space="preserve">
     <value>形状が不適切です</value>
   </data>
@@ -374,10 +380,7 @@ Altキー押下 - x100低速移動</value>
   <data name="Mode_SplitNode_Info_ClickToOrder" xml:space="preserve">
     <value>クリックして分割したいセグメントを追加</value>
   </data>
-  <data name="Mode_SplitNode_Info_ClickToSplit" xml:space="preserve">
-    <value>クリックして分割ノードは、地形側の高さに追従
-クリック + Shiftの分割ノードは、基準元の高さで追従</value>
-  </data>
+  
   <data name="Mode_SplitNode_Info_NotAllowedSplit" xml:space="preserve">
     <value>単一セグメントではノードの分割はできません</value>
   </data>
@@ -432,7 +435,7 @@ Altキー押下 - x100低速移動</value>
   </data>
   
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
-    <value>Mode・ツールの有効化</value>
+    <value>Mode＆ツールの有効化</value>
   </data>
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>自動的にUIパネルを折り畳む</value>
@@ -440,17 +443,44 @@ Altキー押下 - x100低速移動</value>
   <data name="Settings_CommonShortcuts" xml:space="preserve">
     <value>Mode共通のショートカット</value>
   </data>
+  <data name="Settings_FollowTerrain" xml:space="preserve">
+    <value>地形に沿ってネットワークを敷設</value>
+  </data>
+  <data name="Settings_Gameplay" xml:space="preserve">
+    <value>ゲームプレイ</value>
+  </data>
+  <data name="Settings_Interface" xml:space="preserve">
+    <value>インターフェース</value>
+  </data>
+  <data name="Settings_NeedMoney" xml:space="preserve">
+    <value>建設時に資金が必要</value>
+  </data>
   <data name="Settings_PanelColumns" xml:space="preserve">
     <value>パネルの列数</value>
   </data>
   <data name="Settings_PlayEffects" xml:space="preserve">
-    <value>オーディオと視覚効果を再生</value>
+    <value>効果音と視覚効果を再生</value>
+  </data>
+  <data name="Settings_PreviewType" xml:space="preserve">
+    <value>敷設作業をプレビュー</value>
+  </data>
+  <data name="Settings_PreviewTypeBoth" xml:space="preserve">
+    <value>両方とも表示</value>
+  </data>
+  <data name="Settings_PreviewTypeMesh" xml:space="preserve">
+    <value>ネットワークの可視化</value>
+  </data>
+  <data name="Settings_PreviewTypeOverlay" xml:space="preserve">
+    <value>オーバーレイ表示</value>
   </data>
   <data name="Settings_SegmentLength" xml:space="preserve">
     <value>セグメントの最大長</value>
   </data>
   <data name="Settings_Shortcut_Apply" xml:space="preserve">
     <value>アクションを確定</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseHeight" xml:space="preserve">
+    <value>高さを下げる</value>
   </data>
   <data name="Settings_Shortcut_DecreaseOffset" xml:space="preserve">
     <value>カーブ開始前のオフセットを伸ばす</value>
@@ -476,6 +506,9 @@ Altキー押下 - x100低速移動</value>
   <data name="Settings_Shortcut_DistributeIntersections" xml:space="preserve">
     <value>交差点間の円周上で均等配置</value>
   </data>
+  <data name="Settings_Shortcut_IncreaseHeight" xml:space="preserve">
+    <value>高さを上げる</value>
+  </data>
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
     <value>カーブ開始前のオフセットを縮める</value>
   </data>
@@ -491,11 +524,17 @@ Altキー押下 - x100低速移動</value>
   <data name="Settings_Shortcut_IncreaseShift" xml:space="preserve">
     <value>オフセットを増加</value>
   </data>
+  <data name="Settings_Shortcut_InvertNetwork" xml:space="preserve">
+    <value>ネットワークを反転</value>
+  </data>
   <data name="Settings_Shortcut_InvertShift" xml:space="preserve">
     <value>作成側の向きを切り替え</value>
   </data>
   <data name="Settings_Shortcut_ResetArrangeCircle" xml:space="preserve">
     <value>既定のサークルにリセット</value>
+  </data>
+  <data name="Settings_Shortcut_SwitchFollowTerrain" xml:space="preserve">
+    <value>地形の追従を切り替え</value>
   </data>
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
     <value>ループの方向を切り替え</value>

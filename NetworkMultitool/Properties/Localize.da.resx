@@ -118,17 +118,17 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Mode_AddNode" xml:space="preserve">
-    <value>Tilføj ny node</value>
+    <value>Tilføj node</value>
   </data>
   <data name="Mode_AddNode_Info_ClickToAdd" xml:space="preserve">
-    <value>Klik for at tilføje node</value>
+    <value>Klik for at tilføje en node</value>
   </data>
   <data name="Mode_AddNode_Info_SelectToAdd" xml:space="preserve">
-    <value>Vælg element for at tilføje note</value>
+    <value>Vælg vej for at tilføje note</value>
   </data>
   <data name="Mode_AddNode_Info_TooCloseNode" xml:space="preserve">
     <value>Kan ikke tilføje node
-For tæt på nærliggende node</value>
+Er for tæt på nærliggende node</value>
   </data>
   <data name="Mode_AngleFormat" xml:space="preserve">
     <value>{0}°</value>
@@ -143,10 +143,10 @@ For tæt på nærliggende node</value>
     <value>Klik for at færdiggøre cirkelvalg</value>
   </data>
   <data name="Mode_ArrangeLine_Info_ClickToSelectDirection" xml:space="preserve">
-    <value>Klik for at vælge retning</value>
+    <value>Klik for at vælge retningen</value>
   </data>
   <data name="Mode_ArrangeLine_Info_SelectDirection" xml:space="preserve">
-    <value>Vælg område til at indstille arrangeringsretning</value>
+    <value>Vælg vej for at indstille retning</value>
   </data>
   <data name="Mode_Connection_Info_DoubleClickOnCenterToChangeDir" xml:space="preserve">
     <value>Dobbeltklik på cirkel centrum
@@ -164,43 +164,34 @@ for at ændre kurve retning</value>
   <data name="Mode_Connection_Info_DragToMove" xml:space="preserve">
     <value>Træk for at flytte cirkel</value>
   </data>
-  <data name="Mode_Connection_Info_RadiusStep" xml:space="preserve">
-    <value>Hold Shift nede for at rykke 10m
-Hold Ctrl nede for at rykke 1m
-Hold Alt nede for at rykke 0,1 m</value>
-  </data>
-  <data name="Mode_Connection_Info_SlowMove" xml:space="preserve">
-    <value>Hold Ctrl nede for at flytte X10 langsommere
-Hold Alt for at flytte X100 langsommere</value>
-  </data>
   
   <data name="Mode_CreateConnection" xml:space="preserve">
-    <value>Opret forbindelsestype</value>
+    <value>Opret forbindelse</value>
   </data>
   <data name="Mode_CreateLoop" xml:space="preserve">
-    <value>Opret løkke tilstand</value>
+    <value>Opret kurve</value>
   </data>
   <data name="Mode_CreateLoop_Info_Change" xml:space="preserve">
-    <value>Tryk på {0} for at ændre løkke</value>
+    <value>Tryk på {0} for at ændre kurve</value>
   </data>
   <data name="Mode_CreateParallerl" xml:space="preserve">
-    <value>Opret parallel tilstand</value>
+    <value>Opret parallel vej</value>
   </data>
   <data name="Mode_Info_Apply" xml:space="preserve">
     <value>Tryk på {0} for at anvende</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_Apply" xml:space="preserve">
-    <value>Tryk på {0} for at arrangere cirkel</value>
+    <value>Tryk på {0} for at justere cirkel</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_BigDelta" xml:space="preserve">
-    <value>For stor vinkel mellem punkter rundingen 
-vil ikke være perfekt</value>
+    <value>For stor vinkel mellem nodes den kurvede form 
+vil ikke blive perfekt</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_DoubleClickToResetCenter" xml:space="preserve">
-    <value>Dobbeltklik for at nulstille centerposition</value>
+    <value>Dobbeltklik for at nulstille til centerposition</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_DoubleClickToResetNode" xml:space="preserve">
-    <value>Dobbeltklik for at nulstille nodeposition</value>
+    <value>Dobbeltklik for at nulstille node position</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_DragToChangeRadius" xml:space="preserve">
     <value>Træk for at ændre radius</value>
@@ -211,20 +202,16 @@ vil ikke være perfekt</value>
   <data name="Mode_Info_ArrangeCircle_DragToMoveNode" xml:space="preserve">
     <value>Træk for at flytte node</value>
   </data>
-  <data name="Mode_Info_ArrangeCircle_MoveAll" xml:space="preserve">
-    <value>Hold Shift nede for at flytte alle noder
-på samme tid</value>
-  </data>
+  
   <data name="Mode_Info_ArrangeCircle_PressToDistributeBetweenIntersections" xml:space="preserve">
-    <value>Tryk på {0} for at distribuere noder
-jævnt mellem kryds</value>
+    <value>Tryk på {0} for at fordele noder jævnt mellem kryds</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_PressToDistributeEvenly" xml:space="preserve">
-    <value>Tryk på {0} for at distribuere noder jævnt på cirklen</value>
+    <value>Tryk på {0} for at fordele noderne jævnt på cirklen</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_PressToDistributeIntersections" xml:space="preserve">
     <value>Tryk {0} for at fordele
-skæringspunkter jævnt på cirkel</value>
+skæringspunkter jævnt på cirklen</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_PressToReset" xml:space="preserve">
     <value>Tryk på {0} for at nulstille parametrene</value>
@@ -236,10 +223,10 @@ skæringspunkter jævnt på cirkel</value>
     <value>Tryk {0} for at arrangere på linje</value>
   </data>
   <data name="Mode_Info_ChangeAllRadius" xml:space="preserve">
-    <value>Tryk på {0} eller {1} for at ændre radius på alle</value>
+    <value>Tryk på {0} eller {1} for at ændre alle radier</value>
   </data>
   <data name="Mode_Info_ChangeBothRadius" xml:space="preserve">
-    <value>Tryk på {0} eller {1} for at ændre radius på begge</value>
+    <value>Tryk på {0} eller {1} for at ændre begge radier</value>
   </data>
   <data name="Mode_Info_ChangeCircle" xml:space="preserve">
     <value>Tryk på {0} for at ændre valgte cirkel</value>
@@ -277,21 +264,29 @@ skæringspunkter jævnt på cirkel</value>
   <data name="Mode_Info_Connection_Create" xml:space="preserve">
     <value>Tryk på {0} for at oprette forbindelse</value>
   </data>
+  
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Tryk på {0} for at oprette</value>
   </data>
   
+  
+  
   <data name="Mode_Info_Loop_Create" xml:space="preserve">
-    <value>Tryk på {0} for at oprette loop</value>
+    <value>Tryk på {0} for at oprette kurve</value>
   </data>
+  
   <data name="Mode_Info_OutOfMap" xml:space="preserve">
     <value>Uden for kortet</value>
   </data>
+  
   <data name="Mode_Info_Parallel_ChangeShift" xml:space="preserve">
     <value>Tryk på {0} for at skifte side for oprettelse</value>
   </data>
   <data name="Mode_Info_Parallel_Create" xml:space="preserve">
     <value>Tryk på {0} for at oprette parallel</value>
+  </data>
+  <data name="Mode_Info_Parallel_Invert" xml:space="preserve">
+    <value>Tryk på {0} for at ændre netværk</value>
   </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
     <value>Radius for stor</value>
@@ -299,6 +294,7 @@ skæringspunkter jævnt på cirkel</value>
   <data name="Mode_Info_RadiusTooSmall" xml:space="preserve">
     <value>Radius for lille</value>
   </data>
+  
   <data name="Mode_Info_SelectFirstSegment" xml:space="preserve">
     <value>Vælg første segment</value>
   </data>
@@ -314,12 +310,11 @@ skæringspunkter jævnt på cirkel</value>
   <data name="Mode_Info_Step" xml:space="preserve">
     <value>Shift - X10, Ctrl - X0.1, Alt - X0.01</value>
   </data>
+  
   <data name="Mode_Info_SwitchOffset" xml:space="preserve">
     <value>Tryk på {0} for at skifte valgte offset</value>
   </data>
-  <data name="Mode_Info_UndergroundMode" xml:space="preserve">
-    <value>Hold Shift nede for undergrundstilstand</value>
-  </data>
+  
   <data name="Mode_Info_WrongShape" xml:space="preserve">
     <value>Forkert form</value>
   </data>
@@ -372,10 +367,7 @@ fordi den ikke er forbundet med andre</value>
   <data name="Mode_SplitNode_Info_ClickToOrder" xml:space="preserve">
     <value>Klik for at tilføje element til opdelt rækkefølge</value>
   </data>
-  <data name="Mode_SplitNode_Info_ClickToSplit" xml:space="preserve">
-    <value>Klik for at opdele node og justere til terrænhøjde
-Klik med Shift for at opdele node og justere til kildehøjde</value>
-  </data>
+  
   <data name="Mode_SplitNode_Info_NotAllowedSplit" xml:space="preserve">
     <value>Ikke muligt at opdele node med kun et element</value>
   </data>
@@ -404,26 +396,26 @@ Klik med Shift for at opdele node og justere til kildehøjde</value>
     <value>Samlet antal nodes må ikke være mere end 8</value>
   </data>
   <data name="Mode_UnionNode_Info_SelectSource" xml:space="preserve">
-    <value>Vælg kilde node</value>
+    <value>Vælg start node</value>
   </data>
   <data name="Mode_UnionNode_Info_SelectTarget" xml:space="preserve">
     <value>Vælg slut node</value>
   </data>
   <data name="Mode_UnionNode_Info_TooFar" xml:space="preserve">
-    <value>Noder for langt fra hinanden</value>
+    <value>Nodes er for langt fra hinanden</value>
   </data>
   <data name="Mode_UnlockSegment" xml:space="preserve">
     <value>Oplås element tilstand</value>
   </data>
   <data name="Mode_UnlockSegment_Info_ChangeLock" xml:space="preserve">
-    <value>Vælg element for at
+    <value>Vælg vej for at
 låse eller låse det op</value>
   </data>
   <data name="Mode_UnlockSegment_Info_ClickToLock" xml:space="preserve">
-    <value>Klik for at låse dette element</value>
+    <value>Klik for at låse denne vej</value>
   </data>
   <data name="Mode_UnlockSegment_Info_ClickToUnlock" xml:space="preserve">
-    <value>Klik for at låse dette element op</value>
+    <value>Klik for at låse denne vej op</value>
   </data>
   <data name="Mod_Description" xml:space="preserve">
     <value>Mange forskellige værktøjer til at arbejde med netværk</value>
@@ -433,16 +425,32 @@ låse eller låse det op</value>
     <value>Aktiveringsgenveje</value>
   </data>
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
-    <value>Skjul tilstandspanelet automatisk</value>
+    <value>Skjul værktøjspanelet automatisk</value>
   </data>
   <data name="Settings_CommonShortcuts" xml:space="preserve">
-    <value>Almindelige genveje for tilstandene</value>
+    <value>Standart genveje</value>
   </data>
+  
+  
+  
+  
   <data name="Settings_PanelColumns" xml:space="preserve">
     <value>Antal kolonner i panel</value>
   </data>
   <data name="Settings_PlayEffects" xml:space="preserve">
     <value>Afspil lyd- og visuelle effekter</value>
+  </data>
+  <data name="Settings_PreviewType" xml:space="preserve">
+    <value>Forhåndsvisning</value>
+  </data>
+  <data name="Settings_PreviewTypeBoth" xml:space="preserve">
+    <value>Begge</value>
+  </data>
+  <data name="Settings_PreviewTypeMesh" xml:space="preserve">
+    <value>Visualisering af netværk</value>
+  </data>
+  <data name="Settings_PreviewTypeOverlay" xml:space="preserve">
+    <value>Overlay</value>
   </data>
   <data name="Settings_SegmentLength" xml:space="preserve">
     <value>Maks Element længde</value>
@@ -450,6 +458,7 @@ låse eller låse det op</value>
   <data name="Settings_Shortcut_Apply" xml:space="preserve">
     <value>Anvend tilstand</value>
   </data>
+  
   <data name="Settings_Shortcut_DecreaseOffset" xml:space="preserve">
     <value>Reducer cirklens start forskydning</value>
   </data>
@@ -474,6 +483,7 @@ låse eller låse det op</value>
   <data name="Settings_Shortcut_DistributeIntersections" xml:space="preserve">
     <value>Fordel kryds jævnt på cirkel</value>
   </data>
+  
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
     <value>Forøg cirklens startforskydning</value>
   </data>
@@ -489,12 +499,16 @@ låse eller låse det op</value>
   <data name="Settings_Shortcut_IncreaseShift" xml:space="preserve">
     <value>Forøg forskydning</value>
   </data>
+  <data name="Settings_Shortcut_InvertNetwork" xml:space="preserve">
+    <value>Ændre netværk</value>
+  </data>
   <data name="Settings_Shortcut_InvertShift" xml:space="preserve">
     <value>Skift side for oprettelse</value>
   </data>
   <data name="Settings_Shortcut_ResetArrangeCircle" xml:space="preserve">
     <value>Nulstil til standardcirkel</value>
   </data>
+  
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
     <value>Skift loop retning</value>
   </data>

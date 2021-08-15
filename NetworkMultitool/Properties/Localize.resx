@@ -59,46 +59,46 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"></xsd:import>
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0"></xsd:element>
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" use="required" type="xsd:string"></xsd:attribute>
+              <xsd:attribute name="type" type="xsd:string"></xsd:attribute>
+              <xsd:attribute name="mimetype" type="xsd:string"></xsd:attribute>
+              <xsd:attribute ref="xml:space"></xsd:attribute>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="alias" type="xsd:string"></xsd:attribute>
+              <xsd:attribute name="name" type="xsd:string"></xsd:attribute>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"></xsd:element>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"></xsd:element>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"></xsd:attribute>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"></xsd:attribute>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"></xsd:attribute>
+              <xsd:attribute ref="xml:space"></xsd:attribute>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"></xsd:element>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
+              <xsd:attribute name="name" type="xsd:string" use="required"></xsd:attribute>
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -164,15 +164,6 @@ to change curve direction</value>
   <data name="Mode_Connection_Info_DragToMove" xml:space="preserve">
     <value>Drag to move circle</value>
   </data>
-  <data name="Mode_Connection_Info_RadiusStep" xml:space="preserve">
-    <value>Hold Shift to step 10m
-Hold Ctrl to step 1m
-Hold Alt to step 0.1m</value>
-  </data>
-  <data name="Mode_Connection_Info_SlowMove" xml:space="preserve">
-    <value>Hold Ctrl to move X10 slower
-Hold Alt to move X100 slower</value>
-  </data>
   <data name="Mode_CreateBezier" xml:space="preserve">
     <value>Create Bezier curve mode</value>
   </data>
@@ -214,7 +205,7 @@ round shape willn't be perfect</value>
     <value>Drag to move node</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_MoveAll" xml:space="preserve">
-    <value>Hold Shift to move all nodes
+    <value>Hold {0} to move all nodes
 at the same time</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_PressToDistributeBetweenIntersections" xml:space="preserve">
@@ -279,17 +270,32 @@ intersections evenly on circle</value>
   <data name="Mode_Info_Connection_Create" xml:space="preserve">
     <value>Press {0} to create connection</value>
   </data>
+  <data name="Mode_Info_ConstructionCost" xml:space="preserve">
+    <value>Construction cost: {0}</value>
+  </data>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Press {0} to create</value>
   </data>
   <data name="Mode_Info_CreateBezier_MoveGiude" xml:space="preserve">
     <value>Move Bezier curve guides to change shape</value>
   </data>
+  <data name="Mode_Info_HoldToMoveSlower" xml:space="preserve">
+    <value>Hold {0} to move X{1} slower</value>
+  </data>
+  <data name="Mode_Info_HoldToStep" xml:space="preserve">
+    <value>Hold {0} to step {1}</value>
+  </data>
   <data name="Mode_Info_Loop_Create" xml:space="preserve">
     <value>Press {0} to create loop</value>
   </data>
+  <data name="Mode_Info_NotEnoughMoney" xml:space="preserve">
+    <value>Not enough money</value>
+  </data>
   <data name="Mode_Info_OutOfMap" xml:space="preserve">
     <value>Out of map</value>
+  </data>
+  <data name="Mode_Info_Parallel_ChangeHeight" xml:space="preserve">
+    <value>Press {0} or {1} to change height</value>
   </data>
   <data name="Mode_Info_Parallel_ChangeShift" xml:space="preserve">
     <value>Press {0} to switch creation side</value>
@@ -297,11 +303,17 @@ intersections evenly on circle</value>
   <data name="Mode_Info_Parallel_Create" xml:space="preserve">
     <value>Press {0} to create parallel</value>
   </data>
+  <data name="Mode_Info_Parallel_Invert" xml:space="preserve">
+    <value>Press {0} to invert network</value>
+  </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
     <value>Radius too big</value>
   </data>
   <data name="Mode_Info_RadiusTooSmall" xml:space="preserve">
     <value>Radius too small</value>
+  </data>
+  <data name="Mode_Info_Refund" xml:space="preserve">
+    <value>Refund: {0}</value>
   </data>
   <data name="Mode_Info_SelectFirstSegment" xml:space="preserve">
     <value>Select first segment</value>
@@ -318,11 +330,14 @@ intersections evenly on circle</value>
   <data name="Mode_Info_Step" xml:space="preserve">
     <value>Shift - X10, Ctrl - X0.1, Alt - X0.01</value>
   </data>
+  <data name="Mode_Info_SwitchFollowTerrain" xml:space="preserve">
+    <value>Press {0} to switch follow terrain</value>
+  </data>
   <data name="Mode_Info_SwitchOffset" xml:space="preserve">
     <value>Press {0} to switch selected offset</value>
   </data>
   <data name="Mode_Info_UndergroundMode" xml:space="preserve">
-    <value>Hold Shift to underground mode</value>
+    <value>Hold {0} to underground mode</value>
   </data>
   <data name="Mode_Info_WrongShape" xml:space="preserve">
     <value>Wrong shape</value>
@@ -378,7 +393,7 @@ because not connected with others</value>
   </data>
   <data name="Mode_SplitNode_Info_ClickToSplit" xml:space="preserve">
     <value>Click to split node and align to terrain height
-Click with Shift to split node and align to source height</value>
+Click with {0} to split node and align to source height</value>
   </data>
   <data name="Mode_SplitNode_Info_NotAllowedSplit" xml:space="preserve">
     <value>Not possible split node with only one segment</value>
@@ -461,17 +476,44 @@ lock or unlock it</value>
   <data name="Settings_CommonShortcuts" xml:space="preserve">
     <value>Modes' common shortcuts</value>
   </data>
+  <data name="Settings_FollowTerrain" xml:space="preserve">
+    <value>Created on grounds roads follow terrain</value>
+  </data>
+  <data name="Settings_Gameplay" xml:space="preserve">
+    <value>Gameplay</value>
+  </data>
+  <data name="Settings_Interface" xml:space="preserve">
+    <value>Interface</value>
+  </data>
+  <data name="Settings_NeedMoney" xml:space="preserve">
+    <value>Requires money to build</value>
+  </data>
   <data name="Settings_PanelColumns" xml:space="preserve">
     <value>Panel columns count</value>
   </data>
   <data name="Settings_PlayEffects" xml:space="preserve">
     <value>Play audio and visual effects</value>
   </data>
+  <data name="Settings_PreviewType" xml:space="preserve">
+    <value>Creation preview</value>
+  </data>
+  <data name="Settings_PreviewTypeBoth" xml:space="preserve">
+    <value>Both</value>
+  </data>
+  <data name="Settings_PreviewTypeMesh" xml:space="preserve">
+    <value>Network visualization</value>
+  </data>
+  <data name="Settings_PreviewTypeOverlay" xml:space="preserve">
+    <value>Overlay</value>
+  </data>
   <data name="Settings_SegmentLength" xml:space="preserve">
     <value>Max Segment Length</value>
   </data>
   <data name="Settings_Shortcut_Apply" xml:space="preserve">
     <value>Apply mode action</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseHeight" xml:space="preserve">
+    <value>Decrease height</value>
   </data>
   <data name="Settings_Shortcut_DecreaseOffset" xml:space="preserve">
     <value>Decrease circle start offset</value>
@@ -497,6 +539,9 @@ lock or unlock it</value>
   <data name="Settings_Shortcut_DistributeIntersections" xml:space="preserve">
     <value>Distribute intersections evenly on circle</value>
   </data>
+  <data name="Settings_Shortcut_IncreaseHeight" xml:space="preserve">
+    <value>Increase height</value>
+  </data>
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
     <value>Increase circle start offset</value>
   </data>
@@ -512,11 +557,17 @@ lock or unlock it</value>
   <data name="Settings_Shortcut_IncreaseShift" xml:space="preserve">
     <value>Increase offset</value>
   </data>
+  <data name="Settings_Shortcut_InvertNetwork" xml:space="preserve">
+    <value>Invert network</value>
+  </data>
   <data name="Settings_Shortcut_InvertShift" xml:space="preserve">
     <value>Switch creation side</value>
   </data>
   <data name="Settings_Shortcut_ResetArrangeCircle" xml:space="preserve">
     <value>Reset to default circle</value>
+  </data>
+  <data name="Settings_Shortcut_SwitchFollowTerrain" xml:space="preserve">
+    <value>Switch follow terrain</value>
   </data>
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
     <value>Switch loop direction</value>
