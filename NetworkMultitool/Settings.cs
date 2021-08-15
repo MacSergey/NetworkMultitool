@@ -21,7 +21,7 @@ namespace NetworkMultitool
         public static SavedInt SegmentLength { get; } = new SavedInt(nameof(SegmentLength), SettingsFile, 80, true);
         public static SavedInt PanelColumns { get; } = new SavedInt(nameof(PanelColumns), SettingsFile, 2, true);
         public static SavedBool PlayEffects { get; } = new SavedBool(nameof(PlayEffects), SettingsFile, true, true);
-        public static SavedInt NetworkPreview { get; } = new SavedInt(nameof(NetworkPreview), SettingsFile, (int)PreviewType.Overlay, true);
+        public static SavedInt NetworkPreview { get; } = new SavedInt(nameof(NetworkPreview), SettingsFile, (int)PreviewType.Both, true);
 
         protected UIAdvancedHelper ShortcutsTab => GetTab(nameof(ShortcutsTab));
 
