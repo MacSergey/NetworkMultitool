@@ -77,7 +77,7 @@ namespace NetworkMultitool
                 {
                     _label.textScale = 1.5f;
                     _label.opacity = 0.75f;
-                    _label.isVisible = true;
+                    _label.Show = true;
                 }
             }
         }

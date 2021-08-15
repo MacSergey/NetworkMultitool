@@ -503,7 +503,7 @@ namespace NetworkMultitool
             {
                 if (Label is InfoLabel label)
                 {
-                    label.isVisible = show;
+                    label.Show = show;
                     if (show)
                     {
                         label.text = $"{GetRadiusString(Radius)}\n{GetAngleString(Mathf.Abs(Angle))}";

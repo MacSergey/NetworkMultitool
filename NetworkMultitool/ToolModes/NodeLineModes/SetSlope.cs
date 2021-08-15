@@ -131,7 +131,7 @@ namespace NetworkMultitool
             }
             slope = slope.RoundToNearest(0.1f);
 
-            label.isVisible = true;
+            label.Show = true;
             var sign = slope > 0 ? "+" : (slope < 0f ? "-" : string.Empty);
             var value = Settings.SlopeUnite == 0 ? GetPercentagesString(Mathf.Abs(slope)) : GetAngleString(Mathf.Abs(slope), "0.0");
             label.text = sign + value;

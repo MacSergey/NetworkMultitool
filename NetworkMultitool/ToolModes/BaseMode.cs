@@ -571,7 +571,7 @@ namespace NetworkMultitool
             {
                 if (Label is InfoLabel label)
                 {
-                    label.isVisible = show;
+                    label.Show = show;
                     if (show)
                     {
                         label.text = GetRadiusString(Length);
@@ -684,10 +684,10 @@ namespace NetworkMultitool
     {
         public Vector3 WorldPosition { get; set; }
         public Vector3 Direction { get; set; }
+        public new bool Show { get; set; }
 
         public InfoLabel()
         {
-            isVisible = false;
             color = Colors.White;
             textScale = 2f;
             textAlignment = UIHorizontalAlignment.Center;
@@ -703,19 +703,23 @@ namespace NetworkMultitool
             var uIView = GetUIView();
             var startScreenPosition = Camera.main.WorldToScreenPoint(WorldPosition);
             var endScreenPosition = Camera.main.WorldToScreenPoint(WorldPosition + Direction);
-            var screenDir = ((Vector2)(endScreenPosition - startScreenPosition)).normalized;
-            screenDir.y *= -1;
+     
+            if (isVisible = Show && startScreenPosition.z > 0f)
+            {
+                var screenDir = ((Vector2)(endScreenPosition - startScreenPosition)).normalized;
+                screenDir.y *= -1;
 
-            var dirLine = new Line2(size / 2f, size / 2f + screenDir);
-            var line1 = new Line2(Vector2.zero, Vector2.zero + screenDir.Turn90(true));
-            var line2 = new Line2(new Vector2(width, 0f), new Vector2(width, 0f) + screenDir.Turn90(false));
-            dirLine.Intersect(line1, out var t1, out _);
-            dirLine.Intersect(line2, out var t2, out _);
-            var delta = Mathf.Max(Mathf.Abs(t1), Mathf.Abs(t2));
+                var dirLine = new Line2(size / 2f, size / 2f + screenDir);
+                var line1 = new Line2(Vector2.zero, Vector2.zero + screenDir.Turn90(true));
+                var line2 = new Line2(new Vector2(width, 0f), new Vector2(width, 0f) + screenDir.Turn90(false));
+                dirLine.Intersect(line1, out var t1, out _);
+                dirLine.Intersect(line2, out var t2, out _);
+                var delta = Mathf.Max(Mathf.Abs(t1), Mathf.Abs(t2));
 
-            var relativePosition = uIView.ScreenPointToGUI(startScreenPosition / uIView.inputScale) - size * 0.5f + screenDir * delta;
+                var relativePosition = uIView.ScreenPointToGUI(startScreenPosition / uIView.inputScale) - size * 0.5f + screenDir * delta;
 
-            this.relativePosition = relativePosition;
+                this.relativePosition = relativePosition;
+            }
         }
     }
 }
