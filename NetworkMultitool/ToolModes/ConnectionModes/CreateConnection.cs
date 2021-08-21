@@ -332,7 +332,7 @@ namespace NetworkMultitool
         private Vector3 PrevCursor { get; set; }
         private Vector3 PrevCenter { get; set; }
 
-        protected override string GetInfo() => Localize.Mode_Connection_Info_SlowMove;
+        protected override string GetInfo() => MoveSlowerInfo;
         protected override void Reset(IToolMode prevMode)
         {
             base.Reset(prevMode);
@@ -376,7 +376,7 @@ namespace NetworkMultitool
 
         private Vector2 PrevCursor { get; set; }
 
-        protected override string GetInfo() => Localize.Mode_Connection_Info_RadiusStep;
+        protected override string GetInfo() => RadiusStepInfo;
         protected override void Reset(IToolMode prevMode)
         {
             base.Reset(prevMode);

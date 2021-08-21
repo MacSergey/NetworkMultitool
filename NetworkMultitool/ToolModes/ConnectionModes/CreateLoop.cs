@@ -376,7 +376,7 @@ namespace NetworkMultitool
         public override ToolModeType Type => ToolModeType.CreateLoopMoveCircle;
         private Vector3 PrevPos { get; set; }
 
-        protected override string GetInfo() => Localize.Mode_Connection_Info_SlowMove;
+        protected override string GetInfo() => MoveSlowerInfo;
         protected override void Reset(IToolMode prevMode)
         {
             base.Reset(prevMode);

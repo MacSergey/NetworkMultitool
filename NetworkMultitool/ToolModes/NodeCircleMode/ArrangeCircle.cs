@@ -316,7 +316,7 @@ namespace NetworkMultitool
             else if (HoveredNode != -1)
                 return
                     Localize.Mode_Info_ArrangeCircle_DragToMoveNode + "\n" +
-                    Localize.Mode_Info_ArrangeCircle_MoveAll + "\n" +
+                    string.Format(Localize.Mode_Info_ArrangeCircle_MoveAll, AddInfoColor(LocalizeExtension.Shift)) + "\n" +
                     Localize.Mode_Info_ArrangeCircle_DoubleClickToResetNode;
             else if (IsHoverCircle)
                 return Localize.Mode_Info_ArrangeCircle_DragToChangeRadius;
@@ -600,7 +600,7 @@ namespace NetworkMultitool
         public override ToolModeType Type => ToolModeType.ArrangeAtCircleMoveCenter;
         private Vector3 PrevPos { get; set; }
 
-        protected override string GetInfo() => Localize.Mode_Connection_Info_SlowMove;
+        protected override string GetInfo() => MoveSlowerInfo;
         protected override void Reset(IToolMode prevMode)
         {
             base.Reset(prevMode);
@@ -639,7 +639,7 @@ namespace NetworkMultitool
         public override ToolModeType Type => ToolModeType.ArrangeAtCircleRadius;
         private float MinRadius { get; set; }
 
-        protected override string GetInfo() => Localize.Mode_Connection_Info_RadiusStep;
+        protected override string GetInfo() => RadiusStepInfo;
         protected override void Reset(IToolMode prevMode)
         {
             base.Reset(prevMode);
@@ -690,7 +690,7 @@ namespace NetworkMultitool
             var result = string.Empty;
             if (IsWrongOrder)
                 result += AddErrorColor(Localize.Mode_Info_ArrangeCircle_WrongOrder) + "\n\n";
-            result += Localize.Mode_Info_ArrangeCircle_MoveAll;
+            result += string.Format(Localize.Mode_Info_ArrangeCircle_MoveAll, AddInfoColor(LocalizeExtension.Shift));
             return result;
         }
         protected override void Reset(IToolMode prevMode)

@@ -219,27 +219,6 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Hold Shift to step 10m
-        ///Hold Ctrl to step 1m
-        ///Hold Alt to step 0.1m.
-        /// </summary>
-        internal static string Mode_Connection_Info_RadiusStep {
-            get {
-                return ResourceManager.GetString("Mode_Connection_Info_RadiusStep", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на Hold Ctrl to move X10 slower
-        ///Hold Alt to move X100 slower.
-        /// </summary>
-        internal static string Mode_Connection_Info_SlowMove {
-            get {
-                return ResourceManager.GetString("Mode_Connection_Info_SlowMove", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Ищет локализованную строку, похожую на Create Bezier curve mode.
         /// </summary>
         internal static string Mode_CreateBezier {
@@ -573,6 +552,24 @@ namespace NetworkMultitool {
         internal static string Mode_Info_CreateBezier_MoveGiude {
             get {
                 return ResourceManager.GetString("Mode_Info_CreateBezier_MoveGiude", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Hold {0} to move X{1} slower.
+        /// </summary>
+        internal static string Mode_Info_HoldToMoveSlower {
+            get {
+                return ResourceManager.GetString("Mode_Info_HoldToMoveSlower", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Hold {0} to step {1}.
+        /// </summary>
+        internal static string Mode_Info_HoldToStep {
+            get {
+                return ResourceManager.GetString("Mode_Info_HoldToStep", resourceCulture);
             }
         }
         

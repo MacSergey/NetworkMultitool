@@ -52,7 +52,7 @@ namespace NetworkMultitool
                     if (IsFar)
                         return AddErrorColor(Localize.Mode_SplitNode_Info_TooFar);
                     else
-                        return Localize.Mode_SplitNode_Info_ClickToSplit;
+                        return string.Format(Localize.Mode_SplitNode_Info_ClickToSplit, AddInfoColor(LocalizeExtension.Shift));
                 }
                 else if (Segments.Contains(HoverSegment))
                     return Localize.Mode_SplitNode_Info_ClickFromOrder;

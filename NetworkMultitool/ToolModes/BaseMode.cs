@@ -134,8 +134,8 @@ namespace NetworkMultitool
                 return $"{Title.ToUpper()}\n\n{info}";
         }
         protected virtual string GetInfo() => string.Empty;
-        protected string StepOverInfo => NetworkMultitoolTool.SelectionStepOverShortcut.NotSet ? string.Empty : "\n\n" + string.Format(CommonLocalize.Tool_InfoSelectionStepOver, NetworkMultitoolTool.SelectionStepOverShortcut.InputKey);
-        protected string UndergroundInfo => $"\n\n{Localize.Mode_Info_UndergroundMode}";
+        protected string StepOverInfo => NetworkMultitoolTool.SelectionStepOverShortcut.NotSet ? string.Empty : "\n\n" + string.Format(CommonLocalize.Tool_InfoSelectionStepOver, AddInfoColor(NetworkMultitoolTool.SelectionStepOverShortcut));
+        protected string UndergroundInfo => $"\n\n{string.Format(Localize.Mode_Info_UndergroundMode, AddInfoColor(LocalizeExtension.Shift))}";
         protected string CostInfo
         {
             get
@@ -149,6 +149,13 @@ namespace NetworkMultitool
                 else return AddInfoColor(string.Format(Localize.Mode_Info_ConstructionCost, costMode.Cost / 100)) + "\n\n";
             }
         }
+        protected string MoveSlowerInfo =>
+            string.Format(Localize.Mode_Info_HoldToMoveSlower, AddInfoColor(LocalizeExtension.Ctrl), AddInfoColor("10")) + "\n" +
+            string.Format(Localize.Mode_Info_HoldToMoveSlower, AddInfoColor(LocalizeExtension.Alt), AddInfoColor("100"));
+        protected string RadiusStepInfo =>
+            string.Format(Localize.Mode_Info_HoldToStep, AddInfoColor(LocalizeExtension.Shift), AddInfoColor(string.Format(Localize.Mode_RadiusFormat, 10f))) + "\n" +
+            string.Format(Localize.Mode_Info_HoldToStep, AddInfoColor(LocalizeExtension.Ctrl), AddInfoColor(string.Format(Localize.Mode_RadiusFormat, 1f))) + "\n" +
+            string.Format(Localize.Mode_Info_HoldToStep, AddInfoColor(LocalizeExtension.Alt), AddInfoColor(string.Format(Localize.Mode_RadiusFormat, 0.1f)));
 
         #endregion
 
