@@ -140,21 +140,13 @@ namespace NetworkMultitool
         {
             get
             {
-                var text = string.Empty;
-
-                if (this is ICostMode costMode && Settings.NeedMoney)
-                {
-                    if (costMode.Cost >= 0)
-                        text += string.Format(Localize.Mode_Info_ConstructionCost, costMode.Cost / 100) + "\n";
-                    else
-                        text += string.Format(Localize.Mode_Info_Refund, -costMode.Cost / 100) + "\n";
-
-                    if (costMode.Cost >= 0 && !EnoughMoney(costMode.Cost))
-                        text += Localize.Mode_Info_NotEnoughMoney + "\n";
-                    text += "\n";
-                }
-
-                return text;
+                if (this is not ICostMode costMode || !Settings.NeedMoney)
+                    return string.Empty;
+                else if (costMode.Cost < 0)
+                    return AddInfoColor(string.Format(Localize.Mode_Info_Refund, -costMode.Cost / 100)) + "\n\n";
+                else if (!EnoughMoney(costMode.Cost))
+                    return AddErrorColor(string.Format(Localize.Mode_Info_ConstructionCost, costMode.Cost / 100) + "\n" + Localize.Mode_Info_NotEnoughMoney) + "\n\n";
+                else return AddInfoColor(string.Format(Localize.Mode_Info_ConstructionCost, costMode.Cost / 100)) + "\n\n";
             }
         }
 

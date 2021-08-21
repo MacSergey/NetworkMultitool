@@ -330,18 +330,18 @@ namespace NetworkMultitool
 
                 var result = string.Empty;
                 if (IsWrongOrder)
-                    result += Localize.Mode_Info_ArrangeCircle_WrongOrder;
+                    result += AddErrorColor(Localize.Mode_Info_ArrangeCircle_WrongOrder);
                 else if (IsBigDelta)
-                    result += Localize.Mode_Info_ArrangeCircle_BigDelta;
+                    result += AddErrorColor(Localize.Mode_Info_ArrangeCircle_BigDelta);
 
                 if (Time.realtimeSinceStartup - PosTime >= 2f)
                 {
                     result += (!string.IsNullOrEmpty(result) ? "\n\n" : string.Empty) +
-                    string.Format(Localize.Mode_Info_ArrangeCircle_PressToDistributeEvenly, DistributeEvenlyShortcut) + "\n" +
-                    string.Format(Localize.Mode_Info_ArrangeCircle_PressToDistributeIntersections, DistributeIntersectionsShortcut) + "\n" +
-                    string.Format(Localize.Mode_Info_ArrangeCircle_PressToDistributeBetweenIntersections, DistributeBetweenIntersectionsShortcut) + "\n" +
-                    string.Format(Localize.Mode_Info_ArrangeCircle_PressToReset, ResetArrangeCircleShortcut) + "\n" +
-                    string.Format(Localize.Mode_Info_ArrangeCircle_Apply, ApplyShortcut);
+                    string.Format(Localize.Mode_Info_ArrangeCircle_PressToDistributeEvenly, AddInfoColor(DistributeEvenlyShortcut)) + "\n" +
+                    string.Format(Localize.Mode_Info_ArrangeCircle_PressToDistributeIntersections, AddInfoColor(DistributeIntersectionsShortcut)) + "\n" +
+                    string.Format(Localize.Mode_Info_ArrangeCircle_PressToDistributeBetweenIntersections, AddInfoColor(DistributeBetweenIntersectionsShortcut)) + "\n" +
+                    string.Format(Localize.Mode_Info_ArrangeCircle_PressToReset, AddInfoColor(ResetArrangeCircleShortcut)) + "\n" +
+                    string.Format(Localize.Mode_Info_ArrangeCircle_Apply, AddInfoColor(ApplyShortcut));
                 }
 
                 return result;
@@ -689,7 +689,7 @@ namespace NetworkMultitool
         {
             var result = string.Empty;
             if (IsWrongOrder)
-                result += Localize.Mode_Info_ArrangeCircle_WrongOrder + "\n\n";
+                result += AddErrorColor(Localize.Mode_Info_ArrangeCircle_WrongOrder) + "\n\n";
             result += Localize.Mode_Info_ArrangeCircle_MoveAll;
             return result;
         }

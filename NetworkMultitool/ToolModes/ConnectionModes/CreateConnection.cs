@@ -76,11 +76,11 @@ namespace NetworkMultitool
             else if (IsHoverStraight)
                 return Localize.Mode_Connection_Info_DoubleClickToAdd;
             else if (State == Result.BigRadius)
-                return Localize.Mode_Info_RadiusTooBig;
+                return AddErrorColor(Localize.Mode_Info_RadiusTooBig);
             else if (State == Result.WrongShape)
-                return Localize.Mode_Info_WrongShape;
+                return AddErrorColor(Localize.Mode_Info_WrongShape);
             else if (State == Result.OutOfMap)
-                return Localize.Mode_Info_OutOfMap;
+                return AddErrorColor(Localize.Mode_Info_OutOfMap);
             else if (State != Result.Calculated)
                 return
                     Localize.Mode_Info_ClickOnNodeToChangeCreateDir + "\n" +
@@ -101,14 +101,14 @@ namespace NetworkMultitool
                 if (Time.realtimeSinceStartup - PosTime >= 2f)
                 {
                     text += "\n\n" +
-                    string.Format(Localize.Mode_Info_ChangeBothRadius, DecreaseRadiiShortcut, IncreaseRadiiShortcut) + "\n" +
-                    string.Format(Localize.Mode_Info_ChangeCircle, SwitchSelectShortcut) + "\n" +
-                    string.Format(Localize.Mode_Info_ChangeOneRadius, DecreaseOneRadiusShortcut, IncreaseOneRadiusShortcut) + "\n" +
-                    //string.Format(Localize.Mode_Info_SwitchOffset, SwitchOffsetShortcut) + "\n" +
-                    //string.Format(Localize.Mode_Info_ChangeOffset, DecreaseOffsetShortcut, IncreaseOffsetShortcut) + "\n" +
+                    string.Format(Localize.Mode_Info_ChangeBothRadius, AddInfoColor(DecreaseRadiiShortcut), AddInfoColor(IncreaseRadiiShortcut)) + "\n" +
+                    string.Format(Localize.Mode_Info_ChangeCircle, AddInfoColor(SwitchSelectShortcut)) + "\n" +
+                    string.Format(Localize.Mode_Info_ChangeOneRadius, AddInfoColor(DecreaseOneRadiusShortcut), AddInfoColor(IncreaseOneRadiusShortcut)) + "\n" +
+                    //string.Format(Localize.Mode_Info_SwitchOffset, AddInfoColor(SwitchOffsetShortcut)) + "\n" +
+                    //string.Format(Localize.Mode_Info_ChangeOffset, AddInfoColor(DecreaseOffsetShortcut), AddInfoColor(IncreaseOffsetShortcut)) + "\n" +
                     Localize.Mode_Info_Step + "\n" +
-                    string.Format(Localize.Mode_Info_SwitchFollowTerrain, SwitchFollowTerrainShortcut) + "\n" +
-                    string.Format(Localize.Mode_Info_Connection_Create, ApplyShortcut);
+                    string.Format(Localize.Mode_Info_SwitchFollowTerrain, AddInfoColor(SwitchFollowTerrainShortcut)) + "\n" +
+                    string.Format(Localize.Mode_Info_Connection_Create, AddInfoColor(ApplyShortcut));
                 }
 
                 return text;

@@ -302,22 +302,22 @@ namespace NetworkMultitool
             if (GetBaseInfo() is string baseInfo)
                 return baseInfo;
             else if (State == Result.BigRadius)
-                return Localize.Mode_Info_RadiusTooBig;
+                return AddErrorColor(Localize.Mode_Info_RadiusTooBig);
             else if (State == Result.SmallRadius)
-                return Localize.Mode_Info_RadiusTooSmall;
+                return AddErrorColor(Localize.Mode_Info_RadiusTooSmall);
             else if (State == Result.OutOfMap)
-                return Localize.Mode_Info_OutOfMap;
+                return AddErrorColor(Localize.Mode_Info_OutOfMap);
             else if (State != Result.Calculated)
                 return Localize.Mode_Info_ClickOnNodeToChangeCreateDir;
             else
                 return
                     CostInfo +
                     Localize.Mode_Info_ClickOnNodeToChangeCreateDir + "\n\n" +
-                    string.Format(Localize.Mode_Info_ChangeRadius, DecreaseRadiusShortcut, IncreaseRadiusShortcut) + "\n" +
+                    string.Format(Localize.Mode_Info_ChangeRadius, AddInfoColor(DecreaseRadiusShortcut), AddInfoColor(IncreaseRadiusShortcut)) + "\n" +
                     Localize.Mode_Info_Step + "\n" +
-                    string.Format(Localize.Mode_CreateLoop_Info_Change, SwitchIsLoopShortcut) + "\n" +
-                    string.Format(Localize.Mode_Info_SwitchFollowTerrain, SwitchFollowTerrainShortcut) + "\n" +
-                    string.Format(Localize.Mode_Info_Loop_Create, ApplyShortcut);
+                    string.Format(Localize.Mode_CreateLoop_Info_Change, AddInfoColor(SwitchIsLoopShortcut)) + "\n" +
+                    string.Format(Localize.Mode_Info_SwitchFollowTerrain, AddInfoColor(SwitchFollowTerrainShortcut)) + "\n" +
+                    string.Format(Localize.Mode_Info_Loop_Create, AddInfoColor(ApplyShortcut));
         }
         protected override void ResetParams()
         {

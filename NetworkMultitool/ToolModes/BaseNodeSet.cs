@@ -50,7 +50,7 @@ namespace NetworkMultitool
             else if (AddState == AddResult.NotConnect)
                 return Localize.Mode_NodeLine_Info_NotConnected + StepOverInfo;
             else
-                return string.Format(Localize.Mode_Info_Apply, ApplyShortcut);
+                return string.Format(Localize.Mode_Info_Apply, AddInfoColor(ApplyShortcut));
         }
         protected override void Reset(IToolMode prevMode)
         {
