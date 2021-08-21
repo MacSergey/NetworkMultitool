@@ -17,6 +17,10 @@ namespace NetworkMultitool
     {
         public static NetworkMultitoolShortcut IncreaseShiftShortcut { get; } = GetShortcut(KeyCode.Equals, nameof(IncreaseShiftShortcut), nameof(Localize.Settings_Shortcut_IncreaseShift), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as CreateParallelMode)?.IncreaseShift(), repeat: true, ignoreModifiers: true);
         public static NetworkMultitoolShortcut DecreaseShiftShortcut { get; } = GetShortcut(KeyCode.Minus, nameof(DecreaseShiftShortcut), nameof(Localize.Settings_Shortcut_DecreaseShift), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as CreateParallelMode)?.DecreaseShift(), repeat: true, ignoreModifiers: true);
+
+        public static NetworkMultitoolShortcut IncreaseHeightShortcut { get; } = GetShortcut(KeyCode.RightBracket, nameof(IncreaseHeightShortcut), nameof(Localize.Settings_Shortcut_IncreaseHeight), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as CreateParallelMode)?.IncreaseHeight(), repeat: true, ignoreModifiers: true);
+        public static NetworkMultitoolShortcut DecreaseHeightShortcut { get; } = GetShortcut(KeyCode.LeftBracket, nameof(DecreaseHeightShortcut), nameof(Localize.Settings_Shortcut_DecreaseHeight), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as CreateParallelMode)?.DecreaseHeight(), repeat: true, ignoreModifiers: true);
+
         public static NetworkMultitoolShortcut ChangeSideShortcut { get; } = GetShortcut(KeyCode.Tab, nameof(ChangeSideShortcut), nameof(Localize.Settings_Shortcut_InvertShift), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as CreateParallelMode)?.ChangeSide());
         public static NetworkMultitoolShortcut InvertNetworkShortcut { get; } = GetShortcut(KeyCode.Tab, nameof(InvertNetworkShortcut), nameof(Localize.Settings_Shortcut_InvertNetwork), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as CreateParallelMode)?.SetInvert(), ctrl: true);
 
@@ -28,9 +32,13 @@ namespace NetworkMultitool
 
         private bool Side { get; set; }
         private bool Invert { get; set; }
-        private float Shift { get; set; }
+        private float? Shift { get; set; }
+        private float DeltaHeight { get; set; }
         private Straight StartLine { get; set; }
         private Straight EndLine { get; set; }
+        private InfoLabel StartHeightLabel { get; set; }
+        private InfoLabel EndHeightLabel { get; set; }
+        private bool AllowHeight => Info.m_segments.All(s => !s.m_requireHeightMap);
 
         public override IEnumerable<NetworkMultitoolShortcut> Shortcuts
         {
@@ -41,6 +49,10 @@ namespace NetworkMultitool
 
                 yield return IncreaseShiftShortcut;
                 yield return DecreaseShiftShortcut;
+
+                yield return IncreaseHeightShortcut;
+                yield return DecreaseHeightShortcut;
+
                 yield return ChangeSideShortcut;
                 yield return InvertNetworkShortcut;
             }
@@ -52,9 +64,10 @@ namespace NetworkMultitool
                 return
                     Localize.Mode_NodeLine_Info_SelectNode + "\n" +
                     string.Format(Localize.Mode_Info_ChangeShift, DecreaseShiftShortcut, IncreaseShiftShortcut) + "\n" +
+                    (AllowHeight ? (string.Format(Localize.Mode_Info_Parallel_ChangeHeight, DecreaseHeightShortcut, IncreaseHeightShortcut) + "\n") : string.Empty) +
+                    Localize.Mode_Info_Step + "\n" +
                     string.Format(Localize.Mode_Info_Parallel_ChangeShift, ChangeSideShortcut) + "\n" +
                     string.Format(Localize.Mode_Info_Parallel_Invert, InvertNetworkShortcut) + "\n" +
-                    Localize.Mode_Info_Step + "\n" +
                     string.Format(Localize.Mode_Info_Parallel_Create, ApplyShortcut) +
                     UndergroundInfo;
             else
@@ -64,9 +77,10 @@ namespace NetworkMultitool
         {
             base.Reset(prevMode);
             Calculated = false;
-            Shift = 16f;
+            Shift = null;
             Side = true;
             Invert = false;
+            DeltaHeight = 0f;
 
             if (StartLine != null && StartLine.Label != null)
             {
@@ -81,6 +95,9 @@ namespace NetworkMultitool
 
             StartLine = null;
             EndLine = null;
+
+            StartHeightLabel ??= AddLabel(1f);
+            EndHeightLabel ??= AddLabel(1f);
         }
         protected override void ClearLabels()
         {
@@ -91,6 +108,9 @@ namespace NetworkMultitool
 
             if (EndLine != null)
                 EndLine.Label = null;
+
+            StartHeightLabel = null;
+            EndHeightLabel = null;
         }
         public override void OnToolUpdate()
         {
@@ -101,32 +121,102 @@ namespace NetworkMultitool
 
             StartLine?.Update(Calculated);
             EndLine?.Update(Calculated);
+
+            if (Calculated && DeltaHeight != 0)
+            {
+                StartHeightLabel.Show = true;
+                EndHeightLabel.Show = true;
+
+                var text = (DeltaHeight >= 0f ? "+" : "-") + GetLengthString(Mathf.Abs(DeltaHeight));
+
+                var delta = Settings.NetworkPreview != (int)Settings.PreviewType.Overlay ? DeltaHeight : 0f;
+                StartHeightLabel.WorldPosition = Points[0].Position.AddHeight(delta);
+                StartHeightLabel.Direction = (Points[0].Position - Nodes[0].Id.GetNode().m_position).Turn90(Side).MakeFlatNormalized();
+                StartHeightLabel.text = text;
+
+                EndHeightLabel.WorldPosition = Points[Points.Count - 1].Position.AddHeight(delta);
+                EndHeightLabel.Direction = (Points[Points.Count - 1].Position - Nodes[Nodes.Count - 1].Id.GetNode().m_position).Turn90(!Side).MakeFlatNormalized();
+                EndHeightLabel.text = text;
+            }
+            else
+            {
+                StartHeightLabel.Show = false;
+                EndHeightLabel.Show = false;
+            }
         }
         private void Calculate()
         {
             Points = new List<Point>(Nodes.Count);
 
+            if (Shift == null)
+            {
+                var sum = 0f;
+                for (var i = 1; i < Nodes.Count; i += 1)
+                {
+                    NetExtension.GetCommon(Nodes[i - 1].Id, Nodes[i].Id, out var segmentId);
+                    sum += segmentId.GetSegment().Info.m_halfWidth;
+                }
+                Shift = sum / (Nodes.Count - 1) + Info.m_halfWidth;
+            }
+
+            var shift = Side ? Shift.Value : -Shift.Value;
             for (var i = 0; i < Nodes.Count; i += 1)
             {
-                var direction = Vector3.zero;
-                if (i != 0)
-                {
-                    NetExtension.GetCommon(Nodes[i].Id, Nodes[i - 1].Id, out var segmentId);
-                    ref var segment = ref segmentId.GetSegment();
-                    direction += segment.IsStartNode(Nodes[i].Id) ? -segment.m_startDirection : -segment.m_endDirection;
-                }
-                if (i != Nodes.Count - 1)
+                ref var node = ref Nodes[i].Id.GetNode();
+
+                if (i == 0)
                 {
                     NetExtension.GetCommon(Nodes[i].Id, Nodes[i + 1].Id, out var segmentId);
                     ref var segment = ref segmentId.GetSegment();
-                    direction += segment.IsStartNode(Nodes[i].Id) ? segment.m_startDirection : segment.m_endDirection;
+                    var direction = segment.IsStartNode(Nodes[i].Id) ? segment.m_startDirection : segment.m_endDirection;
+                    var shiftDir = direction.Turn90(false).MakeFlatNormalized();
+                    Points.Add(new Point(node.m_position + shiftDir * shift + Vector3.up * DeltaHeight, direction, Vector3.zero));
                 }
-                if (i != 0 && i != Nodes.Count - 1)
-                    direction /= 2f;
+                else if (i == Nodes.Count - 1)
+                {
+                    NetExtension.GetCommon(Nodes[i].Id, Nodes[i - 1].Id, out var segmentId);
+                    ref var segment = ref segmentId.GetSegment();
+                    var direction = segment.IsStartNode(Nodes[i].Id) ? segment.m_startDirection : segment.m_endDirection;
+                    var shiftDir = direction.Turn90(true).MakeFlatNormalized();
+                    Points.Add(new Point(node.m_position + shiftDir * shift + Vector3.up * DeltaHeight, Vector3.zero, direction));
+                }
+                else
+                {
+                    NetExtension.GetCommon(Nodes[i].Id, Nodes[i - 1].Id, out var backwardSegmentId);
+                    NetExtension.GetCommon(Nodes[i].Id, Nodes[i + 1].Id, out var forwardSegmentId);
 
-                var shiftDir = direction.Turn90(false).MakeFlatNormalized();
-                ref var node = ref Nodes[i].Id.GetNode();
-                Points.Add(new Point(node.m_position + shiftDir * (Side ? Shift : -Shift), direction));
+                    ref var backwardSegment = ref backwardSegmentId.GetSegment();
+                    ref var forwardSegment = ref forwardSegmentId.GetSegment();
+
+                    var backwardEndDir = backwardSegment.GetDirection(Nodes[i - 1].Id);
+                    var backwardStartDir = backwardSegment.GetDirection(Nodes[i].Id);
+                    var forwardStartDir = forwardSegment.GetDirection(Nodes[i].Id);
+                    var forwardEndDir = forwardSegment.GetDirection(Nodes[i + 1].Id);
+
+                    var backwardEndPos = Nodes[i - 1].Id.GetNode().m_position + backwardEndDir.Turn90(false).MakeFlatNormalized() * shift + Vector3.up * DeltaHeight;
+                    var backwardStartPos = node.m_position + backwardStartDir.Turn90(true).MakeFlatNormalized() * shift + Vector3.up * DeltaHeight;
+                    var forwardStartPos = node.m_position + forwardStartDir.Turn90(false).MakeFlatNormalized() * shift + Vector3.up * DeltaHeight;
+                    var forwardEndPos = Nodes[i + 1].Id.GetNode().m_position + forwardEndDir.Turn90(true).MakeFlatNormalized() * shift + Vector3.up * DeltaHeight;
+
+                    var backward = new BezierTrajectory(backwardStartPos, backwardStartDir, backwardEndPos, backwardEndDir);
+                    var forward = new BezierTrajectory(forwardStartPos, forwardStartDir, forwardEndPos, forwardEndDir);
+
+                    if (Intersection.CalculateSingle(backward, forward, out var backwardT, out var forwardT))
+                    {
+                        var position = (backward.Position(backwardT) + forward.Position(forwardT)) / 2f;
+                        Points.Add(new Point(position, forward.Tangent(forwardT), backward.Tangent(backwardT)));
+                    }
+                    else if ((backward.StartPosition - forward.StartPosition).sqrMagnitude < 64f)
+                    {
+                        var position = (backward.StartPosition + forward.StartPosition) / 2f;
+                        Points.Add(new Point(position, forward.StartDirection, backward.StartDirection));
+                    }
+                    else
+                    {
+                        Points.Add(new Point(backward.StartPosition, -backward.StartDirection, backward.StartDirection));
+                        Points.Add(new Point(forward.StartPosition, forward.StartDirection, -forward.StartDirection));
+                    }
+                }
             }
 
             Calculated = true;
@@ -172,9 +262,9 @@ namespace NetworkMultitool
             {
                 ushort newSegmentId;
                 if (invert)
-                    CreateSegmentAuto(out newSegmentId, info, nodeIds[i], nodeIds[i - 1], -points[i].Direction, points[i - 1].Direction);
+                    CreateSegmentAuto(out newSegmentId, info, nodeIds[i], nodeIds[i - 1], points[i].BackwardDirection, points[i - 1].ForwardDirection);
                 else
-                    CreateSegmentAuto(out newSegmentId, info, nodeIds[i - 1], nodeIds[i], points[i - 1].Direction, -points[i].Direction);
+                    CreateSegmentAuto(out newSegmentId, info, nodeIds[i - 1], nodeIds[i], points[i - 1].ForwardDirection, points[i].BackwardDirection);
 
                 CalculateSegmentDirections(newSegmentId);
             }
@@ -191,9 +281,28 @@ namespace NetworkMultitool
             else if (Utility.OnlyAltIsPressed)
                 step = 0.01f;
 
-            Shift = Mathf.Max((Shift + (increase ? step : -step)).RoundToNearest(step), 0f);
+            Shift = Mathf.Max((Shift.Value + (increase ? step : -step)).RoundToNearest(step), 0f);
             Calculated = false;
         }
+        private void IncreaseHeight() => ChangeHeight(true);
+        private void DecreaseHeight() => ChangeHeight(false);
+        private void ChangeHeight(bool increase)
+        {
+            if (!AllowHeight)
+                return;
+
+            var step = 1f;
+            if (Utility.OnlyShiftIsPressed)
+                step = 10f;
+            else if (Utility.OnlyCtrlIsPressed)
+                step = 0.1f;
+            else if (Utility.OnlyAltIsPressed)
+                step = 0.01f;
+
+            DeltaHeight = (DeltaHeight + (increase ? step : -step)).RoundToNearest(step);
+            Calculated = false;
+        }
+
         private void ChangeSide()
         {
             Side = !Side;
@@ -240,7 +349,10 @@ namespace NetworkMultitool
         public override void RenderGeometry(RenderManager.CameraInfo cameraInfo)
         {
             if (Calculated && Settings.NetworkPreview != (int)Settings.PreviewType.Overlay)
-                RenderParts(Points, Info, Side ^ Invert);
+            {
+                var points = Points.ToArray();
+                RenderParts(points, Info, Side ^ Invert);
+            }
 
             base.RenderGeometry(cameraInfo);
         }

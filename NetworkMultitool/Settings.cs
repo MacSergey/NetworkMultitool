@@ -131,6 +131,8 @@ namespace NetworkMultitool
             var parallelKeymapping = AddKeyMappingPanel(parallelGroup);
             parallelKeymapping.AddKeymapping(CreateParallelMode.IncreaseShiftShortcut);
             parallelKeymapping.AddKeymapping(CreateParallelMode.DecreaseShiftShortcut);
+            parallelKeymapping.AddKeymapping(CreateParallelMode.IncreaseHeightShortcut);
+            parallelKeymapping.AddKeymapping(CreateParallelMode.DecreaseHeightShortcut);
             parallelKeymapping.AddKeymapping(CreateParallelMode.ChangeSideShortcut);
             parallelKeymapping.AddKeymapping(CreateParallelMode.InvertNetworkShortcut);
 

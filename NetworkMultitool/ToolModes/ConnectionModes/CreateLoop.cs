@@ -14,24 +14,10 @@ namespace NetworkMultitool
 {
     public abstract class BaseCreateLoopMode : BaseCreateMode
     {
-        public static NetworkMultitoolShortcut IncreaseRadiusShortcut { get; } = GetShortcut(KeyCode.Equals, nameof(IncreaseRadiusShortcut), nameof(Localize.Settings_Shortcut_IncreaseRadius), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as BaseCreateLoopMode)?.IncreaseRadius(), ToolModeType.Create, repeat: true, ignoreModifiers: true);
-        public static NetworkMultitoolShortcut DecreaseRadiusShortcut { get; } = GetShortcut(KeyCode.Minus, nameof(DecreaseRadiusShortcut), nameof(Localize.Settings_Shortcut_DecreaseRadius), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as BaseCreateLoopMode)?.DecreaseRadius(), ToolModeType.Create, repeat: true, ignoreModifiers: true);
-
         public MiddleCircle Circle { get; private set; }
         public Straight StartStraight { get; private set; }
         public Straight EndStraight { get; private set; }
         public bool IsHoverCenter { get; protected set; }
-
-        public override IEnumerable<NetworkMultitoolShortcut> Shortcuts
-        {
-            get
-            {
-                yield return ApplyShortcut;
-                yield return IncreaseRadiusShortcut;
-                yield return DecreaseRadiusShortcut;
-                yield return SwitchFollowTerrainShortcut;
-            }
-        }
 
         protected override void Reset(IToolMode prevMode)
         {
@@ -290,6 +276,9 @@ namespace NetworkMultitool
     }
     public class CreateLoopMode : BaseCreateLoopMode
     {
+        public static NetworkMultitoolShortcut IncreaseRadiusShortcut { get; } = GetShortcut(KeyCode.Equals, nameof(IncreaseRadiusShortcut), nameof(Localize.Settings_Shortcut_IncreaseRadius), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as CreateLoopMode)?.IncreaseRadius(), ToolModeType.Create, repeat: true, ignoreModifiers: true);
+        public static NetworkMultitoolShortcut DecreaseRadiusShortcut { get; } = GetShortcut(KeyCode.Minus, nameof(DecreaseRadiusShortcut), nameof(Localize.Settings_Shortcut_DecreaseRadius), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as CreateLoopMode)?.DecreaseRadius(), ToolModeType.Create, repeat: true, ignoreModifiers: true);
+
         public static NetworkMultitoolShortcut SwitchIsLoopShortcut { get; } = GetShortcut(KeyCode.Tab, nameof(SwitchIsLoopShortcut), nameof(Localize.Settings_Shortcut_SwitchIsLoop), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as CreateLoopMode)?.SwitchIsLoop());
 
         public override ToolModeType Type => ToolModeType.CreateLoop;
@@ -300,9 +289,10 @@ namespace NetworkMultitool
         {
             get
             {
-                foreach (var shortcut in base.Shortcuts)
-                    yield return shortcut;
-
+                yield return ApplyShortcut;
+                yield return IncreaseRadiusShortcut;
+                yield return DecreaseRadiusShortcut;
+                yield return SwitchFollowTerrainShortcut;
                 yield return SwitchIsLoopShortcut;
             }
         }

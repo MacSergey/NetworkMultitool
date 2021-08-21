@@ -149,7 +149,7 @@ namespace NetworkMultitool
 
             if (Label is InfoLabel label)
             {
-                label.text = GetRadiusString(Radius);
+                label.text = GetLengthString(Radius);
                 label.Direction = Tool.CameraDirection;
                 label.WorldPosition = Center + Tool.CameraDirection * 5f;
             }

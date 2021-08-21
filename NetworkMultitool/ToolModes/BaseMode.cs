@@ -77,7 +77,7 @@ namespace NetworkMultitool
             UndergroundDefaultGetter = DefaultUndergroundDefaultGetter;
         }
 
-        protected static string GetRadiusString(float radius, string format = "0.0") => string.Format(Localize.Mode_RadiusFormat, radius.ToString(format));
+        protected static string GetLengthString(float radius, string format = "0.0") => string.Format(Localize.Mode_RadiusFormat, radius.ToString(format));
         protected static string GetAngleString(float angle, string format = "0") => string.Format(Localize.Mode_AngleFormat, (angle * Mathf.Rad2Deg).ToString(format));
         protected static string GetPercentagesString(float percent, string format = "0.0") => string.Format(Localize.Mode_PercentagesFormat, percent.ToString(format));
 
@@ -280,15 +280,17 @@ namespace NetworkMultitool
             segment.m_endDirection = segment.FindDirection(segmentId, segment.m_endNode);
         }
         protected delegate void DirectionGetterDelegate<Type>(Type first, Type second, out Vector3 firstDir, out Vector3 secondDir);
+        protected delegate Vector3 PositionGetterDelegate<Type>(ref Type item);
+        protected delegate void PositionSetterDelegate<Type>(ref Type item, Vector3 position);
 
-        protected static void SetSlope<Type>(Type[] items, float startY, float endY, Func<Type, Vector3> positionGetter, DirectionGetterDelegate<Type> directionGetter, Action<Type, Vector3> positionSetter, out float deltaHeight)
+        protected static void SetSlope<Type>(Type[] items, float startY, float endY, PositionGetterDelegate<Type> positionGetter, DirectionGetterDelegate<Type> directionGetter, PositionSetterDelegate<Type> positionSetter, out float deltaHeight)
         {
             var list = new List<ITrajectory>();
 
             for (var i = 1; i < items.Length; i += 1)
             {
-                var startPos = positionGetter(items[i - 1]);
-                var endPos = positionGetter(items[i]);
+                var startPos = positionGetter(ref items[i - 1]);
+                var endPos = positionGetter(ref items[i]);
                 directionGetter(items[i - 1], items[i], out var startDir, out var endDir);
 
                 startPos.y = 0;
@@ -306,15 +308,15 @@ namespace NetworkMultitool
             for (var i = 1; i < items.Length - 1; i += 1)
             {
                 currentLength += list[i - 1].Length;
-                var position = positionGetter(items[i]);
+                var position = positionGetter(ref items[i]);
                 position.y = Mathf.Lerp(startY, endY, currentLength / sumLength);
-                positionSetter(items[i], position);
+                positionSetter(ref items[i], position);
             }
         }
-        protected static void SetSlope<Type>(Type[] items, Func<Type, Vector3> positionGetter, DirectionGetterDelegate<Type> directionGetter, Action<Type, Vector3> positionSetter)
+        protected static void SetSlope<Type>(Type[] items, PositionGetterDelegate<Type> positionGetter, DirectionGetterDelegate<Type> directionGetter, PositionSetterDelegate<Type> positionSetter)
         {
-            var startY = positionGetter(items[0]).y;
-            var endY = positionGetter(items[items.Length - 1]).y;
+            var startY = positionGetter(ref items[0]).y;
+            var endY = positionGetter(ref items[items.Length - 1]).y;
 
             SetSlope(items, startY, endY, positionGetter, directionGetter, positionSetter, out _);
         }
@@ -327,29 +329,28 @@ namespace NetworkMultitool
 
             for (var i = 1; i < points.Length - 1; i += 1)
             {
-                var direction = points[i].Direction;
-                direction.y = deltaHeight;
-                points[i].Direction = direction.normalized;
+                points[i].ForwardDirection = points[i].ForwardDirection.SetHeight(deltaHeight);
+                points[i].BackwardDirection = points[i].BackwardDirection.SetHeight(-deltaHeight);
             }
         }
-        protected static void SetTerrain<Type>(Type[] items, Func<Type, Vector3> positionGetter, Action<Type, Vector3> positionSetter)
+        protected static void SetTerrain<Type>(Type[] items, PositionGetterDelegate<Type> positionGetter, PositionSetterDelegate<Type> positionSetter)
         {
             for (var i = 1; i < items.Length - 1; i += 1)
             {
-                var position = positionGetter(items[i]);
+                var position = positionGetter(ref items[i]);
                 position.y = TerrainManager.instance.SampleRawHeightSmooth(position);
-                positionSetter(items[i], position);
+                positionSetter(ref items[i], position);
             }
         }
         protected static void SetTerrain(Point[] points) => SetTerrain(points, PositionGetter, PositionSetter);
 
-        private static Vector3 PositionGetter(Point point) => point.Position;
+        private static Vector3 PositionGetter(ref Point point) => point.Position;
         private static void DirectionGetter(Point first, Point second, out Vector3 firstDir, out Vector3 secondDir)
         {
-            firstDir = first.Direction;
-            secondDir = -second.Direction;
+            firstDir = first.ForwardDirection;
+            secondDir = second.BackwardDirection;
         }
-        private static void PositionSetter(Point point, Vector3 position) => point.Position = position;
+        private static void PositionSetter(ref Point point, Vector3 position) => point.Position = position;
 
         protected static Rect GetTerrainRect(params ushort[] segmentIds) => segmentIds.Select(i => (ITrajectory)new BezierTrajectory(i)).GetRect();
         protected static void UpdateTerrain(params ushort[] segmentIds)
@@ -359,10 +360,13 @@ namespace NetworkMultitool
         }
         protected static void UpdateTerrain(Rect rect) => TerrainModify.UpdateArea(rect.xMin, rect.yMin, rect.xMax, rect.yMax, true, true, false);
 
-        protected InfoLabel AddLabel()
+        protected InfoLabel AddLabel(float size = 2f, Color? color = null)
         {
             var view = UIView.GetAView();
             var label = view.AddUIComponent(typeof(InfoLabel)) as InfoLabel;
+            label.color = color ?? Colors.White;
+            label.textScale = size;
+            label.textAlignment = UIHorizontalAlignment.Center;
             label.zOrder = 0;
             Labels.Add(label);
             return label;
@@ -442,7 +446,7 @@ namespace NetworkMultitool
             else
                 return true;
         }
-        protected static BezierTrajectory GetTrajectory(Point first, Point second) => new BezierTrajectory(first.Position, first.Direction, second.Position, -second.Direction);
+        protected static BezierTrajectory GetTrajectory(Point first, Point second) => new BezierTrajectory(first.Position, first.ForwardDirection, second.Position, second.BackwardDirection);
         protected void RenderParts(List<Point> points, RenderManager.CameraInfo cameraInfo, Color? color = null, float? width = null)
         {
             var data = new OverlayData(cameraInfo) { Color = color, Width = width, RenderLimit = Underground, Cut = true };
@@ -452,9 +456,9 @@ namespace NetworkMultitool
                     GetTrajectory(points[i - 1], points[i]).Render(data);
             }
         }
-        protected void RenderParts(List<Point> points, NetInfo info, bool invert = false)
+        protected void RenderParts(Point[] points, NetInfo info, bool invert = false)
         {
-            for (var i = 1; i < points.Count; i += 1)
+            for (var i = 1; i < points.Length; i += 1)
             {
                 if (!points[i - 1].IsEmpty && !points[i].IsEmpty)
                     RenderSegment(points[i - 1], points[i], info, invert);
@@ -464,11 +468,11 @@ namespace NetworkMultitool
         {
             info = GetInfo(info, start.Position, end.Position, out var tunnelInvert);
 
-            var startNormal = start.Direction.Turn90(true).MakeFlatNormalized();
-            var endNormal = end.Direction.Turn90(true).MakeFlatNormalized();
+            var startNormal = start.ForwardDirection.Turn90(true).MakeFlatNormalized();
+            var endNormal = end.BackwardDirection.Turn90(false).MakeFlatNormalized();
 
-            var right = new BezierTrajectory(start.Position + startNormal * info.m_halfWidth, start.Direction, end.Position + endNormal * info.m_halfWidth, -end.Direction).Trajectory;
-            var left = new BezierTrajectory(start.Position - startNormal * info.m_halfWidth, start.Direction, end.Position - endNormal * info.m_halfWidth, -end.Direction).Trajectory;
+            var right = new BezierTrajectory(start.Position + startNormal * info.m_halfWidth, start.ForwardDirection, end.Position + endNormal * info.m_halfWidth, end.BackwardDirection).Trajectory;
+            var left = new BezierTrajectory(start.Position - startNormal * info.m_halfWidth, start.ForwardDirection, end.Position - endNormal * info.m_halfWidth, end.BackwardDirection).Trajectory;
 
             var position = (start.Position + end.Position) / 2f;
             var vScale = info.m_netAI.GetVScale();
@@ -485,10 +489,17 @@ namespace NetworkMultitool
 
             if (info.m_requireSurfaceMaps)
             {
-                TerrainManager.instance.GetSurfaceMapping(position, out Texture SurfaceTexA, out Texture SurfaceTexB, out Vector4 SurfaceMapping);
-                instance.m_materialBlock.SetTexture(instance.ID_SurfaceTexA, SurfaceTexA);
-                instance.m_materialBlock.SetTexture(instance.ID_SurfaceTexB, SurfaceTexB);
-                instance.m_materialBlock.SetVector(instance.ID_SurfaceMapping, SurfaceMapping);
+                TerrainManager.instance.GetSurfaceMapping(position, out var surfaceTexA, out var surfaceTexB, out var surfaceMapping);
+                instance.m_materialBlock.SetTexture(instance.ID_SurfaceTexA, surfaceTexA);
+                instance.m_materialBlock.SetTexture(instance.ID_SurfaceTexB, surfaceTexB);
+                instance.m_materialBlock.SetVector(instance.ID_SurfaceMapping, surfaceMapping);
+            }
+            else if (info.m_requireHeightMap)
+            {
+                TerrainManager.instance.GetHeightMapping(position, out var heightMap, out var heightMapping, out var surfaceMapping);
+                instance.m_materialBlock.SetTexture(instance.ID_HeightMap, heightMap);
+                instance.m_materialBlock.SetVector(instance.ID_HeightMapping, heightMapping);
+                instance.m_materialBlock.SetVector(instance.ID_SurfaceMapping, surfaceMapping);
             }
 
             foreach (var segment in info.m_segments)
@@ -540,15 +551,29 @@ namespace NetworkMultitool
             Singleton<EffectManager>.instance.DispatchEffect(effectInfo, new EffectInfo.SpawnArea(), Vector3.zero, 0f, 1f, Singleton<AudioManager>.instance.DefaultGroup, 0u, avoidMultipleAudio: true);
         }
 
-        public class Point
+        public struct Point
         {
             public Vector3 Position;
-            public Vector3 Direction;
-            public bool IsEmpty => Position == Vector3.zero && Direction == Vector3.zero;
+            public Vector3 ForwardDirection;
+            public Vector3 BackwardDirection;
+            public Vector3 Direction
+            {
+                set
+                {
+                    ForwardDirection = value;
+                    BackwardDirection = -value;
+                }
+            }
+            public bool IsEmpty => Position == Vector3.zero && ForwardDirection == Vector3.zero && BackwardDirection == Vector3.zero;
 
-            public Point(Vector3 position, Vector3 direction)
+            public Point(Vector3 position, Vector3 forwardDirection, Vector3 backwardDirection)
             {
                 Position = position;
+                ForwardDirection = forwardDirection;
+                BackwardDirection = backwardDirection;
+            }
+            public Point(Vector3 position, Vector3 direction) : this(position, Vector3.zero, Vector3.zero)
+            {
                 Direction = direction;
             }
 
@@ -586,7 +611,7 @@ namespace NetworkMultitool
                     label.Show = show;
                     if (show)
                     {
-                        label.text = GetRadiusString(Length);
+                        label.text = GetLengthString(Length);
                         label.Direction = LabelDir;
                         label.WorldPosition = Position(0.5f) + label.Direction * shift;
 
@@ -698,13 +723,6 @@ namespace NetworkMultitool
         public Vector3 Direction { get; set; }
         public new bool Show { get; set; }
 
-        public InfoLabel()
-        {
-            color = Colors.White;
-            textScale = 2f;
-            textAlignment = UIHorizontalAlignment.Center;
-        }
-
         public override void Update()
         {
             base.Update();
@@ -715,7 +733,7 @@ namespace NetworkMultitool
             var uIView = GetUIView();
             var startScreenPosition = Camera.main.WorldToScreenPoint(WorldPosition);
             var endScreenPosition = Camera.main.WorldToScreenPoint(WorldPosition + Direction);
-     
+
             if (isVisible = Show && startScreenPosition.z > 0f)
             {
                 var screenDir = ((Vector2)(endScreenPosition - startScreenPosition)).normalized;

@@ -586,6 +586,15 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Press {0} or {1} to change height.
+        /// </summary>
+        internal static string Mode_Info_Parallel_ChangeHeight {
+            get {
+                return ResourceManager.GetString("Mode_Info_Parallel_ChangeHeight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Press {0} to switch creation side.
         /// </summary>
         internal static string Mode_Info_Parallel_ChangeShift {
@@ -1120,6 +1129,15 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Decrease height.
+        /// </summary>
+        internal static string Settings_Shortcut_DecreaseHeight {
+            get {
+                return ResourceManager.GetString("Settings_Shortcut_DecreaseHeight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Decrease circle start offset.
         /// </summary>
         internal static string Settings_Shortcut_DecreaseOffset {
@@ -1188,6 +1206,15 @@ namespace NetworkMultitool {
         internal static string Settings_Shortcut_DistributeIntersections {
             get {
                 return ResourceManager.GetString("Settings_Shortcut_DistributeIntersections", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Increase height.
+        /// </summary>
+        internal static string Settings_Shortcut_IncreaseHeight {
+            get {
+                return ResourceManager.GetString("Settings_Shortcut_IncreaseHeight", resourceCulture);
             }
         }
         

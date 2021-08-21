@@ -63,7 +63,7 @@ namespace NetworkMultitool
                 CalculateSegmentDirections(segmentId);
             }
         }
-        private static Vector3 PositionGetter(ushort nodeId) => nodeId.GetNode().m_position;
+        private static Vector3 PositionGetter(ref ushort nodeId) => nodeId.GetNode().m_position;
         private static void DirectionGetter(ushort firstId, ushort secondId, out Vector3 firstDir, out Vector3 secondDir)
         {
             NetExtension.GetCommon(firstId, secondId, out var commonSegmentId);
@@ -81,7 +81,7 @@ namespace NetworkMultitool
                 secondDir = segment.m_startDirection;
             }
         }
-        private static void PositionSetter(ushort nodeId, Vector3 position) => NetManager.instance.MoveNode(nodeId, position);
+        private static void PositionSetter(ref ushort nodeId, Vector3 position) => NetManager.instance.MoveNode(nodeId, position);
 
         protected override void AddFirst(NodeSelection selection)
         {

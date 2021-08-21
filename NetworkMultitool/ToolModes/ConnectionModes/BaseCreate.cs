@@ -278,7 +278,7 @@ namespace NetworkMultitool
 
             for (var i = 1; i < nodeIds.Count; i += 1)
             {
-                CreateSegmentAuto(out var newSegmentId, info, nodeIds[i - 1], nodeIds[i], points[i - 1].Direction, -points[i].Direction);
+                CreateSegmentAuto(out var newSegmentId, info, nodeIds[i - 1], nodeIds[i], points[i - 1].ForwardDirection, points[i].BackwardDirection);
                 CalculateSegmentDirections(newSegmentId);
             }
         }
@@ -292,7 +292,7 @@ namespace NetworkMultitool
             {
                 ref var segment = ref segmentId.GetSegment();
                 var startDir = segment.IsStartNode(nodeId) ? segment.m_startDirection : segment.m_endDirection;
-                var segmentAngle = MathExtention.GetAngle(isFirst ? point.Direction : -point.Direction, startDir);
+                var segmentAngle = MathExtention.GetAngle(isFirst ? point.ForwardDirection : point.BackwardDirection, startDir);
 
                 if (Mathf.Abs(segmentAngle) < TurnAngle)
                 {
@@ -303,17 +303,21 @@ namespace NetworkMultitool
                     var angle = MathExtention.GetAngle(partDir, segmentDir);
 
                     if (segmentAngle == 0)
-                        point.Direction = point.Direction.TurnRad(TurnAngle, angle >= 0);
+                    {
+                        point.ForwardDirection = point.ForwardDirection.TurnRad(TurnAngle, angle >= 0);
+                        point.BackwardDirection = point.BackwardDirection.TurnRad(TurnAngle, angle >= 0);
+                    }
                     else if (Mathf.Sign(angle) == Mathf.Sign(segmentAngle))
                     {
                         var delta = TurnAngle - Mathf.Abs(segmentAngle);
-                        point.Direction = point.Direction.TurnRad(delta, segmentAngle >= 0);
+                        point.ForwardDirection = point.ForwardDirection.TurnRad(delta, segmentAngle >= 0);
+                        point.BackwardDirection = point.BackwardDirection.TurnRad(delta, segmentAngle >= 0);
                     }
                     else
                     {
                         var delta = TurnAngle + Mathf.Abs(segmentAngle);
-                        point.Direction = point.Direction.TurnRad(delta, segmentAngle <= 0);
-
+                        point.ForwardDirection = point.ForwardDirection.TurnRad(delta, segmentAngle <= 0);
+                        point.BackwardDirection = point.BackwardDirection.TurnRad(delta, segmentAngle <= 0);
                     }
                     break;
                 }
@@ -384,7 +388,7 @@ namespace NetworkMultitool
                 else
                     SetSlope(points, FirstTrajectory.StartPosition.y, SecondTrajectory.StartPosition.y);
 
-                RenderParts(new List<Point>(points), Info);
+                RenderParts(points, Info);
             }
 
             base.RenderGeometry(cameraInfo);
@@ -526,7 +530,7 @@ namespace NetworkMultitool
                     label.Show = show;
                     if (show)
                     {
-                        label.text = $"{GetRadiusString(Radius)}\n{GetAngleString(Mathf.Abs(Angle))}";
+                        label.text = $"{GetLengthString(Radius)}\n{GetAngleString(Mathf.Abs(Angle))}";
                         label.Direction = CenterDir;
                         label.WorldPosition = CenterPos + label.Direction * 5f;
 

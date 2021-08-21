@@ -291,6 +291,9 @@ intersections evenly on circle</value>
   <data name="Mode_Info_OutOfMap" xml:space="preserve">
     <value>Out of map</value>
   </data>
+  <data name="Mode_Info_Parallel_ChangeHeight" xml:space="preserve">
+    <value>Press {0} or {1} to change height</value>
+  </data>
   <data name="Mode_Info_Parallel_ChangeShift" xml:space="preserve">
     <value>Press {0} to switch creation side</value>
   </data>
@@ -494,6 +497,9 @@ lock or unlock it</value>
   <data name="Settings_Shortcut_Apply" xml:space="preserve">
     <value>Apply mode action</value>
   </data>
+  <data name="Settings_Shortcut_DecreaseHeight" xml:space="preserve">
+    <value>Decrease height</value>
+  </data>
   <data name="Settings_Shortcut_DecreaseOffset" xml:space="preserve">
     <value>Decrease circle start offset</value>
   </data>
@@ -517,6 +523,9 @@ lock or unlock it</value>
   </data>
   <data name="Settings_Shortcut_DistributeIntersections" xml:space="preserve">
     <value>Distribute intersections evenly on circle</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseHeight" xml:space="preserve">
+    <value>Increase height</value>
   </data>
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
     <value>Increase circle start offset</value>
