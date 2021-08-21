@@ -15,6 +15,8 @@ namespace NetworkMultitool
 {
     public abstract class BaseCreateMode : BaseNetworkMultitoolMode
     {
+        public static NetworkMultitoolShortcut SwitchFollowTerrainShortcut { get; } = GetShortcut(KeyCode.F, nameof(SwitchFollowTerrainShortcut), nameof(Localize.Settings_Shortcut_SwitchFollowTerrain), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as BaseCreateMode)?.SwitchFollowTerrain(), ctrl: true);
+
         protected override bool IsReseted => !IsFirst;
         protected override bool CanSwitchUnderground => !IsBoth;
 
@@ -38,11 +40,16 @@ namespace NetworkMultitool
         protected bool IsSecond => Second != null;
         protected bool IsBoth => IsFirst && IsSecond;
 
+        protected ushort FirstNodeId => IsFirst ? First.Id.GetSegment().GetNode(IsFirstStart) : 0;
+        protected ushort SecondNodeId => IsSecond ? Second.Id.GetSegment().GetNode(IsSecondStart) : 0;
+
         protected float Height { get; set; }
         protected StraightTrajectory FirstTrajectory { get; set; }
         protected StraightTrajectory SecondTrajectory { get; set; }
 
         protected Result State { get; private set; }
+        protected bool FollowTerrain { get; private set; }
+        protected bool IsFollowTerrain => FollowTerrain && FirstNodeId.GetNode().m_flags.IsFlagSet(NetNode.Flags.OnGround) && SecondNodeId.GetNode().m_flags.IsFlagSet(NetNode.Flags.OnGround);
 
         private List<Point> Points { get; set; } = new List<Point>();
         protected NetInfo Info => ToolsModifierControl.toolController.Tools.OfType<NetTool>().FirstOrDefault().Prefab?.m_netAI?.m_info ?? First.Id.GetSegment().Info;
@@ -104,6 +111,7 @@ namespace NetworkMultitool
 
             First = null;
             Second = null;
+            FollowTerrain = Settings.FollowTerrain;
             State = Result.None;
 
             ResetParams();
@@ -146,7 +154,7 @@ namespace NetworkMultitool
                     return false;
             }
             return true;
-        }       
+        }
         public override void OnPrimaryMouseClicked(Event e)
         {
             if (!IsFirst)
@@ -181,10 +189,10 @@ namespace NetworkMultitool
             ref var firstSegment = ref First.Id.GetSegment();
             ref var secondSegment = ref Second.Id.GetSegment();
 
-            var firstPos = (IsFirstStart ? firstSegment.m_startNode : firstSegment.m_endNode).GetNode().m_position;
-            var secondPos = (IsSecondStart ? secondSegment.m_startNode : secondSegment.m_endNode).GetNode().m_position;
-            var firstDir = -(IsFirstStart ? firstSegment.m_startDirection : firstSegment.m_endDirection).MakeFlatNormalized();
-            var secondDir = -(IsSecondStart ? secondSegment.m_startDirection : secondSegment.m_endDirection).MakeFlatNormalized();
+            var firstPos = firstSegment.GetNode(IsFirstStart).GetNode().m_position;
+            var secondPos = secondSegment.GetNode(IsSecondStart).GetNode().m_position;
+            var firstDir = -firstSegment.GetDirection(IsFirstStart).MakeFlatNormalized();
+            var secondDir = -secondSegment.GetDirection(IsSecondStart).MakeFlatNormalized();
 
             Height = (firstPos.y + secondPos.y) / 2f;
 
@@ -235,21 +243,26 @@ namespace NetworkMultitool
                 var secondId = Second.Id;
                 var isFirstStart = IsFirstStart;
                 var isSecondStart = IsSecondStart;
+                var followTerrain = IsFollowTerrain;
                 SimulationManager.instance.AddAction(() =>
                 {
-                    Create(points, firstId, secondId, isFirstStart, isSecondStart, info);
+                    Create(points, firstId, secondId, isFirstStart, isSecondStart, info, followTerrain);
                     PlayEffect(points, info.m_halfWidth, true);
                 });
 
                 Reset(this);
             }
         }
-        private static void Create(Point[] points, ushort firstId, ushort secondId, bool isFirstStart, bool isSecondStart, NetInfo info)
+        private static void Create(Point[] points, ushort firstId, ushort secondId, bool isFirstStart, bool isSecondStart, NetInfo info, bool followTerrain)
         {
-            var startNodeId = isFirstStart ? firstId.GetSegment().m_startNode : firstId.GetSegment().m_endNode;
-            var endNodeId = isSecondStart ? secondId.GetSegment().m_startNode : secondId.GetSegment().m_endNode;
+            var startNodeId = firstId.GetSegment().GetNode(isFirstStart);
+            var endNodeId = secondId.GetSegment().GetNode(isSecondStart);
 
-            SetSlope(points, startNodeId.GetNode().m_position.y, endNodeId.GetNode().m_position.y);
+            if (followTerrain)
+                SetTerrain(points);
+            else
+                SetSlope(points, startNodeId.GetNode().m_position.y, endNodeId.GetNode().m_position.y);
+
             FixEdgePoint(true, points[0], points[1], firstId, isFirstStart);
             FixEdgePoint(false, points[points.Length - 1], points[points.Length - 2], secondId, isSecondStart);
 
@@ -306,9 +319,11 @@ namespace NetworkMultitool
                 }
             }
         }
+
         public void Recalculate() => State = Result.None;
         protected virtual void IncreaseRadius() { }
         protected virtual void DecreaseRadius() { }
+        private void SwitchFollowTerrain() => FollowTerrain = !FollowTerrain;
 
         protected float Step
         {
@@ -363,7 +378,12 @@ namespace NetworkMultitool
             if (State == Result.Calculated && Settings.NetworkPreview != (int)Settings.PreviewType.Overlay)
             {
                 var points = Points.ToArray();
-                SetSlope(points, FirstTrajectory.StartPosition.y, SecondTrajectory.StartPosition.y);
+
+                if (IsFollowTerrain)
+                    SetTerrain(points);
+                else
+                    SetSlope(points, FirstTrajectory.StartPosition.y, SecondTrajectory.StartPosition.y);
+
                 RenderParts(new List<Point>(points), Info);
             }
 

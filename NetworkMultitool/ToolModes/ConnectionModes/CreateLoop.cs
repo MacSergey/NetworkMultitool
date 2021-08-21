@@ -29,6 +29,7 @@ namespace NetworkMultitool
                 yield return ApplyShortcut;
                 yield return IncreaseRadiusShortcut;
                 yield return DecreaseRadiusShortcut;
+                yield return SwitchFollowTerrainShortcut;
             }
         }
 
@@ -323,6 +324,7 @@ namespace NetworkMultitool
                     Localize.Mode_Info_ClickOnNodeToChangeCreateDir + "\n\n" +
                     string.Format(Localize.Mode_Info_ChangeRadius, DecreaseRadiusShortcut, IncreaseRadiusShortcut) + "\n" +
                     string.Format(Localize.Mode_CreateLoop_Info_Change, SwitchIsLoopShortcut) + "\n" +
+                    string.Format(Localize.Mode_Info_SwitchFollowTerrain, SwitchFollowTerrainShortcut) + "\n" +
                     Localize.Mode_Info_Step + "\n" +
                     string.Format(Localize.Mode_Info_Loop_Create, ApplyShortcut);
         }

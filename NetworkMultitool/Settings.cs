@@ -22,6 +22,7 @@ namespace NetworkMultitool
         public static SavedInt PanelColumns { get; } = new SavedInt(nameof(PanelColumns), SettingsFile, 2, true);
         public static SavedBool PlayEffects { get; } = new SavedBool(nameof(PlayEffects), SettingsFile, true, true);
         public static SavedInt NetworkPreview { get; } = new SavedInt(nameof(NetworkPreview), SettingsFile, (int)PreviewType.Both, true);
+        public static SavedBool FollowTerrain { get; } = new SavedBool(nameof(FollowTerrain), SettingsFile, true, true);
 
         protected UIAdvancedHelper ShortcutsTab => GetTab(nameof(ShortcutsTab));
 
@@ -63,6 +64,7 @@ namespace NetworkMultitool
             AddCheckBox(generalGroup, Localize.Settings_PlayEffects, PlayEffects);
             AddCheckboxPanel(generalGroup, Localize.Settings_SlopeUnit, SlopeUnite, new string[] { Localize.Settings_SlopeUnitPercentages, Localize.Settings_SlopeUnitDegrees }, OnSlopeUniteChanged);
             AddCheckboxPanel(generalGroup, Localize.Settings_PreviewType, NetworkPreview, new string[] { Localize.Settings_PreviewTypeOverlay, Localize.Settings_PreviewTypeMesh, Localize.Settings_PreviewTypeBoth });
+            AddCheckBox(generalGroup, Localize.Settings_FollowTerrain, FollowTerrain);
             if (Utility.InGame && !Mod.NodeSpacerEnabled)
                 AddIntField(generalGroup, Localize.Settings_SegmentLength, SegmentLength, 80, 50, 200);
 
@@ -106,6 +108,7 @@ namespace NetworkMultitool
             var generalKeymapping = AddKeyMappingPanel(generalGroup);
             generalKeymapping.AddKeymapping(NetworkMultitoolTool.SelectionStepOverShortcut);
             generalKeymapping.AddKeymapping(BaseNetworkMultitoolMode.ApplyShortcut);
+            generalKeymapping.AddKeymapping(BaseCreateMode.SwitchFollowTerrainShortcut);
 
             var connectionGroup = ShortcutsTab.AddGroup(Localize.Mode_CreateConnection);
             var connectionKeymapping = AddKeyMappingPanel(connectionGroup);

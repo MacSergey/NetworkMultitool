@@ -280,10 +280,8 @@ namespace NetworkMultitool
             segment.m_endDirection = segment.FindDirection(segmentId, segment.m_endNode);
         }
         protected delegate void DirectionGetterDelegate<Type>(Type first, Type second, out Vector3 firstDir, out Vector3 secondDir);
-        protected delegate void PositionSetterDelegate<Type>(ref Type item, Vector3 position);
-        protected delegate void DirectionSetterDelegate<Type>(ref Type item, float position);
 
-        protected static void SetSlope<Type>(Type[] items, float startY, float endY, Func<Type, Vector3> positionGetter, DirectionGetterDelegate<Type> directionGetter, PositionSetterDelegate<Type> positionSetter, out float deltaHeight)
+        protected static void SetSlope<Type>(Type[] items, float startY, float endY, Func<Type, Vector3> positionGetter, DirectionGetterDelegate<Type> directionGetter, Action<Type, Vector3> positionSetter, out float deltaHeight)
         {
             var list = new List<ITrajectory>();
 
@@ -310,10 +308,10 @@ namespace NetworkMultitool
                 currentLength += list[i - 1].Length;
                 var position = positionGetter(items[i]);
                 position.y = Mathf.Lerp(startY, endY, currentLength / sumLength);
-                positionSetter(ref items[i], position);
+                positionSetter(items[i], position);
             }
         }
-        protected static void SetSlope<Type>(Type[] items, Func<Type, Vector3> positionGetter, DirectionGetterDelegate<Type> directionGetter, PositionSetterDelegate<Type> positionSetter)
+        protected static void SetSlope<Type>(Type[] items, Func<Type, Vector3> positionGetter, DirectionGetterDelegate<Type> directionGetter, Action<Type, Vector3> positionSetter)
         {
             var startY = positionGetter(items[0]).y;
             var endY = positionGetter(items[items.Length - 1]).y;
@@ -334,13 +332,24 @@ namespace NetworkMultitool
                 points[i].Direction = direction.normalized;
             }
         }
+        protected static void SetTerrain<Type>(Type[] items, Func<Type, Vector3> positionGetter, Action<Type, Vector3> positionSetter)
+        {
+            for (var i = 1; i < items.Length - 1; i += 1)
+            {
+                var position = positionGetter(items[i]);
+                position.y = TerrainManager.instance.SampleRawHeightSmooth(position);
+                positionSetter(items[i], position);
+            }
+        }
+        protected static void SetTerrain(Point[] points) => SetTerrain(points, PositionGetter, PositionSetter);
+
         private static Vector3 PositionGetter(Point point) => point.Position;
         private static void DirectionGetter(Point first, Point second, out Vector3 firstDir, out Vector3 secondDir)
         {
             firstDir = first.Direction;
             secondDir = -second.Direction;
         }
-        private static void PositionSetter(ref Point point, Vector3 position) => point.Position = position;
+        private static void PositionSetter(Point point, Vector3 position) => point.Position = position;
 
         protected static Rect GetTerrainRect(params ushort[] segmentIds) => segmentIds.Select(i => (ITrajectory)new BezierTrajectory(i)).GetRect();
         protected static void UpdateTerrain(params ushort[] segmentIds)

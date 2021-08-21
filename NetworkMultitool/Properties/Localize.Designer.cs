@@ -676,6 +676,15 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Press {0} to switch follow terrain.
+        /// </summary>
+        internal static string Mode_Info_SwitchFollowTerrain {
+            get {
+                return ResourceManager.GetString("Mode_Info_SwitchFollowTerrain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Press {0} to switch selected offset.
         /// </summary>
         internal static string Mode_Info_SwitchOffset {
@@ -1030,6 +1039,15 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Created on grounds roads follow terrain.
+        /// </summary>
+        internal static string Settings_FollowTerrain {
+            get {
+                return ResourceManager.GetString("Settings_FollowTerrain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Panel columns count.
         /// </summary>
         internal static string Settings_PanelColumns {
@@ -1242,6 +1260,15 @@ namespace NetworkMultitool {
         internal static string Settings_Shortcut_ResetArrangeCircle {
             get {
                 return ResourceManager.GetString("Settings_Shortcut_ResetArrangeCircle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Switch follow terrain.
+        /// </summary>
+        internal static string Settings_Shortcut_SwitchFollowTerrain {
+            get {
+                return ResourceManager.GetString("Settings_Shortcut_SwitchFollowTerrain", resourceCulture);
             }
         }
         

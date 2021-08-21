@@ -321,6 +321,9 @@ intersections evenly on circle</value>
   <data name="Mode_Info_Step" xml:space="preserve">
     <value>Shift - X10, Ctrl - X0.1, Alt - X0.01</value>
   </data>
+  <data name="Mode_Info_SwitchFollowTerrain" xml:space="preserve">
+    <value>Press {0} to switch follow terrain</value>
+  </data>
   <data name="Mode_Info_SwitchOffset" xml:space="preserve">
     <value>Press {0} to switch selected offset</value>
   </data>
@@ -464,6 +467,9 @@ lock or unlock it</value>
   <data name="Settings_CommonShortcuts" xml:space="preserve">
     <value>Modes' common shortcuts</value>
   </data>
+  <data name="Settings_FollowTerrain" xml:space="preserve">
+    <value>Created on grounds roads follow terrain</value>
+  </data>
   <data name="Settings_PanelColumns" xml:space="preserve">
     <value>Panel columns count</value>
   </data>
@@ -535,6 +541,9 @@ lock or unlock it</value>
   </data>
   <data name="Settings_Shortcut_ResetArrangeCircle" xml:space="preserve">
     <value>Reset to default circle</value>
+  </data>
+  <data name="Settings_Shortcut_SwitchFollowTerrain" xml:space="preserve">
+    <value>Switch follow terrain</value>
   </data>
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
     <value>Switch loop direction</value>

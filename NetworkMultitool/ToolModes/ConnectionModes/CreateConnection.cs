@@ -39,6 +39,8 @@ namespace NetworkMultitool
                 yield return SwitchOffsetShortcut;
                 yield return IncreaseOffsetShortcut;
                 yield return DecreaseOffsetShortcut;
+
+                yield return SwitchFollowTerrainShortcut;
             }
         }
 
@@ -101,8 +103,9 @@ namespace NetworkMultitool
                     string.Format(Localize.Mode_Info_ChangeBothRadius, DecreaseRadiiShortcut, IncreaseRadiiShortcut) + "\n" +
                     string.Format(Localize.Mode_Info_ChangeCircle, SwitchSelectShortcut) + "\n" +
                     string.Format(Localize.Mode_Info_ChangeOneRadius, DecreaseOneRadiusShortcut, IncreaseOneRadiusShortcut) + "\n" +
-                    string.Format(Localize.Mode_Info_SwitchOffset, SwitchOffsetShortcut) + "\n" +
-                    string.Format(Localize.Mode_Info_ChangeOffset, DecreaseOffsetShortcut, IncreaseOffsetShortcut) + "\n" +
+                    //string.Format(Localize.Mode_Info_SwitchOffset, SwitchOffsetShortcut) + "\n" +
+                    //string.Format(Localize.Mode_Info_ChangeOffset, DecreaseOffsetShortcut, IncreaseOffsetShortcut) + "\n" +
+                    string.Format(Localize.Mode_Info_SwitchFollowTerrain, SwitchFollowTerrainShortcut) + "\n" +
                     Localize.Mode_Info_Step + "\n" +
                     string.Format(Localize.Mode_Info_Connection_Create, ApplyShortcut);
                 }
