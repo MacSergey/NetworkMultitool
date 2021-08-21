@@ -13,7 +13,7 @@ using static ModsCommon.Utilities.VectorUtilsExtensions;
 
 namespace NetworkMultitool
 {
-    public abstract class BaseCreateMode : BaseNetworkMultitoolMode
+    public abstract class BaseCreateMode : BaseNetworkMultitoolMode, ICostMode
     {
         public static NetworkMultitoolShortcut SwitchFollowTerrainShortcut { get; } = GetShortcut(KeyCode.F, nameof(SwitchFollowTerrainShortcut), nameof(Localize.Settings_Shortcut_SwitchFollowTerrain), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as BaseCreateMode)?.SwitchFollowTerrain(), ctrl: true);
 
@@ -57,6 +57,9 @@ namespace NetworkMultitool
         protected float MaxPossibleRadius => 3000f;
 
         protected bool ForceUnderground => IsBoth && (First.Id.GetSegment().Nodes().Any(n => n.m_flags.IsSet(NetNode.Flags.Underground)) || Second.Id.GetSegment().Nodes().Any(n => n.m_flags.IsSet(NetNode.Flags.Underground)));
+
+        public int Cost { get; private set; }
+        private new bool EnoughMoney => !Settings.NeedMoney || EnoughMoney(Cost);
 
         protected static Func<float> MaxLengthGetter { get; private set; }
         private static Func<float> DefaultMaxLengthGetter { get; } = () => Settings.SegmentLength;
@@ -112,6 +115,7 @@ namespace NetworkMultitool
             First = null;
             Second = null;
             FollowTerrain = Settings.FollowTerrain;
+            Cost = 0;
             State = Result.None;
 
             ResetParams();
@@ -140,6 +144,9 @@ namespace NetworkMultitool
                 {
                     if (!CheckOutOfMap())
                         State = Result.OutOfMap;
+
+                    if (Settings.NeedMoney)
+                        Cost = GetCost(Points.ToArray(), Info);
                 }
             }
         }
@@ -236,7 +243,7 @@ namespace NetworkMultitool
         }
         protected override void Apply()
         {
-            if (State == Result.Calculated && Info is NetInfo info)
+            if (State == Result.Calculated && EnoughMoney && Info is NetInfo info)
             {
                 var points = Points.ToArray();
                 var firstId = First.Id;
@@ -244,16 +251,17 @@ namespace NetworkMultitool
                 var isFirstStart = IsFirstStart;
                 var isSecondStart = IsSecondStart;
                 var followTerrain = IsFollowTerrain;
+                var cost = Cost;
                 SimulationManager.instance.AddAction(() =>
                 {
-                    Create(points, firstId, secondId, isFirstStart, isSecondStart, info, followTerrain);
+                    Create(points, firstId, secondId, isFirstStart, isSecondStart, info, followTerrain, cost);
                     PlayEffect(points, info.m_halfWidth, true);
                 });
 
                 Reset(this);
             }
         }
-        private static void Create(Point[] points, ushort firstId, ushort secondId, bool isFirstStart, bool isSecondStart, NetInfo info, bool followTerrain)
+        private static void Create(Point[] points, ushort firstId, ushort secondId, bool isFirstStart, bool isSecondStart, NetInfo info, bool followTerrain, int cost)
         {
             var startNodeId = firstId.GetSegment().GetNode(isFirstStart);
             var endNodeId = secondId.GetSegment().GetNode(isSecondStart);
@@ -281,6 +289,8 @@ namespace NetworkMultitool
                 CreateSegmentAuto(out var newSegmentId, info, nodeIds[i - 1], nodeIds[i], points[i - 1].ForwardDirection, points[i].BackwardDirection);
                 CalculateSegmentDirections(newSegmentId);
             }
+
+            ChangeMoney(cost, info);
         }
         private static void FixEdgePoint(bool isFirst, Point point, Point nextPoint, ushort startSegmentId, bool isStart)
         {
@@ -363,7 +373,7 @@ namespace NetworkMultitool
                 var info = Info;
                 RenderCalculatedOverlay(cameraInfo, Info);
                 if (Settings.NetworkPreview != (int)Settings.PreviewType.Mesh)
-                    RenderParts(Points, cameraInfo, Colors.Yellow, info.m_halfWidth * 2f);
+                    RenderParts(Points, cameraInfo, EnoughMoney ? Colors.Yellow : Colors.Red, info.m_halfWidth * 2f);
             }
             else if (State != Result.None)
             {

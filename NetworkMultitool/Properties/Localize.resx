@@ -279,6 +279,9 @@ intersections evenly on circle</value>
   <data name="Mode_Info_Connection_Create" xml:space="preserve">
     <value>Press {0} to create connection</value>
   </data>
+  <data name="Mode_Info_ConstructionCost" xml:space="preserve">
+    <value>Construction cost: {0}</value>
+  </data>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Press {0} to create</value>
   </data>
@@ -287,6 +290,9 @@ intersections evenly on circle</value>
   </data>
   <data name="Mode_Info_Loop_Create" xml:space="preserve">
     <value>Press {0} to create loop</value>
+  </data>
+  <data name="Mode_Info_NotEnoughMoney" xml:space="preserve">
+    <value>Not enough money</value>
   </data>
   <data name="Mode_Info_OutOfMap" xml:space="preserve">
     <value>Out of map</value>
@@ -308,6 +314,9 @@ intersections evenly on circle</value>
   </data>
   <data name="Mode_Info_RadiusTooSmall" xml:space="preserve">
     <value>Radius too small</value>
+  </data>
+  <data name="Mode_Info_Refund" xml:space="preserve">
+    <value>Refund: {0}</value>
   </data>
   <data name="Mode_Info_SelectFirstSegment" xml:space="preserve">
     <value>Select first segment</value>
@@ -472,6 +481,15 @@ lock or unlock it</value>
   </data>
   <data name="Settings_FollowTerrain" xml:space="preserve">
     <value>Created on grounds roads follow terrain</value>
+  </data>
+  <data name="Settings_Gameplay" xml:space="preserve">
+    <value>Gameplay</value>
+  </data>
+  <data name="Settings_Interface" xml:space="preserve">
+    <value>Interface</value>
+  </data>
+  <data name="Settings_NeedMoney" xml:space="preserve">
+    <value>Requires money to build</value>
   </data>
   <data name="Settings_PanelColumns" xml:space="preserve">
     <value>Panel columns count</value>

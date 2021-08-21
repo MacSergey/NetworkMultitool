@@ -434,6 +434,7 @@ namespace NetworkMultitool
                 {
                     Arrange(nodes, center, radius);
                     PlayAudio(true);
+                    ClearSelectionBuffer();
                 });
 
                 Tool.SetMode(ToolModeType.ArrangeAtCircle);

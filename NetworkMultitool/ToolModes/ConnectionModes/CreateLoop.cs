@@ -311,11 +311,12 @@ namespace NetworkMultitool
                 return Localize.Mode_Info_ClickOnNodeToChangeCreateDir;
             else
                 return
+                    CostInfo +
                     Localize.Mode_Info_ClickOnNodeToChangeCreateDir + "\n\n" +
                     string.Format(Localize.Mode_Info_ChangeRadius, DecreaseRadiusShortcut, IncreaseRadiusShortcut) + "\n" +
+                    Localize.Mode_Info_Step + "\n" +
                     string.Format(Localize.Mode_CreateLoop_Info_Change, SwitchIsLoopShortcut) + "\n" +
                     string.Format(Localize.Mode_Info_SwitchFollowTerrain, SwitchFollowTerrainShortcut) + "\n" +
-                    Localize.Mode_Info_Step + "\n" +
                     string.Format(Localize.Mode_Info_Loop_Create, ApplyShortcut);
         }
         protected override void ResetParams()

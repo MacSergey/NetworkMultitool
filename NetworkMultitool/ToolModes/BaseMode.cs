@@ -123,6 +123,8 @@ namespace NetworkMultitool
                 return false;
         }
 
+        #region INFO
+
         public sealed override string GetToolInfo()
         {
             var info = GetInfo();
@@ -134,11 +136,35 @@ namespace NetworkMultitool
         protected virtual string GetInfo() => string.Empty;
         protected string StepOverInfo => NetworkMultitoolTool.SelectionStepOverShortcut.NotSet ? string.Empty : "\n\n" + string.Format(CommonLocalize.Tool_InfoSelectionStepOver, NetworkMultitoolTool.SelectionStepOverShortcut.InputKey);
         protected string UndergroundInfo => $"\n\n{Localize.Mode_Info_UndergroundMode}";
+        protected string CostInfo
+        {
+            get
+            {
+                var text = string.Empty;
+
+                if (this is ICostMode costMode && Settings.NeedMoney)
+                {
+                    if (costMode.Cost >= 0)
+                        text += string.Format(Localize.Mode_Info_ConstructionCost, costMode.Cost / 100) + "\n";
+                    else
+                        text += string.Format(Localize.Mode_Info_Refund, -costMode.Cost / 100) + "\n";
+
+                    if (costMode.Cost >= 0 && !EnoughMoney(costMode.Cost))
+                        text += Localize.Mode_Info_NotEnoughMoney + "\n";
+                    text += "\n";
+                }
+
+                return text;
+            }
+        }
+
+        #endregion
 
         protected override bool CheckSegment(ushort segmentId) => (AllowUntouch || segmentId.GetSegment().m_flags.CheckFlags(0, NetSegment.Flags.Untouchable)) && base.CheckSegment(segmentId);
 
         protected override bool CheckItemClass(ItemClass itemClass) => itemClass.m_layer == ItemClass.Layer.Default || itemClass.m_layer == ItemClass.Layer.MetroTunnels;
 
+        #region CREATE
 
         protected static bool CreateNode(out ushort newNodeId, NetInfo info, Vector3 position)
         {
@@ -189,6 +215,10 @@ namespace NetworkMultitool
             return selectedInfo;
         }
 
+        #endregion
+
+        #region REMOVE
+
         protected static void RemoveNode(ushort nodeId) => Singleton<NetManager>.instance.ReleaseNode(nodeId);
         protected static void RemoveSegment(ushort segmentId, bool keepNodes = true) => Singleton<NetManager>.instance.ReleaseSegment(segmentId, keepNodes);
         protected static void RelinkSegment(ushort segmentId, ushort sourceNodeId, ushort targetNodeId)
@@ -215,6 +245,11 @@ namespace NetworkMultitool
             CreateSegment(out var newSegmentId, info, otherNodeId, targetNodeId, otherDir, sourceDir, invert);
             CalculateSegmentDirections(newSegmentId);
         }
+
+        #endregion
+
+        #region CHANGE
+
         protected static void MoveNode(ushort nodeId, Vector3 newPos)
         {
             ref var node = ref nodeId.GetNode();
@@ -352,6 +387,10 @@ namespace NetworkMultitool
         }
         private static void PositionSetter(ref Point point, Vector3 position) => point.Position = position;
 
+        #endregion
+
+        #region TERRAIN
+
         protected static Rect GetTerrainRect(params ushort[] segmentIds) => segmentIds.Select(i => (ITrajectory)new BezierTrajectory(i)).GetRect();
         protected static void UpdateTerrain(params ushort[] segmentIds)
         {
@@ -359,6 +398,40 @@ namespace NetworkMultitool
                 UpdateTerrain(GetTerrainRect(segmentIds));
         }
         protected static void UpdateTerrain(Rect rect) => TerrainModify.UpdateArea(rect.xMin, rect.yMin, rect.xMax, rect.yMax, true, true, false);
+
+        #endregion
+
+        #region MONEY
+
+        protected static bool EnoughMoney(int amount) => EconomyManager.instance.PeekResource(EconomyManager.Resource.Construction, amount) >= amount;
+        protected static void FetchMoney(int amount, NetInfo info) => EconomyManager.instance.FetchResource(EconomyManager.Resource.Construction, amount, info.m_class);
+        protected static void AddMoney(int amount, NetInfo info) => EconomyManager.instance.AddResource(EconomyManager.Resource.RefundAmount, amount, info.m_class);
+        protected static void ChangeMoney(int amount, NetInfo info)
+        {
+            if (amount > 0)
+                FetchMoney(amount, info);
+            else
+                AddMoney(-amount, info);
+        }
+
+        protected static int GetCost(Point[] points, NetInfo info)
+        {
+            var cost = 0;
+
+            for (var i = 1; i < points.Length; i += 1)
+            {
+                info = GetInfo(info, points[i - 1].Position, points[i].Position, out _);
+                var trajectory = GetTrajectory(points[i - 1], points[i]);
+                cost += GetCost(trajectory.Length, info);
+            }
+
+            return cost;
+        }
+        protected static int GetCost(float length, NetInfo info) => Mathf.RoundToInt(length / 8f) * info.GetConstructionCost();
+
+        #endregion
+
+        #region LABELS
 
         protected InfoLabel AddLabel(float size = 2f, Color? color = null)
         {
@@ -384,7 +457,10 @@ namespace NetworkMultitool
             Labels.Clear();
         }
 
-        protected Vector3 GetMousePosition(float height) => Underground ? Tool.Ray.GetRayPosition(height, out _) : Tool.MouseWorldPosition;
+        #endregion
+
+        #region RENDER
+
         protected void RenderSegmentNodes(RenderManager.CameraInfo cameraInfo, Func<ushort, bool> isAllow = null)
         {
             if (IsHoverSegment)
@@ -525,6 +601,11 @@ namespace NetworkMultitool
                 }
             }
         }
+
+        #endregion
+
+        #region EFFECTS
+
         protected static void PlayEffect(EffectInfo.SpawnArea spawnArea, bool create)
         {
             if (Settings.PlayEffects)
@@ -550,6 +631,10 @@ namespace NetworkMultitool
             var effectInfo = create ? Singleton<NetManager>.instance.m_properties.m_placementEffect : Singleton<NetManager>.instance.m_properties.m_bulldozeEffect;
             Singleton<EffectManager>.instance.DispatchEffect(effectInfo, new EffectInfo.SpawnArea(), Vector3.zero, 0f, 1f, Singleton<AudioManager>.instance.DefaultGroup, 0u, avoidMultipleAudio: true);
         }
+
+        #endregion
+
+        protected Vector3 GetMousePosition(float height) => Underground ? Tool.Ray.GetRayPosition(height, out _) : Tool.MouseWorldPosition;
 
         public struct Point
         {
@@ -716,6 +801,10 @@ namespace NetworkMultitool
     public interface ISelectToolMode
     {
         public void IgnoreSelected();
+    }
+    public interface ICostMode
+    {
+        public int Cost { get; }
     }
     public class InfoLabel : CustomUILabel
     {

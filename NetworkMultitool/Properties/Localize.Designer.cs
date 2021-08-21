@@ -550,6 +550,15 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Construction cost: {0}.
+        /// </summary>
+        internal static string Mode_Info_ConstructionCost {
+            get {
+                return ResourceManager.GetString("Mode_Info_ConstructionCost", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Press {0} to create.
         /// </summary>
         internal static string Mode_Info_Create {
@@ -573,6 +582,15 @@ namespace NetworkMultitool {
         internal static string Mode_Info_Loop_Create {
             get {
                 return ResourceManager.GetString("Mode_Info_Loop_Create", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Not enough money.
+        /// </summary>
+        internal static string Mode_Info_NotEnoughMoney {
+            get {
+                return ResourceManager.GetString("Mode_Info_NotEnoughMoney", resourceCulture);
             }
         }
         
@@ -636,6 +654,15 @@ namespace NetworkMultitool {
         internal static string Mode_Info_RadiusTooSmall {
             get {
                 return ResourceManager.GetString("Mode_Info_RadiusTooSmall", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Refund: {0}.
+        /// </summary>
+        internal static string Mode_Info_Refund {
+            get {
+                return ResourceManager.GetString("Mode_Info_Refund", resourceCulture);
             }
         }
         
@@ -1053,6 +1080,33 @@ namespace NetworkMultitool {
         internal static string Settings_FollowTerrain {
             get {
                 return ResourceManager.GetString("Settings_FollowTerrain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Gameplay.
+        /// </summary>
+        internal static string Settings_Gameplay {
+            get {
+                return ResourceManager.GetString("Settings_Gameplay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Interface.
+        /// </summary>
+        internal static string Settings_Interface {
+            get {
+                return ResourceManager.GetString("Settings_Interface", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Requires money to build.
+        /// </summary>
+        internal static string Settings_NeedMoney {
+            get {
+                return ResourceManager.GetString("Settings_NeedMoney", resourceCulture);
             }
         }
         

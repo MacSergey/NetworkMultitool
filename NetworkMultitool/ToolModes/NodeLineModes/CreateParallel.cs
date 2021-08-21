@@ -13,7 +13,7 @@ using static ModsCommon.Utilities.VectorUtilsExtensions;
 
 namespace NetworkMultitool
 {
-    class CreateParallelMode : BaseNodeLineMode
+    public class CreateParallelMode : BaseNodeLineMode, ICostMode
     {
         public static NetworkMultitoolShortcut IncreaseShiftShortcut { get; } = GetShortcut(KeyCode.Equals, nameof(IncreaseShiftShortcut), nameof(Localize.Settings_Shortcut_IncreaseShift), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as CreateParallelMode)?.IncreaseShift(), repeat: true, ignoreModifiers: true);
         public static NetworkMultitoolShortcut DecreaseShiftShortcut { get; } = GetShortcut(KeyCode.Minus, nameof(DecreaseShiftShortcut), nameof(Localize.Settings_Shortcut_DecreaseShift), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as CreateParallelMode)?.DecreaseShift(), repeat: true, ignoreModifiers: true);
@@ -39,6 +39,8 @@ namespace NetworkMultitool
         private InfoLabel StartHeightLabel { get; set; }
         private InfoLabel EndHeightLabel { get; set; }
         private bool AllowHeight => Info.m_segments.All(s => !s.m_requireHeightMap);
+        public int Cost { get; private set; }
+        private new bool EnoughMoney => !Settings.NeedMoney || EnoughMoney(Cost);
 
         public override IEnumerable<NetworkMultitoolShortcut> Shortcuts
         {
@@ -62,6 +64,7 @@ namespace NetworkMultitool
         {
             if (AddState == AddResult.None && Nodes.Count >= 2)
                 return
+                    CostInfo +
                     Localize.Mode_NodeLine_Info_SelectNode + "\n" +
                     string.Format(Localize.Mode_Info_ChangeShift, DecreaseShiftShortcut, IncreaseShiftShortcut) + "\n" +
                     (AllowHeight ? (string.Format(Localize.Mode_Info_Parallel_ChangeHeight, DecreaseHeightShortcut, IncreaseHeightShortcut) + "\n") : string.Empty) +
@@ -81,6 +84,7 @@ namespace NetworkMultitool
             Side = true;
             Invert = false;
             DeltaHeight = 0f;
+            Cost = 0;
 
             if (StartLine != null && StartLine.Label != null)
             {
@@ -221,6 +225,9 @@ namespace NetworkMultitool
 
             Calculated = true;
 
+            if (Settings.NeedMoney)
+                Cost = GetCost(Points.ToArray(), Info);
+
             ref var startNode = ref Nodes[0].Id.GetNode();
             ref var endNode = ref Nodes[Nodes.Count - 1].Id.GetNode();
 
@@ -235,20 +242,21 @@ namespace NetworkMultitool
         }
         protected override void Apply()
         {
-            if (Nodes.Count >= 2)
+            if (Nodes.Count >= 2 && EnoughMoney)
             {
                 var points = Points.ToArray();
                 var invert = Side ^ Invert;
                 var info = Info;
+                var cost = Cost;
 
                 SimulationManager.instance.AddAction(() =>
                 {
-                    Create(points, invert, info);
+                    Create(points, invert, info, cost);
                     PlayEffect(points, info.m_halfWidth, true);
                 });
             }
         }
-        private static void Create(Point[] points, bool invert, NetInfo info)
+        private static void Create(Point[] points, bool invert, NetInfo info, int cost)
         {
             var nodeIds = new List<ushort>();
 
@@ -268,6 +276,8 @@ namespace NetworkMultitool
 
                 CalculateSegmentDirections(newSegmentId);
             }
+
+            ChangeMoney(cost, info);
         }
         private void IncreaseShift() => ChangeShift(true);
         private void DecreaseShift() => ChangeShift(false);
@@ -340,7 +350,7 @@ namespace NetworkMultitool
             if (Calculated)
             {
                 if (Settings.NetworkPreview != (int)Settings.PreviewType.Mesh)
-                    RenderParts(Points, cameraInfo, Colors.Yellow, Info.m_halfWidth * 2f);
+                    RenderParts(Points, cameraInfo, EnoughMoney ? Colors.Yellow : Colors.Red, Info.m_halfWidth * 2f);
 
                 StartLine.Render(cameraInfo, Colors.Gray224, Colors.Gray224, Underground);
                 EndLine.Render(cameraInfo, Colors.Gray224, Colors.Gray224, Underground);

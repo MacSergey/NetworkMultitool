@@ -23,6 +23,7 @@ namespace NetworkMultitool
         public static SavedBool PlayEffects { get; } = new SavedBool(nameof(PlayEffects), SettingsFile, true, true);
         public static SavedInt NetworkPreview { get; } = new SavedInt(nameof(NetworkPreview), SettingsFile, (int)PreviewType.Both, true);
         public static SavedBool FollowTerrain { get; } = new SavedBool(nameof(FollowTerrain), SettingsFile, true, true);
+        public static SavedBool NeedMoney { get; } = new SavedBool(nameof(NeedMoney), SettingsFile, true, true);
 
         protected UIAdvancedHelper ShortcutsTab => GetTab(nameof(ShortcutsTab));
 
@@ -57,16 +58,19 @@ namespace NetworkMultitool
         {
             AddLanguage(GeneralTab);
 
-            var generalGroup = GeneralTab.AddGroup(CommonLocalize.Settings_General);
-            AddCheckBox(generalGroup, CommonLocalize.Settings_ShowTooltips, ShowToolTip);
-            AddCheckBox(generalGroup, Localize.Settings_AutoHideModePanel, AutoHideModePanel, OnAutoHideChanged);
-            AddIntField(generalGroup, Localize.Settings_PanelColumns, PanelColumns, 2, 1, 5, OnColumnChanged);
-            AddCheckBox(generalGroup, Localize.Settings_PlayEffects, PlayEffects);
-            AddCheckboxPanel(generalGroup, Localize.Settings_SlopeUnit, SlopeUnite, new string[] { Localize.Settings_SlopeUnitPercentages, Localize.Settings_SlopeUnitDegrees }, OnSlopeUniteChanged);
-            AddCheckboxPanel(generalGroup, Localize.Settings_PreviewType, NetworkPreview, new string[] { Localize.Settings_PreviewTypeOverlay, Localize.Settings_PreviewTypeMesh, Localize.Settings_PreviewTypeBoth });
-            AddCheckBox(generalGroup, Localize.Settings_FollowTerrain, FollowTerrain);
+            var interfaceGroup = GeneralTab.AddGroup(Localize.Settings_Interface);
+            AddCheckBox(interfaceGroup, CommonLocalize.Settings_ShowTooltips, ShowToolTip);
+            AddCheckBox(interfaceGroup, Localize.Settings_AutoHideModePanel, AutoHideModePanel, OnAutoHideChanged);
+            AddIntField(interfaceGroup, Localize.Settings_PanelColumns, PanelColumns, 2, 1, 5, OnColumnChanged);
+            AddCheckBox(interfaceGroup, Localize.Settings_PlayEffects, PlayEffects);
+            AddCheckboxPanel(interfaceGroup, Localize.Settings_PreviewType, NetworkPreview, new string[] { Localize.Settings_PreviewTypeOverlay, Localize.Settings_PreviewTypeMesh, Localize.Settings_PreviewTypeBoth });
+
+            var gameplayGroup = GeneralTab.AddGroup(Localize.Settings_Gameplay);
+            AddCheckBox(gameplayGroup, Localize.Settings_NeedMoney, NeedMoney);
+            AddCheckBox(gameplayGroup, Localize.Settings_FollowTerrain, FollowTerrain);
+            AddCheckboxPanel(gameplayGroup, Localize.Settings_SlopeUnit, SlopeUnite, new string[] { Localize.Settings_SlopeUnitPercentages, Localize.Settings_SlopeUnitDegrees }, OnSlopeUniteChanged);
             if (Utility.InGame && !Mod.NodeSpacerEnabled)
-                AddIntField(generalGroup, Localize.Settings_SegmentLength, SegmentLength, 80, 50, 200);
+                AddIntField(gameplayGroup, Localize.Settings_SegmentLength, SegmentLength, 80, 50, 200);
 
             AddNotifications(GeneralTab);
 

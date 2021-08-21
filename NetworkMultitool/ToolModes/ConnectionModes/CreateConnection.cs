@@ -94,6 +94,7 @@ namespace NetworkMultitool
                 }
 
                 var text =
+                    CostInfo +
                     Localize.Mode_Info_ClickOnNodeToChangeCreateDir + "\n" +
                     Localize.Mode_Connection_Info_DoubleClickOnCenterToChangeDir;
 
@@ -105,8 +106,8 @@ namespace NetworkMultitool
                     string.Format(Localize.Mode_Info_ChangeOneRadius, DecreaseOneRadiusShortcut, IncreaseOneRadiusShortcut) + "\n" +
                     //string.Format(Localize.Mode_Info_SwitchOffset, SwitchOffsetShortcut) + "\n" +
                     //string.Format(Localize.Mode_Info_ChangeOffset, DecreaseOffsetShortcut, IncreaseOffsetShortcut) + "\n" +
-                    string.Format(Localize.Mode_Info_SwitchFollowTerrain, SwitchFollowTerrainShortcut) + "\n" +
                     Localize.Mode_Info_Step + "\n" +
+                    string.Format(Localize.Mode_Info_SwitchFollowTerrain, SwitchFollowTerrainShortcut) + "\n" +
                     string.Format(Localize.Mode_Info_Connection_Create, ApplyShortcut);
                 }
 
