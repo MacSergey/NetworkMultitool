@@ -203,7 +203,10 @@ okrągły kształt nie będzie idealny</value>
   <data name="Mode_Info_ArrangeCircle_DragToMoveNode" xml:space="preserve">
     <value>Przeciągnij, aby przesunąć węzeł</value>
   </data>
-  
+  <data name="Mode_Info_ArrangeCircle_MoveAll" xml:space="preserve">
+    <value>Przytrzymaj {0}, aby przenieść wszystkie węzły
+jednocześnie</value>
+  </data>
   <data name="Mode_Info_ArrangeCircle_PressToDistributeBetweenIntersections" xml:space="preserve">
     <value>Naciśnij {0}, aby rozdzielić węzły
 równomiernie pomiędzy skrzyżowaniami</value>
@@ -328,13 +331,16 @@ równomiernie w okręgu</value>
   <data name="Mode_Info_SwitchOffset" xml:space="preserve">
     <value>Naciśnij {0}, aby przełączyć wybrane przesunięcie</value>
   </data>
-  
+  <data name="Mode_Info_UndergroundMode" xml:space="preserve">
+    <value>Przytrzymaj {0} by przejść w tryb podziemny</value>
+  </data>
   <data name="Mode_Info_WrongShape" xml:space="preserve">
     <value>Nieprawidłowy kształt</value>
   </data>
   <data name="Mode_IntersectSegment" xml:space="preserve">
     <value>Tryb przecinania segmentów</value>
   </data>
+  
   <data name="Mode_IntersectSegment_Info_EdgeTooClose" xml:space="preserve">
     <value>Krawędź pierwszego segmentu jest zbyt blisko końca drugiego segmentu</value>
   </data>
@@ -381,7 +387,10 @@ ponieważ nie jest połączony z pozostałymi</value>
   <data name="Mode_SplitNode_Info_ClickToOrder" xml:space="preserve">
     <value>Naciśnij, aby dodać segment do kolejki dzielenia</value>
   </data>
-  
+  <data name="Mode_SplitNode_Info_ClickToSplit" xml:space="preserve">
+    <value>Naciśnij, aby podzielić węzeł i wyrównać do wysokości terenu
+Naciśnij trzymając {0} aby podzielić węzeł i wyrównać do wysokości źródłowej</value>
+  </data>
   <data name="Mode_SplitNode_Info_NotAllowedSplit" xml:space="preserve">
     <value>Nie da się podzielić węzła z tylko jednym segmentem</value>
   </data>

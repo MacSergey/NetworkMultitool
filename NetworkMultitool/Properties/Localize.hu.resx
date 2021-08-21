@@ -264,13 +264,16 @@ kattints duplán a kör közepére</value>
   <data name="Mode_Info_SwitchOffset" xml:space="preserve">
     <value>Nyomd meg a {0}-t a kiválasztott görbe indítási eltolásának váltásához</value>
   </data>
-  
+  <data name="Mode_Info_UndergroundMode" xml:space="preserve">
+    <value>Tartsd lenyomva a {0} a földalatti módhoz</value>
+  </data>
   <data name="Mode_Info_WrongShape" xml:space="preserve">
     <value>Helytelen alak</value>
   </data>
   <data name="Mode_IntersectSegment" xml:space="preserve">
     <value>Szegmensek metszése mód</value>
   </data>
+  
   <data name="Mode_IntersectSegment_Info_EdgeTooClose" xml:space="preserve">
     <value>Az egyik szegmens széle túl közel van a másik szegmens végéhez</value>
   </data>

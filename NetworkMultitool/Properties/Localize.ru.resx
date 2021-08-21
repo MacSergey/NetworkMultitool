@@ -348,6 +348,9 @@
   <data name="Mode_IntersectSegment" xml:space="preserve">
     <value>Режим пересечения сегментов</value>
   </data>
+  <data name="Mode_IntersectSegment_Info_CommonNode" xml:space="preserve">
+    <value>Эти сегменты имеют общий узел</value>
+  </data>
   <data name="Mode_IntersectSegment_Info_EdgeTooClose" xml:space="preserve">
     <value>Край одного сегмента слишком близок
 к концу другого сегмента</value>

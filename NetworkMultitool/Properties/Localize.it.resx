@@ -204,7 +204,10 @@ la forma rotonda non sarà perfetta</value>
   <data name="Mode_Info_ArrangeCircle_DragToMoveNode" xml:space="preserve">
     <value>Trascina per spostare il nodo</value>
   </data>
-  
+  <data name="Mode_Info_ArrangeCircle_MoveAll" xml:space="preserve">
+    <value>Tieni premuto {0} per spostare tutti i nodi
+allo stesso tempo</value>
+  </data>
   <data name="Mode_Info_ArrangeCircle_PressToDistributeBetweenIntersections" xml:space="preserve">
     <value>Premi {0} per distribuire i nodi
 in modo uniforme tra le intersezioni</value>
@@ -318,13 +321,17 @@ in modo uniforme tra le intersezioni</value>
   <data name="Mode_Info_SwitchOffset" xml:space="preserve">
     <value>Premi {0} per cambiare lo spostamento selezionato</value>
   </data>
-  
+  <data name="Mode_Info_UndergroundMode" xml:space="preserve">
+    <value>Tieni premuto {0} per
+modalità sotterranea</value>
+  </data>
   <data name="Mode_Info_WrongShape" xml:space="preserve">
     <value>Forma sbagliata</value>
   </data>
   <data name="Mode_IntersectSegment" xml:space="preserve">
     <value>Modalità interseca i segmenti</value>
   </data>
+  
   <data name="Mode_IntersectSegment_Info_EdgeTooClose" xml:space="preserve">
     <value>Il bordo di un segmento è troppo vicino alla fine del secondo segmento</value>
   </data>

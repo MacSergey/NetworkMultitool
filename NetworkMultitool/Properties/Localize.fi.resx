@@ -264,13 +264,16 @@ muuttaaksesi mutkan suuntaa</value>
   <data name="Mode_Info_SwitchOffset" xml:space="preserve">
     <value>Paina {0} valitaksesi toinen siirtymä</value>
   </data>
-  
+  <data name="Mode_Info_UndergroundMode" xml:space="preserve">
+    <value>Pidä {0}-näppäintä pohjassa nähdäksesi maanalaiset tiet</value>
+  </data>
   <data name="Mode_Info_WrongShape" xml:space="preserve">
     <value>Väärä muoto</value>
   </data>
   <data name="Mode_IntersectSegment" xml:space="preserve">
     <value>Teiden risteys</value>
   </data>
+  
   <data name="Mode_IntersectSegment_Info_EdgeTooClose" xml:space="preserve">
     <value>Tie on liian lähellä toisen tien päätä</value>
   </data>
@@ -316,7 +319,10 @@ muuttaaksesi mutkan suuntaa</value>
   <data name="Mode_SplitNode_Info_ClickToOrder" xml:space="preserve">
     <value>Napauta lisätäksesi tie erotettavien listalle</value>
   </data>
-  
+  <data name="Mode_SplitNode_Info_ClickToSplit" xml:space="preserve">
+    <value>Napauta jakaaksesi risteys maaston korkeuteen
+Napauta {0}-näppäin pohjassa jakaaksesi risteys lähtökorkeuteen</value>
+  </data>
   <data name="Mode_SplitNode_Info_NotAllowedSplit" xml:space="preserve">
     <value>Vain yhtä tietä ei voi erottaa</value>
   </data>

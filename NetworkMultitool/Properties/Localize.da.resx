@@ -202,7 +202,10 @@ vil ikke blive perfekt</value>
   <data name="Mode_Info_ArrangeCircle_DragToMoveNode" xml:space="preserve">
     <value>Træk for at flytte node</value>
   </data>
-  
+  <data name="Mode_Info_ArrangeCircle_MoveAll" xml:space="preserve">
+    <value>Hold {0} nede for at flytte alle noder
+på samme tid</value>
+  </data>
   <data name="Mode_Info_ArrangeCircle_PressToDistributeBetweenIntersections" xml:space="preserve">
     <value>Tryk på {0} for at fordele noder jævnt mellem kryds</value>
   </data>
@@ -314,13 +317,16 @@ skæringspunkter jævnt på cirklen</value>
   <data name="Mode_Info_SwitchOffset" xml:space="preserve">
     <value>Tryk på {0} for at skifte valgte offset</value>
   </data>
-  
+  <data name="Mode_Info_UndergroundMode" xml:space="preserve">
+    <value>Hold {0} nede for undergrundstilstand</value>
+  </data>
   <data name="Mode_Info_WrongShape" xml:space="preserve">
     <value>Forkert form</value>
   </data>
   <data name="Mode_IntersectSegment" xml:space="preserve">
     <value>Vejkryds tilstand</value>
   </data>
+  
   <data name="Mode_IntersectSegment_Info_EdgeTooClose" xml:space="preserve">
     <value>Kanten af den ene vej er for tæt på slutningen af den anden vej</value>
   </data>
@@ -367,7 +373,10 @@ fordi den ikke er forbundet med andre</value>
   <data name="Mode_SplitNode_Info_ClickToOrder" xml:space="preserve">
     <value>Klik for at tilføje element til opdelt rækkefølge</value>
   </data>
-  
+  <data name="Mode_SplitNode_Info_ClickToSplit" xml:space="preserve">
+    <value>Klik for at opdele node og justere til terrænhøjde
+Klik med {0} for at opdele node og justere til kildehøjde</value>
+  </data>
   <data name="Mode_SplitNode_Info_NotAllowedSplit" xml:space="preserve">
     <value>Ikke muligt at opdele node med kun et element</value>
   </data>

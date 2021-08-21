@@ -199,7 +199,9 @@
   <data name="Mode_Info_ArrangeCircle_DragToMoveNode" xml:space="preserve">
     <value>Düğümü ayarlamak için tutup çekin</value>
   </data>
-  
+  <data name="Mode_Info_ArrangeCircle_MoveAll" xml:space="preserve">
+    <value>Tüm düğümleri aynı anda hareket ettirmek için {0}'e basılı tut</value>
+  </data>
   <data name="Mode_Info_ArrangeCircle_PressToDistributeBetweenIntersections" xml:space="preserve">
     <value>{0} tuşuyla düğümleri kesişimler arasında eşit dağıtabilirsiniz</value>
   </data>
@@ -308,13 +310,16 @@
   <data name="Mode_Info_SwitchOffset" xml:space="preserve">
     <value>Seçilen merkezi değiştirmek için {0} tuşunu kullanın</value>
   </data>
-  
+  <data name="Mode_Info_UndergroundMode" xml:space="preserve">
+    <value>Yeraltı modu için {0}'e basılı tutun</value>
+  </data>
   <data name="Mode_Info_WrongShape" xml:space="preserve">
     <value>Yanlış şekil</value>
   </data>
   <data name="Mode_IntersectSegment" xml:space="preserve">
     <value>Kesişen sektör modu</value>
   </data>
+  
   <data name="Mode_IntersectSegment_Info_EdgeTooClose" xml:space="preserve">
     <value>Sektörlerden birinin kenarı diğerine çok yakın</value>
   </data>
@@ -426,7 +431,9 @@
   <data name="Settings_Shortcut_IncreaseHeight" xml:space="preserve">
     <value>Yüksekliği artır</value>
   </data>
-  
+  <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
+    <value>Dairenin başlangıç uzantısını arttır</value>
+  </data>
   <data name="Settings_Shortcut_IncreaseOneRadius" xml:space="preserve">
     <value>Tek bir yarıçapı arttırın</value>
   </data>

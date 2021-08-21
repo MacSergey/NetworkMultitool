@@ -204,7 +204,9 @@
   <data name="Mode_Info_ArrangeCircle_DragToMoveNode" xml:space="preserve">
     <value>ドラッグしてノードを移動</value>
   </data>
-  
+  <data name="Mode_Info_ArrangeCircle_MoveAll" xml:space="preserve">
+    <value>{0} で全てのノードを同時に移動</value>
+  </data>
   <data name="Mode_Info_ArrangeCircle_PressToDistributeBetweenIntersections" xml:space="preserve">
     <value>{0} で交差点間のノードを均等配置</value>
   </data>
@@ -274,8 +276,12 @@
   <data name="Mode_Info_CreateBezier_MoveGiude" xml:space="preserve">
     <value>形状の変更はポイントを選択して伸縮</value>
   </data>
-  
-  
+  <data name="Mode_Info_HoldToMoveSlower" xml:space="preserve">
+    <value>{0} で X{1} 遅く移動</value>
+  </data>
+  <data name="Mode_Info_HoldToStep" xml:space="preserve">
+    <value>{0} で {1} 刻み</value>
+  </data>
   <data name="Mode_Info_Loop_Create" xml:space="preserve">
     <value>{0} で曲線接続を確定</value>
   </data>
@@ -319,7 +325,7 @@
     <value>{0} でスロープ化を確定</value>
   </data>
   <data name="Mode_Info_Step" xml:space="preserve">
-    <value>Shift x10倍 / Ctrl x0.1倍 / Alt x0.01倍</value>
+    <value>Shift x10 / Ctrl x0.1 / Alt x0.01</value>
   </data>
   <data name="Mode_Info_SwitchFollowTerrain" xml:space="preserve">
     <value>{0} で地形に追従</value>
@@ -327,12 +333,17 @@
   <data name="Mode_Info_SwitchOffset" xml:space="preserve">
     <value>{0} でカーブ開始前のオフセットを切り替え</value>
   </data>
-  
+  <data name="Mode_Info_UndergroundMode" xml:space="preserve">
+    <value>{0} で地下表示に切り替え</value>
+  </data>
   <data name="Mode_Info_WrongShape" xml:space="preserve">
     <value>形状が不適切です</value>
   </data>
   <data name="Mode_IntersectSegment" xml:space="preserve">
     <value>Mode: セグメントのクロス結合</value>
+  </data>
+  <data name="Mode_IntersectSegment_Info_CommonNode" xml:space="preserve">
+    <value>このセグメントは同じノードにあって選択できません</value>
   </data>
   <data name="Mode_IntersectSegment_Info_EdgeTooClose" xml:space="preserve">
     <value>1 つ目と2つ目で選択した、いずれかのセグメントが終端に近すぎます</value>
@@ -380,7 +391,10 @@
   <data name="Mode_SplitNode_Info_ClickToOrder" xml:space="preserve">
     <value>クリックして分割したいセグメントを追加</value>
   </data>
-  
+  <data name="Mode_SplitNode_Info_ClickToSplit" xml:space="preserve">
+    <value>クリックしてノードの分割は、地形側の高さに追従
+クリック + {0} で、分割元の高さで追従</value>
+  </data>
   <data name="Mode_SplitNode_Info_NotAllowedSplit" xml:space="preserve">
     <value>単一セグメントではノードの分割はできません</value>
   </data>

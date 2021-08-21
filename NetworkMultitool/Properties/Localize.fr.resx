@@ -204,7 +204,10 @@ La forme ronde ne sera pas parfaite</value>
   <data name="Mode_Info_ArrangeCircle_DragToMoveNode" xml:space="preserve">
     <value>Faites glisser pour déplacer le nœud</value>
   </data>
-  
+  <data name="Mode_Info_ArrangeCircle_MoveAll" xml:space="preserve">
+    <value>Maintenez {0} pour déplacer
+tous les nœuds simultanément</value>
+  </data>
   <data name="Mode_Info_ArrangeCircle_PressToDistributeBetweenIntersections" xml:space="preserve">
     <value>Appuyez sur {0} pour répartir uniformément
 les nœuds entre les intersections</value>
@@ -315,13 +318,16 @@ les nœuds sur le cercle</value>
   <data name="Mode_Info_SwitchOffset" xml:space="preserve">
     <value>Appuyer sur {0} pour modifier le décalage du début de la courbe sélectionnée</value>
   </data>
-  
+  <data name="Mode_Info_UndergroundMode" xml:space="preserve">
+    <value>Maintenez la touche {0} pour utiliser le mode souterrain</value>
+  </data>
   <data name="Mode_Info_WrongShape" xml:space="preserve">
     <value>Forme incorrecte</value>
   </data>
   <data name="Mode_IntersectSegment" xml:space="preserve">
     <value>Intersecter des segments</value>
   </data>
+  
   <data name="Mode_IntersectSegment_Info_EdgeTooClose" xml:space="preserve">
     <value>Le bord du segment est trop proche de la fin du second segment</value>
   </data>

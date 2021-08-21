@@ -204,7 +204,10 @@ Runde Form wird nicht perfekt sein</value>
   <data name="Mode_Info_ArrangeCircle_DragToMoveNode" xml:space="preserve">
     <value>Ziehen, um den Netzwerk-Knoten zu bewegen</value>
   </data>
-  
+  <data name="Mode_Info_ArrangeCircle_MoveAll" xml:space="preserve">
+    <value>Halte {0} gedrückt, um alle Netzwerk-Knoten
+gleichzeitig zu bewegen</value>
+  </data>
   <data name="Mode_Info_ArrangeCircle_PressToDistributeBetweenIntersections" xml:space="preserve">
     <value>Drücke {0}, um die Netzwerk-Knoten
 gleichmäßig zwischen den Kreuzungen zu verteilen</value>
@@ -329,13 +332,16 @@ gleichmäßig auf den Kreis zu verteilen</value>
   <data name="Mode_Info_SwitchOffset" xml:space="preserve">
     <value>Drücke {0}, um den ausgewählten Abstand zu wechseln</value>
   </data>
-  
+  <data name="Mode_Info_UndergroundMode" xml:space="preserve">
+    <value>Halte {0} gedrückt für den unterirdischen Modus</value>
+  </data>
   <data name="Mode_Info_WrongShape" xml:space="preserve">
     <value>Falsche Form</value>
   </data>
   <data name="Mode_IntersectSegment" xml:space="preserve">
     <value>Segmente kreuzen</value>
   </data>
+  
   <data name="Mode_IntersectSegment_Info_EdgeTooClose" xml:space="preserve">
     <value>Rand eines Segments ist zu nahe am Ende des zweiten Segments</value>
   </data>

@@ -204,7 +204,10 @@ el circulo no será perfecto</value>
   <data name="Mode_Info_ArrangeCircle_DragToMoveNode" xml:space="preserve">
     <value>Arrastre para mover el nodo</value>
   </data>
-  
+  <data name="Mode_Info_ArrangeCircle_MoveAll" xml:space="preserve">
+    <value>Mantener pulsada la tecla {0} para mover 
+todos los nodos al mismo tiempo</value>
+  </data>
   <data name="Mode_Info_ArrangeCircle_PressToDistributeBetweenIntersections" xml:space="preserve">
     <value>Pulsa {0} para distribuir los nodos 
 de manera uniforme entre las intersecciones</value>
@@ -277,7 +280,9 @@ de manera uniforme en el círculo</value>
   <data name="Mode_Info_CreateBezier_MoveGiude" xml:space="preserve">
     <value>Mover guías de curva Bézier para cambiar la forma</value>
   </data>
-  
+  <data name="Mode_Info_HoldToMoveSlower" xml:space="preserve">
+    <value>Mantén presionado {0} para mover X{1} más lento</value>
+  </data>
   
   <data name="Mode_Info_Loop_Create" xml:space="preserve">
     <value>Pulsa {0} para crear curva</value>
@@ -328,12 +333,17 @@ de manera uniforme en el círculo</value>
   <data name="Mode_Info_SwitchOffset" xml:space="preserve">
     <value>Pulsa {0} para cambiar el desplazamiento inicial de la curva seleccionada</value>
   </data>
-  
+  <data name="Mode_Info_UndergroundMode" xml:space="preserve">
+    <value>Mantenga {0} para entrar al modo subterráneo</value>
+  </data>
   <data name="Mode_Info_WrongShape" xml:space="preserve">
     <value>Forma incorrecta</value>
   </data>
   <data name="Mode_IntersectSegment" xml:space="preserve">
     <value>Modo de intersección de segmentos</value>
+  </data>
+  <data name="Mode_IntersectSegment_Info_CommonNode" xml:space="preserve">
+    <value>Estos segmentos tienen un nodo en común</value>
   </data>
   <data name="Mode_IntersectSegment_Info_EdgeTooClose" xml:space="preserve">
     <value>El borde del primer segmento está muy cerca del final del segundo segmento</value>

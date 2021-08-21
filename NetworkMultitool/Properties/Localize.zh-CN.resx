@@ -204,7 +204,10 @@
   <data name="Mode_Info_ArrangeCircle_DragToMoveNode" xml:space="preserve">
     <value>拖动以移动节点</value>
   </data>
-  
+  <data name="Mode_Info_ArrangeCircle_MoveAll" xml:space="preserve">
+    <value>按住 {0} 键
+同时移动所有节点</value>
+  </data>
   <data name="Mode_Info_ArrangeCircle_PressToDistributeBetweenIntersections" xml:space="preserve">
     <value>按下 {0} 在交叉口之间
 平均分布节点</value>
@@ -276,8 +279,12 @@
   <data name="Mode_Info_CreateBezier_MoveGiude" xml:space="preserve">
     <value>移动贝塞尔曲线把手以更改形状</value>
   </data>
-  
-  
+  <data name="Mode_Info_HoldToMoveSlower" xml:space="preserve">
+    <value>按住 {0} 键X{1} 倍慢速移动。</value>
+  </data>
+  <data name="Mode_Info_HoldToStep" xml:space="preserve">
+    <value>按住 {0} 键可以步进 {1}</value>
+  </data>
   <data name="Mode_Info_Loop_Create" xml:space="preserve">
     <value>按 {0} 创建环形</value>
   </data>
@@ -329,12 +336,17 @@
   <data name="Mode_Info_SwitchOffset" xml:space="preserve">
     <value>按 {0} 切换选中偏移</value>
   </data>
-  
+  <data name="Mode_Info_UndergroundMode" xml:space="preserve">
+    <value>按住 {0} 进入地下模式</value>
+  </data>
   <data name="Mode_Info_WrongShape" xml:space="preserve">
     <value>形状错误</value>
   </data>
   <data name="Mode_IntersectSegment" xml:space="preserve">
     <value>交叉段落模式</value>
+  </data>
+  <data name="Mode_IntersectSegment_Info_CommonNode" xml:space="preserve">
+    <value>这些段落有共同节点</value>
   </data>
   <data name="Mode_IntersectSegment_Info_EdgeTooClose" xml:space="preserve">
     <value>一个段落的边缘离另一段落终点过近</value>

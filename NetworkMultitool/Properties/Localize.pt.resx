@@ -181,7 +181,10 @@ para mudar a direção da curva</value>
   
   
   
-  
+  <data name="Mode_Info_ArrangeCircle_MoveAll" xml:space="preserve">
+    <value>Mantenha {0} para mover todos os nós
+ao mesmo tempo</value>
+  </data>
   
   
   
@@ -272,13 +275,16 @@ para mudar a direção da curva</value>
   <data name="Mode_Info_SwitchOffset" xml:space="preserve">
     <value>Pressione {0} para alternar deslocamento selecionado</value>
   </data>
-  
+  <data name="Mode_Info_UndergroundMode" xml:space="preserve">
+    <value>Segurar {0} para o modo subterrâneo</value>
+  </data>
   <data name="Mode_Info_WrongShape" xml:space="preserve">
     <value>Forma errada</value>
   </data>
   <data name="Mode_IntersectSegment" xml:space="preserve">
     <value>Modo de intersecção de segmentos</value>
   </data>
+  
   <data name="Mode_IntersectSegment_Info_EdgeTooClose" xml:space="preserve">
     <value>Borda de um segmento é muito perto do final do segundo segmento</value>
   </data>

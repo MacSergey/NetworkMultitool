@@ -204,7 +204,10 @@
   <data name="Mode_Info_ArrangeCircle_DragToMoveNode" xml:space="preserve">
     <value>드래그해 노드 이동</value>
   </data>
-  
+  <data name="Mode_Info_ArrangeCircle_MoveAll" xml:space="preserve">
+    <value>{0} 키를 누른 채로 모든 노드를
+동시에 이동</value>
+  </data>
   <data name="Mode_Info_ArrangeCircle_PressToDistributeBetweenIntersections" xml:space="preserve">
     <value>{0} 키를 눌러 노드를 교차로
 사이에 일정하게 배치</value>
@@ -267,19 +270,25 @@
   <data name="Mode_Info_Connection_Create" xml:space="preserve">
     <value>{0} 키를 눌러서 연결 생성</value>
   </data>
-  
+  <data name="Mode_Info_ConstructionCost" xml:space="preserve">
+    <value>건설 비용: {0}</value>
+  </data>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>{0} 키를 눌러서 생성</value>
   </data>
   <data name="Mode_Info_CreateBezier_MoveGiude" xml:space="preserve">
     <value>베지어 곡선의 제어점을 옮겨 형태 변경</value>
   </data>
-  
+  <data name="Mode_Info_HoldToMoveSlower" xml:space="preserve">
+    <value>{0} 키를 눌러 {1}배 느리게 이동</value>
+  </data>
   
   <data name="Mode_Info_Loop_Create" xml:space="preserve">
     <value>{0} 키를 눌러서 루프 생성</value>
   </data>
-  
+  <data name="Mode_Info_NotEnoughMoney" xml:space="preserve">
+    <value>돈이 부족합니다</value>
+  </data>
   <data name="Mode_Info_OutOfMap" xml:space="preserve">
     <value>지도 밖</value>
   </data>
@@ -326,6 +335,7 @@
   <data name="Mode_IntersectSegment" xml:space="preserve">
     <value>세그먼트 교차 모드</value>
   </data>
+  
   <data name="Mode_IntersectSegment_Info_EdgeTooClose" xml:space="preserve">
     <value>첫 세그먼트의 끝점이 두 번째의 끝점과 너무 가까움</value>
   </data>
@@ -436,9 +446,15 @@
     <value>모드 내 일반 단축키</value>
   </data>
   
-  
-  
-  
+  <data name="Settings_Gameplay" xml:space="preserve">
+    <value>게임 플레이</value>
+  </data>
+  <data name="Settings_Interface" xml:space="preserve">
+    <value>인터페이스</value>
+  </data>
+  <data name="Settings_NeedMoney" xml:space="preserve">
+    <value>건설에 비용 필요</value>
+  </data>
   <data name="Settings_PanelColumns" xml:space="preserve">
     <value>패널 열 갯수</value>
   </data>

@@ -244,10 +244,13 @@ om de richting van de curve te veranderen</value>
   
   
   
-  
+  <data name="Mode_Info_UndergroundMode" xml:space="preserve">
+    <value>Houd {0} om in ondergrondse modus te gaan</value>
+  </data>
   <data name="Mode_Info_WrongShape" xml:space="preserve">
     <value>Verkeerde vorm</value>
   </data>
+  
   
   <data name="Mode_IntersectSegment_Info_EdgeTooClose" xml:space="preserve">
     <value>De rand van één segment is te dichtbij het einde van het tweede segment</value>
