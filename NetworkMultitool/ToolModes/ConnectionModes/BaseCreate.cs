@@ -13,8 +13,10 @@ using static ModsCommon.Utilities.VectorUtilsExtensions;
 
 namespace NetworkMultitool
 {
-    public abstract class BaseCreateMode : BaseNetworkMultitoolMode
+    public abstract class BaseCreateMode : BaseNetworkMultitoolMode, ICostMode
     {
+        public static NetworkMultitoolShortcut SwitchFollowTerrainShortcut { get; } = GetShortcut(KeyCode.F, nameof(SwitchFollowTerrainShortcut), nameof(Localize.Settings_Shortcut_SwitchFollowTerrain), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as BaseCreateMode)?.SwitchFollowTerrain(), ctrl: true);
+
         protected override bool IsReseted => !IsFirst;
         protected override bool CanSwitchUnderground => !IsBoth;
 
@@ -27,7 +29,7 @@ namespace NetworkMultitool
         private static float TurnAngle { get; } = Mathf.PI / 90f;
         protected override bool IsValidSegment(ushort segmentId) => !IsBoth && segmentId != First?.Id && segmentId != Second?.Id;
         protected override bool IsValidNode(ushort nodeId) => (!IsBoth && base.IsValidNode(nodeId)) || (IsBoth && (First.Id.GetSegment().Contains(nodeId) || Second.Id.GetSegment().Contains(nodeId)));
-
+        protected override bool AllowUntouch => true;
 
         protected SegmentSelection First { get; set; }
         protected SegmentSelection Second { get; set; }
@@ -38,11 +40,16 @@ namespace NetworkMultitool
         protected bool IsSecond => Second != null;
         protected bool IsBoth => IsFirst && IsSecond;
 
+        protected ushort FirstNodeId => IsFirst ? First.Id.GetSegment().GetNode(IsFirstStart) : 0;
+        protected ushort SecondNodeId => IsSecond ? Second.Id.GetSegment().GetNode(IsSecondStart) : 0;
+
         protected float Height { get; set; }
         protected StraightTrajectory FirstTrajectory { get; set; }
         protected StraightTrajectory SecondTrajectory { get; set; }
 
         protected Result State { get; private set; }
+        protected bool FollowTerrain { get; private set; }
+        protected bool IsFollowTerrain => FollowTerrain && FirstNodeId.GetNode().m_flags.IsFlagSet(NetNode.Flags.OnGround) && SecondNodeId.GetNode().m_flags.IsFlagSet(NetNode.Flags.OnGround);
 
         private List<Point> Points { get; set; } = new List<Point>();
         protected NetInfo Info => ToolsModifierControl.toolController.Tools.OfType<NetTool>().FirstOrDefault().Prefab?.m_netAI?.m_info ?? First.Id.GetSegment().Info;
@@ -50,6 +57,9 @@ namespace NetworkMultitool
         protected float MaxPossibleRadius => 3000f;
 
         protected bool ForceUnderground => IsBoth && (First.Id.GetSegment().Nodes().Any(n => n.m_flags.IsSet(NetNode.Flags.Underground)) || Second.Id.GetSegment().Nodes().Any(n => n.m_flags.IsSet(NetNode.Flags.Underground)));
+
+        public int Cost { get; private set; }
+        private new bool EnoughMoney => !Settings.NeedMoney || EnoughMoney(Cost);
 
         protected static Func<float> MaxLengthGetter { get; private set; }
         private static Func<float> DefaultMaxLengthGetter { get; } = () => Settings.SegmentLength;
@@ -104,6 +114,8 @@ namespace NetworkMultitool
 
             First = null;
             Second = null;
+            FollowTerrain = Settings.FollowTerrain;
+            Cost = 0;
             State = Result.None;
 
             ResetParams();
@@ -123,21 +135,18 @@ namespace NetworkMultitool
             {
                 Points = new List<Point>();
 
-                Points.Add(new Point(FirstTrajectory.StartPosition, FirstTrajectory.Direction));
+                Points.Add(new Point(FirstTrajectory.StartPosition.SetHeight(Height), FirstTrajectory.Direction));
                 Points.AddRange(Calculate(out var result));
-                Points.Add(new Point(SecondTrajectory.StartPosition, -SecondTrajectory.Direction));
+                Points.Add(new Point(SecondTrajectory.StartPosition.SetHeight(Height), -SecondTrajectory.Direction));
 
                 State = result;
                 if (State == Result.Calculated)
                 {
                     if (!CheckOutOfMap())
                         State = Result.OutOfMap;
-                    else
-                    {
-                        FixEdgePoint(true, Points[0], Points[1]);
-                        FixEdgePoint(false, Points[Points.Count - 1], Points[Points.Count - 2]);
-                        SetSlope(Points);
-                    }
+
+                    if (Settings.NeedMoney)
+                        Cost = GetCost(Points.ToArray(), Info);
                 }
             }
         }
@@ -152,43 +161,6 @@ namespace NetworkMultitool
                     return false;
             }
             return true;
-        }
-        private void FixEdgePoint(bool isFirst, Point point, Point nextPoint)
-        {
-            ref var selectSegment = ref (isFirst ? First : Second).Id.GetSegment();
-            var nodeId = (isFirst ? IsFirstStart : IsSecondStart) ? selectSegment.m_startNode : selectSegment.m_endNode;
-            ref var node = ref nodeId.GetNode();
-
-            foreach (var segmentId in node.SegmentIds())
-            {
-                ref var segment = ref segmentId.GetSegment();
-                var startDir = segment.IsStartNode(nodeId) ? segment.m_startDirection : segment.m_endDirection;
-                var segmentAngle = MathExtention.GetAngle(isFirst ? point.Direction : -point.Direction, startDir);
-
-                if (Mathf.Abs(segmentAngle) < TurnAngle)
-                {
-                    var otherNodeId = segment.GetOtherNode(nodeId);
-                    ref var otherNode = ref otherNodeId.GetNode();
-                    var partDir = nextPoint.Position - point.Position;
-                    var segmentDir = otherNode.m_position - node.m_position;
-                    var angle = MathExtention.GetAngle(partDir, segmentDir);
-
-                    if (segmentAngle == 0)
-                        point.Direction = point.Direction.TurnRad(TurnAngle, angle >= 0);
-                    else if (Mathf.Sign(angle) == Mathf.Sign(segmentAngle))
-                    {
-                        var delta = TurnAngle - Mathf.Abs(segmentAngle);
-                        point.Direction = point.Direction.TurnRad(delta, segmentAngle >= 0);
-                    }
-                    else
-                    {
-                        var delta = TurnAngle + Mathf.Abs(segmentAngle);
-                        point.Direction = point.Direction.TurnRad(delta, segmentAngle <= 0);
-
-                    }
-                    break;
-                }
-            }
         }
         public override void OnPrimaryMouseClicked(Event e)
         {
@@ -224,14 +196,12 @@ namespace NetworkMultitool
             ref var firstSegment = ref First.Id.GetSegment();
             ref var secondSegment = ref Second.Id.GetSegment();
 
-            var firstPos = (IsFirstStart ? firstSegment.m_startNode : firstSegment.m_endNode).GetNode().m_position;
-            var secondPos = (IsSecondStart ? secondSegment.m_startNode : secondSegment.m_endNode).GetNode().m_position;
-            var firstDir = -(IsFirstStart ? firstSegment.m_startDirection : firstSegment.m_endDirection).MakeFlatNormalized();
-            var secondDir = -(IsSecondStart ? secondSegment.m_startDirection : secondSegment.m_endDirection).MakeFlatNormalized();
+            var firstPos = firstSegment.GetNode(IsFirstStart).GetNode().m_position;
+            var secondPos = secondSegment.GetNode(IsSecondStart).GetNode().m_position;
+            var firstDir = -firstSegment.GetDirection(IsFirstStart).MakeFlatNormalized();
+            var secondDir = -secondSegment.GetDirection(IsSecondStart).MakeFlatNormalized();
 
             Height = (firstPos.y + secondPos.y) / 2f;
-            firstPos.y = Height;
-            secondPos.y = Height;
 
             FirstTrajectory = new StraightTrajectory(firstPos, firstPos + firstDir, false);
             SecondTrajectory = new StraightTrajectory(secondPos, secondPos + secondDir, false);
@@ -273,43 +243,101 @@ namespace NetworkMultitool
         }
         protected override void Apply()
         {
-            if (State == Result.Calculated && Info is NetInfo info)
+            if (State == Result.Calculated && EnoughMoney && Info is NetInfo info)
             {
                 var points = Points.ToArray();
                 var firstId = First.Id;
                 var secondId = Second.Id;
                 var isFirstStart = IsFirstStart;
                 var isSecondStart = IsSecondStart;
+                var followTerrain = IsFollowTerrain;
+                var cost = Cost;
                 SimulationManager.instance.AddAction(() =>
                 {
-                    Create(points, firstId, secondId, isFirstStart, isSecondStart, info);
+                    Create(points, firstId, secondId, isFirstStart, isSecondStart, info, followTerrain, cost);
                     PlayEffect(points, info.m_halfWidth, true);
                 });
 
                 Reset(this);
             }
         }
-        private static void Create(Point[] points, ushort firstId, ushort secondId, bool isFirstStart, bool isSecondStart, NetInfo info)
+        private static void Create(Point[] points, ushort firstId, ushort secondId, bool isFirstStart, bool isSecondStart, NetInfo info, bool followTerrain, int cost)
         {
+            var startNodeId = firstId.GetSegment().GetNode(isFirstStart);
+            var endNodeId = secondId.GetSegment().GetNode(isSecondStart);
+
+            if (followTerrain)
+                SetTerrain(points);
+            else
+                SetSlope(points, startNodeId.GetNode().m_position.y, endNodeId.GetNode().m_position.y);
+
+            FixEdgePoint(true, points[0], points[1], firstId, isFirstStart);
+            FixEdgePoint(false, points[points.Length - 1], points[points.Length - 2], secondId, isSecondStart);
+
             var nodeIds = new List<ushort>();
 
-            nodeIds.Add(isFirstStart ? firstId.GetSegment().m_startNode : firstId.GetSegment().m_endNode);
+            nodeIds.Add(startNodeId);
             for (var i = 1; i < points.Length - 1; i += 1)
             {
                 CreateNode(out var newNodeId, info, points[i].Position);
                 nodeIds.Add(newNodeId);
             }
-            nodeIds.Add(isSecondStart ? secondId.GetSegment().m_startNode : secondId.GetSegment().m_endNode);
+            nodeIds.Add(endNodeId);
 
             for (var i = 1; i < nodeIds.Count; i += 1)
             {
-                CreateSegmentAuto(out var newSegmentId, info, nodeIds[i - 1], nodeIds[i], points[i - 1].Direction, -points[i].Direction);
+                CreateSegmentAuto(out var newSegmentId, info, nodeIds[i - 1], nodeIds[i], points[i - 1].ForwardDirection, points[i].BackwardDirection);
                 CalculateSegmentDirections(newSegmentId);
             }
+
+            ChangeMoney(cost, info);
         }
+        private static void FixEdgePoint(bool isFirst, Point point, Point nextPoint, ushort startSegmentId, bool isStart)
+        {
+            ref var selectSegment = ref startSegmentId.GetSegment();
+            var nodeId = isStart ? selectSegment.m_startNode : selectSegment.m_endNode;
+            ref var node = ref nodeId.GetNode();
+
+            foreach (var segmentId in node.SegmentIds())
+            {
+                ref var segment = ref segmentId.GetSegment();
+                var startDir = segment.IsStartNode(nodeId) ? segment.m_startDirection : segment.m_endDirection;
+                var segmentAngle = MathExtention.GetAngle(isFirst ? point.ForwardDirection : point.BackwardDirection, startDir);
+
+                if (Mathf.Abs(segmentAngle) < TurnAngle)
+                {
+                    var otherNodeId = segment.GetOtherNode(nodeId);
+                    ref var otherNode = ref otherNodeId.GetNode();
+                    var partDir = nextPoint.Position - point.Position;
+                    var segmentDir = otherNode.m_position - node.m_position;
+                    var angle = MathExtention.GetAngle(partDir, segmentDir);
+
+                    if (segmentAngle == 0)
+                    {
+                        point.ForwardDirection = point.ForwardDirection.TurnRad(TurnAngle, angle >= 0);
+                        point.BackwardDirection = point.BackwardDirection.TurnRad(TurnAngle, angle >= 0);
+                    }
+                    else if (Mathf.Sign(angle) == Mathf.Sign(segmentAngle))
+                    {
+                        var delta = TurnAngle - Mathf.Abs(segmentAngle);
+                        point.ForwardDirection = point.ForwardDirection.TurnRad(delta, segmentAngle >= 0);
+                        point.BackwardDirection = point.BackwardDirection.TurnRad(delta, segmentAngle >= 0);
+                    }
+                    else
+                    {
+                        var delta = TurnAngle + Mathf.Abs(segmentAngle);
+                        point.ForwardDirection = point.ForwardDirection.TurnRad(delta, segmentAngle <= 0);
+                        point.BackwardDirection = point.BackwardDirection.TurnRad(delta, segmentAngle <= 0);
+                    }
+                    break;
+                }
+            }
+        }
+
         public void Recalculate() => State = Result.None;
         protected virtual void IncreaseRadius() { }
         protected virtual void DecreaseRadius() { }
+        private void SwitchFollowTerrain() => FollowTerrain = !FollowTerrain;
 
         protected float Step
         {
@@ -343,19 +371,38 @@ namespace NetworkMultitool
             if (State == Result.Calculated)
             {
                 var info = Info;
-                RenderCalculatedOverlay(cameraInfo, info);
-                RenderParts(Points, cameraInfo, Colors.Yellow, info.m_halfWidth * 2f);
+                RenderCalculatedOverlay(cameraInfo, Info);
+                if (Settings.NetworkPreview != (int)Settings.PreviewType.Mesh)
+                    RenderParts(Points, cameraInfo, EnoughMoney ? Colors.Yellow : Colors.Red, info.m_halfWidth * 2f);
             }
             else if (State != Result.None)
             {
-                RenderFailedOverlay(cameraInfo, Info);
-                RenderParts(Points, cameraInfo);
+                var info = Info;
+                RenderFailedOverlay(cameraInfo, info);
+                if (Settings.NetworkPreview != (int)Settings.PreviewType.Mesh)
+                    RenderParts(Points, cameraInfo);
             }
 
             base.RenderOverlay(cameraInfo);
         }
         protected virtual void RenderCalculatedOverlay(RenderManager.CameraInfo cameraInfo, NetInfo info) { }
         protected virtual void RenderFailedOverlay(RenderManager.CameraInfo cameraInfo, NetInfo info) { }
+        public override void RenderGeometry(RenderManager.CameraInfo cameraInfo)
+        {
+            if (State == Result.Calculated && Settings.NetworkPreview != (int)Settings.PreviewType.Overlay)
+            {
+                var points = Points.ToArray();
+
+                if (IsFollowTerrain)
+                    SetTerrain(points);
+                else
+                    SetSlope(points, FirstTrajectory.StartPosition.y, SecondTrajectory.StartPosition.y);
+
+                RenderParts(points, Info);
+            }
+
+            base.RenderGeometry(cameraInfo);
+        }
 
         public enum Result
         {
@@ -490,10 +537,10 @@ namespace NetworkMultitool
             {
                 if (Label is InfoLabel label)
                 {
-                    label.isVisible = show;
+                    label.Show = show;
                     if (show)
                     {
-                        label.text = $"{GetRadiusString(Radius)}\n{GetAngleString(Mathf.Abs(Angle))}";
+                        label.text = $"{GetLengthString(Radius)}\n{GetAngleString(Mathf.Abs(Angle))}";
                         label.Direction = CenterDir;
                         label.WorldPosition = CenterPos + label.Direction * 5f;
 

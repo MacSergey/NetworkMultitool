@@ -246,7 +246,7 @@ namespace NetworkMultitool
 
             public override Vector3 CenterPos
             {
-                get => Guide.StartPosition - MainDir * Radius + Guide.Direction * Offset;
+                get => Guide.StartPosition.SetHeight(Height) - MainDir * Radius + Guide.Direction * Offset;
                 set
                 {
                     var normal = new StraightTrajectory(value, value + MainDir, false);
@@ -278,8 +278,8 @@ namespace NetworkMultitool
                 CircleType.Last => EndRadiusDir,
             };
 
-            public override Vector3 StartPos => Type == CircleType.First ? Guide.Position(Offset) : base.StartPos;
-            public override Vector3 EndPos => Type == CircleType.Last ? Guide.Position(Offset) : base.EndPos;
+            public override Vector3 StartPos => Type == CircleType.First ? Guide.Position(Offset).SetHeight(Height) : base.StartPos;
+            public override Vector3 EndPos => Type == CircleType.Last ? Guide.Position(Offset).SetHeight(Height) : base.EndPos;
             public override Vector3 StartDir => Type == CircleType.First ? Guide.Direction : base.StartDir;
             public override Vector3 EndDir => Type == CircleType.Last ? -Guide.Direction : base.EndDir;
 
@@ -377,7 +377,7 @@ namespace NetworkMultitool
     public abstract class BaseAdditionalCreateConnectionMode : BaseCreateConnectionMode
     {
         public int Edit { get; protected set; }
-        protected bool IsEdit => Edit != -1;
+        protected bool IsEdit => Edit >= 0;
 
         public override void OnMouseUp(Event e) => Tool.SetMode(ToolModeType.CreateConnection);
         public override bool OnEscape()
@@ -390,7 +390,7 @@ namespace NetworkMultitool
         {
             for (var i = 0; i < Circles.Count; i += 1)
             {
-                if (IsSnapping(Circles[Edit]) && Utility.NotPressed && Math.Abs(i - Edit) == 1 && Circle.IsSnapping(Circles[i], Circles[Edit]))
+                if (IsEdit && IsSnapping(Circles[Edit]) && Utility.NotPressed && Math.Abs(i - Edit) == 1 && Circle.IsSnapping(Circles[i], Circles[Edit]))
                     Circles[i].RenderCircle(cameraInfo, Colors.Orange, Underground);
                 else
                     Circles[i].RenderCircle(cameraInfo, i == Edit ? Colors.Green : Colors.Green.SetAlpha(64), Underground);

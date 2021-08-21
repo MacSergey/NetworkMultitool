@@ -14,23 +14,10 @@ namespace NetworkMultitool
 {
     public abstract class BaseCreateLoopMode : BaseCreateMode
     {
-        public static NetworkMultitoolShortcut IncreaseRadiusShortcut { get; } = GetShortcut(KeyCode.Equals, nameof(IncreaseRadiusShortcut), nameof(Localize.Settings_Shortcut_IncreaseRadius), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as BaseCreateLoopMode)?.IncreaseRadius(), ToolModeType.Create, repeat: true, ignoreModifiers: true);
-        public static NetworkMultitoolShortcut DecreaseRadiusShortcut { get; } = GetShortcut(KeyCode.Minus, nameof(DecreaseRadiusShortcut), nameof(Localize.Settings_Shortcut_DecreaseRadius), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as BaseCreateLoopMode)?.DecreaseRadius(), ToolModeType.Create, repeat: true, ignoreModifiers: true);
-
         public MiddleCircle Circle { get; private set; }
         public Straight StartStraight { get; private set; }
         public Straight EndStraight { get; private set; }
         public bool IsHoverCenter { get; protected set; }
-
-        public override IEnumerable<NetworkMultitoolShortcut> Shortcuts
-        {
-            get
-            {
-                yield return ApplyShortcut;
-                yield return IncreaseRadiusShortcut;
-                yield return DecreaseRadiusShortcut;
-            }
-        }
 
         protected override void Reset(IToolMode prevMode)
         {
@@ -264,7 +251,7 @@ namespace NetworkMultitool
                 StartT = startT;
                 EndT = endT;
 
-                var intersect = (StartGuide.Position(StartT) + EndGuide.Position(EndT)) / 2f;
+                var intersect = (StartGuide.Position(StartT).SetHeight(Height) + EndGuide.Position(EndT).SetHeight(Height)) / 2f;
                 var centerDir = (StartGuide.Direction + EndGuide.Direction).normalized;
                 CenterLine = new StraightTrajectory(intersect, intersect + centerDir, false);
             }
@@ -282,13 +269,16 @@ namespace NetworkMultitool
 
             public void GetStraight(InfoLabel startLabel, InfoLabel endLabel, float height, out Straight start, out Straight end)
             {
-                start = new Straight(StartGuide.StartPosition, StartPos, StartRadiusDir, startLabel, height);
-                end = new Straight(EndPos, EndGuide.StartPosition, EndRadiusDir, endLabel, height);
+                start = new Straight(StartGuide.StartPosition.SetHeight(Height), StartPos, StartRadiusDir, startLabel, height);
+                end = new Straight(EndPos, EndGuide.StartPosition.SetHeight(Height), EndRadiusDir, endLabel, height);
             }
         }
     }
     public class CreateLoopMode : BaseCreateLoopMode
     {
+        public static NetworkMultitoolShortcut IncreaseRadiusShortcut { get; } = GetShortcut(KeyCode.Equals, nameof(IncreaseRadiusShortcut), nameof(Localize.Settings_Shortcut_IncreaseRadius), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as CreateLoopMode)?.IncreaseRadius(), ToolModeType.Create, repeat: true, ignoreModifiers: true);
+        public static NetworkMultitoolShortcut DecreaseRadiusShortcut { get; } = GetShortcut(KeyCode.Minus, nameof(DecreaseRadiusShortcut), nameof(Localize.Settings_Shortcut_DecreaseRadius), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as CreateLoopMode)?.DecreaseRadius(), ToolModeType.Create, repeat: true, ignoreModifiers: true);
+
         public static NetworkMultitoolShortcut SwitchIsLoopShortcut { get; } = GetShortcut(KeyCode.Tab, nameof(SwitchIsLoopShortcut), nameof(Localize.Settings_Shortcut_SwitchIsLoop), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as CreateLoopMode)?.SwitchIsLoop());
 
         public override ToolModeType Type => ToolModeType.CreateLoop;
@@ -299,9 +289,10 @@ namespace NetworkMultitool
         {
             get
             {
-                foreach (var shortcut in base.Shortcuts)
-                    yield return shortcut;
-
+                yield return ApplyShortcut;
+                yield return IncreaseRadiusShortcut;
+                yield return DecreaseRadiusShortcut;
+                yield return SwitchFollowTerrainShortcut;
                 yield return SwitchIsLoopShortcut;
             }
         }
@@ -311,20 +302,22 @@ namespace NetworkMultitool
             if (GetBaseInfo() is string baseInfo)
                 return baseInfo;
             else if (State == Result.BigRadius)
-                return Localize.Mode_Info_RadiusTooBig;
+                return AddErrorColor(Localize.Mode_Info_RadiusTooBig);
             else if (State == Result.SmallRadius)
-                return Localize.Mode_Info_RadiusTooSmall;
+                return AddErrorColor(Localize.Mode_Info_RadiusTooSmall);
             else if (State == Result.OutOfMap)
-                return Localize.Mode_Info_OutOfMap;
+                return AddErrorColor(Localize.Mode_Info_OutOfMap);
             else if (State != Result.Calculated)
                 return Localize.Mode_Info_ClickOnNodeToChangeCreateDir;
             else
                 return
+                    CostInfo +
                     Localize.Mode_Info_ClickOnNodeToChangeCreateDir + "\n\n" +
-                    string.Format(Localize.Mode_Info_ChangeRadius, DecreaseRadiusShortcut, IncreaseRadiusShortcut) + "\n" +
-                    string.Format(Localize.Mode_CreateLoop_Info_Change, SwitchIsLoopShortcut) + "\n" +
+                    string.Format(Localize.Mode_Info_ChangeRadius, AddInfoColor(DecreaseRadiusShortcut), AddInfoColor(IncreaseRadiusShortcut)) + "\n" +
                     Localize.Mode_Info_Step + "\n" +
-                    string.Format(Localize.Mode_Info_Loop_Create, ApplyShortcut);
+                    string.Format(Localize.Mode_CreateLoop_Info_Change, AddInfoColor(SwitchIsLoopShortcut)) + "\n" +
+                    string.Format(Localize.Mode_Info_SwitchFollowTerrain, AddInfoColor(SwitchFollowTerrainShortcut)) + "\n" +
+                    string.Format(Localize.Mode_Info_Loop_Create, AddInfoColor(ApplyShortcut));
         }
         protected override void ResetParams()
         {
@@ -383,7 +376,7 @@ namespace NetworkMultitool
         public override ToolModeType Type => ToolModeType.CreateLoopMoveCircle;
         private Vector3 PrevPos { get; set; }
 
-        protected override string GetInfo() => Localize.Mode_Connection_Info_SlowMove;
+        protected override string GetInfo() => MoveSlowerInfo;
         protected override void Reset(IToolMode prevMode)
         {
             base.Reset(prevMode);

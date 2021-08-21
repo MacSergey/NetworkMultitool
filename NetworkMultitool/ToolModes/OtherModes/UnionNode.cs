@@ -58,11 +58,11 @@ namespace NetworkMultitool
             else if (!IsTarget)
                 return Localize.Mode_UnionNode_Info_SelectTarget;
             else if (IsConnected)
-                return Localize.Mode_UnionNode_Info_NoCommon;
+                return AddErrorColor(Localize.Mode_UnionNode_Info_NoCommon);
             else if (!IsCorrectCount)
-                return Localize.Mode_UnionNode_Info_Overflow + StepOverInfo;
+                return AddErrorColor(Localize.Mode_UnionNode_Info_Overflow) + StepOverInfo;
             else if (IsFar)
-                return Localize.Mode_UnionNode_Info_TooFar + StepOverInfo;
+                return AddErrorColor(Localize.Mode_UnionNode_Info_TooFar) + StepOverInfo;
             else
                 return Localize.Mode_UnionNode_Info_ClickUnion + StepOverInfo;
         }
@@ -76,7 +76,10 @@ namespace NetworkMultitool
             if (!IsHoverNode)
                 return;
             else if (!IsSource)
+            {
                 Source = HoverNode;
+                HoverNode = null;
+            }
             else if (IsCorrect)
             {
                 var sourceId = Source.Id;

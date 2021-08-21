@@ -11,12 +11,16 @@ using static ModsCommon.Utilities.VectorUtilsExtensions;
 
 namespace NetworkMultitool
 {
-    public class ArrangeLineMode : BaseNodeLineMode
+    public class ArrangeLineMode : BaseNodeLineMode, ICostMode
     {
         public override ToolModeType Type => ToolModeType.ArrangeAtLine;
-
+        private bool Calculated { get; set; }
+        private List<Point> Points { get; set; }
         private ushort FirstGuide { get; set; }
         private ushort LastGuide { get; set; }
+
+        public int Cost { get; private set; }
+        private new bool EnoughMoney => !Settings.NeedMoney || EnoughMoney(Cost);
 
         private bool IsHoverGuideSegment
         {
@@ -35,9 +39,10 @@ namespace NetworkMultitool
                 return Localize.Mode_ArrangeLine_Info_ClickToSelectDirection + UndergroundInfo;
             else if (AddState == AddResult.None && Nodes.Count >= 3)
                 return
+                    CostInfo +
                     Localize.Mode_NodeLine_Info_SelectNode + "\n" +
                     Localize.Mode_ArrangeLine_Info_SelectDirection + "\n" +
-                    string.Format(Localize.Mode_Info_ArrangeLine_Apply, ApplyShortcut) +
+                    string.Format(Localize.Mode_Info_ArrangeLine_Apply, AddInfoColor(ApplyShortcut)) +
                     UndergroundInfo;
             else
                 return base.GetInfo();
@@ -45,9 +50,52 @@ namespace NetworkMultitool
         protected override void Reset(IToolMode prevMode)
         {
             base.Reset(prevMode);
+            Calculated = false;
             FirstGuide = 0;
             LastGuide = 0;
+            Cost = 0;
         }
+        public override void OnToolUpdate()
+        {
+            base.OnToolUpdate();
+
+            if (Nodes.Count >= 2 && !Calculated)
+                Calculate();
+        }
+        private void Calculate()
+        {
+            var nodeIds = Nodes.Select(n => n.Id).ToArray();
+            var trajectory = GetTrajectory(nodeIds, FirstGuide, LastGuide);
+            var partLength = trajectory.Length / (nodeIds.Length - 1);
+            var ts = new List<float>() { 0f };
+            for (var i = 1; i < nodeIds.Length - 1; i += 1)
+                ts.Add(trajectory.Travel(ts.Last(), partLength));
+            ts.Add(1f);
+
+            Points = new List<Point>(Nodes.Count);
+            foreach (var t in ts)
+                Points.Add(new Point(trajectory.Position(t), trajectory.Tangent(t)));
+
+            Calculated = true;
+
+            if (Settings.NeedMoney)
+            {
+                Cost = 0;
+                for (var i = 1; i < nodeIds.Length; i += 1)
+                {
+                    NetExtension.GetCommon(nodeIds[i - 1], nodeIds[i], out var segmentId);
+                    ref var segment = ref segmentId.GetSegment();
+                    var segmentTrajectory = new BezierTrajectory(ref segment);
+                    var delta = partLength - segmentTrajectory.Length;
+                    var cost = GetCost(Mathf.Abs(delta), segment.Info);
+                    if (delta >= 0f)
+                        Cost += cost;
+                    else
+                        Cost -= cost * 3 / 4;
+                }
+            }
+        }
+
         protected override void AddFirst(NodeSelection selection)
         {
             base.AddFirst(selection);
@@ -72,6 +120,7 @@ namespace NetworkMultitool
         {
             FirstGuide = GetGuide(true);
             LastGuide = GetGuide(false);
+            Calculated = false;
         }
         private ushort GetGuide(bool isFirst)
         {
@@ -120,58 +169,51 @@ namespace NetworkMultitool
                     FirstGuide = HoverSegment.Id;
                 else if (segment.Contains(Nodes[Nodes.Count - 1].Id))
                     LastGuide = HoverSegment.Id;
+
+                Calculated = false;
             }
         }
         protected override void Apply()
         {
-            if (Nodes.Count >= 3)
+            if (Nodes.Count >= 3 && EnoughMoney)
             {
                 var nodeIds = Nodes.Select(n => n.Id).ToArray();
-                var firstGuide = FirstGuide;
-                var lastGuide = LastGuide;
+                var points = Points.ToArray();
+                var cost = Cost;
                 SimulationManager.instance.AddAction(() =>
                 {
-                    Arrange(nodeIds, firstGuide, lastGuide);
+                    Arrange(nodeIds, points, cost);
                     PlayAudio(true);
+                    ClearSelectionBuffer();
                 });
 
                 Reset(this);
             }
         }
 
-        private static void Arrange(ushort[] nodeIds, ushort firstGuideId, ushort lastGuideId)
+        private static void Arrange(ushort[] nodeIds, Point[] points, int cost)
         {
             var segmentIds = new ushort[nodeIds.Length - 1];
             for (var i = 1; i < nodeIds.Length; i += 1)
                 NetExtension.GetCommon(nodeIds[i - 1], nodeIds[i], out segmentIds[i - 1]);
             var terrainRect = GetTerrainRect(segmentIds);
 
-            var trajectory = GetTrajectory(nodeIds, firstGuideId, lastGuideId);
-            var partLength = trajectory.Length / (nodeIds.Length - 1);
-            var ts = new List<float>() { 0f };
             for (var i = 1; i < nodeIds.Length - 1; i += 1)
-                ts.Add(trajectory.Travel(ts.Last(), partLength));
-            ts.Add(1f);
+                MoveNode(nodeIds[i], points[i].Position);
 
-            for (var i = 1; i < nodeIds.Length - 1; i += 1)
-            {
-                var pos = trajectory.Position(ts[i]);
-                MoveNode(nodeIds[i], pos);
-            }
             for (var i = 0; i < nodeIds.Length; i += 1)
             {
-                var dir = trajectory.Tangent(ts[i]).normalized;
-
                 if (i != 0)
-                    SetSegmentDirection(nodeIds[i], nodeIds[i - 1], -dir);
+                    SetSegmentDirection(nodeIds[i], nodeIds[i - 1], points[i].BackwardDirection);
                 if (i != nodeIds.Length - 1)
-                    SetSegmentDirection(nodeIds[i], nodeIds[i + 1], dir);
+                    SetSegmentDirection(nodeIds[i], nodeIds[i + 1], points[i].ForwardDirection);
             }
 
             foreach (var nodeId in nodeIds)
                 NetManager.instance.UpdateNode(nodeId);
 
             UpdateTerrain(terrainRect);
+            ChangeMoney(cost, segmentIds[0].GetSegment().Info);
         }
         private static ITrajectory GetTrajectory(ushort[] nodeIds, ushort firstGuideId, ushort lastGuideId)
         {
@@ -206,19 +248,18 @@ namespace NetworkMultitool
         }
         public override void RenderOverlay(RenderManager.CameraInfo cameraInfo)
         {
-            if (Nodes.Count >= 3)
+            if (Calculated)
             {
-                var nodeIds = Nodes.Select(n => n.Id).ToArray();
-                var trajectory = GetTrajectory(nodeIds, FirstGuide, LastGuide);
-                var partLength = trajectory.Length / (Nodes.Count - 1);
-                var ts = new List<float>() { 0f };
-                for (var i = 1; i < Nodes.Count - 1; i += 1)
-                    ts.Add(trajectory.Travel(ts.Last(), partLength));
-                ts.Add(1f);
-
-                var data = new OverlayData(cameraInfo) { Color = Colors.Yellow, Width = 8f, RenderLimit = Underground, Cut = true };
-                for (var i = 1; i < ts.Count; i += 1)
-                    trajectory.Cut(ts[i - 1], ts[i]).Render(data);
+                var color = EnoughMoney ? Colors.Yellow : Colors.Red;
+                for (var i = 1; i < Points.Count; i += 1)
+                {
+                    if (!Points[i - 1].IsEmpty && !Points[i].IsEmpty)
+                    {
+                        NetExtension.GetCommon(Nodes[i - 1].Id, Nodes[i].Id, out var segmentId);
+                        var data = new OverlayData(cameraInfo) { Color = color, Width = segmentId.GetSegment().Info.m_halfWidth * 2f, RenderLimit = Underground, Cut = true };
+                        GetTrajectory(Points[i - 1], Points[i]).Render(data);
+                    }
+                }
             }
 
             base.RenderOverlay(cameraInfo);

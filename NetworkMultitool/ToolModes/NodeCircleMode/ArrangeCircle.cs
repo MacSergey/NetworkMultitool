@@ -77,7 +77,7 @@ namespace NetworkMultitool
                 {
                     _label.textScale = 1.5f;
                     _label.opacity = 0.75f;
-                    _label.isVisible = true;
+                    _label.Show = true;
                 }
             }
         }
@@ -149,7 +149,7 @@ namespace NetworkMultitool
 
             if (Label is InfoLabel label)
             {
-                label.text = GetRadiusString(Radius);
+                label.text = GetLengthString(Radius);
                 label.Direction = Tool.CameraDirection;
                 label.WorldPosition = Center + Tool.CameraDirection * 5f;
             }
@@ -316,7 +316,7 @@ namespace NetworkMultitool
             else if (HoveredNode != -1)
                 return
                     Localize.Mode_Info_ArrangeCircle_DragToMoveNode + "\n" +
-                    Localize.Mode_Info_ArrangeCircle_MoveAll + "\n" +
+                    string.Format(Localize.Mode_Info_ArrangeCircle_MoveAll, AddInfoColor(LocalizeExtension.Shift)) + "\n" +
                     Localize.Mode_Info_ArrangeCircle_DoubleClickToResetNode;
             else if (IsHoverCircle)
                 return Localize.Mode_Info_ArrangeCircle_DragToChangeRadius;
@@ -330,18 +330,18 @@ namespace NetworkMultitool
 
                 var result = string.Empty;
                 if (IsWrongOrder)
-                    result += Localize.Mode_Info_ArrangeCircle_WrongOrder;
+                    result += AddErrorColor(Localize.Mode_Info_ArrangeCircle_WrongOrder);
                 else if (IsBigDelta)
-                    result += Localize.Mode_Info_ArrangeCircle_BigDelta;
+                    result += AddErrorColor(Localize.Mode_Info_ArrangeCircle_BigDelta);
 
                 if (Time.realtimeSinceStartup - PosTime >= 2f)
                 {
                     result += (!string.IsNullOrEmpty(result) ? "\n\n" : string.Empty) +
-                    string.Format(Localize.Mode_Info_ArrangeCircle_PressToDistributeEvenly, DistributeEvenlyShortcut) + "\n" +
-                    string.Format(Localize.Mode_Info_ArrangeCircle_PressToDistributeIntersections, DistributeIntersectionsShortcut) + "\n" +
-                    string.Format(Localize.Mode_Info_ArrangeCircle_PressToDistributeBetweenIntersections, DistributeBetweenIntersectionsShortcut) + "\n" +
-                    string.Format(Localize.Mode_Info_ArrangeCircle_PressToReset, ResetArrangeCircleShortcut) + "\n" +
-                    string.Format(Localize.Mode_Info_ArrangeCircle_Apply, ApplyShortcut);
+                    string.Format(Localize.Mode_Info_ArrangeCircle_PressToDistributeEvenly, AddInfoColor(DistributeEvenlyShortcut)) + "\n" +
+                    string.Format(Localize.Mode_Info_ArrangeCircle_PressToDistributeIntersections, AddInfoColor(DistributeIntersectionsShortcut)) + "\n" +
+                    string.Format(Localize.Mode_Info_ArrangeCircle_PressToDistributeBetweenIntersections, AddInfoColor(DistributeBetweenIntersectionsShortcut)) + "\n" +
+                    string.Format(Localize.Mode_Info_ArrangeCircle_PressToReset, AddInfoColor(ResetArrangeCircleShortcut)) + "\n" +
+                    string.Format(Localize.Mode_Info_ArrangeCircle_Apply, AddInfoColor(ApplyShortcut));
                 }
 
                 return result;
@@ -434,6 +434,7 @@ namespace NetworkMultitool
                 {
                     Arrange(nodes, center, radius);
                     PlayAudio(true);
+                    ClearSelectionBuffer();
                 });
 
                 Tool.SetMode(ToolModeType.ArrangeAtCircle);
@@ -599,7 +600,7 @@ namespace NetworkMultitool
         public override ToolModeType Type => ToolModeType.ArrangeAtCircleMoveCenter;
         private Vector3 PrevPos { get; set; }
 
-        protected override string GetInfo() => Localize.Mode_Connection_Info_SlowMove;
+        protected override string GetInfo() => MoveSlowerInfo;
         protected override void Reset(IToolMode prevMode)
         {
             base.Reset(prevMode);
@@ -638,7 +639,7 @@ namespace NetworkMultitool
         public override ToolModeType Type => ToolModeType.ArrangeAtCircleRadius;
         private float MinRadius { get; set; }
 
-        protected override string GetInfo() => Localize.Mode_Connection_Info_RadiusStep;
+        protected override string GetInfo() => RadiusStepInfo;
         protected override void Reset(IToolMode prevMode)
         {
             base.Reset(prevMode);
@@ -688,8 +689,8 @@ namespace NetworkMultitool
         {
             var result = string.Empty;
             if (IsWrongOrder)
-                result += Localize.Mode_Info_ArrangeCircle_WrongOrder + "\n\n";
-            result += Localize.Mode_Info_ArrangeCircle_MoveAll;
+                result += AddErrorColor(Localize.Mode_Info_ArrangeCircle_WrongOrder) + "\n\n";
+            result += string.Format(Localize.Mode_Info_ArrangeCircle_MoveAll, AddInfoColor(LocalizeExtension.Shift));
             return result;
         }
         protected override void Reset(IToolMode prevMode)

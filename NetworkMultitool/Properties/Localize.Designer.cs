@@ -219,27 +219,6 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Hold Shift to step 10m
-        ///Hold Ctrl to step 1m
-        ///Hold Alt to step 0.1m.
-        /// </summary>
-        internal static string Mode_Connection_Info_RadiusStep {
-            get {
-                return ResourceManager.GetString("Mode_Connection_Info_RadiusStep", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на Hold Ctrl to move X10 slower
-        ///Hold Alt to move X100 slower.
-        /// </summary>
-        internal static string Mode_Connection_Info_SlowMove {
-            get {
-                return ResourceManager.GetString("Mode_Connection_Info_SlowMove", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Ищет локализованную строку, похожую на Create Bezier curve mode.
         /// </summary>
         internal static string Mode_CreateBezier {
@@ -550,6 +529,15 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Construction cost: {0}.
+        /// </summary>
+        internal static string Mode_Info_ConstructionCost {
+            get {
+                return ResourceManager.GetString("Mode_Info_ConstructionCost", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Press {0} to create.
         /// </summary>
         internal static string Mode_Info_Create {
@@ -568,6 +556,24 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Hold {0} to move X{1} slower.
+        /// </summary>
+        internal static string Mode_Info_HoldToMoveSlower {
+            get {
+                return ResourceManager.GetString("Mode_Info_HoldToMoveSlower", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Hold {0} to step {1}.
+        /// </summary>
+        internal static string Mode_Info_HoldToStep {
+            get {
+                return ResourceManager.GetString("Mode_Info_HoldToStep", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Press {0} to create loop.
         /// </summary>
         internal static string Mode_Info_Loop_Create {
@@ -577,11 +583,29 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Not enough money.
+        /// </summary>
+        internal static string Mode_Info_NotEnoughMoney {
+            get {
+                return ResourceManager.GetString("Mode_Info_NotEnoughMoney", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Out of map.
         /// </summary>
         internal static string Mode_Info_OutOfMap {
             get {
                 return ResourceManager.GetString("Mode_Info_OutOfMap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Press {0} or {1} to change height.
+        /// </summary>
+        internal static string Mode_Info_Parallel_ChangeHeight {
+            get {
+                return ResourceManager.GetString("Mode_Info_Parallel_ChangeHeight", resourceCulture);
             }
         }
         
@@ -604,6 +628,15 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Press {0} to invert network.
+        /// </summary>
+        internal static string Mode_Info_Parallel_Invert {
+            get {
+                return ResourceManager.GetString("Mode_Info_Parallel_Invert", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Radius too big.
         /// </summary>
         internal static string Mode_Info_RadiusTooBig {
@@ -618,6 +651,15 @@ namespace NetworkMultitool {
         internal static string Mode_Info_RadiusTooSmall {
             get {
                 return ResourceManager.GetString("Mode_Info_RadiusTooSmall", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Refund: {0}.
+        /// </summary>
+        internal static string Mode_Info_Refund {
+            get {
+                return ResourceManager.GetString("Mode_Info_Refund", resourceCulture);
             }
         }
         
@@ -663,6 +705,15 @@ namespace NetworkMultitool {
         internal static string Mode_Info_Step {
             get {
                 return ResourceManager.GetString("Mode_Info_Step", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Press {0} to switch follow terrain.
+        /// </summary>
+        internal static string Mode_Info_SwitchFollowTerrain {
+            get {
+                return ResourceManager.GetString("Mode_Info_SwitchFollowTerrain", resourceCulture);
             }
         }
         
@@ -1021,6 +1072,42 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Created on grounds roads follow terrain.
+        /// </summary>
+        internal static string Settings_FollowTerrain {
+            get {
+                return ResourceManager.GetString("Settings_FollowTerrain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Gameplay.
+        /// </summary>
+        internal static string Settings_Gameplay {
+            get {
+                return ResourceManager.GetString("Settings_Gameplay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Interface.
+        /// </summary>
+        internal static string Settings_Interface {
+            get {
+                return ResourceManager.GetString("Settings_Interface", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Requires money to build.
+        /// </summary>
+        internal static string Settings_NeedMoney {
+            get {
+                return ResourceManager.GetString("Settings_NeedMoney", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Panel columns count.
         /// </summary>
         internal static string Settings_PanelColumns {
@@ -1039,6 +1126,42 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Creation preview.
+        /// </summary>
+        internal static string Settings_PreviewType {
+            get {
+                return ResourceManager.GetString("Settings_PreviewType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Both.
+        /// </summary>
+        internal static string Settings_PreviewTypeBoth {
+            get {
+                return ResourceManager.GetString("Settings_PreviewTypeBoth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Network visualization.
+        /// </summary>
+        internal static string Settings_PreviewTypeMesh {
+            get {
+                return ResourceManager.GetString("Settings_PreviewTypeMesh", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Overlay.
+        /// </summary>
+        internal static string Settings_PreviewTypeOverlay {
+            get {
+                return ResourceManager.GetString("Settings_PreviewTypeOverlay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Max Segment Length.
         /// </summary>
         internal static string Settings_SegmentLength {
@@ -1053,6 +1176,15 @@ namespace NetworkMultitool {
         internal static string Settings_Shortcut_Apply {
             get {
                 return ResourceManager.GetString("Settings_Shortcut_Apply", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Decrease height.
+        /// </summary>
+        internal static string Settings_Shortcut_DecreaseHeight {
+            get {
+                return ResourceManager.GetString("Settings_Shortcut_DecreaseHeight", resourceCulture);
             }
         }
         
@@ -1129,6 +1261,15 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Increase height.
+        /// </summary>
+        internal static string Settings_Shortcut_IncreaseHeight {
+            get {
+                return ResourceManager.GetString("Settings_Shortcut_IncreaseHeight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Increase circle start offset.
         /// </summary>
         internal static string Settings_Shortcut_IncreaseOffset {
@@ -1174,6 +1315,15 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Invert network.
+        /// </summary>
+        internal static string Settings_Shortcut_InvertNetwork {
+            get {
+                return ResourceManager.GetString("Settings_Shortcut_InvertNetwork", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Switch creation side.
         /// </summary>
         internal static string Settings_Shortcut_InvertShift {
@@ -1188,6 +1338,15 @@ namespace NetworkMultitool {
         internal static string Settings_Shortcut_ResetArrangeCircle {
             get {
                 return ResourceManager.GetString("Settings_Shortcut_ResetArrangeCircle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Switch follow terrain.
+        /// </summary>
+        internal static string Settings_Shortcut_SwitchFollowTerrain {
+            get {
+                return ResourceManager.GetString("Settings_Shortcut_SwitchFollowTerrain", resourceCulture);
             }
         }
         

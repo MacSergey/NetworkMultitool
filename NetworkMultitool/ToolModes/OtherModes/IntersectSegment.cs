@@ -38,9 +38,9 @@ namespace NetworkMultitool
                 if (!IsSecondSelect)
                     return Localize.Mode_Info_SelectSecondSegment;
                 else if (State == Result.NotIntersect)
-                    return Localize.Mode_IntersectSegment_Info_NotIntersect;
+                    return AddErrorColor(Localize.Mode_IntersectSegment_Info_NotIntersect);
                 else if (State == Result.Incorrect)
-                    return Localize.Mode_IntersectSegment_Info_EdgeTooClose;
+                    return AddErrorColor(Localize.Mode_IntersectSegment_Info_EdgeTooClose);
                 else
                     return Localize.Mode_Info_ClickSecondSegment + StepOverInfo;
             }

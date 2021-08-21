@@ -34,7 +34,7 @@ namespace NetworkMultitool
                 if (!IsHoverNode)
                     return Localize.Mode_UnionNode_Info_SelectSource + UndergroundInfo;
                 else if (HoverNode.Id.GetNode().CountSegments() < 2)
-                    return Localize.Mode_SplitNode_Info_NotAllowedSplit + StepOverInfo;
+                    return AddErrorColor(Localize.Mode_SplitNode_Info_NotAllowedSplit) + StepOverInfo;
                 else
                     return Localize.Mode_UnionNode_Info_ClickSource + StepOverInfo;
             }
@@ -50,14 +50,14 @@ namespace NetworkMultitool
                 if (!IsHoverSegment)
                 {
                     if (IsFar)
-                        return Localize.Mode_SplitNode_Info_TooFar;
+                        return AddErrorColor(Localize.Mode_SplitNode_Info_TooFar);
                     else
-                        return Localize.Mode_SplitNode_Info_ClickToSplit;
+                        return string.Format(Localize.Mode_SplitNode_Info_ClickToSplit, AddInfoColor(LocalizeExtension.Shift));
                 }
                 else if (Segments.Contains(HoverSegment))
                     return Localize.Mode_SplitNode_Info_ClickFromOrder;
                 else if (!CanAddSegment)
-                    return Localize.Mode_SplitNode_Info_OrderIsFull;
+                    return AddErrorColor(Localize.Mode_SplitNode_Info_OrderIsFull);
                 else
                     return Localize.Mode_SplitNode_Info_ClickToOrder;
             }

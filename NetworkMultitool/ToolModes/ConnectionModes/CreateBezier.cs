@@ -21,6 +21,7 @@ namespace NetworkMultitool
         private bool? IsStartHover { get; set; }
         private bool? IsStartPressed { get; set; }
         protected override bool SelectNodes => base.SelectNodes && IsStartPressed == null;
+        protected override bool AllowUntouch => true;
 
         protected override string GetInfo()
         {
@@ -102,11 +103,9 @@ namespace NetworkMultitool
 
         protected override Result Init(StraightTrajectory firstTrajectory, StraightTrajectory secondTrajectory)
         {
-            var startPos = firstTrajectory.StartPosition;
-            startPos.y = Height;
+            var startPos = firstTrajectory.StartPosition.SetHeight(Height);
             var startDir = firstTrajectory.StartDirection.MakeFlatNormalized();
-            var endPos = secondTrajectory.StartPosition;
-            endPos.y = Height;
+            var endPos = secondTrajectory.StartPosition.SetHeight(Height);
             var endDir = secondTrajectory.StartDirection.MakeFlatNormalized();
 
             Bezier = new BezierTrajectory(startPos, startDir, endPos, endDir, forceSmooth: true);

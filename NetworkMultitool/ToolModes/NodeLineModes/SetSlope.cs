@@ -20,7 +20,7 @@ namespace NetworkMultitool
             if (AddState == AddResult.None && Nodes.Count >= 3)
                 return
                     Localize.Mode_NodeLine_Info_SelectNode + "\n" +
-                    string.Format(Localize.Mode_Info_Slope_Apply, ApplyShortcut) +
+                    string.Format(Localize.Mode_Info_Slope_Apply, AddInfoColor(ApplyShortcut)) +
                     UndergroundInfo;
             else
                 return base.GetInfo();
@@ -63,7 +63,7 @@ namespace NetworkMultitool
                 CalculateSegmentDirections(segmentId);
             }
         }
-        private static Vector3 PositionGetter(ushort nodeId) => nodeId.GetNode().m_position;
+        private static Vector3 PositionGetter(ref ushort nodeId) => nodeId.GetNode().m_position;
         private static void DirectionGetter(ushort firstId, ushort secondId, out Vector3 firstDir, out Vector3 secondDir)
         {
             NetExtension.GetCommon(firstId, secondId, out var commonSegmentId);
@@ -81,7 +81,7 @@ namespace NetworkMultitool
                 secondDir = segment.m_startDirection;
             }
         }
-        private static void PositionSetter(ushort nodeId, Vector3 position) => NetManager.instance.MoveNode(nodeId, position);
+        private static void PositionSetter(ref ushort nodeId, Vector3 position) => NetManager.instance.MoveNode(nodeId, position);
 
         protected override void AddFirst(NodeSelection selection)
         {
@@ -131,7 +131,7 @@ namespace NetworkMultitool
             }
             slope = slope.RoundToNearest(0.1f);
 
-            label.isVisible = true;
+            label.Show = true;
             var sign = slope > 0 ? "+" : (slope < 0f ? "-" : string.Empty);
             var value = Settings.SlopeUnite == 0 ? GetPercentagesString(Mathf.Abs(slope)) : GetAngleString(Mathf.Abs(slope), "0.0");
             label.text = sign + value;

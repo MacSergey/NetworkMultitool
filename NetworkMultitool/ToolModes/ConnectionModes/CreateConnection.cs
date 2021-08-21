@@ -39,6 +39,8 @@ namespace NetworkMultitool
                 yield return SwitchOffsetShortcut;
                 yield return IncreaseOffsetShortcut;
                 yield return DecreaseOffsetShortcut;
+
+                yield return SwitchFollowTerrainShortcut;
             }
         }
 
@@ -74,11 +76,11 @@ namespace NetworkMultitool
             else if (IsHoverStraight)
                 return Localize.Mode_Connection_Info_DoubleClickToAdd;
             else if (State == Result.BigRadius)
-                return Localize.Mode_Info_RadiusTooBig;
+                return AddErrorColor(Localize.Mode_Info_RadiusTooBig);
             else if (State == Result.WrongShape)
-                return Localize.Mode_Info_WrongShape;
+                return AddErrorColor(Localize.Mode_Info_WrongShape);
             else if (State == Result.OutOfMap)
-                return Localize.Mode_Info_OutOfMap;
+                return AddErrorColor(Localize.Mode_Info_OutOfMap);
             else if (State != Result.Calculated)
                 return
                     Localize.Mode_Info_ClickOnNodeToChangeCreateDir + "\n" +
@@ -92,19 +94,21 @@ namespace NetworkMultitool
                 }
 
                 var text =
+                    CostInfo +
                     Localize.Mode_Info_ClickOnNodeToChangeCreateDir + "\n" +
                     Localize.Mode_Connection_Info_DoubleClickOnCenterToChangeDir;
 
                 if (Time.realtimeSinceStartup - PosTime >= 2f)
                 {
                     text += "\n\n" +
-                    string.Format(Localize.Mode_Info_ChangeBothRadius, DecreaseRadiiShortcut, IncreaseRadiiShortcut) + "\n" +
-                    string.Format(Localize.Mode_Info_ChangeCircle, SwitchSelectShortcut) + "\n" +
-                    string.Format(Localize.Mode_Info_ChangeOneRadius, DecreaseOneRadiusShortcut, IncreaseOneRadiusShortcut) + "\n" +
-                    string.Format(Localize.Mode_Info_SwitchOffset, SwitchOffsetShortcut) + "\n" +
-                    string.Format(Localize.Mode_Info_ChangeOffset, DecreaseOffsetShortcut, IncreaseOffsetShortcut) + "\n" +
+                    string.Format(Localize.Mode_Info_ChangeBothRadius, AddInfoColor(DecreaseRadiiShortcut), AddInfoColor(IncreaseRadiiShortcut)) + "\n" +
+                    string.Format(Localize.Mode_Info_ChangeCircle, AddInfoColor(SwitchSelectShortcut)) + "\n" +
+                    string.Format(Localize.Mode_Info_ChangeOneRadius, AddInfoColor(DecreaseOneRadiusShortcut), AddInfoColor(IncreaseOneRadiusShortcut)) + "\n" +
+                    //string.Format(Localize.Mode_Info_SwitchOffset, AddInfoColor(SwitchOffsetShortcut)) + "\n" +
+                    //string.Format(Localize.Mode_Info_ChangeOffset, AddInfoColor(DecreaseOffsetShortcut), AddInfoColor(IncreaseOffsetShortcut)) + "\n" +
                     Localize.Mode_Info_Step + "\n" +
-                    string.Format(Localize.Mode_Info_Connection_Create, ApplyShortcut);
+                    string.Format(Localize.Mode_Info_SwitchFollowTerrain, AddInfoColor(SwitchFollowTerrainShortcut)) + "\n" +
+                    string.Format(Localize.Mode_Info_Connection_Create, AddInfoColor(ApplyShortcut));
                 }
 
                 return text;
@@ -328,7 +332,7 @@ namespace NetworkMultitool
         private Vector3 PrevCursor { get; set; }
         private Vector3 PrevCenter { get; set; }
 
-        protected override string GetInfo() => Localize.Mode_Connection_Info_SlowMove;
+        protected override string GetInfo() => MoveSlowerInfo;
         protected override void Reset(IToolMode prevMode)
         {
             base.Reset(prevMode);
@@ -372,7 +376,7 @@ namespace NetworkMultitool
 
         private Vector2 PrevCursor { get; set; }
 
-        protected override string GetInfo() => Localize.Mode_Connection_Info_RadiusStep;
+        protected override string GetInfo() => RadiusStepInfo;
         protected override void Reset(IToolMode prevMode)
         {
             base.Reset(prevMode);

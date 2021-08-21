@@ -21,7 +21,7 @@ namespace NetworkMultitool
             if (!IsHoverNode)
                 return Localize.Tool_RemoveNode_Info_Select + UndergroundInfo;
             else if (!IsCorrect)
-                return Localize.Mode_RemoveNode_Info_NotAllow + StepOverInfo;
+                return AddErrorColor(Localize.Mode_RemoveNode_Info_NotAllow) + StepOverInfo;
             else
                 return Localize.Tool_RemoveNode_Info_ClickToRemove + StepOverInfo;
         }
