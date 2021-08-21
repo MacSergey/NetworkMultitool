@@ -377,7 +377,7 @@ namespace NetworkMultitool
     public abstract class BaseAdditionalCreateConnectionMode : BaseCreateConnectionMode
     {
         public int Edit { get; protected set; }
-        protected bool IsEdit => Edit != -1;
+        protected bool IsEdit => Edit >= 0;
 
         public override void OnMouseUp(Event e) => Tool.SetMode(ToolModeType.CreateConnection);
         public override bool OnEscape()
@@ -390,7 +390,7 @@ namespace NetworkMultitool
         {
             for (var i = 0; i < Circles.Count; i += 1)
             {
-                if (IsSnapping(Circles[Edit]) && Utility.NotPressed && Math.Abs(i - Edit) == 1 && Circle.IsSnapping(Circles[i], Circles[Edit]))
+                if (IsEdit && IsSnapping(Circles[Edit]) && Utility.NotPressed && Math.Abs(i - Edit) == 1 && Circle.IsSnapping(Circles[i], Circles[Edit]))
                     Circles[i].RenderCircle(cameraInfo, Colors.Orange, Underground);
                 else
                     Circles[i].RenderCircle(cameraInfo, i == Edit ? Colors.Green : Colors.Green.SetAlpha(64), Underground);
