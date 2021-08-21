@@ -20,7 +20,7 @@ namespace NetworkMultitool
             if (!IsHoverSegment)
                 return Localize.Mode_InvertSegment_Info_SelectToReverse;
             else
-                return Localize.Mode_InvertSegment_Info_ClickToReverse;
+                return AddActionColor(Localize.Mode_InvertSegment_Info_ClickToReverse);
         }
 
         public override void OnPrimaryMouseClicked(Event e)

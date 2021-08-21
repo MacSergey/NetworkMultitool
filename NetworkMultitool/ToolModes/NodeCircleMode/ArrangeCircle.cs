@@ -20,7 +20,7 @@ namespace NetworkMultitool
         protected override string GetInfo()
         {
             if (IsHoverNode && IsCompleteHover)
-                return Localize.Mode_ArrangeCircle_Info_ClickToComplite + StepOverInfo;
+                return AddActionColor(Localize.Mode_ArrangeCircle_Info_ClickToComplite) + StepOverInfo;
             else
                 return base.GetInfo();
         }
@@ -332,17 +332,22 @@ namespace NetworkMultitool
                 if (IsWrongOrder)
                     result += AddErrorColor(Localize.Mode_Info_ArrangeCircle_WrongOrder);
                 else if (IsBigDelta)
-                    result += AddErrorColor(Localize.Mode_Info_ArrangeCircle_BigDelta);
+                    result += AddWarningColor(Localize.Mode_Info_ArrangeCircle_BigDelta);
+
+                if (!string.IsNullOrEmpty(result))
+                    result += "\n\n";
 
                 if (Time.realtimeSinceStartup - PosTime >= 2f)
                 {
-                    result += (!string.IsNullOrEmpty(result) ? "\n\n" : string.Empty) +
-                    string.Format(Localize.Mode_Info_ArrangeCircle_PressToDistributeEvenly, AddInfoColor(DistributeEvenlyShortcut)) + "\n" +
-                    string.Format(Localize.Mode_Info_ArrangeCircle_PressToDistributeIntersections, AddInfoColor(DistributeIntersectionsShortcut)) + "\n" +
-                    string.Format(Localize.Mode_Info_ArrangeCircle_PressToDistributeBetweenIntersections, AddInfoColor(DistributeBetweenIntersectionsShortcut)) + "\n" +
+                    result +=
+                        string.Format(Localize.Mode_Info_ArrangeCircle_PressToDistributeEvenly, AddInfoColor(DistributeEvenlyShortcut)) + "\n" +
+                        string.Format(Localize.Mode_Info_ArrangeCircle_PressToDistributeIntersections, AddInfoColor(DistributeIntersectionsShortcut)) + "\n" +
+                        string.Format(Localize.Mode_Info_ArrangeCircle_PressToDistributeBetweenIntersections, AddInfoColor(DistributeBetweenIntersectionsShortcut)) + "\n";
+                }
+
+                result +=
                     string.Format(Localize.Mode_Info_ArrangeCircle_PressToReset, AddInfoColor(ResetArrangeCircleShortcut)) + "\n" +
                     string.Format(Localize.Mode_Info_ArrangeCircle_Apply, AddInfoColor(ApplyShortcut));
-                }
 
                 return result;
             }
@@ -688,9 +693,14 @@ namespace NetworkMultitool
         protected override string GetInfo()
         {
             var result = string.Empty;
+
             if (IsWrongOrder)
-                result += AddErrorColor(Localize.Mode_Info_ArrangeCircle_WrongOrder) + "\n\n";
-            result += string.Format(Localize.Mode_Info_ArrangeCircle_MoveAll, AddInfoColor(LocalizeExtension.Shift));
+                result += AddErrorColor(Localize.Mode_Info_ArrangeCircle_WrongOrder);
+            else if (IsBigDelta)
+                result += AddWarningColor(Localize.Mode_Info_ArrangeCircle_BigDelta);
+
+            result += (!string.IsNullOrEmpty(result) ? "\n\n" : string.Empty) + string.Format(Localize.Mode_Info_ArrangeCircle_MoveAll, AddInfoColor(LocalizeExtension.Shift));
+
             return result;
         }
         protected override void Reset(IToolMode prevMode)

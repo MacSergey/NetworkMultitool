@@ -23,9 +23,9 @@ namespace NetworkMultitool
             if (!IsHoverSegment)
                 return Localize.Mode_UnlockSegment_Info_ChangeLock;
             if (HoverSegment.Id.GetSegment().m_flags.IsSet(NetSegment.Flags.Untouchable))
-                return Localize.Mode_UnlockSegment_Info_ClickToUnlock + StepOverInfo;
+                return AddActionColor(Localize.Mode_UnlockSegment_Info_ClickToUnlock) + StepOverInfo;
             else
-                return Localize.Mode_UnlockSegment_Info_ClickToLock + StepOverInfo;
+                return AddActionColor(Localize.Mode_UnlockSegment_Info_ClickToLock) + StepOverInfo;
         }
 
         public override void OnPrimaryMouseClicked(Event e)

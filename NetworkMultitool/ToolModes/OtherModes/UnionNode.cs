@@ -51,7 +51,7 @@ namespace NetworkMultitool
             if (!IsSource)
             {
                 if (IsHoverNode)
-                    return Localize.Mode_UnionNode_Info_ClickSource + StepOverInfo;
+                    return AddActionColor(Localize.Mode_UnionNode_Info_ClickSource) + StepOverInfo;
                 else
                     return Localize.Mode_UnionNode_Info_SelectSource + UndergroundInfo;
             }
@@ -64,7 +64,7 @@ namespace NetworkMultitool
             else if (IsFar)
                 return AddErrorColor(Localize.Mode_UnionNode_Info_TooFar) + StepOverInfo;
             else
-                return Localize.Mode_UnionNode_Info_ClickUnion + StepOverInfo;
+                return AddActionColor(Localize.Mode_UnionNode_Info_ClickUnion) + StepOverInfo;
         }
         protected override void Reset(IToolMode prevMode)
         {
@@ -88,6 +88,7 @@ namespace NetworkMultitool
                 {
                     Union(sourceId, targetId);
                     PlayNodeEffect(targetId, true);
+                    ClearSelectionBuffer();
                 });
 
                 Reset(this);

@@ -337,7 +337,7 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Hold Shift to move all nodes
+        ///   Ищет локализованную строку, похожую на Hold {0} to move all nodes
         ///at the same time.
         /// </summary>
         internal static string Mode_Info_ArrangeCircle_MoveAll {
@@ -727,7 +727,7 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Hold Shift to underground mode.
+        ///   Ищет локализованную строку, похожую на Hold {0} to underground mode.
         /// </summary>
         internal static string Mode_Info_UndergroundMode {
             get {
@@ -750,6 +750,15 @@ namespace NetworkMultitool {
         internal static string Mode_IntersectSegment {
             get {
                 return ResourceManager.GetString("Mode_IntersectSegment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на These segments have common node.
+        /// </summary>
+        internal static string Mode_IntersectSegment_Info_CommonNode {
+            get {
+                return ResourceManager.GetString("Mode_IntersectSegment_Info_CommonNode", resourceCulture);
             }
         }
         
@@ -891,7 +900,7 @@ namespace NetworkMultitool {
         
         /// <summary>
         ///   Ищет локализованную строку, похожую на Click to split node and align to terrain height
-        ///Click with Shift to split node and align to source height.
+        ///Click with {0} to split node and align to source height.
         /// </summary>
         internal static string Mode_SplitNode_Info_ClickToSplit {
             get {
