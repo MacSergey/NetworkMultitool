@@ -541,7 +541,7 @@ namespace NetworkMultitool
                     if (show)
                     {
                         label.text = IsCorrect ? $"{GetLengthString(Radius)}\n{GetAngleString(Mathf.Abs(Angle))}" : GetLengthString(Radius);
-                        label.Direction = IsCorrect ? CenterDir : SingletonTool<NetworkMultitoolTool>.Instance.CameraDirection;
+                        label.Direction = IsCorrect ? CenterDir : Vector3.forward;
                         label.WorldPosition = CenterPos + label.Direction * 5f;
 
                         label.UpdateInfo();
