@@ -31,18 +31,20 @@ namespace NetworkMultitool
                 if (!IsHoverSegment)
                     return Localize.Mode_Info_SelectFirstSegment + UndergroundInfo;
                 else
-                    return Localize.Mode_Info_ClickFirstSegment + StepOverInfo;
+                    return AddActionColor(Localize.Mode_Info_ClickFirstSegment) + StepOverInfo;
             }
             else
             {
                 if (!IsSecondSelect)
                     return Localize.Mode_Info_SelectSecondSegment;
+                else if(State == Result.CommonNode)
+                    return AddErrorColor(Localize.Mode_IntersectSegment_Info_CommonNode);
                 else if (State == Result.NotIntersect)
                     return AddErrorColor(Localize.Mode_IntersectSegment_Info_NotIntersect);
                 else if (State == Result.Incorrect)
                     return AddErrorColor(Localize.Mode_IntersectSegment_Info_EdgeTooClose);
                 else
-                    return Localize.Mode_Info_ClickSecondSegment + StepOverInfo;
+                    return AddActionColor(Localize.Mode_Info_ClickSecondSegment) + StepOverInfo;
             }
         }
 
@@ -50,7 +52,11 @@ namespace NetworkMultitool
         {
             base.OnToolUpdate();
 
-            if (IsFirstSelect && IsSecondSelect)
+            if (!IsFirstSelect || !IsSecondSelect)
+                State = Result.None;
+            else if (NetExtension.IsCommon(First.Id, Second.Id))
+                State = Result.CommonNode;
+            else
             {
                 var count = 0;
                 foreach (var firstLine in First.BetweenDataLines)
@@ -69,8 +75,6 @@ namespace NetworkMultitool
                 else
                     State = Result.Incorrect;
             }
-            else
-                State = Result.None;
         }
         protected override void Reset(IToolMode prevMode)
         {
@@ -94,6 +98,7 @@ namespace NetworkMultitool
                     IntersectSegments(firstId, secondId);
                     PlaySegmentEffect(firstId, true);
                     PlaySegmentEffect(secondId, true);
+                    ClearSelectionBuffer();
                 });
 
                 Reset(this);
@@ -171,6 +176,7 @@ namespace NetworkMultitool
         {
             None,
             Correct,
+            CommonNode,
             Incorrect,
             NotIntersect,
         }

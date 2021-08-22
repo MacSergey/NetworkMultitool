@@ -65,7 +65,7 @@ namespace NetworkMultitool
             if (AddState == AddResult.None && Nodes.Count >= 2)
                 return
                     CostInfo +
-                    Localize.Mode_NodeLine_Info_SelectNode + "\n" +
+                    Localize.Mode_NodeLine_Info_SelectNode + "\n\n" +
                     string.Format(Localize.Mode_Info_ChangeShift, AddInfoColor(DecreaseShiftShortcut), AddInfoColor(IncreaseShiftShortcut)) + "\n" +
                     (AllowHeight ? (string.Format(Localize.Mode_Info_Parallel_ChangeHeight, AddInfoColor(DecreaseHeightShortcut), AddInfoColor(IncreaseHeightShortcut)) + "\n") : string.Empty) +
                     Localize.Mode_Info_Step + "\n" +

@@ -44,11 +44,11 @@ namespace NetworkMultitool
             if (AddState == AddResult.None)
                 return Localize.Mode_NodeLine_Info_SelectNode + UndergroundInfo;
             else if (AddState == AddResult.One || AddState == AddResult.InStart || AddState == AddResult.InEnd)
-                return Localize.Mode_Info_ClickSelectNode + StepOverInfo;
+                return AddActionColor(Localize.Mode_Info_ClickSelectNode) + StepOverInfo;
             else if (AddState == AddResult.IsFirst || AddState == AddResult.IsLast)
-                return Localize.Mode_Info_ClickUnselectNode + StepOverInfo;
+                return AddActionColor(Localize.Mode_Info_ClickUnselectNode) + StepOverInfo;
             else if (AddState == AddResult.NotConnect)
-                return Localize.Mode_NodeLine_Info_NotConnected + StepOverInfo;
+                return AddErrorColor(Localize.Mode_NodeLine_Info_NotConnected) + StepOverInfo;
             else
                 return string.Format(Localize.Mode_Info_Apply, AddInfoColor(ApplyShortcut));
         }

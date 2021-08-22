@@ -208,6 +208,11 @@ namespace NetworkMultitool
                 if (i != nodeIds.Length - 1)
                     SetSegmentDirection(nodeIds[i], nodeIds[i + 1], points[i].ForwardDirection);
             }
+            for (var i = 1; i < nodeIds.Length; i += 1)
+            {
+                NetExtension.GetCommon(nodeIds[i - 1], nodeIds[i], out var segmentId);
+                UpdateZones(segmentId);
+            }
 
             foreach (var nodeId in nodeIds)
                 NetManager.instance.UpdateNode(nodeId);

@@ -36,14 +36,14 @@ namespace NetworkMultitool
                 else if (HoverNode.Id.GetNode().CountSegments() < 2)
                     return AddErrorColor(Localize.Mode_SplitNode_Info_NotAllowedSplit) + StepOverInfo;
                 else
-                    return Localize.Mode_UnionNode_Info_ClickSource + StepOverInfo;
+                    return AddActionColor(Localize.Mode_UnionNode_Info_ClickSource) + StepOverInfo;
             }
             else if (!IsSegments)
             {
-                if (IsHoverSegment)
+                if (!IsHoverSegment)
                     return Localize.Mode_SplitNode_Info_SelectToSplit;
                 else
-                    return Localize.Mode_SplitNode_Info_ClickToOrder + StepOverInfo;
+                    return AddActionColor(Localize.Mode_SplitNode_Info_ClickToOrder) + StepOverInfo;
             }
             else
             {
@@ -55,11 +55,11 @@ namespace NetworkMultitool
                         return string.Format(Localize.Mode_SplitNode_Info_ClickToSplit, AddInfoColor(LocalizeExtension.Shift));
                 }
                 else if (Segments.Contains(HoverSegment))
-                    return Localize.Mode_SplitNode_Info_ClickFromOrder;
+                    return AddActionColor(Localize.Mode_SplitNode_Info_ClickFromOrder);
                 else if (!CanAddSegment)
                     return AddErrorColor(Localize.Mode_SplitNode_Info_OrderIsFull);
                 else
-                    return Localize.Mode_SplitNode_Info_ClickToOrder;
+                    return AddActionColor(Localize.Mode_SplitNode_Info_ClickToOrder);
             }
         }
         protected override void Reset(IToolMode prevMode)
@@ -96,6 +96,7 @@ namespace NetworkMultitool
                 {
                     Split(sourceId, newPosition, segments);
                     PlayNodeEffect(sourceId, true);
+                    ClearSelectionBuffer();
                 });
 
                 Reset(this);

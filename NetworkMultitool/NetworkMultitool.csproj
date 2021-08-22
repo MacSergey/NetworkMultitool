@@ -161,6 +161,7 @@
     <EmbeddedResource Include="Properties\Localize.ru.resx" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Properties\Localize.tr.resx" />
     <EmbeddedResource Include="Properties\Localize.zh-CN.resx" />
     <EmbeddedResource Include="Resources\ModeButtons.png" />
   </ItemGroup>
@@ -204,6 +205,7 @@
   <Import Project="..\ModsCommon\LocalizeShared\LocalizeShared.ko.projitems" Label="Shared" />
   <Import Project="..\ModsCommon\LocalizeShared\LocalizeShared.hu.projitems" Label="Shared" />
   <Import Project="..\ModsCommon\LocalizeShared\LocalizeShared.da.projitems" Label="Shared" />
+  <Import Project="..\ModsCommon\LocalizeShared\LocalizeShared.tr.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup Condition="'$(Configuration)' == 'Stable Release' OR '$(Configuration)' == 'Stable Debug'">
     <WorkshopId>2560782729</WorkshopId>

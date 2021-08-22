@@ -27,7 +27,7 @@ namespace NetworkMultitool
             else if (!IsPossibleInsertNode)
                 return AddErrorColor(Localize.Mode_AddNode_Info_TooCloseNode) + StepOverInfo;
             else
-                return Localize.Mode_AddNode_Info_ClickToAdd + StepOverInfo;
+                return AddActionColor(Localize.Mode_AddNode_Info_ClickToAdd) + StepOverInfo;
         }
 
         public override void OnToolUpdate()
