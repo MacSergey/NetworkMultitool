@@ -165,11 +165,13 @@
     <value>ドラッグしてサークルを移動</value>
   </data>
   <data name="Mode_CreateConnection" xml:space="preserve">
-    <value>Mode: ネットワークの直線接続</value>
+    <value>Mode: ストレート接続</value>
   </data>
-  
+  <data name="Mode_CreateCurve" xml:space="preserve">
+    <value>Mede: カーブ接続</value>
+  </data>
   <data name="Mode_CreateLoop" xml:space="preserve">
-    <value>Mode: ネットワークの曲線接続</value>
+    <value>Mode: ループ接続</value>
   </data>
   <data name="Mode_CreateLoop_Info_Change" xml:space="preserve">
     <value>{0} でループを変更</value>
@@ -233,7 +235,7 @@
     <value>{0} でループの選択を切り替え</value>
   </data>
   <data name="Mode_Info_ChangeOffset" xml:space="preserve">
-    <value>{0} or {1} でカーブ開始前のオフセットを変更</value>
+    <value>{0} or {1} でカーブ開始時のオフセットを変更</value>
   </data>
   <data name="Mode_Info_ChangeOneRadius" xml:space="preserve">
     <value>{0} or {1} で片方の半径を変更</value>
@@ -263,7 +265,7 @@
     <value>クリックしてノードの選択を解除</value>
   </data>
   <data name="Mode_Info_Connection_Create" xml:space="preserve">
-    <value>{0} で直線接続を確定</value>
+    <value>{0} でストレート接続を確定</value>
   </data>
   <data name="Mode_Info_ConstructionCost" xml:space="preserve">
     <value>建設費: {0}</value>
@@ -278,7 +280,7 @@
     <value>{0} で {1} 刻み</value>
   </data>
   <data name="Mode_Info_Loop_Create" xml:space="preserve">
-    <value>{0} で曲線接続を確定</value>
+    <value>{0} でループ接続を確定</value>
   </data>
   <data name="Mode_Info_NotEnoughMoney" xml:space="preserve">
     <value>資金が足りません</value>
@@ -320,13 +322,13 @@
     <value>{0} でスロープ化を確定</value>
   </data>
   <data name="Mode_Info_Step" xml:space="preserve">
-    <value>Shift x10 / Ctrl x0.1 / Alt x0.01</value>
+    <value>Shift - X10, Ctrl - X0.1, Alt - X0.01</value>
   </data>
   <data name="Mode_Info_SwitchFollowTerrain" xml:space="preserve">
     <value>{0} で地形に追従</value>
   </data>
   <data name="Mode_Info_SwitchOffset" xml:space="preserve">
-    <value>{0} でカーブ開始前のオフセットを切り替え</value>
+    <value>{0} でオフセットを切り替え</value>
   </data>
   <data name="Mode_Info_UndergroundMode" xml:space="preserve">
     <value>{0} で地下表示に切り替え</value>
@@ -400,7 +402,7 @@
     <value>このセグメントを分割に選択</value>
   </data>
   <data name="Mode_SplitNode_Info_TooFar" xml:space="preserve">
-    <value>分割先が基準のノードから遠すぎます</value>
+    <value>分割元のノードから遠すぎです</value>
   </data>
   <data name="Mode_UnionNode" xml:space="preserve">
     <value>Mode: ノードのユニオン結合</value>
@@ -493,7 +495,7 @@
     <value>高さを下げる</value>
   </data>
   <data name="Settings_Shortcut_DecreaseOffset" xml:space="preserve">
-    <value>カーブ開始前のオフセットを伸ばす</value>
+    <value>サークル開始時のオフセットを伸ばす</value>
   </data>
   <data name="Settings_Shortcut_DecreaseOneRadius" xml:space="preserve">
     <value>半径を1回だけ縮小</value>
@@ -520,7 +522,7 @@
     <value>高さを上げる</value>
   </data>
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
-    <value>カーブ開始前のオフセットを縮める</value>
+    <value>サークル開始時のオフセットを縮める</value>
   </data>
   <data name="Settings_Shortcut_IncreaseOneRadius" xml:space="preserve">
     <value>半径を1回だけ拡大</value>
@@ -550,7 +552,7 @@
     <value>ループの方向を切り替え</value>
   </data>
   <data name="Settings_Shortcut_SwitchOffset" xml:space="preserve">
-    <value>カーブ開始前のオフセットを切り替え</value>
+    <value>選択したオフセットを切り替え</value>
   </data>
   <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
     <value>選択したサークルを切り替え</value>
