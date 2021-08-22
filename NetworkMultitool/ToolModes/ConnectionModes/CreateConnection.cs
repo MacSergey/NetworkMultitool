@@ -250,15 +250,52 @@ namespace NetworkMultitool
 
             Recalculate();
         }
-        private void IncreaseOneRadius()
+        private void IncreaseOneRadius() => ChangeOneRadius(true);
+        private void DecreaseOneRadius() => ChangeOneRadius(false);
+        private void ChangeOneRadius(bool increase)
         {
-            ChangeRadius(Circles[SelectCircle], true);
+            var circle = Circles[SelectCircle];
+            var oldRadius = circle.Radius;
+
+            var snappingCircles = new List<Circle>(2);
+            if (SelectCircle > 0 && !Circle.IsSnapping(circle, Circles[SelectCircle - 1]))
+                snappingCircles.Add(Circles[SelectCircle - 1]);
+            if (SelectCircle < Circles.Count - 1 && !Circle.IsSnapping(circle, Circles[SelectCircle + 1]))
+                snappingCircles.Add(Circles[SelectCircle + 1]);
+
+            ChangeRadius(circle, increase);
+            var newRadius = circle.Radius;
+
+            var snappingRadii = new List<float>(2);
+            foreach (var snappingCircle in snappingCircles)
+            {
+                if (circle.GetSnappingRadius(snappingCircle, out var snappingRadius) && increase ? (snappingRadius > oldRadius && snappingRadius <= newRadius) : (snappingRadius < oldRadius && snappingRadius >= newRadius))
+                    snappingRadii.Add(snappingRadius);
+                else
+                    snappingRadii.Add(-1f);
+            }
+
+            var index = -1;
+            var delta = float.MaxValue;
+            for (var i = 0; i < snappingCircles.Count; i += 1)
+            {
+
+                if (snappingRadii[i] != -1)
+                {
+                    var thisDelta = Mathf.Abs(snappingRadii[i] - newRadius);
+                    if (thisDelta < delta)
+                    {
+                        index = i;
+                        delta = thisDelta;
+                    }
+                }
+            }
+
+            if (index != -1)
+                circle.Radius = snappingRadii[index];
+
             Recalculate();
-        }
-        private void DecreaseOneRadius()
-        {
-            ChangeRadius(Circles[SelectCircle], false);
-            Recalculate();
+
         }
         private void ChangeRadius(Circle circle, bool increase)
         {
@@ -402,7 +439,7 @@ namespace NetworkMultitool
                 else
                 {
                     circle.Radius = radius;
-                    circle.SnappingRadius(Circles);
+                    circle.SetSnappingRadius(Circles);
                 }
 
                 Recalculate();

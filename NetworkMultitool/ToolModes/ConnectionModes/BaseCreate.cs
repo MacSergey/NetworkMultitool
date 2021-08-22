@@ -540,8 +540,8 @@ namespace NetworkMultitool
                     label.Show = show;
                     if (show)
                     {
-                        label.text = $"{GetLengthString(Radius)}\n{GetAngleString(Mathf.Abs(Angle))}";
-                        label.Direction = CenterDir;
+                        label.text = IsCorrect ? $"{GetLengthString(Radius)}\n{GetAngleString(Mathf.Abs(Angle))}" : GetLengthString(Radius);
+                        label.Direction = IsCorrect ? CenterDir : SingletonTool<NetworkMultitoolTool>.Instance.CameraDirection;
                         label.WorldPosition = CenterPos + label.Direction * 5f;
 
                         label.UpdateInfo();
@@ -706,50 +706,68 @@ namespace NetworkMultitool
 
                 CenterPos = (posBefore + posAfter) / 2f;
             }
-            public virtual void SnappingRadius(List<Circle> circles)
+            public void SetSnappingRadius(List<Circle> circles)
             {
-                if (circles.Count <= 1)
-                    return;
-
-                var index = circles.IndexOf(this);
-
-                if (index == 0 || index == circles.Count - 1)
-                {
-                    var other = circles[index == 0 ? index + 1 : index - 1];
-                    if (CanSnapping(this, other))
-                        SnappingRadius(other);
-                }
-                else
-                {
-                    var before = circles[index - 1];
-                    var after = circles[index + 1];
-
-                    var beforeSnapping = CanSnapping(this, before);
-                    var afterSnapping = CanSnapping(this, after);
-
-                    if (beforeSnapping && afterSnapping)
-                    {
-                        if (GetDelta(this, before) < GetDelta(this, after))
-                            SnappingRadius(before);
-                        else
-                            SnappingRadius(after);
-                    }
-                    else if (beforeSnapping)
-                        SnappingRadius(before);
-                    else if (afterSnapping)
-                        SnappingRadius(after);
-                }
+                if (GetSnappingRadius(circles, out var snappingRadius))
+                    Radius = snappingRadius;
             }
-            protected virtual void SnappingRadius(Circle other)
+            public virtual bool GetSnappingRadius(List<Circle> circles, out float snappingRadius)
+            {
+                if (circles.Count > 1)
+                {
+                    var index = circles.IndexOf(this);
+
+                    if (index == 0 || index == circles.Count - 1)
+                    {
+                        var other = circles[index == 0 ? index + 1 : index - 1];
+                        if (CanSnapping(this, other))
+                            return GetSnappingRadius(other, out snappingRadius);
+                    }
+                    else
+                    {
+                        var before = circles[index - 1];
+                        var after = circles[index + 1];
+
+                        var beforeSnapping = CanSnapping(this, before);
+                        var afterSnapping = CanSnapping(this, after);
+
+                        if (beforeSnapping && afterSnapping)
+                        {
+                            if (GetDelta(this, before) < GetDelta(this, after))
+                                return GetSnappingRadius(before, out snappingRadius);
+                            else
+                                return GetSnappingRadius(after, out snappingRadius);
+                        }
+                        else if (beforeSnapping)
+                            return GetSnappingRadius(before, out snappingRadius);
+                        else if (afterSnapping)
+                            return GetSnappingRadius(after, out snappingRadius);
+                    }
+                }
+
+                snappingRadius = 0f;
+                return false;
+            }
+
+            public virtual bool GetSnappingRadius(Circle other, out float snappingRadius)
             {
                 var centerConnect = GetConnectCenter(this, other);
                 if (Direction != other.Direction)
-                    Radius = centerConnect.Length - other.Radius;
+                {
+                    snappingRadius = centerConnect.Length - other.Radius;
+                    return true;
+                }
                 else if (centerConnect.Length > 0.5f)
                 {
                     var radius1 = other.Radius + centerConnect.Length;
                     var radius2 = other.Radius - centerConnect.Length;
-                    Radius = Mathf.Abs(Radius - radius1) < Mathf.Abs(Radius - radius2) ? radius1 : radius2;
+                    snappingRadius = Mathf.Abs(Radius - radius1) < Mathf.Abs(Radius - radius2) ? radius1 : radius2;
+                    return true;
+                }
+                else
+                {
+                    snappingRadius = 0f;
+                    return false;
                 }
             }
             public static float GetDelta(Circle first, Circle second)
@@ -760,8 +778,8 @@ namespace NetworkMultitool
                 else
                     return Mathf.Abs(centerConnect.Length - (first.Radius + second.Radius));
             }
-            public static bool IsSnapping(Circle first, Circle second) => first.IsCorrect && second.IsCorrect && CanSnapping(first, second);
-            protected static bool CanSnapping(Circle first, Circle second) => (first.Direction != second.Direction || Math.Abs(first.Radius - second.Radius) >= 1f) && GetDelta(first, second) < MinSnapping;
+            public static bool IsSnapping(Circle first, Circle second) => GetDelta(first, second) < MinDelta;
+            public static bool CanSnapping(Circle first, Circle second) => (first.Direction != second.Direction || Math.Abs(first.Radius - second.Radius) >= 1f) && GetDelta(first, second) < MinSnapping;
 
             public void Render(RenderManager.CameraInfo cameraInfo, NetInfo info, Color32 color, bool underground)
             {
