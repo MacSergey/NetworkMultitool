@@ -316,7 +316,7 @@ namespace NetworkMultitool
                     string.Format(Localize.Mode_Info_ChangeRadius, DecreaseRadiusShortcut.AddInfoColor(), IncreaseRadiusShortcut.AddInfoColor()) + "\n" +
                     Localize.Mode_Info_Step + "\n" +
                     string.Format(Localize.Mode_CreateLoop_Info_Change, SwitchIsLoopShortcut.AddInfoColor()) + "\n" +
-                    string.Format(Localize.Mode_Info_SwitchFollowTerrain, SwitchFollowTerrainShortcut.AddInfoColor()) + "\n" +
+                    (IsFollowTerrain ? string.Format(Localize.Mode_Info_SwitchFollowTerrain, SwitchFollowTerrainShortcut.AddInfoColor()) + "\n" : string.Empty) +
                     string.Format(Localize.Mode_Info_Loop_Create, ApplyShortcut.AddInfoColor());
         }
         protected override void ResetParams()

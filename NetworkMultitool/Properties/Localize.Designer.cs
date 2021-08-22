@@ -82,6 +82,18 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на - Added Create parallel mode: Select exist network nodes and create new network parallel them. Possible set offset, height and side of parallel networks.
+        ///- Added Arrange at circle mode: Select nodes and arrange them at perfect circle. Possible set circle radius and position; Move nodes by circe; Distribute intersection and nodes evenly in circle.
+        ///- Added Create curve mode: Create curve connection between two segments.
+        ///- Added network visualisation to Connection, Loop, Parallel and Curve modes. Can be dis [остаток строки не уместился]&quot;;.
+        /// </summary>
+        internal static string Mod_WhatsNewMessage1_2 {
+            get {
+                return ResourceManager.GetString("Mod_WhatsNewMessage1_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Add node mode.
         /// </summary>
         internal static string Mode_AddNode {
@@ -219,20 +231,20 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Create Bezier curve mode.
-        /// </summary>
-        internal static string Mode_CreateBezier {
-            get {
-                return ResourceManager.GetString("Mode_CreateBezier", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Ищет локализованную строку, похожую на Create connection mode.
         /// </summary>
         internal static string Mode_CreateConnection {
             get {
                 return ResourceManager.GetString("Mode_CreateConnection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Create curve mode.
+        /// </summary>
+        internal static string Mode_CreateCurve {
+            get {
+                return ResourceManager.GetString("Mode_CreateCurve", resourceCulture);
             }
         }
         
@@ -543,15 +555,6 @@ namespace NetworkMultitool {
         internal static string Mode_Info_Create {
             get {
                 return ResourceManager.GetString("Mode_Info_Create", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на Move Bezier curve guides to change shape.
-        /// </summary>
-        internal static string Mode_Info_CreateBezier_MoveGiude {
-            get {
-                return ResourceManager.GetString("Mode_Info_CreateBezier_MoveGiude", resourceCulture);
             }
         }
         

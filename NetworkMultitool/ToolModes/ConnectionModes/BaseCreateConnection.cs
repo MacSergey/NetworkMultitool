@@ -105,7 +105,7 @@ namespace NetworkMultitool
             if (State != Result.None)
             {
                 foreach (var circle in Circles)
-                    circle?.Update(State == Result.Calculated);
+                    circle?.Update(State != Result.None);
 
                 var info = Info;
                 for (var i = 0; i < Straights.Count; i += 1)
@@ -345,26 +345,31 @@ namespace NetworkMultitool
                 Offset = otherOffset + Mathf.Sign(side) * delta;
             }
             protected override void SnappingTwoPositions(Circle before, Circle after) { }
-            protected override void SnappingRadius(Circle other)
+            public override bool GetSnappingRadius(Circle other, out float snappingRadius)
             {
                 var normal = new StraightTrajectory(other.CenterPos, other.CenterPos + MainDir, false);
                 Intersection.CalculateSingle(Guide, normal, out var otherOffset, out var otherHeight);
 
                 if (other.Radius + otherHeight <= 0f)
-                    return;
+                {
+                    snappingRadius = 0f;
+                    return false;
+                }
 
                 var delta = Mathf.Abs(Offset - otherOffset);
                 var height = Mathf.Abs(otherHeight);
                 if (otherHeight < 0f)
                 {
                     var radius = (other.Radius * other.Radius - height * height - delta * delta) / (2f * (height - other.Radius));
-                    Radius = radius;
+                    snappingRadius = radius;
+                    return true;
                 }
                 else
                 {
                     var radius1 = (other.Radius * other.Radius - height * height - delta * delta) / (2f * (other.Radius - height));
                     var radius2 = (height * height + delta * delta - other.Radius * other.Radius) / (2f * (other.Radius + height));
-                    Radius = Mathf.Abs(Radius - radius1) < Mathf.Abs(Radius - radius2) ? radius1 : radius2;
+                    snappingRadius = Mathf.Abs(Radius - radius1) < Mathf.Abs(Radius - radius2) ? radius1 : radius2;
+                    return true;
                 }
             }
         }

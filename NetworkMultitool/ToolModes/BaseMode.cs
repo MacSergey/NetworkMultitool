@@ -326,7 +326,7 @@ namespace NetworkMultitool
         protected static void UpdateZones(ushort segmentId)
         {
             ref var segment = ref segmentId.GetSegment();
-            if(segment.Info.m_netAI is RoadAI roadAI)
+            if (segment.Info.m_netAI is RoadAI roadAI)
             {
                 ReleaseSegmentBlock(ref segment.m_blockStartLeft);
                 ReleaseSegmentBlock(ref segment.m_blockStartRight);
@@ -389,16 +389,65 @@ namespace NetworkMultitool
                 points[i].BackwardDirection = points[i].BackwardDirection.SetHeight(-deltaHeight);
             }
         }
-        protected static void SetTerrain<Type>(Type[] items, PositionGetterDelegate<Type> positionGetter, PositionSetterDelegate<Type> positionSetter)
+        protected static void SetTerrain(Point[] points, float startY, float endY)
         {
-            for (var i = 1; i < items.Length - 1; i += 1)
+            points[0].Position.y = startY;
+            points[points.Length - 1].Position.y = endY;
+
+            var hasWater = new bool[points.Length];
+            for (var i = 0; i < points.Length; i += 1)
             {
-                var position = positionGetter(ref items[i]);
-                position.y = TerrainManager.instance.SampleRawHeightSmooth(position);
-                positionSetter(ref items[i], position);
+                hasWater[i] = TerrainManager.instance.HasWater(XZ(points[i].Position));
+                if (!hasWater[i])
+                    points[i].Position = points[i].Position.SetHeight(TerrainManager.instance.SampleRawHeightSmooth(points[i].Position));
+            }
+
+            if (hasWater.All(i => i))
+                SetSlope(points, startY, endY);
+            else
+            {
+                var index = 0;
+                while (index < points.Length)
+                {
+                    var startI = Array.FindIndex(hasWater, index, i => i);
+                    if (startI == -1)
+                        break;
+                    startI = Math.Max(startI - 1, 0);
+                    var endI = Array.FindIndex(hasWater, startI + 1, i => !i);
+                    if (endI == -1)
+                        endI = points.Length - 1;
+
+                    var toSlope = new Point[endI - startI + 1];
+                    Array.Copy(points, startI, toSlope, 0, toSlope.Length);
+                    SetSlope(toSlope, toSlope[0].Position.y, toSlope[toSlope.Length - 1].Position.y);
+                    Array.Copy(toSlope, 0, points, startI, toSlope.Length);
+
+                    index = endI + 1;
+                }
+
+                for (var i = 1; i < points.Length - 1; i += 1)
+                {
+                    var before = new BezierTrajectory(points[i - 1].Position.MakeFlat(), points[i - 1].ForwardDirection, points[i].Position.MakeFlat(), points[i].BackwardDirection);
+                    var after = new BezierTrajectory(points[i].Position.MakeFlat(), points[i].ForwardDirection, points[i + 1].Position.MakeFlat(), points[i + 1].BackwardDirection);
+
+                    var beforeTan = (points[i].Position.y - points[i - 1].Position.y) / before.Length;
+                    var afterTan = (points[i + 1].Position.y - points[i].Position.y) / after.Length;
+                    var tan = (beforeTan + afterTan) / 2f;
+
+                    points[i].ForwardDirection = points[i].ForwardDirection.SetHeight(tan);
+                    points[i].BackwardDirection = points[i].BackwardDirection.SetHeight(-tan);
+                }
+
+                if (points.Length == 2)
+                {
+                    var line = new BezierTrajectory(points[0].Position.MakeFlat(), points[0].ForwardDirection, points[1].Position.MakeFlat(), points[1].BackwardDirection);
+                    var tan = (points[1].Position.y - points[0].Position.y) / line.Length;
+
+                    points[0].ForwardDirection = points[0].ForwardDirection.SetHeight(tan);
+                    points[1].BackwardDirection = points[1].BackwardDirection.SetHeight(-tan);
+                }
             }
         }
-        protected static void SetTerrain(Point[] points) => SetTerrain(points, PositionGetter, PositionSetter);
 
         private static Vector3 PositionGetter(ref Point point) => point.Position;
         private static void DirectionGetter(Point first, Point second, out Vector3 firstDir, out Vector3 secondDir)
@@ -599,6 +648,9 @@ namespace NetworkMultitool
                 instance.m_materialBlock.SetVector(instance.ID_SurfaceMapping, surfaceMapping);
             }
 
+            if (info.m_netAI is RoadBaseAI roadAI && !roadAI.IsOverground())
+                position += Vector3.up;
+
             foreach (var segment in info.m_segments)
             {
                 if (segment.CheckFlags(NetSegment.Flags.None, out var invert))
@@ -614,9 +666,6 @@ namespace NetworkMultitool
                         var scale = new Vector4(0.5f / info.m_halfWidth, 1f / info.m_segmentLength, 1f, 1f);
                         instance.m_materialBlock.SetVector(instance.ID_MeshScale, scale);
                     }
-
-                    if (info.m_netAI is RoadBaseAI roadAI && !roadAI.IsOverground())
-                        position += Vector3.up;
 
                     Graphics.DrawMesh(segment.m_segmentMesh, position, Quaternion.identity, segment.m_segmentMaterial, segment.m_layer, null, 0, instance.m_materialBlock);
                 }
@@ -802,18 +851,18 @@ namespace NetworkMultitool
         [Description(nameof(Localize.Mode_CreateConnection))]
         CreateConnectionChangeRadius = CreateConnection + 2,
 
-        [Description(nameof(Localize.Mode_CreateParallerl))]
-        CreateParallel = CreateConnection << 1,
+        [Description(nameof(Localize.Mode_CreateCurve))]
+        CreateCurve = CreateConnection << 1,
 
-        [Description(nameof(Localize.Mode_CreateBezier))]
-        CreateBezier = CreateParallel << 1,
+        [Description(nameof(Localize.Mode_CreateParallerl))]
+        CreateParallel = CreateCurve << 1,
 
 
         [NotItem]
         Line = SlopeNode | ArrangeAtLine,
 
         [NotItem]
-        Create = CreateLoop | CreateConnection | CreateBezier | CreateParallel,
+        Create = CreateLoop | CreateConnection | CreateCurve | CreateParallel,
 
         [NotItem]
         Any = int.MaxValue,
