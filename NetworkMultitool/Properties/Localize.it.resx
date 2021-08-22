@@ -164,12 +164,10 @@ per cambiare la direzione della curva</value>
   <data name="Mode_Connection_Info_DragToMove" xml:space="preserve">
     <value>Trascina per spostare il cerchio</value>
   </data>
-  <data name="Mode_CreateBezier" xml:space="preserve">
-    <value>Modalità Crea curva di Bezier</value>
-  </data>
   <data name="Mode_CreateConnection" xml:space="preserve">
     <value>Crea modalità connessione</value>
   </data>
+  
   <data name="Mode_CreateLoop" xml:space="preserve">
     <value>Crea modalità ciclo</value>
   </data>
@@ -272,9 +270,6 @@ in modo uniforme tra le intersezioni</value>
   
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Premi {0} per creare</value>
-  </data>
-  <data name="Mode_Info_CreateBezier_MoveGiude" xml:space="preserve">
-    <value>Sposta le guide della curva di Bezier per cambiare forma</value>
   </data>
   
   
@@ -431,6 +426,7 @@ bloccarlo o sbloccarlo</value>
   <data name="Mod_Description" xml:space="preserve">
     <value>Molti strumenti diversi per lavorare con le reti</value>
   </data>
+  
   
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>Attivazione scorciatoie</value>

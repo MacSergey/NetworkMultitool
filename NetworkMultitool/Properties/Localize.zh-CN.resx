@@ -164,11 +164,11 @@
   <data name="Mode_Connection_Info_DragToMove" xml:space="preserve">
     <value>拖移以移动圆</value>
   </data>
-  <data name="Mode_CreateBezier" xml:space="preserve">
-    <value>创建贝塞尔曲线</value>
-  </data>
   <data name="Mode_CreateConnection" xml:space="preserve">
     <value>创建连接模式</value>
+  </data>
+  <data name="Mode_CreateCurve" xml:space="preserve">
+    <value>创建曲线模式</value>
   </data>
   <data name="Mode_CreateLoop" xml:space="preserve">
     <value>创建环形模式</value>
@@ -275,9 +275,6 @@
   </data>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>按 {0} 以创建</value>
-  </data>
-  <data name="Mode_Info_CreateBezier_MoveGiude" xml:space="preserve">
-    <value>移动贝塞尔曲线把手以更改形状</value>
   </data>
   <data name="Mode_Info_HoldToMoveSlower" xml:space="preserve">
     <value>按住 {0} 键X{1} 倍慢速移动。</value>
@@ -394,7 +391,10 @@
   <data name="Mode_SplitNode_Info_ClickToOrder" xml:space="preserve">
     <value>单击以添加段落到就序列表中</value>
   </data>
-  
+  <data name="Mode_SplitNode_Info_ClickToSplit" xml:space="preserve">
+    <value>点击以分割节点并设置为地形高度
+按住{0} 单击以分割节点并设置为原高度</value>
+  </data>
   <data name="Mode_SplitNode_Info_NotAllowedSplit" xml:space="preserve">
     <value>无法分割只与一个段落相交的节点</value>
   </data>
@@ -447,6 +447,7 @@
   <data name="Mod_Description" xml:space="preserve">
     <value>修改道路网络的许多小工具</value>
   </data>
+  
   
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>激活快捷键</value>

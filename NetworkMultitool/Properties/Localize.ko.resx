@@ -164,12 +164,10 @@
   <data name="Mode_Connection_Info_DragToMove" xml:space="preserve">
     <value>드래그해 원 이동</value>
   </data>
-  <data name="Mode_CreateBezier" xml:space="preserve">
-    <value>베지어 곡선 생성 모드</value>
-  </data>
   <data name="Mode_CreateConnection" xml:space="preserve">
     <value>연결 생성 모드</value>
   </data>
+  
   <data name="Mode_CreateLoop" xml:space="preserve">
     <value>루프 생성 모드</value>
   </data>
@@ -275,9 +273,6 @@
   </data>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>{0} 키를 눌러서 생성</value>
-  </data>
-  <data name="Mode_Info_CreateBezier_MoveGiude" xml:space="preserve">
-    <value>베지어 곡선의 제어점을 옮겨 형태 변경</value>
   </data>
   <data name="Mode_Info_HoldToMoveSlower" xml:space="preserve">
     <value>{0} 키를 눌러 {1}배 느리게 이동</value>
@@ -450,6 +445,7 @@
   <data name="Mod_Description" xml:space="preserve">
     <value>네트워크를 위한 여러 가지 도구</value>
   </data>
+  
   
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>활성화 단축키</value>

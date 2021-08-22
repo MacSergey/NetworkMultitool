@@ -59,46 +59,46 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"></xsd:import>
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0"></xsd:element>
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" use="required" type="xsd:string"></xsd:attribute>
+              <xsd:attribute name="type" type="xsd:string"></xsd:attribute>
+              <xsd:attribute name="mimetype" type="xsd:string"></xsd:attribute>
+              <xsd:attribute ref="xml:space"></xsd:attribute>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="alias" type="xsd:string"></xsd:attribute>
+              <xsd:attribute name="name" type="xsd:string"></xsd:attribute>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"></xsd:element>
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"></xsd:element>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"></xsd:attribute>
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"></xsd:attribute>
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"></xsd:attribute>
+              <xsd:attribute ref="xml:space"></xsd:attribute>
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"></xsd:element>
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
+              <xsd:attribute name="name" type="xsd:string" use="required"></xsd:attribute>
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -164,11 +164,11 @@ to change curve direction</value>
   <data name="Mode_Connection_Info_DragToMove" xml:space="preserve">
     <value>Drag to move circle</value>
   </data>
-  <data name="Mode_CreateBezier" xml:space="preserve">
-    <value>Create Bezier curve mode</value>
-  </data>
   <data name="Mode_CreateConnection" xml:space="preserve">
     <value>Create connection mode</value>
+  </data>
+  <data name="Mode_CreateCurve" xml:space="preserve">
+    <value>Create curve mode</value>
   </data>
   <data name="Mode_CreateLoop" xml:space="preserve">
     <value>Create loop mode</value>
@@ -187,7 +187,7 @@ to change curve direction</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_BigDelta" xml:space="preserve">
     <value>Too big angle between nodes
-round shape willn't be perfect</value>
+round shape won't be perfect</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_DoubleClickToResetCenter" xml:space="preserve">
     <value>Double click to reset center position</value>
@@ -275,9 +275,6 @@ intersections evenly on circle</value>
   </data>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Press {0} to create</value>
-  </data>
-  <data name="Mode_Info_CreateBezier_MoveGiude" xml:space="preserve">
-    <value>Move Bezier curve guides to change shape</value>
   </data>
   <data name="Mode_Info_HoldToMoveSlower" xml:space="preserve">
     <value>Hold {0} to move X{1} slower</value>
@@ -470,6 +467,22 @@ lock or unlock it</value>
 - Fixed overlay in underground mode.
 - Added Hungarian and Korean translations.</value>
   </data>
+  <data name="Mod_WhatsNewMessage1_2" xml:space="preserve">
+    <value>- Added Create parallel mode: Select exist network nodes and create new network parallel them. Possible set offset, height and side of parallel networks.
+- Added Arrange at circle mode: Select nodes and arrange them at perfect circle. Possible set circle radius and position; Move nodes by circe; Distribute intersection and nodes evenly in circle.
+- Added Create curve mode: Create smooth curve connection between two segments.
+- Added network visualisation to Connection, Loop, Parallel and Curve modes. Can be disabled in mod settings.
+- Added snapping to Connection mode: circles will be magnetized to the neighboring circles when changing their radius or position. Can be disabled in mod settings.
+- Added follow terrain option to Connection, Loop, Parallel and Curve modes. Follow terrain possible only if both ends are on ground networks. Default value can be set in mod settings and change by Ctrl+F while network creating.
+- Added audio and visual effects on modes actions, like effects when network creating. It should help to understand that action was done. Can be disabled in mod settings.
+- Added requires money to build to Connect, Loop, Parallel, Curve and Arrange at line modes. Can be disabled in mod settings.
+- Added the ability to change column count in modes panel (from 1 to 5).
+- Added colors to tooltips text, it should help to reading them.
+- Added the ability to select locked segments in Connection, Loop, Parallel and Curve modes.
+- Fixed immediately tool close when selected underground mode in Fine Road Tool.
+- Fixed not updated zones when segment moved in Arrange at line mode.
+- Added Danish and Turkish translations.</value>
+  </data>
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>Activation shortcuts</value>
   </data>
@@ -480,7 +493,7 @@ lock or unlock it</value>
     <value>Modes' common shortcuts</value>
   </data>
   <data name="Settings_FollowTerrain" xml:space="preserve">
-    <value>Created on grounds roads follow terrain</value>
+    <value>Ground roads will follow terrain</value>
   </data>
   <data name="Settings_Gameplay" xml:space="preserve">
     <value>Gameplay</value>

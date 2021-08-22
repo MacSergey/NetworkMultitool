@@ -164,26 +164,24 @@ para cambiar la dirección de la curva</value>
   <data name="Mode_Connection_Info_DragToMove" xml:space="preserve">
     <value>Arrastre para mover el círculo</value>
   </data>
-  <data name="Mode_CreateBezier" xml:space="preserve">
-    <value>Modo de creación de curva Bézier</value>
-  </data>
   <data name="Mode_CreateConnection" xml:space="preserve">
     <value>Modo de creación de conexión</value>
   </data>
+  
   <data name="Mode_CreateLoop" xml:space="preserve">
     <value>Modo de creación de curva</value>
   </data>
   <data name="Mode_CreateLoop_Info_Change" xml:space="preserve">
-    <value>Pulsa {0} para cambiar la curva</value>
+    <value>Presiona la tecla {0} para cambiar la curva</value>
   </data>
   <data name="Mode_CreateParallerl" xml:space="preserve">
     <value>Modo de creación de redes paralelas</value>
   </data>
   <data name="Mode_Info_Apply" xml:space="preserve">
-    <value>Pulsa {0} para aplicar</value>
+    <value>Presiona la tecla {0} para aplicar</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_Apply" xml:space="preserve">
-    <value>Pulsa {0} para organizar en el círculo</value>
+    <value>Presiona la tecla {0} para organizar en el círculo</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_BigDelta" xml:space="preserve">
     <value>Angulo demasiado grande entre los nodos
@@ -205,50 +203,50 @@ el circulo no será perfecto</value>
     <value>Arrastre para mover el nodo</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_MoveAll" xml:space="preserve">
-    <value>Mantener pulsada la tecla {0} para mover 
+    <value>Mantener presionada la tecla {0} para mover 
 todos los nodos al mismo tiempo</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_PressToDistributeBetweenIntersections" xml:space="preserve">
-    <value>Pulsa {0} para distribuir los nodos 
-de manera uniforme entre las intersecciones</value>
+    <value>Presiona la tecla {0} para distribuir los nodos 
+de manera uniforme en el círculo</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_PressToDistributeEvenly" xml:space="preserve">
-    <value>Pulsa {0} para distribuir los nodos 
+    <value>Presiona la tecla {0} para distribuir los nodos 
 de manera uniforme en el círculo</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_PressToDistributeIntersections" xml:space="preserve">
-    <value>Pulsa {0} para distribuir los nodos 
+    <value>Presiona la tecla {0} para distribuir los nodos 
 de manera uniforme en el círculo</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_PressToReset" xml:space="preserve">
-    <value>Pulsa {0} para restablecer los parámetros</value>
+    <value>Presiona la tecla {0} para restablecer los parámetros</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_WrongOrder" xml:space="preserve">
     <value>Orden incorrecto de nodos</value>
   </data>
   <data name="Mode_Info_ArrangeLine_Apply" xml:space="preserve">
-    <value>Pulsa {0} para organizar en línea</value>
+    <value>Presiona la tecla {0} para organizar en línea</value>
   </data>
   <data name="Mode_Info_ChangeAllRadius" xml:space="preserve">
-    <value>Pulsa {0} o {1} para cambiar todos los radios</value>
+    <value>Presiona la tecla {0} o {1} para cambiar todos los radios</value>
   </data>
   <data name="Mode_Info_ChangeBothRadius" xml:space="preserve">
-    <value>Pulsa {0} o {1} para cambiar ambos radios</value>
+    <value>Presiona la tecla {0} o {1} para cambiar ambos radios</value>
   </data>
   <data name="Mode_Info_ChangeCircle" xml:space="preserve">
-    <value>Pulsa {0} para cambiar el círculo seleccionado</value>
+    <value>Presiona la tecla {0} para cambiar el círculo seleccionado</value>
   </data>
   <data name="Mode_Info_ChangeOffset" xml:space="preserve">
-    <value>Pulsa {0} o {1} para cambiar el desplazamiento inicial de la curva</value>
+    <value>Presiona la tecla {0} o {1} para cambiar el desplazamiento inicial de la curva</value>
   </data>
   <data name="Mode_Info_ChangeOneRadius" xml:space="preserve">
-    <value>Pulsa {0} o {1} para cambiar un radio</value>
+    <value>Presiona la tecla {0} o {1} para cambiar un radio</value>
   </data>
   <data name="Mode_Info_ChangeRadius" xml:space="preserve">
-    <value>Pulsa {0} o {1} para cambiar el radio</value>
+    <value>Presiona la tecla {0} o {1} para cambiar el radio</value>
   </data>
   <data name="Mode_Info_ChangeShift" xml:space="preserve">
-    <value>Pulsa {0} o {1} para ajustar la separación</value>
+    <value>Presiona la tecla {0} o {1} para ajustar la separación</value>
   </data>
   <data name="Mode_Info_ClickFirstSegment" xml:space="preserve">
     <value>Clic para seleccionar el primer segmento</value>
@@ -269,25 +267,22 @@ de manera uniforme en el círculo</value>
     <value>Clic para deseleccionar nodo</value>
   </data>
   <data name="Mode_Info_Connection_Create" xml:space="preserve">
-    <value>Pulsa {0} para crear conexión</value>
+    <value>Presiona la tecla {0} para crear conexión</value>
   </data>
   <data name="Mode_Info_ConstructionCost" xml:space="preserve">
     <value>Costo de construcción: {0}</value>
   </data>
   <data name="Mode_Info_Create" xml:space="preserve">
-    <value>Pulsa {0} para crear</value>
-  </data>
-  <data name="Mode_Info_CreateBezier_MoveGiude" xml:space="preserve">
-    <value>Mover guías de curva Bézier para cambiar la forma</value>
+    <value>Presiona la tecla {0} para crear</value>
   </data>
   <data name="Mode_Info_HoldToMoveSlower" xml:space="preserve">
-    <value>Mantener pulsada la tecla {0} para mover X{1} más lento</value>
+    <value>Mantener presionada la tecla {0} para mover X{1} más lento</value>
   </data>
   <data name="Mode_Info_HoldToStep" xml:space="preserve">
-    <value>Mantener pulsada la tecla {0} para pasar a {1}</value>
+    <value>Mantener presionada la tecla {0} para pasar a {1}</value>
   </data>
   <data name="Mode_Info_Loop_Create" xml:space="preserve">
-    <value>Pulsa {0} para crear curva</value>
+    <value>Presiona la tecla {0} para crear curva</value>
   </data>
   <data name="Mode_Info_NotEnoughMoney" xml:space="preserve">
     <value>No hay suficiente dinero</value>
@@ -296,16 +291,16 @@ de manera uniforme en el círculo</value>
     <value>Fuera del mapa</value>
   </data>
   <data name="Mode_Info_Parallel_ChangeHeight" xml:space="preserve">
-    <value>Pulsa {0} o {1} para cambiar la altura</value>
+    <value>Presiona la tecla {0} o {1} para cambiar la altura</value>
   </data>
   <data name="Mode_Info_Parallel_ChangeShift" xml:space="preserve">
-    <value>Pulsa {0} para cambiar el lado de creación</value>
+    <value>Presiona la tecla {0} para cambiar el lado de creación</value>
   </data>
   <data name="Mode_Info_Parallel_Create" xml:space="preserve">
-    <value>Pulsa {0} para crear red paralela</value>
+    <value>Presiona la tecla {0} para crear red paralela</value>
   </data>
   <data name="Mode_Info_Parallel_Invert" xml:space="preserve">
-    <value>Pulsa {0} para invertir la red</value>
+    <value>Presiona la tecla {0} para invertir la red</value>
   </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
     <value>El radio es muy grande</value>
@@ -326,19 +321,19 @@ de manera uniforme en el círculo</value>
     <value>Seleccione segmento</value>
   </data>
   <data name="Mode_Info_Slope_Apply" xml:space="preserve">
-    <value>Pulsa {0} para aplicar pendiente</value>
+    <value>Presiona la tecla {0} para aplicar pendiente</value>
   </data>
   <data name="Mode_Info_Step" xml:space="preserve">
     <value>Mayús - X10, Ctrl - X0.1, Alt - X0.01</value>
   </data>
   <data name="Mode_Info_SwitchFollowTerrain" xml:space="preserve">
-    <value>Pulsa {0} para cambiar a seguir terreno</value>
+    <value>Presiona la tecla {0} para cambiar a seguir terreno</value>
   </data>
   <data name="Mode_Info_SwitchOffset" xml:space="preserve">
-    <value>Pulsa {0} para cambiar el desplazamiento inicial de la curva seleccionada</value>
+    <value>Presiona la tecla {0} para cambiar el desplazamiento inicial de la curva seleccionada</value>
   </data>
   <data name="Mode_Info_UndergroundMode" xml:space="preserve">
-    <value>Mantener pulsada la tecla {0} para modo subterráneo</value>
+    <value>Mantener presionada la tecla {0} para modo subterráneo</value>
   </data>
   <data name="Mode_Info_WrongShape" xml:space="preserve">
     <value>Forma incorrecta</value>
@@ -450,6 +445,7 @@ Clic con {0} para separar nodo y alinear a la altura de la selección</value>
   <data name="Mod_Description" xml:space="preserve">
     <value>Conjunto de herramientas diferentes para trabajar con redes</value>
   </data>
+  
   
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>Atajos de activación</value>

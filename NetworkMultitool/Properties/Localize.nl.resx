@@ -154,10 +154,10 @@ om de richting van de curve te veranderen</value>
   <data name="Mode_Connection_Info_DragToMove" xml:space="preserve">
     <value>Sleep om de cirkel te verplaatsen</value>
   </data>
-  
   <data name="Mode_CreateConnection" xml:space="preserve">
     <value>Creëer verbind-modus</value>
   </data>
+  
   <data name="Mode_CreateLoop" xml:space="preserve">
     <value>Creëer lus-modus</value>
   </data>
@@ -214,7 +214,6 @@ om de richting van de curve te veranderen</value>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Druk {0} om te creëren</value>
   </data>
-  
   
   
   
@@ -318,6 +317,7 @@ om de richting van de curve te veranderen</value>
   <data name="Mode_UnlockSegment_Info_ChangeLock" xml:space="preserve">
     <value>Selecteer segment om te vergrendelen of te ontgrendelen</value>
   </data>
+  
   
   
   

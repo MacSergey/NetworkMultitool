@@ -163,11 +163,11 @@ Za blisko sąsiedniego węzła</value>
   <data name="Mode_Connection_Info_DragToMove" xml:space="preserve">
     <value>Przeciągnij, aby przesunąć okrąg</value>
   </data>
-  <data name="Mode_CreateBezier" xml:space="preserve">
-    <value>Tryb tworzenia krzywej Beziera</value>
-  </data>
   <data name="Mode_CreateConnection" xml:space="preserve">
     <value>Tryb tworzenia połączeń</value>
+  </data>
+  <data name="Mode_CreateCurve" xml:space="preserve">
+    <value>Tryb tworzenia zakrętu</value>
   </data>
   <data name="Mode_CreateLoop" xml:space="preserve">
     <value>Tryb tworzenia pętli</value>
@@ -274,9 +274,6 @@ równomiernie w okręgu</value>
   </data>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Naciśnij {0}, aby utworzyć</value>
-  </data>
-  <data name="Mode_Info_CreateBezier_MoveGiude" xml:space="preserve">
-    <value>Przesuń wskaźniki krzywej Beziera aby zmienić kształt</value>
   </data>
   <data name="Mode_Info_HoldToMoveSlower" xml:space="preserve">
     <value>Przytrzymaj {0} aby przesuwać X{1} wolniej</value>
@@ -448,6 +445,7 @@ Naciśnij trzymając {0} aby podzielić węzeł i wyrównać do wysokości źró
   <data name="Mod_Description" xml:space="preserve">
     <value>Wiele różnych narzędzi do pracy z sieciami</value>
   </data>
+  
   
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>Skróty aktywacji</value>

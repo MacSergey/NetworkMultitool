@@ -164,9 +164,11 @@ for at ændre kurve retning</value>
   <data name="Mode_Connection_Info_DragToMove" xml:space="preserve">
     <value>Træk for at flytte cirkel</value>
   </data>
-  
   <data name="Mode_CreateConnection" xml:space="preserve">
     <value>Opret forbindelse</value>
+  </data>
+  <data name="Mode_CreateCurve" xml:space="preserve">
+    <value>Opret kurve</value>
   </data>
   <data name="Mode_CreateLoop" xml:space="preserve">
     <value>Opret kurve</value>
@@ -267,21 +269,30 @@ skæringspunkter jævnt på cirklen</value>
   <data name="Mode_Info_Connection_Create" xml:space="preserve">
     <value>Tryk på {0} for at oprette forbindelse</value>
   </data>
-  
+  <data name="Mode_Info_ConstructionCost" xml:space="preserve">
+    <value>Byggeomkostninger: {0}</value>
+  </data>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Tryk på {0} for at oprette</value>
   </data>
-  
-  
-  
+  <data name="Mode_Info_HoldToMoveSlower" xml:space="preserve">
+    <value>Hold {0} nede for at flytte X{1} langsommere</value>
+  </data>
+  <data name="Mode_Info_HoldToStep" xml:space="preserve">
+    <value>Hold {0} nede for trin {1}</value>
+  </data>
   <data name="Mode_Info_Loop_Create" xml:space="preserve">
     <value>Tryk på {0} for at oprette kurve</value>
   </data>
-  
+  <data name="Mode_Info_NotEnoughMoney" xml:space="preserve">
+    <value>Ikke nok penge</value>
+  </data>
   <data name="Mode_Info_OutOfMap" xml:space="preserve">
     <value>Uden for kortet</value>
   </data>
-  
+  <data name="Mode_Info_Parallel_ChangeHeight" xml:space="preserve">
+    <value>Tryk på {0} eller {1} for at ændre højden</value>
+  </data>
   <data name="Mode_Info_Parallel_ChangeShift" xml:space="preserve">
     <value>Tryk på {0} for at skifte side for oprettelse</value>
   </data>
@@ -297,7 +308,9 @@ skæringspunkter jævnt på cirklen</value>
   <data name="Mode_Info_RadiusTooSmall" xml:space="preserve">
     <value>Radius for lille</value>
   </data>
-  
+  <data name="Mode_Info_Refund" xml:space="preserve">
+    <value>Refundering: {0}</value>
+  </data>
   <data name="Mode_Info_SelectFirstSegment" xml:space="preserve">
     <value>Vælg første segment</value>
   </data>
@@ -313,7 +326,9 @@ skæringspunkter jævnt på cirklen</value>
   <data name="Mode_Info_Step" xml:space="preserve">
     <value>Shift - X10, Ctrl - X0.1, Alt - X0.01</value>
   </data>
-  
+  <data name="Mode_Info_SwitchFollowTerrain" xml:space="preserve">
+    <value>Tryk på {0} for at skifte følg terræn</value>
+  </data>
   <data name="Mode_Info_SwitchOffset" xml:space="preserve">
     <value>Tryk på {0} for at skifte valgte offset</value>
   </data>
@@ -326,7 +341,9 @@ skæringspunkter jævnt på cirklen</value>
   <data name="Mode_IntersectSegment" xml:space="preserve">
     <value>Vejkryds tilstand</value>
   </data>
-  
+  <data name="Mode_IntersectSegment_Info_CommonNode" xml:space="preserve">
+    <value>Disse veje har almindelig node</value>
+  </data>
   <data name="Mode_IntersectSegment_Info_EdgeTooClose" xml:space="preserve">
     <value>Kanten af den ene vej er for tæt på slutningen af den anden vej</value>
   </data>
@@ -375,7 +392,7 @@ fordi den ikke er forbundet med andre</value>
   </data>
   <data name="Mode_SplitNode_Info_ClickToSplit" xml:space="preserve">
     <value>Klik for at opdele node og justere til terrænhøjde
-Klik med {0} for at opdele node og justere til kildehøjde</value>
+Klik med {0} for at opdele node og følg start højden</value>
   </data>
   <data name="Mode_SplitNode_Info_NotAllowedSplit" xml:space="preserve">
     <value>Ikke muligt at opdele node med kun et element</value>
@@ -418,7 +435,7 @@ Klik med {0} for at opdele node og justere til kildehøjde</value>
   </data>
   <data name="Mode_UnlockSegment_Info_ChangeLock" xml:space="preserve">
     <value>Vælg vej for at
-låse eller låse det op</value>
+låse eller låse op</value>
   </data>
   <data name="Mode_UnlockSegment_Info_ClickToLock" xml:space="preserve">
     <value>Klik for at låse denne vej</value>
@@ -430,6 +447,7 @@ låse eller låse det op</value>
     <value>Mange forskellige værktøjer til at arbejde med netværk</value>
   </data>
   
+  
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>Aktiveringsgenveje</value>
   </data>
@@ -439,10 +457,18 @@ låse eller låse det op</value>
   <data name="Settings_CommonShortcuts" xml:space="preserve">
     <value>Standart genveje</value>
   </data>
-  
-  
-  
-  
+  <data name="Settings_FollowTerrain" xml:space="preserve">
+    <value>Oprettet på grunde veje følg terræn</value>
+  </data>
+  <data name="Settings_Gameplay" xml:space="preserve">
+    <value>Gameplay</value>
+  </data>
+  <data name="Settings_Interface" xml:space="preserve">
+    <value>Interface</value>
+  </data>
+  <data name="Settings_NeedMoney" xml:space="preserve">
+    <value>Kræver penge for at bygge</value>
+  </data>
   <data name="Settings_PanelColumns" xml:space="preserve">
     <value>Antal kolonner i panel</value>
   </data>
@@ -467,7 +493,9 @@ låse eller låse det op</value>
   <data name="Settings_Shortcut_Apply" xml:space="preserve">
     <value>Anvend tilstand</value>
   </data>
-  
+  <data name="Settings_Shortcut_DecreaseHeight" xml:space="preserve">
+    <value>Reducer højden</value>
+  </data>
   <data name="Settings_Shortcut_DecreaseOffset" xml:space="preserve">
     <value>Reducer cirklens start forskydning</value>
   </data>
@@ -492,7 +520,9 @@ låse eller låse det op</value>
   <data name="Settings_Shortcut_DistributeIntersections" xml:space="preserve">
     <value>Fordel kryds jævnt på cirkel</value>
   </data>
-  
+  <data name="Settings_Shortcut_IncreaseHeight" xml:space="preserve">
+    <value>Øg højden</value>
+  </data>
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
     <value>Forøg cirklens startforskydning</value>
   </data>
@@ -517,7 +547,9 @@ låse eller låse det op</value>
   <data name="Settings_Shortcut_ResetArrangeCircle" xml:space="preserve">
     <value>Nulstil til standardcirkel</value>
   </data>
-  
+  <data name="Settings_Shortcut_SwitchFollowTerrain" xml:space="preserve">
+    <value>Skift til følg terræn</value>
+  </data>
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
     <value>Skift loop retning</value>
   </data>
@@ -540,6 +572,6 @@ låse eller låse det op</value>
     <value>Slet</value>
   </data>
   <data name="Tool_RemoveNode_Info_Select" xml:space="preserve">
-    <value>Vælg node for at fjerne den</value>
+    <value>Vælg node for at slette den</value>
   </data>
 </root>

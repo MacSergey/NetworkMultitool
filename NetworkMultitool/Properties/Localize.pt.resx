@@ -158,12 +158,10 @@ para mudar a direção da curva</value>
   <data name="Mode_Connection_Info_DragToMove" xml:space="preserve">
     <value>Arraste para mover o círculo</value>
   </data>
-  <data name="Mode_CreateBezier" xml:space="preserve">
-    <value>Modo de criação de curva de Bezier</value>
-  </data>
   <data name="Mode_CreateConnection" xml:space="preserve">
     <value>Modo de criação de ligação</value>
   </data>
+  
   <data name="Mode_CreateLoop" xml:space="preserve">
     <value>Modo de criação de loop</value>
   </data>
@@ -234,9 +232,6 @@ ao mesmo tempo</value>
   
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Pressione {0} para criar</value>
-  </data>
-  <data name="Mode_Info_CreateBezier_MoveGiude" xml:space="preserve">
-    <value>Mova os guias da curva de Bezier para mudar a forma</value>
   </data>
   
   
@@ -373,6 +368,7 @@ porque não está ligado a outros</value>
   <data name="Mod_Description" xml:space="preserve">
     <value>Muitas ferramentas diferentes para trabalhar com redes</value>
   </data>
+  
   
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>Atalhos de ativação</value>

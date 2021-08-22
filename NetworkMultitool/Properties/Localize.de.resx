@@ -164,11 +164,11 @@ um die Kurvenrichtung zu ändern</value>
   <data name="Mode_Connection_Info_DragToMove" xml:space="preserve">
     <value>Ziehen, um den Kreis zu bewegen</value>
   </data>
-  <data name="Mode_CreateBezier" xml:space="preserve">
-    <value>Bézierkurve erstellen</value>
-  </data>
   <data name="Mode_CreateConnection" xml:space="preserve">
     <value>Verbindung erstellen</value>
+  </data>
+  <data name="Mode_CreateCurve" xml:space="preserve">
+    <value>Kurve erstellen</value>
   </data>
   <data name="Mode_CreateLoop" xml:space="preserve">
     <value>Schleife erstellen</value>
@@ -275,9 +275,6 @@ gleichmäßig auf den Kreis zu verteilen</value>
   </data>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Drücke {0} zum Erstellen</value>
-  </data>
-  <data name="Mode_Info_CreateBezier_MoveGiude" xml:space="preserve">
-    <value>Bézierkurven-Hilfslinien verschieben, um die Form zu ändern</value>
   </data>
   <data name="Mode_Info_HoldToMoveSlower" xml:space="preserve">
     <value>Halte {0} gedrückt, um {1}x langsamer zu bewegen</value>
@@ -450,6 +447,7 @@ oder Entsperren auswählen</value>
   <data name="Mod_Description" xml:space="preserve">
     <value>Viele verschiedene Werkzeuge für die Arbeit mit Netzwerken</value>
   </data>
+  
   
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>Aktivierungskurzbefehle</value>

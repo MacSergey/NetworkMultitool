@@ -164,12 +164,10 @@
   <data name="Mode_Connection_Info_DragToMove" xml:space="preserve">
     <value>ドラッグしてサークルを移動</value>
   </data>
-  <data name="Mode_CreateBezier" xml:space="preserve">
-    <value>Mode: ベジェ曲線敷設</value>
-  </data>
   <data name="Mode_CreateConnection" xml:space="preserve">
     <value>Mode: ネットワークの直線接続</value>
   </data>
+  
   <data name="Mode_CreateLoop" xml:space="preserve">
     <value>Mode: ネットワークの曲線接続</value>
   </data>
@@ -272,9 +270,6 @@
   </data>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>{0} で敷設を確定</value>
-  </data>
-  <data name="Mode_Info_CreateBezier_MoveGiude" xml:space="preserve">
-    <value>形状の変更はポイントを選択して伸縮</value>
   </data>
   <data name="Mode_Info_HoldToMoveSlower" xml:space="preserve">
     <value>{0} で X{1} 遅く移動</value>
@@ -447,6 +442,7 @@
   <data name="Mod_Description" xml:space="preserve">
     <value>ネットワークを操作するための十徳ナイフのようなツール</value>
   </data>
+  
   
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>Mode＆ツールの有効化</value>
