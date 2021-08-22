@@ -462,6 +462,11 @@ namespace NetworkMultitool
                 SetDirection(nodes, i, (i + 1) % nodes.Length, center);
                 SetDirection(nodes, i, (i + nodes.Length - 1) % nodes.Length, center);
             }
+            for (var i = 0; i < nodes.Length; i += 1)
+            {
+                NetExtension.GetCommon(nodes[i].Id, nodes[(i + 1) % nodes.Length].Id, out var segmentId);
+                UpdateZones(segmentId);
+            }
 
             foreach (var node in nodes)
                 NetManager.instance.UpdateNode(node.Id);

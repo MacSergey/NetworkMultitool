@@ -220,6 +220,19 @@ namespace NetworkMultitool
 
         protected static void RemoveNode(ushort nodeId) => Singleton<NetManager>.instance.ReleaseNode(nodeId);
         protected static void RemoveSegment(ushort segmentId, bool keepNodes = true) => Singleton<NetManager>.instance.ReleaseSegment(segmentId, keepNodes);
+        protected static void ReleaseSegmentBlock(ref ushort segmentBlock)
+        {
+            if (segmentBlock != 0)
+            {
+                ZoneManager.instance.ReleaseBlock(segmentBlock);
+                segmentBlock = 0;
+            }
+        }
+
+        #endregion
+
+        #region CHANGE
+
         protected static void RelinkSegment(ushort segmentId, ushort sourceNodeId, ushort targetNodeId)
         {
             var segment = segmentId.GetSegment();
@@ -244,11 +257,6 @@ namespace NetworkMultitool
             CreateSegment(out var newSegmentId, info, otherNodeId, targetNodeId, otherDir, sourceDir, invert);
             CalculateSegmentDirections(newSegmentId);
         }
-
-        #endregion
-
-        #region CHANGE
-
         protected static void MoveNode(ushort nodeId, Vector3 newPos)
         {
             ref var node = ref nodeId.GetNode();
@@ -284,6 +292,7 @@ namespace NetworkMultitool
                 segment.m_endDirection = segment.m_endDirection.TurnRad(delta, false);
 
                 CalculateSegmentDirections(segmentId);
+                UpdateZones(segmentId);
                 NetManager.instance.UpdateSegment(segmentId);
             }
         }
@@ -312,6 +321,18 @@ namespace NetworkMultitool
 
             segment.m_startDirection = segment.FindDirection(segmentId, segment.m_startNode);
             segment.m_endDirection = segment.FindDirection(segmentId, segment.m_endNode);
+        }
+        protected static void UpdateZones(ushort segmentId)
+        {
+            ref var segment = ref segmentId.GetSegment();
+            if(segment.Info.m_netAI is RoadAI roadAI)
+            {
+                ReleaseSegmentBlock(ref segment.m_blockStartLeft);
+                ReleaseSegmentBlock(ref segment.m_blockStartRight);
+                ReleaseSegmentBlock(ref segment.m_blockEndLeft);
+                ReleaseSegmentBlock(ref segment.m_blockEndRight);
+                roadAI.CreateZoneBlocks(segmentId, ref segment);
+            }
         }
         protected delegate void DirectionGetterDelegate<Type>(Type first, Type second, out Vector3 firstDir, out Vector3 secondDir);
         protected delegate Vector3 PositionGetterDelegate<Type>(ref Type item);
