@@ -279,8 +279,12 @@ gleichmäßig auf den Kreis zu verteilen</value>
   <data name="Mode_Info_CreateBezier_MoveGiude" xml:space="preserve">
     <value>Bézierkurven-Hilfslinien verschieben, um die Form zu ändern</value>
   </data>
-  
-  
+  <data name="Mode_Info_HoldToMoveSlower" xml:space="preserve">
+    <value>Halte {0} gedrückt, um {1}x langsamer zu bewegen</value>
+  </data>
+  <data name="Mode_Info_HoldToStep" xml:space="preserve">
+    <value>Halte {0} gedrückt, um {1} zu setzen</value>
+  </data>
   <data name="Mode_Info_Loop_Create" xml:space="preserve">
     <value>Drücke {0}, um eine Schleife zu erstellen</value>
   </data>
@@ -341,7 +345,9 @@ gleichmäßig auf den Kreis zu verteilen</value>
   <data name="Mode_IntersectSegment" xml:space="preserve">
     <value>Segmente kreuzen</value>
   </data>
-  
+  <data name="Mode_IntersectSegment_Info_CommonNode" xml:space="preserve">
+    <value>Diese Segmente haben einen gemeinsamen Netzwerk-Knoten</value>
+  </data>
   <data name="Mode_IntersectSegment_Info_EdgeTooClose" xml:space="preserve">
     <value>Rand eines Segments ist zu nahe am Ende des zweiten Segments</value>
   </data>
@@ -388,7 +394,10 @@ da er nicht mit anderen verbunden ist</value>
   <data name="Mode_SplitNode_Info_ClickToOrder" xml:space="preserve">
     <value>Klicken, um das Segment zur Aufteilung hinzuzufügen</value>
   </data>
-  
+  <data name="Mode_SplitNode_Info_ClickToSplit" xml:space="preserve">
+    <value>Klicken, um den Netzwerk-Knoten zu teilen und die Geländehöhe zu verwenden
+Klicke mit {0}, um den Netzwerk-Knoten zu teilen und die ursprüngliche Höhe zu verwenden</value>
+  </data>
   <data name="Mode_SplitNode_Info_NotAllowedSplit" xml:space="preserve">
     <value>Nicht möglich einen Netzwerk-Knoten mit nur einem Segment aufzuteilen</value>
   </data>

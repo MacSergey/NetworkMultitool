@@ -282,7 +282,9 @@
   <data name="Mode_Info_HoldToMoveSlower" xml:space="preserve">
     <value>{0} 키를 눌러 {1}배 느리게 이동</value>
   </data>
-  
+  <data name="Mode_Info_HoldToStep" xml:space="preserve">
+    <value>{0}키를 눌러 {1}만큼 스텝</value>
+  </data>
   <data name="Mode_Info_Loop_Create" xml:space="preserve">
     <value>{0} 키를 눌러서 루프 생성</value>
   </data>
@@ -292,7 +294,9 @@
   <data name="Mode_Info_OutOfMap" xml:space="preserve">
     <value>지도 밖</value>
   </data>
-  
+  <data name="Mode_Info_Parallel_ChangeHeight" xml:space="preserve">
+    <value>{0}이나 {1}을 눌러 높이 변경</value>
+  </data>
   <data name="Mode_Info_Parallel_ChangeShift" xml:space="preserve">
     <value>{0} 키를 눌러 제작 방향 변경</value>
   </data>
@@ -308,7 +312,9 @@
   <data name="Mode_Info_RadiusTooSmall" xml:space="preserve">
     <value>반지름 너무 작음</value>
   </data>
-  
+  <data name="Mode_Info_Refund" xml:space="preserve">
+    <value>환불: {0}</value>
+  </data>
   <data name="Mode_Info_SelectFirstSegment" xml:space="preserve">
     <value>첫 세그먼트 선택</value>
   </data>
@@ -324,18 +330,24 @@
   <data name="Mode_Info_Step" xml:space="preserve">
     <value>Shift - 10배, Ctrl - 0.1배, Alt - 0.01배</value>
   </data>
-  
+  <data name="Mode_Info_SwitchFollowTerrain" xml:space="preserve">
+    <value>{0} 키를 눌러 지형에 맞추기 변경</value>
+  </data>
   <data name="Mode_Info_SwitchOffset" xml:space="preserve">
     <value>{0} 키를 눌러 선택한 오프셋 변경</value>
   </data>
-  
+  <data name="Mode_Info_UndergroundMode" xml:space="preserve">
+    <value>{0}을 꾹 눌러 지하 모드</value>
+  </data>
   <data name="Mode_Info_WrongShape" xml:space="preserve">
     <value>틀린 모양</value>
   </data>
   <data name="Mode_IntersectSegment" xml:space="preserve">
     <value>세그먼트 교차 모드</value>
   </data>
-  
+  <data name="Mode_IntersectSegment_Info_CommonNode" xml:space="preserve">
+    <value>세그먼트가 1개 노드를 공유함</value>
+  </data>
   <data name="Mode_IntersectSegment_Info_EdgeTooClose" xml:space="preserve">
     <value>첫 세그먼트의 끝점이 두 번째의 끝점과 너무 가까움</value>
   </data>
@@ -382,7 +394,10 @@
   <data name="Mode_SplitNode_Info_ClickToOrder" xml:space="preserve">
     <value>클릭해 분리 순서에 세그먼트 추가</value>
   </data>
-  
+  <data name="Mode_SplitNode_Info_ClickToSplit" xml:space="preserve">
+    <value>클릭해 노드 분리 및 지형에 높이 맞춤
+{0}을 누른 채 클릭해 노드 분리 및 소스 높이에 정렬</value>
+  </data>
   <data name="Mode_SplitNode_Info_NotAllowedSplit" xml:space="preserve">
     <value>불가능함 1개 세그먼트에서만 노드 분리 가능</value>
   </data>
@@ -445,7 +460,9 @@
   <data name="Settings_CommonShortcuts" xml:space="preserve">
     <value>모드 내 일반 단축키</value>
   </data>
-  
+  <data name="Settings_FollowTerrain" xml:space="preserve">
+    <value>지상 길의 높이를 지형에 맞추기</value>
+  </data>
   <data name="Settings_Gameplay" xml:space="preserve">
     <value>게임 플레이</value>
   </data>
@@ -479,7 +496,9 @@
   <data name="Settings_Shortcut_Apply" xml:space="preserve">
     <value>모드 사용사항 적용</value>
   </data>
-  
+  <data name="Settings_Shortcut_DecreaseHeight" xml:space="preserve">
+    <value>높이 감소</value>
+  </data>
   <data name="Settings_Shortcut_DecreaseOffset" xml:space="preserve">
     <value>원 시작 오프셋 감소</value>
   </data>
@@ -504,7 +523,9 @@
   <data name="Settings_Shortcut_DistributeIntersections" xml:space="preserve">
     <value>원 위에 교차로를 일정 간격으로 배치</value>
   </data>
-  
+  <data name="Settings_Shortcut_IncreaseHeight" xml:space="preserve">
+    <value>높이 증가</value>
+  </data>
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
     <value>원 시작 오프셋 증가</value>
   </data>
@@ -529,7 +550,9 @@
   <data name="Settings_Shortcut_ResetArrangeCircle" xml:space="preserve">
     <value>기본 원으로 초기화</value>
   </data>
-  
+  <data name="Settings_Shortcut_SwitchFollowTerrain" xml:space="preserve">
+    <value>지형 따라가기 변경</value>
+  </data>
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
     <value>루프 방향 변경</value>
   </data>

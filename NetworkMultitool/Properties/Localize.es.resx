@@ -281,14 +281,16 @@ de manera uniforme en el círculo</value>
     <value>Mover guías de curva Bézier para cambiar la forma</value>
   </data>
   <data name="Mode_Info_HoldToMoveSlower" xml:space="preserve">
-    <value>Mantén presionado {0} para mover X{1} más lento</value>
+    <value>Mantener pulsada la tecla {0} para mover X{1} más lento</value>
   </data>
-  
+  <data name="Mode_Info_HoldToStep" xml:space="preserve">
+    <value>Mantener pulsada la tecla {0} para pasar a {1}</value>
+  </data>
   <data name="Mode_Info_Loop_Create" xml:space="preserve">
     <value>Pulsa {0} para crear curva</value>
   </data>
   <data name="Mode_Info_NotEnoughMoney" xml:space="preserve">
-    <value>Dinero insuficiente</value>
+    <value>No hay suficiente dinero</value>
   </data>
   <data name="Mode_Info_OutOfMap" xml:space="preserve">
     <value>Fuera del mapa</value>
@@ -312,7 +314,7 @@ de manera uniforme en el círculo</value>
     <value>El radio es muy pequeño</value>
   </data>
   <data name="Mode_Info_Refund" xml:space="preserve">
-    <value>Reembolso: {0}</value>
+    <value>Devolución: {0}</value>
   </data>
   <data name="Mode_Info_SelectFirstSegment" xml:space="preserve">
     <value>Seleccione el primer segmento</value>
@@ -329,12 +331,14 @@ de manera uniforme en el círculo</value>
   <data name="Mode_Info_Step" xml:space="preserve">
     <value>Mayús - X10, Ctrl - X0.1, Alt - X0.01</value>
   </data>
-  
+  <data name="Mode_Info_SwitchFollowTerrain" xml:space="preserve">
+    <value>Pulsa {0} para cambiar a seguir terreno</value>
+  </data>
   <data name="Mode_Info_SwitchOffset" xml:space="preserve">
     <value>Pulsa {0} para cambiar el desplazamiento inicial de la curva seleccionada</value>
   </data>
   <data name="Mode_Info_UndergroundMode" xml:space="preserve">
-    <value>Mantenga {0} para entrar al modo subterráneo</value>
+    <value>Mantener pulsada la tecla {0} para modo subterráneo</value>
   </data>
   <data name="Mode_Info_WrongShape" xml:space="preserve">
     <value>Forma incorrecta</value>
@@ -391,7 +395,10 @@ porque no está conectado con otros nodos</value>
   <data name="Mode_SplitNode_Info_ClickToOrder" xml:space="preserve">
     <value>Clic para añadir el segmento al orden de separación</value>
   </data>
-  
+  <data name="Mode_SplitNode_Info_ClickToSplit" xml:space="preserve">
+    <value>Clic para separar nodo y alinear a la altura del terreno
+Clic con {0} para separar nodo y alinear a la altura de la selección</value>
+  </data>
   <data name="Mode_SplitNode_Info_NotAllowedSplit" xml:space="preserve">
     <value>No se puede separar el nodo en un solo segmento</value>
   </data>
@@ -453,9 +460,11 @@ porque no está conectado con otros nodos</value>
   <data name="Settings_CommonShortcuts" xml:space="preserve">
     <value>Atajos comunes de los modos</value>
   </data>
-  
+  <data name="Settings_FollowTerrain" xml:space="preserve">
+    <value>Carreteras creadas al suelo, seguirán el terreno.</value>
+  </data>
   <data name="Settings_Gameplay" xml:space="preserve">
-    <value>Jugabilidad</value>
+    <value>Modo de juego</value>
   </data>
   <data name="Settings_Interface" xml:space="preserve">
     <value>Interfaz</value>
@@ -515,7 +524,7 @@ porque no está conectado con otros nodos</value>
     <value>Distribuir los nodos de manera uniforme en el círculo</value>
   </data>
   <data name="Settings_Shortcut_IncreaseHeight" xml:space="preserve">
-    <value>Aumentar altura</value>
+    <value>Incrementar altura</value>
   </data>
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
     <value>Incrementar el desplazamiento de curva</value>
@@ -541,7 +550,9 @@ porque no está conectado con otros nodos</value>
   <data name="Settings_Shortcut_ResetArrangeCircle" xml:space="preserve">
     <value>Restablecer círculo predeterminado</value>
   </data>
-  
+  <data name="Settings_Shortcut_SwitchFollowTerrain" xml:space="preserve">
+    <value>Cambiar a seguir terreno</value>
+  </data>
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
     <value>Cambiar dirección de la curva</value>
   </data>
