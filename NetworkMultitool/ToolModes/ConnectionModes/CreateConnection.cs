@@ -107,7 +107,7 @@ namespace NetworkMultitool
                     //string.Format(Localize.Mode_Info_SwitchOffset, SwitchOffsetShortcut.AddInfoColor()) + "\n" +
                     //string.Format(Localize.Mode_Info_ChangeOffset, DecreaseOffsetShortcut.AddInfoColor(), IncreaseOffsetShortcut.AddInfoColor()) + "\n" +
                     Localize.Mode_Info_Step + "\n" +
-                    string.Format(Localize.Mode_Info_SwitchFollowTerrain, SwitchFollowTerrainShortcut.AddInfoColor()) + "\n" +
+                    (IsFollowTerrain ? string.Format(Localize.Mode_Info_SwitchFollowTerrain, SwitchFollowTerrainShortcut.AddInfoColor()) + "\n" : string.Empty) +
                     string.Format(Localize.Mode_Info_Connection_Create, ApplyShortcut.AddInfoColor());
                 }
 

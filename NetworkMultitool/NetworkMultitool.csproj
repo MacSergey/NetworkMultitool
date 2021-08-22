@@ -117,7 +117,7 @@
     <Compile Include="ToolModes\BaseNodeSet.cs" />
     <Compile Include="ToolModes\ConnectionModes\BaseCreate.cs" />
     <Compile Include="ToolModes\ConnectionModes\BaseCreateConnection.cs" />
-    <Compile Include="ToolModes\ConnectionModes\CreateBezier.cs" />
+    <Compile Include="ToolModes\ConnectionModes\CreateCurve.cs" />
     <Compile Include="ToolModes\ConnectionModes\CreateConnection.cs" />
     <Compile Include="ToolModes\OtherModes\InvertSegment.cs" />
     <Compile Include="ToolModes\NodeCircleMode\ArrangeCircle.cs" />

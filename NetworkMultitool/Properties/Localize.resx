@@ -164,11 +164,11 @@ to change curve direction</value>
   <data name="Mode_Connection_Info_DragToMove" xml:space="preserve">
     <value>Drag to move circle</value>
   </data>
-  <data name="Mode_CreateBezier" xml:space="preserve">
-    <value>Create Bezier curve mode</value>
-  </data>
   <data name="Mode_CreateConnection" xml:space="preserve">
     <value>Create connection mode</value>
+  </data>
+  <data name="Mode_CreateCurve" xml:space="preserve">
+    <value>Create curve mode</value>
   </data>
   <data name="Mode_CreateLoop" xml:space="preserve">
     <value>Create loop mode</value>
@@ -275,9 +275,6 @@ intersections evenly on circle</value>
   </data>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Press {0} to create</value>
-  </data>
-  <data name="Mode_Info_CreateBezier_MoveGiude" xml:space="preserve">
-    <value>Move Bezier curve guides to change shape</value>
   </data>
   <data name="Mode_Info_HoldToMoveSlower" xml:space="preserve">
     <value>Hold {0} to move X{1} slower</value>

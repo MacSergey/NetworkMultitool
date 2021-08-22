@@ -112,13 +112,26 @@ namespace NetworkMultitool
         {
             base.Reset(prevMode);
 
-            First = null;
-            Second = null;
-            FollowTerrain = Settings.FollowTerrain;
+            ResetParams();
             Cost = 0;
             State = Result.None;
 
-            ResetParams();
+            if (prevMode is BaseCreateMode createMode)
+            {
+                First = createMode.First;
+                Second = createMode.Second;
+                IsFirstStart = createMode.IsFirstStart;
+                IsSecondStart = createMode.IsSecondStart;
+                FollowTerrain = createMode.FollowTerrain;
+                Underground = ForceUnderground;
+                Init();
+            }
+            else
+            {
+                First = null;
+                Second = null;
+                FollowTerrain = Settings.FollowTerrain;
+            }
         }
         protected virtual void ResetParams()
         {
@@ -134,7 +147,6 @@ namespace NetworkMultitool
             if (IsBoth && State == Result.None)
             {
                 Points = new List<Point>();
-
                 Points.Add(new Point(FirstTrajectory.StartPosition.SetHeight(Height), FirstTrajectory.Direction));
                 Points.AddRange(Calculate(out var result));
                 Points.Add(new Point(SecondTrajectory.StartPosition.SetHeight(Height), -SecondTrajectory.Direction));
@@ -205,6 +217,7 @@ namespace NetworkMultitool
 
             FirstTrajectory = new StraightTrajectory(firstPos, firstPos + firstDir, false);
             SecondTrajectory = new StraightTrajectory(secondPos, secondPos + secondDir, false);
+            Points = new List<Point>();
 
             State = Init(FirstTrajectory, SecondTrajectory);
         }
@@ -258,7 +271,7 @@ namespace NetworkMultitool
                     PlayEffect(points, info.m_halfWidth, true);
                 });
 
-                Reset(this);
+                Reset(null);
             }
         }
         private static void Create(Point[] points, ushort firstId, ushort secondId, bool isFirstStart, bool isSecondStart, NetInfo info, bool followTerrain, int cost)
@@ -267,7 +280,7 @@ namespace NetworkMultitool
             var endNodeId = secondId.GetSegment().GetNode(isSecondStart);
 
             if (followTerrain)
-                SetTerrain(points);
+                SetTerrain(points, startNodeId.GetNode().m_position.y, endNodeId.GetNode().m_position.y);
             else
                 SetSlope(points, startNodeId.GetNode().m_position.y, endNodeId.GetNode().m_position.y);
 
@@ -394,7 +407,7 @@ namespace NetworkMultitool
                 var points = Points.ToArray();
 
                 if (IsFollowTerrain)
-                    SetTerrain(points);
+                    SetTerrain(points, FirstTrajectory.StartPosition.y, SecondTrajectory.StartPosition.y);
                 else
                     SetSlope(points, FirstTrajectory.StartPosition.y, SecondTrajectory.StartPosition.y);
 
