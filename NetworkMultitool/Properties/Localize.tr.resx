@@ -214,7 +214,9 @@
   <data name="Mode_Info_ArrangeCircle_PressToReset" xml:space="preserve">
     <value>Değişkenleri sıfırlamak için {0} tuşunu kullanın</value>
   </data>
-  
+  <data name="Mode_Info_ArrangeCircle_WrongOrder" xml:space="preserve">
+    <value>Yanlış düğüm sırası</value>
+  </data>
   <data name="Mode_Info_ArrangeLine_Apply" xml:space="preserve">
     <value>Çizgileri ayarlamak için {0} tuşunu kullanın</value>
   </data>
@@ -242,13 +244,21 @@
   <data name="Mode_Info_ClickFirstSegment" xml:space="preserve">
     <value>İlk sektörü seçmek için tıkla</value>
   </data>
-  
+  <data name="Mode_Info_ClickOnNodeToChangeCreateDir" xml:space="preserve">
+    <value>Oluşturma yönünü değiştirmek için düğüme tıklayın</value>
+  </data>
   <data name="Mode_Info_ClickSecondSegment" xml:space="preserve">
     <value>İkinci sektör seçmek için tıkla</value>
   </data>
-  
-  
-  
+  <data name="Mode_Info_ClickSelectNode" xml:space="preserve">
+    <value>Düğüm seçmek için tıklayın</value>
+  </data>
+  <data name="Mode_Info_ClickToChangeCreateDir" xml:space="preserve">
+    <value>Oluşturma yönünü değiştirmek için tıklayın</value>
+  </data>
+  <data name="Mode_Info_ClickUnselectNode" xml:space="preserve">
+    <value>Düğümü seçmeyi bırakmak için basın</value>
+  </data>
   <data name="Mode_Info_Connection_Create" xml:space="preserve">
     <value>Bağlantı kurmak için {0} tuşunu kullanın</value>
   </data>
@@ -259,12 +269,18 @@
     <value>Oluşturmak için {0} tıklayın</value>
   </data>
   
-  
-  
+  <data name="Mode_Info_HoldToMoveSlower" xml:space="preserve">
+    <value>1/{1} hızda hareket etmek için {0} tuşuna basılı tutun</value>
+  </data>
+  <data name="Mode_Info_HoldToStep" xml:space="preserve">
+    <value>Yüksekliği {1} kadar değiştirmek için {0} tuşuna tıklayın</value>
+  </data>
   <data name="Mode_Info_Loop_Create" xml:space="preserve">
     <value>Döngü oluşturmak için {0} tıklayın</value>
   </data>
-  
+  <data name="Mode_Info_NotEnoughMoney" xml:space="preserve">
+    <value>Yeterli para yok</value>
+  </data>
   <data name="Mode_Info_OutOfMap" xml:space="preserve">
     <value>Harita dışında</value>
   </data>
@@ -319,7 +335,9 @@
   <data name="Mode_IntersectSegment" xml:space="preserve">
     <value>Kesişen sektör modu</value>
   </data>
-  
+  <data name="Mode_IntersectSegment_Info_CommonNode" xml:space="preserve">
+    <value>Bu sektörler ortak düğüme sahip</value>
+  </data>
   <data name="Mode_IntersectSegment_Info_EdgeTooClose" xml:space="preserve">
     <value>Sektörlerden birinin kenarı diğerine çok yakın</value>
   </data>
@@ -335,25 +353,41 @@
   <data name="Mode_InvertSegment_Info_SelectToReverse" xml:space="preserve">
     <value>Ters çevrilecek sektörü seçin</value>
   </data>
-  
-  
+  <data name="Mode_NodeLine_Info_NotConnected" xml:space="preserve">
+    <value>Bu düğüm diğerleriyle bağlantıda değil
+bu düğümü seçemezsiniz</value>
+  </data>
+  <data name="Mode_NodeLine_Info_SelectNode" xml:space="preserve">
+    <value>Düzene eklemek için düğüm ekle</value>
+  </data>
   <data name="Mode_PercentagesFormat" xml:space="preserve">
     <value>% {0}</value>
   </data>
   <data name="Mode_RadiusFormat" xml:space="preserve">
     <value>{0}m</value>
   </data>
-  
-  
-  
-  
+  <data name="Mode_RemoveNode" xml:space="preserve">
+    <value>Düğüm modunu kaldır</value>
+  </data>
+  <data name="Mode_RemoveNode_Info_NotAllow" xml:space="preserve">
+    <value>Bu düğümü kaldırmak mümkün değil</value>
+  </data>
+  <data name="Mode_SlopeNode" xml:space="preserve">
+    <value>Eğim modunu ayarlayın</value>
+  </data>
+  <data name="Mode_SplitNode" xml:space="preserve">
+    <value>Düğüm modunu dağıtın</value>
+  </data>
   <data name="Mode_SplitNode_Info_ClickFromOrder" xml:space="preserve">
     <value>Sektörü bölünme işleminden çıkartmak için tıkla</value>
   </data>
   <data name="Mode_SplitNode_Info_ClickToOrder" xml:space="preserve">
     <value>Sektörü bölünme sırasına eklemek için tıkla</value>
   </data>
-  
+  <data name="Mode_SplitNode_Info_ClickToSplit" xml:space="preserve">
+    <value>Düğümü dağıtmak ve zemin yüksekliğine ayarlamak için tıklayın
+Düğümü dağıtmak ve hedef yüksekliğine ayarlamak için {0} tuşunu kullanın</value>
+  </data>
   <data name="Mode_SplitNode_Info_NotAllowedSplit" xml:space="preserve">
     <value>Tek sektörlü düğüm bölünemez</value>
   </data>
@@ -363,17 +397,33 @@
   <data name="Mode_SplitNode_Info_SelectToSplit" xml:space="preserve">
     <value>Bölünecek sektör seç</value>
   </data>
-  
-  
-  
-  
+  <data name="Mode_SplitNode_Info_TooFar" xml:space="preserve">
+    <value>Konum kaynak düğümden çok uzakta</value>
+  </data>
+  <data name="Mode_UnionNode" xml:space="preserve">
+    <value>Birleşik düğüm modu</value>
+  </data>
+  <data name="Mode_UnionNode_Info_ClickSource" xml:space="preserve">
+    <value>Kaynak düğüm seçmek için tıklayın</value>
+  </data>
+  <data name="Mode_UnionNode_Info_ClickUnion" xml:space="preserve">
+    <value>Düğümleri birleştirmek için tıklayın</value>
+  </data>
   <data name="Mode_UnionNode_Info_NoCommon" xml:space="preserve">
     <value>Bu düğümler ortak sektöre sahip</value>
   </data>
-  
-  
-  
-  
+  <data name="Mode_UnionNode_Info_Overflow" xml:space="preserve">
+    <value>Tüm düğümlerin sayısı sekizi geçmemeli</value>
+  </data>
+  <data name="Mode_UnionNode_Info_SelectSource" xml:space="preserve">
+    <value>Kaynak düğüm seçin</value>
+  </data>
+  <data name="Mode_UnionNode_Info_SelectTarget" xml:space="preserve">
+    <value>Hedef düğüm seçin</value>
+  </data>
+  <data name="Mode_UnionNode_Info_TooFar" xml:space="preserve">
+    <value>Düğümler birbirinden çok uzak</value>
+  </data>
   <data name="Mode_UnlockSegment" xml:space="preserve">
     <value>Sektör modunu aktive et</value>
   </data>
@@ -386,30 +436,64 @@
   <data name="Mode_UnlockSegment_Info_ClickToUnlock" xml:space="preserve">
     <value>Sektörü açmak için tıkla</value>
   </data>
+  <data name="Mod_Description" xml:space="preserve">
+    <value>Ağlarla çalışmak için çok sayıda yeni fonksiyon</value>
+  </data>
   
-  
-  
-  
-  
+  <data name="Settings_ActivationShortcuts" xml:space="preserve">
+    <value>Aktive etme kısayolları</value>
+  </data>
+  <data name="Settings_AutoHideModePanel" xml:space="preserve">
+    <value>Mod panelini otomatik gizle</value>
+  </data>
+  <data name="Settings_CommonShortcuts" xml:space="preserve">
+    <value>Yaygın mod kısa yolları</value>
+  </data>
   <data name="Settings_FollowTerrain" xml:space="preserve">
     <value>Zemin üstündeki yollar araziyi takip eder</value>
   </data>
-  
-  
-  
-  
-  
-  
-  
-  
-  
+  <data name="Settings_Gameplay" xml:space="preserve">
+    <value>Oynanış</value>
+  </data>
+  <data name="Settings_Interface" xml:space="preserve">
+    <value>Arayüz</value>
+  </data>
+  <data name="Settings_NeedMoney" xml:space="preserve">
+    <value>İnşaat için para gerekli</value>
+  </data>
+  <data name="Settings_PanelColumns" xml:space="preserve">
+    <value>Panel kolonlarını say</value>
+  </data>
+  <data name="Settings_PlayEffects" xml:space="preserve">
+    <value>Sev ve görsel efektleri oynat</value>
+  </data>
+  <data name="Settings_PreviewType" xml:space="preserve">
+    <value>Yaratma ön gösterimi</value>
+  </data>
+  <data name="Settings_PreviewTypeBoth" xml:space="preserve">
+    <value>İkisi de</value>
+  </data>
+  <data name="Settings_PreviewTypeMesh" xml:space="preserve">
+    <value>Ağ görüntülenmesi</value>
+  </data>
+  <data name="Settings_PreviewTypeOverlay" xml:space="preserve">
+    <value>Kaplama</value>
+  </data>
   <data name="Settings_SegmentLength" xml:space="preserve">
     <value>Maksimum sektör uzunluğu</value>
   </data>
-  
-  
-  
-  
+  <data name="Settings_Shortcut_Apply" xml:space="preserve">
+    <value>Mod eylemini uygula</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseHeight" xml:space="preserve">
+    <value>Yüksekliği azalt</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseOffset" xml:space="preserve">
+    <value>Dairenin başlangıç uzantısını azalt</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseOneRadius" xml:space="preserve">
+    <value>Tek bir yarıçapı azalt</value>
+  </data>
   <data name="Settings_Shortcut_DecreaseRadii" xml:space="preserve">
     <value>Yarıçapı azalt</value>
   </data>

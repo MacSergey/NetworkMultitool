@@ -278,8 +278,12 @@ równomiernie w okręgu</value>
   <data name="Mode_Info_CreateBezier_MoveGiude" xml:space="preserve">
     <value>Przesuń wskaźniki krzywej Beziera aby zmienić kształt</value>
   </data>
-  
-  
+  <data name="Mode_Info_HoldToMoveSlower" xml:space="preserve">
+    <value>Przytrzymaj {0} aby przesuwać X{1} wolniej</value>
+  </data>
+  <data name="Mode_Info_HoldToStep" xml:space="preserve">
+    <value>Przytrzymaj {0} aby przejść {1}</value>
+  </data>
   <data name="Mode_Info_Loop_Create" xml:space="preserve">
     <value>Naciśnij {0}, aby utworzyć pętlę</value>
   </data>
@@ -340,7 +344,9 @@ równomiernie w okręgu</value>
   <data name="Mode_IntersectSegment" xml:space="preserve">
     <value>Tryb przecinania segmentów</value>
   </data>
-  
+  <data name="Mode_IntersectSegment_Info_CommonNode" xml:space="preserve">
+    <value>Te segmenty mają wspólny węzeł</value>
+  </data>
   <data name="Mode_IntersectSegment_Info_EdgeTooClose" xml:space="preserve">
     <value>Krawędź pierwszego segmentu jest zbyt blisko końca drugiego segmentu</value>
   </data>
