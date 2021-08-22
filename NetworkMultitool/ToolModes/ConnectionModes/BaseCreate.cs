@@ -94,17 +94,17 @@ namespace NetworkMultitool
                 if (!IsHoverSegment)
                     return Localize.Mode_Info_SelectFirstSegment + UndergroundInfo;
                 else
-                    return AddActionColor(Localize.Mode_Info_ClickFirstSegment) + StepOverInfo;
+                    return Localize.Mode_Info_ClickFirstSegment.AddActionColor() + StepOverInfo;
             }
             else if (!IsSecond)
             {
                 if (!IsHoverSegment)
                     return Localize.Mode_Info_SelectSecondSegment + UndergroundInfo;
                 else
-                    return AddActionColor(Localize.Mode_Info_ClickSecondSegment) + StepOverInfo;
+                    return Localize.Mode_Info_ClickSecondSegment.AddActionColor() + StepOverInfo;
             }
             else if (IsHoverNode)
-                return AddActionColor(Localize.Mode_Info_ClickToChangeCreateDir);
+                return Localize.Mode_Info_ClickToChangeCreateDir.AddActionColor();
             else
                 return null;
         }

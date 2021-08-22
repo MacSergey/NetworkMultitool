@@ -44,13 +44,13 @@ namespace NetworkMultitool
             if (AddState == AddResult.None)
                 return Localize.Mode_NodeLine_Info_SelectNode + UndergroundInfo;
             else if (AddState == AddResult.One || AddState == AddResult.InStart || AddState == AddResult.InEnd)
-                return AddActionColor(Localize.Mode_Info_ClickSelectNode) + StepOverInfo;
+                return Localize.Mode_Info_ClickSelectNode.AddActionColor() + StepOverInfo;
             else if (AddState == AddResult.IsFirst || AddState == AddResult.IsLast)
-                return AddActionColor(Localize.Mode_Info_ClickUnselectNode) + StepOverInfo;
+                return Localize.Mode_Info_ClickUnselectNode.AddActionColor() + StepOverInfo;
             else if (AddState == AddResult.NotConnect)
-                return AddErrorColor(Localize.Mode_NodeLine_Info_NotConnected) + StepOverInfo;
+                return Localize.Mode_NodeLine_Info_NotConnected.AddErrorColor() + StepOverInfo;
             else
-                return string.Format(Localize.Mode_Info_Apply, AddInfoColor(ApplyShortcut));
+                return string.Format(Localize.Mode_Info_Apply, Colors.AddInfoColor(ApplyShortcut));
         }
         protected override void Reset(IToolMode prevMode)
         {

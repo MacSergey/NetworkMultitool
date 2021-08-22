@@ -20,7 +20,7 @@ namespace NetworkMultitool
         protected override string GetInfo()
         {
             if (IsHoverNode && IsCompleteHover)
-                return AddActionColor(Localize.Mode_ArrangeCircle_Info_ClickToComplite) + StepOverInfo;
+                return Localize.Mode_ArrangeCircle_Info_ClickToComplite.AddActionColor() + StepOverInfo;
             else
                 return base.GetInfo();
         }
@@ -316,7 +316,7 @@ namespace NetworkMultitool
             else if (HoveredNode != -1)
                 return
                     Localize.Mode_Info_ArrangeCircle_DragToMoveNode + "\n" +
-                    string.Format(Localize.Mode_Info_ArrangeCircle_MoveAll, AddInfoColor(LocalizeExtension.Shift)) + "\n" +
+                    string.Format(Localize.Mode_Info_ArrangeCircle_MoveAll, LocalizeExtension.Shift.AddInfoColor()) + "\n" +
                     Localize.Mode_Info_ArrangeCircle_DoubleClickToResetNode;
             else if (IsHoverCircle)
                 return Localize.Mode_Info_ArrangeCircle_DragToChangeRadius;
@@ -330,9 +330,9 @@ namespace NetworkMultitool
 
                 var result = string.Empty;
                 if (IsWrongOrder)
-                    result += AddErrorColor(Localize.Mode_Info_ArrangeCircle_WrongOrder);
+                    result += Localize.Mode_Info_ArrangeCircle_WrongOrder.AddErrorColor();
                 else if (IsBigDelta)
-                    result += AddWarningColor(Localize.Mode_Info_ArrangeCircle_BigDelta);
+                    result += Localize.Mode_Info_ArrangeCircle_BigDelta.AddWarningColor();
 
                 if (!string.IsNullOrEmpty(result))
                     result += "\n\n";
@@ -340,14 +340,14 @@ namespace NetworkMultitool
                 if (Time.realtimeSinceStartup - PosTime >= 2f)
                 {
                     result +=
-                        string.Format(Localize.Mode_Info_ArrangeCircle_PressToDistributeEvenly, AddInfoColor(DistributeEvenlyShortcut)) + "\n" +
-                        string.Format(Localize.Mode_Info_ArrangeCircle_PressToDistributeIntersections, AddInfoColor(DistributeIntersectionsShortcut)) + "\n" +
-                        string.Format(Localize.Mode_Info_ArrangeCircle_PressToDistributeBetweenIntersections, AddInfoColor(DistributeBetweenIntersectionsShortcut)) + "\n";
+                        string.Format(Localize.Mode_Info_ArrangeCircle_PressToDistributeEvenly, DistributeEvenlyShortcut.AddInfoColor()) + "\n" +
+                        string.Format(Localize.Mode_Info_ArrangeCircle_PressToDistributeIntersections, DistributeIntersectionsShortcut.AddInfoColor()) + "\n" +
+                        string.Format(Localize.Mode_Info_ArrangeCircle_PressToDistributeBetweenIntersections, DistributeBetweenIntersectionsShortcut.AddInfoColor()) + "\n";
                 }
 
                 result +=
-                    string.Format(Localize.Mode_Info_ArrangeCircle_PressToReset, AddInfoColor(ResetArrangeCircleShortcut)) + "\n" +
-                    string.Format(Localize.Mode_Info_ArrangeCircle_Apply, AddInfoColor(ApplyShortcut));
+                    string.Format(Localize.Mode_Info_ArrangeCircle_PressToReset, ResetArrangeCircleShortcut.AddInfoColor()) + "\n" +
+                    string.Format(Localize.Mode_Info_ArrangeCircle_Apply, ApplyShortcut.AddInfoColor());
 
                 return result;
             }
@@ -700,11 +700,11 @@ namespace NetworkMultitool
             var result = string.Empty;
 
             if (IsWrongOrder)
-                result += AddErrorColor(Localize.Mode_Info_ArrangeCircle_WrongOrder);
+                result += Localize.Mode_Info_ArrangeCircle_WrongOrder.AddErrorColor();
             else if (IsBigDelta)
-                result += AddWarningColor(Localize.Mode_Info_ArrangeCircle_BigDelta);
+                result += Localize.Mode_Info_ArrangeCircle_BigDelta.AddWarningColor();
 
-            result += (!string.IsNullOrEmpty(result) ? "\n\n" : string.Empty) + string.Format(Localize.Mode_Info_ArrangeCircle_MoveAll, AddInfoColor(LocalizeExtension.Shift));
+            result += (!string.IsNullOrEmpty(result) ? "\n\n" : string.Empty) + string.Format(Localize.Mode_Info_ArrangeCircle_MoveAll, LocalizeExtension.Shift.AddInfoColor());
 
             return result;
         }

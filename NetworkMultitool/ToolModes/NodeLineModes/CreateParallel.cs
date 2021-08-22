@@ -66,12 +66,12 @@ namespace NetworkMultitool
                 return
                     CostInfo +
                     Localize.Mode_NodeLine_Info_SelectNode + "\n\n" +
-                    string.Format(Localize.Mode_Info_ChangeShift, AddInfoColor(DecreaseShiftShortcut), AddInfoColor(IncreaseShiftShortcut)) + "\n" +
-                    (AllowHeight ? (string.Format(Localize.Mode_Info_Parallel_ChangeHeight, AddInfoColor(DecreaseHeightShortcut), AddInfoColor(IncreaseHeightShortcut)) + "\n") : string.Empty) +
+                    string.Format(Localize.Mode_Info_ChangeShift, DecreaseShiftShortcut.AddInfoColor(), IncreaseShiftShortcut.AddInfoColor()) + "\n" +
+                    (AllowHeight ? (string.Format(Localize.Mode_Info_Parallel_ChangeHeight, DecreaseHeightShortcut.AddInfoColor(), IncreaseHeightShortcut.AddInfoColor()) + "\n") : string.Empty) +
                     Localize.Mode_Info_Step + "\n" +
-                    string.Format(Localize.Mode_Info_Parallel_ChangeShift, AddInfoColor(ChangeSideShortcut)) + "\n" +
-                    string.Format(Localize.Mode_Info_Parallel_Invert, AddInfoColor(InvertNetworkShortcut)) + "\n" +
-                    string.Format(Localize.Mode_Info_Parallel_Create, AddInfoColor(ApplyShortcut)) +
+                    string.Format(Localize.Mode_Info_Parallel_ChangeShift, ChangeSideShortcut.AddInfoColor()) + "\n" +
+                    string.Format(Localize.Mode_Info_Parallel_Invert, InvertNetworkShortcut.AddInfoColor()) + "\n" +
+                    string.Format(Localize.Mode_Info_Parallel_Create, ApplyShortcut.AddInfoColor()) +
                     UndergroundInfo;
             else
                 return base.GetInfo();
