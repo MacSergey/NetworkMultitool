@@ -302,22 +302,22 @@ namespace NetworkMultitool
             if (GetBaseInfo() is string baseInfo)
                 return baseInfo;
             else if (State == Result.BigRadius)
-                return AddErrorColor(Localize.Mode_Info_RadiusTooBig);
+                return Localize.Mode_Info_RadiusTooBig.AddErrorColor();
             else if (State == Result.SmallRadius)
-                return AddErrorColor(Localize.Mode_Info_RadiusTooSmall);
+                return Localize.Mode_Info_RadiusTooSmall.AddErrorColor();
             else if (State == Result.OutOfMap)
-                return AddErrorColor(Localize.Mode_Info_OutOfMap);
+                return Localize.Mode_Info_OutOfMap.AddErrorColor();
             else if (State != Result.Calculated)
                 return Localize.Mode_Info_ClickOnNodeToChangeCreateDir;
             else
                 return
                     CostInfo +
                     Localize.Mode_Info_ClickOnNodeToChangeCreateDir + "\n\n" +
-                    string.Format(Localize.Mode_Info_ChangeRadius, AddInfoColor(DecreaseRadiusShortcut), AddInfoColor(IncreaseRadiusShortcut)) + "\n" +
+                    string.Format(Localize.Mode_Info_ChangeRadius, DecreaseRadiusShortcut.AddInfoColor(), IncreaseRadiusShortcut.AddInfoColor()) + "\n" +
                     Localize.Mode_Info_Step + "\n" +
-                    string.Format(Localize.Mode_CreateLoop_Info_Change, AddInfoColor(SwitchIsLoopShortcut)) + "\n" +
-                    string.Format(Localize.Mode_Info_SwitchFollowTerrain, AddInfoColor(SwitchFollowTerrainShortcut)) + "\n" +
-                    string.Format(Localize.Mode_Info_Loop_Create, AddInfoColor(ApplyShortcut));
+                    string.Format(Localize.Mode_CreateLoop_Info_Change, SwitchIsLoopShortcut.AddInfoColor()) + "\n" +
+                    string.Format(Localize.Mode_Info_SwitchFollowTerrain, SwitchFollowTerrainShortcut.AddInfoColor()) + "\n" +
+                    string.Format(Localize.Mode_Info_Loop_Create, ApplyShortcut.AddInfoColor());
         }
         protected override void ResetParams()
         {

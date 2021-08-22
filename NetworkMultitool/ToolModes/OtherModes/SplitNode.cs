@@ -34,32 +34,32 @@ namespace NetworkMultitool
                 if (!IsHoverNode)
                     return Localize.Mode_UnionNode_Info_SelectSource + UndergroundInfo;
                 else if (HoverNode.Id.GetNode().CountSegments() < 2)
-                    return AddErrorColor(Localize.Mode_SplitNode_Info_NotAllowedSplit) + StepOverInfo;
+                    return Localize.Mode_SplitNode_Info_NotAllowedSplit.AddErrorColor() + StepOverInfo;
                 else
-                    return AddActionColor(Localize.Mode_UnionNode_Info_ClickSource) + StepOverInfo;
+                    return Localize.Mode_UnionNode_Info_ClickSource.AddActionColor() + StepOverInfo;
             }
             else if (!IsSegments)
             {
                 if (!IsHoverSegment)
                     return Localize.Mode_SplitNode_Info_SelectToSplit;
                 else
-                    return AddActionColor(Localize.Mode_SplitNode_Info_ClickToOrder) + StepOverInfo;
+                    return Localize.Mode_SplitNode_Info_ClickToOrder.AddActionColor() + StepOverInfo;
             }
             else
             {
                 if (!IsHoverSegment)
                 {
                     if (IsFar)
-                        return AddErrorColor(Localize.Mode_SplitNode_Info_TooFar);
+                        return Localize.Mode_SplitNode_Info_TooFar.AddErrorColor();
                     else
-                        return string.Format(Localize.Mode_SplitNode_Info_ClickToSplit, AddInfoColor(LocalizeExtension.Shift));
+                        return string.Format(Localize.Mode_SplitNode_Info_ClickToSplit, LocalizeExtension.Shift.AddInfoColor());
                 }
                 else if (Segments.Contains(HoverSegment))
-                    return AddActionColor(Localize.Mode_SplitNode_Info_ClickFromOrder);
+                    return Localize.Mode_SplitNode_Info_ClickFromOrder.AddActionColor();
                 else if (!CanAddSegment)
-                    return AddErrorColor(Localize.Mode_SplitNode_Info_OrderIsFull);
+                    return Localize.Mode_SplitNode_Info_OrderIsFull.AddErrorColor();
                 else
-                    return AddActionColor(Localize.Mode_SplitNode_Info_ClickToOrder);
+                    return Localize.Mode_SplitNode_Info_ClickToOrder.AddActionColor();
             }
         }
         protected override void Reset(IToolMode prevMode)

@@ -15,6 +15,7 @@ using System.Reflection.Emit;
 using System.Text;
 using UnityEngine;
 using static ColossalFramework.Math.VectorUtils;
+using static ModsCommon.Utilities.Colors;
 
 namespace NetworkMultitool
 {
@@ -134,8 +135,8 @@ namespace NetworkMultitool
                 return $"{Title.ToUpper()}\n\n{info}";
         }
         protected virtual string GetInfo() => string.Empty;
-        protected string StepOverInfo => NetworkMultitoolTool.SelectionStepOverShortcut.NotSet ? string.Empty : "\n\n" + string.Format(CommonLocalize.Tool_InfoSelectionStepOver, AddInfoColor(NetworkMultitoolTool.SelectionStepOverShortcut));
-        protected string UndergroundInfo => $"\n\n{string.Format(Localize.Mode_Info_UndergroundMode, AddInfoColor(LocalizeExtension.Shift))}";
+        protected string StepOverInfo => NetworkMultitoolTool.SelectionStepOverShortcut.NotSet ? string.Empty : "\n\n" + string.Format(CommonLocalize.Tool_InfoSelectionStepOver, Colors.AddInfoColor(NetworkMultitoolTool.SelectionStepOverShortcut));
+        protected string UndergroundInfo => $"\n\n{string.Format(Localize.Mode_Info_UndergroundMode, LocalizeExtension.Shift.AddInfoColor())}";
         protected string CostInfo
         {
             get
@@ -143,19 +144,19 @@ namespace NetworkMultitool
                 if (this is not ICostMode costMode || !Settings.NeedMoney)
                     return string.Empty;
                 else if (costMode.Cost < 0)
-                    return AddInfoColor(string.Format(Localize.Mode_Info_Refund, -costMode.Cost / 100)) + "\n\n";
+                    return string.Format(Localize.Mode_Info_Refund, -costMode.Cost / 100).AddInfoColor() + "\n\n";
                 else if (!EnoughMoney(costMode.Cost))
-                    return AddErrorColor(string.Format(Localize.Mode_Info_ConstructionCost, costMode.Cost / 100) + "\n" + Localize.Mode_Info_NotEnoughMoney) + "\n\n";
-                else return AddInfoColor(string.Format(Localize.Mode_Info_ConstructionCost, costMode.Cost / 100)) + "\n\n";
+                    return (string.Format(Localize.Mode_Info_ConstructionCost, costMode.Cost / 100) + "\n" + Localize.Mode_Info_NotEnoughMoney).AddErrorColor() + "\n\n";
+                else return string.Format(Localize.Mode_Info_ConstructionCost, costMode.Cost / 100).AddInfoColor() + "\n\n";
             }
         }
         protected string MoveSlowerInfo =>
-            string.Format(Localize.Mode_Info_HoldToMoveSlower, AddInfoColor(LocalizeExtension.Ctrl), AddInfoColor("10")) + "\n" +
-            string.Format(Localize.Mode_Info_HoldToMoveSlower, AddInfoColor(LocalizeExtension.Alt), AddInfoColor("100"));
+            string.Format(Localize.Mode_Info_HoldToMoveSlower, LocalizeExtension.Ctrl.AddInfoColor(), Colors.AddInfoColor("10")) + "\n" +
+            string.Format(Localize.Mode_Info_HoldToMoveSlower, LocalizeExtension.Alt.AddInfoColor(), Colors.AddInfoColor("100"));
         protected string RadiusStepInfo =>
-            string.Format(Localize.Mode_Info_HoldToStep, AddInfoColor(LocalizeExtension.Shift), AddInfoColor(string.Format(Localize.Mode_RadiusFormat, 10f))) + "\n" +
-            string.Format(Localize.Mode_Info_HoldToStep, AddInfoColor(LocalizeExtension.Ctrl), AddInfoColor(string.Format(Localize.Mode_RadiusFormat, 1f))) + "\n" +
-            string.Format(Localize.Mode_Info_HoldToStep, AddInfoColor(LocalizeExtension.Alt), AddInfoColor(string.Format(Localize.Mode_RadiusFormat, 0.1f)));
+            string.Format(Localize.Mode_Info_HoldToStep, LocalizeExtension.Shift.AddInfoColor(), string.Format(Localize.Mode_RadiusFormat, 10f).AddInfoColor()) + "\n" +
+            string.Format(Localize.Mode_Info_HoldToStep, LocalizeExtension.Ctrl.AddInfoColor(), string.Format(Localize.Mode_RadiusFormat, 1f).AddInfoColor()) + "\n" +
+            string.Format(Localize.Mode_Info_HoldToStep, LocalizeExtension.Alt.AddInfoColor(), string.Format(Localize.Mode_RadiusFormat, 0.1f).AddInfoColor());
 
         #endregion
 

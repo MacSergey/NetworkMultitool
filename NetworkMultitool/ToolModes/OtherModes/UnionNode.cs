@@ -51,20 +51,20 @@ namespace NetworkMultitool
             if (!IsSource)
             {
                 if (IsHoverNode)
-                    return AddActionColor(Localize.Mode_UnionNode_Info_ClickSource) + StepOverInfo;
+                    return Localize.Mode_UnionNode_Info_ClickSource.AddActionColor() + StepOverInfo;
                 else
                     return Localize.Mode_UnionNode_Info_SelectSource + UndergroundInfo;
             }
             else if (!IsTarget)
                 return Localize.Mode_UnionNode_Info_SelectTarget;
             else if (IsConnected)
-                return AddErrorColor(Localize.Mode_UnionNode_Info_NoCommon);
+                return Localize.Mode_UnionNode_Info_NoCommon.AddErrorColor();
             else if (!IsCorrectCount)
-                return AddErrorColor(Localize.Mode_UnionNode_Info_Overflow) + StepOverInfo;
+                return Localize.Mode_UnionNode_Info_Overflow.AddErrorColor() + StepOverInfo;
             else if (IsFar)
-                return AddErrorColor(Localize.Mode_UnionNode_Info_TooFar) + StepOverInfo;
+                return Localize.Mode_UnionNode_Info_TooFar.AddErrorColor() + StepOverInfo;
             else
-                return AddActionColor(Localize.Mode_UnionNode_Info_ClickUnion) + StepOverInfo;
+                return Localize.Mode_UnionNode_Info_ClickUnion.AddActionColor() + StepOverInfo;
         }
         protected override void Reset(IToolMode prevMode)
         {

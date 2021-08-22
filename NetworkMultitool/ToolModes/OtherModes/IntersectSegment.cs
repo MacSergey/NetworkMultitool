@@ -31,20 +31,20 @@ namespace NetworkMultitool
                 if (!IsHoverSegment)
                     return Localize.Mode_Info_SelectFirstSegment + UndergroundInfo;
                 else
-                    return AddActionColor(Localize.Mode_Info_ClickFirstSegment) + StepOverInfo;
+                    return Localize.Mode_Info_ClickFirstSegment.AddActionColor() + StepOverInfo;
             }
             else
             {
                 if (!IsSecondSelect)
                     return Localize.Mode_Info_SelectSecondSegment;
                 else if(State == Result.CommonNode)
-                    return AddErrorColor(Localize.Mode_IntersectSegment_Info_CommonNode);
+                    return Localize.Mode_IntersectSegment_Info_CommonNode.AddErrorColor();
                 else if (State == Result.NotIntersect)
-                    return AddErrorColor(Localize.Mode_IntersectSegment_Info_NotIntersect);
+                    return Localize.Mode_IntersectSegment_Info_NotIntersect.AddErrorColor();
                 else if (State == Result.Incorrect)
-                    return AddErrorColor(Localize.Mode_IntersectSegment_Info_EdgeTooClose);
+                    return Localize.Mode_IntersectSegment_Info_EdgeTooClose.AddErrorColor();
                 else
-                    return AddActionColor(Localize.Mode_Info_ClickSecondSegment) + StepOverInfo;
+                    return Localize.Mode_Info_ClickSecondSegment.AddActionColor() + StepOverInfo;
             }
         }
 

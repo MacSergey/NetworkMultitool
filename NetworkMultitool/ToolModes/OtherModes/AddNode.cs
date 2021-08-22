@@ -25,9 +25,9 @@ namespace NetworkMultitool
             if (!IsHoverSegment)
                 return Localize.Mode_AddNode_Info_SelectToAdd + UndergroundInfo;
             else if (!IsPossibleInsertNode)
-                return AddErrorColor(Localize.Mode_AddNode_Info_TooCloseNode) + StepOverInfo;
+                return Localize.Mode_AddNode_Info_TooCloseNode.AddErrorColor() + StepOverInfo;
             else
-                return AddActionColor(Localize.Mode_AddNode_Info_ClickToAdd) + StepOverInfo;
+                return Localize.Mode_AddNode_Info_ClickToAdd.AddActionColor() + StepOverInfo;
         }
 
         public override void OnToolUpdate()
