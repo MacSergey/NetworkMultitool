@@ -22,6 +22,7 @@ namespace NetworkMultitool
         protected override string IdRaw => nameof(NetworkMultitool);
         public override List<Version> Versions { get; } = new List<Version>
         {
+            new Version("1.2"),
             new Version("1.1"),
             new Version("1.0")
         };
