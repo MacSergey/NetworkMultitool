@@ -391,9 +391,6 @@ namespace NetworkMultitool
         }
         protected static void SetTerrain(Point[] points, float startY, float endY)
         {
-            points[0].Position.y = startY;
-            points[points.Length - 1].Position.y = endY;
-
             var hasWater = new bool[points.Length];
             for (var i = 0; i < points.Length; i += 1)
             {
@@ -401,6 +398,8 @@ namespace NetworkMultitool
                 if (!hasWater[i])
                     points[i].Position = points[i].Position.SetHeight(TerrainManager.instance.SampleRawHeightSmooth(points[i].Position));
             }
+            points[0].Position.y = startY;
+            points[points.Length - 1].Position.y = endY;
 
             if (hasWater.All(i => i))
                 SetSlope(points, startY, endY);
