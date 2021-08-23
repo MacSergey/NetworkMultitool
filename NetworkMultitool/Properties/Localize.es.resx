@@ -167,12 +167,14 @@ para cambiar la dirección de la curva</value>
   <data name="Mode_CreateConnection" xml:space="preserve">
     <value>Modo de creación de conexión</value>
   </data>
-  
-  <data name="Mode_CreateLoop" xml:space="preserve">
+  <data name="Mode_CreateCurve" xml:space="preserve">
     <value>Modo de creación de curva</value>
   </data>
+  <data name="Mode_CreateLoop" xml:space="preserve">
+    <value>Modo de creación de bucle</value>
+  </data>
   <data name="Mode_CreateLoop_Info_Change" xml:space="preserve">
-    <value>Presiona la tecla {0} para cambiar la curva</value>
+    <value>Presiona la tecla {0} para cambiar el bucle</value>
   </data>
   <data name="Mode_CreateParallerl" xml:space="preserve">
     <value>Modo de creación de redes paralelas</value>
@@ -282,7 +284,7 @@ de manera uniforme en el círculo</value>
     <value>Mantener presionada la tecla {0} para pasar a {1}</value>
   </data>
   <data name="Mode_Info_Loop_Create" xml:space="preserve">
-    <value>Presiona la tecla {0} para crear curva</value>
+    <value>Presiona la tecla {0} para crear bucle</value>
   </data>
   <data name="Mode_Info_NotEnoughMoney" xml:space="preserve">
     <value>No hay suficiente dinero</value>
@@ -446,7 +448,22 @@ Clic con {0} para separar nodo y alinear a la altura de la selección</value>
     <value>Conjunto de herramientas diferentes para trabajar con redes</value>
   </data>
   
-  
+  <data name="Mod_WhatsNewMessage1_2" xml:space="preserve">
+    <value>- Nuevo Modo de creación de redes paralelas: Selecciona nodos en redes existentes y crea una nueva red paralela a la selección. Puedes configurar la separación, altura y el lado en donde crear la red paralela.
+- Nuevo Modo de organización en círculo: Selecciona nodos y crear un círculo perfecto. Puedes configurar el radio y la posición; Mover nodos en cada círculo; Distribuir intersecciones y nodos de manera uniforme en el círculo. 
+- Nuevo Modo de creación de curva: Conecta dos segmentos con una curva suave.
+- Añadida vista preliminar de red en los modos de conexión, bucle, redes paralelas y curvas. Se puede configurar en los ajustes del mod.
+- Añadido ajuste al Modo de creación de conexión: círculos se unirán a círculos cercanos al cambiar de radio o posición. Se puede configurar en los ajustes del mod.
+- Añadida opción de seguir terreno en los modos de conexión, bucle, redes paralelas y curvas. La opción de seguir terreno solo es posible si ambos extremos son carreteras creadas a nivel del suelo. El valor predeterminado se puede configurar en los ajustes del mod y cambiar con Ctrl+F mientras se utiliza la herramienta.
+- Añadidos efectos de audio y visuales al usar cada modo, como efectos cuando una carretera es creada. Esta opción ayuda a confirmar que se realizó una acción. Se puede configurar en los ajustes del mod.
+- Añadida opción para necesitar dinero al construir en los modos de conexión, bucle, redes paralelas, curvas y organización de línea. Se puede configurar en los ajustes del mod.
+- Añadida opción para cambiar el número de columnas del panel de modos (de 1 a 5) 
+- Añadido colores al texto en las ventanas de ayuda, facilita la lectura de la información.
+- Añadida la habilidad de selecciones segmentos bloqueados en los modos de conexión, bucle, redes paralelas y curvas.
+- Solucionado cuando la herramienta se cierra inmediatamente cuando el modo subterráneo es seleccionado en Fine Road Tool.
+- Solucionado problema con zonas que no se actualizaban cuando un segmento es modificado en el modo de organización en línea.
+- Añadidas las traducciones de Danés y Turco.</value>
+  </data>
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>Atajos de activación</value>
   </data>
@@ -457,7 +474,7 @@ Clic con {0} para separar nodo y alinear a la altura de la selección</value>
     <value>Atajos comunes de los modos</value>
   </data>
   <data name="Settings_FollowTerrain" xml:space="preserve">
-    <value>Carreteras creadas al suelo, seguirán el terreno.</value>
+    <value>Carreteras creadas a nivel del suelo, seguirán el terreno.</value>
   </data>
   <data name="Settings_Gameplay" xml:space="preserve">
     <value>Modo de juego</value>
@@ -481,7 +498,7 @@ Clic con {0} para separar nodo y alinear a la altura de la selección</value>
     <value>Ambas</value>
   </data>
   <data name="Settings_PreviewTypeMesh" xml:space="preserve">
-    <value>Visualización de red</value>
+    <value>Vista preliminar de red</value>
   </data>
   <data name="Settings_PreviewTypeOverlay" xml:space="preserve">
     <value>Resaltar área</value>
@@ -550,7 +567,7 @@ Clic con {0} para separar nodo y alinear a la altura de la selección</value>
     <value>Cambiar a seguir terreno</value>
   </data>
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
-    <value>Cambiar dirección de la curva</value>
+    <value>Cambiar dirección del bucle</value>
   </data>
   <data name="Settings_Shortcut_SwitchOffset" xml:space="preserve">
     <value>Cambiar el desplazamiento inicial de la curva seleccionada</value>
