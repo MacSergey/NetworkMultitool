@@ -167,7 +167,9 @@
   <data name="Mode_CreateConnection" xml:space="preserve">
     <value>연결 생성 모드</value>
   </data>
-  
+  <data name="Mode_CreateCurve" xml:space="preserve">
+    <value>곡선 생성 모드</value>
+  </data>
   <data name="Mode_CreateLoop" xml:space="preserve">
     <value>루프 생성 모드</value>
   </data>
