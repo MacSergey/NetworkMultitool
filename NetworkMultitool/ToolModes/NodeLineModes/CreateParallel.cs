@@ -27,7 +27,7 @@ namespace NetworkMultitool
         public override ToolModeType Type => ToolModeType.CreateParallel;
         private bool Calculated { get; set; }
         private List<Point> Points { get; set; }
-        protected NetInfo Info => ToolsModifierControl.toolController.Tools.OfType<NetTool>().FirstOrDefault().Prefab?.m_netAI?.m_info ?? Nodes[0].Id.GetNode().Info;
+        protected NetInfo Info => GetNetInfo() ?? Nodes[0].Id.GetNode().Info;
         protected override bool AllowUntouch => true;
 
         private bool Side { get; set; }
