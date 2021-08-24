@@ -53,7 +53,7 @@ namespace NetworkMultitool
                         straight.Label = AddLabel();
                 }
 
-                Underground = ForceUnderground;
+                SetInited();
             }
         }
         protected override void ResetParams()
@@ -102,24 +102,24 @@ namespace NetworkMultitool
         {
             base.OnToolUpdate();
 
-            if (State != Result.None)
+            if (CalcState != CalcResult.None)
             {
                 foreach (var circle in Circles)
-                    circle?.Update(State != Result.None);
+                    circle?.Update(CalcState != CalcResult.None);
 
                 var info = Info;
                 for (var i = 0; i < Straights.Count; i += 1)
                 {
                     if (Straights[i] is Straight straight)
                     {
-                        var show = State == Result.Calculated && (i == 0 || i == Straights.Count - 1 || !straight.IsShort);
+                        var show = CalcState == CalcResult.Calculated && (i == 0 || i == Straights.Count - 1 || !straight.IsShort);
                         straight.Update(info, show);
                     }
                 }
             }
         }
 
-        protected override Result Init(StraightTrajectory firstTrajectory, StraightTrajectory secondTrajectory)
+        protected override bool Init(StraightTrajectory firstTrajectory, StraightTrajectory secondTrajectory, out CalcResult calcState)
         {
             ResetData();
 
@@ -134,9 +134,10 @@ namespace NetworkMultitool
             EdgeCircle.GetSides(first, last);
             Circle.SetConnect(first, last);
 
-            return Result.None;
+            calcState = CalcResult.None;
+            return true;
         }
-        protected override Point[] Calculate(out Result result)
+        protected override Point[] Calculate(out CalcResult result)
         {
             foreach (var circle in Circles)
             {
@@ -166,7 +167,7 @@ namespace NetworkMultitool
                 }
             }
 
-            result = Circles.All(c => c.IsCorrect) ? Result.Calculated : Result.WrongShape;
+            result = Circles.All(c => c.IsCorrect) ? CalcResult.Calculated : CalcResult.WrongShape;
             return GetParts().ToArray();
         }
         private IEnumerable<Point> GetParts()
@@ -229,7 +230,7 @@ namespace NetworkMultitool
         }
         protected override void RenderFailedOverlay(RenderManager.CameraInfo cameraInfo, NetInfo info)
         {
-            if (State == Result.BigRadius || State == Result.SmallRadius || State == Result.WrongShape)
+            if (CalcState == CalcResult.BigRadius || CalcState == CalcResult.SmallRadius || CalcState == CalcResult.WrongShape)
             {
                 foreach (var circle in Circles)
                 {
@@ -341,8 +342,11 @@ namespace NetworkMultitool
                 var height = Mathf.Sign(otherHeight) * (otherHeight - Radius);
                 var delta = Mathf.Sqrt(length * length - height * height);
 
-                var side = NormalizeDotXZ(GetConnectCenter(other, this).Direction, Guide.Direction);
-                Offset = otherOffset + Mathf.Sign(side) * delta;
+                if (!float.IsNaN(delta))
+                {
+                    var side = NormalizeDotXZ(GetConnectCenter(other, this).Direction, Guide.Direction);
+                    Offset = otherOffset + Mathf.Sign(side) * delta;
+                }
             }
             protected override void SnappingTwoPositions(Circle before, Circle after) { }
             public override bool GetSnappingRadius(Circle other, out float snappingRadius)
