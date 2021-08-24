@@ -13,15 +13,18 @@
 [*] Intersect segments mode: make node in segment intersection point
 [*] Unlock segment mode: unlock building's segments to change it, or lock segments to prevent delete it
 [*] Invert segment mode: ability to invert non-symmetrical segments.
-[*] Align in line mode: Changes the position of the nodes so that they line up in one smooth line
+[*] Arrange at line mode: Changes the position of the nodes so that they line up in one smooth line
+[*] Arrange at circle mode: Changes the position of the nodes so that they line up in circle
 [*] Slope nodes mode: Changes the height of the nodes so that the slope between them becomes the same value
 [*] Create loop mode: Creates a loop that connects two segments with an even curve (straight - curve - straight)
 [*] Create connection mode: Creates a connection for any two segments with even curves (curve - straight - curve)
+[*] Parallel mode: Creates parallel network for selected network
+[*] Create curve mode: Creates smooth curve between two segments
 [/list]
 
-[img]https://i.imgur.com/EddJJLl.png[/img]
+[img]https://i.imgur.com/UC1xhE1.png[/img]
 
-Available translations: Chinese, Finnish, French, German, Japanese, Polish, Portuguese, Russian, Spanish
+Available translations: Chinese, Danish, Finnish, French, German, Hungarian, Italian, Japanese, Korean, Polish, Portuguese, Russian, Spanish, Turkish
 
 [HR][/HR] 
 [h1]How activate[/h1]
@@ -67,10 +70,12 @@ If you want to help improve existing translations or you want to translate into 
 [*] [url=https://steamcommunity.com/id/claude_speed_]Claude_Speed[/url] (Chinese translation)
 [*] [url=https://steamcommunity.com/id/Dogg_One]Dogg1[/url] (Finnish translation)
 [*] [url=https://steamcommunity.com/id/mrlojnat/]MrLojnat[/url] (French translation)
+[*] PELLQ (Turkish translation)
 [*] raistlin46 (Italian translation)
 [*] [url=https://steamcommunity.com/id/shg166yh/]shg166[/url] (Japanese translation)
 [*] [url=https://steamcommunity.com/profiles/76561198076859879/]Sheep[/url] (Workshop preview, bunner, icon)
 [*] [url=https://steamcommunity.com/profiles/76561199002364272/]Svis[/url] (French translation)
+[*] Strate (Danish translation)
 [*] [url=https://steamcommunity.com/id/Syvies/]Syvies[/url] (French translation)
 [*] Tiago Ribeiro (Portugal translation)
 [*] [url=https://steamcommunity.com/id/mrwoozie/]Woozie[/url] (Polish translation)
