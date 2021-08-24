@@ -1,4 +1,5 @@
 ﻿using ColossalFramework.UI;
+using ModsCommon;
 using ModsCommon.UI;
 using NetworkMultitool.Utilities;
 using System;
@@ -9,7 +10,7 @@ using UnityEngine;
 
 namespace NetworkMultitool.UI
 {
-    public class NetworkMultitoolButton : NetToolButton<NetworkMultitoolTool>
+    public class NetworkMultitoolButton : UUINetToolButton<Mod, NetworkMultitoolTool>
     {
         protected override Vector2 ButtonPosition => new Vector3(129, 38);
         protected override UITextureAtlas Atlas => NetworkMultitoolTextures.Atlas;

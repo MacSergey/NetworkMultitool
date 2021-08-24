@@ -395,14 +395,14 @@ namespace NetworkMultitool
             {
                 var info = Info;
                 RenderCalculatedOverlay(cameraInfo, Info);
-                if (Settings.NetworkPreview != (int)Settings.PreviewType.Mesh)
+                if (Settings.ShowOverlay)
                     RenderParts(Points, cameraInfo, EnoughMoney ? Colors.Yellow : Colors.Red, info.m_halfWidth * 2f);
             }
             else if (CalcState != CalcResult.None)
             {
                 var info = Info;
                 RenderFailedOverlay(cameraInfo, info);
-                if (Settings.NetworkPreview != (int)Settings.PreviewType.Mesh)
+                if (Settings.ShowOverlay)
                     RenderParts(Points, cameraInfo);
             }
 
@@ -412,7 +412,7 @@ namespace NetworkMultitool
         protected virtual void RenderFailedOverlay(RenderManager.CameraInfo cameraInfo, NetInfo info) { }
         public override void RenderGeometry(RenderManager.CameraInfo cameraInfo)
         {
-            if (CalcState == CalcResult.Calculated && Settings.NetworkPreview != (int)Settings.PreviewType.Overlay)
+            if (CalcState == CalcResult.Calculated && Settings.ShowMesh)
             {
                 var points = Points.ToArray();
 

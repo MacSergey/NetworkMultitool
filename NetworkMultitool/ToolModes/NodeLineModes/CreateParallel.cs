@@ -133,7 +133,7 @@ namespace NetworkMultitool
 
                 var text = (DeltaHeight >= 0f ? "+" : "-") + GetLengthString(Mathf.Abs(DeltaHeight));
 
-                var delta = Settings.NetworkPreview != (int)Settings.PreviewType.Overlay ? DeltaHeight : 0f;
+                var delta = Settings.ShowMesh ? DeltaHeight : 0f;
                 StartHeightLabel.WorldPosition = Points[0].Position.AddHeight(delta);
                 StartHeightLabel.Direction = (Points[0].Position - Nodes[0].Id.GetNode().m_position).Turn90(Side).MakeFlatNormalized();
                 StartHeightLabel.text = text;
@@ -349,7 +349,7 @@ namespace NetworkMultitool
 
             if (Calculated)
             {
-                if (Settings.NetworkPreview != (int)Settings.PreviewType.Mesh)
+                if (Settings.ShowOverlay)
                     RenderParts(Points, cameraInfo, EnoughMoney ? Colors.Yellow : Colors.Red, Info.m_halfWidth * 2f);
 
                 StartLine.Render(cameraInfo, Colors.Gray224, Colors.Gray224, Underground);
@@ -358,7 +358,7 @@ namespace NetworkMultitool
         }
         public override void RenderGeometry(RenderManager.CameraInfo cameraInfo)
         {
-            if (Calculated && Settings.NetworkPreview != (int)Settings.PreviewType.Overlay)
+            if (Calculated && Settings.ShowMesh)
             {
                 var points = Points.ToArray();
                 RenderParts(points, Info, Side ^ Invert);
