@@ -508,7 +508,7 @@ namespace NetworkMultitool
             label.color = color ?? Colors.White;
             label.textScale = size;
             label.textAlignment = UIHorizontalAlignment.Center;
-            label.zOrder = 0;
+            label.SendToBack();
             Labels.Add(label);
             return label;
         }
