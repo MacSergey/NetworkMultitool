@@ -70,7 +70,7 @@ If you want to help improve existing translations or you want to translate into 
 [*] [url=https://steamcommunity.com/id/claude_speed_]Claude_Speed[/url] (Chinese translation)
 [*] [url=https://steamcommunity.com/id/Dogg_One]Dogg1[/url] (Finnish translation)
 [*] [url=https://steamcommunity.com/id/mrlojnat/]MrLojnat[/url] (French translation)
-[*] PELLQ (Turkish translation)
+[*] [url=https://steamcommunity.com/profiles/76561198153118551/]PELLQ[/url] (Turkish translation)
 [*] raistlin46 (Italian translation)
 [*] [url=https://steamcommunity.com/id/shg166yh/]shg166[/url] (Japanese translation)
 [*] [url=https://steamcommunity.com/profiles/76561198076859879/]Sheep[/url] (Workshop preview, bunner, icon)
