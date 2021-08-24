@@ -32,6 +32,7 @@ namespace NetworkMultitool
         protected virtual bool CanSwitchUnderground => true;
         private bool ForbiddenSwitchUnderground { get; set; }
         protected virtual bool AllowUntouch => false;
+        protected bool NeedMoney => Settings.NeedMoney && Utility.OnGame;
 
         public NetworkMultitoolShortcut ActivationShortcut => NetworkMultitoolTool.ModeShortcuts.TryGetValue(Type, out var shortcut) ? shortcut : null;
         public virtual IEnumerable<NetworkMultitoolShortcut> Shortcuts
@@ -140,7 +141,7 @@ namespace NetworkMultitool
         {
             get
             {
-                if (this is not ICostMode costMode || !Settings.NeedMoney)
+                if (this is not ICostMode costMode || !NeedMoney)
                     return string.Empty;
                 else if (costMode.Cost < 0)
                     return string.Format(Localize.Mode_Info_Refund, -costMode.Cost / 100).AddInfoColor() + "\n\n";

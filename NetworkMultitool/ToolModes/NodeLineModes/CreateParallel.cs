@@ -40,7 +40,7 @@ namespace NetworkMultitool
         private InfoLabel EndHeightLabel { get; set; }
         private bool AllowHeight => Info.m_segments.All(s => !s.m_requireHeightMap);
         public int Cost { get; private set; }
-        private new bool EnoughMoney => !Settings.NeedMoney || EnoughMoney(Cost);
+        private new bool EnoughMoney => !NeedMoney || EnoughMoney(Cost);
 
         public override IEnumerable<NetworkMultitoolShortcut> Shortcuts
         {
@@ -225,7 +225,7 @@ namespace NetworkMultitool
 
             Calculated = true;
 
-            if (Settings.NeedMoney)
+            if (NeedMoney)
                 Cost = GetCost(Points.ToArray(), Info);
 
             ref var startNode = ref Nodes[0].Id.GetNode();

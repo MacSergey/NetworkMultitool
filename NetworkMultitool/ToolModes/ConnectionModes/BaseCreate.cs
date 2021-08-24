@@ -61,7 +61,7 @@ namespace NetworkMultitool
         private bool ForceUnderground => IsBoth && (First.Id.GetSegment().Nodes().Any(n => n.m_flags.IsSet(NetNode.Flags.Underground)) || Second.Id.GetSegment().Nodes().Any(n => n.m_flags.IsSet(NetNode.Flags.Underground)));
 
         public int Cost { get; private set; }
-        private new bool EnoughMoney => !Settings.NeedMoney || EnoughMoney(Cost);
+        private new bool EnoughMoney => !NeedMoney || EnoughMoney(Cost);
 
         protected static Func<float> MaxLengthGetter { get; private set; }
         private static Func<float> DefaultMaxLengthGetter { get; } = () => Settings.SegmentLength;
@@ -163,7 +163,7 @@ namespace NetworkMultitool
                     if (!CheckOutOfMap())
                         CalcState = CalcResult.OutOfMap;
 
-                    if (Settings.NeedMoney)
+                    if (NeedMoney)
                         Cost = GetCost(Points.ToArray(), Info);
                 }
             }
