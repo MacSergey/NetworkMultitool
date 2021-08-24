@@ -389,6 +389,9 @@ zároláshoz vagy feloldáshoz</value>
   
   
   
+  
+  
+  
   <data name="Settings_SegmentLength" xml:space="preserve">
     <value>Maximális szegmens hossz</value>
   </data>

@@ -470,6 +470,15 @@
   <data name="Settings_PanelColumns" xml:space="preserve">
     <value>パネルの列数</value>
   </data>
+  <data name="Settings_PanelOpenSide" xml:space="preserve">
+    <value>パネルの開き方</value>
+  </data>
+  <data name="Settings_PanelOpenSideDown" xml:space="preserve">
+    <value>下へ展開</value>
+  </data>
+  <data name="Settings_PanelOpenSideUp" xml:space="preserve">
+    <value>上へ展開</value>
+  </data>
   <data name="Settings_PlayEffects" xml:space="preserve">
     <value>効果音と視覚効果を再生</value>
   </data>

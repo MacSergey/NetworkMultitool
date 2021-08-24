@@ -510,6 +510,15 @@
   <data name="Settings_PanelColumns" xml:space="preserve">
     <value>Количество колонок на панели</value>
   </data>
+  <data name="Settings_PanelOpenSide" xml:space="preserve">
+    <value>Сторона открытия панели</value>
+  </data>
+  <data name="Settings_PanelOpenSideDown" xml:space="preserve">
+    <value>Вниз</value>
+  </data>
+  <data name="Settings_PanelOpenSideUp" xml:space="preserve">
+    <value>Вверх</value>
+  </data>
   <data name="Settings_PlayEffects" xml:space="preserve">
     <value>Проигрывать аудио и визуальные эффекты</value>
   </data>

@@ -471,6 +471,9 @@ tai avataksesi se</value>
   <data name="Settings_PanelColumns" xml:space="preserve">
     <value>Paneelin sarakkeiden määrä</value>
   </data>
+  
+  
+  
   <data name="Settings_PlayEffects" xml:space="preserve">
     <value>Toista ääni- ja videoefektit</value>
   </data>

@@ -473,6 +473,9 @@ oder Entsperren auswählen</value>
   <data name="Settings_PanelColumns" xml:space="preserve">
     <value>Anzahl der Spalten</value>
   </data>
+  
+  
+  
   <data name="Settings_PlayEffects" xml:space="preserve">
     <value>Audio- und visuelle Effekte abspielen</value>
   </data>

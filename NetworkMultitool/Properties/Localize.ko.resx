@@ -473,6 +473,15 @@
   <data name="Settings_PanelColumns" xml:space="preserve">
     <value>패널 열 갯수</value>
   </data>
+  <data name="Settings_PanelOpenSide" xml:space="preserve">
+    <value>창 열림 방향</value>
+  </data>
+  <data name="Settings_PanelOpenSideDown" xml:space="preserve">
+    <value>아래</value>
+  </data>
+  <data name="Settings_PanelOpenSideUp" xml:space="preserve">
+    <value>위</value>
+  </data>
   <data name="Settings_PlayEffects" xml:space="preserve">
     <value>음성 및 시각 효과 재생</value>
   </data>

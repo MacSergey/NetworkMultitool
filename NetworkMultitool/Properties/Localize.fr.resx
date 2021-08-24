@@ -488,7 +488,7 @@ verrouiller ou déverrouiller</value>
     <value>Les routes créées au sol vont suivre le terrain</value>
   </data>
   <data name="Settings_Gameplay" xml:space="preserve">
-    <value>Gameplay</value>
+    <value>Jouabilité</value>
   </data>
   <data name="Settings_Interface" xml:space="preserve">
     <value>Interface</value>
@@ -499,6 +499,9 @@ verrouiller ou déverrouiller</value>
   <data name="Settings_PanelColumns" xml:space="preserve">
     <value>Nombre de colonnes de l'interface</value>
   </data>
+  
+  
+  
   <data name="Settings_PlayEffects" xml:space="preserve">
     <value>Jouer des effets audio et visuels</value>
   </data>

@@ -472,6 +472,15 @@ låse eller låse op</value>
   <data name="Settings_PanelColumns" xml:space="preserve">
     <value>Antal kolonner i panel</value>
   </data>
+  <data name="Settings_PanelOpenSide" xml:space="preserve">
+    <value>Side panel</value>
+  </data>
+  <data name="Settings_PanelOpenSideDown" xml:space="preserve">
+    <value>Ned</value>
+  </data>
+  <data name="Settings_PanelOpenSideUp" xml:space="preserve">
+    <value>Op</value>
+  </data>
   <data name="Settings_PlayEffects" xml:space="preserve">
     <value>Afspil lyd- og visuelle effekter</value>
   </data>

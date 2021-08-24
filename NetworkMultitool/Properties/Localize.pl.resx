@@ -471,6 +471,9 @@ Naciśnij trzymając {0} aby podzielić węzeł i wyrównać do wysokości źró
   <data name="Settings_PanelColumns" xml:space="preserve">
     <value>Liczba kolumn panelu</value>
   </data>
+  
+  
+  
   <data name="Settings_PlayEffects" xml:space="preserve">
     <value>Odtwarzaj efekty dźwiękowe i wizualne</value>
   </data>

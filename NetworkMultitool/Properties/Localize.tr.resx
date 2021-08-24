@@ -466,6 +466,15 @@ Düğümü dağıtmak ve hedef yüksekliğine ayarlamak için {0} tuşunu kullan
   <data name="Settings_PanelColumns" xml:space="preserve">
     <value>Panel kolonlarını say</value>
   </data>
+  <data name="Settings_PanelOpenSide" xml:space="preserve">
+    <value>Panel açık tarafa</value>
+  </data>
+  <data name="Settings_PanelOpenSideDown" xml:space="preserve">
+    <value>Aşağı</value>
+  </data>
+  <data name="Settings_PanelOpenSideUp" xml:space="preserve">
+    <value>Yukarı</value>
+  </data>
   <data name="Settings_PlayEffects" xml:space="preserve">
     <value>Sev ve görsel efektleri oynat</value>
   </data>

@@ -488,6 +488,9 @@ Clic con {0} para separar nodo y alinear a la altura de la selección</value>
   <data name="Settings_PanelColumns" xml:space="preserve">
     <value>Número de columnas del panel</value>
   </data>
+  
+  
+  
   <data name="Settings_PlayEffects" xml:space="preserve">
     <value>Activar efectos de audio y visuales</value>
   </data>
