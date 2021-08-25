@@ -15,7 +15,7 @@ namespace NetworkMultitool
     public class ArrangeCircleMode : BaseNodeCircle
     {
         public override ToolModeType Type => ToolModeType.ArrangeAtCircle;
-        private bool IsCompleteHover => Nodes.Count != 0 && ((HoverNode.Id == Nodes[0].Id && AddState == AddResult.InEnd) || (HoverNode.Id == Nodes[Nodes.Count - 1].Id && AddState == AddResult.InStart));
+        private bool IsCompleteHover => AddState == AddResult.Full || (Nodes.Count != 0 && ((HoverNode.Id == Nodes[0].Id && AddState == AddResult.InEnd) || (HoverNode.Id == Nodes[Nodes.Count - 1].Id && AddState == AddResult.InStart)));
 
         protected override string GetInfo()
         {
@@ -440,7 +440,7 @@ namespace NetworkMultitool
                     Arrange(nodes, center, radius);
                     PlayAudio(true);
 
-                    if(Tool.Mode is ArrangeCircleMode mode)
+                    if (Tool.Mode is ArrangeCircleMode mode)
                         mode.NeedClearSelectionBuffer();
                 });
 
@@ -525,34 +525,37 @@ namespace NetworkMultitool
         }
         private void DistributeIntersectionsEvenly()
         {
-            var intersections = new List<int>();
-            var nodes = new List<CirclePoint>();
+            var intersectionIndexes = new List<int>();
+            var intersectionPoints = new List<CirclePoint>();
 
             for (var i = 0; i < Nodes.Count; i += 1)
             {
                 if (Nodes[i].Id.GetNode().CountSegments() >= 3)
                 {
-                    intersections.Add(i);
-                    nodes.Add(Nodes[i]);
+                    intersectionIndexes.Add(i);
+                    intersectionPoints.Add(Nodes[i]);
                 }
             }
 
-            DistributeEvenly(nodes, Radius);
+            DistributeEvenly(intersectionPoints, Radius);
 
-            for (var i = 0; i < intersections.Count; i += 1)
-                Nodes[intersections[i]] = nodes[i];
+            for (var i = 0; i < intersectionIndexes.Count; i += 1)
+                Nodes[intersectionIndexes[i]] = intersectionPoints[i];
 
             DistributeBetweenIntersections();
         }
         private void DistributeAllEvenly() => DistributeEvenly(Nodes, Radius);
-        private static void DistributeEvenly(List<CirclePoint> nodes, float radius)
+        private static void DistributeEvenly(List<CirclePoint> points, float radius)
         {
+            if (points.Count == 0)
+                return;
+
             var startI = 0;
             var maxDelta = 0f;
-            for (var i = 0; i < nodes.Count; i += 1)
+            for (var i = 0; i < points.Count; i += 1)
             {
-                var thisAngle = nodes[i].Angle;
-                var nextAngle = nodes[(i + 1) % nodes.Count].Angle;
+                var thisAngle = points[i].Angle;
+                var nextAngle = points[(i + 1) % points.Count].Angle;
                 var delta = nextAngle + (nextAngle < thisAngle ? Mathf.PI * 2f : 0f) - thisAngle;
                 if (delta > maxDelta)
                 {
@@ -561,7 +564,7 @@ namespace NetworkMultitool
                 }
             }
 
-            var evenDelta = Mathf.PI * 2f / nodes.Count;
+            var evenDelta = Mathf.PI * 2f / points.Count;
             var possibleDelta = maxDelta - evenDelta;
             var length = possibleDelta * radius;
             var count = Mathf.CeilToInt(length);
@@ -572,10 +575,10 @@ namespace NetworkMultitool
             {
                 var sumDelta = 0f;
                 var startDelta = possibleDelta / count * i;
-                for (var j = 0; j < nodes.Count; j += 1)
+                for (var j = 0; j < points.Count; j += 1)
                 {
-                    var angle = (nodes[startI].Angle + startDelta + evenDelta * j) % (Mathf.PI * 2f);
-                    var thisAngle = nodes[(startI + j) % nodes.Count].Angle;
+                    var angle = (points[startI].Angle + startDelta + evenDelta * j) % (Mathf.PI * 2f);
+                    var thisAngle = points[(startI + j) % points.Count].Angle;
                     var thisDelta = Mathf.Min(Mathf.Abs(angle - thisAngle), Mathf.Abs(angle + (Mathf.PI * 2f) - thisAngle), Mathf.Abs(angle - (Mathf.PI * 2f) - thisAngle));
                     sumDelta += thisDelta;
 
@@ -590,11 +593,11 @@ namespace NetworkMultitool
                 }
             }
 
-            var startAngle = nodes[startI].Angle + possibleDelta / count * minI;
-            for (var i = 0; i < nodes.Count; i += 1)
+            var startAngle = points[startI].Angle + possibleDelta / count * minI;
+            for (var i = 0; i < points.Count; i += 1)
             {
-                var index = (startI + i) % nodes.Count;
-                nodes[index] = new CirclePoint(nodes[index].Id, startAngle + evenDelta * i);
+                var index = (startI + i) % points.Count;
+                points[index] = new CirclePoint(points[index].Id, startAngle + evenDelta * i);
             }
         }
         public override void RenderOverlay(RenderManager.CameraInfo cameraInfo)

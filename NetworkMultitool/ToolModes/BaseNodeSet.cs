@@ -82,7 +82,7 @@ namespace NetworkMultitool
                 foreach (var node in ToAdd)
                     AddFirst(node);
             }
-            else if (AddState == AddResult.One || AddState == AddResult.InEnd)
+            else if (AddState == AddResult.One || AddState == AddResult.Full || AddState == AddResult.InEnd)
             {
                 foreach (var node in ToAdd)
                     AddLast(node);
@@ -198,6 +198,7 @@ namespace NetworkMultitool
         {
             None,
             One,
+            Full,
             InStart,
             InEnd,
             IsFirst,

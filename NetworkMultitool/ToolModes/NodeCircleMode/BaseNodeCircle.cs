@@ -31,8 +31,8 @@ namespace NetworkMultitool
             HashSet<ushort> toAddEnd;
             if (Nodes.Count != 0)
             {
-                inStart = Check(true, HoverNode.Id, Nodes[0].Id, 0, (Nodes.Count == 1 ? 0 : Nodes[1].Id), out toAddStart);
-                inEnd = Check(false, HoverNode.Id, Nodes[Nodes.Count - 1].Id, 0, (Nodes.Count == 1 ? 0 : Nodes[Nodes.Count - 2].Id), out toAddEnd);
+                inStart = Check(true, HoverNode.Id, Nodes[0].Id, 0, Nodes.Count == 1 ? 0 : Nodes[1].Id, out toAddStart);
+                inEnd = Check(false, HoverNode.Id, Nodes[Nodes.Count - 1].Id, 0, Nodes.Count == 1 ? 0 : Nodes[Nodes.Count - 2].Id, out toAddEnd);
             }
             else if (HoverNode.Id.GetNode().CountSegments() == 2)
             {
@@ -41,9 +41,10 @@ namespace NetworkMultitool
             }
             else
             {
-                AddState = AddResult.One;
-                ToAdd.Add(HoverNode);
-                return;
+                inStart = false;
+                inEnd = false;
+                toAddStart = new HashSet<ushort>();
+                toAddEnd = new HashSet<ushort>();
             }
 
             if (inStart && inEnd)
@@ -54,12 +55,12 @@ namespace NetworkMultitool
 
             if (inStart)
             {
-                AddState = AddResult.InStart;
+                AddState = Nodes.Count == 0 && toAddStart.Contains(HoverNode.Id) ? AddResult.Full : AddResult.InStart;
                 ToAdd.AddRange(toAddStart.Select(i => new NodeSelection(i)));
             }
             else if (inEnd)
             {
-                AddState = AddResult.InEnd;
+                AddState = Nodes.Count == 0 && toAddEnd.Contains(HoverNode.Id) ? AddResult.Full : AddResult.InEnd;
                 ToAdd.AddRange(toAddEnd.Select(i => new NodeSelection(i)));
             }
             else if (Nodes.Count == 0)
@@ -73,6 +74,14 @@ namespace NetworkMultitool
                 AddState = AddResult.IsLast;
             else
                 AddState = AddResult.NotConnect;
+        }
+        public override void OnPrimaryMouseClicked(Event e)
+        {
+            var addState = AddState;
+            base.OnPrimaryMouseClicked(e);
+
+            if (addState == AddResult.Full)
+                Complite();
         }
         protected override void AddFirst(NodeSelection selection)
         {
