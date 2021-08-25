@@ -36,6 +36,20 @@ namespace NetworkMultitool.UI
                 return (isVisible && this.IsHover(mouse)) || (Parent.isVisible && Parent.IsHover(mouse));
             }
         }
+        private UIComponent Root
+        {
+            get
+            {
+                if (Parent is UIComponent root)
+                {
+                    while (root.parent != null)
+                        root = root.parent;
+                    return root;
+                }
+                else
+                    return null;
+            }
+        }
         private OpenState State { get; set; } = OpenState.Close;
         private OpenSide OpenSide { get; set; } = OpenSide.Down;
         public ModesPanel()
@@ -73,11 +87,11 @@ namespace NetworkMultitool.UI
             Parent.eventPositionChanged += ParentPositionChanged;
             Parent.eventVisibilityChanged += ParentVisibilityChanged;
 
-            var root = Parent;
-            while (root.parent != null)
-                root = root.parent;
-
-            root.eventPositionChanged += ParentPositionChanged;
+            if (Root is UIComponent root)
+            {
+                root.eventPositionChanged += ParentPositionChanged;
+                root.eventZOrderChanged += RootZOrderChanged;
+            }
         }
 
         public override void OnDestroy()
@@ -101,6 +115,11 @@ namespace NetworkMultitool.UI
         protected override void OnClick(UIMouseEventParameter p) { }
         private void ParentPositionChanged(UIComponent parent, Vector2 value) => SetOpenSide(true);
         private void ParentVisibilityChanged(UIComponent component, bool value) => enabled = value;
+        private void RootZOrderChanged(UIComponent component, int value)
+        {
+            if (component.zOrder >= zOrder)
+                zOrder = component.zOrder + 1;
+        }
         public new void FitChildren()
         {
             size = DefaultSize;
