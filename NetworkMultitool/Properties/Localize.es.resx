@@ -488,9 +488,15 @@ Clic con {0} para separar nodo y alinear a la altura de la selección</value>
   <data name="Settings_PanelColumns" xml:space="preserve">
     <value>Número de columnas del panel</value>
   </data>
-  
-  
-  
+  <data name="Settings_PanelOpenSide" xml:space="preserve">
+    <value>Expandir panel de herramientas</value>
+  </data>
+  <data name="Settings_PanelOpenSideDown" xml:space="preserve">
+    <value>Hacia abajo</value>
+  </data>
+  <data name="Settings_PanelOpenSideUp" xml:space="preserve">
+    <value>Hacia arriba</value>
+  </data>
   <data name="Settings_PlayEffects" xml:space="preserve">
     <value>Activar efectos de audio y visuales</value>
   </data>

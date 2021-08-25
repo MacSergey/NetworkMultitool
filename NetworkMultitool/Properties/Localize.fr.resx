@@ -499,9 +499,15 @@ verrouiller ou déverrouiller</value>
   <data name="Settings_PanelColumns" xml:space="preserve">
     <value>Nombre de colonnes de l'interface</value>
   </data>
-  
-  
-  
+  <data name="Settings_PanelOpenSide" xml:space="preserve">
+    <value>Côté du menu déroulant</value>
+  </data>
+  <data name="Settings_PanelOpenSideDown" xml:space="preserve">
+    <value>En bas</value>
+  </data>
+  <data name="Settings_PanelOpenSideUp" xml:space="preserve">
+    <value>En haut</value>
+  </data>
   <data name="Settings_PlayEffects" xml:space="preserve">
     <value>Jouer des effets audio et visuels</value>
   </data>

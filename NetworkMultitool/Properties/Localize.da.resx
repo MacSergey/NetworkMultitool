@@ -458,7 +458,7 @@ låse eller låse op</value>
     <value>Standart genveje</value>
   </data>
   <data name="Settings_FollowTerrain" xml:space="preserve">
-    <value>Oprettet på grunde veje følg terræn</value>
+    <value>Veje vil følge terræn</value>
   </data>
   <data name="Settings_Gameplay" xml:space="preserve">
     <value>Gameplay</value>
@@ -467,7 +467,7 @@ låse eller låse op</value>
     <value>Interface</value>
   </data>
   <data name="Settings_NeedMoney" xml:space="preserve">
-    <value>Kræver penge for at bygge</value>
+    <value>Koster penge at bygge</value>
   </data>
   <data name="Settings_PanelColumns" xml:space="preserve">
     <value>Antal kolonner i panel</value>
@@ -497,10 +497,10 @@ låse eller låse op</value>
     <value>Overlay</value>
   </data>
   <data name="Settings_SegmentLength" xml:space="preserve">
-    <value>Maks Element længde</value>
+    <value>Maks vej længde</value>
   </data>
   <data name="Settings_Shortcut_Apply" xml:space="preserve">
-    <value>Anvend tilstand</value>
+    <value>Anvend</value>
   </data>
   <data name="Settings_Shortcut_DecreaseHeight" xml:space="preserve">
     <value>Reducer højden</value>

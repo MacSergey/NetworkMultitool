@@ -473,9 +473,15 @@ oder Entsperren auswählen</value>
   <data name="Settings_PanelColumns" xml:space="preserve">
     <value>Anzahl der Spalten</value>
   </data>
-  
-  
-  
+  <data name="Settings_PanelOpenSide" xml:space="preserve">
+    <value>Seite zu der das Panel öffnet</value>
+  </data>
+  <data name="Settings_PanelOpenSideDown" xml:space="preserve">
+    <value>Unten</value>
+  </data>
+  <data name="Settings_PanelOpenSideUp" xml:space="preserve">
+    <value>Oben</value>
+  </data>
   <data name="Settings_PlayEffects" xml:space="preserve">
     <value>Audio- und visuelle Effekte abspielen</value>
   </data>
