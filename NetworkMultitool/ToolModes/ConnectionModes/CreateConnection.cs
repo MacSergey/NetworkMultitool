@@ -75,13 +75,13 @@ namespace NetworkMultitool
                 return Localize.Mode_Connection_Info_DragToChangeRadius;
             else if (IsHoverStraight)
                 return Localize.Mode_Connection_Info_DoubleClickToAdd;
-            else if (State == Result.BigRadius)
+            else if (CalcState == CalcResult.BigRadius)
                 return Localize.Mode_Info_RadiusTooBig.AddErrorColor();
-            else if (State == Result.WrongShape)
+            else if (CalcState == CalcResult.WrongShape)
                 return Localize.Mode_Info_WrongShape.AddErrorColor();
-            else if (State == Result.OutOfMap)
+            else if (CalcState == CalcResult.OutOfMap)
                 return Localize.Mode_Info_OutOfMap.AddErrorColor();
-            else if (State != Result.Calculated)
+            else if (CalcState != CalcResult.Calculated)
                 return
                     Localize.Mode_Info_ClickOnNodeToChangeCreateDir + "\n" +
                     Localize.Mode_Connection_Info_DoubleClickOnCenterToChangeDir;
@@ -118,7 +118,7 @@ namespace NetworkMultitool
         {
             base.OnToolUpdate();
 
-            if (State != Result.None)
+            if (CalcState != CalcResult.None)
             {
                 HoverCenter = -1;
                 HoverCircle = -1;

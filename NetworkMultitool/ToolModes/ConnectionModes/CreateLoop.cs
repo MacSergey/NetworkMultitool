@@ -48,7 +48,7 @@ namespace NetworkMultitool
                 if (EndStraight != null)
                     EndStraight.Label = AddLabel();
 
-                Underground = ForceUnderground;
+                SetInited();
             }
         }
         protected override void ResetParams()
@@ -104,32 +104,37 @@ namespace NetworkMultitool
         {
             base.OnToolUpdate();
 
-            if (State != Result.None)
+            if (CalcState != CalcResult.None)
             {
                 var info = Info;
-                Circle?.Update(State == Result.Calculated);
-                StartStraight?.Update(info, State == Result.Calculated);
-                EndStraight?.Update(info, State == Result.Calculated);
+                Circle?.Update(CalcState == CalcResult.Calculated);
+                StartStraight?.Update(info, CalcState == CalcResult.Calculated);
+                EndStraight?.Update(info, CalcState == CalcResult.Calculated);
             }
         }
-        protected override Result Init(StraightTrajectory firstTrajectory, StraightTrajectory secondTrajectory)
+        protected override bool Init(StraightTrajectory firstTrajectory, StraightTrajectory secondTrajectory, out CalcResult calcState)
         {
             ResetData();
 
             if (!Intersection.CalculateSingle(firstTrajectory, secondTrajectory, out var firstT, out var secondT) || Mathf.Abs(firstT) > 5000f || Mathf.Abs(secondT) > 5000f)
-                return Result.NotIntersect;
+            {
+                calcState = CalcResult.NotIntersect;
+                return false;
+            }
 
             Circle = new MiddleCircle(Circle?.Label ?? AddLabel(), firstTrajectory, secondTrajectory, Height);
-            return Result.None;
+
+            calcState = CalcResult.None;
+            return true;
         }
-        protected override Point[] Calculate(out Result result)
+        protected override Point[] Calculate(out CalcResult result)
         {
             Circle.Calculate(MinPossibleRadius, MaxPossibleRadius);
             Circle.GetStraight(StartStraight?.Label ?? AddLabel(), EndStraight?.Label ?? AddLabel(), Height, out var start, out var end);
             StartStraight = start;
             EndStraight = end;
 
-            result = Result.Calculated;
+            result = CalcResult.Calculated;
             return GetParts().ToArray();
         }
         private IEnumerable<Point> GetParts()
@@ -301,13 +306,13 @@ namespace NetworkMultitool
         {
             if (GetBaseInfo() is string baseInfo)
                 return baseInfo;
-            else if (State == Result.BigRadius)
+            else if (CalcState == CalcResult.BigRadius)
                 return Localize.Mode_Info_RadiusTooBig.AddErrorColor();
-            else if (State == Result.SmallRadius)
+            else if (CalcState == CalcResult.SmallRadius)
                 return Localize.Mode_Info_RadiusTooSmall.AddErrorColor();
-            else if (State == Result.OutOfMap)
+            else if (CalcState == CalcResult.OutOfMap)
                 return Localize.Mode_Info_OutOfMap.AddErrorColor();
-            else if (State != Result.Calculated)
+            else if (CalcState != CalcResult.Calculated)
                 return Localize.Mode_Info_ClickOnNodeToChangeCreateDir;
             else
                 return
@@ -328,7 +333,7 @@ namespace NetworkMultitool
         {
             base.OnToolUpdate();
 
-            if (State == Result.Calculated)
+            if (CalcState == CalcResult.Calculated)
             {
                 IsHoverCenter = false;
                 if (!IsHoverNode && Tool.MouseRayValid)

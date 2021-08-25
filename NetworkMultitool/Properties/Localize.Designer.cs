@@ -84,8 +84,8 @@ namespace NetworkMultitool {
         /// <summary>
         ///   Ищет локализованную строку, похожую на - Added Create parallel mode: Select exist network nodes and create new network parallel them. Possible set offset, height and side of parallel networks.
         ///- Added Arrange at circle mode: Select nodes and arrange them at perfect circle. Possible set circle radius and position; Move nodes by circe; Distribute intersection and nodes evenly in circle.
-        ///- Added Create curve mode: Create curve connection between two segments.
-        ///- Added network visualisation to Connection, Loop, Parallel and Curve modes. Can be dis [остаток строки не уместился]&quot;;.
+        ///- Added Create curve mode: Create smooth curve connection between two segments.
+        ///- Added network visualisation to Connection, Loop, Parallel and Curve modes. Can [остаток строки не уместился]&quot;;.
         /// </summary>
         internal static string Mod_WhatsNewMessage1_2 {
             get {
@@ -295,7 +295,7 @@ namespace NetworkMultitool {
         
         /// <summary>
         ///   Ищет локализованную строку, похожую на Too big angle between nodes
-        ///round shape willn&apos;t be perfect.
+        ///round shape won&apos;t be perfect.
         /// </summary>
         internal static string Mode_Info_ArrangeCircle_BigDelta {
             get {
@@ -1084,7 +1084,7 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Created on grounds roads follow terrain.
+        ///   Ищет локализованную строку, похожую на Ground roads will follow terrain.
         /// </summary>
         internal static string Settings_FollowTerrain {
             get {
@@ -1125,6 +1125,33 @@ namespace NetworkMultitool {
         internal static string Settings_PanelColumns {
             get {
                 return ResourceManager.GetString("Settings_PanelColumns", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Panel open side.
+        /// </summary>
+        internal static string Settings_PanelOpenSide {
+            get {
+                return ResourceManager.GetString("Settings_PanelOpenSide", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Down.
+        /// </summary>
+        internal static string Settings_PanelOpenSideDown {
+            get {
+                return ResourceManager.GetString("Settings_PanelOpenSideDown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Up.
+        /// </summary>
+        internal static string Settings_PanelOpenSideUp {
+            get {
+                return ResourceManager.GetString("Settings_PanelOpenSideUp", resourceCulture);
             }
         }
         

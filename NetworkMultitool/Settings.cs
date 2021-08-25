@@ -17,6 +17,7 @@ namespace NetworkMultitool
 
         public static SavedBool ShowToolTip { get; } = new SavedBool(nameof(ShowToolTip), SettingsFile, true, true);
         public static SavedBool AutoHideModePanel { get; } = new SavedBool(nameof(AutoHideModePanel), SettingsFile, true, true);
+        public static SavedInt PanelOpenSide { get; } = new SavedInt(nameof(PanelOpenSide), SettingsFile, (int)OpenSide.Down, true);
         public static SavedInt SlopeUnite { get; } = new SavedInt(nameof(SlopeUnite), SettingsFile, 0, true);
         public static SavedInt SegmentLength { get; } = new SavedInt(nameof(SegmentLength), SettingsFile, 80, true);
         public static SavedInt PanelColumns { get; } = new SavedInt(nameof(PanelColumns), SettingsFile, 2, true);
@@ -24,6 +25,9 @@ namespace NetworkMultitool
         public static SavedInt NetworkPreview { get; } = new SavedInt(nameof(NetworkPreview), SettingsFile, (int)PreviewType.Both, true);
         public static SavedBool FollowTerrain { get; } = new SavedBool(nameof(FollowTerrain), SettingsFile, false, true);
         public static SavedBool NeedMoney { get; } = new SavedBool(nameof(NeedMoney), SettingsFile, true, true);
+
+        public static bool ShowOverlay => NetworkPreview != (int)PreviewType.Mesh;
+        public static bool ShowMesh => NetworkPreview != (int)PreviewType.Overlay;
 
         protected UIAdvancedHelper ShortcutsTab => GetTab(nameof(ShortcutsTab));
 
@@ -59,8 +63,11 @@ namespace NetworkMultitool
             AddLanguage(GeneralTab);
 
             var interfaceGroup = GeneralTab.AddGroup(Localize.Settings_Interface);
+            AddToolButton<NetworkMultitoolTool, NetworkMultitoolButton>(interfaceGroup);
             AddCheckBox(interfaceGroup, CommonLocalize.Settings_ShowTooltips, ShowToolTip);
             AddCheckBox(interfaceGroup, Localize.Settings_AutoHideModePanel, AutoHideModePanel, OnAutoHideChanged);
+            if (NetworkMultitoolTool.IsUUIEnabled)
+                AddCheckboxPanel(interfaceGroup, Localize.Settings_PanelOpenSide, PanelOpenSide, new string[] { Localize.Settings_PanelOpenSideDown, Localize.Settings_PanelOpenSideUp }, OnOpenSideChanged);
             AddIntField(interfaceGroup, Localize.Settings_PanelColumns, PanelColumns, 2, 1, 5, OnColumnChanged);
             AddCheckBox(interfaceGroup, Localize.Settings_PlayEffects, PlayEffects);
             AddCheckboxPanel(interfaceGroup, Localize.Settings_PreviewType, NetworkPreview, new string[] { Localize.Settings_PreviewTypeOverlay, Localize.Settings_PreviewTypeMesh, Localize.Settings_PreviewTypeBoth });
@@ -83,6 +90,11 @@ namespace NetworkMultitool
                     else
                         panel.SetState(true);
                 }
+            }
+            static void OnOpenSideChanged()
+            {
+                foreach (var panel in UIView.GetAView().GetComponentsInChildren<ModesPanel>())
+                    panel.SetOpenSide();
             }
             static void OnColumnChanged()
             {

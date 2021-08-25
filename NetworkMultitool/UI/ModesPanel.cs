@@ -105,12 +105,15 @@ namespace NetworkMultitool.UI
             SetPosition();
             SetButtonsPosition();
         }
-        private void SetOpenSide(bool forceSetPosition = false)
+        public void SetOpenSide(bool forceSetPosition = false)
         {
-            UIView uiView = parent.GetUIView();
-            var screen = uiView.GetScreenResolution();
             var oldSide = OpenSide;
-            OpenSide = parent.absolutePosition.y + parent.height + DefaultSize.y <= screen.y ? OpenSide.Down : OpenSide.Up;
+
+            if (Settings.PanelOpenSide == (int)OpenSide.Down)
+                OpenSide = parent.absolutePosition.y + parent.height + DefaultSize.y <= parent.GetUIView().GetScreenResolution().y ? OpenSide.Down : OpenSide.Up;
+            else
+                OpenSide = parent.absolutePosition.y >= DefaultSize.y ? OpenSide.Up : OpenSide.Down;
+
             if (oldSide != OpenSide || forceSetPosition)
                 SetPosition();
         }

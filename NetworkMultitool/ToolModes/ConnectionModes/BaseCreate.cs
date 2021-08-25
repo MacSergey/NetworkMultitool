@@ -47,19 +47,21 @@ namespace NetworkMultitool
         protected StraightTrajectory FirstTrajectory { get; set; }
         protected StraightTrajectory SecondTrajectory { get; set; }
 
-        protected Result State { get; private set; }
+        protected InitResult InitState { get; private set; }
+        protected CalcResult CalcState { get; private set; }
+
         protected bool FollowTerrain { get; private set; }
         protected bool IsFollowTerrain => FollowTerrain && FirstNodeId.GetNode().m_flags.IsFlagSet(NetNode.Flags.OnGround) && SecondNodeId.GetNode().m_flags.IsFlagSet(NetNode.Flags.OnGround);
 
         private List<Point> Points { get; set; } = new List<Point>();
-        protected NetInfo Info => ToolsModifierControl.toolController.Tools.OfType<NetTool>().FirstOrDefault().Prefab?.m_netAI?.m_info ?? First.Id.GetSegment().Info;
+        protected NetInfo Info => GetNetInfo() ?? First.Id.GetSegment().Info;
         protected float MinPossibleRadius => Info != null ? Info.m_halfWidth * 2f : 16f;
         protected float MaxPossibleRadius => 3000f;
 
-        protected bool ForceUnderground => IsBoth && (First.Id.GetSegment().Nodes().Any(n => n.m_flags.IsSet(NetNode.Flags.Underground)) || Second.Id.GetSegment().Nodes().Any(n => n.m_flags.IsSet(NetNode.Flags.Underground)));
+        private bool ForceUnderground => IsBoth && (First.Id.GetSegment().Nodes().Any(n => n.m_flags.IsSet(NetNode.Flags.Underground)) || Second.Id.GetSegment().Nodes().Any(n => n.m_flags.IsSet(NetNode.Flags.Underground)));
 
         public int Cost { get; private set; }
-        private new bool EnoughMoney => !Settings.NeedMoney || EnoughMoney(Cost);
+        private new bool EnoughMoney => !NeedMoney || EnoughMoney(Cost);
 
         protected static Func<float> MaxLengthGetter { get; private set; }
         private static Func<float> DefaultMaxLengthGetter { get; } = () => Settings.SegmentLength;
@@ -114,7 +116,6 @@ namespace NetworkMultitool
 
             ResetParams();
             Cost = 0;
-            State = Result.None;
 
             if (prevMode is BaseCreateMode createMode)
             {
@@ -123,8 +124,9 @@ namespace NetworkMultitool
                 IsFirstStart = createMode.IsFirstStart;
                 IsSecondStart = createMode.IsSecondStart;
                 FollowTerrain = createMode.FollowTerrain;
-                Underground = ForceUnderground;
-                Init();
+
+                if (createMode.InitState == InitResult.Inited)
+                    Reinit();
             }
             else
             {
@@ -135,7 +137,8 @@ namespace NetworkMultitool
         }
         protected virtual void ResetParams()
         {
-            State = Result.None;
+            InitState = InitResult.None;
+            CalcState = CalcResult.None;
 
             IsFirstStart = true;
             IsSecondStart = true;
@@ -144,25 +147,28 @@ namespace NetworkMultitool
         {
             base.OnToolUpdate();
 
-            if (IsBoth && State == Result.None)
+            if (InitState == InitResult.NotInited)
+                Init();
+
+            if (InitState == InitResult.Inited && CalcState == CalcResult.None)
             {
                 Points = new List<Point>();
                 Points.Add(new Point(FirstTrajectory.StartPosition.SetHeight(Height), FirstTrajectory.Direction));
                 Points.AddRange(Calculate(out var result));
                 Points.Add(new Point(SecondTrajectory.StartPosition.SetHeight(Height), -SecondTrajectory.Direction));
 
-                State = result;
-                if (State == Result.Calculated)
+                CalcState = result;
+                if (CalcState == CalcResult.Calculated)
                 {
                     if (!CheckOutOfMap())
-                        State = Result.OutOfMap;
+                        CalcState = CalcResult.OutOfMap;
 
-                    if (Settings.NeedMoney)
+                    if (NeedMoney)
                         Cost = GetCost(Points.ToArray(), Info);
                 }
             }
         }
-        protected abstract Point[] Calculate(out Result result);
+        protected abstract Point[] Calculate(out CalcResult result);
 
         private bool CheckOutOfMap()
         {
@@ -186,8 +192,7 @@ namespace NetworkMultitool
                 if (IsHoverSegment)
                 {
                     Second = HoverSegment;
-                    Underground = ForceUnderground;
-                    Init();
+                    Reinit();
                 }
             }
             else if (IsHoverNode)
@@ -203,8 +208,6 @@ namespace NetworkMultitool
         }
         private void Init()
         {
-            State = Result.None;
-
             ref var firstSegment = ref First.Id.GetSegment();
             ref var secondSegment = ref Second.Id.GetSegment();
 
@@ -219,16 +222,17 @@ namespace NetworkMultitool
             SecondTrajectory = new StraightTrajectory(secondPos, secondPos + secondDir, false);
             Points = new List<Point>();
 
-            State = Init(FirstTrajectory, SecondTrajectory);
+            CalcState = Init(FirstTrajectory, SecondTrajectory, out var calcState) ? CalcResult.None : calcState;
+            SetInited();
         }
-        protected abstract Result Init(StraightTrajectory firstTrajectory, StraightTrajectory secondTrajectory);
+        protected abstract bool Init(StraightTrajectory firstTrajectory, StraightTrajectory secondTrajectory, out CalcResult calcState);
 
         protected virtual void SetFirstNode(ref NetSegment segment, ushort nodeId)
         {
             if (IsFirstStart != segment.IsStartNode(nodeId))
             {
                 IsFirstStart = !IsFirstStart;
-                Init();
+                Reinit();
             }
         }
         protected virtual void SetSecondNode(ref NetSegment segment, ushort nodeId)
@@ -236,7 +240,7 @@ namespace NetworkMultitool
             if (IsSecondStart != segment.IsStartNode(nodeId))
             {
                 IsSecondStart = !IsSecondStart;
-                Init();
+                Reinit();
             }
         }
         public override void OnSecondaryMouseClicked()
@@ -256,7 +260,7 @@ namespace NetworkMultitool
         }
         protected override void Apply()
         {
-            if (State == Result.Calculated && EnoughMoney && Info is NetInfo info)
+            if (CalcState == CalcResult.Calculated && EnoughMoney && Info is NetInfo info)
             {
                 var points = Points.ToArray();
                 var firstId = First.Id;
@@ -347,7 +351,13 @@ namespace NetworkMultitool
             }
         }
 
-        public void Recalculate() => State = Result.None;
+        public void Reinit() => InitState = InitResult.NotInited;
+        protected void SetInited()
+        {
+            InitState = InitResult.Inited;
+            Underground = ForceUnderground;
+        }
+        public void Recalculate() => CalcState = CalcResult.None;
         protected virtual void IncreaseRadius() { }
         protected virtual void DecreaseRadius() { }
         private void SwitchFollowTerrain() => FollowTerrain = !FollowTerrain;
@@ -369,10 +379,10 @@ namespace NetworkMultitool
 
         public override void RenderOverlay(RenderManager.CameraInfo cameraInfo)
         {
-            var color = State switch
+            var color = CalcState switch
             {
-                Result.BigRadius or Result.SmallRadius or Result.WrongShape or Result.NotIntersect => Colors.Red,
-                Result.Calculated => Colors.White.SetAlpha(64),
+                CalcResult.BigRadius or CalcResult.SmallRadius or CalcResult.WrongShape or CalcResult.NotIntersect => Colors.Red,
+                CalcResult.Calculated => Colors.White.SetAlpha(64),
                 _ => Colors.White,
             };
 
@@ -381,18 +391,18 @@ namespace NetworkMultitool
             if (IsSecond)
                 Second.Render(new OverlayData(cameraInfo) { Color = color, RenderLimit = Underground });
 
-            if (State == Result.Calculated)
+            if (CalcState == CalcResult.Calculated)
             {
                 var info = Info;
                 RenderCalculatedOverlay(cameraInfo, Info);
-                if (Settings.NetworkPreview != (int)Settings.PreviewType.Mesh)
+                if (Settings.ShowOverlay)
                     RenderParts(Points, cameraInfo, EnoughMoney ? Colors.Yellow : Colors.Red, info.m_halfWidth * 2f);
             }
-            else if (State != Result.None)
+            else if (CalcState != CalcResult.None)
             {
                 var info = Info;
                 RenderFailedOverlay(cameraInfo, info);
-                if (Settings.NetworkPreview != (int)Settings.PreviewType.Mesh)
+                if (Settings.ShowOverlay)
                     RenderParts(Points, cameraInfo);
             }
 
@@ -402,7 +412,7 @@ namespace NetworkMultitool
         protected virtual void RenderFailedOverlay(RenderManager.CameraInfo cameraInfo, NetInfo info) { }
         public override void RenderGeometry(RenderManager.CameraInfo cameraInfo)
         {
-            if (State == Result.Calculated && Settings.NetworkPreview != (int)Settings.PreviewType.Overlay)
+            if (CalcState == CalcResult.Calculated && Settings.ShowMesh)
             {
                 var points = Points.ToArray();
 
@@ -417,10 +427,15 @@ namespace NetworkMultitool
             base.RenderGeometry(cameraInfo);
         }
 
-        public enum Result
+        public enum InitResult
         {
             None,
+            NotInited,
             Inited,
+        }
+        public enum CalcResult
+        {
+            None,
             NotIntersect,
             SmallRadius,
             BigRadius,

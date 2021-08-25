@@ -33,11 +33,11 @@ namespace NetworkMultitool
         {
             if (GetBaseInfo() is string baseInfo)
                 return baseInfo;
-            else if (State == Result.WrongShape)
+            else if (CalcState == CalcResult.WrongShape)
                 return Localize.Mode_Info_WrongShape.AddErrorColor();
-            else if (State == Result.OutOfMap)
+            else if (CalcState == CalcResult.OutOfMap)
                 return Localize.Mode_Info_OutOfMap.AddErrorColor();
-            else if (State != Result.Calculated)
+            else if (CalcState != CalcResult.Calculated)
                 return Localize.Mode_Info_ClickOnNodeToChangeCreateDir;
             else
                 return
@@ -46,11 +46,14 @@ namespace NetworkMultitool
                     (IsFollowTerrain ? string.Format(Localize.Mode_Info_SwitchFollowTerrain, SwitchFollowTerrainShortcut.AddInfoColor()) + "\n" : string.Empty) +
                     string.Format(Localize.Mode_Info_Create, ApplyShortcut.AddInfoColor());
         }
-        protected override Result Init(StraightTrajectory firstTrajectory, StraightTrajectory secondTrajectory)
+        protected override bool Init(StraightTrajectory firstTrajectory, StraightTrajectory secondTrajectory, out CalcResult calcState)
         {
             var connect = new StraightTrajectory(firstTrajectory.StartPosition, secondTrajectory.EndPosition);
             if (NormalizeDotXZ(firstTrajectory.StartDirection, connect.Direction) < -0.7 || NormalizeDotXZ(secondTrajectory.StartDirection, -connect.Direction) < -0.7)
-                return Result.WrongShape;
+            {
+                calcState = CalcResult.WrongShape;
+                return false;
+            }
 
             var startPos = firstTrajectory.StartPosition.SetHeight(Height);
             var startDir = firstTrajectory.StartDirection.MakeFlatNormalized();
@@ -59,9 +62,10 @@ namespace NetworkMultitool
 
             Bezier = new BezierTrajectory(startPos, startDir, endPos, endDir, forceSmooth: true);
 
-            return Result.None;
+            calcState = CalcResult.None;
+            return true;
         }
-        protected override Point[] Calculate(out Result result)
+        protected override Point[] Calculate(out CalcResult result)
         {
             var count = Mathf.CeilToInt(Bezier.Length / MaxLengthGetter());
             var partLength = Bezier.Length / count;
@@ -75,7 +79,7 @@ namespace NetworkMultitool
                 points[i - 1] = point;
             }
 
-            result = Result.Calculated;
+            result = CalcResult.Calculated;
             return points;
         }
     }

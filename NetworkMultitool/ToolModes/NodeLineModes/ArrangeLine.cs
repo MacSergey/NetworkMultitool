@@ -20,7 +20,7 @@ namespace NetworkMultitool
         private ushort LastGuide { get; set; }
 
         public int Cost { get; private set; }
-        private new bool EnoughMoney => !Settings.NeedMoney || EnoughMoney(Cost);
+        private new bool EnoughMoney => !NeedMoney || EnoughMoney(Cost);
 
         private bool IsHoverGuideSegment
         {
@@ -78,7 +78,7 @@ namespace NetworkMultitool
 
             Calculated = true;
 
-            if (Settings.NeedMoney)
+            if (NeedMoney)
             {
                 Cost = 0;
                 for (var i = 1; i < nodeIds.Length; i += 1)

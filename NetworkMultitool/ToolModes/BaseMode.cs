@@ -15,7 +15,6 @@ using System.Reflection.Emit;
 using System.Text;
 using UnityEngine;
 using static ColossalFramework.Math.VectorUtils;
-using static ModsCommon.Utilities.Colors;
 
 namespace NetworkMultitool
 {
@@ -33,6 +32,7 @@ namespace NetworkMultitool
         protected virtual bool CanSwitchUnderground => true;
         private bool ForbiddenSwitchUnderground { get; set; }
         protected virtual bool AllowUntouch => false;
+        protected bool NeedMoney => Settings.NeedMoney && Utility.OnGame;
 
         public NetworkMultitoolShortcut ActivationShortcut => NetworkMultitoolTool.ModeShortcuts.TryGetValue(Type, out var shortcut) ? shortcut : null;
         public virtual IEnumerable<NetworkMultitoolShortcut> Shortcuts
@@ -141,7 +141,7 @@ namespace NetworkMultitool
         {
             get
             {
-                if (this is not ICostMode costMode || !Settings.NeedMoney)
+                if (this is not ICostMode costMode || !NeedMoney)
                     return string.Empty;
                 else if (costMode.Cost < 0)
                     return string.Format(Localize.Mode_Info_Refund, -costMode.Cost / 100).AddInfoColor() + "\n\n";
@@ -509,7 +509,7 @@ namespace NetworkMultitool
             label.color = color ?? Colors.White;
             label.textScale = size;
             label.textAlignment = UIHorizontalAlignment.Center;
-            label.zOrder = 0;
+            label.SendToBack();
             Labels.Add(label);
             return label;
         }
@@ -562,7 +562,7 @@ namespace NetworkMultitool
                     var nodeId = NetManager.instance.m_nodeGrid[i * 270 + j];
                     int count = 0;
 
-                    while (nodeId != 0u && count < NetManager.MAX_SEGMENT_COUNT)
+                    while (nodeId != 0u && count < NetManager.MAX_NODE_COUNT)
                     {
                         ref var node = ref nodeId.GetNode();
                         var magnitude = (XZ(node.m_position) - xzPosition).magnitude;
@@ -578,12 +578,14 @@ namespace NetworkMultitool
                 }
             }
 
-
             static int Min(float value) => Mathf.Max((int)((value - 16f) / 64f + 135f) - 1, 0);
             static int Max(float value) => Mathf.Min((int)((value + 16f) / 64f + 135f) + 1, 269);
         }
         protected virtual bool AllowRenderNear(ushort nodeId)
         {
+            if (!CheckItemClass(nodeId.GetNode().Info.GetConnectionClass()))
+                return false;
+
             if (IsHoverNode)
                 return nodeId != HoverNode.Id;
             else if (IsHoverSegment)
@@ -704,6 +706,11 @@ namespace NetworkMultitool
         #endregion
 
         protected Vector3 GetMousePosition(float height) => Underground ? Tool.Ray.GetRayPosition(height, out _) : Tool.MouseWorldPosition;
+        protected NetInfo GetNetInfo()
+        {
+            var info = ToolsModifierControl.toolController.Tools.OfType<NetTool>().FirstOrDefault().Prefab?.m_netAI?.m_info;
+            return info != null && CheckItemClass(info.GetConnectionClass()) ? info : null;
+        }
 
         public struct Point
         {

@@ -27,7 +27,7 @@ namespace NetworkMultitool
         public override ToolModeType Type => ToolModeType.CreateParallel;
         private bool Calculated { get; set; }
         private List<Point> Points { get; set; }
-        protected NetInfo Info => ToolsModifierControl.toolController.Tools.OfType<NetTool>().FirstOrDefault().Prefab?.m_netAI?.m_info ?? Nodes[0].Id.GetNode().Info;
+        protected NetInfo Info => GetNetInfo() ?? Nodes[0].Id.GetNode().Info;
         protected override bool AllowUntouch => true;
 
         private bool Side { get; set; }
@@ -40,7 +40,7 @@ namespace NetworkMultitool
         private InfoLabel EndHeightLabel { get; set; }
         private bool AllowHeight => Info.m_segments.All(s => !s.m_requireHeightMap);
         public int Cost { get; private set; }
-        private new bool EnoughMoney => !Settings.NeedMoney || EnoughMoney(Cost);
+        private new bool EnoughMoney => !NeedMoney || EnoughMoney(Cost);
 
         public override IEnumerable<NetworkMultitoolShortcut> Shortcuts
         {
@@ -133,7 +133,7 @@ namespace NetworkMultitool
 
                 var text = (DeltaHeight >= 0f ? "+" : "-") + GetLengthString(Mathf.Abs(DeltaHeight));
 
-                var delta = Settings.NetworkPreview != (int)Settings.PreviewType.Overlay ? DeltaHeight : 0f;
+                var delta = Settings.ShowMesh ? DeltaHeight : 0f;
                 StartHeightLabel.WorldPosition = Points[0].Position.AddHeight(delta);
                 StartHeightLabel.Direction = (Points[0].Position - Nodes[0].Id.GetNode().m_position).Turn90(Side).MakeFlatNormalized();
                 StartHeightLabel.text = text;
@@ -225,7 +225,7 @@ namespace NetworkMultitool
 
             Calculated = true;
 
-            if (Settings.NeedMoney)
+            if (NeedMoney)
                 Cost = GetCost(Points.ToArray(), Info);
 
             ref var startNode = ref Nodes[0].Id.GetNode();
@@ -349,7 +349,7 @@ namespace NetworkMultitool
 
             if (Calculated)
             {
-                if (Settings.NetworkPreview != (int)Settings.PreviewType.Mesh)
+                if (Settings.ShowOverlay)
                     RenderParts(Points, cameraInfo, EnoughMoney ? Colors.Yellow : Colors.Red, Info.m_halfWidth * 2f);
 
                 StartLine.Render(cameraInfo, Colors.Gray224, Colors.Gray224, Underground);
@@ -358,7 +358,7 @@ namespace NetworkMultitool
         }
         public override void RenderGeometry(RenderManager.CameraInfo cameraInfo)
         {
-            if (Calculated && Settings.NetworkPreview != (int)Settings.PreviewType.Overlay)
+            if (Calculated && Settings.ShowMesh)
             {
                 var points = Points.ToArray();
                 RenderParts(points, Info, Side ^ Invert);
