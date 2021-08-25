@@ -115,11 +115,7 @@ namespace NetworkMultitool.UI
         protected override void OnClick(UIMouseEventParameter p) { }
         private void ParentPositionChanged(UIComponent parent, Vector2 value) => SetOpenSide(true);
         private void ParentVisibilityChanged(UIComponent component, bool value) => enabled = value;
-        private void RootZOrderChanged(UIComponent component, int value)
-        {
-            if (component.zOrder >= zOrder)
-                zOrder = component.zOrder + 1;
-        }
+        private void RootZOrderChanged(UIComponent component, int value) => SetOrder(component);
         public new void FitChildren()
         {
             size = DefaultSize;
@@ -153,6 +149,11 @@ namespace NetworkMultitool.UI
             var x = Mathf.Max(Mathf.Min(parentPos.x + (Parent.width - width) / 2f, screen.x - width), 0f);
             var y = parentPos.y + (OpenSide == OpenSide.Down ? Parent.height : -height);
             absolutePosition = new Vector2(x, y);
+        }
+        private void SetOrder(UIComponent component)
+        {
+            if (component.zOrder >= zOrder)
+                zOrder = component.zOrder + 1;
         }
 
         public void SetState(bool show, bool auto = false)
@@ -192,7 +193,8 @@ namespace NetworkMultitool.UI
         {
             State = OpenState.Opening;
             Show();
-            BringToFront();
+            if (Root is UIComponent root)
+                SetOrder(root);
         }
         private void EndOpening() => State = OpenState.Open;
         private void StartClosing() => State = OpenState.Closing;
