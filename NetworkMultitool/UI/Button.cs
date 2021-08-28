@@ -27,7 +27,7 @@ namespace NetworkMultitool.UI
         public override void Start()
         {
             base.Start();
-            AddUIComponent<ModesPanel>();
+            ModesPanel.Add(this);
         }
     }
 }

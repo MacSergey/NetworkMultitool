@@ -123,7 +123,7 @@ namespace NetworkMultitool
         {
             base.RegisterUUI();
             if (IsInit && UUIRegistered)
-                UUIButton.AddUIComponent<ModesPanel>();
+                ModesPanel.Add(UUIButton);
         }
 
         private void SelectionStepOver()
