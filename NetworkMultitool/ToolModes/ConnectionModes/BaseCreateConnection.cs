@@ -18,7 +18,6 @@ namespace NetworkMultitool
         public List<Straight> Straights { get; private set; } = new List<Straight>();
 
         public int SelectCircle { get; protected set; }
-        public bool SelectOffset { get; protected set; }
 
         protected override void Reset(IToolMode prevMode)
         {
@@ -37,7 +36,6 @@ namespace NetworkMultitool
                 Height = connectionMode.Height;
 
                 SelectCircle = connectionMode.SelectCircle;
-                SelectOffset = connectionMode.SelectOffset;
 
                 Circles.AddRange(connectionMode.Circles);
                 foreach (var circle in Circles)
@@ -119,20 +117,40 @@ namespace NetworkMultitool
             }
         }
 
-        protected override bool Init(StraightTrajectory firstTrajectory, StraightTrajectory secondTrajectory, out CalcResult calcState)
+        protected override bool Init(bool reinit, StraightTrajectory firstTrajectory, StraightTrajectory secondTrajectory, out CalcResult calcState)
         {
-            ResetData();
+            if (!reinit)
+            {
+                ResetData();
 
-            var first = new EdgeCircle(CircleType.First, AddLabel(), firstTrajectory, Height);
-            var last = new EdgeCircle(CircleType.Last, AddLabel(), secondTrajectory, Height);
-            Circles.Add(first);
-            Circles.Add(last);
-            Straights.Add(null);
-            Straights.Add(null);
-            Straights.Add(null);
+                var first = new EdgeCircle(CircleType.First, AddLabel(), firstTrajectory, Height);
+                var last = new EdgeCircle(CircleType.Last, AddLabel(), secondTrajectory, Height);
+                Circles.Add(first);
+                Circles.Add(last);
+                Straights.Add(null);
+                Straights.Add(null);
+                Straights.Add(null);
 
-            EdgeCircle.GetSides(first, last);
-            Circle.SetConnect(first, last);
+                EdgeCircle.GetSides(first, last);
+                Circle.SetConnect(first, last);
+            }
+            else
+            {
+                var first = (EdgeCircle)Circles[0];
+                var last = (EdgeCircle)Circles[Circles.Count - 1];
+                Circles[0] = new EdgeCircle(CircleType.First, first.Label, firstTrajectory, Height)
+                {
+                    Radius = first.Radius,
+                    Direction = first.Direction,
+                    Offset = first.Offset,
+                };
+                Circles[Circles.Count - 1] = new EdgeCircle(CircleType.Last, last.Label, secondTrajectory, Height)
+                {
+                    Radius = last.Radius,
+                    Direction = last.Direction,
+                    Offset = last.Offset,
+                };
+            }
 
             calcState = CalcResult.None;
             return true;
@@ -157,9 +175,9 @@ namespace NetworkMultitool
                 var label = Straights[i]?.Label ?? AddLabel();
 
                 if (i == 0)
-                    Straights[i] = (Circles.FirstOrDefault() as EdgeCircle).GetStraight(label);
+                    Straights[i] = (Circles.FirstOrDefault() as EdgeCircle).GetStraight(label, FirstAngle);
                 else if (i == Straights.Count - 1)
-                    Straights[i] = (Circles.LastOrDefault() as EdgeCircle).GetStraight(label);
+                    Straights[i] = (Circles.LastOrDefault() as EdgeCircle).GetStraight(label, SecondAngle);
                 else
                 {
                     Circle.SetConnect(Circles[i - 1], Circles[i]);
@@ -307,10 +325,10 @@ namespace NetworkMultitool
                 else
                     base.EndRadiusDir = dir;
             }
-            public Straight GetStraight(InfoLabel label) => Type switch
+            public Straight GetStraight(InfoLabel label, float angle) => Type switch
             {
-                CircleType.First => new Straight(Guide.StartPosition, StartPos, StartRadiusDir, label, Height),
-                CircleType.Last => new Straight(EndPos, Guide.StartPosition, EndRadiusDir, label, Height),
+                CircleType.First => new Straight(Guide.StartPosition, StartPos, StartRadiusDir, label, Height, angle),
+                CircleType.Last => new Straight(EndPos, Guide.StartPosition, EndRadiusDir, label, Height, angle),
             };
 
             public static void GetSides(EdgeCircle first, EdgeCircle last)
