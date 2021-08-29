@@ -452,6 +452,9 @@
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>自動的にUIパネルを折り畳む</value>
   </data>
+  <data name="Settings_CommonCreateShortcuts" xml:space="preserve">
+    <value>モード共通のショートカット</value>
+  </data>
   <data name="Settings_CommonShortcuts" xml:space="preserve">
     <value>Mode共通のショートカット</value>
   </data>
@@ -500,6 +503,9 @@
   <data name="Settings_Shortcut_Apply" xml:space="preserve">
     <value>アクションを確定</value>
   </data>
+  <data name="Settings_Shortcut_DecreaseAngle" xml:space="preserve">
+    <value>開始角度を下げる</value>
+  </data>
   <data name="Settings_Shortcut_DecreaseHeight" xml:space="preserve">
     <value>高さを下げる</value>
   </data>
@@ -526,6 +532,9 @@
   </data>
   <data name="Settings_Shortcut_DistributeIntersections" xml:space="preserve">
     <value>交差点間の円周上で均等配置</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseAngle" xml:space="preserve">
+    <value>開始角度を上げる</value>
   </data>
   <data name="Settings_Shortcut_IncreaseHeight" xml:space="preserve">
     <value>高さを上げる</value>

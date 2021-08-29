@@ -390,9 +390,11 @@ porque não está ligado a outros</value>
   
   
   
+  
   <data name="Settings_SegmentLength" xml:space="preserve">
     <value>Comprimento máximo do segmento</value>
   </data>
+  
   
   
   <data name="Settings_Shortcut_DecreaseOffset" xml:space="preserve">
@@ -406,6 +408,7 @@ porque não está ligado a outros</value>
   <data name="Settings_Shortcut_DecreaseShift" xml:space="preserve">
     <value>Diminuir deslocamento</value>
   </data>
+  
   
   
   

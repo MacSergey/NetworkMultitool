@@ -492,6 +492,9 @@
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>Автоматически скрывать панель выбора режимов</value>
   </data>
+  <data name="Settings_CommonCreateShortcuts" xml:space="preserve">
+    <value>Общие горячие клавиши режимов создания</value>
+  </data>
   <data name="Settings_CommonShortcuts" xml:space="preserve">
     <value>Общие горячие клавиши режимов</value>
   </data>
@@ -540,6 +543,9 @@
   <data name="Settings_Shortcut_Apply" xml:space="preserve">
     <value>Выполнить действие</value>
   </data>
+  <data name="Settings_Shortcut_DecreaseAngle" xml:space="preserve">
+    <value>Уменьшить начальный угол</value>
+  </data>
   <data name="Settings_Shortcut_DecreaseHeight" xml:space="preserve">
     <value>Уменьшить высоту</value>
   </data>
@@ -566,6 +572,9 @@
   </data>
   <data name="Settings_Shortcut_DistributeIntersections" xml:space="preserve">
     <value>Распределение перекрестков равномерно по кругу</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseAngle" xml:space="preserve">
+    <value>Увеличить начальный угол</value>
   </data>
   <data name="Settings_Shortcut_IncreaseHeight" xml:space="preserve">
     <value>Увеличить высоту</value>

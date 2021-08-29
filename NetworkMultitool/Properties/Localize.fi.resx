@@ -453,6 +453,7 @@ tai avataksesi se</value>
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>Piilota valikko automaattisesti</value>
   </data>
+  
   <data name="Settings_CommonShortcuts" xml:space="preserve">
     <value>Työkalujen yhteiset pikanäppäimet</value>
   </data>
@@ -495,6 +496,7 @@ tai avataksesi se</value>
   <data name="Settings_Shortcut_Apply" xml:space="preserve">
     <value>Toteuta toiminto</value>
   </data>
+  
   <data name="Settings_Shortcut_DecreaseHeight" xml:space="preserve">
     <value>Laske korkeutta</value>
   </data>
@@ -522,6 +524,7 @@ tai avataksesi se</value>
   <data name="Settings_Shortcut_DistributeIntersections" xml:space="preserve">
     <value>Jaa risteykset tasaisesti ympyrään</value>
   </data>
+  
   <data name="Settings_Shortcut_IncreaseHeight" xml:space="preserve">
     <value>Nosta korkeutta</value>
   </data>

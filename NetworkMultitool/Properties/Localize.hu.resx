@@ -392,6 +392,7 @@ zároláshoz vagy feloldáshoz</value>
   
   
   
+  
   <data name="Settings_SegmentLength" xml:space="preserve">
     <value>Maximális szegmens hossz</value>
   </data>
@@ -399,12 +400,14 @@ zároláshoz vagy feloldáshoz</value>
     <value>Mód művelet alkalmazása</value>
   </data>
   
+  
   <data name="Settings_Shortcut_DecreaseOffset" xml:space="preserve">
     <value>A görbe kezdési eltolásának csökkentése</value>
   </data>
   <data name="Settings_Shortcut_DecreaseOneRadius" xml:space="preserve">
     <value>Az egyik sugár csökkentése</value>
   </data>
+  
   
   
   

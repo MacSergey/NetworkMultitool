@@ -449,6 +449,9 @@ Klik met {0} om de knooppunt te splitsen en de terrein uit te lijnen op de origi
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>Automatische verberging van de knooppunten paneel</value>
   </data>
+  <data name="Settings_CommonCreateShortcuts" xml:space="preserve">
+    <value>Aanmaakmodus veelgebruikte snelkoppelingen</value>
+  </data>
   <data name="Settings_CommonShortcuts" xml:space="preserve">
     <value>Modes gebruikelijke snelkoppelingen</value>
   </data>
@@ -497,6 +500,9 @@ Klik met {0} om de knooppunt te splitsen en de terrein uit te lijnen op de origi
   <data name="Settings_Shortcut_Apply" xml:space="preserve">
     <value>Toepassen mode actie</value>
   </data>
+  <data name="Settings_Shortcut_DecreaseAngle" xml:space="preserve">
+    <value>Beginhoek verkleinen</value>
+  </data>
   <data name="Settings_Shortcut_DecreaseHeight" xml:space="preserve">
     <value>Hoogte verminderen</value>
   </data>
@@ -523,6 +529,9 @@ Klik met {0} om de knooppunt te splitsen en de terrein uit te lijnen op de origi
   </data>
   <data name="Settings_Shortcut_DistributeIntersections" xml:space="preserve">
     <value>Gelijkmatig verdelen van kruispunten op de cirkel</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseAngle" xml:space="preserve">
+    <value>Beginhoek vergroten</value>
   </data>
   <data name="Settings_Shortcut_IncreaseHeight" xml:space="preserve">
     <value>Toename van de hoogte</value>

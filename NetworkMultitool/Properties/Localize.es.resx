@@ -470,6 +470,9 @@ Clic con {0} para separar nodo y alinear a la altura de la selección</value>
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>Esconder panel de modos automáticamente</value>
   </data>
+  <data name="Settings_CommonCreateShortcuts" xml:space="preserve">
+    <value>Atajos comunes de los modos de creación</value>
+  </data>
   <data name="Settings_CommonShortcuts" xml:space="preserve">
     <value>Atajos comunes de los modos</value>
   </data>
@@ -518,6 +521,9 @@ Clic con {0} para separar nodo y alinear a la altura de la selección</value>
   <data name="Settings_Shortcut_Apply" xml:space="preserve">
     <value>Aplicar acción de modo</value>
   </data>
+  <data name="Settings_Shortcut_DecreaseAngle" xml:space="preserve">
+    <value>Disminuir ángulo inicial</value>
+  </data>
   <data name="Settings_Shortcut_DecreaseHeight" xml:space="preserve">
     <value>Disminuir altura</value>
   </data>
@@ -544,6 +550,9 @@ Clic con {0} para separar nodo y alinear a la altura de la selección</value>
   </data>
   <data name="Settings_Shortcut_DistributeIntersections" xml:space="preserve">
     <value>Distribuir los nodos de manera uniforme en el círculo</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseAngle" xml:space="preserve">
+    <value>Incrementar ángulo inicial</value>
   </data>
   <data name="Settings_Shortcut_IncreaseHeight" xml:space="preserve">
     <value>Incrementar altura</value>

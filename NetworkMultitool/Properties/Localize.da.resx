@@ -454,6 +454,9 @@ låse eller låse op</value>
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>Skjul værktøjspanelet automatisk</value>
   </data>
+  <data name="Settings_CommonCreateShortcuts" xml:space="preserve">
+    <value>Almindelige genveje til at bygge</value>
+  </data>
   <data name="Settings_CommonShortcuts" xml:space="preserve">
     <value>Standart genveje</value>
   </data>
@@ -502,6 +505,9 @@ låse eller låse op</value>
   <data name="Settings_Shortcut_Apply" xml:space="preserve">
     <value>Anvend</value>
   </data>
+  <data name="Settings_Shortcut_DecreaseAngle" xml:space="preserve">
+    <value>Formindsk startvinkel</value>
+  </data>
   <data name="Settings_Shortcut_DecreaseHeight" xml:space="preserve">
     <value>Reducer højden</value>
   </data>
@@ -528,6 +534,9 @@ låse eller låse op</value>
   </data>
   <data name="Settings_Shortcut_DistributeIntersections" xml:space="preserve">
     <value>Fordel kryds jævnt på cirkel</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseAngle" xml:space="preserve">
+    <value>Forøg startvinkel</value>
   </data>
   <data name="Settings_Shortcut_IncreaseHeight" xml:space="preserve">
     <value>Øg højden</value>

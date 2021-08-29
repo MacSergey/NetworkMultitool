@@ -455,6 +455,9 @@ oder Entsperren auswählen</value>
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>Panel automatisch ausblenden</value>
   </data>
+  <data name="Settings_CommonCreateShortcuts" xml:space="preserve">
+    <value>Gemeinsame Verknüpfungen des Erstellungsmodus</value>
+  </data>
   <data name="Settings_CommonShortcuts" xml:space="preserve">
     <value>Gemeinsame Tastenkürzel</value>
   </data>
@@ -503,6 +506,9 @@ oder Entsperren auswählen</value>
   <data name="Settings_Shortcut_Apply" xml:space="preserve">
     <value>Aktion im Modus anwenden</value>
   </data>
+  <data name="Settings_Shortcut_DecreaseAngle" xml:space="preserve">
+    <value>Start-Winkel verringern</value>
+  </data>
   <data name="Settings_Shortcut_DecreaseHeight" xml:space="preserve">
     <value>Höhe verringern</value>
   </data>
@@ -529,6 +535,9 @@ oder Entsperren auswählen</value>
   </data>
   <data name="Settings_Shortcut_DistributeIntersections" xml:space="preserve">
     <value>Kreuzungen gleichmäßig auf den Kreis verteilen</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseAngle" xml:space="preserve">
+    <value>Start-Winkel erhöhen</value>
   </data>
   <data name="Settings_Shortcut_IncreaseHeight" xml:space="preserve">
     <value>Höhe vergrößern</value>
