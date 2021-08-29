@@ -114,7 +114,8 @@ namespace NetworkMultitool
         }
         protected override bool Init(bool reinit, StraightTrajectory firstTrajectory, StraightTrajectory secondTrajectory, out CalcResult calcState)
         {
-            ResetData();
+            if (!reinit)
+                ResetData();
 
             if (!Intersection.CalculateSingle(firstTrajectory, secondTrajectory, out var firstT, out var secondT) || Mathf.Abs(firstT) > 5000f || Mathf.Abs(secondT) > 5000f)
             {
@@ -126,9 +127,11 @@ namespace NetworkMultitool
                 Circle = new MiddleCircle(Circle?.Label ?? AddLabel(), firstTrajectory, secondTrajectory, Height);
             else
             {
-                var radius = Circle.Radius;
-                Circle = new MiddleCircle(Circle?.Label ?? AddLabel(), firstTrajectory, secondTrajectory, Height);
-                Circle.Radius = radius;
+                var oldCircle = Circle;
+                Circle = new MiddleCircle(oldCircle.Label, firstTrajectory, secondTrajectory, Height);
+                Circle.ForceLoop = oldCircle.ForceLoop;
+                Circle.Calculate(oldCircle.MinRadius, oldCircle.MinRadius);
+                Circle.Radius = oldCircle.Radius;
             }
 
             calcState = CalcResult.None;
