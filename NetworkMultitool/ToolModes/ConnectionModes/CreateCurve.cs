@@ -25,6 +25,11 @@ namespace NetworkMultitool
             get
             {
                 yield return ApplyShortcut;
+
+                yield return SwitchOffsetShortcut;
+                //yield return IncreaseAngleShortcut;
+                //yield return DecreaseAngleShortcut;
+
                 yield return SwitchFollowTerrainShortcut;
             }
         }
@@ -46,7 +51,7 @@ namespace NetworkMultitool
                     (IsFollowTerrain ? string.Format(Localize.Mode_Info_SwitchFollowTerrain, SwitchFollowTerrainShortcut.AddInfoColor()) + "\n" : string.Empty) +
                     string.Format(Localize.Mode_Info_Create, ApplyShortcut.AddInfoColor());
         }
-        protected override bool Init(StraightTrajectory firstTrajectory, StraightTrajectory secondTrajectory, out CalcResult calcState)
+        protected override bool Init(bool reinit, StraightTrajectory firstTrajectory, StraightTrajectory secondTrajectory, out CalcResult calcState)
         {
             var connect = new StraightTrajectory(firstTrajectory.StartPosition, secondTrajectory.EndPosition);
             if (NormalizeDotXZ(firstTrajectory.StartDirection, connect.Direction) < -0.7 || NormalizeDotXZ(secondTrajectory.StartDirection, -connect.Direction) < -0.7)

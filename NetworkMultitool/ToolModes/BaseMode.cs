@@ -765,6 +765,7 @@ namespace NetworkMultitool
                 Label = label;
             }
 
+            protected virtual string GetText() => GetLengthString(Length);
             public void Update(float shift, bool show)
             {
                 if (Label is InfoLabel label)
@@ -772,7 +773,7 @@ namespace NetworkMultitool
                     label.Show = show;
                     if (show)
                     {
-                        label.text = GetLengthString(Length);
+                        label.text = GetText();
                         label.Direction = LabelDir;
                         label.WorldPosition = Position(0.5f) + label.Direction * shift;
 

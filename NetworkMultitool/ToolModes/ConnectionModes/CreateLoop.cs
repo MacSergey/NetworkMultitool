@@ -112,9 +112,10 @@ namespace NetworkMultitool
                 EndStraight?.Update(info, CalcState == CalcResult.Calculated);
             }
         }
-        protected override bool Init(StraightTrajectory firstTrajectory, StraightTrajectory secondTrajectory, out CalcResult calcState)
+        protected override bool Init(bool reinit, StraightTrajectory firstTrajectory, StraightTrajectory secondTrajectory, out CalcResult calcState)
         {
-            ResetData();
+            if (!reinit)
+                ResetData();
 
             if (!Intersection.CalculateSingle(firstTrajectory, secondTrajectory, out var firstT, out var secondT) || Mathf.Abs(firstT) > 5000f || Mathf.Abs(secondT) > 5000f)
             {
@@ -122,7 +123,16 @@ namespace NetworkMultitool
                 return false;
             }
 
-            Circle = new MiddleCircle(Circle?.Label ?? AddLabel(), firstTrajectory, secondTrajectory, Height);
+            if (!reinit)
+                Circle = new MiddleCircle(Circle?.Label ?? AddLabel(), firstTrajectory, secondTrajectory, Height);
+            else
+            {
+                var oldCircle = Circle;
+                Circle = new MiddleCircle(oldCircle.Label, firstTrajectory, secondTrajectory, Height);
+                Circle.ForceLoop = oldCircle.ForceLoop;
+                Circle.Calculate(oldCircle.MinRadius, oldCircle.MinRadius);
+                Circle.Radius = oldCircle.Radius;
+            }
 
             calcState = CalcResult.None;
             return true;
@@ -130,7 +140,7 @@ namespace NetworkMultitool
         protected override Point[] Calculate(out CalcResult result)
         {
             Circle.Calculate(MinPossibleRadius, MaxPossibleRadius);
-            Circle.GetStraight(StartStraight?.Label ?? AddLabel(), EndStraight?.Label ?? AddLabel(), Height, out var start, out var end);
+            Circle.GetStraight(StartStraight?.Label ?? AddLabel(), EndStraight?.Label ?? AddLabel(), Height, FirstAngle, SecondAngle, out var start, out var end);
             StartStraight = start;
             EndStraight = end;
 
@@ -272,10 +282,10 @@ namespace NetworkMultitool
                 base.Calculate(minRadius, maxRadius);
             }
 
-            public void GetStraight(InfoLabel startLabel, InfoLabel endLabel, float height, out Straight start, out Straight end)
+            public void GetStraight(InfoLabel startLabel, InfoLabel endLabel, float height, float firstAngle, float secondAngle, out Straight start, out Straight end)
             {
-                start = new Straight(StartGuide.StartPosition.SetHeight(Height), StartPos, StartRadiusDir, startLabel, height);
-                end = new Straight(EndPos, EndGuide.StartPosition.SetHeight(Height), EndRadiusDir, endLabel, height);
+                start = new Straight(StartGuide.StartPosition.SetHeight(Height), StartPos, StartRadiusDir, startLabel, height, firstAngle);
+                end = new Straight(EndPos, EndGuide.StartPosition.SetHeight(Height), EndRadiusDir, endLabel, height, secondAngle);
             }
         }
     }
@@ -297,6 +307,11 @@ namespace NetworkMultitool
                 yield return ApplyShortcut;
                 yield return IncreaseRadiusShortcut;
                 yield return DecreaseRadiusShortcut;
+
+                yield return SwitchOffsetShortcut;
+                yield return IncreaseAngleShortcut;
+                yield return DecreaseAngleShortcut;
+
                 yield return SwitchFollowTerrainShortcut;
                 yield return SwitchIsLoopShortcut;
             }

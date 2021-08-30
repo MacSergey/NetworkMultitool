@@ -1075,6 +1075,15 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Creation modes&apos; common shortcuts.
+        /// </summary>
+        internal static string Settings_CommonCreateShortcuts {
+            get {
+                return ResourceManager.GetString("Settings_CommonCreateShortcuts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Modes&apos; common shortcuts.
         /// </summary>
         internal static string Settings_CommonShortcuts {
@@ -1219,6 +1228,15 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Decrease start angle.
+        /// </summary>
+        internal static string Settings_Shortcut_DecreaseAngle {
+            get {
+                return ResourceManager.GetString("Settings_Shortcut_DecreaseAngle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Decrease height.
         /// </summary>
         internal static string Settings_Shortcut_DecreaseHeight {
@@ -1296,6 +1314,15 @@ namespace NetworkMultitool {
         internal static string Settings_Shortcut_DistributeIntersections {
             get {
                 return ResourceManager.GetString("Settings_Shortcut_DistributeIntersections", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Increase start angle.
+        /// </summary>
+        internal static string Settings_Shortcut_IncreaseAngle {
+            get {
+                return ResourceManager.GetString("Settings_Shortcut_IncreaseAngle", resourceCulture);
             }
         }
         
