@@ -426,6 +426,9 @@ Klik met {0} om de knooppunt te splitsen en de terrein uit te lijnen op de origi
   <data name="Mode_UnionNode_Info_TooFar" xml:space="preserve">
     <value>Knooppunten te ver van elkaar</value>
   </data>
+  <data name="Mode_UnitsFormat" xml:space="preserve">
+    <value>{0}U</value>
+  </data>
   <data name="Mode_UnlockSegment" xml:space="preserve">
     <value>Ontgrendel segment modus</value>
   </data>
@@ -463,6 +466,15 @@ Klik met {0} om de knooppunt te splitsen en de terrein uit te lijnen op de origi
   </data>
   <data name="Settings_Interface" xml:space="preserve">
     <value>Overzicht</value>
+  </data>
+  <data name="Settings_LengthUnit" xml:space="preserve">
+    <value>Lengte van de meting eenheid</value>
+  </data>
+  <data name="Settings_LengthUniteMeters" xml:space="preserve">
+    <value>Meters</value>
+  </data>
+  <data name="Settings_LengthUniteUnits" xml:space="preserve">
+    <value>Spel eenheden (1U = 8m)</value>
   </data>
   <data name="Settings_NeedMoney" xml:space="preserve">
     <value>Geld is vereist om te bouwen</value>
@@ -571,6 +583,9 @@ Klik met {0} om de knooppunt te splitsen en de terrein uit te lijnen op de origi
   </data>
   <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
     <value>Verander de geselecteerde cirkel</value>
+  </data>
+  <data name="Settings_SlopeColors" xml:space="preserve">
+    <value>Kleur instellen op helling label afhankelijk van de waarde</value>
   </data>
   <data name="Settings_SlopeUnit" xml:space="preserve">
     <value>Hellings maateenheid</value>

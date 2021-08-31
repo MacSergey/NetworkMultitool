@@ -429,6 +429,7 @@ Napauta {0}-näppäin pohjassa jakaaksesi risteys lähtökorkeuteen</value>
   <data name="Mode_UnionNode_Info_TooFar" xml:space="preserve">
     <value>Risteykset ovat liian kaukana toisistaan</value>
   </data>
+  
   <data name="Mode_UnlockSegment" xml:space="preserve">
     <value>Vapauta tie</value>
   </data>
@@ -466,6 +467,9 @@ tai avataksesi se</value>
   <data name="Settings_Interface" xml:space="preserve">
     <value>Käyttöliittymä</value>
   </data>
+  
+  
+  
   <data name="Settings_NeedMoney" xml:space="preserve">
     <value>Vaadi rahaa rakentamiseen</value>
   </data>
@@ -564,6 +568,7 @@ tai avataksesi se</value>
   <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
     <value>Vaihda valittu ympyrä</value>
   </data>
+  
   <data name="Settings_SlopeUnit" xml:space="preserve">
     <value>Kaltevuuden yksikkö</value>
   </data>

@@ -355,6 +355,7 @@ porque não está ligado a outros</value>
   <data name="Mode_UnionNode_Info_TooFar" xml:space="preserve">
     <value>Nós muito distantes um do outro</value>
   </data>
+  
   <data name="Mode_UnlockSegment" xml:space="preserve">
     <value>Modo de desbloqueio de segmento</value>
   </data>
@@ -376,6 +377,9 @@ porque não está ligado a outros</value>
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>Ocultar automaticamente o painel de modos</value>
   </data>
+  
+  
+  
   
   
   
@@ -424,6 +428,7 @@ porque não está ligado a outros</value>
   <data name="Settings_Shortcut_IncreaseShift" xml:space="preserve">
     <value>Aumentar o deslocamento</value>
   </data>
+  
   
   
   

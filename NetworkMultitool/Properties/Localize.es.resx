@@ -432,6 +432,9 @@ Clic con {0} para separar nodo y alinear a la altura de la selección</value>
   <data name="Mode_UnionNode_Info_TooFar" xml:space="preserve">
     <value>Los nodos están demasiado lejos entre sí</value>
   </data>
+  <data name="Mode_UnitsFormat" xml:space="preserve">
+    <value>{0}</value>
+  </data>
   <data name="Mode_UnlockSegment" xml:space="preserve">
     <value>Modo de desbloqueo de segmento</value>
   </data>
@@ -484,6 +487,15 @@ Clic con {0} para separar nodo y alinear a la altura de la selección</value>
   </data>
   <data name="Settings_Interface" xml:space="preserve">
     <value>Interfaz</value>
+  </data>
+  <data name="Settings_LengthUnit" xml:space="preserve">
+    <value>Unidad de medida</value>
+  </data>
+  <data name="Settings_LengthUniteMeters" xml:space="preserve">
+    <value>Metros</value>
+  </data>
+  <data name="Settings_LengthUniteUnits" xml:space="preserve">
+    <value>Unidades de juego (1U = 8m)</value>
   </data>
   <data name="Settings_NeedMoney" xml:space="preserve">
     <value>Necesita dinero para construir</value>
@@ -593,6 +605,7 @@ Clic con {0} para separar nodo y alinear a la altura de la selección</value>
   <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
     <value>Cambiar círculo seleccionado</value>
   </data>
+  
   <data name="Settings_SlopeUnit" xml:space="preserve">
     <value>Unidad de medida para las pendientes</value>
   </data>

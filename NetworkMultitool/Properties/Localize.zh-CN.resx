@@ -431,6 +431,9 @@
   <data name="Mode_UnionNode_Info_TooFar" xml:space="preserve">
     <value>节点间距离太远</value>
   </data>
+  <data name="Mode_UnitsFormat" xml:space="preserve">
+    <value>{0}U</value>
+  </data>
   <data name="Mode_UnlockSegment" xml:space="preserve">
     <value>解/锁段落模式</value>
   </data>
@@ -469,6 +472,15 @@
   </data>
   <data name="Settings_Interface" xml:space="preserve">
     <value>界面</value>
+  </data>
+  <data name="Settings_LengthUnit" xml:space="preserve">
+    <value>测量长度单位</value>
+  </data>
+  <data name="Settings_LengthUniteMeters" xml:space="preserve">
+    <value>米</value>
+  </data>
+  <data name="Settings_LengthUniteUnits" xml:space="preserve">
+    <value>游戏单位 (1U = 8米)</value>
   </data>
   <data name="Settings_NeedMoney" xml:space="preserve">
     <value>需要金钱建设</value>
@@ -577,6 +589,9 @@
   </data>
   <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
     <value>切换选中的圆</value>
+  </data>
+  <data name="Settings_SlopeColors" xml:space="preserve">
+    <value>根据值设定斜坡标签颜色</value>
   </data>
   <data name="Settings_SlopeUnit" xml:space="preserve">
     <value>斜坡度量单位</value>

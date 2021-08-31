@@ -431,6 +431,9 @@ Fare clic con {0} per dividere il nodo e allineare all'altezza della sorgente</v
   <data name="Mode_UnionNode_Info_TooFar" xml:space="preserve">
     <value>Nodi troppo lontani l'uno dall'altro</value>
   </data>
+  <data name="Mode_UnitsFormat" xml:space="preserve">
+    <value>{0}U</value>
+  </data>
   <data name="Mode_UnlockSegment" xml:space="preserve">
     <value>Modalità Blocca segmento</value>
   </data>
@@ -469,6 +472,15 @@ bloccarlo o sbloccarlo</value>
   </data>
   <data name="Settings_Interface" xml:space="preserve">
     <value>Interfaccia</value>
+  </data>
+  <data name="Settings_LengthUnit" xml:space="preserve">
+    <value>Unità di misura della lunghezza</value>
+  </data>
+  <data name="Settings_LengthUniteMeters" xml:space="preserve">
+    <value>Metri</value>
+  </data>
+  <data name="Settings_LengthUniteUnits" xml:space="preserve">
+    <value>Unità di gioco (1U = 8m)</value>
   </data>
   <data name="Settings_NeedMoney" xml:space="preserve">
     <value>Richiede denaro per costruire</value>
@@ -577,6 +589,9 @@ bloccarlo o sbloccarlo</value>
   </data>
   <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
     <value>Cambia cerchio selezionato</value>
+  </data>
+  <data name="Settings_SlopeColors" xml:space="preserve">
+    <value>Imposta il colore per l'etichetta pendenza in base al valore</value>
   </data>
   <data name="Settings_SlopeUnit" xml:space="preserve">
     <value>Unità di misura pendenza</value>

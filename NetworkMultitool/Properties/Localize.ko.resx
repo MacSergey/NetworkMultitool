@@ -431,6 +431,9 @@
   <data name="Mode_UnionNode_Info_TooFar" xml:space="preserve">
     <value>두 노드가 너무 멀리 떨어짐</value>
   </data>
+  <data name="Mode_UnitsFormat" xml:space="preserve">
+    <value>{0}U</value>
+  </data>
   <data name="Mode_UnlockSegment" xml:space="preserve">
     <value>세그먼트 잠금해제 모드</value>
   </data>
@@ -469,6 +472,15 @@
   </data>
   <data name="Settings_Interface" xml:space="preserve">
     <value>인터페이스</value>
+  </data>
+  <data name="Settings_LengthUnit" xml:space="preserve">
+    <value>길이 단위</value>
+  </data>
+  <data name="Settings_LengthUniteMeters" xml:space="preserve">
+    <value>미터</value>
+  </data>
+  <data name="Settings_LengthUniteUnits" xml:space="preserve">
+    <value>게임 단위 (1U = 8m)</value>
   </data>
   <data name="Settings_NeedMoney" xml:space="preserve">
     <value>건설에 비용 필요</value>
@@ -578,6 +590,7 @@
   <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
     <value>다른 원 선택</value>
   </data>
+  
   <data name="Settings_SlopeUnit" xml:space="preserve">
     <value>기울기 단위</value>
   </data>

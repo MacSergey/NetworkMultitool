@@ -430,6 +430,7 @@ Naciśnij trzymając {0} aby podzielić węzeł i wyrównać do wysokości źró
   <data name="Mode_UnionNode_Info_TooFar" xml:space="preserve">
     <value>Węzły są zbyt daleko od siebie</value>
   </data>
+  
   <data name="Mode_UnlockSegment" xml:space="preserve">
     <value>Tryb odblokowywania segmentu</value>
   </data>
@@ -468,6 +469,9 @@ Naciśnij trzymając {0} aby podzielić węzeł i wyrównać do wysokości źró
   <data name="Settings_Interface" xml:space="preserve">
     <value>Interfejs</value>
   </data>
+  
+  
+  
   <data name="Settings_NeedMoney" xml:space="preserve">
     <value>Pieniądze wymagane do budowy</value>
   </data>
@@ -576,6 +580,7 @@ Naciśnij trzymając {0} aby podzielić węzeł i wyrównać do wysokości źró
   <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
     <value>Przełącz wybrane koło</value>
   </data>
+  
   <data name="Settings_SlopeUnit" xml:space="preserve">
     <value>Jednostka miary nachylenia</value>
   </data>

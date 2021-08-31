@@ -425,6 +425,9 @@ Düğümü dağıtmak ve hedef yüksekliğine ayarlamak için {0} tuşunu kullan
   <data name="Mode_UnionNode_Info_TooFar" xml:space="preserve">
     <value>Düğümler birbirinden çok uzak</value>
   </data>
+  <data name="Mode_UnitsFormat" xml:space="preserve">
+    <value>{0}U</value>
+  </data>
   <data name="Mode_UnlockSegment" xml:space="preserve">
     <value>Sektör modunu aktive et</value>
   </data>
@@ -462,6 +465,15 @@ Düğümü dağıtmak ve hedef yüksekliğine ayarlamak için {0} tuşunu kullan
   </data>
   <data name="Settings_Interface" xml:space="preserve">
     <value>Arayüz</value>
+  </data>
+  <data name="Settings_LengthUnit" xml:space="preserve">
+    <value>Mesafe ölçü birimi</value>
+  </data>
+  <data name="Settings_LengthUniteMeters" xml:space="preserve">
+    <value>Metre</value>
+  </data>
+  <data name="Settings_LengthUniteUnits" xml:space="preserve">
+    <value>1U'nun 8 m olduğu oyun birimi</value>
   </data>
   <data name="Settings_NeedMoney" xml:space="preserve">
     <value>İnşaat için para gerekli</value>
@@ -571,6 +583,7 @@ Düğümü dağıtmak ve hedef yüksekliğine ayarlamak için {0} tuşunu kullan
   <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
     <value>Seçilen daireyi değiştir</value>
   </data>
+  
   <data name="Settings_SlopeUnit" xml:space="preserve">
     <value>Eğimin ölçü birimi</value>
   </data>

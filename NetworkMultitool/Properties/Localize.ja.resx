@@ -428,6 +428,9 @@
   <data name="Mode_UnionNode_Info_TooFar" xml:space="preserve">
     <value>ノード同士が遠すぎます</value>
   </data>
+  <data name="Mode_UnitsFormat" xml:space="preserve">
+    <value>{0}U</value>
+  </data>
   <data name="Mode_UnlockSegment" xml:space="preserve">
     <value>Mode: アンロックセグメント</value>
   </data>
@@ -453,10 +456,10 @@
     <value>自動的にUIパネルを折り畳む</value>
   </data>
   <data name="Settings_CommonCreateShortcuts" xml:space="preserve">
-    <value>モード共通のショートカット</value>
+    <value>作成作業の共通ショートカット</value>
   </data>
   <data name="Settings_CommonShortcuts" xml:space="preserve">
-    <value>Mode共通のショートカット</value>
+    <value>Mode全般の共通ショートカット</value>
   </data>
   <data name="Settings_FollowTerrain" xml:space="preserve">
     <value>地形に沿ってネットワークを敷設</value>
@@ -466,6 +469,15 @@
   </data>
   <data name="Settings_Interface" xml:space="preserve">
     <value>インターフェース</value>
+  </data>
+  <data name="Settings_LengthUnit" xml:space="preserve">
+    <value>メジャーの表示単位</value>
+  </data>
+  <data name="Settings_LengthUniteMeters" xml:space="preserve">
+    <value>メートル単位</value>
+  </data>
+  <data name="Settings_LengthUniteUnits" xml:space="preserve">
+    <value>Unit(セル/マス目)単位 (1U = 8m)</value>
   </data>
   <data name="Settings_NeedMoney" xml:space="preserve">
     <value>建設時に資金が必要</value>
@@ -574,6 +586,9 @@
   </data>
   <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
     <value>選択したサークルを切り替え</value>
+  </data>
+  <data name="Settings_SlopeColors" xml:space="preserve">
+    <value>勾配の変化から数値の色を連動化</value>
   </data>
   <data name="Settings_SlopeUnit" xml:space="preserve">
     <value>ストレートスロープの表示単位</value>

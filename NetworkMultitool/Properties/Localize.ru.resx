@@ -434,6 +434,9 @@
   <data name="Mode_UnionNode_Info_TooFar" xml:space="preserve">
     <value>Узлы слишком далеко друг от друга</value>
   </data>
+  <data name="Mode_UnitsFormat" xml:space="preserve">
+    <value>{0}U</value>
+  </data>
   <data name="Mode_UnlockSegment" xml:space="preserve">
     <value>Режим разблокировки сегмента</value>
   </data>
@@ -506,6 +509,15 @@
   </data>
   <data name="Settings_Interface" xml:space="preserve">
     <value>Интерфейс</value>
+  </data>
+  <data name="Settings_LengthUnit" xml:space="preserve">
+    <value>Единицы измерения длинны</value>
+  </data>
+  <data name="Settings_LengthUniteMeters" xml:space="preserve">
+    <value>Метры</value>
+  </data>
+  <data name="Settings_LengthUniteUnits" xml:space="preserve">
+    <value>Игровые единицы (1U = 8м)</value>
   </data>
   <data name="Settings_NeedMoney" xml:space="preserve">
     <value>Для строительства требуются деньги</value>
@@ -614,6 +626,9 @@
   </data>
   <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
     <value>Сменить выбранную окружность</value>
+  </data>
+  <data name="Settings_SlopeColors" xml:space="preserve">
+    <value>Задавать цвет уклону в зависимости от значения</value>
   </data>
   <data name="Settings_SlopeUnit" xml:space="preserve">
     <value>Единицы измерения наклона</value>
