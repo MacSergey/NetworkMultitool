@@ -19,6 +19,7 @@ namespace NetworkMultitool
         public static SavedBool AutoHideModePanel { get; } = new SavedBool(nameof(AutoHideModePanel), SettingsFile, true, true);
         public static SavedInt PanelOpenSide { get; } = new SavedInt(nameof(PanelOpenSide), SettingsFile, (int)OpenSide.Down, true);
         public static SavedInt SlopeUnite { get; } = new SavedInt(nameof(SlopeUnite), SettingsFile, 0, true);
+        public static SavedInt LengthUnite { get; } = new SavedInt(nameof(LengthUnite), SettingsFile, 0, true);
         public static SavedInt SegmentLength { get; } = new SavedInt(nameof(SegmentLength), SettingsFile, 80, true);
         public static SavedInt PanelColumns { get; } = new SavedInt(nameof(PanelColumns), SettingsFile, 2, true);
         public static SavedBool PlayEffects { get; } = new SavedBool(nameof(PlayEffects), SettingsFile, true, true);
@@ -75,6 +76,7 @@ namespace NetworkMultitool
             var gameplayGroup = GeneralTab.AddGroup(Localize.Settings_Gameplay);
             AddCheckBox(gameplayGroup, Localize.Settings_NeedMoney, NeedMoney);
             AddCheckBox(gameplayGroup, Localize.Settings_FollowTerrain, FollowTerrain);
+            AddCheckboxPanel(gameplayGroup, Localize.Settings_LengthUnit, LengthUnite, new string[] { Localize.Settings_LengthUniteMeters, Localize.Settings_LengthUniteUnits }, OnSlopeUniteChanged);
             AddCheckboxPanel(gameplayGroup, Localize.Settings_SlopeUnit, SlopeUnite, new string[] { Localize.Settings_SlopeUnitPercentages, Localize.Settings_SlopeUnitDegrees }, OnSlopeUniteChanged);
             if (Utility.InGame && !Mod.NodeSpacerEnabled)
                 AddIntField(gameplayGroup, Localize.Settings_SegmentLength, SegmentLength, 80, 50, 200);

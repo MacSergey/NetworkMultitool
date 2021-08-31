@@ -127,7 +127,7 @@ namespace NetworkMultitool
             if (bezier.Length > Vector3.kEpsilon)
             {
                 var delta = (segment.IsStartNode(firstId) ? 1 : -1) * (bezier.StartPosition.y - bezier.EndPosition.y);
-                slope = Settings.SlopeUnite == 0 ? (delta / bezier.Length * 100f) : (Mathf.Asin(delta / bezier.Length));
+                slope = Settings.SlopeUnite == 0 ? (delta / bezier.Length * 100f) : Mathf.Asin(delta / bezier.Length);
             }
             slope = slope.RoundToNearest(0.1f);
 

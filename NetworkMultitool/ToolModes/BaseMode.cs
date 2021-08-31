@@ -78,7 +78,13 @@ namespace NetworkMultitool
             UndergroundDefaultGetter = DefaultUndergroundDefaultGetter;
         }
 
-        protected static string GetLengthString(float radius, string format = "0.0") => string.Format(Localize.Mode_RadiusFormat, radius.ToString(format));
+        protected static string GetLengthString(float radius, string format = null)
+        {
+            if (Settings.LengthUnite == 0)
+                return string.Format(Localize.Mode_RadiusFormat, radius.ToString(format ?? "0.0"));
+            else
+                return string.Format(Localize.Mode_UnitsFormat, (radius / 8f).ToString(format ?? "0"));
+        }
         protected static string GetAngleString(float angle, string format = "0") => string.Format(Localize.Mode_AngleFormat, (angle * Mathf.Rad2Deg).ToString(format));
         protected static string GetPercentagesString(float percent, string format = "0.0") => string.Format(Localize.Mode_PercentagesFormat, percent.ToString(format));
 

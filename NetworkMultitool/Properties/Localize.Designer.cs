@@ -1020,6 +1020,15 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на {0}U.
+        /// </summary>
+        internal static string Mode_UnitsFormat {
+            get {
+                return ResourceManager.GetString("Mode_UnitsFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Unlock segment mode.
         /// </summary>
         internal static string Mode_UnlockSegment {
@@ -1120,6 +1129,33 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Length unit of measurement.
+        /// </summary>
+        internal static string Settings_LengthUnit {
+            get {
+                return ResourceManager.GetString("Settings_LengthUnit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Meters.
+        /// </summary>
+        internal static string Settings_LengthUniteMeters {
+            get {
+                return ResourceManager.GetString("Settings_LengthUniteMeters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Game units (1U = 8m).
+        /// </summary>
+        internal static string Settings_LengthUniteUnits {
+            get {
+                return ResourceManager.GetString("Settings_LengthUniteUnits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Requires money to build.
         /// </summary>
         internal static string Settings_NeedMoney {
@@ -1138,7 +1174,7 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Panel open side.
+        ///   Ищет локализованную строку, похожую на Panel opening side.
         /// </summary>
         internal static string Settings_PanelOpenSide {
             get {
