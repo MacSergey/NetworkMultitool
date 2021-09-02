@@ -35,7 +35,7 @@ namespace NetworkMultitool
         {
             base.OnToolUpdate();
 
-            if(NeedRefreshLabels)
+            if (NeedRefreshLabels)
             {
                 NeedRefreshLabels = false;
                 RefreshLabels();
@@ -127,7 +127,10 @@ namespace NetworkMultitool
             if (bezier.Length > Vector3.kEpsilon)
             {
                 var delta = (segment.IsStartNode(firstId) ? 1 : -1) * (bezier.StartPosition.y - bezier.EndPosition.y);
-                slope = Settings.SlopeUnite == 0 ? (delta / bezier.Length * 100f) : Mathf.Asin(delta / bezier.Length);
+                if (Settings.SlopeUnite == 0)
+                    slope = Mathf.Tan(Mathf.Asin(delta / bezier.Length)) * 100f;
+                else
+                    slope = Mathf.Asin(delta / bezier.Length) * Mathf.Rad2Deg;
             }
             slope = slope.RoundToNearest(0.1f);
 
@@ -136,6 +139,38 @@ namespace NetworkMultitool
             var value = Settings.SlopeUnite == 0 ? GetPercentagesString(Mathf.Abs(slope)) : GetAngleString(Mathf.Abs(slope), "0.0");
             label.text = sign + value;
             label.WorldPosition = bezier.Position(0.5f) + new Vector3(0f, 5f, 0f);
+            label.textColor = GetLabelColor(slope);
+        }
+        private Color32 GetLabelColor(float slope)
+        {
+            var value = Mathf.Abs(slope);
+            if (!Settings.SlopeColors)
+                return Colors.White;
+            else if (Settings.SlopeUnite == 0)
+                return value switch
+                {
+                    < 2f => Colors.Green,
+                    < 6f => CombineColor(Colors.Green, Colors.Yellow, 2f, 6f, value),
+                    < 10f => CombineColor(Colors.Yellow, Colors.Red, 6f, 10f, value),
+                    _ => Colors.Red,
+                };
+            else
+                return value switch
+                {
+                    < 1.15f => Colors.Green,
+                    < 3.4f => CombineColor(Colors.Green, Colors.Yellow, 1.15f, 3.4f, value),
+                    < 5.7f => CombineColor(Colors.Yellow, Colors.Red, 3.4f, 5.7f, value),
+                    _ => Colors.Red,
+                };
+
+            static Color32 CombineColor(Color32 first, Color32 second, float from, float to, float value)
+            {
+                var t = (value - from) / (to - from);
+                var r = (byte)Mathf.Lerp(first.r, second.r, t);
+                var g = (byte)Mathf.Lerp(first.g, second.g, t);
+                var b = (byte)Mathf.Lerp(first.b, second.b, t);
+                return new Color32(r, g, b, 255);
+            }
         }
     }
 }

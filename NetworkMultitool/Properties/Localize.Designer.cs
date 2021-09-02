@@ -1480,6 +1480,15 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Set color to slope label depending on the value.
+        /// </summary>
+        internal static string Settings_SlopeColors {
+            get {
+                return ResourceManager.GetString("Settings_SlopeColors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Slope unit of measurement.
         /// </summary>
         internal static string Settings_SlopeUnit {

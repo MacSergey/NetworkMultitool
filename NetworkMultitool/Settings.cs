@@ -19,6 +19,7 @@ namespace NetworkMultitool
         public static SavedBool AutoHideModePanel { get; } = new SavedBool(nameof(AutoHideModePanel), SettingsFile, true, true);
         public static SavedInt PanelOpenSide { get; } = new SavedInt(nameof(PanelOpenSide), SettingsFile, (int)OpenSide.Down, true);
         public static SavedInt SlopeUnite { get; } = new SavedInt(nameof(SlopeUnite), SettingsFile, 0, true);
+        public static SavedBool SlopeColors { get; } = new SavedBool(nameof(SlopeColors), SettingsFile, true, true);
         public static SavedInt LengthUnite { get; } = new SavedInt(nameof(LengthUnite), SettingsFile, 0, true);
         public static SavedInt SegmentLength { get; } = new SavedInt(nameof(SegmentLength), SettingsFile, 80, true);
         public static SavedInt PanelColumns { get; } = new SavedInt(nameof(PanelColumns), SettingsFile, 2, true);
@@ -72,6 +73,7 @@ namespace NetworkMultitool
             AddIntField(interfaceGroup, Localize.Settings_PanelColumns, PanelColumns, 2, 1, 5, OnColumnChanged);
             AddCheckBox(interfaceGroup, Localize.Settings_PlayEffects, PlayEffects);
             AddCheckboxPanel(interfaceGroup, Localize.Settings_PreviewType, NetworkPreview, new string[] { Localize.Settings_PreviewTypeOverlay, Localize.Settings_PreviewTypeMesh, Localize.Settings_PreviewTypeBoth });
+            AddCheckBox(interfaceGroup, Localize.Settings_SlopeColors, SlopeColors, OnSlopeUniteChanged);
 
             var gameplayGroup = GeneralTab.AddGroup(Localize.Settings_Gameplay);
             AddCheckBox(gameplayGroup, Localize.Settings_NeedMoney, NeedMoney);

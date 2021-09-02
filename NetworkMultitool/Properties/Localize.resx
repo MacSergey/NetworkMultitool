@@ -624,6 +624,9 @@ lock or unlock it</value>
   <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
     <value>Switch selected circle</value>
   </data>
+  <data name="Settings_SlopeColors" xml:space="preserve">
+    <value>Set color to slope label depending on the value</value>
+  </data>
   <data name="Settings_SlopeUnit" xml:space="preserve">
     <value>Slope unit of measurement</value>
   </data>

@@ -606,7 +606,7 @@ namespace NetworkMultitool
                     label.Show = show;
                     if (show)
                     {
-                        label.text = IsCorrect ? $"{GetLengthString(Radius)}\n{GetAngleString(Mathf.Abs(Angle))}" : GetLengthString(Radius);
+                        label.text = IsCorrect ? $"{GetLengthString(Radius)}\n{GetAngleString(Mathf.Abs(Angle) * Mathf.Rad2Deg)}" : GetLengthString(Radius);
                         label.Direction = IsCorrect ? CenterDir : Vector3.forward;
                         label.WorldPosition = CenterPos + label.Direction * 5f;
 
@@ -895,7 +895,7 @@ namespace NetworkMultitool
             {
                 var text = base.GetText();
                 if (Angle != 0)
-                    text += "\n" + GetAngleString(Angle);
+                    text += "\n" + GetAngleString(Angle * Mathf.Rad2Deg);
 
                 return text;
             }
