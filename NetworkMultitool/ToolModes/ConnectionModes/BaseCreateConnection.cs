@@ -306,7 +306,7 @@ namespace NetworkMultitool
             public float Offset
             {
                 get => _offset;
-                set => _offset = Mathf.Clamp(value, 0f, 500f);
+                set => _offset = Mathf.Clamp(value, 0f, 5000f);
             }
 
             public EdgeCircle(CircleType type, InfoLabel label, StraightTrajectory guide, float height) : base(label, height)
