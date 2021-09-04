@@ -134,19 +134,19 @@ Te dicht bij een nabijgelegen knooppunt</value>
     <value>{0}°</value>
   </data>
   <data name="Mode_ArrangeAtCircle" xml:space="preserve">
-    <value>Bij de cirkelmodus rangschikken</value>
+    <value>Tot cirkel vervormen</value>
   </data>
   <data name="Mode_ArrangeAtLine" xml:space="preserve">
-    <value>Bij de lijnmodus rangschikken</value>
+    <value>Tot rechte lijn vervormen</value>
   </data>
   <data name="Mode_ArrangeCircle_Info_ClickToComplite" xml:space="preserve">
-    <value>Klik om te voldoen aan de cirkel selectie</value>
+    <value>Klik om selectie van cirkel te voltooien</value>
   </data>
   <data name="Mode_ArrangeLine_Info_ClickToSelectDirection" xml:space="preserve">
-    <value>Klik om de richting te instellen</value>
+    <value>Klik om richting in te stellen</value>
   </data>
   <data name="Mode_ArrangeLine_Info_SelectDirection" xml:space="preserve">
-    <value>Selecteer de segment om de directie te instellen</value>
+    <value>Selecteer een segment om de richting in te stellen</value>
   </data>
   <data name="Mode_Connection_Info_DoubleClickOnCenterToChangeDir" xml:space="preserve">
     <value>Dubbelklik op het midden van de cirkel
@@ -168,7 +168,7 @@ om de richting van de kromming te veranderen</value>
     <value>Creëer verbind-modus</value>
   </data>
   <data name="Mode_CreateCurve" xml:space="preserve">
-    <value>Creëer lus-modus</value>
+    <value>Creëer bocht-modus</value>
   </data>
   <data name="Mode_CreateLoop" xml:space="preserve">
     <value>Creëer lus-modus</value>
@@ -183,16 +183,16 @@ om de richting van de kromming te veranderen</value>
     <value>Druk {0} om toe te passen</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_Apply" xml:space="preserve">
-    <value>Druk op {0} om de cirkel te rangschikken</value>
+    <value>Druk op {0} om de cirkel te vormen</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_BigDelta" xml:space="preserve">
-    <value>De hoek tussen de knooppunten is te groot, waardoor de ronde vorm niet perfect zal zijn</value>
+    <value>Te grote hoek tussen nodes, ronde vorm zal niet perfect zijn</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_DoubleClickToResetCenter" xml:space="preserve">
     <value>Dubbelklik om de centrale positie te resetten</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_DoubleClickToResetNode" xml:space="preserve">
-    <value>Dubbelklik om de positie van de knooppunt te resetten</value>
+    <value>Dubbelklik om de centrale positie te resetten</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_DragToChangeRadius" xml:space="preserve">
     <value>Sleep om de radius te veranderen</value>
@@ -216,28 +216,28 @@ om de richting van de kromming te veranderen</value>
     <value>Druk op {0} om de intersecties gelijkmatig te verdelen over de cirkel</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_PressToReset" xml:space="preserve">
-    <value>Druk op {0} om de parameter te resetten</value>
+    <value>Druk op {0} om de parameters te resetten</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_WrongOrder" xml:space="preserve">
     <value>Verkeerde volgorde van de knooppunten</value>
   </data>
   <data name="Mode_Info_ArrangeLine_Apply" xml:space="preserve">
-    <value>Druk op {0} om de lijn te rangschikken</value>
+    <value>Druk op {0} om de lijn te vormen</value>
   </data>
   <data name="Mode_Info_ChangeAllRadius" xml:space="preserve">
-    <value>Druk {0} of {1} om de straal te veranderen</value>
+    <value>Druk {0} of {1} om de radius te veranderen</value>
   </data>
   <data name="Mode_Info_ChangeBothRadius" xml:space="preserve">
-    <value>Druk {0} of {1} om beide stralen te veranderen</value>
+    <value>Druk {0} of {1} om beide radii te veranderen</value>
   </data>
   <data name="Mode_Info_ChangeCircle" xml:space="preserve">
     <value>Druk {0} om de geselecteerde cirkel om te keren</value>
   </data>
   <data name="Mode_Info_ChangeOffset" xml:space="preserve">
-    <value>Druk op {0} of {1} om de beginverschuiving van de kromming te wijzigen</value>
+    <value>Druk op {0} of {1} om start-offset te veranderen</value>
   </data>
   <data name="Mode_Info_ChangeOneRadius" xml:space="preserve">
-    <value>Druk {0} of {1} om de straal te veranderen</value>
+    <value>Druk {0} of {1} om de radius te veranderen</value>
   </data>
   <data name="Mode_Info_ChangeRadius" xml:space="preserve">
     <value>Druk {0} of {1} om de radius te veranderen</value>

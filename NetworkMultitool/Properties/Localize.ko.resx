@@ -177,7 +177,7 @@
     <value>{0} 키를 눌러서 루프 변경</value>
   </data>
   <data name="Mode_CreateParallerl" xml:space="preserve">
-    <value>평행 모드 생성</value>
+    <value>평행 생성 모드</value>
   </data>
   <data name="Mode_Info_Apply" xml:space="preserve">
     <value>{0} 키를 눌러 적용</value>
@@ -289,7 +289,7 @@
     <value>돈이 부족합니다</value>
   </data>
   <data name="Mode_Info_OutOfMap" xml:space="preserve">
-    <value>지도 밖</value>
+    <value>맵 밖</value>
   </data>
   <data name="Mode_Info_Parallel_ChangeHeight" xml:space="preserve">
     <value>{0}이나 {1}을 눌러 높이 변경</value>
@@ -590,7 +590,9 @@
   <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
     <value>다른 원 선택</value>
   </data>
-  
+  <data name="Settings_SlopeColors" xml:space="preserve">
+    <value>기울기 라벨에 값에 따라 색상 설정</value>
+  </data>
   <data name="Settings_SlopeUnit" xml:space="preserve">
     <value>기울기 단위</value>
   </data>

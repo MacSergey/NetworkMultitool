@@ -242,7 +242,7 @@ de manera uniforme en el círculo</value>
     <value>Presiona la tecla {0} o {1} para cambiar el desplazamiento inicial de la curva</value>
   </data>
   <data name="Mode_Info_ChangeOneRadius" xml:space="preserve">
-    <value>Presiona la tecla {0} o {1} para cambiar un radio</value>
+    <value>Presiona la tecla {0} o {1} para cambiar el radio del círculo seleccionado</value>
   </data>
   <data name="Mode_Info_ChangeRadius" xml:space="preserve">
     <value>Presiona la tecla {0} o {1} para cambiar el radio</value>
@@ -272,7 +272,7 @@ de manera uniforme en el círculo</value>
     <value>Presiona la tecla {0} para crear conexión</value>
   </data>
   <data name="Mode_Info_ConstructionCost" xml:space="preserve">
-    <value>Costo de construcción: {0}</value>
+    <value>Coste de construcción: {0}</value>
   </data>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Presiona la tecla {0} para crear</value>
@@ -605,7 +605,9 @@ Clic con {0} para separar nodo y alinear a la altura de la selección</value>
   <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
     <value>Cambiar círculo seleccionado</value>
   </data>
-  
+  <data name="Settings_SlopeColors" xml:space="preserve">
+    <value>Establecer el color a la etiqueta de la pendiente dependiendo del valor</value>
+  </data>
   <data name="Settings_SlopeUnit" xml:space="preserve">
     <value>Unidad de medida para las pendientes</value>
   </data>

@@ -583,7 +583,9 @@ Düğümü dağıtmak ve hedef yüksekliğine ayarlamak için {0} tuşunu kullan
   <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
     <value>Seçilen daireyi değiştir</value>
   </data>
-  
+  <data name="Settings_SlopeColors" xml:space="preserve">
+    <value>Değere bağlı olarak işaretlemek için renk ayarlayın</value>
+  </data>
   <data name="Settings_SlopeUnit" xml:space="preserve">
     <value>Eğimin ölçü birimi</value>
   </data>

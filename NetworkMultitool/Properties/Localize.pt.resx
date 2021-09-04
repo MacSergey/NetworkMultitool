@@ -177,19 +177,31 @@ para mudar a direção da curva</value>
   
   
   
-  
-  
+  <data name="Mode_Info_ArrangeCircle_DragToMoveCenter" xml:space="preserve">
+    <value>Arraste para mover o círculo</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_DragToMoveNode" xml:space="preserve">
+    <value>Arraste para mover nó</value>
+  </data>
   <data name="Mode_Info_ArrangeCircle_MoveAll" xml:space="preserve">
     <value>Mantenha {0} para mover todos os nós
 ao mesmo tempo</value>
   </data>
+  <data name="Mode_Info_ArrangeCircle_PressToDistributeBetweenIntersections" xml:space="preserve">
+    <value>Pressione {0} para distribuir nós
+igualmente entre interseções</value>
+  </data>
   
-  
-  
+  <data name="Mode_Info_ArrangeCircle_PressToDistributeIntersections" xml:space="preserve">
+    <value>Pressione {0} para distribuir
+intersecções de forma igualmente em círculo</value>
+  </data>
   <data name="Mode_Info_ArrangeCircle_PressToReset" xml:space="preserve">
     <value>Pressione {0} para redefinir os parâmetros</value>
   </data>
-  
+  <data name="Mode_Info_ArrangeCircle_WrongOrder" xml:space="preserve">
+    <value>Ordem dos nós incorrecta</value>
+  </data>
   
   <data name="Mode_Info_ChangeAllRadius" xml:space="preserve">
     <value>Pressione {0} ou {1} para alterar todos os raios</value>
@@ -215,7 +227,9 @@ ao mesmo tempo</value>
   <data name="Mode_Info_ClickFirstSegment" xml:space="preserve">
     <value>Clique para selecionar o primeiro segmento</value>
   </data>
-  
+  <data name="Mode_Info_ClickOnNodeToChangeCreateDir" xml:space="preserve">
+    <value>Clique no nó para mudar a direção de criação</value>
+  </data>
   <data name="Mode_Info_ClickSecondSegment" xml:space="preserve">
     <value>Clique para selecionar o primeiro segmento</value>
   </data>
@@ -229,7 +243,9 @@ ao mesmo tempo</value>
     <value>Clique para desselecionar o nó</value>
   </data>
   
-  
+  <data name="Mode_Info_ConstructionCost" xml:space="preserve">
+    <value>Custo de Construção: {0}</value>
+  </data>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Pressione {0} para criar</value>
   </data>
@@ -355,7 +371,9 @@ porque não está ligado a outros</value>
   <data name="Mode_UnionNode_Info_TooFar" xml:space="preserve">
     <value>Nós muito distantes um do outro</value>
   </data>
-  
+  <data name="Mode_UnitsFormat" xml:space="preserve">
+    <value>{0}U</value>
+  </data>
   <data name="Mode_UnlockSegment" xml:space="preserve">
     <value>Modo de desbloqueio de segmento</value>
   </data>
@@ -380,21 +398,43 @@ porque não está ligado a outros</value>
   
   
   
+  <data name="Settings_Gameplay" xml:space="preserve">
+    <value>Jogabilidade</value>
+  </data>
+  <data name="Settings_Interface" xml:space="preserve">
+    <value>Interface</value>
+  </data>
+  <data name="Settings_LengthUnit" xml:space="preserve">
+    <value>Unidade de medida de comprimento</value>
+  </data>
+  <data name="Settings_LengthUniteMeters" xml:space="preserve">
+    <value>Metros</value>
+  </data>
+  <data name="Settings_LengthUniteUnits" xml:space="preserve">
+    <value>Unidades de jogo (1U = 8m)</value>
+  </data>
+  <data name="Settings_NeedMoney" xml:space="preserve">
+    <value>Requer dinheiro para construir</value>
+  </data>
+  <data name="Settings_PanelColumns" xml:space="preserve">
+    <value>Número de colunas do painel</value>
+  </data>
+  
+  <data name="Settings_PanelOpenSideDown" xml:space="preserve">
+    <value>Baixo</value>
+  </data>
+  <data name="Settings_PanelOpenSideUp" xml:space="preserve">
+    <value>Cima</value>
+  </data>
   
   
+  <data name="Settings_PreviewTypeBoth" xml:space="preserve">
+    <value>Ambos</value>
+  </data>
   
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+  <data name="Settings_PreviewTypeOverlay" xml:space="preserve">
+    <value>Sobreposição</value>
+  </data>
   <data name="Settings_SegmentLength" xml:space="preserve">
     <value>Comprimento máximo do segmento</value>
   </data>
@@ -415,8 +455,12 @@ porque não está ligado a outros</value>
   
   
   
-  
-  
+  <data name="Settings_Shortcut_IncreaseAngle" xml:space="preserve">
+    <value>Aumentar ângulo inicial</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseHeight" xml:space="preserve">
+    <value>Aumentar altura</value>
+  </data>
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
     <value>Aumentar o deslocamento inicial do círculo</value>
   </data>

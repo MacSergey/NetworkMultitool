@@ -616,7 +616,9 @@ verrouiller ou déverrouiller</value>
   <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
     <value>Changer de cercle</value>
   </data>
-  
+  <data name="Settings_SlopeColors" xml:space="preserve">
+    <value>Définir la couleur du label de la pente selon sa valeur</value>
+  </data>
   <data name="Settings_SlopeUnit" xml:space="preserve">
     <value>Unité de mesure des pentes</value>
   </data>

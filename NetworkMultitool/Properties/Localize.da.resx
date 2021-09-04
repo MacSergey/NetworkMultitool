@@ -430,7 +430,9 @@ Klik med {0} for at opdele node og følg start højden</value>
   <data name="Mode_UnionNode_Info_TooFar" xml:space="preserve">
     <value>Nodes er for langt fra hinanden</value>
   </data>
-  
+  <data name="Mode_UnitsFormat" xml:space="preserve">
+    <value>{0}U</value>
+  </data>
   <data name="Mode_UnlockSegment" xml:space="preserve">
     <value>Oplås element tilstand</value>
   </data>
@@ -470,9 +472,15 @@ låse eller låse op</value>
   <data name="Settings_Interface" xml:space="preserve">
     <value>Interface</value>
   </data>
-  
-  
-  
+  <data name="Settings_LengthUnit" xml:space="preserve">
+    <value>Måleenhed for længde</value>
+  </data>
+  <data name="Settings_LengthUniteMeters" xml:space="preserve">
+    <value>Meter</value>
+  </data>
+  <data name="Settings_LengthUniteUnits" xml:space="preserve">
+    <value>Spillets målestoks forhold (1U = 8m)</value>
+  </data>
   <data name="Settings_NeedMoney" xml:space="preserve">
     <value>Koster penge at bygge</value>
   </data>
@@ -581,7 +589,9 @@ låse eller låse op</value>
   <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
     <value>Skift valgte cirkel</value>
   </data>
-  
+  <data name="Settings_SlopeColors" xml:space="preserve">
+    <value>Tildel en farve efter hvor meget hældningen er</value>
+  </data>
   <data name="Settings_SlopeUnit" xml:space="preserve">
     <value>Skråningsenhed til måling</value>
   </data>
