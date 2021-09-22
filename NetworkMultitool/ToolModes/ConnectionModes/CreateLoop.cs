@@ -167,8 +167,8 @@ namespace NetworkMultitool
         protected override void RenderCalculatedOverlay(RenderManager.CameraInfo cameraInfo, NetInfo info)
         {
             Circle.Render(cameraInfo, info, Colors.Gray224, Underground);
-            StartStraight.Render(cameraInfo, info, Colors.Gray224, Colors.Gray224, Underground);
-            EndStraight.Render(cameraInfo, info, Colors.Gray224, Colors.Gray224, Underground);
+            StartStraight.Render(cameraInfo, info, Colors.Gray224, SelectOffset ? Colors.Yellow : Colors.Gray224, Underground);
+            EndStraight.Render(cameraInfo, info, Colors.Gray224, !SelectOffset ? Colors.Yellow : Colors.Gray224, Underground);
 
             if (IsHoverCenter)
                 Circle.RenderCenterHover(cameraInfo, Colors.Blue, Underground);
