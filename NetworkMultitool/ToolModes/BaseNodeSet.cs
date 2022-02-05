@@ -92,7 +92,13 @@ namespace NetworkMultitool
             else if (AddState == AddResult.IsLast)
                 RemoveLast();
         }
-        public override void OnSecondaryMouseClicked() => Reset(this);
+        public override void OnSecondaryMouseClicked()
+        {
+            if (!IsReseted)
+                Reset(this);
+            else
+                base.OnSecondaryMouseClicked();
+        }
         protected virtual void AddFirst(NodeSelection selection)
         {
             if(Nodes.Count == 0 || selection.Id != Nodes[0].Id)

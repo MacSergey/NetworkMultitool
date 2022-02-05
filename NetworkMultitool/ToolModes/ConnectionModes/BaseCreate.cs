@@ -65,7 +65,7 @@ namespace NetworkMultitool
         private List<Point> Points { get; set; } = new List<Point>();
         protected NetInfo Info => GetNetInfo() ?? First.Id.GetSegment().Info;
         protected float MinPossibleRadius => Info != null ? Info.m_halfWidth * 2f : 16f;
-        protected float MaxPossibleRadius => 3000f;
+        protected float MaxPossibleRadius => 5000f;
 
         private bool ForceUnderground => IsBoth && (First.Id.GetSegment().Nodes().Any(n => n.m_flags.IsSet(NetNode.Flags.Underground)) || Second.Id.GetSegment().Nodes().Any(n => n.m_flags.IsSet(NetNode.Flags.Underground)));
 

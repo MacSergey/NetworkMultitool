@@ -98,6 +98,8 @@ namespace NetworkMultitool
         {
             if (IsSource)
                 Source = null;
+            else
+                base.OnSecondaryMouseClicked();
         }
         public override void RenderOverlay(RenderManager.CameraInfo cameraInfo)
         {
