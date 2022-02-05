@@ -27,6 +27,7 @@ namespace NetworkMultitool
         public static SavedInt NetworkPreview { get; } = new SavedInt(nameof(NetworkPreview), SettingsFile, (int)PreviewType.Both, true);
         public static SavedBool FollowTerrain { get; } = new SavedBool(nameof(FollowTerrain), SettingsFile, false, true);
         public static SavedBool NeedMoney { get; } = new SavedBool(nameof(NeedMoney), SettingsFile, true, true);
+        public static SavedBool AutoConnect { get; } = new SavedBool(nameof(AutoConnect), SettingsFile, true, true);
 
         public static bool ShowOverlay => NetworkPreview != (int)PreviewType.Mesh;
         public static bool ShowMesh => NetworkPreview != (int)PreviewType.Overlay;
@@ -80,6 +81,7 @@ namespace NetworkMultitool
             AddCheckBox(gameplayGroup, Localize.Settings_FollowTerrain, FollowTerrain);
             AddCheckboxPanel(gameplayGroup, Localize.Settings_LengthUnit, LengthUnite, new string[] { Localize.Settings_LengthUniteMeters, Localize.Settings_LengthUniteUnits }, OnSlopeUniteChanged);
             AddCheckboxPanel(gameplayGroup, Localize.Settings_SlopeUnit, SlopeUnite, new string[] { Localize.Settings_SlopeUnitPercentages, Localize.Settings_SlopeUnitDegrees }, OnSlopeUniteChanged);
+            AddCheckBox(gameplayGroup, Localize.Settings_AutoConnect, AutoConnect);
             if (Utility.InGame && !Mod.NodeSpacerEnabled)
                 AddIntField(gameplayGroup, Localize.Settings_SegmentLength, SegmentLength, 80, 50, 200);
 

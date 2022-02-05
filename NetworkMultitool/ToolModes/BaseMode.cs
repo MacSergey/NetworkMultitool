@@ -189,6 +189,59 @@ namespace NetworkMultitool
             else
                 return false;
         }
+        protected static bool FindOrCreateNode(out ushort newNodeId, NetInfo info, Vector3 position)
+        {
+            if (FindCloseNode(out newNodeId, info, position))
+                return true;
+            else
+                return CreateNode(out newNodeId, info, position);
+        }
+        protected static bool CreateNodeFromSource(out ushort newNodeId, ushort source, Vector3 position)
+        {
+            ref var sourceNode = ref source.GetNode();
+
+            if (Singleton<NetManager>.instance.CreateNode(out newNodeId, ref Singleton<SimulationManager>.instance.m_randomizer, sourceNode.Info, position, Singleton<SimulationManager>.instance.m_currentBuildIndex))
+            {
+                ref var node = ref newNodeId.GetNode();
+                node.m_flags = sourceNode.m_flags;
+                return true;
+            }
+            else
+                return false;
+        }
+        protected static bool FindOrCreateNodeFromSource(out ushort newNodeId, ushort source, Vector3 position)
+        {
+            ref var sourceNode = ref source.GetNode();
+            if (FindCloseNode(out newNodeId, sourceNode.Info, position))
+                return true;
+            else
+                return CreateNodeFromSource(out newNodeId, source, position);
+        }
+        private static bool FindCloseNode(out ushort nodeId, NetInfo info, Vector3 position)
+        {
+            
+            var gridMinX = MinCell(position.x);
+            var gridMinZ = MinCell(position.z);
+            var gridMaxX = MaxCell(position.x);
+            var gridMaxZ = MaxCell(position.z);
+            for (int i = gridMinZ; i <= gridMaxZ; i++)
+            {
+                for (int j = gridMinX; j <= gridMaxX; j++)
+                {
+                    nodeId = NetManager.instance.m_nodeGrid[i * 270 + j];
+                    ref var node = ref nodeId.GetNode();
+
+                    if (info.m_class == node.Info.m_class && (position - node.m_position).magnitude < 0.5f)
+                        return true;
+                }
+            }
+
+            nodeId = 0;
+            return false;
+        }
+        private static int MinCell(float value) => Mathf.Max((int)((value - 16f) / 64f + 135f) - 1, 0);
+        private static int MaxCell(float value) => Mathf.Min((int)((value + 16f) / 64f + 135f) + 1, 269);
+
         protected static bool CreateSegmentAuto(out ushort newSegmentId, NetInfo info, ushort startId, ushort endId, Vector3 startDir, Vector3 endDir)
         {
             ref var startNode = ref startId.GetNode();
@@ -199,6 +252,40 @@ namespace NetworkMultitool
                 return CreateSegment(out newSegmentId, info, endId, startId, endDir, startDir, true);
             else
                 return CreateSegment(out newSegmentId, info, startId, endId, startDir, endDir, false);
+        }
+        protected static bool CreateSegmentFromSource(out ushort newSegmentId, NetInfo info, NetInfo sourceInfo, ushort startId, ushort endId, Vector3 startDir, Vector3 endDir)
+        {
+            var netInfoType = NetInfoType.Auto;
+
+            {
+                if (sourceInfo.m_netAI is RoadAI roadAI)
+                    netInfoType = GetInfoType(sourceInfo, roadAI.m_info, roadAI.m_bridgeInfo, roadAI.m_elevatedInfo, roadAI.m_tunnelInfo, roadAI.m_slopeInfo, roadAI.m_connectedInfo, roadAI.m_connectedElevatedInfo);
+                else if (sourceInfo.m_netAI is TrainTrackAI trainTrackAI)
+                    netInfoType = GetInfoType(sourceInfo, trainTrackAI.m_info, trainTrackAI.m_bridgeInfo, trainTrackAI.m_elevatedInfo, trainTrackAI.m_tunnelInfo, trainTrackAI.m_slopeInfo, trainTrackAI.m_connectedInfo, trainTrackAI.m_connectedElevatedInfo);
+                else if (sourceInfo.m_netAI is MetroTrackAI metroTrackAI)
+                    netInfoType = GetInfoType(sourceInfo, metroTrackAI.m_info, metroTrackAI.m_bridgeInfo, metroTrackAI.m_elevatedInfo, metroTrackAI.m_tunnelInfo, metroTrackAI.m_slopeInfo, null, null);
+                else if (sourceInfo.m_netAI is PedestrianWayAI pedestrianWayAI)
+                    netInfoType = GetInfoType(sourceInfo, pedestrianWayAI.m_info, pedestrianWayAI.m_bridgeInfo, pedestrianWayAI.m_elevatedInfo, pedestrianWayAI.m_tunnelInfo, pedestrianWayAI.m_slopeInfo, null, null);
+                else if (sourceInfo.m_netAI is PedestrianPathAI pedestrianPathAI)
+                    netInfoType = GetInfoType(sourceInfo, pedestrianPathAI.m_info, pedestrianPathAI.m_bridgeInfo, pedestrianPathAI.m_elevatedInfo, pedestrianPathAI.m_tunnelInfo, pedestrianPathAI.m_slopeInfo, null, null);
+            }
+
+            var selecteInfo = info;
+            {
+                if (info.m_netAI is RoadAI roadAI)
+                    selecteInfo = GetInfoFromType(netInfoType, roadAI.m_info, roadAI.m_bridgeInfo, roadAI.m_elevatedInfo, roadAI.m_tunnelInfo, roadAI.m_slopeInfo, roadAI.m_connectedInfo, roadAI.m_connectedElevatedInfo);
+                else if (info.m_netAI is TrainTrackAI trainTrackAI)
+                    selecteInfo = GetInfoFromType(netInfoType, trainTrackAI.m_info, trainTrackAI.m_bridgeInfo, trainTrackAI.m_elevatedInfo, trainTrackAI.m_tunnelInfo, trainTrackAI.m_slopeInfo, trainTrackAI.m_connectedInfo, trainTrackAI.m_connectedElevatedInfo);
+                else if (info.m_netAI is MetroTrackAI metroTrackAI)
+                    selecteInfo = GetInfoFromType(netInfoType, metroTrackAI.m_info, metroTrackAI.m_bridgeInfo, metroTrackAI.m_elevatedInfo, metroTrackAI.m_tunnelInfo, metroTrackAI.m_slopeInfo, null, null);
+                else if (info.m_netAI is PedestrianWayAI pedestrianWayAI)
+                    selecteInfo = GetInfoFromType(netInfoType, pedestrianWayAI.m_info, pedestrianWayAI.m_bridgeInfo, pedestrianWayAI.m_elevatedInfo, pedestrianWayAI.m_tunnelInfo, pedestrianWayAI.m_slopeInfo, null, null);
+                else if (info.m_netAI is PedestrianPathAI pedestrianPathAI)
+                    selecteInfo = GetInfoFromType(netInfoType, pedestrianPathAI.m_info, pedestrianPathAI.m_bridgeInfo, pedestrianPathAI.m_elevatedInfo, pedestrianPathAI.m_tunnelInfo, pedestrianPathAI.m_slopeInfo, null, null);
+            }
+            selecteInfo ??= info;
+
+            return CreateSegment(out newSegmentId, selecteInfo, startId, endId, startDir, endDir, false);
         }
         protected static bool CreateSegment(out ushort newSegmentId, NetInfo info, ushort startId, ushort endId, Vector3 startDir, Vector3 endDir, bool invert = false) => Singleton<NetManager>.instance.CreateSegment(out newSegmentId, ref Singleton<SimulationManager>.instance.m_randomizer, info, startId, endId, startDir, endDir, Singleton<SimulationManager>.instance.m_currentBuildIndex, Singleton<SimulationManager>.instance.m_currentBuildIndex, invert);
         protected static NetInfo GetInfo(NetInfo info, Vector3 startPos, Vector3 endPos, out bool invert)
@@ -219,6 +306,50 @@ namespace NetworkMultitool
 
             invert = selectedInfo.m_netAI.IsUnderground() && startElevated > -8f && endElevated <= -8f;
             return selectedInfo;
+        }
+        private static NetInfoType GetInfoType(NetInfo source, NetInfo normal, NetInfo bridge, NetInfo elevated, NetInfo tunnel, NetInfo slope, NetInfo connected, NetInfo connectedElevated)
+        {
+            if (source == normal)
+                return NetInfoType.Normal;
+            else if (source == bridge)
+                return NetInfoType.Bridge;
+            else if (source == elevated)
+                return NetInfoType.Elevated;
+            else if (source == tunnel)
+                return NetInfoType.Tunnel;
+            else if (source == slope)
+                return NetInfoType.Slope;
+            else if (source == connected)
+                return NetInfoType.Connected;
+            else if (source == connectedElevated)
+                return NetInfoType.ConnectedElevated;
+            else
+                return NetInfoType.Normal;
+        }
+        private static NetInfo GetInfoFromType(NetInfoType netInfoType, NetInfo normal, NetInfo bridge, NetInfo elevated, NetInfo tunnel, NetInfo slope, NetInfo connected, NetInfo connectedElevated)
+        {
+            switch (netInfoType)
+            {
+                case NetInfoType.Normal: return normal;
+                case NetInfoType.Bridge: return bridge;
+                case NetInfoType.Elevated: return elevated;
+                case NetInfoType.Tunnel: return tunnel;
+                case NetInfoType.Slope: return slope;
+                case NetInfoType.Connected: return connected;
+                case NetInfoType.ConnectedElevated: return connectedElevated;
+                default: return normal;
+            }
+        }
+        enum NetInfoType
+        {
+            Auto,
+            Normal,
+            Bridge,
+            Elevated,
+            Tunnel,
+            Slope,
+            Connected,
+            ConnectedElevated,
         }
 
         #endregion

@@ -166,35 +166,36 @@ namespace NetworkMultitool
             var shift = Side ? Shift.Value : -Shift.Value;
             for (var i = 0; i < Nodes.Count; i += 1)
             {
-                ref var node = ref Nodes[i].Id.GetNode();
+                var nodeId = Nodes[i].Id;
+                ref var node = ref nodeId.GetNode();
 
                 if (i == 0)
                 {
-                    NetExtension.GetCommon(Nodes[i].Id, Nodes[i + 1].Id, out var segmentId);
+                    NetExtension.GetCommon(nodeId, Nodes[i + 1].Id, out var segmentId);
                     ref var segment = ref segmentId.GetSegment();
-                    var direction = segment.IsStartNode(Nodes[i].Id) ? segment.m_startDirection : segment.m_endDirection;
+                    var direction = segment.IsStartNode(nodeId) ? segment.m_startDirection : segment.m_endDirection;
                     var shiftDir = direction.Turn90(false).MakeFlatNormalized();
                     Points.Add(new Point(node.m_position + shiftDir * shift + Vector3.up * DeltaHeight, direction, Vector3.zero));
                 }
                 else if (i == Nodes.Count - 1)
                 {
-                    NetExtension.GetCommon(Nodes[i].Id, Nodes[i - 1].Id, out var segmentId);
+                    NetExtension.GetCommon(nodeId, Nodes[i - 1].Id, out var segmentId);
                     ref var segment = ref segmentId.GetSegment();
-                    var direction = segment.IsStartNode(Nodes[i].Id) ? segment.m_startDirection : segment.m_endDirection;
+                    var direction = segment.IsStartNode(nodeId) ? segment.m_startDirection : segment.m_endDirection;
                     var shiftDir = direction.Turn90(true).MakeFlatNormalized();
                     Points.Add(new Point(node.m_position + shiftDir * shift + Vector3.up * DeltaHeight, Vector3.zero, direction));
                 }
                 else
                 {
-                    NetExtension.GetCommon(Nodes[i].Id, Nodes[i - 1].Id, out var backwardSegmentId);
-                    NetExtension.GetCommon(Nodes[i].Id, Nodes[i + 1].Id, out var forwardSegmentId);
+                    NetExtension.GetCommon(nodeId, Nodes[i - 1].Id, out var backwardSegmentId);
+                    NetExtension.GetCommon(nodeId, Nodes[i + 1].Id, out var forwardSegmentId);
 
                     ref var backwardSegment = ref backwardSegmentId.GetSegment();
                     ref var forwardSegment = ref forwardSegmentId.GetSegment();
 
                     var backwardEndDir = backwardSegment.GetDirection(Nodes[i - 1].Id);
-                    var backwardStartDir = backwardSegment.GetDirection(Nodes[i].Id);
-                    var forwardStartDir = forwardSegment.GetDirection(Nodes[i].Id);
+                    var backwardStartDir = backwardSegment.GetDirection(nodeId);
+                    var forwardStartDir = forwardSegment.GetDirection(nodeId);
                     var forwardEndDir = forwardSegment.GetDirection(Nodes[i + 1].Id);
 
                     var backwardEndPos = Nodes[i - 1].Id.GetNode().m_position + backwardEndDir.Turn90(false).MakeFlatNormalized() * shift + Vector3.up * DeltaHeight;
@@ -262,13 +263,18 @@ namespace NetworkMultitool
 
             for (var i = 0; i < points.Length; i += 1)
             {
-                CreateNode(out var newNodeId, info, points[i].Position);
+                ushort newNodeId;
+                if ((i == 0 || i == points.Length - 1) && Settings.AutoConnect)
+                    FindOrCreateNode(out newNodeId, info, points[i].Position);
+                else
+                    CreateNode(out newNodeId, info, points[i].Position);
                 nodeIds.Add(newNodeId);
             }
 
             for (var i = 1; i < nodeIds.Count; i += 1)
             {
                 ushort newSegmentId;
+
                 if (invert)
                     CreateSegmentAuto(out newSegmentId, info, nodeIds[i], nodeIds[i - 1], points[i].BackwardDirection, points[i - 1].ForwardDirection);
                 else

@@ -158,7 +158,7 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Click to complite circle selection.
+        ///   Ищет локализованную строку, похожую на Click to complete circle selection.
         /// </summary>
         internal static string Mode_ArrangeCircle_Info_ClickToComplite {
             get {
@@ -1071,6 +1071,15 @@ namespace NetworkMultitool {
         internal static string Settings_ActivationShortcuts {
             get {
                 return ResourceManager.GetString("Settings_ActivationShortcuts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Connect parallel road to nearest nodes automatically.
+        /// </summary>
+        internal static string Settings_AutoConnect {
+            get {
+                return ResourceManager.GetString("Settings_AutoConnect", resourceCulture);
             }
         }
         
