@@ -19,6 +19,8 @@ namespace NetworkMultitool
         public static SavedBool AutoHideModePanel { get; } = new SavedBool(nameof(AutoHideModePanel), SettingsFile, true, true);
         public static SavedInt PanelOpenSide { get; } = new SavedInt(nameof(PanelOpenSide), SettingsFile, (int)OpenSide.Down, true);
         public static SavedInt SlopeUnite { get; } = new SavedInt(nameof(SlopeUnite), SettingsFile, 0, true);
+        public static SavedBool SlopeColors { get; } = new SavedBool(nameof(SlopeColors), SettingsFile, true, true);
+        public static SavedInt LengthUnite { get; } = new SavedInt(nameof(LengthUnite), SettingsFile, 0, true);
         public static SavedInt SegmentLength { get; } = new SavedInt(nameof(SegmentLength), SettingsFile, 80, true);
         public static SavedInt PanelColumns { get; } = new SavedInt(nameof(PanelColumns), SettingsFile, 2, true);
         public static SavedBool PlayEffects { get; } = new SavedBool(nameof(PlayEffects), SettingsFile, true, true);
@@ -71,10 +73,12 @@ namespace NetworkMultitool
             AddIntField(interfaceGroup, Localize.Settings_PanelColumns, PanelColumns, 2, 1, 5, OnColumnChanged);
             AddCheckBox(interfaceGroup, Localize.Settings_PlayEffects, PlayEffects);
             AddCheckboxPanel(interfaceGroup, Localize.Settings_PreviewType, NetworkPreview, new string[] { Localize.Settings_PreviewTypeOverlay, Localize.Settings_PreviewTypeMesh, Localize.Settings_PreviewTypeBoth });
+            AddCheckBox(interfaceGroup, Localize.Settings_SlopeColors, SlopeColors, OnSlopeUniteChanged);
 
             var gameplayGroup = GeneralTab.AddGroup(Localize.Settings_Gameplay);
             AddCheckBox(gameplayGroup, Localize.Settings_NeedMoney, NeedMoney);
             AddCheckBox(gameplayGroup, Localize.Settings_FollowTerrain, FollowTerrain);
+            AddCheckboxPanel(gameplayGroup, Localize.Settings_LengthUnit, LengthUnite, new string[] { Localize.Settings_LengthUniteMeters, Localize.Settings_LengthUniteUnits }, OnSlopeUniteChanged);
             AddCheckboxPanel(gameplayGroup, Localize.Settings_SlopeUnit, SlopeUnite, new string[] { Localize.Settings_SlopeUnitPercentages, Localize.Settings_SlopeUnitDegrees }, OnSlopeUniteChanged);
             if (Utility.InGame && !Mod.NodeSpacerEnabled)
                 AddIntField(gameplayGroup, Localize.Settings_SegmentLength, SegmentLength, 80, 50, 200);
@@ -124,7 +128,13 @@ namespace NetworkMultitool
             var generalKeymapping = AddKeyMappingPanel(generalGroup);
             generalKeymapping.AddKeymapping(NetworkMultitoolTool.SelectionStepOverShortcut);
             generalKeymapping.AddKeymapping(BaseNetworkMultitoolMode.ApplyShortcut);
-            generalKeymapping.AddKeymapping(BaseCreateMode.SwitchFollowTerrainShortcut);
+
+            var commonGroup = ShortcutsTab.AddGroup(Localize.Settings_CommonCreateShortcuts);
+            var commonKeymapping = AddKeyMappingPanel(commonGroup);
+            commonKeymapping.AddKeymapping(BaseCreateMode.SwitchFollowTerrainShortcut);
+            commonKeymapping.AddKeymapping(BaseCreateMode.SwitchOffsetShortcut);
+            commonKeymapping.AddKeymapping(BaseCreateMode.IncreaseAngleShortcut);
+            commonKeymapping.AddKeymapping(BaseCreateMode.DecreaseAngleShortcut);
 
             var connectionGroup = ShortcutsTab.AddGroup(Localize.Mode_CreateConnection);
             var connectionKeymapping = AddKeyMappingPanel(connectionGroup);
@@ -133,7 +143,6 @@ namespace NetworkMultitool
             connectionKeymapping.AddKeymapping(CreateConnectionMode.SwitchSelectShortcut);
             connectionKeymapping.AddKeymapping(CreateConnectionMode.IncreaseOneRadiusShortcut);
             connectionKeymapping.AddKeymapping(CreateConnectionMode.DecreaseOneRadiusShortcut);
-            connectionKeymapping.AddKeymapping(CreateConnectionMode.SwitchOffsetShortcut);
             connectionKeymapping.AddKeymapping(CreateConnectionMode.IncreaseOffsetShortcut);
             connectionKeymapping.AddKeymapping(CreateConnectionMode.DecreaseOffsetShortcut);
 

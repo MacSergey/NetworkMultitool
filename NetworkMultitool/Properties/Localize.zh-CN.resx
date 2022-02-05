@@ -431,6 +431,9 @@
   <data name="Mode_UnionNode_Info_TooFar" xml:space="preserve">
     <value>节点间距离太远</value>
   </data>
+  <data name="Mode_UnitsFormat" xml:space="preserve">
+    <value>{0}U</value>
+  </data>
   <data name="Mode_UnlockSegment" xml:space="preserve">
     <value>解/锁段落模式</value>
   </data>
@@ -455,6 +458,9 @@
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>自动隐藏模式面板</value>
   </data>
+  <data name="Settings_CommonCreateShortcuts" xml:space="preserve">
+    <value>创建模式的通用快捷方式</value>
+  </data>
   <data name="Settings_CommonShortcuts" xml:space="preserve">
     <value>模组共同快捷键</value>
   </data>
@@ -467,11 +473,29 @@
   <data name="Settings_Interface" xml:space="preserve">
     <value>界面</value>
   </data>
+  <data name="Settings_LengthUnit" xml:space="preserve">
+    <value>测量长度单位</value>
+  </data>
+  <data name="Settings_LengthUniteMeters" xml:space="preserve">
+    <value>米</value>
+  </data>
+  <data name="Settings_LengthUniteUnits" xml:space="preserve">
+    <value>游戏单位 (1U = 8米)</value>
+  </data>
   <data name="Settings_NeedMoney" xml:space="preserve">
     <value>需要金钱建设</value>
   </data>
   <data name="Settings_PanelColumns" xml:space="preserve">
     <value>面板栏数</value>
+  </data>
+  <data name="Settings_PanelOpenSide" xml:space="preserve">
+    <value>面板打开方向</value>
+  </data>
+  <data name="Settings_PanelOpenSideDown" xml:space="preserve">
+    <value>向下</value>
+  </data>
+  <data name="Settings_PanelOpenSideUp" xml:space="preserve">
+    <value>向上</value>
   </data>
   <data name="Settings_PlayEffects" xml:space="preserve">
     <value>开启音频和视觉效果</value>
@@ -493,6 +517,9 @@
   </data>
   <data name="Settings_Shortcut_Apply" xml:space="preserve">
     <value>应用模式</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseAngle" xml:space="preserve">
+    <value>减少起始角度</value>
   </data>
   <data name="Settings_Shortcut_DecreaseHeight" xml:space="preserve">
     <value>降低高度</value>
@@ -520,6 +547,9 @@
   </data>
   <data name="Settings_Shortcut_DistributeIntersections" xml:space="preserve">
     <value>在圆圈上平均分布交叉口</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseAngle" xml:space="preserve">
+    <value>增大起始角度</value>
   </data>
   <data name="Settings_Shortcut_IncreaseHeight" xml:space="preserve">
     <value>增高高度</value>
@@ -559,6 +589,9 @@
   </data>
   <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
     <value>切换选中的圆</value>
+  </data>
+  <data name="Settings_SlopeColors" xml:space="preserve">
+    <value>根据值设定斜坡标签颜色</value>
   </data>
   <data name="Settings_SlopeUnit" xml:space="preserve">
     <value>斜坡度量单位</value>

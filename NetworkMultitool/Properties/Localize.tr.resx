@@ -425,6 +425,9 @@ Düğümü dağıtmak ve hedef yüksekliğine ayarlamak için {0} tuşunu kullan
   <data name="Mode_UnionNode_Info_TooFar" xml:space="preserve">
     <value>Düğümler birbirinden çok uzak</value>
   </data>
+  <data name="Mode_UnitsFormat" xml:space="preserve">
+    <value>{0}U</value>
+  </data>
   <data name="Mode_UnlockSegment" xml:space="preserve">
     <value>Sektör modunu aktive et</value>
   </data>
@@ -448,6 +451,9 @@ Düğümü dağıtmak ve hedef yüksekliğine ayarlamak için {0} tuşunu kullan
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>Mod panelini otomatik gizle</value>
   </data>
+  <data name="Settings_CommonCreateShortcuts" xml:space="preserve">
+    <value>Düğüm yaratıcı için ortak kısa yollar</value>
+  </data>
   <data name="Settings_CommonShortcuts" xml:space="preserve">
     <value>Yaygın mod kısa yolları</value>
   </data>
@@ -460,11 +466,29 @@ Düğümü dağıtmak ve hedef yüksekliğine ayarlamak için {0} tuşunu kullan
   <data name="Settings_Interface" xml:space="preserve">
     <value>Arayüz</value>
   </data>
+  <data name="Settings_LengthUnit" xml:space="preserve">
+    <value>Mesafe ölçü birimi</value>
+  </data>
+  <data name="Settings_LengthUniteMeters" xml:space="preserve">
+    <value>Metre</value>
+  </data>
+  <data name="Settings_LengthUniteUnits" xml:space="preserve">
+    <value>1U'nun 8 m olduğu oyun birimi</value>
+  </data>
   <data name="Settings_NeedMoney" xml:space="preserve">
     <value>İnşaat için para gerekli</value>
   </data>
   <data name="Settings_PanelColumns" xml:space="preserve">
     <value>Panel kolonlarını say</value>
+  </data>
+  <data name="Settings_PanelOpenSide" xml:space="preserve">
+    <value>Panel açık tarafa</value>
+  </data>
+  <data name="Settings_PanelOpenSideDown" xml:space="preserve">
+    <value>Aşağı</value>
+  </data>
+  <data name="Settings_PanelOpenSideUp" xml:space="preserve">
+    <value>Yukarı</value>
   </data>
   <data name="Settings_PlayEffects" xml:space="preserve">
     <value>Sev ve görsel efektleri oynat</value>
@@ -486,6 +510,9 @@ Düğümü dağıtmak ve hedef yüksekliğine ayarlamak için {0} tuşunu kullan
   </data>
   <data name="Settings_Shortcut_Apply" xml:space="preserve">
     <value>Mod eylemini uygula</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseAngle" xml:space="preserve">
+    <value>Başlangıç açısını küçült</value>
   </data>
   <data name="Settings_Shortcut_DecreaseHeight" xml:space="preserve">
     <value>Yüksekliği azalt</value>
@@ -513,6 +540,9 @@ Düğümü dağıtmak ve hedef yüksekliğine ayarlamak için {0} tuşunu kullan
   </data>
   <data name="Settings_Shortcut_DistributeIntersections" xml:space="preserve">
     <value>Kesişimleri daireye eşit dağıt</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseAngle" xml:space="preserve">
+    <value>Başlangıç açısını arttır</value>
   </data>
   <data name="Settings_Shortcut_IncreaseHeight" xml:space="preserve">
     <value>Yüksekliği artır</value>
@@ -553,6 +583,7 @@ Düğümü dağıtmak ve hedef yüksekliğine ayarlamak için {0} tuşunu kullan
   <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
     <value>Seçilen daireyi değiştir</value>
   </data>
+  
   <data name="Settings_SlopeUnit" xml:space="preserve">
     <value>Eğimin ölçü birimi</value>
   </data>

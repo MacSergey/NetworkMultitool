@@ -356,6 +356,7 @@ mert nincs kapcsolatban másokkal</value>
   <data name="Mode_UnionNode_Info_TooFar" xml:space="preserve">
     <value>Csomópontok túl messze vannak egymástól</value>
   </data>
+  
   <data name="Mode_UnlockSegment" xml:space="preserve">
     <value>Szegmens mód feloldása</value>
   </data>
@@ -389,6 +390,13 @@ zároláshoz vagy feloldáshoz</value>
   
   
   
+  
+  
+  
+  
+  
+  
+  
   <data name="Settings_SegmentLength" xml:space="preserve">
     <value>Maximális szegmens hossz</value>
   </data>
@@ -396,12 +404,14 @@ zároláshoz vagy feloldáshoz</value>
     <value>Mód művelet alkalmazása</value>
   </data>
   
+  
   <data name="Settings_Shortcut_DecreaseOffset" xml:space="preserve">
     <value>A görbe kezdési eltolásának csökkentése</value>
   </data>
   <data name="Settings_Shortcut_DecreaseOneRadius" xml:space="preserve">
     <value>Az egyik sugár csökkentése</value>
   </data>
+  
   
   
   
@@ -431,6 +441,7 @@ zároláshoz vagy feloldáshoz</value>
   <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
     <value>Kiválasztott kör váltása</value>
   </data>
+  
   <data name="Settings_SlopeUnit" xml:space="preserve">
     <value>Lejtés mértékegysége</value>
   </data>

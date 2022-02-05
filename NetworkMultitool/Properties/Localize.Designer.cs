@@ -1020,6 +1020,15 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на {0}U.
+        /// </summary>
+        internal static string Mode_UnitsFormat {
+            get {
+                return ResourceManager.GetString("Mode_UnitsFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Unlock segment mode.
         /// </summary>
         internal static string Mode_UnlockSegment {
@@ -1075,6 +1084,15 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Creation modes&apos; common shortcuts.
+        /// </summary>
+        internal static string Settings_CommonCreateShortcuts {
+            get {
+                return ResourceManager.GetString("Settings_CommonCreateShortcuts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Modes&apos; common shortcuts.
         /// </summary>
         internal static string Settings_CommonShortcuts {
@@ -1111,6 +1129,33 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Length unit of measurement.
+        /// </summary>
+        internal static string Settings_LengthUnit {
+            get {
+                return ResourceManager.GetString("Settings_LengthUnit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Meters.
+        /// </summary>
+        internal static string Settings_LengthUniteMeters {
+            get {
+                return ResourceManager.GetString("Settings_LengthUniteMeters", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Game units (1U = 8m).
+        /// </summary>
+        internal static string Settings_LengthUniteUnits {
+            get {
+                return ResourceManager.GetString("Settings_LengthUniteUnits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Requires money to build.
         /// </summary>
         internal static string Settings_NeedMoney {
@@ -1129,7 +1174,7 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Panel open side.
+        ///   Ищет локализованную строку, похожую на Panel opening side.
         /// </summary>
         internal static string Settings_PanelOpenSide {
             get {
@@ -1219,6 +1264,15 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Decrease start angle.
+        /// </summary>
+        internal static string Settings_Shortcut_DecreaseAngle {
+            get {
+                return ResourceManager.GetString("Settings_Shortcut_DecreaseAngle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Decrease height.
         /// </summary>
         internal static string Settings_Shortcut_DecreaseHeight {
@@ -1296,6 +1350,15 @@ namespace NetworkMultitool {
         internal static string Settings_Shortcut_DistributeIntersections {
             get {
                 return ResourceManager.GetString("Settings_Shortcut_DistributeIntersections", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Increase start angle.
+        /// </summary>
+        internal static string Settings_Shortcut_IncreaseAngle {
+            get {
+                return ResourceManager.GetString("Settings_Shortcut_IncreaseAngle", resourceCulture);
             }
         }
         
@@ -1413,6 +1476,15 @@ namespace NetworkMultitool {
         internal static string Settings_Shortcut_SwitchSelect {
             get {
                 return ResourceManager.GetString("Settings_Shortcut_SwitchSelect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Set color to slope label depending on the value.
+        /// </summary>
+        internal static string Settings_SlopeColors {
+            get {
+                return ResourceManager.GetString("Settings_SlopeColors", resourceCulture);
             }
         }
         

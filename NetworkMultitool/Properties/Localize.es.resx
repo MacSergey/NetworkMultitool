@@ -432,6 +432,9 @@ Clic con {0} para separar nodo y alinear a la altura de la selección</value>
   <data name="Mode_UnionNode_Info_TooFar" xml:space="preserve">
     <value>Los nodos están demasiado lejos entre sí</value>
   </data>
+  <data name="Mode_UnitsFormat" xml:space="preserve">
+    <value>{0}</value>
+  </data>
   <data name="Mode_UnlockSegment" xml:space="preserve">
     <value>Modo de desbloqueo de segmento</value>
   </data>
@@ -470,6 +473,9 @@ Clic con {0} para separar nodo y alinear a la altura de la selección</value>
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>Esconder panel de modos automáticamente</value>
   </data>
+  <data name="Settings_CommonCreateShortcuts" xml:space="preserve">
+    <value>Atajos comunes de los modos de creación</value>
+  </data>
   <data name="Settings_CommonShortcuts" xml:space="preserve">
     <value>Atajos comunes de los modos</value>
   </data>
@@ -482,11 +488,29 @@ Clic con {0} para separar nodo y alinear a la altura de la selección</value>
   <data name="Settings_Interface" xml:space="preserve">
     <value>Interfaz</value>
   </data>
+  <data name="Settings_LengthUnit" xml:space="preserve">
+    <value>Unidad de medida</value>
+  </data>
+  <data name="Settings_LengthUniteMeters" xml:space="preserve">
+    <value>Metros</value>
+  </data>
+  <data name="Settings_LengthUniteUnits" xml:space="preserve">
+    <value>Unidades de juego (1U = 8m)</value>
+  </data>
   <data name="Settings_NeedMoney" xml:space="preserve">
     <value>Necesita dinero para construir</value>
   </data>
   <data name="Settings_PanelColumns" xml:space="preserve">
     <value>Número de columnas del panel</value>
+  </data>
+  <data name="Settings_PanelOpenSide" xml:space="preserve">
+    <value>Expandir panel de herramientas</value>
+  </data>
+  <data name="Settings_PanelOpenSideDown" xml:space="preserve">
+    <value>Hacia abajo</value>
+  </data>
+  <data name="Settings_PanelOpenSideUp" xml:space="preserve">
+    <value>Hacia arriba</value>
   </data>
   <data name="Settings_PlayEffects" xml:space="preserve">
     <value>Activar efectos de audio y visuales</value>
@@ -508,6 +532,9 @@ Clic con {0} para separar nodo y alinear a la altura de la selección</value>
   </data>
   <data name="Settings_Shortcut_Apply" xml:space="preserve">
     <value>Aplicar acción de modo</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseAngle" xml:space="preserve">
+    <value>Disminuir ángulo inicial</value>
   </data>
   <data name="Settings_Shortcut_DecreaseHeight" xml:space="preserve">
     <value>Disminuir altura</value>
@@ -535,6 +562,9 @@ Clic con {0} para separar nodo y alinear a la altura de la selección</value>
   </data>
   <data name="Settings_Shortcut_DistributeIntersections" xml:space="preserve">
     <value>Distribuir los nodos de manera uniforme en el círculo</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseAngle" xml:space="preserve">
+    <value>Incrementar ángulo inicial</value>
   </data>
   <data name="Settings_Shortcut_IncreaseHeight" xml:space="preserve">
     <value>Incrementar altura</value>
@@ -575,6 +605,7 @@ Clic con {0} para separar nodo y alinear a la altura de la selección</value>
   <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
     <value>Cambiar círculo seleccionado</value>
   </data>
+  
   <data name="Settings_SlopeUnit" xml:space="preserve">
     <value>Unidad de medida para las pendientes</value>
   </data>

@@ -16,6 +16,7 @@ namespace NetworkMultitool.UI
         public static float ModeButtonSize => 29f;
         public static float Padding => 2f;
         public static int InRow => Settings.PanelColumns;
+        private UIComponent Parent { get; set; }
         private IEnumerable<ModeButton> Buttons => components.OfType<ModeButton>();
         private string AnimationId => $"{nameof(ModesPanel)}{GetHashCode()}";
         public Vector2 DefaultSize
@@ -32,23 +33,44 @@ namespace NetworkMultitool.UI
             {
                 var uiView = UIView.GetAView();
                 var mouse = uiView.ScreenPointToGUI(Input.mousePosition / uiView.inputScale);
-                return (isVisible && this.IsHover(mouse)) || (parent.isVisible && parent.IsHover(mouse));
+                return (isVisible && this.IsHover(mouse)) || (Parent.isVisible && Parent.IsHover(mouse));
+            }
+        }
+        private UIComponent Root
+        {
+            get
+            {
+                if (Parent is UIComponent root)
+                {
+                    while (root.parent != null)
+                        root = root.parent;
+                    return root;
+                }
+                else
+                    return null;
             }
         }
         private OpenState State { get; set; } = OpenState.Close;
         private OpenSide OpenSide { get; set; } = OpenSide.Down;
         public ModesPanel()
         {
-            size = new Vector2(ModeButtonSize, 0f);
             isVisible = false;
             atlas = TextureHelper.InGameAtlas;
             backgroundSprite = "ButtonWhite";
             color = new Color32(64, 64, 64, 255);
             clipChildren = true;
         }
+        public static ModesPanel Add(UIComponent parent)
+        {
+            var view = UIView.GetAView();
+            var panel = view.AddUIComponent(typeof(ModesPanel)) as ModesPanel;
+            panel.Parent = parent;
+            return panel;
+        }
         public override void Start()
         {
             base.Start();
+            enabled = Parent.isVisible;
 
             SingletonTool<NetworkMultitoolTool>.Instance.OnStateChanged += ToolStateChanged;
 
@@ -57,16 +79,21 @@ namespace NetworkMultitool.UI
                 if (mode.IsMain)
                     ModeButton.Add(this, mode);
             }
+            size = DefaultSize;
+            height = 20f;
 
-            parent.eventMouseEnter += ParentMouseEnter;
-            parent.eventMouseLeave += ParentMouseLeave;
+            Parent.eventMouseEnter += ParentMouseEnter;
+            Parent.eventMouseLeave += ParentMouseLeave;
+            Parent.eventPositionChanged += ParentPositionChanged;
+            Parent.eventVisibilityChanged += ParentVisibilityChanged;
 
-            var root = parent;
-            while (root.parent != null)
-                root = root.parent;
-
-            root.eventPositionChanged += ParentPositionChanged;
+            if (Root is UIComponent root)
+            {
+                root.eventPositionChanged += ParentPositionChanged;
+                root.eventZOrderChanged += RootZOrderChanged;
+            }
         }
+
         public override void OnDestroy()
         {
             base.OnDestroy();
@@ -86,45 +113,47 @@ namespace NetworkMultitool.UI
         }
 
         protected override void OnClick(UIMouseEventParameter p) { }
-        protected override void OnComponentAdded(UIComponent child)
-        {
-            base.OnComponentAdded(child);
-            FitChildren();
-        }
-
-        protected override void OnComponentRemoved(UIComponent child)
-        {
-            base.OnComponentRemoved(child);
-            FitChildren();
-        }
         private void ParentPositionChanged(UIComponent parent, Vector2 value) => SetOpenSide(true);
+        private void ParentVisibilityChanged(UIComponent component, bool value) => enabled = value;
+        private void RootZOrderChanged(UIComponent component, int value) => SetOrder(component);
         public new void FitChildren()
         {
             size = DefaultSize;
-            SetOpenSide();
-            SetPosition();
-            SetButtonsPosition();
+
+            if (State == OpenState.Close)
+                height = 20f;
+            else if (State == OpenState.Open)
+            {
+                SetOpenSide();
+                SetPosition();
+                SetButtonsPosition();
+            }
         }
         public void SetOpenSide(bool forceSetPosition = false)
         {
             var oldSide = OpenSide;
 
             if (Settings.PanelOpenSide == (int)OpenSide.Down)
-                OpenSide = parent.absolutePosition.y + parent.height + DefaultSize.y <= parent.GetUIView().GetScreenResolution().y ? OpenSide.Down : OpenSide.Up;
+                OpenSide = Parent.absolutePosition.y + Parent.height + DefaultSize.y <= Parent.GetUIView().GetScreenResolution().y ? OpenSide.Down : OpenSide.Up;
             else
-                OpenSide = parent.absolutePosition.y >= DefaultSize.y ? OpenSide.Up : OpenSide.Down;
+                OpenSide = Parent.absolutePosition.y >= DefaultSize.y ? OpenSide.Up : OpenSide.Down;
 
             if (oldSide != OpenSide || forceSetPosition)
                 SetPosition();
         }
         private void SetPosition()
         {
-            UIView uiView = parent.GetUIView();
+            UIView uiView = Parent.GetUIView();
             var screen = uiView.GetScreenResolution();
-            var parentPos = parent.absolutePosition;
-            var x = Mathf.Max(Mathf.Min(parentPos.x + (parent.width - width) / 2f, screen.x - width), 0f);
-            var y = parentPos.y + (OpenSide == OpenSide.Down ? parent.height : -height);
+            var parentPos = Parent.absolutePosition;
+            var x = Mathf.Max(Mathf.Min(parentPos.x + (Parent.width - width) / 2f, screen.x - width), 0f);
+            var y = parentPos.y + (OpenSide == OpenSide.Down ? Parent.height : -height);
             absolutePosition = new Vector2(x, y);
+        }
+        private void SetOrder(UIComponent component)
+        {
+            if (component.zOrder >= zOrder)
+                zOrder = component.zOrder + 1;
         }
 
         public void SetState(bool show, bool auto = false)
@@ -150,7 +179,7 @@ namespace NetworkMultitool.UI
             {
                 if (State != OpenState.Close && State != OpenState.Closing)
                 {
-                    if (!auto || autoHide)
+                    if (!auto || (autoHide && !isHover))
                     {
                         StartClosing();
                         var time = 0.2f * (height / DefaultSize.y);
@@ -164,6 +193,8 @@ namespace NetworkMultitool.UI
         {
             State = OpenState.Opening;
             Show();
+            if (Root is UIComponent root)
+                SetOrder(root);
         }
         private void EndOpening() => State = OpenState.Open;
         private void StartClosing() => State = OpenState.Closing;

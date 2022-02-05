@@ -430,6 +430,7 @@ Naciśnij trzymając {0} aby podzielić węzeł i wyrównać do wysokości źró
   <data name="Mode_UnionNode_Info_TooFar" xml:space="preserve">
     <value>Węzły są zbyt daleko od siebie</value>
   </data>
+  
   <data name="Mode_UnlockSegment" xml:space="preserve">
     <value>Tryb odblokowywania segmentu</value>
   </data>
@@ -453,6 +454,9 @@ Naciśnij trzymając {0} aby podzielić węzeł i wyrównać do wysokości źró
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>Automatyczne ukrywanie panelu trybów</value>
   </data>
+  <data name="Settings_CommonCreateShortcuts" xml:space="preserve">
+    <value>Wspólne skróty trybów tworzenia</value>
+  </data>
   <data name="Settings_CommonShortcuts" xml:space="preserve">
     <value>Wspólne skróty trybów</value>
   </data>
@@ -465,11 +469,23 @@ Naciśnij trzymając {0} aby podzielić węzeł i wyrównać do wysokości źró
   <data name="Settings_Interface" xml:space="preserve">
     <value>Interfejs</value>
   </data>
+  
+  
+  
   <data name="Settings_NeedMoney" xml:space="preserve">
     <value>Pieniądze wymagane do budowy</value>
   </data>
   <data name="Settings_PanelColumns" xml:space="preserve">
     <value>Liczba kolumn panelu</value>
+  </data>
+  <data name="Settings_PanelOpenSide" xml:space="preserve">
+    <value>Strona otwierania panelu</value>
+  </data>
+  <data name="Settings_PanelOpenSideDown" xml:space="preserve">
+    <value>Dół</value>
+  </data>
+  <data name="Settings_PanelOpenSideUp" xml:space="preserve">
+    <value>Góra</value>
   </data>
   <data name="Settings_PlayEffects" xml:space="preserve">
     <value>Odtwarzaj efekty dźwiękowe i wizualne</value>
@@ -491,6 +507,9 @@ Naciśnij trzymając {0} aby podzielić węzeł i wyrównać do wysokości źró
   </data>
   <data name="Settings_Shortcut_Apply" xml:space="preserve">
     <value>Zastosuj akcję trybu</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseAngle" xml:space="preserve">
+    <value>Zmniejsz kąt początkowy</value>
   </data>
   <data name="Settings_Shortcut_DecreaseHeight" xml:space="preserve">
     <value>Zmniejsz wysokość</value>
@@ -518,6 +537,9 @@ Naciśnij trzymając {0} aby podzielić węzeł i wyrównać do wysokości źró
   </data>
   <data name="Settings_Shortcut_DistributeIntersections" xml:space="preserve">
     <value>Rozdziel skrzyżowania równomiernie w okręgu</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseAngle" xml:space="preserve">
+    <value>Zwiększ kąt początkowy</value>
   </data>
   <data name="Settings_Shortcut_IncreaseHeight" xml:space="preserve">
     <value>Zwiększ wysokość</value>
@@ -558,6 +580,7 @@ Naciśnij trzymając {0} aby podzielić węzeł i wyrównać do wysokości źró
   <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
     <value>Przełącz wybrane koło</value>
   </data>
+  
   <data name="Settings_SlopeUnit" xml:space="preserve">
     <value>Jednostka miary nachylenia</value>
   </data>

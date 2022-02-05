@@ -431,6 +431,9 @@
   <data name="Mode_UnionNode_Info_TooFar" xml:space="preserve">
     <value>두 노드가 너무 멀리 떨어짐</value>
   </data>
+  <data name="Mode_UnitsFormat" xml:space="preserve">
+    <value>{0}U</value>
+  </data>
   <data name="Mode_UnlockSegment" xml:space="preserve">
     <value>세그먼트 잠금해제 모드</value>
   </data>
@@ -455,6 +458,9 @@
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>모드 패널 자동으로 숨김</value>
   </data>
+  <data name="Settings_CommonCreateShortcuts" xml:space="preserve">
+    <value>제작 모드 내 일반 단축키</value>
+  </data>
   <data name="Settings_CommonShortcuts" xml:space="preserve">
     <value>모드 내 일반 단축키</value>
   </data>
@@ -467,11 +473,29 @@
   <data name="Settings_Interface" xml:space="preserve">
     <value>인터페이스</value>
   </data>
+  <data name="Settings_LengthUnit" xml:space="preserve">
+    <value>길이 단위</value>
+  </data>
+  <data name="Settings_LengthUniteMeters" xml:space="preserve">
+    <value>미터</value>
+  </data>
+  <data name="Settings_LengthUniteUnits" xml:space="preserve">
+    <value>게임 단위 (1U = 8m)</value>
+  </data>
   <data name="Settings_NeedMoney" xml:space="preserve">
     <value>건설에 비용 필요</value>
   </data>
   <data name="Settings_PanelColumns" xml:space="preserve">
     <value>패널 열 갯수</value>
+  </data>
+  <data name="Settings_PanelOpenSide" xml:space="preserve">
+    <value>창 열림 방향</value>
+  </data>
+  <data name="Settings_PanelOpenSideDown" xml:space="preserve">
+    <value>아래</value>
+  </data>
+  <data name="Settings_PanelOpenSideUp" xml:space="preserve">
+    <value>위</value>
   </data>
   <data name="Settings_PlayEffects" xml:space="preserve">
     <value>음성 및 시각 효과 재생</value>
@@ -493,6 +517,9 @@
   </data>
   <data name="Settings_Shortcut_Apply" xml:space="preserve">
     <value>모드 사용사항 적용</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseAngle" xml:space="preserve">
+    <value>시작 각도 감소</value>
   </data>
   <data name="Settings_Shortcut_DecreaseHeight" xml:space="preserve">
     <value>높이 감소</value>
@@ -520,6 +547,9 @@
   </data>
   <data name="Settings_Shortcut_DistributeIntersections" xml:space="preserve">
     <value>원 위에 교차로를 일정 간격으로 배치</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseAngle" xml:space="preserve">
+    <value>시작 각도 증가</value>
   </data>
   <data name="Settings_Shortcut_IncreaseHeight" xml:space="preserve">
     <value>높이 증가</value>
@@ -560,6 +590,7 @@
   <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
     <value>다른 원 선택</value>
   </data>
+  
   <data name="Settings_SlopeUnit" xml:space="preserve">
     <value>기울기 단위</value>
   </data>

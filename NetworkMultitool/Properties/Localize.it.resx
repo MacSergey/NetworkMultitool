@@ -167,7 +167,9 @@ per cambiare la direzione della curva</value>
   <data name="Mode_CreateConnection" xml:space="preserve">
     <value>Crea modalità connessione</value>
   </data>
-  
+  <data name="Mode_CreateCurve" xml:space="preserve">
+    <value>Modalità Crea curva</value>
+  </data>
   <data name="Mode_CreateLoop" xml:space="preserve">
     <value>Crea modalità ciclo</value>
   </data>
@@ -267,20 +269,30 @@ in modo uniforme tra le intersezioni</value>
   <data name="Mode_Info_Connection_Create" xml:space="preserve">
     <value>Premi {0} per creare una connessione</value>
   </data>
-  
+  <data name="Mode_Info_ConstructionCost" xml:space="preserve">
+    <value>Costo di costruzione: {0}</value>
+  </data>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Premi {0} per creare</value>
   </data>
-  
-  
+  <data name="Mode_Info_HoldToMoveSlower" xml:space="preserve">
+    <value>Tieni premuto {0} per spostare X{1} più lentamente</value>
+  </data>
+  <data name="Mode_Info_HoldToStep" xml:space="preserve">
+    <value>Tieni premuto {0} per il passo {1}</value>
+  </data>
   <data name="Mode_Info_Loop_Create" xml:space="preserve">
     <value>Premi {0} per cambiare ciclo</value>
   </data>
-  
+  <data name="Mode_Info_NotEnoughMoney" xml:space="preserve">
+    <value>Fondi insufficenti</value>
+  </data>
   <data name="Mode_Info_OutOfMap" xml:space="preserve">
     <value>Fuori dalla mappa</value>
   </data>
-  
+  <data name="Mode_Info_Parallel_ChangeHeight" xml:space="preserve">
+    <value>Premi {0} o {1} per cambiare l'altezza</value>
+  </data>
   <data name="Mode_Info_Parallel_ChangeShift" xml:space="preserve">
     <value>Premi {0} per cambiare il lato della creazione</value>
   </data>
@@ -296,7 +308,9 @@ in modo uniforme tra le intersezioni</value>
   <data name="Mode_Info_RadiusTooSmall" xml:space="preserve">
     <value>Raggio troppo piccolo</value>
   </data>
-  
+  <data name="Mode_Info_Refund" xml:space="preserve">
+    <value>Rimborso: {0}</value>
+  </data>
   <data name="Mode_Info_SelectFirstSegment" xml:space="preserve">
     <value>Seleziona il primo segmento</value>
   </data>
@@ -312,7 +326,9 @@ in modo uniforme tra le intersezioni</value>
   <data name="Mode_Info_Step" xml:space="preserve">
     <value>Maiusc - X10, Ctrl - X0.1, Alt - X0.01</value>
   </data>
-  
+  <data name="Mode_Info_SwitchFollowTerrain" xml:space="preserve">
+    <value>Premi {0} per cambiare "segui terreno"</value>
+  </data>
   <data name="Mode_Info_SwitchOffset" xml:space="preserve">
     <value>Premi {0} per cambiare lo spostamento selezionato</value>
   </data>
@@ -326,7 +342,9 @@ modalità sotterranea</value>
   <data name="Mode_IntersectSegment" xml:space="preserve">
     <value>Modalità interseca i segmenti</value>
   </data>
-  
+  <data name="Mode_IntersectSegment_Info_CommonNode" xml:space="preserve">
+    <value>Questi segmenti hanno nodi comuni</value>
+  </data>
   <data name="Mode_IntersectSegment_Info_EdgeTooClose" xml:space="preserve">
     <value>Il bordo di un segmento è troppo vicino alla fine del secondo segmento</value>
   </data>
@@ -373,7 +391,10 @@ perché non è connesso con altri</value>
   <data name="Mode_SplitNode_Info_ClickToOrder" xml:space="preserve">
     <value>Fare clic per aggiungere un segmento all'ordine di divisione</value>
   </data>
-  
+  <data name="Mode_SplitNode_Info_ClickToSplit" xml:space="preserve">
+    <value>Fare clic per dividere il nodo e allineare all'altezza del terreno
+Fare clic con {0} per dividere il nodo e allineare all'altezza della sorgente</value>
+  </data>
   <data name="Mode_SplitNode_Info_NotAllowedSplit" xml:space="preserve">
     <value>Non è consentito dividere il nodo con un solo segmento</value>
   </data>
@@ -410,6 +431,9 @@ perché non è connesso con altri</value>
   <data name="Mode_UnionNode_Info_TooFar" xml:space="preserve">
     <value>Nodi troppo lontani l'uno dall'altro</value>
   </data>
+  <data name="Mode_UnitsFormat" xml:space="preserve">
+    <value>{0}U</value>
+  </data>
   <data name="Mode_UnlockSegment" xml:space="preserve">
     <value>Modalità Blocca segmento</value>
   </data>
@@ -434,15 +458,44 @@ bloccarlo o sbloccarlo</value>
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>Nascondi automaticamente il pannello modalità</value>
   </data>
+  <data name="Settings_CommonCreateShortcuts" xml:space="preserve">
+    <value>Scorciatoie comuni delle modalità di creazione</value>
+  </data>
   <data name="Settings_CommonShortcuts" xml:space="preserve">
     <value>Modalità scorciatoie comuni</value>
   </data>
-  
-  
-  
-  
+  <data name="Settings_FollowTerrain" xml:space="preserve">
+    <value>Le strade terrestri seguiranno il terreno</value>
+  </data>
+  <data name="Settings_Gameplay" xml:space="preserve">
+    <value>Gameplay</value>
+  </data>
+  <data name="Settings_Interface" xml:space="preserve">
+    <value>Interfaccia</value>
+  </data>
+  <data name="Settings_LengthUnit" xml:space="preserve">
+    <value>Unità di misura della lunghezza</value>
+  </data>
+  <data name="Settings_LengthUniteMeters" xml:space="preserve">
+    <value>Metri</value>
+  </data>
+  <data name="Settings_LengthUniteUnits" xml:space="preserve">
+    <value>Unità di gioco (1U = 8m)</value>
+  </data>
+  <data name="Settings_NeedMoney" xml:space="preserve">
+    <value>Richiede denaro per costruire</value>
+  </data>
   <data name="Settings_PanelColumns" xml:space="preserve">
     <value>Pannello Numero colonne</value>
+  </data>
+  <data name="Settings_PanelOpenSide" xml:space="preserve">
+    <value>Lato aperto del pannello</value>
+  </data>
+  <data name="Settings_PanelOpenSideDown" xml:space="preserve">
+    <value>Giù</value>
+  </data>
+  <data name="Settings_PanelOpenSideUp" xml:space="preserve">
+    <value>Sù</value>
   </data>
   <data name="Settings_PlayEffects" xml:space="preserve">
     <value>Riproduci effetti sonori e visivi</value>
@@ -465,7 +518,12 @@ bloccarlo o sbloccarlo</value>
   <data name="Settings_Shortcut_Apply" xml:space="preserve">
     <value>Applica l'azione in modalità</value>
   </data>
-  
+  <data name="Settings_Shortcut_DecreaseAngle" xml:space="preserve">
+    <value>Diminuisci l'angolo di inizio</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseHeight" xml:space="preserve">
+    <value>Riduci altezza</value>
+  </data>
   <data name="Settings_Shortcut_DecreaseOffset" xml:space="preserve">
     <value>Diminuisci spostamento inizio cerchio</value>
   </data>
@@ -490,7 +548,12 @@ bloccarlo o sbloccarlo</value>
   <data name="Settings_Shortcut_DistributeIntersections" xml:space="preserve">
     <value>Distribuisci le intersezioni in modo uniforme sul cerchio</value>
   </data>
-  
+  <data name="Settings_Shortcut_IncreaseAngle" xml:space="preserve">
+    <value>Aumenta l'angolo di inizio</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseHeight" xml:space="preserve">
+    <value>Aumenta l'altezza</value>
+  </data>
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
     <value>Aumenta spostamento inizio cerchio</value>
   </data>
@@ -515,7 +578,9 @@ bloccarlo o sbloccarlo</value>
   <data name="Settings_Shortcut_ResetArrangeCircle" xml:space="preserve">
     <value>Ripristina al cerchio predefinito</value>
   </data>
-  
+  <data name="Settings_Shortcut_SwitchFollowTerrain" xml:space="preserve">
+    <value>Cambia "segui terreno"</value>
+  </data>
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
     <value>Cambia direzione ciclo</value>
   </data>
@@ -524,6 +589,9 @@ bloccarlo o sbloccarlo</value>
   </data>
   <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
     <value>Cambia cerchio selezionato</value>
+  </data>
+  <data name="Settings_SlopeColors" xml:space="preserve">
+    <value>Imposta il colore per l'etichetta pendenza in base al valore</value>
   </data>
   <data name="Settings_SlopeUnit" xml:space="preserve">
     <value>Unità di misura pendenza</value>

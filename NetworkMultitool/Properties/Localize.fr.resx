@@ -432,6 +432,9 @@ Cliquez sur {0} pour le séparer et garder sa hauteur</value>
   <data name="Mode_UnionNode_Info_TooFar" xml:space="preserve">
     <value>Noeuds trop éloignés l'un de l'autre</value>
   </data>
+  <data name="Mode_UnitsFormat" xml:space="preserve">
+    <value>{0}u</value>
+  </data>
   <data name="Mode_UnlockSegment" xml:space="preserve">
     <value>Déverrouillage de segments</value>
   </data>
@@ -481,6 +484,9 @@ verrouiller ou déverrouiller</value>
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>Masquer automatiquement le panneau</value>
   </data>
+  <data name="Settings_CommonCreateShortcuts" xml:space="preserve">
+    <value>Raccourcis communs des modes de création</value>
+  </data>
   <data name="Settings_CommonShortcuts" xml:space="preserve">
     <value>Raccourcis communs des modes</value>
   </data>
@@ -488,16 +494,34 @@ verrouiller ou déverrouiller</value>
     <value>Les routes créées au sol vont suivre le terrain</value>
   </data>
   <data name="Settings_Gameplay" xml:space="preserve">
-    <value>Gameplay</value>
+    <value>Jouabilité</value>
   </data>
   <data name="Settings_Interface" xml:space="preserve">
     <value>Interface</value>
+  </data>
+  <data name="Settings_LengthUnit" xml:space="preserve">
+    <value>Unité de longeur</value>
+  </data>
+  <data name="Settings_LengthUniteMeters" xml:space="preserve">
+    <value>Mètres</value>
+  </data>
+  <data name="Settings_LengthUniteUnits" xml:space="preserve">
+    <value>Unités du jeu (1u = 8m)</value>
   </data>
   <data name="Settings_NeedMoney" xml:space="preserve">
     <value>Nécessite de l'argent pour construire</value>
   </data>
   <data name="Settings_PanelColumns" xml:space="preserve">
     <value>Nombre de colonnes de l'interface</value>
+  </data>
+  <data name="Settings_PanelOpenSide" xml:space="preserve">
+    <value>Côté du menu déroulant</value>
+  </data>
+  <data name="Settings_PanelOpenSideDown" xml:space="preserve">
+    <value>En bas</value>
+  </data>
+  <data name="Settings_PanelOpenSideUp" xml:space="preserve">
+    <value>En haut</value>
   </data>
   <data name="Settings_PlayEffects" xml:space="preserve">
     <value>Jouer des effets audio et visuels</value>
@@ -519,6 +543,9 @@ verrouiller ou déverrouiller</value>
   </data>
   <data name="Settings_Shortcut_Apply" xml:space="preserve">
     <value>Appliquer</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseAngle" xml:space="preserve">
+    <value>Diminuer l'angle de départ</value>
   </data>
   <data name="Settings_Shortcut_DecreaseHeight" xml:space="preserve">
     <value>Diminuer la hauteur</value>
@@ -546,6 +573,9 @@ verrouiller ou déverrouiller</value>
   </data>
   <data name="Settings_Shortcut_DistributeIntersections" xml:space="preserve">
     <value>Distribuer les intersections uniformément sur le cercle</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseAngle" xml:space="preserve">
+    <value>Augmenter l'angle de départ</value>
   </data>
   <data name="Settings_Shortcut_IncreaseHeight" xml:space="preserve">
     <value>Augmenter la hauteur</value>
@@ -586,6 +616,7 @@ verrouiller ou déverrouiller</value>
   <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
     <value>Changer de cercle</value>
   </data>
+  
   <data name="Settings_SlopeUnit" xml:space="preserve">
     <value>Unité de mesure des pentes</value>
   </data>

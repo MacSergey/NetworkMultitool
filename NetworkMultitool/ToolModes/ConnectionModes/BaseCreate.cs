@@ -17,6 +17,11 @@ namespace NetworkMultitool
     {
         public static NetworkMultitoolShortcut SwitchFollowTerrainShortcut { get; } = GetShortcut(KeyCode.F, nameof(SwitchFollowTerrainShortcut), nameof(Localize.Settings_Shortcut_SwitchFollowTerrain), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as BaseCreateMode)?.SwitchFollowTerrain(), ctrl: true);
 
+        public static NetworkMultitoolShortcut SwitchOffsetShortcut { get; } = GetShortcut(KeyCode.Tab, nameof(SwitchOffsetShortcut), nameof(Localize.Settings_Shortcut_SwitchOffset), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as BaseCreateMode)?.SwitchSelectOffset(), ctrl: true);
+
+        public static NetworkMultitoolShortcut IncreaseAngleShortcut { get; } = GetShortcut(KeyCode.P, nameof(IncreaseAngleShortcut), nameof(Localize.Settings_Shortcut_IncreaseAngle), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as BaseCreateMode)?.IncreaseAngle(), ToolModeType.Create, repeat: true, ignoreModifiers: true);
+        public static NetworkMultitoolShortcut DecreaseAngleShortcut { get; } = GetShortcut(KeyCode.O, nameof(DecreaseAngleShortcut), nameof(Localize.Settings_Shortcut_DecreaseAngle), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as BaseCreateMode)?.DecreaseAngle(), ToolModeType.Create, repeat: true, ignoreModifiers: true);
+
         protected override bool IsReseted => !IsFirst;
         protected override bool CanSwitchUnderground => !IsBoth;
 
@@ -33,6 +38,10 @@ namespace NetworkMultitool
 
         protected SegmentSelection First { get; set; }
         protected SegmentSelection Second { get; set; }
+
+        public bool SelectOffset { get; protected set; }
+        protected float FirstAngle { get; set; }
+        protected float SecondAngle { get; set; }
 
         protected bool IsFirstStart { get; set; }
         protected bool IsSecondStart { get; set; }
@@ -56,7 +65,7 @@ namespace NetworkMultitool
         private List<Point> Points { get; set; } = new List<Point>();
         protected NetInfo Info => GetNetInfo() ?? First.Id.GetSegment().Info;
         protected float MinPossibleRadius => Info != null ? Info.m_halfWidth * 2f : 16f;
-        protected float MaxPossibleRadius => 3000f;
+        protected float MaxPossibleRadius => 5000f;
 
         private bool ForceUnderground => IsBoth && (First.Id.GetSegment().Nodes().Any(n => n.m_flags.IsSet(NetNode.Flags.Underground)) || Second.Id.GetSegment().Nodes().Any(n => n.m_flags.IsSet(NetNode.Flags.Underground)));
 
@@ -121,12 +130,15 @@ namespace NetworkMultitool
             {
                 First = createMode.First;
                 Second = createMode.Second;
+                FirstAngle = createMode.FirstAngle;
+                SecondAngle = createMode.SecondAngle;
                 IsFirstStart = createMode.IsFirstStart;
                 IsSecondStart = createMode.IsSecondStart;
                 FollowTerrain = createMode.FollowTerrain;
+                SelectOffset = createMode.SelectOffset;
 
                 if (createMode.InitState == InitResult.Inited)
-                    Reinit();
+                    SetNotInited();
             }
             else
             {
@@ -140,6 +152,9 @@ namespace NetworkMultitool
             InitState = InitResult.None;
             CalcState = CalcResult.None;
 
+            FirstAngle = 0f;
+            SecondAngle = 0f;
+
             IsFirstStart = true;
             IsSecondStart = true;
         }
@@ -147,7 +162,7 @@ namespace NetworkMultitool
         {
             base.OnToolUpdate();
 
-            if (InitState == InitResult.NotInited)
+            if (InitState == InitResult.NotInited || InitState == InitResult.NeedReinit)
                 Init();
 
             if (InitState == InitResult.Inited && CalcState == CalcResult.None)
@@ -192,7 +207,7 @@ namespace NetworkMultitool
                 if (IsHoverSegment)
                 {
                     Second = HoverSegment;
-                    Reinit();
+                    SetNotInited();
                 }
             }
             else if (IsHoverNode)
@@ -213,8 +228,8 @@ namespace NetworkMultitool
 
             var firstPos = firstSegment.GetNode(IsFirstStart).GetNode().m_position;
             var secondPos = secondSegment.GetNode(IsSecondStart).GetNode().m_position;
-            var firstDir = -firstSegment.GetDirection(IsFirstStart).MakeFlatNormalized();
-            var secondDir = -secondSegment.GetDirection(IsSecondStart).MakeFlatNormalized();
+            var firstDir = -firstSegment.GetDirection(IsFirstStart).TurnRad(FirstAngle, true).MakeFlatNormalized();
+            var secondDir = -secondSegment.GetDirection(IsSecondStart).TurnRad(SecondAngle, true).MakeFlatNormalized();
 
             Height = (firstPos.y + secondPos.y) / 2f;
 
@@ -222,17 +237,17 @@ namespace NetworkMultitool
             SecondTrajectory = new StraightTrajectory(secondPos, secondPos + secondDir, false);
             Points = new List<Point>();
 
-            CalcState = Init(FirstTrajectory, SecondTrajectory, out var calcState) ? CalcResult.None : calcState;
+            CalcState = Init(InitState == InitResult.NeedReinit, FirstTrajectory, SecondTrajectory, out var calcState) ? CalcResult.None : calcState;
             SetInited();
         }
-        protected abstract bool Init(StraightTrajectory firstTrajectory, StraightTrajectory secondTrajectory, out CalcResult calcState);
+        protected abstract bool Init(bool reinit, StraightTrajectory firstTrajectory, StraightTrajectory secondTrajectory, out CalcResult calcState);
 
         protected virtual void SetFirstNode(ref NetSegment segment, ushort nodeId)
         {
             if (IsFirstStart != segment.IsStartNode(nodeId))
             {
                 IsFirstStart = !IsFirstStart;
-                Reinit();
+                SetNotInited();
             }
         }
         protected virtual void SetSecondNode(ref NetSegment segment, ushort nodeId)
@@ -240,7 +255,7 @@ namespace NetworkMultitool
             if (IsSecondStart != segment.IsStartNode(nodeId))
             {
                 IsSecondStart = !IsSecondStart;
-                Reinit();
+                SetNotInited();
             }
         }
         public override void OnSecondaryMouseClicked()
@@ -351,7 +366,7 @@ namespace NetworkMultitool
             }
         }
 
-        public void Reinit() => InitState = InitResult.NotInited;
+        public void SetNotInited() => InitState = InitResult.NotInited;
         protected void SetInited()
         {
             InitState = InitResult.Inited;
@@ -361,6 +376,28 @@ namespace NetworkMultitool
         protected virtual void IncreaseRadius() { }
         protected virtual void DecreaseRadius() { }
         private void SwitchFollowTerrain() => FollowTerrain = !FollowTerrain;
+        private void SwitchSelectOffset() => SelectOffset = !SelectOffset;
+        private void IncreaseAngle() => ChangeAngle(true);
+        private void DecreaseAngle() => ChangeAngle(false);
+        private void ChangeAngle(bool increase)
+        {
+            var step = Mathf.PI / 180f;
+            if (Utility.OnlyShiftIsPressed)
+                step *= 10f;
+            else if (Utility.OnlyCtrlIsPressed)
+                step *= 0.1f;
+            else if (Utility.OnlyAltIsPressed)
+                step *= 0.01f;
+
+            var value = SelectOffset ? FirstAngle : SecondAngle;
+            value = Mathf.Clamp((value + (increase ? step : -step)).RoundToNearest(step), -Mathf.PI, Mathf.PI);
+            if (SelectOffset)
+                FirstAngle = value;
+            else
+                SecondAngle = value;
+
+            InitState = InitResult.NeedReinit;
+        }
 
         protected float Step
         {
@@ -431,6 +468,7 @@ namespace NetworkMultitool
         {
             None,
             NotInited,
+            NeedReinit,
             Inited,
         }
         public enum CalcResult
@@ -568,7 +606,7 @@ namespace NetworkMultitool
                     label.Show = show;
                     if (show)
                     {
-                        label.text = IsCorrect ? $"{GetLengthString(Radius)}\n{GetAngleString(Mathf.Abs(Angle))}" : GetLengthString(Radius);
+                        label.text = IsCorrect ? $"{GetLengthString(Radius)}\n{GetAngleString(Mathf.Abs(Angle) * Mathf.Rad2Deg)}" : GetLengthString(Radius);
                         label.Direction = IsCorrect ? CenterDir : Vector3.forward;
                         label.WorldPosition = CenterPos + label.Direction * 5f;
 
@@ -830,6 +868,7 @@ namespace NetworkMultitool
         public class Straight : BaseStraight
         {
             public bool IsShort => Length < 8f;
+            public float Angle { get; private set; }
 
             public IEnumerable<Point> Parts
             {
@@ -847,8 +886,19 @@ namespace NetworkMultitool
             public Point MiddlePoint => new Point(Position(0.5f), Tangent(0.5f));
             public Point EndPoint => new Point(EndPosition, -EndDirection);
 
-            public Straight(Vector3 start, Vector3 end, Vector3 labelDir, InfoLabel label, float height) : base(start, end, labelDir, label, height) { }
+            public Straight(Vector3 start, Vector3 end, Vector3 labelDir, InfoLabel label, float height, float angle = 0) : base(start, end, labelDir, label, height) 
+            {
+                Angle = angle;
+            }
 
+            protected override string GetText()
+            {
+                var text = base.GetText();
+                if (Angle != 0)
+                    text += "\n" + GetAngleString(Angle * Mathf.Rad2Deg);
+
+                return text;
+            }
             public void Update(NetInfo info, bool show) => Update(info.m_halfWidth + 7f, show);
 
             public void Render(RenderManager.CameraInfo cameraInfo, NetInfo info, Color color, Color colorArrow, bool underground) => this.RenderMeasure(cameraInfo, info.m_halfWidth, 5f, LabelDir, color, colorArrow, underground);

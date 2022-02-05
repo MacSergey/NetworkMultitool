@@ -429,6 +429,7 @@ Napauta {0}-näppäin pohjassa jakaaksesi risteys lähtökorkeuteen</value>
   <data name="Mode_UnionNode_Info_TooFar" xml:space="preserve">
     <value>Risteykset ovat liian kaukana toisistaan</value>
   </data>
+  
   <data name="Mode_UnlockSegment" xml:space="preserve">
     <value>Vapauta tie</value>
   </data>
@@ -453,6 +454,7 @@ tai avataksesi se</value>
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>Piilota valikko automaattisesti</value>
   </data>
+  
   <data name="Settings_CommonShortcuts" xml:space="preserve">
     <value>Työkalujen yhteiset pikanäppäimet</value>
   </data>
@@ -465,12 +467,18 @@ tai avataksesi se</value>
   <data name="Settings_Interface" xml:space="preserve">
     <value>Käyttöliittymä</value>
   </data>
+  
+  
+  
   <data name="Settings_NeedMoney" xml:space="preserve">
     <value>Vaadi rahaa rakentamiseen</value>
   </data>
   <data name="Settings_PanelColumns" xml:space="preserve">
     <value>Paneelin sarakkeiden määrä</value>
   </data>
+  
+  
+  
   <data name="Settings_PlayEffects" xml:space="preserve">
     <value>Toista ääni- ja videoefektit</value>
   </data>
@@ -492,6 +500,7 @@ tai avataksesi se</value>
   <data name="Settings_Shortcut_Apply" xml:space="preserve">
     <value>Toteuta toiminto</value>
   </data>
+  
   <data name="Settings_Shortcut_DecreaseHeight" xml:space="preserve">
     <value>Laske korkeutta</value>
   </data>
@@ -519,6 +528,7 @@ tai avataksesi se</value>
   <data name="Settings_Shortcut_DistributeIntersections" xml:space="preserve">
     <value>Jaa risteykset tasaisesti ympyrään</value>
   </data>
+  
   <data name="Settings_Shortcut_IncreaseHeight" xml:space="preserve">
     <value>Nosta korkeutta</value>
   </data>
@@ -558,6 +568,7 @@ tai avataksesi se</value>
   <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
     <value>Vaihda valittu ympyrä</value>
   </data>
+  
   <data name="Settings_SlopeUnit" xml:space="preserve">
     <value>Kaltevuuden yksikkö</value>
   </data>

@@ -108,6 +108,8 @@ namespace NetworkMultitool
         {
             if (IsFirstSelect)
                 Reset(this);
+            else
+                base.OnSecondaryMouseClicked();
         }
 
         private static bool IntersectSegments(ushort firstId, ushort secondId)

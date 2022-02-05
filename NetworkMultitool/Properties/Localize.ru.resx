@@ -434,6 +434,9 @@
   <data name="Mode_UnionNode_Info_TooFar" xml:space="preserve">
     <value>Узлы слишком далеко друг от друга</value>
   </data>
+  <data name="Mode_UnitsFormat" xml:space="preserve">
+    <value>{0}U</value>
+  </data>
   <data name="Mode_UnlockSegment" xml:space="preserve">
     <value>Режим разблокировки сегмента</value>
   </data>
@@ -492,6 +495,9 @@
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>Автоматически скрывать панель выбора режимов</value>
   </data>
+  <data name="Settings_CommonCreateShortcuts" xml:space="preserve">
+    <value>Общие горячие клавиши режимов создания</value>
+  </data>
   <data name="Settings_CommonShortcuts" xml:space="preserve">
     <value>Общие горячие клавиши режимов</value>
   </data>
@@ -504,11 +510,29 @@
   <data name="Settings_Interface" xml:space="preserve">
     <value>Интерфейс</value>
   </data>
+  <data name="Settings_LengthUnit" xml:space="preserve">
+    <value>Единицы измерения длинны</value>
+  </data>
+  <data name="Settings_LengthUniteMeters" xml:space="preserve">
+    <value>Метры</value>
+  </data>
+  <data name="Settings_LengthUniteUnits" xml:space="preserve">
+    <value>Игровые единицы (1U = 8м)</value>
+  </data>
   <data name="Settings_NeedMoney" xml:space="preserve">
     <value>Для строительства требуются деньги</value>
   </data>
   <data name="Settings_PanelColumns" xml:space="preserve">
     <value>Количество колонок на панели</value>
+  </data>
+  <data name="Settings_PanelOpenSide" xml:space="preserve">
+    <value>Сторона открытия панели</value>
+  </data>
+  <data name="Settings_PanelOpenSideDown" xml:space="preserve">
+    <value>Вниз</value>
+  </data>
+  <data name="Settings_PanelOpenSideUp" xml:space="preserve">
+    <value>Вверх</value>
   </data>
   <data name="Settings_PlayEffects" xml:space="preserve">
     <value>Проигрывать аудио и визуальные эффекты</value>
@@ -530,6 +554,9 @@
   </data>
   <data name="Settings_Shortcut_Apply" xml:space="preserve">
     <value>Выполнить действие</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseAngle" xml:space="preserve">
+    <value>Уменьшить начальный угол</value>
   </data>
   <data name="Settings_Shortcut_DecreaseHeight" xml:space="preserve">
     <value>Уменьшить высоту</value>
@@ -557,6 +584,9 @@
   </data>
   <data name="Settings_Shortcut_DistributeIntersections" xml:space="preserve">
     <value>Распределение перекрестков равномерно по кругу</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseAngle" xml:space="preserve">
+    <value>Увеличить начальный угол</value>
   </data>
   <data name="Settings_Shortcut_IncreaseHeight" xml:space="preserve">
     <value>Увеличить высоту</value>
@@ -596,6 +626,9 @@
   </data>
   <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
     <value>Сменить выбранную окружность</value>
+  </data>
+  <data name="Settings_SlopeColors" xml:space="preserve">
+    <value>Задавать цвет уклону в зависимости от значения</value>
   </data>
   <data name="Settings_SlopeUnit" xml:space="preserve">
     <value>Единицы измерения наклона</value>

@@ -430,6 +430,7 @@ Klik med {0} for at opdele node og følg start højden</value>
   <data name="Mode_UnionNode_Info_TooFar" xml:space="preserve">
     <value>Nodes er for langt fra hinanden</value>
   </data>
+  
   <data name="Mode_UnlockSegment" xml:space="preserve">
     <value>Oplås element tilstand</value>
   </data>
@@ -454,11 +455,14 @@ låse eller låse op</value>
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>Skjul værktøjspanelet automatisk</value>
   </data>
+  <data name="Settings_CommonCreateShortcuts" xml:space="preserve">
+    <value>Almindelige genveje til at bygge</value>
+  </data>
   <data name="Settings_CommonShortcuts" xml:space="preserve">
     <value>Standart genveje</value>
   </data>
   <data name="Settings_FollowTerrain" xml:space="preserve">
-    <value>Oprettet på grunde veje følg terræn</value>
+    <value>Veje vil følge terræn</value>
   </data>
   <data name="Settings_Gameplay" xml:space="preserve">
     <value>Gameplay</value>
@@ -466,11 +470,23 @@ låse eller låse op</value>
   <data name="Settings_Interface" xml:space="preserve">
     <value>Interface</value>
   </data>
+  
+  
+  
   <data name="Settings_NeedMoney" xml:space="preserve">
-    <value>Kræver penge for at bygge</value>
+    <value>Koster penge at bygge</value>
   </data>
   <data name="Settings_PanelColumns" xml:space="preserve">
     <value>Antal kolonner i panel</value>
+  </data>
+  <data name="Settings_PanelOpenSide" xml:space="preserve">
+    <value>Side panel</value>
+  </data>
+  <data name="Settings_PanelOpenSideDown" xml:space="preserve">
+    <value>Ned</value>
+  </data>
+  <data name="Settings_PanelOpenSideUp" xml:space="preserve">
+    <value>Op</value>
   </data>
   <data name="Settings_PlayEffects" xml:space="preserve">
     <value>Afspil lyd- og visuelle effekter</value>
@@ -488,10 +504,13 @@ låse eller låse op</value>
     <value>Overlay</value>
   </data>
   <data name="Settings_SegmentLength" xml:space="preserve">
-    <value>Maks Element længde</value>
+    <value>Maks vej længde</value>
   </data>
   <data name="Settings_Shortcut_Apply" xml:space="preserve">
-    <value>Anvend tilstand</value>
+    <value>Anvend</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseAngle" xml:space="preserve">
+    <value>Formindsk startvinkel</value>
   </data>
   <data name="Settings_Shortcut_DecreaseHeight" xml:space="preserve">
     <value>Reducer højden</value>
@@ -519,6 +538,9 @@ låse eller låse op</value>
   </data>
   <data name="Settings_Shortcut_DistributeIntersections" xml:space="preserve">
     <value>Fordel kryds jævnt på cirkel</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseAngle" xml:space="preserve">
+    <value>Forøg startvinkel</value>
   </data>
   <data name="Settings_Shortcut_IncreaseHeight" xml:space="preserve">
     <value>Øg højden</value>
@@ -559,6 +581,7 @@ låse eller låse op</value>
   <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
     <value>Skift valgte cirkel</value>
   </data>
+  
   <data name="Settings_SlopeUnit" xml:space="preserve">
     <value>Skråningsenhed til måling</value>
   </data>

@@ -431,6 +431,9 @@ Klicke mit {0}, um den Netzwerk-Knoten zu teilen und die ursprüngliche Höhe zu
   <data name="Mode_UnionNode_Info_TooFar" xml:space="preserve">
     <value>Die Netzwerk-Knoten sind zu weit voneinander entfernt</value>
   </data>
+  <data name="Mode_UnitsFormat" xml:space="preserve">
+    <value>{0}U</value>
+  </data>
   <data name="Mode_UnlockSegment" xml:space="preserve">
     <value>Segment entsperren</value>
   </data>
@@ -455,6 +458,9 @@ oder Entsperren auswählen</value>
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>Panel automatisch ausblenden</value>
   </data>
+  <data name="Settings_CommonCreateShortcuts" xml:space="preserve">
+    <value>Gemeinsame Verknüpfungen des Erstellungsmodus</value>
+  </data>
   <data name="Settings_CommonShortcuts" xml:space="preserve">
     <value>Gemeinsame Tastenkürzel</value>
   </data>
@@ -467,11 +473,29 @@ oder Entsperren auswählen</value>
   <data name="Settings_Interface" xml:space="preserve">
     <value>Benutzeroberfläche</value>
   </data>
+  <data name="Settings_LengthUnit" xml:space="preserve">
+    <value>Maßeinheit der Länge</value>
+  </data>
+  <data name="Settings_LengthUniteMeters" xml:space="preserve">
+    <value>Meter</value>
+  </data>
+  <data name="Settings_LengthUniteUnits" xml:space="preserve">
+    <value>Spieleinheiten (1U = 8m)</value>
+  </data>
   <data name="Settings_NeedMoney" xml:space="preserve">
     <value>Erfordert Geld zum Bauen</value>
   </data>
   <data name="Settings_PanelColumns" xml:space="preserve">
     <value>Anzahl der Spalten</value>
+  </data>
+  <data name="Settings_PanelOpenSide" xml:space="preserve">
+    <value>Seite zu der das Panel öffnet</value>
+  </data>
+  <data name="Settings_PanelOpenSideDown" xml:space="preserve">
+    <value>Unten</value>
+  </data>
+  <data name="Settings_PanelOpenSideUp" xml:space="preserve">
+    <value>Oben</value>
   </data>
   <data name="Settings_PlayEffects" xml:space="preserve">
     <value>Audio- und visuelle Effekte abspielen</value>
@@ -493,6 +517,9 @@ oder Entsperren auswählen</value>
   </data>
   <data name="Settings_Shortcut_Apply" xml:space="preserve">
     <value>Aktion im Modus anwenden</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseAngle" xml:space="preserve">
+    <value>Start-Winkel verringern</value>
   </data>
   <data name="Settings_Shortcut_DecreaseHeight" xml:space="preserve">
     <value>Höhe verringern</value>
@@ -520,6 +547,9 @@ oder Entsperren auswählen</value>
   </data>
   <data name="Settings_Shortcut_DistributeIntersections" xml:space="preserve">
     <value>Kreuzungen gleichmäßig auf den Kreis verteilen</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseAngle" xml:space="preserve">
+    <value>Start-Winkel erhöhen</value>
   </data>
   <data name="Settings_Shortcut_IncreaseHeight" xml:space="preserve">
     <value>Höhe vergrößern</value>
@@ -559,6 +589,9 @@ oder Entsperren auswählen</value>
   </data>
   <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
     <value>Ausgewählten Kreis wechseln</value>
+  </data>
+  <data name="Settings_SlopeColors" xml:space="preserve">
+    <value>Farbe für die vom Wert abhängige Neigungsbeschriftung festlegen</value>
   </data>
   <data name="Settings_SlopeUnit" xml:space="preserve">
     <value>Maßeinheit für Gefälle</value>
