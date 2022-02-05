@@ -276,6 +276,7 @@
   <data name="Mode_Info_HoldToStep" xml:space="preserve">
     <value>Yüksekliği {1} kadar değiştirmek için {0} tuşuna tıklayın</value>
   </data>
+  
   <data name="Mode_Info_Loop_Create" xml:space="preserve">
     <value>Döngü oluşturmak için {0} tıklayın</value>
   </data>
@@ -293,9 +294,6 @@
   </data>
   <data name="Mode_Info_Parallel_Create" xml:space="preserve">
     <value>Paralel oluşturmak için {0} tuşunu kullan</value>
-  </data>
-  <data name="Mode_Info_Parallel_Invert" xml:space="preserve">
-    <value>Ağı ters çevirmek için {0} tuşunu kullan</value>
   </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
     <value>Çap çok büyük</value>
@@ -448,6 +446,7 @@ Düğümü dağıtmak ve hedef yüksekliğine ayarlamak için {0} tuşunu kullan
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>Aktive etme kısayolları</value>
   </data>
+  
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>Mod panelini otomatik gizle</value>
   </data>

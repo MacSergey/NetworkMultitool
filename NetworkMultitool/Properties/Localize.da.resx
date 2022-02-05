@@ -281,6 +281,7 @@ skæringspunkter jævnt på cirklen</value>
   <data name="Mode_Info_HoldToStep" xml:space="preserve">
     <value>Hold {0} nede for trin {1}</value>
   </data>
+  
   <data name="Mode_Info_Loop_Create" xml:space="preserve">
     <value>Tryk på {0} for at oprette kurve</value>
   </data>
@@ -298,9 +299,6 @@ skæringspunkter jævnt på cirklen</value>
   </data>
   <data name="Mode_Info_Parallel_Create" xml:space="preserve">
     <value>Tryk på {0} for at oprette parallel</value>
-  </data>
-  <data name="Mode_Info_Parallel_Invert" xml:space="preserve">
-    <value>Tryk på {0} for at ændre netværk</value>
   </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
     <value>Radius for stor</value>
@@ -454,6 +452,7 @@ låse eller låse op</value>
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>Aktiveringsgenveje</value>
   </data>
+  
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>Skjul værktøjspanelet automatisk</value>
   </data>

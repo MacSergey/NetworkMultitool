@@ -282,6 +282,9 @@
   <data name="Mode_Info_HoldToStep" xml:space="preserve">
     <value>{0}키를 눌러 {1}만큼 스텝</value>
   </data>
+  <data name="Mode_Info_InvertNetwork" xml:space="preserve">
+    <value>{0} 키를 눌러 네트워크 반전</value>
+  </data>
   <data name="Mode_Info_Loop_Create" xml:space="preserve">
     <value>{0} 키를 눌러서 루프 생성</value>
   </data>
@@ -299,9 +302,6 @@
   </data>
   <data name="Mode_Info_Parallel_Create" xml:space="preserve">
     <value>{0} 키를 눌러서 평행선 생성</value>
-  </data>
-  <data name="Mode_Info_Parallel_Invert" xml:space="preserve">
-    <value>{0} 키를 눌러 네트워크 반전</value>
   </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
     <value>반지름 너무 큼</value>
@@ -454,6 +454,9 @@
   
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>활성화 단축키</value>
+  </data>
+  <data name="Settings_AutoConnect" xml:space="preserve">
+    <value>자동으로 근처 노드에 평행하게 도로 연결</value>
   </data>
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>모드 패널 자동으로 숨김</value>

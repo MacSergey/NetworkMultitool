@@ -279,6 +279,9 @@
   <data name="Mode_Info_HoldToStep" xml:space="preserve">
     <value>{0} で {1} 刻み</value>
   </data>
+  <data name="Mode_Info_InvertNetwork" xml:space="preserve">
+    <value>{0} でネットワークを反転</value>
+  </data>
   <data name="Mode_Info_Loop_Create" xml:space="preserve">
     <value>{0} でループ接続を確定</value>
   </data>
@@ -296,9 +299,6 @@
   </data>
   <data name="Mode_Info_Parallel_Create" xml:space="preserve">
     <value>{0} をパラレル敷設を確定</value>
-  </data>
-  <data name="Mode_Info_Parallel_Invert" xml:space="preserve">
-    <value>{0} でネットワークを反転</value>
   </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
     <value>半径が大き過ぎます</value>
@@ -451,6 +451,9 @@
   
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>Mode＆ツールの有効化</value>
+  </data>
+  <data name="Settings_AutoConnect" xml:space="preserve">
+    <value>パラレル敷設時に最寄りのノードと自動的に接続</value>
   </data>
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>自動的にUIパネルを折り畳む</value>

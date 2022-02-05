@@ -284,6 +284,9 @@
   <data name="Mode_Info_HoldToStep" xml:space="preserve">
     <value>{0} для шага {1}</value>
   </data>
+  <data name="Mode_Info_InvertNetwork" xml:space="preserve">
+    <value>Нажмите {0} для инвертирования</value>
+  </data>
   <data name="Mode_Info_Loop_Create" xml:space="preserve">
     <value>Нажмите {0} для создания петли</value>
   </data>
@@ -301,9 +304,6 @@
   </data>
   <data name="Mode_Info_Parallel_Create" xml:space="preserve">
     <value>Нажмите {0} для создания параллели</value>
-  </data>
-  <data name="Mode_Info_Parallel_Invert" xml:space="preserve">
-    <value>Нажмите {0} для инвертирования</value>
   </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
     <value>Радиус слишком большой</value>
@@ -491,6 +491,9 @@
   </data>
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>Горячие клавиши активации</value>
+  </data>
+  <data name="Settings_AutoConnect" xml:space="preserve">
+    <value>Автоматически соединять параллельную дорогу с ближайшими узлами</value>
   </data>
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>Автоматически скрывать панель выбора режимов</value>

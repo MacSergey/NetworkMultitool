@@ -281,6 +281,9 @@ in modo uniforme tra le intersezioni</value>
   <data name="Mode_Info_HoldToStep" xml:space="preserve">
     <value>Tieni premuto {0} per il passo {1}</value>
   </data>
+  <data name="Mode_Info_InvertNetwork" xml:space="preserve">
+    <value>Premi {0} per invertire la rete</value>
+  </data>
   <data name="Mode_Info_Loop_Create" xml:space="preserve">
     <value>Premi {0} per cambiare ciclo</value>
   </data>
@@ -298,9 +301,6 @@ in modo uniforme tra le intersezioni</value>
   </data>
   <data name="Mode_Info_Parallel_Create" xml:space="preserve">
     <value>Premi {0} per creare parallele</value>
-  </data>
-  <data name="Mode_Info_Parallel_Invert" xml:space="preserve">
-    <value>Premi {0} per invertire la rete</value>
   </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
     <value>Raggio troppo grande</value>
@@ -454,6 +454,9 @@ bloccarlo o sbloccarlo</value>
   
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>Attivazione scorciatoie</value>
+  </data>
+  <data name="Settings_AutoConnect" xml:space="preserve">
+    <value>Collega automaticamente la strada parallela ai nodi più vicini</value>
   </data>
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>Nascondi automaticamente il pannello modalità</value>

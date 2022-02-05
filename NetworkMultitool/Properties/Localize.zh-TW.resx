@@ -117,13 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  
-  
-  
-  
-  
-  
-  
+  <data name="Mode_AddNode" xml:space="preserve">
+    <value>節點新增 模式</value>
+  </data>
+  <data name="Mode_AddNode_Info_ClickToAdd" xml:space="preserve">
+    <value>點擊左鍵新增節點</value>
+  </data>
+  <data name="Mode_AddNode_Info_SelectToAdd" xml:space="preserve">
+    <value>請選擇要新增節點的部分</value>
+  </data>
+  <data name="Mode_AddNode_Info_TooCloseNode" xml:space="preserve">
+    <value>無法加入節點
+與其他的節點距離太短</value>
+  </data>
+  <data name="Mode_AngleFormat" xml:space="preserve">
+    <value>{0}°</value>
+  </data>
+  <data name="Mode_ArrangeAtCircle" xml:space="preserve">
+    <value>圓圈對齊 模式</value>
+  </data>
+  <data name="Mode_ArrangeAtLine" xml:space="preserve">
+    <value>多點均勻 模式</value>
+  </data>
   
   
   

@@ -283,6 +283,9 @@ les nœuds sur le cercle</value>
   <data name="Mode_Info_HoldToStep" xml:space="preserve">
     <value>Maintenez {0} pour changer de {1}</value>
   </data>
+  <data name="Mode_Info_InvertNetwork" xml:space="preserve">
+    <value>Appuyez sur {0} pour inverser le sens</value>
+  </data>
   <data name="Mode_Info_Loop_Create" xml:space="preserve">
     <value>Appuyez sur {0} pour créer une boucle</value>
   </data>
@@ -300,9 +303,6 @@ les nœuds sur le cercle</value>
   </data>
   <data name="Mode_Info_Parallel_Create" xml:space="preserve">
     <value>Appuyez sur {0} pour créer en parallèle</value>
-  </data>
-  <data name="Mode_Info_Parallel_Invert" xml:space="preserve">
-    <value>Appuyez sur {0} pour inverser le réseau</value>
   </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
     <value>Rayon trop important</value>
@@ -480,6 +480,9 @@ verrouiller ou déverrouiller</value>
   
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>Raccourcis d'activation</value>
+  </data>
+  <data name="Settings_AutoConnect" xml:space="preserve">
+    <value>Connecter automatiquement la route parallèle aux nœuds les plus proches</value>
   </data>
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>Masquer automatiquement le panneau</value>

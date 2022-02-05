@@ -282,6 +282,9 @@ intersections evenly on circle</value>
   <data name="Mode_Info_HoldToStep" xml:space="preserve">
     <value>Hold {0} to step {1}</value>
   </data>
+  <data name="Mode_Info_InvertNetwork" xml:space="preserve">
+    <value>Press {0} to invert network</value>
+  </data>
   <data name="Mode_Info_Loop_Create" xml:space="preserve">
     <value>Press {0} to create loop</value>
   </data>
@@ -299,9 +302,6 @@ intersections evenly on circle</value>
   </data>
   <data name="Mode_Info_Parallel_Create" xml:space="preserve">
     <value>Press {0} to create parallel</value>
-  </data>
-  <data name="Mode_Info_Parallel_Invert" xml:space="preserve">
-    <value>Press {0} to invert network</value>
   </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
     <value>Radius too big</value>

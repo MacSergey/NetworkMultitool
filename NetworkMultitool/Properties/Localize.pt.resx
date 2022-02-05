@@ -253,10 +253,10 @@ intersecções de forma igualmente em círculo</value>
   
   
   
+  
   <data name="Mode_Info_OutOfMap" xml:space="preserve">
     <value>Fora do mapa</value>
   </data>
-  
   
   
   
@@ -392,6 +392,7 @@ porque não está ligado a outros</value>
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>Atalhos de ativação</value>
   </data>
+  
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>Ocultar automaticamente o painel de modos</value>
   </data>

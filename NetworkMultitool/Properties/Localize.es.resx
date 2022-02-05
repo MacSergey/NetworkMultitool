@@ -283,6 +283,9 @@ de manera uniforme en el círculo</value>
   <data name="Mode_Info_HoldToStep" xml:space="preserve">
     <value>Mantener presionada la tecla {0} para pasar a {1}</value>
   </data>
+  <data name="Mode_Info_InvertNetwork" xml:space="preserve">
+    <value>Presiona la tecla {0} para cambiar dirección de la red</value>
+  </data>
   <data name="Mode_Info_Loop_Create" xml:space="preserve">
     <value>Presiona la tecla {0} para crear bucle</value>
   </data>
@@ -300,9 +303,6 @@ de manera uniforme en el círculo</value>
   </data>
   <data name="Mode_Info_Parallel_Create" xml:space="preserve">
     <value>Presiona la tecla {0} para crear red paralela</value>
-  </data>
-  <data name="Mode_Info_Parallel_Invert" xml:space="preserve">
-    <value>Presiona la tecla {0} para invertir la red</value>
   </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
     <value>El radio es muy grande</value>
@@ -469,6 +469,9 @@ Clic con {0} para separar nodo y alinear a la altura de la selección</value>
   </data>
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>Atajos de activación</value>
+  </data>
+  <data name="Settings_AutoConnect" xml:space="preserve">
+    <value>Conectar carretera paralela al nodo más cercano automáticamente</value>
   </data>
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>Esconder panel de modos automáticamente</value>
