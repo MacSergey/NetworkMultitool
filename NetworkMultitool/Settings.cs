@@ -137,6 +137,7 @@ namespace NetworkMultitool
             commonKeymapping.AddKeymapping(BaseCreateMode.SwitchOffsetShortcut);
             commonKeymapping.AddKeymapping(BaseCreateMode.IncreaseAngleShortcut);
             commonKeymapping.AddKeymapping(BaseCreateMode.DecreaseAngleShortcut);
+            commonKeymapping.AddKeymapping(BaseNetworkMultitoolMode.InvertNetworkShortcut);
 
             var connectionGroup = ShortcutsTab.AddGroup(Localize.Mode_CreateConnection);
             var connectionKeymapping = AddKeyMappingPanel(connectionGroup);
@@ -161,7 +162,6 @@ namespace NetworkMultitool
             parallelKeymapping.AddKeymapping(CreateParallelMode.IncreaseHeightShortcut);
             parallelKeymapping.AddKeymapping(CreateParallelMode.DecreaseHeightShortcut);
             parallelKeymapping.AddKeymapping(CreateParallelMode.ChangeSideShortcut);
-            parallelKeymapping.AddKeymapping(CreateParallelMode.InvertNetworkShortcut);
 
             var arrangeCircleGroup = ShortcutsTab.AddGroup(Localize.Mode_ArrangeAtCircle);
             var arrangeCircleKeymapping = AddKeyMappingPanel(arrangeCircleGroup);

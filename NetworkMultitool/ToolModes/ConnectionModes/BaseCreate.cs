@@ -13,7 +13,7 @@ using static ModsCommon.Utilities.VectorUtilsExtensions;
 
 namespace NetworkMultitool
 {
-    public abstract class BaseCreateMode : BaseNetworkMultitoolMode, ICostMode
+    public abstract class BaseCreateMode : BaseNetworkMultitoolMode, ICostMode, IInvertNetworkMode
     {
         public static NetworkMultitoolShortcut SwitchFollowTerrainShortcut { get; } = GetShortcut(KeyCode.F, nameof(SwitchFollowTerrainShortcut), nameof(Localize.Settings_Shortcut_SwitchFollowTerrain), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as BaseCreateMode)?.SwitchFollowTerrain(), ctrl: true);
 
@@ -60,7 +60,10 @@ namespace NetworkMultitool
         protected CalcResult CalcState { get; private set; }
 
         protected bool FollowTerrain { get; private set; }
-        protected bool IsFollowTerrain => FollowTerrain && FirstNodeId.GetNode().m_flags.IsFlagSet(NetNode.Flags.OnGround) && SecondNodeId.GetNode().m_flags.IsFlagSet(NetNode.Flags.OnGround);
+        protected bool IsFollowTerrain => CanFollowTerrain && FollowTerrain;
+        protected bool CanFollowTerrain => FirstNodeId.GetNode().m_flags.IsFlagSet(NetNode.Flags.OnGround) && SecondNodeId.GetNode().m_flags.IsFlagSet(NetNode.Flags.OnGround);
+
+        private bool Invert { get; set; }
 
         private List<Point> Points { get; set; } = new List<Point>();
         protected NetInfo Info => GetNetInfo() ?? First.Id.GetSegment().Info;
@@ -125,6 +128,7 @@ namespace NetworkMultitool
 
             ResetParams();
             Cost = 0;
+            Invert = false;
 
             if (prevMode is BaseCreateMode createMode)
             {
@@ -278,6 +282,7 @@ namespace NetworkMultitool
             if (CalcState == CalcResult.Calculated && EnoughMoney && Info is NetInfo info)
             {
                 var points = Points.ToArray();
+                var invert = Invert;
                 var firstId = First.Id;
                 var secondId = Second.Id;
                 var isFirstStart = IsFirstStart;
@@ -286,14 +291,14 @@ namespace NetworkMultitool
                 var cost = Cost;
                 SimulationManager.instance.AddAction(() =>
                 {
-                    Create(points, firstId, secondId, isFirstStart, isSecondStart, info, followTerrain, cost);
+                    Create(points, invert, firstId, secondId, isFirstStart, isSecondStart, info, followTerrain, cost);
                     PlayEffect(points, info.m_halfWidth, true);
                 });
 
                 Reset(null);
             }
         }
-        private static void Create(Point[] points, ushort firstId, ushort secondId, bool isFirstStart, bool isSecondStart, NetInfo info, bool followTerrain, int cost)
+        private static void Create(Point[] points, bool invert, ushort firstId, ushort secondId, bool isFirstStart, bool isSecondStart, NetInfo info, bool followTerrain, int cost)
         {
             var startNodeId = firstId.GetSegment().GetNode(isFirstStart);
             var endNodeId = secondId.GetSegment().GetNode(isSecondStart);
@@ -318,7 +323,13 @@ namespace NetworkMultitool
 
             for (var i = 1; i < nodeIds.Count; i += 1)
             {
-                CreateSegmentAuto(out var newSegmentId, info, nodeIds[i - 1], nodeIds[i], points[i - 1].ForwardDirection, points[i].BackwardDirection);
+                ushort newSegmentId;
+
+                if (invert)
+                    CreateSegmentAuto(out newSegmentId, info, nodeIds[i], nodeIds[i - 1], points[i].BackwardDirection, points[i - 1].ForwardDirection);
+                else
+                    CreateSegmentAuto(out newSegmentId, info, nodeIds[i - 1], nodeIds[i], points[i - 1].ForwardDirection, points[i].BackwardDirection);
+
                 CalculateSegmentDirections(newSegmentId);
             }
 
@@ -376,6 +387,11 @@ namespace NetworkMultitool
         protected virtual void IncreaseRadius() { }
         protected virtual void DecreaseRadius() { }
         private void SwitchFollowTerrain() => FollowTerrain = !FollowTerrain;
+        public void SetInvert()
+        {
+            if (IsInvertable(Info))
+                Invert = !Invert;
+        }
         private void SwitchSelectOffset() => SelectOffset = !SelectOffset;
         private void IncreaseAngle() => ChangeAngle(true);
         private void DecreaseAngle() => ChangeAngle(false);
@@ -433,14 +449,18 @@ namespace NetworkMultitool
                 var info = Info;
                 RenderCalculatedOverlay(cameraInfo, Info);
                 if (Settings.ShowOverlay)
-                    RenderParts(Points, cameraInfo, EnoughMoney ? Colors.Yellow : Colors.Red, info.m_halfWidth * 2f);
+                    RenderPartsOverlay(cameraInfo, Points, EnoughMoney ? Colors.Yellow : Colors.Red, info.m_halfWidth * 2f);
+
+                RenderPartsArrows(cameraInfo, Points, Info, Invert);
             }
             else if (CalcState != CalcResult.None)
             {
                 var info = Info;
                 RenderFailedOverlay(cameraInfo, info);
                 if (Settings.ShowOverlay)
-                    RenderParts(Points, cameraInfo);
+                    RenderPartsOverlay(cameraInfo, Points);
+
+                RenderPartsArrows(cameraInfo, Points, Info, Invert);
             }
 
             base.RenderOverlay(cameraInfo);
@@ -458,7 +478,7 @@ namespace NetworkMultitool
                 else
                     SetSlope(points, FirstTrajectory.StartPosition.y, SecondTrajectory.StartPosition.y);
 
-                RenderParts(points, Info);
+                RenderPartsGeometry(points, Info, Invert);
             }
 
             base.RenderGeometry(cameraInfo);
@@ -886,7 +906,7 @@ namespace NetworkMultitool
             public Point MiddlePoint => new Point(Position(0.5f), Tangent(0.5f));
             public Point EndPoint => new Point(EndPosition, -EndDirection);
 
-            public Straight(Vector3 start, Vector3 end, Vector3 labelDir, InfoLabel label, float height, float angle = 0) : base(start, end, labelDir, label, height) 
+            public Straight(Vector3 start, Vector3 end, Vector3 labelDir, InfoLabel label, float height, float angle = 0) : base(start, end, labelDir, label, height)
             {
                 Angle = angle;
             }

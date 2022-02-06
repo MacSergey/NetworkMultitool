@@ -297,6 +297,7 @@ namespace NetworkMultitool
             get
             {
                 yield return ApplyShortcut;
+
                 yield return ResetArrangeCircleShortcut;
                 yield return DistributeEvenlyShortcut;
                 yield return DistributeIntersectionsShortcut;

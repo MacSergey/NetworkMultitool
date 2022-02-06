@@ -22,6 +22,8 @@ namespace NetworkMultitool
     {
         public static NetworkMultitoolShortcut ApplyShortcut { get; } = GetShortcut(KeyCode.Return, nameof(ApplyShortcut), nameof(Localize.Settings_Shortcut_Apply), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as BaseNetworkMultitoolMode)?.Apply());
 
+        public static NetworkMultitoolShortcut InvertNetworkShortcut { get; } = GetShortcut(KeyCode.I, nameof(InvertNetworkShortcut), nameof(Localize.Settings_Shortcut_InvertNetwork), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as IInvertNetworkMode)?.SetInvert(), ctrl: true);
+
         protected static NetworkMultitoolShortcut GetShortcut(KeyCode keyCode, Action action, ToolModeType mode = ToolModeType.Any, bool ctrl = false, bool shift = false, bool alt = false, bool repeat = false, bool ignoreModifiers = false) => GetShortcut(keyCode, string.Empty, string.Empty, action, mode, ctrl, shift, alt, repeat, ignoreModifiers);
         protected static NetworkMultitoolShortcut GetShortcut(KeyCode keyCode, string name, string labelKey, Action action, ToolModeType mode = ToolModeType.Any, bool ctrl = false, bool shift = false, bool alt = false, bool repeat = false, bool ignoreModifiers = false) => new NetworkMultitoolShortcut(name, labelKey, SavedInputKey.Encode(keyCode, ctrl, shift, alt), action, mode) { CanRepeat = repeat, IgnoreModifiers = ignoreModifiers };
 
@@ -219,7 +221,7 @@ namespace NetworkMultitool
         }
         private static bool FindCloseNode(out ushort nodeId, NetInfo info, Vector3 position)
         {
-            
+
             var gridMinX = MinCell(position.x);
             var gridMinZ = MinCell(position.z);
             var gridMaxX = MaxCell(position.x);
@@ -731,7 +733,7 @@ namespace NetworkMultitool
                 return true;
         }
         protected static BezierTrajectory GetTrajectory(Point first, Point second) => new BezierTrajectory(first.Position, first.ForwardDirection, second.Position, second.BackwardDirection);
-        protected void RenderParts(List<Point> points, RenderManager.CameraInfo cameraInfo, Color? color = null, float? width = null)
+        protected void RenderPartsOverlay(RenderManager.CameraInfo cameraInfo, List<Point> points, Color? color = null, float? width = null)
         {
             var data = new OverlayData(cameraInfo) { Color = color, Width = width, RenderLimit = Underground, Cut = true };
             for (var i = 1; i < points.Count; i += 1)
@@ -740,7 +742,18 @@ namespace NetworkMultitool
                     GetTrajectory(points[i - 1], points[i]).Render(data);
             }
         }
-        protected void RenderParts(Point[] points, NetInfo info, bool invert = false)
+        protected void RenderPartsArrows(RenderManager.CameraInfo cameraInfo, List<Point> points, NetInfo info, bool invert = false)
+        {
+            if (info.m_laneTypes != NetInfo.LaneType.None && IsInvertable(info))
+            {
+                for (var i = 1; i < points.Count; i += 1)
+                {
+                    if (!points[i - 1].IsEmpty && !points[i].IsEmpty)
+                        RenderArrows(cameraInfo, points[i - 1], points[i], invert);
+                }
+            }
+        }
+        protected void RenderPartsGeometry(Point[] points, NetInfo info, bool invert = false)
         {
             for (var i = 1; i < points.Length; i += 1)
             {
@@ -809,6 +822,61 @@ namespace NetworkMultitool
                 }
             }
         }
+        protected void RenderArrows(RenderManager.CameraInfo cameraInfo, Point start, Point end, bool invert)
+        {
+            if ((start.Position - end.Position).magnitude < 10f)
+                return;
+
+            var properties = Singleton<GameAreaManager>.instance.m_properties;
+            if (properties != null)
+            {
+                var trajectory = new BezierTrajectory(start.Position, start.ForwardDirection, end.Position, end.BackwardDirection);
+                var arrowPos = trajectory.Position(0.5f);
+                var arrowDir = trajectory.Tangent(0.5f).MakeFlatNormalized();
+                var arrowNormal = arrowDir.Turn90(true);
+
+                if (!invert)
+                {
+                    var quad = new Quad3()
+                    {
+                        a = arrowPos,
+                        b = arrowPos + 2.5f * arrowNormal,
+                        c = arrowPos + 2.5f * arrowDir,
+                        d = arrowPos - 2.5f * arrowNormal,
+                    };
+                    Singleton<RenderManager>.instance.OverlayEffect.DrawQuad(cameraInfo, Colors.White192, quad, -10f, 1280f, false, false);
+
+                    quad = new Quad3()
+                    {
+                        a = arrowPos - 0.75f * arrowNormal,
+                        b = arrowPos - 0.75f * arrowNormal - 4f * arrowDir,
+                        c = arrowPos + 0.75f * arrowNormal - 4f * arrowDir,
+                        d = arrowPos + 0.75f * arrowNormal,
+                    };
+                    Singleton<RenderManager>.instance.OverlayEffect.DrawQuad(cameraInfo, Colors.White192, quad, -10f, 1280f, false, false);
+                }
+                else
+                {
+                    var quad = new Quad3()
+                    {
+                        a = arrowPos - 2.5f * arrowNormal,
+                        b = arrowPos - 2.5f * arrowDir,
+                        c = arrowPos + 2.5f * arrowNormal,
+                        d = arrowPos,
+                    };
+                    Singleton<RenderManager>.instance.OverlayEffect.DrawQuad(cameraInfo, Colors.White192, quad, -10f, 1280f, false, false);
+
+                    quad = new Quad3()
+                    {
+                        a = arrowPos + 0.75f * arrowNormal,
+                        b = arrowPos + 0.75f * arrowNormal + 4f * arrowDir,
+                        c = arrowPos - 0.75f * arrowNormal + 4f * arrowDir,
+                        d = arrowPos - 0.75f * arrowNormal,
+                    };
+                    Singleton<RenderManager>.instance.OverlayEffect.DrawQuad(cameraInfo, Colors.White192, quad, -10f, 1280f, false, false);
+                }
+            }
+        }
 
         #endregion
 
@@ -848,6 +916,7 @@ namespace NetworkMultitool
             var info = ToolsModifierControl.toolController.Tools.OfType<NetTool>().FirstOrDefault().Prefab?.m_netAI?.m_info;
             return info != null && CheckItemClass(info.GetConnectionClass()) ? info : null;
         }
+        protected bool IsInvertable(NetInfo info) => info.m_forwardVehicleLaneCount != info.m_backwardVehicleLaneCount;
 
         public struct Point
         {
@@ -1020,6 +1089,11 @@ namespace NetworkMultitool
     {
         public int Cost { get; }
     }
+    public interface IInvertNetworkMode
+    {
+        public void SetInvert();
+    }
+
     public class InfoLabel : CustomUILabel
     {
         public Vector3 WorldPosition { get; set; }

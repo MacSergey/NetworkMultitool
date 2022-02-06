@@ -305,6 +305,8 @@ namespace NetworkMultitool
             get
             {
                 yield return ApplyShortcut;
+
+                yield return InvertNetworkShortcut;
                 yield return IncreaseRadiusShortcut;
                 yield return DecreaseRadiusShortcut;
 
@@ -336,7 +338,8 @@ namespace NetworkMultitool
                     string.Format(Localize.Mode_Info_ChangeRadius, DecreaseRadiusShortcut.AddInfoColor(), IncreaseRadiusShortcut.AddInfoColor()) + "\n" +
                     Localize.Mode_Info_Step + "\n" +
                     string.Format(Localize.Mode_CreateLoop_Info_Change, SwitchIsLoopShortcut.AddInfoColor()) + "\n" +
-                    (IsFollowTerrain ? string.Format(Localize.Mode_Info_SwitchFollowTerrain, SwitchFollowTerrainShortcut.AddInfoColor()) + "\n" : string.Empty) +
+                    (IsInvertable(Info) ? string.Format(Localize.Mode_Info_InvertNetwork, InvertNetworkShortcut.AddInfoColor()) + "\n" : string.Empty) +
+                    (CanFollowTerrain ? string.Format(Localize.Mode_Info_SwitchFollowTerrain, SwitchFollowTerrainShortcut.AddInfoColor()) + "\n" : string.Empty) +
                     string.Format(Localize.Mode_Info_Loop_Create, ApplyShortcut.AddInfoColor());
         }
         protected override void ResetParams()
