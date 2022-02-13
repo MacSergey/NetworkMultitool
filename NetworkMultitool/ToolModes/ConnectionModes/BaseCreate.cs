@@ -204,13 +204,17 @@ namespace NetworkMultitool
             if (!IsFirst)
             {
                 if (IsHoverSegment)
+                {
                     First = HoverSegment;
+                    IsFirstStart = GetIsStart(First.Id);
+                }
             }
             else if (!IsSecond)
             {
                 if (IsHoverSegment)
                 {
                     Second = HoverSegment;
+                    IsSecondStart = GetIsStart(Second.Id);
                     SetNotInited();
                 }
             }
@@ -223,6 +227,14 @@ namespace NetworkMultitool
                     SetFirstNode(ref firstSegment, HoverNode.Id);
                 else if (secondSegment.Contains(HoverNode.Id))
                     SetSecondNode(ref secondSegment, HoverNode.Id);
+            }
+
+            static bool GetIsStart(ushort segmentId)
+            {
+                ref var segment = ref segmentId.GetSegment();
+                ref var startNode = ref segment.m_startNode.GetNode();
+                ref var endNode = ref segment.m_endNode.GetNode();
+                return startNode.CountSegments() <= endNode.CountSegments();
             }
         }
         private void Init()
