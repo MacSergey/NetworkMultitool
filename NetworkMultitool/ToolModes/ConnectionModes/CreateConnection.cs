@@ -28,6 +28,7 @@ namespace NetworkMultitool
             get
             {
                 yield return ApplyShortcut;
+                yield return InvertNetworkShortcut;
                 yield return IncreaseRadiiShortcut;
                 yield return DecreaseRadiiShortcut;
 
@@ -105,10 +106,9 @@ namespace NetworkMultitool
                     string.Format(Localize.Mode_Info_ChangeBothRadius, DecreaseRadiiShortcut.AddInfoColor(), IncreaseRadiiShortcut.AddInfoColor()) + "\n" +
                     string.Format(Localize.Mode_Info_ChangeCircle, SwitchSelectShortcut.AddInfoColor()) + "\n" +
                     string.Format(Localize.Mode_Info_ChangeOneRadius, DecreaseOneRadiusShortcut.AddInfoColor(), IncreaseOneRadiusShortcut.AddInfoColor()) + "\n" +
-                    //string.Format(Localize.Mode_Info_SwitchOffset, SwitchOffsetShortcut.AddInfoColor()) + "\n" +
-                    //string.Format(Localize.Mode_Info_ChangeOffset, DecreaseOffsetShortcut.AddInfoColor(), IncreaseOffsetShortcut.AddInfoColor()) + "\n" +
                     Localize.Mode_Info_Step + "\n" +
-                    (IsFollowTerrain ? string.Format(Localize.Mode_Info_SwitchFollowTerrain, SwitchFollowTerrainShortcut.AddInfoColor()) + "\n" : string.Empty) +
+                    (IsInvertable(Info) ? string.Format(Localize.Mode_Info_InvertNetwork, InvertNetworkShortcut.AddInfoColor()) + "\n" : string.Empty) +
+                    (CanFollowTerrain ? string.Format(Localize.Mode_Info_SwitchFollowTerrain, SwitchFollowTerrainShortcut.AddInfoColor()) + "\n" : string.Empty) +
                     string.Format(Localize.Mode_Info_Connection_Create, ApplyShortcut.AddInfoColor());
                 }
 

@@ -13,7 +13,7 @@ using static ModsCommon.Utilities.VectorUtilsExtensions;
 
 namespace NetworkMultitool
 {
-    public class CreateParallelMode : BaseNodeLineMode, ICostMode
+    public class CreateParallelMode : BaseNodeLineMode, ICostMode, IInvertNetworkMode
     {
         public static NetworkMultitoolShortcut IncreaseShiftShortcut { get; } = GetShortcut(KeyCode.Equals, nameof(IncreaseShiftShortcut), nameof(Localize.Settings_Shortcut_IncreaseShift), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as CreateParallelMode)?.IncreaseShift(), repeat: true, ignoreModifiers: true);
         public static NetworkMultitoolShortcut DecreaseShiftShortcut { get; } = GetShortcut(KeyCode.Minus, nameof(DecreaseShiftShortcut), nameof(Localize.Settings_Shortcut_DecreaseShift), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as CreateParallelMode)?.DecreaseShift(), repeat: true, ignoreModifiers: true);
@@ -22,7 +22,6 @@ namespace NetworkMultitool
         public static NetworkMultitoolShortcut DecreaseHeightShortcut { get; } = GetShortcut(KeyCode.LeftBracket, nameof(DecreaseHeightShortcut), nameof(Localize.Settings_Shortcut_DecreaseHeight), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as CreateParallelMode)?.DecreaseHeight(), repeat: true, ignoreModifiers: true);
 
         public static NetworkMultitoolShortcut ChangeSideShortcut { get; } = GetShortcut(KeyCode.Tab, nameof(ChangeSideShortcut), nameof(Localize.Settings_Shortcut_InvertShift), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as CreateParallelMode)?.ChangeSide());
-        public static NetworkMultitoolShortcut InvertNetworkShortcut { get; } = GetShortcut(KeyCode.Tab, nameof(InvertNetworkShortcut), nameof(Localize.Settings_Shortcut_InvertNetwork), () => (SingletonTool<NetworkMultitoolTool>.Instance.Mode as CreateParallelMode)?.SetInvert(), ctrl: true);
 
         public override ToolModeType Type => ToolModeType.CreateParallel;
         private bool Calculated { get; set; }
@@ -32,6 +31,8 @@ namespace NetworkMultitool
 
         private bool Side { get; set; }
         private bool Invert { get; set; }
+        private bool ResultInvert => Side ^ Invert;
+
         private float? Shift { get; set; }
         private float DeltaHeight { get; set; }
         private Straight StartLine { get; set; }
@@ -63,16 +64,19 @@ namespace NetworkMultitool
         protected override string GetInfo()
         {
             if (AddState == AddResult.None && Nodes.Count >= 2)
-                return
-                    CostInfo +
+            {
+                var text = CostInfo +
                     Localize.Mode_NodeLine_Info_SelectNode + "\n\n" +
                     string.Format(Localize.Mode_Info_ChangeShift, DecreaseShiftShortcut.AddInfoColor(), IncreaseShiftShortcut.AddInfoColor()) + "\n" +
                     (AllowHeight ? (string.Format(Localize.Mode_Info_Parallel_ChangeHeight, DecreaseHeightShortcut.AddInfoColor(), IncreaseHeightShortcut.AddInfoColor()) + "\n") : string.Empty) +
                     Localize.Mode_Info_Step + "\n" +
                     string.Format(Localize.Mode_Info_Parallel_ChangeShift, ChangeSideShortcut.AddInfoColor()) + "\n" +
-                    string.Format(Localize.Mode_Info_Parallel_Invert, InvertNetworkShortcut.AddInfoColor()) + "\n" +
+                    (IsInvertable(Info) ? string.Format(Localize.Mode_Info_InvertNetwork, InvertNetworkShortcut.AddInfoColor()) + "\n" : string.Empty) +
                     string.Format(Localize.Mode_Info_Parallel_Create, ApplyShortcut.AddInfoColor()) +
                     UndergroundInfo;
+
+                return text;
+            }
             else
                 return base.GetInfo();
         }
@@ -246,7 +250,7 @@ namespace NetworkMultitool
             if (Nodes.Count >= 2 && EnoughMoney)
             {
                 var points = Points.ToArray();
-                var invert = Side ^ Invert;
+                var invert = ResultInvert;
                 var info = Info;
                 var cost = Cost;
 
@@ -324,10 +328,13 @@ namespace NetworkMultitool
             Side = !Side;
             Calculated = false;
         }
-        private void SetInvert()
+        public void SetInvert()
         {
-            Invert = !Invert;
-            Calculated = false;
+            if (IsInvertable(Info))
+            {
+                Invert = !Invert;
+                Calculated = false;
+            }
         }
         protected override void AddFirst(NodeSelection selection)
         {
@@ -356,7 +363,9 @@ namespace NetworkMultitool
             if (Calculated)
             {
                 if (Settings.ShowOverlay)
-                    RenderParts(Points, cameraInfo, EnoughMoney ? Colors.Yellow : Colors.Red, Info.m_halfWidth * 2f);
+                    RenderPartsOverlay(cameraInfo, Points, EnoughMoney ? Colors.Yellow : Colors.Red, Info.m_halfWidth * 2f);
+
+                RenderPartsArrows(cameraInfo, Points, Info, ResultInvert);
 
                 StartLine.Render(cameraInfo, Colors.Gray224, Colors.Gray224, Underground);
                 EndLine.Render(cameraInfo, Colors.Gray224, Colors.Gray224, Underground);
@@ -367,7 +376,7 @@ namespace NetworkMultitool
             if (Calculated && Settings.ShowMesh)
             {
                 var points = Points.ToArray();
-                RenderParts(points, Info, Side ^ Invert);
+                RenderPartsGeometry(points, Info, ResultInvert);
             }
 
             base.RenderGeometry(cameraInfo);

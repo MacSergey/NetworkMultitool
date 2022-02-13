@@ -26,10 +26,8 @@ namespace NetworkMultitool
             {
                 yield return ApplyShortcut;
 
+                yield return InvertNetworkShortcut;
                 yield return SwitchOffsetShortcut;
-                //yield return IncreaseAngleShortcut;
-                //yield return DecreaseAngleShortcut;
-
                 yield return SwitchFollowTerrainShortcut;
             }
         }
@@ -48,7 +46,8 @@ namespace NetworkMultitool
                 return
                     CostInfo +
                     Localize.Mode_Info_ClickOnNodeToChangeCreateDir + "\n" +
-                    (IsFollowTerrain ? string.Format(Localize.Mode_Info_SwitchFollowTerrain, SwitchFollowTerrainShortcut.AddInfoColor()) + "\n" : string.Empty) +
+                    (IsInvertable(Info) ? string.Format(Localize.Mode_Info_InvertNetwork, InvertNetworkShortcut.AddInfoColor()) + "\n" : string.Empty) +
+                    (CanFollowTerrain ? string.Format(Localize.Mode_Info_SwitchFollowTerrain, SwitchFollowTerrainShortcut.AddInfoColor()) + "\n" : string.Empty) +
                     string.Format(Localize.Mode_Info_Create, ApplyShortcut.AddInfoColor());
         }
         protected override bool Init(bool reinit, StraightTrajectory firstTrajectory, StraightTrajectory secondTrajectory, out CalcResult calcState)

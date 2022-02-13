@@ -577,6 +577,15 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Press {0} to invert network.
+        /// </summary>
+        internal static string Mode_Info_InvertNetwork {
+            get {
+                return ResourceManager.GetString("Mode_Info_InvertNetwork", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Press {0} to create loop.
         /// </summary>
         internal static string Mode_Info_Loop_Create {
@@ -627,15 +636,6 @@ namespace NetworkMultitool {
         internal static string Mode_Info_Parallel_Create {
             get {
                 return ResourceManager.GetString("Mode_Info_Parallel_Create", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на Press {0} to invert network.
-        /// </summary>
-        internal static string Mode_Info_Parallel_Invert {
-            get {
-                return ResourceManager.GetString("Mode_Info_Parallel_Invert", resourceCulture);
             }
         }
         
