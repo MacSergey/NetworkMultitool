@@ -278,7 +278,9 @@ om de richting van de kromming te veranderen</value>
   <data name="Mode_Info_HoldToStep" xml:space="preserve">
     <value>Houd {0} ingedrukt om {1} in stappen te verplaatsen</value>
   </data>
-  
+  <data name="Mode_Info_InvertNetwork" xml:space="preserve">
+    <value>Druk op {0} om het netwerk om te keren</value>
+  </data>
   <data name="Mode_Info_Loop_Create" xml:space="preserve">
     <value>Druk {0} om een lus te creëren</value>
   </data>
@@ -444,10 +446,13 @@ Klik met {0} om de knooppunt te splitsen en de terrein uit te lijnen op de origi
   </data>
   
   
+  
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>Activatie snelkoppelingen</value>
   </data>
-  
+  <data name="Settings_AutoConnect" xml:space="preserve">
+    <value>Verbind automatisch de parallelle weg met dichtstbijzijnde knooppunten</value>
+  </data>
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>Automatische verberging van de knooppunten paneel</value>
   </data>

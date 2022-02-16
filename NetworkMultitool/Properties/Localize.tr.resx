@@ -276,7 +276,9 @@
   <data name="Mode_Info_HoldToStep" xml:space="preserve">
     <value>Yüksekliği {1} kadar değiştirmek için {0} tuşuna tıklayın</value>
   </data>
-  
+  <data name="Mode_Info_InvertNetwork" xml:space="preserve">
+    <value>Ağı tersine çevirmek için {0} tuşuna basın</value>
+  </data>
   <data name="Mode_Info_Loop_Create" xml:space="preserve">
     <value>Döngü oluşturmak için {0} tıklayın</value>
   </data>
@@ -443,10 +445,13 @@ Düğümü dağıtmak ve hedef yüksekliğine ayarlamak için {0} tuşunu kullan
   </data>
   
   
+  
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>Aktive etme kısayolları</value>
   </data>
-  
+  <data name="Settings_AutoConnect" xml:space="preserve">
+    <value>Paralel yolu otomatik olarak en yakın düğümlere bağlayın</value>
+  </data>
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>Mod panelini otomatik gizle</value>
   </data>

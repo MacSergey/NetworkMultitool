@@ -486,6 +486,27 @@ lock or unlock it</value>
 - Fixed not updated zones when segment moved in Arrange at line mode.
 - Added Danish and Turkish translations.</value>
   </data>
+  <data name="Mod_WhatsNewMessage1_3" xml:space="preserve">
+    <value>- Added option for auto connecting ends of new parallel network to existing network of same type. can be disabled in mod options.
+- Fixed problem with duplicates of networks in parallel mode.
+- Create/Loop/Curve mode will automatically select build direction where node has minimum segments.
+- Added ability to change start angle to Connection and Loop modes. To change angel press O or P (can be rebinded in mod settings).
+- Added the ability to invert one way roads in creation modes.
+- Added direction arrows.
+- Added the ability to switch between meters and units.
+- Added colors to slope labels depending on the value.
+- Added selected segment highlight to loop mode.
+- Max circle radius in Connection and loop modes was increased to 5km.
+- Max straight part length in connection mode was increased from 500m to 5000m .
+- Added the ability to hide original mod button in toolbar and use only UUI button.
+- Added the ability to set panel open side.
+- Modes panel will be at the front of all other UI elements.
+- Added Dutch translation.
+- Fixed bug with not working right click to disable tool. Now all modes on first click reset selection (if it exists), and on second click disable tool.
+- Fixed some problems with input on mac os.
+- Fixed slope value calculation.
+- Fixed error in Arrange at circle mode when selected circle without intersections.</value>
+  </data>
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>Activation shortcuts</value>
   </data>
