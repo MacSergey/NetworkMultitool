@@ -284,7 +284,7 @@ les nœuds sur le cercle</value>
     <value>Maintenez {0} pour changer de {1}</value>
   </data>
   <data name="Mode_Info_InvertNetwork" xml:space="preserve">
-    <value>Appuyez sur {0} pour inverser le sens</value>
+    <value>Appuyez sur {0} pour inverser le réseau</value>
   </data>
   <data name="Mode_Info_Loop_Create" xml:space="preserve">
     <value>Appuyez sur {0} pour créer une boucle</value>
@@ -305,7 +305,7 @@ les nœuds sur le cercle</value>
     <value>Appuyez sur {0} pour créer en parallèle</value>
   </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
-    <value>Rayon trop important</value>
+    <value>Rayon trop grand</value>
   </data>
   <data name="Mode_Info_RadiusTooSmall" xml:space="preserve">
     <value>Rayon trop petit</value>
@@ -384,7 +384,7 @@ car il n'est pas connecté aux autres</value>
     <value>Égaliser la pente</value>
   </data>
   <data name="Mode_SplitNode" xml:space="preserve">
-    <value>Séparateur de nœud</value>
+    <value>Séparer des nœuds</value>
   </data>
   <data name="Mode_SplitNode_Info_ClickFromOrder" xml:space="preserve">
     <value>Cliquez pour retirer le segment de l'action</value>
@@ -477,6 +477,7 @@ verrouiller ou déverrouiller</value>
 - Correction de l'affichage en mode souterrain.
 - Ajout des traductions hongroises et coréennes.</value>
   </data>
+  
   
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>Raccourcis d'activation</value>

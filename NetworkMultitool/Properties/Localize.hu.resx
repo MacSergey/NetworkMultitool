@@ -180,7 +180,9 @@ kattints duplán a kör közepére</value>
   
   
   
-  
+  <data name="Mode_Info_ArrangeCircle_DragToMoveNode" xml:space="preserve">
+    <value>Húzd a csomópont mozgatásához</value>
+  </data>
   
   
   
@@ -377,6 +379,7 @@ zároláshoz vagy feloldáshoz</value>
   
   
   
+  
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>Mód panel automatikus elrejtése</value>
   </data>
@@ -391,20 +394,28 @@ zároláshoz vagy feloldáshoz</value>
   
   
   
+  <data name="Settings_PanelOpenSideDown" xml:space="preserve">
+    <value>Le</value>
+  </data>
   
   
   
+  <data name="Settings_PreviewTypeBoth" xml:space="preserve">
+    <value>Mindkettő</value>
+  </data>
   
-  
-  
-  
+  <data name="Settings_PreviewTypeOverlay" xml:space="preserve">
+    <value>Átfedés</value>
+  </data>
   <data name="Settings_SegmentLength" xml:space="preserve">
     <value>Maximális szegmens hossz</value>
   </data>
   <data name="Settings_Shortcut_Apply" xml:space="preserve">
     <value>Mód művelet alkalmazása</value>
   </data>
-  
+  <data name="Settings_Shortcut_DecreaseAngle" xml:space="preserve">
+    <value>Kezdő szög csökkentése</value>
+  </data>
   
   <data name="Settings_Shortcut_DecreaseOffset" xml:space="preserve">
     <value>A görbe kezdési eltolásának csökkentése</value>
@@ -419,7 +430,9 @@ zároláshoz vagy feloldáshoz</value>
   
   
   
-  
+  <data name="Settings_Shortcut_IncreaseHeight" xml:space="preserve">
+    <value>Magasság növelése</value>
+  </data>
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
     <value>A görbe kezdési eltolásának növelése</value>
   </data>
