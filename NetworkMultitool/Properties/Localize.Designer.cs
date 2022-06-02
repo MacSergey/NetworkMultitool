@@ -94,6 +94,20 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на - Added option for auto connecting ends of new parallel network to existing network of same type. can be disabled in mod options.
+        ///- Fixed problem with duplicates of networks in parallel mode.
+        ///- Create/Loop/Curve mode will automatically select build direction where node has minimum segments.
+        ///- Added ability to change start angle to Connection and Loop modes. To change angel press O or P (can be rebinded in mod settings).
+        ///- Added the ability to invert one way roads in creation modes.
+        ///- Added direction ar [остаток строки не уместился]&quot;;.
+        /// </summary>
+        internal static string Mod_WhatsNewMessage1_3 {
+            get {
+                return ResourceManager.GetString("Mod_WhatsNewMessage1_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Add node mode.
         /// </summary>
         internal static string Mode_AddNode {
