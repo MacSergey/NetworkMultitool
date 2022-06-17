@@ -69,6 +69,12 @@ namespace NetworkMultitool
             success &= AddTool();
             success &= AddNetToolButton();
             success &= ToolOnEscape();
+
+            AddAssetPanelOnButtonClicked(typeof(EditRoadPlacementPanel), ref success);
+            AddAssetPanelOnButtonClicked(typeof(BeautificationPanel), ref success);
+            AddAssetPanelOnButtonClicked(typeof(PublicTransportPanel), ref success);
+            AddAssetPanelOnButtonClicked(typeof(RoadsPanel), ref success);
+
             if (IsFRT)
             {
                 success &= FineRoadToolUpdate();
@@ -90,6 +96,11 @@ namespace NetworkMultitool
         private bool ToolOnEscape()
         {
             return AddTranspiler(typeof(Patcher), nameof(Patcher.GameKeyShortcutsEscapeTranspiler), typeof(GameKeyShortcuts), "Escape");
+        }
+        private void AddAssetPanelOnButtonClicked(Type panelType, ref bool success)
+        {
+            success &= AddPrefix(typeof(Patcher), nameof(Patcher.AssetPanelOnButtonClickedPrefix), panelType, "OnButtonClicked");
+            success &= AddPostfix(typeof(Patcher), nameof(Patcher.AssetPanelOnButtonClickedPostfix), panelType, "OnButtonClicked");
         }
         private bool FineRoadToolUpdate()
         {
@@ -114,6 +125,17 @@ namespace NetworkMultitool
         public static IEnumerable<CodeInstruction> ToolControllerAwakeTranspiler(ILGenerator generator, IEnumerable<CodeInstruction> instructions) => ModsCommon.Patcher.ToolControllerAwakeTranspiler<Mod, NetworkMultitoolTool>(generator, instructions);
 
         public static void GeneratedScrollPanelCreateOptionPanelPostfix(string templateName, ref OptionPanelBase __result) => ModsCommon.Patcher.GeneratedScrollPanelCreateOptionPanelPostfix<Mod, NetworkMultitoolButton>(templateName, ref __result, ModsCommon.Patcher.RoadsOptionPanel, ModsCommon.Patcher.TracksOptionPanel, ModsCommon.Patcher.PathsOptionPanel, ModsCommon.Patcher.CanalsOptionPanel, ModsCommon.Patcher.QuaysOptionPanel, ModsCommon.Patcher.FloodWallsOptionPanel);
+
+        private static bool WasActive { get; set; }
+        public static void AssetPanelOnButtonClickedPrefix()
+        {
+            WasActive = SingletonTool<NetworkMultitoolTool>.Instance.enabled;
+        }
+        public static void AssetPanelOnButtonClickedPostfix()
+        {
+            if (WasActive)
+                SingletonTool<NetworkMultitoolTool>.Instance.Enable();
+        }
 
         public static IEnumerable<CodeInstruction> GameKeyShortcutsEscapeTranspiler(ILGenerator generator, IEnumerable<CodeInstruction> instructions) => ModsCommon.Patcher.GameKeyShortcutsEscapeTranspiler<Mod, NetworkMultitoolTool>(generator, instructions);
 
