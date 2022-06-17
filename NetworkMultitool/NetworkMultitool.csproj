@@ -159,6 +159,7 @@
       <LastGenOutput>Localize.Designer.cs</LastGenOutput>
       <CustomToolNamespace>NetworkMultitool</CustomToolNamespace>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Localize.ro.resx" />
     <EmbeddedResource Include="Properties\Localize.ru.resx" />
   </ItemGroup>
   <ItemGroup>
@@ -208,6 +209,7 @@
   <Import Project="..\ModsCommon\LocalizeShared\LocalizeShared.da.projitems" Label="Shared" />
   <Import Project="..\ModsCommon\LocalizeShared\LocalizeShared.tr.projitems" Label="Shared" />
   <Import Project="..\ModsCommon\LocalizeShared\LocalizeShared.nl.projitems" Label="Shared" />
+  <Import Project="..\ModsCommon\LocalizeShared\LocalizeShared.ro.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup Condition="'$(Configuration)' == 'Stable Release' OR '$(Configuration)' == 'Stable Debug'">
     <WorkshopId>2560782729</WorkshopId>
