@@ -20,13 +20,13 @@ namespace NetworkMultitool
         #region PROPERTIES
 
         protected override string IdRaw => nameof(NetworkMultitool);
-        public override List<Version> Versions { get; } = new List<Version>
+        public override List<ModVersion> Versions { get; } = new List<ModVersion>
         {
-            new Version("1.3.1"),
-            new Version("1.3"),
-            new Version("1.2"),
-            new Version("1.1"),
-            new Version("1.0")
+            new ModVersion(new Version("1.3.1"), new DateTime(2022, 6, 18)),
+            new ModVersion(new Version("1.3"), new DateTime(2022, 6, 2)),
+            new ModVersion(new Version("1.2"), new DateTime(2021, 8, 23)),
+            new ModVersion(new Version("1.1"), new DateTime(2022, 8, 7)),
+            new ModVersion(new Version("1.0"), new DateTime(2022, 7, 30)),
         };
 
         public override string NameRaw => "Network Multitool";
