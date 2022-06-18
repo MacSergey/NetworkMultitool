@@ -507,6 +507,12 @@ lock or unlock it</value>
 - Fixed slope value calculation.
 - Fixed error in Arrange at circle mode when selected circle without intersections.</value>
   </data>
+  <data name="Mod_WhatsNewMessage1_3_1" xml:space="preserve">
+    <value>- Returned the ability to invert any network, not only one direction roads.
+- Tool does not close when you select another network.
+- Mode's buttons react again on click.
+- Added Romanian translation</value>
+  </data>
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>Activation shortcuts</value>
   </data>
