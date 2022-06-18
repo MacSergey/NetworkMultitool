@@ -70,10 +70,10 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на - Added Split node mode: Select segments and split it to new node.
-        ///- Added Unlock segment mode: Unlock building&apos;s segments to change it, or lock segments to prevent delete it.
-        ///- Added Invert segment mode: Ability to invert non-symmetrical segments.
-        ///- Updated Arrange in line mode: Added overlay of arrange result; Added ability to set arrange direction by choose guide segment; Line calculated more smooth; Height of nodes no more changing; Pillars moving with nodes; Fixed segment directions after move nodes [остаток строки не уместился]&quot;;.
+        ///   Ищет локализованную строку, похожую на [NEW] Added Split node mode: Select segments and split it to new node.
+        ///[NEW] Added Unlock segment mode: Unlock building&apos;s segments to change it, or lock segments to prevent delete it.
+        ///[NEW] Added Invert segment mode: Ability to invert non-symmetrical segments.
+        ///[UPDATED] Updated Arrange in line mode: Added overlay of arrange result; Added ability to set arrange direction by choose guide segment; Line calculated more smooth; Height of nodes no more changing; Pillars moving with nodes; Fixed segment directi [остаток строки не уместился]&quot;;.
         /// </summary>
         internal static string Mod_WhatsNewMessage1_1 {
             get {
@@ -82,10 +82,10 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на - Added Create parallel mode: Select exist network nodes and create new network parallel them. Possible set offset, height and side of parallel networks.
-        ///- Added Arrange at circle mode: Select nodes and arrange them at perfect circle. Possible set circle radius and position; Move nodes by circe; Distribute intersection and nodes evenly in circle.
-        ///- Added Create curve mode: Create smooth curve connection between two segments.
-        ///- Added network visualisation to Connection, Loop, Parallel and Curve modes. Can [остаток строки не уместился]&quot;;.
+        ///   Ищет локализованную строку, похожую на [NEW] Added Create parallel mode: Select exist network nodes and create new network parallel them. Possible set offset, height and side of parallel networks.
+        ///[NEW] Added Arrange at circle mode: Select nodes and arrange them at perfect circle. Possible set circle radius and position; Move nodes by circe; Distribute intersection and nodes evenly in circle.
+        ///[NEW] Added Create curve mode: Create smooth curve connection between two segments.
+        ///[NEW] Added network visualisation to Connection, Loop, Parallel and  [остаток строки не уместился]&quot;;.
         /// </summary>
         internal static string Mod_WhatsNewMessage1_2 {
             get {
@@ -94,12 +94,11 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на - Added option for auto connecting ends of new parallel network to existing network of same type. can be disabled in mod options.
-        ///- Fixed problem with duplicates of networks in parallel mode.
-        ///- Create/Loop/Curve mode will automatically select build direction where node has minimum segments.
-        ///- Added ability to change start angle to Connection and Loop modes. To change angel press O or P (can be rebinded in mod settings).
-        ///- Added the ability to invert one way roads in creation modes.
-        ///- Added direction ar [остаток строки не уместился]&quot;;.
+        ///   Ищет локализованную строку, похожую на [NEW] Added option for auto connecting ends of new parallel network to existing network of same type. can be disabled in mod options.
+        ///[FIXED] Fixed problem with duplicates of networks in parallel mode.
+        ///[UPDATED] Create/Loop/Curve mode will automatically select build direction where node has minimum segments.
+        ///[NEW] Added ability to change start angle to Connection and Loop modes. To change angel press O or P (can be rebinded in mod settings).
+        ///[NEW] Added the ability to invert one way roads in creation mo [остаток строки не уместился]&quot;;.
         /// </summary>
         internal static string Mod_WhatsNewMessage1_3 {
             get {
@@ -108,10 +107,10 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на - Returned the ability to invert any network, not only one direction roads.
-        ///- Tool does not close when you select another network.
-        ///- Mode&apos;s buttons react again on click.
-        ///- Added Romanian translation.
+        ///   Ищет локализованную строку, похожую на [FIXED] Returned the ability to invert any network, not only one direction roads.
+        ///[NEW] Tool does not close when you select another network.
+        ///[FIXED] Mode&apos;s buttons react again on click.
+        ///[NEW] Added Romanian translation..
         /// </summary>
         internal static string Mod_WhatsNewMessage1_3_1 {
             get {

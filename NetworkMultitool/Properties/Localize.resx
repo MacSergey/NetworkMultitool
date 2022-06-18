@@ -59,46 +59,46 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"></xsd:import>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0"></xsd:element>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string"></xsd:attribute>
-              <xsd:attribute name="type" type="xsd:string"></xsd:attribute>
-              <xsd:attribute name="mimetype" type="xsd:string"></xsd:attribute>
-              <xsd:attribute ref="xml:space"></xsd:attribute>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string"></xsd:attribute>
-              <xsd:attribute name="name" type="xsd:string"></xsd:attribute>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"></xsd:element>
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"></xsd:element>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"></xsd:attribute>
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"></xsd:attribute>
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"></xsd:attribute>
-              <xsd:attribute ref="xml:space"></xsd:attribute>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"></xsd:element>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required"></xsd:attribute>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -451,67 +451,67 @@ lock or unlock it</value>
     <value>Many different tools for working with networks</value>
   </data>
   <data name="Mod_WhatsNewMessage1_1" xml:space="preserve">
-    <value>- Added Split node mode: Select segments and split it to new node.
-- Added Unlock segment mode: Unlock building's segments to change it, or lock segments to prevent delete it.
-- Added Invert segment mode: Ability to invert non-symmetrical segments.
-- Updated Arrange in line mode: Added overlay of arrange result; Added ability to set arrange direction by choose guide segment; Line calculated more smooth; Height of nodes no more changing; Pillars moving with nodes; Fixed segment directions after move nodes.
-- Added the ability to change binding keys for all functions.
-- Added overlay for nearest nodes to cursor.
-- Added the ability select many nodes at one time in Slope and Arrange modes.
-- Added the ability to add curves additional curves in Create connection mode.
-- Added curve start offset to Create connection mode.
-- Added the ability to change curve's radius and start offset by dragging in Create loop and connection modes.
-- Create loop and connection modes will select road types dependence of terrain and water like default net tool does it. To build specific type of road, you need select it in Fine Road Tool.
-- Create loop and connection modes will auto unite too short segments in one.
-- Added display of length of straight road parts in Create loop and connection modes.
-- Added the ability to change created segments max length by change value in Node Spacer mod.
-- Fixed interaction with Fine Road Tool: its button will not show at center of screen anymore.
-- Fixed segment direction when slope road.
-- Fixed overlay in underground mode.
-- Added Hungarian and Korean translations.</value>
+    <value>[NEW] Added Split node mode: Select segments and split it to new node.
+[NEW] Added Unlock segment mode: Unlock building's segments to change it, or lock segments to prevent delete it.
+[NEW] Added Invert segment mode: Ability to invert non-symmetrical segments.
+[UPDATED] Updated Arrange in line mode: Added overlay of arrange result; Added ability to set arrange direction by choose guide segment; Line calculated more smooth; Height of nodes no more changing; Pillars moving with nodes; Fixed segment directions after move nodes.
+[NEW] Added the ability to change binding keys for all functions.
+[NEW] Added overlay for nearest nodes to cursor.
+[NEW] Added the ability select many nodes at one time in Slope and Arrange modes.
+[NEW] Added the ability to add curves additional curves in Create connection mode.
+[NEW] Added curve start offset to Create connection mode.
+[NEW] Added the ability to change curve's radius and start offset by dragging in Create loop and connection modes.
+[UPDATED] Create loop and connection modes will select road types dependence of terrain and water like default net tool does it. To build specific type of road, you need select it in Fine Road Tool.
+[NEW] Create loop and connection modes will auto unite too short segments in one.
+[NEW] Added display of length of straight road parts in Create loop and connection modes.
+[NEW] Added the ability to change created segments max length by change value in Node Spacer mod.
+[FIXED] Fixed interaction with Fine Road Tool: its button will not show at center of screen anymore.
+[FIXED] Fixed segment direction when slope road.
+[FIXED] Fixed overlay in underground mode.
+[TRANSLATION] Added Hungarian and Korean translations.</value>
   </data>
   <data name="Mod_WhatsNewMessage1_2" xml:space="preserve">
-    <value>- Added Create parallel mode: Select exist network nodes and create new network parallel them. Possible set offset, height and side of parallel networks.
-- Added Arrange at circle mode: Select nodes and arrange them at perfect circle. Possible set circle radius and position; Move nodes by circe; Distribute intersection and nodes evenly in circle.
-- Added Create curve mode: Create smooth curve connection between two segments.
-- Added network visualisation to Connection, Loop, Parallel and Curve modes. Can be disabled in mod settings.
-- Added snapping to Connection mode: circles will be magnetized to the neighboring circles when changing their radius or position. Can be disabled in mod settings.
-- Added follow terrain option to Connection, Loop, Parallel and Curve modes. Follow terrain possible only if both ends are on ground networks. Default value can be set in mod settings and change by Ctrl+F while network creating.
-- Added audio and visual effects on modes actions, like effects when network creating. It should help to understand that action was done. Can be disabled in mod settings.
-- Added requires money to build to Connect, Loop, Parallel, Curve and Arrange at line modes. Can be disabled in mod settings.
-- Added the ability to change column count in modes panel (from 1 to 5).
-- Added colors to tooltips text, it should help to reading them.
-- Added the ability to select locked segments in Connection, Loop, Parallel and Curve modes.
-- Fixed immediately tool close when selected underground mode in Fine Road Tool.
-- Fixed not updated zones when segment moved in Arrange at line mode.
-- Added Danish and Turkish translations.</value>
+    <value>[NEW] Added Create parallel mode: Select exist network nodes and create new network parallel them. Possible set offset, height and side of parallel networks.
+[NEW] Added Arrange at circle mode: Select nodes and arrange them at perfect circle. Possible set circle radius and position; Move nodes by circe; Distribute intersection and nodes evenly in circle.
+[NEW] Added Create curve mode: Create smooth curve connection between two segments.
+[NEW] Added network visualisation to Connection, Loop, Parallel and Curve modes. Can be disabled in mod settings.
+[NEW] Added snapping to Connection mode: circles will be magnetized to the neighboring circles when changing their radius or position. Can be disabled in mod settings.
+[NEW] Added follow terrain option to Connection, Loop, Parallel and Curve modes. Follow terrain possible only if both ends are on ground networks. Default value can be set in mod settings and change by Ctrl+F while network creating.
+[NEW] Added audio and visual effects on modes actions, like effects when network creating. It should help to understand that action was done. Can be disabled in mod settings.
+[NEW] Added requires money to build to Connect, Loop, Parallel, Curve and Arrange at line modes. Can be disabled in mod settings.
+[NEW] Added the ability to change column count in modes panel (from 1 to 5).
+[NEW] Added colors to tooltips text, it should help to reading them.
+[NEW] Added the ability to select locked segments in Connection, Loop, Parallel and Curve modes.
+[FIXED] Fixed immediately tool close when selected underground mode in Fine Road Tool.
+[FIXED] Fixed not updated zones when segment moved in Arrange at line mode.
+[TRANSLATION] Added Danish and Turkish translations.</value>
   </data>
   <data name="Mod_WhatsNewMessage1_3" xml:space="preserve">
-    <value>- Added option for auto connecting ends of new parallel network to existing network of same type. can be disabled in mod options.
-- Fixed problem with duplicates of networks in parallel mode.
-- Create/Loop/Curve mode will automatically select build direction where node has minimum segments.
-- Added ability to change start angle to Connection and Loop modes. To change angel press O or P (can be rebinded in mod settings).
-- Added the ability to invert one way roads in creation modes.
-- Added direction arrows.
-- Added the ability to switch between meters and units.
-- Added colors to slope labels depending on the value.
-- Added selected segment highlight to loop mode.
-- Max circle radius in Connection and loop modes was increased to 5km.
-- Max straight part length in connection mode was increased from 500m to 5000m .
-- Added the ability to hide original mod button in toolbar and use only UUI button.
-- Added the ability to set panel open side.
-- Modes panel will be at the front of all other UI elements.
-- Added Dutch translation.
-- Fixed bug with not working right click to disable tool. Now all modes on first click reset selection (if it exists), and on second click disable tool.
-- Fixed some problems with input on mac os.
-- Fixed slope value calculation.
-- Fixed error in Arrange at circle mode when selected circle without intersections.</value>
+    <value>[NEW] Added option for auto connecting ends of new parallel network to existing network of same type. can be disabled in mod options.
+[FIXED] Fixed problem with duplicates of networks in parallel mode.
+[UPDATED] Create/Loop/Curve mode will automatically select build direction where node has minimum segments.
+[NEW] Added ability to change start angle to Connection and Loop modes. To change angel press O or P (can be rebinded in mod settings).
+[NEW] Added the ability to invert one way roads in creation modes.
+[NEW] Added direction arrows.
+[NEW] Added the ability to switch between meters and units.
+[NEW] Added colors to slope labels depending on the value.
+[NEW] Added selected segment highlight to loop mode.
+[UPDATED] Max circle radius in Connection and loop modes was increased to 5km.
+[UPDATED] Max straight part length in connection mode was increased from 500m to 5000m .
+[NEW] Added the ability to hide original mod button in toolbar and use only UUI button.
+[NEW] Added the ability to set panel open side.
+[NEW] Modes panel will be at the front of all other UI elements.
+[TRANSLATION] Added Dutch translation.
+[FIXED] Fixed bug with not working right click to disable tool. Now all modes on first click reset selection (if it exists), and on second click disable tool.
+[FIXED] Fixed some problems with input on mac os.
+[FIXED] Fixed slope value calculation.
+[FIXED] Fixed error in Arrange at circle mode when selected circle without intersections.</value>
   </data>
   <data name="Mod_WhatsNewMessage1_3_1" xml:space="preserve">
-    <value>- Returned the ability to invert any network, not only one direction roads.
-- Tool does not close when you select another network.
-- Mode's buttons react again on click.
-- Added Romanian translation.</value>
+    <value>[FIXED] Returned the ability to invert any network, not only one direction roads.
+[NEW] Tool does not close when you select another network.
+[FIXED] Mode's buttons react again on click.
+[NEW] Added Romanian translation.</value>
   </data>
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>Activation shortcuts</value>
