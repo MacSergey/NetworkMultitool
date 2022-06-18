@@ -452,30 +452,30 @@ verrouiller ou déverrouiller</value>
     <value>De nombreux outils pour travailler avec les réseaux</value>
   </data>
   <data name="Mod_WhatsNewMessage1_1" xml:space="preserve">
-    <value>- Ajout du mode Séparateur de nœud : sélectionnez les segments et ajoutez un nouveau noeud.
-- Ajout du mode Déverrouillage de segments : débloquez les segments d'un bâtiment pour les déverrouiller ou les verrouiller pour éviter de les supprimer.
-- Ajout du mode Inversement de segment : possibilité d'inverser des segments non symétriques.
-- Mise à jour de du mode Aligner la route :
+    <value>[NEW] Ajout du mode Séparateur de nœud : sélectionnez les segments et ajoutez un nouveau noeud.
+[NEW]  Ajout du mode Déverrouillage de segments : débloquez les segments d'un bâtiment pour les déverrouiller ou les verrouiller pour éviter de les supprimer.
+[NEW]  Ajout du mode Inversement de segment : possibilité d'inverser des segments non symétriques.
+[UPDATED] Mise à jour de du mode Aligner la route :
 	- Ajout d'un affichage du résultat d'alignement;
 	- Ajout de la possibilité de choisir un segement pour la direction de l'alignement;
 	- Ligne calculée plus lisse;
 	- la hauteur des nœuds ne change plus;
 	- les piliers se déplacent avec les nœuds;
 	- Correction de l'orientation des segments après le déplacement de nœuds.
-- Ajout de la possibilité de changer les touches pour toutes les fonctions.
-- Ajout d'une superposition pour les noeuds proches du curseur.
-- Ajout de la capacité de sélectionner plusieurs nœuds à la fois en mode Égaliser la pente et Aligner la route.
-- Ajout de la possibilité d'ajouter des courbes supplémentaires dans le mode Créer une connexion.
-- Ajout du décalage de début de courbe dans le mode Créer une connexion.
-- Ajout de la possibilité de changer le rayon de la courbe et début du décalage en faisant glisser dans les modes Créer une boucle et Créer une connexion.
-- Les modes Créer une boucle et Créer une connexion sélectionneront les types de routes en fonction du terrain et de l'eau, comme le fait l'outil par défaut. Pour construire un type de route spécifique, vous devez utiliser Fine Road Tool.
-- Les modes Créer une boucle et Créer une connexion uniront automatiquement les segments trop courts en un.
-- Ajout de l'affichage de la longueur des segments de route droites dans les modes Créer une boucle et Créer une connexion.
-- Ajout de la possibilité de modifier la longueur maximale des segments créés en modifiant la valeur dans le mod Node Spacer.
-- Correction de l'interaction avec Fine Road Tool : son bouton ne s'affichera plus au centre de l'écran.
-- Correction de la direction du segment dans le mode Égaliser la pente.
-- Correction de l'affichage en mode souterrain.
-- Ajout des traductions hongroises et coréennes.</value>
+[NEW]  Ajout de la possibilité de changer les touches pour toutes les fonctions.
+[NEW]  Ajout d'une superposition pour les noeuds proches du curseur.
+[NEW]  Ajout de la capacité de sélectionner plusieurs nœuds à la fois en mode Égaliser la pente et Aligner la route.
+[NEW]  Ajout de la possibilité d'ajouter des courbes supplémentaires dans le mode Créer une connexion.
+[NEW]  Ajout du décalage de début de courbe dans le mode Créer une connexion.
+[NEW]  Ajout de la possibilité de changer le rayon de la courbe et début du décalage en faisant glisser dans les modes Créer une boucle et Créer une connexion.
+[UPDATED] Les modes Créer une boucle et Créer une connexion sélectionneront les types de routes en fonction du terrain et de l'eau, comme le fait l'outil par défaut. Pour construire un type de route spécifique, vous devez utiliser Fine Road Tool.
+[NEW]  Les modes Créer une boucle et Créer une connexion uniront automatiquement les segments trop courts en un.
+[NEW]  Ajout de l'affichage de la longueur des segments de route droites dans les modes Créer une boucle et Créer une connexion.
+[NEW]  Ajout de la possibilité de modifier la longueur maximale des segments créés en modifiant la valeur dans le mod Node Spacer.
+[FIXED] Correction de l'interaction avec Fine Road Tool : son bouton ne s'affichera plus au centre de l'écran.
+[FIXED] Correction de la direction du segment dans le mode Égaliser la pente.
+[FIXED] Correction de l'affichage en mode souterrain.
+[TRANSLATION] Ajout des traductions hongroises et coréennes.</value>
   </data>
   
   

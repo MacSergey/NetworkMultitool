@@ -452,20 +452,20 @@ Clic con {0} para separar nodo y alinear a la altura de la selección</value>
   </data>
   
   <data name="Mod_WhatsNewMessage1_2" xml:space="preserve">
-    <value>- Nuevo Modo de creación de redes paralelas: Selecciona nodos en redes existentes y crea una nueva red paralela a la selección. Puedes configurar la separación, altura y el lado en donde crear la red paralela.
-- Nuevo Modo de organización en círculo: Selecciona nodos y crear un círculo perfecto. Puedes configurar el radio y la posición; Mover nodos en cada círculo; Distribuir intersecciones y nodos de manera uniforme en el círculo. 
-- Nuevo Modo de creación de curva: Conecta dos segmentos con una curva suave.
-- Añadida vista preliminar de red en los modos de conexión, bucle, redes paralelas y curvas. Se puede configurar en los ajustes del mod.
-- Añadido ajuste al Modo de creación de conexión: círculos se unirán a círculos cercanos al cambiar de radio o posición. Se puede configurar en los ajustes del mod.
-- Añadida opción de seguir terreno en los modos de conexión, bucle, redes paralelas y curvas. La opción de seguir terreno solo es posible si ambos extremos son carreteras creadas a nivel del suelo. El valor predeterminado se puede configurar en los ajustes del mod y cambiar con Ctrl+F mientras se utiliza la herramienta.
-- Añadidos efectos de audio y visuales al usar cada modo, como efectos cuando una carretera es creada. Esta opción ayuda a confirmar que se realizó una acción. Se puede configurar en los ajustes del mod.
-- Añadida opción para necesitar dinero al construir en los modos de conexión, bucle, redes paralelas, curvas y organización de línea. Se puede configurar en los ajustes del mod.
-- Añadida opción para cambiar el número de columnas del panel de modos (de 1 a 5) 
-- Añadido colores al texto en las ventanas de ayuda, facilita la lectura de la información.
-- Añadida la habilidad de selecciones segmentos bloqueados en los modos de conexión, bucle, redes paralelas y curvas.
-- Solucionado cuando la herramienta se cierra inmediatamente cuando el modo subterráneo es seleccionado en Fine Road Tool.
-- Solucionado problema con zonas que no se actualizaban cuando un segmento es modificado en el modo de organización en línea.
-- Añadidas las traducciones de Danés y Turco.</value>
+    <value>[NEW] Nuevo Modo de creación de redes paralelas: Selecciona nodos en redes existentes y crea una nueva red paralela a la selección. Puedes configurar la separación, altura y el lado en donde crear la red paralela.
+[NEW] Nuevo Modo de organización en círculo: Selecciona nodos y crear un círculo perfecto. Puedes configurar el radio y la posición; Mover nodos en cada círculo; Distribuir intersecciones y nodos de manera uniforme en el círculo. 
+[NEW] Nuevo Modo de creación de curva: Conecta dos segmentos con una curva suave.
+[NEW] Añadida vista preliminar de red en los modos de conexión, bucle, redes paralelas y curvas. Se puede configurar en los ajustes del mod.
+[NEW] Añadido ajuste al Modo de creación de conexión: círculos se unirán a círculos cercanos al cambiar de radio o posición. Se puede configurar en los ajustes del mod.
+[NEW] Añadida opción de seguir terreno en los modos de conexión, bucle, redes paralelas y curvas. La opción de seguir terreno solo es posible si ambos extremos son carreteras creadas a nivel del suelo. El valor predeterminado se puede configurar en los ajustes del mod y cambiar con Ctrl+F mientras se utiliza la herramienta.
+[NEW] Añadidos efectos de audio y visuales al usar cada modo, como efectos cuando una carretera es creada. Esta opción ayuda a confirmar que se realizó una acción. Se puede configurar en los ajustes del mod.
+[NEW] Añadida opción para necesitar dinero al construir en los modos de conexión, bucle, redes paralelas, curvas y organización de línea. Se puede configurar en los ajustes del mod.
+[NEW] Añadida opción para cambiar el número de columnas del panel de modos (de 1 a 5) 
+[NEW] Añadido colores al texto en las ventanas de ayuda, facilita la lectura de la información.
+[NEW] Añadida la habilidad de selecciones segmentos bloqueados en los modos de conexión, bucle, redes paralelas y curvas.
+[FIXED] Solucionado cuando la herramienta se cierra inmediatamente cuando el modo subterráneo es seleccionado en Fine Road Tool.
+[FIXED] Solucionado problema con zonas que no se actualizaban cuando un segmento es modificado en el modo de organización en línea.
+[TRANSLATION] Añadidas las traducciones de Danés y Turco.</value>
   </data>
   
   
