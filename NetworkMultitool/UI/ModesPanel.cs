@@ -70,7 +70,7 @@ namespace NetworkMultitool.UI
         public override void Start()
         {
             base.Start();
-            enabled = Parent.isVisible;
+            ParentVisibilityChanged(Parent, false);
 
             SingletonTool<NetworkMultitoolTool>.Instance.OnStateChanged += ToolStateChanged;
 
@@ -114,7 +114,12 @@ namespace NetworkMultitool.UI
 
         protected override void OnClick(UIMouseEventParameter p) { }
         private void ParentPositionChanged(UIComponent parent, Vector2 value) => SetOpenSide(true);
-        private void ParentVisibilityChanged(UIComponent component, bool value) => enabled = value;
+        private void ParentVisibilityChanged(UIComponent component, bool value)
+        {
+            enabled = value;
+            foreach (var child in GetComponentsInChildren<UIComponent>())
+                child.enabled = value;
+        }
         private void RootZOrderChanged(UIComponent component, int value) => SetOrder(component);
         public new void FitChildren()
         {
@@ -152,7 +157,7 @@ namespace NetworkMultitool.UI
         }
         private void SetOrder(UIComponent component)
         {
-            if (component.zOrder >= zOrder)
+            if (enabled && component.zOrder >= zOrder)
                 zOrder = component.zOrder + 1;
         }
 

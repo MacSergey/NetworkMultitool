@@ -916,7 +916,7 @@ namespace NetworkMultitool
             var info = ToolsModifierControl.toolController.Tools.OfType<NetTool>().FirstOrDefault().Prefab?.m_netAI?.m_info;
             return info != null && CheckItemClass(info.GetConnectionClass()) ? info : null;
         }
-        protected bool IsInvertable(NetInfo info) => info.m_forwardVehicleLaneCount != info.m_backwardVehicleLaneCount;
+        protected bool IsInvertable(NetInfo info) => info.m_netAI is RoadBaseAI ? info.m_forwardVehicleLaneCount != info.m_backwardVehicleLaneCount : true;
 
         public struct Point
         {

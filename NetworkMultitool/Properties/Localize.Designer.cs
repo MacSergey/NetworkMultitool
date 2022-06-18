@@ -108,6 +108,18 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на - Returned the ability to invert any network, not only one direction roads.
+        ///- Tool does not close when you select another network.
+        ///- Mode&apos;s buttons react again on click.
+        ///- Added Romanian translation.
+        /// </summary>
+        internal static string Mod_WhatsNewMessage1_3_1 {
+            get {
+                return ResourceManager.GetString("Mod_WhatsNewMessage1_3_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Add node mode.
         /// </summary>
         internal static string Mode_AddNode {
