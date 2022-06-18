@@ -468,6 +468,7 @@ Clic con {0} para separar nodo y alinear a la altura de la selección</value>
 - Añadidas las traducciones de Danés y Turco.</value>
   </data>
   
+  
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>Atajos de activación</value>
   </data>
