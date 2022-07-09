@@ -123,6 +123,7 @@
   <data name="Mode_AddNode_Info_ClickToAdd" xml:space="preserve">
     <value>点击添加节点</value>
   </data>
+  
   <data name="Mode_AddNode_Info_SelectToAdd" xml:space="preserve">
     <value>选择要添加节点的部分</value>
   </data>
