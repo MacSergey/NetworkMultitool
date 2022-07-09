@@ -123,6 +123,9 @@
   <data name="Mode_AddNode_Info_ClickToAdd" xml:space="preserve">
     <value>Klik om een knooppunt toe te voegen</value>
   </data>
+  <data name="Mode_AddNode_Info_PreciseMeasurement" xml:space="preserve">
+    <value>Houd {0} ingedrukt voor nauwkeurige metingen</value>
+  </data>
   <data name="Mode_AddNode_Info_SelectToAdd" xml:space="preserve">
     <value>Selecteer het segment om een knooppunt toe te voegen</value>
   </data>
