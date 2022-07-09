@@ -988,6 +988,70 @@ namespace NetworkMultitool
                 }
             }
         }
+        public class MeasureStraight : BaseStraight
+        {
+            public float MeasureLength { get; }
+            public MeasureStraight(Vector3 start, Vector3 end, Vector3 labelDir, float measureLength, InfoLabel label, float height) : base(start, end, labelDir, label, height)
+            {
+                MeasureLength = measureLength;
+            }
+
+            public void Update(bool show) => Update(MeasureLength, show);
+            public void Render(RenderManager.CameraInfo cameraInfo, Color color, Color colorArrow, bool underground) => this.RenderMeasure(cameraInfo, 0f, MeasureLength, LabelDir, color, colorArrow, underground);
+        }
+
+        public class BaseCurve : BezierTrajectory
+        {
+            private InfoLabel _label;
+            public InfoLabel Label
+            {
+                get => _label;
+                set
+                {
+                    _label = value;
+                    if (_label != null)
+                    {
+                        _label.textScale = 1.5f;
+                        _label.opacity = 0.75f;
+                    }
+                }
+            }
+
+            public BaseCurve(Bezier3 bezier, InfoLabel label) : base(bezier)
+            {
+                Label = label;
+            }
+
+            protected virtual string GetText() => GetLengthString(Length);
+            public void Update(float shift, bool show)
+            {
+                if (Label is InfoLabel label)
+                {
+                    label.Show = show;
+                    if (show)
+                    {
+                        label.text = GetText();
+                        label.Direction = Tangent(0.5f).Turn90(true).normalized;
+                        label.WorldPosition = Position(0.5f) + label.Direction * shift;
+
+                        label.UpdateInfo();
+                    }
+                }
+            }
+        }
+
+        public class MeasureCurve : BaseCurve
+        {
+            public float MeasureLength { get; }
+
+            public MeasureCurve(Bezier3 bezier, InfoLabel label, float measureLength) : base(bezier, label)
+            {
+                MeasureLength = measureLength;
+            }
+
+            public void Update(bool show) => Update(MeasureLength, show);
+            public void Render(RenderManager.CameraInfo cameraInfo, Color color, Color colorArrow, bool underground) => this.RenderMeasure(cameraInfo, 0f, MeasureLength, color, colorArrow, underground);
+        }
     }
     public enum ToolModeType
     {
