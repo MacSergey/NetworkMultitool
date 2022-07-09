@@ -52,9 +52,9 @@ namespace NetworkMultitool
         protected override IToolMode DefaultMode => LastMode ?? ToolModes[ToolModeType.AddNode];
 
         protected override UITextureAtlas UUIAtlas => NetworkMultitoolTextures.Atlas;
-        protected override string UUINormalSprite => NetworkMultitoolTextures.UUINormal;
-        protected override string UUIHoveredSprite => NetworkMultitoolTextures.UUIHovered;
-        protected override string UUIPressedSprite => NetworkMultitoolTextures.UUIPressed;
+        protected override string UUINormalSprite => NetworkMultitoolTextures.UUIButtonNormal;
+        protected override string UUIHoveredSprite => NetworkMultitoolTextures.UUIButtonHovered;
+        protected override string UUIPressedSprite => NetworkMultitoolTextures.UUIButtonPressed;
         protected override string UUIDisabledSprite => /*NodeControllerTextures.UUIDisabled;*/string.Empty;
 
         static NetworkMultitoolTool()

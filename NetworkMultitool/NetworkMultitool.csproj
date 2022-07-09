@@ -165,13 +165,36 @@
   <ItemGroup>
     <EmbeddedResource Include="Properties\Localize.tr.resx" />
     <EmbeddedResource Include="Properties\Localize.zh-CN.resx" />
-    <EmbeddedResource Include="Resources\ModeButtons.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ModeButtons\AddNode.png" />
+    <EmbeddedResource Include="Resources\ModeButtons\ArrangeAtCircle.png" />
+    <EmbeddedResource Include="Resources\ModeButtons\ArrangeAtLine.png" />
+    <EmbeddedResource Include="Resources\ModeButtons\CreateConnection.png" />
+    <EmbeddedResource Include="Resources\ModeButtons\CreateCurve.png" />
+    <EmbeddedResource Include="Resources\ModeButtons\CreateLoop.png" />
+    <EmbeddedResource Include="Resources\ModeButtons\CreateParallel.png" />
+    <EmbeddedResource Include="Resources\ModeButtons\IntersectSegment.png" />
+    <EmbeddedResource Include="Resources\ModeButtons\InvertSegment.png" />
+    <EmbeddedResource Include="Resources\ModeButtons\RemoveNode.png" />
+    <EmbeddedResource Include="Resources\ModeButtons\SlopeNode.png" />
+    <EmbeddedResource Include="Resources\ModeButtons\SplitNode.png" />
+    <EmbeddedResource Include="Resources\ModeButtons\UnionNode.png" />
+    <EmbeddedResource Include="Resources\ModeButtons\UnlockSegment.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\UUIButton.png" />
+    <EmbeddedResource Include="Resources\UUIButton\UUIButtonHovered.png" />
+    <EmbeddedResource Include="Resources\UUIButton\UUIButtonNormal.png" />
+    <EmbeddedResource Include="Resources\UUIButton\UUIButtonPressed.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Button.png" />
+    <EmbeddedResource Include="Resources\ActivationButton\ActivationButtonActive.png" />
+    <EmbeddedResource Include="Resources\ActivationButton\ActivationButtonHover.png" />
+    <EmbeddedResource Include="Resources\ActivationButton\ActivationButtonIconActive.png" />
+    <EmbeddedResource Include="Resources\ActivationButton\ActivationButtonIconHover.png" />
+    <EmbeddedResource Include="Resources\ActivationButton\ActivationButtonIconNormal.png" />
+    <EmbeddedResource Include="Resources\ActivationButton\ActivationButtonNormal.png" />
   </ItemGroup>
   <Import Project="..\ModsCommon\LocalizeShared\LocalizeShared.projitems" Label="Shared" />
   <Import Project="..\ModsCommon\LocalizeShared\LocalizeShared.ru.projitems" Label="Shared" />
@@ -210,6 +233,8 @@
   <Import Project="..\ModsCommon\LocalizeShared\LocalizeShared.tr.projitems" Label="Shared" />
   <Import Project="..\ModsCommon\LocalizeShared\LocalizeShared.nl.projitems" Label="Shared" />
   <Import Project="..\ModsCommon\LocalizeShared\LocalizeShared.ro.projitems" Label="Shared" />
+  <Import Project="..\ModsCommon\TriangulatorShared\Triangulator.projitems" Label="Shared" />
+  <Import Project="..\ModsCommon\MultyAtlasButton\MultyAtlasButton.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup Condition="'$(Configuration)' == 'Stable Release' OR '$(Configuration)' == 'Stable Debug'">
     <WorkshopId>2560782729</WorkshopId>

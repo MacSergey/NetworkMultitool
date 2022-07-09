@@ -16,7 +16,7 @@ namespace NetworkMultitool.UI
         public static float ModeButtonSize => 29f;
         public static float Padding => 2f;
         public static int InRow => Settings.PanelColumns;
-        private UIComponent Parent { get; set; }
+        private UIComponent Trigger { get; set; }
         private IEnumerable<ModeButton> Buttons => components.OfType<ModeButton>();
         private string AnimationId => $"{nameof(ModesPanel)}{GetHashCode()}";
         public Vector2 DefaultSize
@@ -33,14 +33,14 @@ namespace NetworkMultitool.UI
             {
                 var uiView = UIView.GetAView();
                 var mouse = uiView.ScreenPointToGUI(Input.mousePosition / uiView.inputScale);
-                return (isVisible && this.IsHover(mouse)) || (Parent.isVisible && Parent.IsHover(mouse));
+                return (isVisible && this.IsHover(mouse)) || (Trigger.isVisible && Trigger.IsHover(mouse));
             }
         }
         private UIComponent Root
         {
             get
             {
-                if (Parent is UIComponent root)
+                if (Trigger is UIComponent root)
                 {
                     while (root.parent != null)
                         root = root.parent;
@@ -60,17 +60,17 @@ namespace NetworkMultitool.UI
             color = new Color32(64, 64, 64, 255);
             clipChildren = true;
         }
-        public static ModesPanel Add(UIComponent parent)
+        public static ModesPanel Add(UIComponent trigger)
         {
             var view = UIView.GetAView();
             var panel = view.AddUIComponent(typeof(ModesPanel)) as ModesPanel;
-            panel.Parent = parent;
+            panel.Trigger = trigger;
             return panel;
         }
         public override void Start()
         {
             base.Start();
-            ParentVisibilityChanged(Parent, false);
+            TriggerVisibilityChanged(Trigger, Trigger.isVisible);
 
             SingletonTool<NetworkMultitoolTool>.Instance.OnStateChanged += ToolStateChanged;
 
@@ -82,14 +82,14 @@ namespace NetworkMultitool.UI
             size = DefaultSize;
             height = 20f;
 
-            Parent.eventMouseEnter += ParentMouseEnter;
-            Parent.eventMouseLeave += ParentMouseLeave;
-            Parent.eventPositionChanged += ParentPositionChanged;
-            Parent.eventVisibilityChanged += ParentVisibilityChanged;
+            Trigger.eventMouseEnter += TriggerMouseEnter;
+            Trigger.eventMouseLeave += TriggerMouseLeave;
+            Trigger.eventPositionChanged += TriggerPositionChanged;
+            Trigger.eventVisibilityChanged += TriggerVisibilityChanged;
 
             if (Root is UIComponent root)
             {
-                root.eventPositionChanged += ParentPositionChanged;
+                root.eventPositionChanged += TriggerPositionChanged;
                 root.eventZOrderChanged += RootZOrderChanged;
             }
         }
@@ -104,8 +104,8 @@ namespace NetworkMultitool.UI
 
         private void ToolStateChanged(bool state) => SetState(state);
 
-        private void ParentMouseEnter(UIComponent component, UIMouseEventParameter eventParam) => SetState(true, true);
-        private void ParentMouseLeave(UIComponent component, UIMouseEventParameter eventParam) => SetState(false, true);
+        private void TriggerMouseEnter(UIComponent component, UIMouseEventParameter eventParam) => SetState(true, true);
+        private void TriggerMouseLeave(UIComponent component, UIMouseEventParameter eventParam) => SetState(false, true);
         protected override void OnMouseLeave(UIMouseEventParameter eventParam)
         {
             base.OnMouseLeave(eventParam);
@@ -113,12 +113,14 @@ namespace NetworkMultitool.UI
         }
 
         protected override void OnClick(UIMouseEventParameter p) { }
-        private void ParentPositionChanged(UIComponent parent, Vector2 value) => SetOpenSide(true);
-        private void ParentVisibilityChanged(UIComponent component, bool value)
+        private void TriggerPositionChanged(UIComponent trigger, Vector2 value) => SetOpenSide(true);
+        private void TriggerVisibilityChanged(UIComponent component, bool value)
         {
             enabled = value;
-            foreach (var child in GetComponentsInChildren<UIComponent>())
+            foreach (var child in GetComponentsInChildren<ModeButton>())
                 child.enabled = value;
+
+            SetState(value);
         }
         private void RootZOrderChanged(UIComponent component, int value) => SetOrder(component);
         public new void FitChildren()
@@ -139,20 +141,20 @@ namespace NetworkMultitool.UI
             var oldSide = OpenSide;
 
             if (Settings.PanelOpenSide == (int)OpenSide.Down)
-                OpenSide = Parent.absolutePosition.y + Parent.height + DefaultSize.y <= Parent.GetUIView().GetScreenResolution().y ? OpenSide.Down : OpenSide.Up;
+                OpenSide = Trigger.absolutePosition.y + Trigger.height + DefaultSize.y <= Trigger.GetUIView().GetScreenResolution().y ? OpenSide.Down : OpenSide.Up;
             else
-                OpenSide = Parent.absolutePosition.y >= DefaultSize.y ? OpenSide.Up : OpenSide.Down;
+                OpenSide = Trigger.absolutePosition.y >= DefaultSize.y ? OpenSide.Up : OpenSide.Down;
 
             if (oldSide != OpenSide || forceSetPosition)
                 SetPosition();
         }
         private void SetPosition()
         {
-            UIView uiView = Parent.GetUIView();
+            UIView uiView = Trigger.GetUIView();
             var screen = uiView.GetScreenResolution();
-            var parentPos = Parent.absolutePosition;
-            var x = Mathf.Max(Mathf.Min(parentPos.x + (Parent.width - width) / 2f, screen.x - width), 0f);
-            var y = parentPos.y + (OpenSide == OpenSide.Down ? Parent.height : -height);
+            var triggerPos = Trigger.absolutePosition;
+            var x = Mathf.Max(Mathf.Min(triggerPos.x + (Trigger.width - width) / 2f, screen.x - width), 0f);
+            var y = triggerPos.y + (OpenSide == OpenSide.Down ? Trigger.height : -height);
             absolutePosition = new Vector2(x, y);
         }
         private void SetOrder(UIComponent component)
@@ -164,13 +166,14 @@ namespace NetworkMultitool.UI
         public void SetState(bool show, bool auto = false)
         {
             var autoHide = Settings.AutoHideModePanel.value;
-            var enabled = SingletonTool<NetworkMultitoolTool>.Instance.enabled;
+            var toolEnabled = SingletonTool<NetworkMultitoolTool>.Instance.enabled;
+            var triggerVisible = Trigger.isVisible;
             var isHover = IsHover;
             if (show)
             {
                 if (State != OpenState.Open && State != OpenState.Opening)
                 {
-                    if (enabled && ((!auto && (!autoHide || isHover)) || (auto && autoHide)))
+                    if (toolEnabled && triggerVisible && ((!auto && (!autoHide || isHover)) || (auto && autoHide)))
                     {
                         StartOpening();
                         SetOpenSide();

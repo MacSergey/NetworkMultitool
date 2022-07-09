@@ -11,7 +11,7 @@ using UnityEngine;
 
 namespace NetworkMultitool.UI
 {
-    public class ModeButton : CustomUIButton
+    public class ModeButton : MultyAtlasUIButton
     {
         private static Dictionary<ToolModeType, List<ModeButton>> ButtonsDic { get; } = new Dictionary<ToolModeType, List<ModeButton>>();
 
@@ -22,7 +22,6 @@ namespace NetworkMultitool.UI
         private static Color32 PressedColor => new Color32(144, 144, 144, 255);
         private static Color32 FocusedColor => new Color32(144, 144, 144, 255);
 
-        public CustomUIButton Icon { get; }
         private BaseNetworkMultitoolMode Mode { get; set; }
         public bool Activate 
         { 
@@ -30,35 +29,32 @@ namespace NetworkMultitool.UI
             {
                 if (value)
                 {
-                    normalBgSprite = CommonTextures.HeaderHoverSprite;
-                    hoveredColor = FocusedColor;
-                    pressedColor = FocusedColor;
-                    focusedColor = FocusedColor;
+                    normalBgSprite = CommonTextures.HeaderHover;
+                    BgHoveredColor = FocusedColor;
+                    BgPressedColor = FocusedColor;
+                    BgFocusedColor = FocusedColor;
                 }
                 else
                 {
                     normalBgSprite = string.Empty;
-                    hoveredColor = HoverColor;
-                    pressedColor = PressedColor;
-                    focusedColor = PressedColor;
+                    BgHoveredColor = HoverColor;
+                    BgPressedColor = PressedColor;
+                    BgFocusedColor = PressedColor;
                 }
             } 
         }
         public ModeButton()
         {
-            atlas = CommonTextures.Atlas;
-            hoveredBgSprite = CommonTextures.HeaderHoverSprite;
-            pressedBgSprite = CommonTextures.HeaderHoverSprite;
-            focusedBgSprite = CommonTextures.HeaderHoverSprite;
-            color = FocusedColor;
+            BgAtlas = CommonTextures.Atlas;
+            FgAtlas = NetworkMultitoolTextures.Atlas;
+            hoveredBgSprite = CommonTextures.HeaderHover;
+            pressedBgSprite = CommonTextures.HeaderHover;
+            focusedBgSprite = CommonTextures.HeaderHover;
+            BgColor = FocusedColor;
             size = new Vector2(Size, Size);
             clipChildren = true;
             minimumSize = size;
-
-            Icon = AddUIComponent<CustomUIButton>();
-            Icon.size = new Vector2(IconSize, IconSize);
-            Icon.relativePosition = new Vector2(IconPadding, IconPadding);
-            Icon.atlas = NetworkMultitoolTextures.Atlas;
+            foregroundSpriteMode = UIForegroundSpriteMode.Fill;
 
             Activate = false;
         }
@@ -96,9 +92,9 @@ namespace NetworkMultitool.UI
 
             button.Mode = mode;
             var sprite = mode.Type.ToString();
-            button.Icon.normalBgSprite = sprite;
-            button.Icon.hoveredBgSprite = sprite;
-            button.Icon.pressedBgSprite = sprite;
+            button.normalFgSprite = sprite;
+            button.hoveredFgSprite = sprite;
+            button.pressedFgSprite = sprite;
 
             if (!ButtonsDic.TryGetValue(mode.Type & ToolModeType.Group, out var buttons))
             {

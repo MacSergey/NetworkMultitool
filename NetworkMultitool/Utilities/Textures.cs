@@ -13,38 +13,39 @@ namespace NetworkMultitool.Utilities
         public static UITextureAtlas Atlas;
         public static Texture2D Texture => Atlas.texture;
 
-        public static string ButtonNormal => nameof(ButtonNormal);
-        public static string ButtonActive => nameof(ButtonActive);
-        public static string ButtonHover => nameof(ButtonHover);
-        public static string Icon => nameof(Icon);
-        public static string IconActive => nameof(IconActive);
-        public static string IconHover => nameof(IconHover);
+        public static string ActivationButtonNormal => nameof(ActivationButtonNormal);
+        public static string ActivationButtonActive => nameof(ActivationButtonActive);
+        public static string ActivationButtonHover => nameof(ActivationButtonHover);
+        public static string ActivationButtonIconNormal => nameof(ActivationButtonIconNormal);
+        public static string ActivationButtonIconActive => nameof(ActivationButtonIconActive);
+        public static string ActivationButtonIconHover => nameof(ActivationButtonIconHover);
 
-        public static string UUINormal => nameof(UUINormal);
-        public static string UUIHovered => nameof(UUIHovered);
-        public static string UUIPressed => nameof(UUIPressed);
+        public static string UUIButtonNormal => nameof(UUIButtonNormal);
+        public static string UUIButtonHovered => nameof(UUIButtonHovered);
+        public static string UUIButtonPressed => nameof(UUIButtonPressed);
         //public static string UUIDisabled => nameof(UUIDisabled);
-
-        private static Dictionary<string, TextureHelper.SpriteParamsGetter> Files { get; } = new Dictionary<string, TextureHelper.SpriteParamsGetter>
-        {
-            {nameof(Button), Button},
-            {nameof(UUIButton), UUIButton},
-            {nameof(ModeButtons), ModeButtons},
-        };
 
         static NetworkMultitoolTextures()
         {
-            Atlas = TextureHelper.CreateAtlas(nameof(NetworkMultitool), Files);
-        }
+            var spriteParams = new Dictionary<string, RectOffset>();
 
-        private static UITextureAtlas.SpriteInfo[] Button(int texWidth, int texHeight, Rect rect) => TextureHelper.GetSpritesInfo(texWidth, texHeight, rect, 31, 31, ButtonNormal, ButtonActive, ButtonHover, Icon, IconActive, IconHover).ToArray();
+            //ActivationButton
+            spriteParams[ActivationButtonNormal] = new RectOffset();
+            spriteParams[ActivationButtonActive] = new RectOffset();
+            spriteParams[ActivationButtonHover] = new RectOffset();
+            spriteParams[ActivationButtonIconNormal] = new RectOffset();
+            spriteParams[ActivationButtonIconActive] = new RectOffset();
+            spriteParams[ActivationButtonIconHover] = new RectOffset();
 
-        private static UITextureAtlas.SpriteInfo[] UUIButton(int texWidth, int texHeight, Rect rect) => TextureHelper.GetSpritesInfo(texWidth, texHeight, rect, 40, 40, UUINormal, UUIHovered, UUIPressed/*, UUIDisabled*/).ToArray();
+            //UUIButton
+            spriteParams[UUIButtonNormal] = new RectOffset();
+            spriteParams[UUIButtonHovered] = new RectOffset();
+            spriteParams[UUIButtonPressed] = new RectOffset();
 
-        private static UITextureAtlas.SpriteInfo[] ModeButtons(int texWidth, int texHeight, Rect rect)
-        {
-            var sprites = NetworkMultitoolTool.ModeTypes.Select(m => m.ToString()).ToArray();
-            return TextureHelper.GetSpritesInfo(texWidth, texHeight, rect, 25, 25, new RectOffset(4, 4, 4, 4), 2, sprites).ToArray();
+            foreach (var mode in NetworkMultitoolTool.ModeTypes)
+                spriteParams.Add(mode.ToString(), new RectOffset());
+
+            Atlas = TextureHelper.CreateAtlas(nameof(NetworkMultitool), spriteParams);
         }
     }
 }
