@@ -123,6 +123,7 @@
   <data name="Mode_AddNode_Info_ClickToAdd" xml:space="preserve">
     <value>Kattints csomópont hozzáadásához</value>
   </data>
+  
   <data name="Mode_AddNode_Info_SelectToAdd" xml:space="preserve">
     <value>Válassz szegmenst a csomópont hozzáadásához</value>
   </data>

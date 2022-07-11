@@ -123,6 +123,7 @@
   <data name="Mode_AddNode_Info_ClickToAdd" xml:space="preserve">
     <value>Kliknij, aby wstawić węzeł</value>
   </data>
+  
   <data name="Mode_AddNode_Info_SelectToAdd" xml:space="preserve">
     <value>Wybierz segment, aby dodać węzeł</value>
   </data>

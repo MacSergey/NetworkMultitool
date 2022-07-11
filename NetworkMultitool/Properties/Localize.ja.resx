@@ -123,6 +123,9 @@
   <data name="Mode_AddNode_Info_ClickToAdd" xml:space="preserve">
     <value>クリックしてノードを追加</value>
   </data>
+  <data name="Mode_AddNode_Info_PreciseMeasurement" xml:space="preserve">
+    <value>{0} で正確に距離を測定</value>
+  </data>
   <data name="Mode_AddNode_Info_SelectToAdd" xml:space="preserve">
     <value>ノードを追加したいセグメントを選択</value>
   </data>

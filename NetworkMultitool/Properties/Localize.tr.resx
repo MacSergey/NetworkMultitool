@@ -123,6 +123,7 @@
   <data name="Mode_AddNode_Info_ClickToAdd" xml:space="preserve">
     <value>Düğüm eklenemedi</value>
   </data>
+  
   <data name="Mode_AddNode_Info_SelectToAdd" xml:space="preserve">
     <value>Düğüm eklemek için sektör seç</value>
   </data>

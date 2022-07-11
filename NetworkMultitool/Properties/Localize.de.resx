@@ -123,6 +123,9 @@
   <data name="Mode_AddNode_Info_ClickToAdd" xml:space="preserve">
     <value>Klicken, um einen Netzwerk-Knoten einzufügen</value>
   </data>
+  <data name="Mode_AddNode_Info_PreciseMeasurement" xml:space="preserve">
+    <value>Halte {0} für präzise Messungen</value>
+  </data>
   <data name="Mode_AddNode_Info_SelectToAdd" xml:space="preserve">
     <value>Segment zum Hinzufügen eines Netzwerk-Knotens auswählen</value>
   </data>

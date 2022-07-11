@@ -123,6 +123,7 @@
   <data name="Mode_AddNode_Info_ClickToAdd" xml:space="preserve">
     <value>Clique para adicionar nó</value>
   </data>
+  
   <data name="Mode_AddNode_Info_SelectToAdd" xml:space="preserve">
     <value>Selecione segmento para adicionar nó</value>
   </data>
