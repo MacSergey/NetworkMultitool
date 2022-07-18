@@ -123,7 +123,9 @@
   <data name="Mode_AddNode_Info_ClickToAdd" xml:space="preserve">
     <value>Clique para adicionar nó</value>
   </data>
-  
+  <data name="Mode_AddNode_Info_PreciseMeasurement" xml:space="preserve">
+    <value>Manter {0} para uma medição precisa</value>
+  </data>
   <data name="Mode_AddNode_Info_SelectToAdd" xml:space="preserve">
     <value>Selecione segmento para adicionar nó</value>
   </data>
@@ -140,7 +142,9 @@ Está demasiado perto de outro nó</value>
   <data name="Mode_ArrangeAtLine" xml:space="preserve">
     <value>Modo ajustar em linha</value>
   </data>
-  
+  <data name="Mode_ArrangeCircle_Info_ClickToComplite" xml:space="preserve">
+    <value>Clicar para completar a seleção do círculo</value>
+  </data>
   
   
   <data name="Mode_Connection_Info_DoubleClickOnCenterToChangeDir" xml:space="preserve">
@@ -162,22 +166,36 @@ para mudar a direção da curva</value>
   <data name="Mode_CreateConnection" xml:space="preserve">
     <value>Modo de criação de ligação</value>
   </data>
-  
+  <data name="Mode_CreateCurve" xml:space="preserve">
+    <value>Modo de criar curva</value>
+  </data>
   <data name="Mode_CreateLoop" xml:space="preserve">
     <value>Modo de criação de loop</value>
   </data>
   <data name="Mode_CreateLoop_Info_Change" xml:space="preserve">
     <value>Pressione {0} para alterar o loop</value>
   </data>
-  
+  <data name="Mode_CreateParallerl" xml:space="preserve">
+    <value>Modo de criar paralelo</value>
+  </data>
   <data name="Mode_Info_Apply" xml:space="preserve">
     <value>Pressione {0} para aplicar</value>
   </data>
-  
-  
-  
-  
-  
+  <data name="Mode_Info_ArrangeCircle_Apply" xml:space="preserve">
+    <value>Pressiona {0} para arranjar num círculo</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_BigDelta" xml:space="preserve">
+    <value>O ângulo entre nódulos é muito grande, a forma redonda não será perfeita</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_DoubleClickToResetCenter" xml:space="preserve">
+    <value>Duplo-clique para redefinir a posição central</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_DoubleClickToResetNode" xml:space="preserve">
+    <value>Duplo-clique para redefinir a posição do nódulo</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_DragToChangeRadius" xml:space="preserve">
+    <value>Arrastar para mudar o raio</value>
+  </data>
   <data name="Mode_Info_ArrangeCircle_DragToMoveCenter" xml:space="preserve">
     <value>Arraste para mover o círculo</value>
   </data>
@@ -192,7 +210,9 @@ ao mesmo tempo</value>
     <value>Pressione {0} para distribuir nós
 igualmente entre interseções</value>
   </data>
-  
+  <data name="Mode_Info_ArrangeCircle_PressToDistributeEvenly" xml:space="preserve">
+    <value>Pressionar {0} para distribuir nódulos uniformemente no círculo</value>
+  </data>
   <data name="Mode_Info_ArrangeCircle_PressToDistributeIntersections" xml:space="preserve">
     <value>Pressione {0} para distribuir
 intersecções de forma igualmente em círculo</value>
@@ -203,7 +223,9 @@ intersecções de forma igualmente em círculo</value>
   <data name="Mode_Info_ArrangeCircle_WrongOrder" xml:space="preserve">
     <value>Ordem dos nós incorrecta</value>
   </data>
-  
+  <data name="Mode_Info_ArrangeLine_Apply" xml:space="preserve">
+    <value>Pressionar {0} para arranjar na linha</value>
+  </data>
   <data name="Mode_Info_ChangeAllRadius" xml:space="preserve">
     <value>Pressione {0} ou {1} para alterar todos os raios</value>
   </data>
@@ -243,7 +265,9 @@ intersecções de forma igualmente em círculo</value>
   <data name="Mode_Info_ClickUnselectNode" xml:space="preserve">
     <value>Clique para desselecionar o nó</value>
   </data>
-  
+  <data name="Mode_Info_Connection_Create" xml:space="preserve">
+    <value>Pressionar {0} para criar uma conexão</value>
+  </data>
   <data name="Mode_Info_ConstructionCost" xml:space="preserve">
     <value>Custo de Construção: {0}</value>
   </data>
