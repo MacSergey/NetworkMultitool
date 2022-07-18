@@ -152,8 +152,7 @@ Está demasiado perto de outro nó</value>
     <value>Selecionar segmento para definir a direção do arranjo</value>
   </data>
   <data name="Mode_Connection_Info_DoubleClickOnCenterToChangeDir" xml:space="preserve">
-    <value>Clique duas vezes no centro do círculo
-para mudar a direção da curva</value>
+    <value>Clicar duas vezes no centro do círculo para mudar a direção da curva</value>
   </data>
   <data name="Mode_Connection_Info_DoubleClickToAdd" xml:space="preserve">
     <value>Clique duas vezes para adicionar uma curva a esta reta</value>
@@ -443,10 +442,10 @@ Clicar com {0} para dividir o nó e alinhá-lo à altura da fonte</value>
     <value>Selecionar segmento para bloquear ou desbloqueá-lo</value>
   </data>
   <data name="Mode_UnlockSegment_Info_ClickToLock" xml:space="preserve">
-    <value>Clique para bloquear este segmento</value>
+    <value>Clicar para bloquear este segmento</value>
   </data>
   <data name="Mode_UnlockSegment_Info_ClickToUnlock" xml:space="preserve">
-    <value>Clique para desbloquear este segmento</value>
+    <value>Clicar para desbloquear este segmento</value>
   </data>
   <data name="Mod_Description" xml:space="preserve">
     <value>Muitas ferramentas diferentes para trabalhar com redes</value>
