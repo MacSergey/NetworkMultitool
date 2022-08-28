@@ -121,10 +121,13 @@
     <value>Modo de adição de nó</value>
   </data>
   <data name="Mode_AddNode_Info_ClickToAdd" xml:space="preserve">
-    <value>Clique para adicionar nó</value>
+    <value>Clicar para adicionar nó</value>
+  </data>
+  <data name="Mode_AddNode_Info_PreciseMeasurement" xml:space="preserve">
+    <value>Manter {0} para uma medição precisa</value>
   </data>
   <data name="Mode_AddNode_Info_SelectToAdd" xml:space="preserve">
-    <value>Selecione segmento para adicionar nó</value>
+    <value>Selecionar segmento para adicionar nó</value>
   </data>
   <data name="Mode_AddNode_Info_TooCloseNode" xml:space="preserve">
     <value>Não é possível inserir nó
@@ -134,17 +137,22 @@ Está demasiado perto de outro nó</value>
     <value>{0}°</value>
   </data>
   <data name="Mode_ArrangeAtCircle" xml:space="preserve">
-    <value>Modo ajustar em círculo</value>
+    <value>Modo de ajustar em círculo</value>
   </data>
   <data name="Mode_ArrangeAtLine" xml:space="preserve">
-    <value>Modo ajustar em linha</value>
+    <value>Modo de ajustar em linha</value>
   </data>
-  
-  
-  
+  <data name="Mode_ArrangeCircle_Info_ClickToComplite" xml:space="preserve">
+    <value>Clicar para completar a seleção do círculo</value>
+  </data>
+  <data name="Mode_ArrangeLine_Info_ClickToSelectDirection" xml:space="preserve">
+    <value>Clicar para selecionar a direção do arranjo</value>
+  </data>
+  <data name="Mode_ArrangeLine_Info_SelectDirection" xml:space="preserve">
+    <value>Selecionar segmento para definir a direção do arranjo</value>
+  </data>
   <data name="Mode_Connection_Info_DoubleClickOnCenterToChangeDir" xml:space="preserve">
-    <value>Clique duas vezes no centro do círculo
-para mudar a direção da curva</value>
+    <value>Clicar duas vezes no centro do círculo para mudar a direção da curva</value>
   </data>
   <data name="Mode_Connection_Info_DoubleClickToAdd" xml:space="preserve">
     <value>Clique duas vezes para adicionar uma curva a esta reta</value>
@@ -161,22 +169,36 @@ para mudar a direção da curva</value>
   <data name="Mode_CreateConnection" xml:space="preserve">
     <value>Modo de criação de ligação</value>
   </data>
-  
+  <data name="Mode_CreateCurve" xml:space="preserve">
+    <value>Modo de criar curva</value>
+  </data>
   <data name="Mode_CreateLoop" xml:space="preserve">
     <value>Modo de criação de loop</value>
   </data>
   <data name="Mode_CreateLoop_Info_Change" xml:space="preserve">
     <value>Pressione {0} para alterar o loop</value>
   </data>
-  
+  <data name="Mode_CreateParallerl" xml:space="preserve">
+    <value>Modo de criar paralelo</value>
+  </data>
   <data name="Mode_Info_Apply" xml:space="preserve">
     <value>Pressione {0} para aplicar</value>
   </data>
-  
-  
-  
-  
-  
+  <data name="Mode_Info_ArrangeCircle_Apply" xml:space="preserve">
+    <value>Pressiona {0} para arranjar num círculo</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_BigDelta" xml:space="preserve">
+    <value>O ângulo entre nódulos é muito grande, a forma redonda não será perfeita</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_DoubleClickToResetCenter" xml:space="preserve">
+    <value>Duplo-clique para redefinir a posição central</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_DoubleClickToResetNode" xml:space="preserve">
+    <value>Duplo-clique para redefinir a posição do nódulo</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_DragToChangeRadius" xml:space="preserve">
+    <value>Arrastar para mudar o raio</value>
+  </data>
   <data name="Mode_Info_ArrangeCircle_DragToMoveCenter" xml:space="preserve">
     <value>Arraste para mover o círculo</value>
   </data>
@@ -191,7 +213,9 @@ ao mesmo tempo</value>
     <value>Pressione {0} para distribuir nós
 igualmente entre interseções</value>
   </data>
-  
+  <data name="Mode_Info_ArrangeCircle_PressToDistributeEvenly" xml:space="preserve">
+    <value>Pressionar {0} para distribuir nódulos uniformemente no círculo</value>
+  </data>
   <data name="Mode_Info_ArrangeCircle_PressToDistributeIntersections" xml:space="preserve">
     <value>Pressione {0} para distribuir
 intersecções de forma igualmente em círculo</value>
@@ -202,7 +226,9 @@ intersecções de forma igualmente em círculo</value>
   <data name="Mode_Info_ArrangeCircle_WrongOrder" xml:space="preserve">
     <value>Ordem dos nós incorrecta</value>
   </data>
-  
+  <data name="Mode_Info_ArrangeLine_Apply" xml:space="preserve">
+    <value>Pressionar {0} para arranjar na linha</value>
+  </data>
   <data name="Mode_Info_ChangeAllRadius" xml:space="preserve">
     <value>Pressione {0} ou {1} para alterar todos os raios</value>
   </data>
@@ -242,31 +268,51 @@ intersecções de forma igualmente em círculo</value>
   <data name="Mode_Info_ClickUnselectNode" xml:space="preserve">
     <value>Clique para desselecionar o nó</value>
   </data>
-  
+  <data name="Mode_Info_Connection_Create" xml:space="preserve">
+    <value>Pressionar {0} para criar uma conexão</value>
+  </data>
   <data name="Mode_Info_ConstructionCost" xml:space="preserve">
     <value>Custo de Construção: {0}</value>
   </data>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Pressione {0} para criar</value>
   </data>
-  
-  
-  
-  
-  
+  <data name="Mode_Info_HoldToMoveSlower" xml:space="preserve">
+    <value>Manter {0} para mover X{1} mais lentamente</value>
+  </data>
+  <data name="Mode_Info_HoldToStep" xml:space="preserve">
+    <value>Manter {0} para avançar {1}</value>
+  </data>
+  <data name="Mode_Info_InvertNetwork" xml:space="preserve">
+    <value>Pressionar {0} para inverter a rede</value>
+  </data>
+  <data name="Mode_Info_Loop_Create" xml:space="preserve">
+    <value>Pressionar {0} para criar uma repetição</value>
+  </data>
+  <data name="Mode_Info_NotEnoughMoney" xml:space="preserve">
+    <value>Dinheiro insuficiente</value>
+  </data>
   <data name="Mode_Info_OutOfMap" xml:space="preserve">
     <value>Fora do mapa</value>
   </data>
-  
-  
-  
+  <data name="Mode_Info_Parallel_ChangeHeight" xml:space="preserve">
+    <value>Pressionar {0} ou {1} para alterar a altura</value>
+  </data>
+  <data name="Mode_Info_Parallel_ChangeShift" xml:space="preserve">
+    <value>Pressionar {0} para mudar o lado da criação</value>
+  </data>
+  <data name="Mode_Info_Parallel_Create" xml:space="preserve">
+    <value>Pressionar {0} para criar uma repetição</value>
+  </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
     <value>Raio muito grande</value>
   </data>
   <data name="Mode_Info_RadiusTooSmall" xml:space="preserve">
     <value>Raio muito pequeno</value>
   </data>
-  
+  <data name="Mode_Info_Refund" xml:space="preserve">
+    <value>Reembolso: {0}</value>
+  </data>
   <data name="Mode_Info_SelectFirstSegment" xml:space="preserve">
     <value>Selecione o primeiro segmento</value>
   </data>
@@ -282,7 +328,9 @@ intersecções de forma igualmente em círculo</value>
   <data name="Mode_Info_Step" xml:space="preserve">
     <value>Shift - X10, Ctrl - X0.1, Alt - X0.01</value>
   </data>
-  
+  <data name="Mode_Info_SwitchFollowTerrain" xml:space="preserve">
+    <value>Pressionar {0} para alternar entre seguir terreno</value>
+  </data>
   <data name="Mode_Info_SwitchOffset" xml:space="preserve">
     <value>Pressione {0} para alternar deslocamento selecionado</value>
   </data>
@@ -295,7 +343,9 @@ intersecções de forma igualmente em círculo</value>
   <data name="Mode_IntersectSegment" xml:space="preserve">
     <value>Modo de intersecção de segmentos</value>
   </data>
-  
+  <data name="Mode_IntersectSegment_Info_CommonNode" xml:space="preserve">
+    <value>Estes segmentos têm um nó comum</value>
+  </data>
   <data name="Mode_IntersectSegment_Info_EdgeTooClose" xml:space="preserve">
     <value>Borda de um segmento é muito perto do final do segundo segmento</value>
   </data>
@@ -336,11 +386,22 @@ porque não está ligado a outros</value>
   <data name="Mode_SplitNode" xml:space="preserve">
     <value>Modo nó dividido</value>
   </data>
-  
-  
-  
-  
-  
+  <data name="Mode_SplitNode_Info_ClickFromOrder" xml:space="preserve">
+    <value>Clicar para remover o segmento da ordem dividida</value>
+  </data>
+  <data name="Mode_SplitNode_Info_ClickToOrder" xml:space="preserve">
+    <value>Clicar para adicionar um segmento para dividir a ordem</value>
+  </data>
+  <data name="Mode_SplitNode_Info_ClickToSplit" xml:space="preserve">
+    <value>Clicar para dividir nó e alinhá-lo à altura do terreno
+Clicar com {0} para dividir o nó e alinhá-lo à altura da fonte</value>
+  </data>
+  <data name="Mode_SplitNode_Info_NotAllowedSplit" xml:space="preserve">
+    <value>Não é possível dividir o nó com apenas um segmento</value>
+  </data>
+  <data name="Mode_SplitNode_Info_OrderIsFull" xml:space="preserve">
+    <value>Não é possível adicionar mais segmentos à ordem dividida</value>
+  </data>
   <data name="Mode_SplitNode_Info_SelectToSplit" xml:space="preserve">
     <value>Selecione segmentos para dividir</value>
   </data>
@@ -377,12 +438,14 @@ porque não está ligado a outros</value>
   <data name="Mode_UnlockSegment" xml:space="preserve">
     <value>Modo de desbloqueio de segmento</value>
   </data>
-  
+  <data name="Mode_UnlockSegment_Info_ChangeLock" xml:space="preserve">
+    <value>Selecionar segmento para bloquear ou desbloqueá-lo</value>
+  </data>
   <data name="Mode_UnlockSegment_Info_ClickToLock" xml:space="preserve">
-    <value>Clique para bloquear este segmento</value>
+    <value>Clicar para bloquear este segmento</value>
   </data>
   <data name="Mode_UnlockSegment_Info_ClickToUnlock" xml:space="preserve">
-    <value>Clique para desbloquear este segmento</value>
+    <value>Clicar para desbloquear este segmento</value>
   </data>
   <data name="Mod_Description" xml:space="preserve">
     <value>Muitas ferramentas diferentes para trabalhar com redes</value>
@@ -394,13 +457,21 @@ porque não está ligado a outros</value>
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>Atalhos de ativação</value>
   </data>
-  
+  <data name="Settings_AutoConnect" xml:space="preserve">
+    <value>Ligar a estrada paralela aos nós mais próximo automaticamente</value>
+  </data>
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>Ocultar automaticamente o painel de modos</value>
   </data>
-  
-  
-  
+  <data name="Settings_CommonCreateShortcuts" xml:space="preserve">
+    <value>Atalhos comuns dos modos de criação</value>
+  </data>
+  <data name="Settings_CommonShortcuts" xml:space="preserve">
+    <value>Atalhos comuns dos modos</value>
+  </data>
+  <data name="Settings_FollowTerrain" xml:space="preserve">
+    <value>Estradas terrestres seguirão o terreno</value>
+  </data>
   <data name="Settings_Gameplay" xml:space="preserve">
     <value>Jogabilidade</value>
   </data>
@@ -422,42 +493,66 @@ porque não está ligado a outros</value>
   <data name="Settings_PanelColumns" xml:space="preserve">
     <value>Número de colunas do painel</value>
   </data>
-  
+  <data name="Settings_PanelOpenSide" xml:space="preserve">
+    <value>Lado de abertura do painel</value>
+  </data>
   <data name="Settings_PanelOpenSideDown" xml:space="preserve">
     <value>Baixo</value>
   </data>
   <data name="Settings_PanelOpenSideUp" xml:space="preserve">
     <value>Cima</value>
   </data>
-  
-  
+  <data name="Settings_PlayEffects" xml:space="preserve">
+    <value>Reproduzir áudio e efeitos visuais</value>
+  </data>
+  <data name="Settings_PreviewType" xml:space="preserve">
+    <value>Pré-visualização da criação</value>
+  </data>
   <data name="Settings_PreviewTypeBoth" xml:space="preserve">
     <value>Ambos</value>
   </data>
-  
+  <data name="Settings_PreviewTypeMesh" xml:space="preserve">
+    <value>Visualização da rede</value>
+  </data>
   <data name="Settings_PreviewTypeOverlay" xml:space="preserve">
     <value>Sobreposição</value>
   </data>
   <data name="Settings_SegmentLength" xml:space="preserve">
     <value>Comprimento máximo do segmento</value>
   </data>
-  
-  
-  
+  <data name="Settings_Shortcut_Apply" xml:space="preserve">
+    <value>Aplicar ação do modo</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseAngle" xml:space="preserve">
+    <value>Diminuir ângulo inicial</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseHeight" xml:space="preserve">
+    <value>Diminuir altura</value>
+  </data>
   <data name="Settings_Shortcut_DecreaseOffset" xml:space="preserve">
     <value>Diminuir o deslocamento inicial do círculo</value>
   </data>
-  
-  
+  <data name="Settings_Shortcut_DecreaseOneRadius" xml:space="preserve">
+    <value>Diminuir o raio uma vez</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseRadii" xml:space="preserve">
+    <value>Diminuir raios</value>
+  </data>
   <data name="Settings_Shortcut_DecreaseRadius" xml:space="preserve">
     <value>Diminuir o raio</value>
   </data>
   <data name="Settings_Shortcut_DecreaseShift" xml:space="preserve">
     <value>Diminuir deslocamento</value>
   </data>
-  
-  
-  
+  <data name="Settings_Shortcut_DistributeBetweenIntersections" xml:space="preserve">
+    <value>Distribuir nós igualmente entre interseções</value>
+  </data>
+  <data name="Settings_Shortcut_DistributeEvenly" xml:space="preserve">
+    <value>Distribuir nós igualmente no círculo</value>
+  </data>
+  <data name="Settings_Shortcut_DistributeIntersections" xml:space="preserve">
+    <value>Distribuir interseções igualmente no círculo</value>
+  </data>
   <data name="Settings_Shortcut_IncreaseAngle" xml:space="preserve">
     <value>Aumentar ângulo inicial</value>
   </data>
@@ -467,22 +562,42 @@ porque não está ligado a outros</value>
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
     <value>Aumentar o deslocamento inicial do círculo</value>
   </data>
-  
-  
+  <data name="Settings_Shortcut_IncreaseOneRadius" xml:space="preserve">
+    <value>Aumentar o raio uma vez</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseRadii" xml:space="preserve">
+    <value>Aumentar raios</value>
+  </data>
   <data name="Settings_Shortcut_IncreaseRadius" xml:space="preserve">
     <value>Aumentar o raio</value>
   </data>
   <data name="Settings_Shortcut_IncreaseShift" xml:space="preserve">
     <value>Aumentar o deslocamento</value>
   </data>
-  
-  
-  
-  
-  
-  
-  
-  
+  <data name="Settings_Shortcut_InvertNetwork" xml:space="preserve">
+    <value>Inverter rede</value>
+  </data>
+  <data name="Settings_Shortcut_InvertShift" xml:space="preserve">
+    <value>Mudar lado da criação</value>
+  </data>
+  <data name="Settings_Shortcut_ResetArrangeCircle" xml:space="preserve">
+    <value>Restaurar ao círculo padrão</value>
+  </data>
+  <data name="Settings_Shortcut_SwitchFollowTerrain" xml:space="preserve">
+    <value>Alternar seguir terreno</value>
+  </data>
+  <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
+    <value>Mudar direção da repetição</value>
+  </data>
+  <data name="Settings_Shortcut_SwitchOffset" xml:space="preserve">
+    <value>Alternar deslocamento selecionado</value>
+  </data>
+  <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
+    <value>Alternar círculo selecionado</value>
+  </data>
+  <data name="Settings_SlopeColors" xml:space="preserve">
+    <value>Definir a cor da etiqueta da inclinação dependendo do valor</value>
+  </data>
   <data name="Settings_SlopeUnit" xml:space="preserve">
     <value>Unidade de medida de inclinação</value>
   </data>
