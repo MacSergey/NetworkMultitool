@@ -29,7 +29,7 @@ namespace NetworkMultitool
 
         public abstract ToolModeType Type { get; }
         public bool IsMain => Type.IsItem();
-        public string Title => SingletonMod<Mod>.Instance.GetLocalizeString(Type.GetAttr<DescriptionAttribute, ToolModeType>()?.Description);
+        public string Title => SingletonMod<Mod>.Instance.GetLocalizedString(Type.GetAttr<DescriptionAttribute, ToolModeType>()?.Description);
         protected abstract bool IsReseted { get; }
         protected virtual bool CanSwitchUnderground => true;
         private bool ForbiddenSwitchUnderground { get; set; }
