@@ -110,7 +110,7 @@ namespace NetworkMultitool {
         ///   Ищет локализованную строку, похожую на [FIXED] Returned the ability to invert any network, not only one direction roads.
         ///[NEW] Tool does not close when you select another network.
         ///[FIXED] Mode&apos;s buttons react again on click.
-        ///[NEW] Added Romanian translation..
+        ///[TRANSLATION] Added Romanian translation..
         /// </summary>
         internal static string Mod_WhatsNewMessage1_3_1 {
             get {
@@ -133,6 +133,15 @@ namespace NetworkMultitool {
         internal static string Mode_AddNode_Info_ClickToAdd {
             get {
                 return ResourceManager.GetString("Mode_AddNode_Info_ClickToAdd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Hold {0} for precise measurement.
+        /// </summary>
+        internal static string Mode_AddNode_Info_PreciseMeasurement {
+            get {
+                return ResourceManager.GetString("Mode_AddNode_Info_PreciseMeasurement", resourceCulture);
             }
         }
         
