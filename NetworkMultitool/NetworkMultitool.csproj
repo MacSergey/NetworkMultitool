@@ -205,7 +205,6 @@
   <Import Project="..\ModsCommon\WhatsNewMessageBoxShared\WhatsNewMessageBoxShared.projitems" Label="Shared" />
   <Import Project="..\ModsCommon\UIShared\ModsUIShared.projitems" Label="Shared" />
   <Import Project="..\ModsCommon\AutoLayoutPanelShared\AutoLayoutPanelShared.projitems" Label="Shared" />
-  <Import Project="..\ModsCommon\CustomUIShared\CustomUIShared.projitems" Label="Shared" />
   <Import Project="..\ModsCommon\DependencyShared\DependencyShared.projitems" Label="Shared" />
   <Import Project="..\ModsCommon\LoggerShared\LoggerShared.projitems" Label="Shared" />
   <Import Project="..\ModsCommon\MathExtension\MathExtension.projitems" Label="Shared" />
@@ -234,7 +233,6 @@
   <Import Project="..\ModsCommon\LocalizeShared\LocalizeShared.nl.projitems" Label="Shared" />
   <Import Project="..\ModsCommon\LocalizeShared\LocalizeShared.ro.projitems" Label="Shared" />
   <Import Project="..\ModsCommon\TriangulatorShared\Triangulator.projitems" Label="Shared" />
-  <Import Project="..\ModsCommon\MultyAtlasButton\MultyAtlasButton.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup Condition="'$(Configuration)' == 'Stable Release' OR '$(Configuration)' == 'Stable Debug'">
     <WorkshopId>2560782729</WorkshopId>
