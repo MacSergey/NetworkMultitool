@@ -30,27 +30,27 @@ namespace NetworkMultitool.UI
                 if (value)
                 {
                     normalBgSprite = CommonTextures.HeaderHover;
-                    BgHoveredColor = FocusedColor;
-                    BgPressedColor = FocusedColor;
-                    BgFocusedColor = FocusedColor;
+                    hoveredBgColor = FocusedColor;
+                    pressedBgColor = FocusedColor;
+                    focusedBgColor = FocusedColor;
                 }
                 else
                 {
                     normalBgSprite = string.Empty;
-                    BgHoveredColor = HoverColor;
-                    BgPressedColor = PressedColor;
-                    BgFocusedColor = PressedColor;
+                    hoveredBgColor = HoverColor;
+                    pressedBgColor = PressedColor;
+                    focusedBgColor = PressedColor;
                 }
             } 
         }
         public ModeButton()
         {
-            BgAtlas = CommonTextures.Atlas;
-            FgAtlas = NetworkMultitoolTextures.Atlas;
+            atlasBackground = CommonTextures.Atlas;
+            atlasForeground = NetworkMultitoolTextures.Atlas;
             hoveredBgSprite = CommonTextures.HeaderHover;
             pressedBgSprite = CommonTextures.HeaderHover;
             focusedBgSprite = CommonTextures.HeaderHover;
-            BgColor = FocusedColor;
+            normalBgColor = FocusedColor;
             size = new Vector2(Size, Size);
             clipChildren = true;
             minimumSize = size;
