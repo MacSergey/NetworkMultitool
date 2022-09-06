@@ -24,8 +24,8 @@ namespace NetworkMultitool
                 AddState = AddResult.IsLast;
             else
             {
-                var inStart = Check(true, HoverNode.Id, Nodes[0].Id, Nodes[Nodes.Count - 1].Id, (Nodes.Count == 1 ? 0 : Nodes[1].Id), out var toAddStart);
-                var inEnd = Check(false, HoverNode.Id, Nodes[Nodes.Count - 1].Id, Nodes[0].Id, (Nodes.Count == 1 ? 0 : Nodes[Nodes.Count - 2].Id), out var toAddEnd);
+                var inStart = Check(true, HoverNode.Id, Nodes[0].Id, Nodes[Nodes.Count - 1].Id, (Nodes.Count == 1 ? (ushort)0 : Nodes[1].Id), out var toAddStart);
+                var inEnd = Check(false, HoverNode.Id, Nodes[Nodes.Count - 1].Id, Nodes[0].Id, (Nodes.Count == 1 ? (ushort)0 : Nodes[Nodes.Count - 2].Id), out var toAddEnd);
 
                 if (inStart && inEnd)
                 {
