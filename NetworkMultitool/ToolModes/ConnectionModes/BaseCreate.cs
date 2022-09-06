@@ -49,8 +49,8 @@ namespace NetworkMultitool
         protected bool IsSecond => Second != null;
         protected bool IsBoth => IsFirst && IsSecond;
 
-        protected ushort FirstNodeId => IsFirst ? First.Id.GetSegment().GetNode(IsFirstStart) : 0;
-        protected ushort SecondNodeId => IsSecond ? Second.Id.GetSegment().GetNode(IsSecondStart) : 0;
+        protected ushort FirstNodeId => IsFirst ? First.Id.GetSegment().GetNode(IsFirstStart) : (ushort)0;
+        protected ushort SecondNodeId => IsSecond ? Second.Id.GetSegment().GetNode(IsSecondStart) : (ushort)0;
 
         protected float Height { get; set; }
         protected StraightTrajectory FirstTrajectory { get; set; }
