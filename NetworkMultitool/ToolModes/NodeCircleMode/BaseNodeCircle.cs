@@ -31,8 +31,8 @@ namespace NetworkMultitool
             HashSet<ushort> toAddEnd;
             if (Nodes.Count != 0)
             {
-                inStart = Check(true, HoverNode.Id, Nodes[0].Id, 0, Nodes.Count == 1 ? 0 : Nodes[1].Id, out toAddStart);
-                inEnd = Check(false, HoverNode.Id, Nodes[Nodes.Count - 1].Id, 0, Nodes.Count == 1 ? 0 : Nodes[Nodes.Count - 2].Id, out toAddEnd);
+                inStart = Check(true, HoverNode.Id, Nodes[0].Id, 0, Nodes.Count == 1 ? (ushort)0 : Nodes[1].Id, out toAddStart);
+                inEnd = Check(false, HoverNode.Id, Nodes[Nodes.Count - 1].Id, 0, Nodes.Count == 1 ? (ushort)0 : Nodes[Nodes.Count - 2].Id, out toAddEnd);
             }
             else if (HoverNode.Id.GetNode().CountSegments() == 2)
             {
