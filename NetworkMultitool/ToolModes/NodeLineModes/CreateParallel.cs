@@ -35,8 +35,8 @@ namespace NetworkMultitool
 
         private float? Shift { get; set; }
         private float DeltaHeight { get; set; }
-        private Straight StartLine { get; set; }
-        private Straight EndLine { get; set; }
+        private MeasureStraight StartLine { get; set; }
+        private MeasureStraight EndLine { get; set; }
         private InfoLabel StartHeightLabel { get; set; }
         private InfoLabel EndHeightLabel { get; set; }
         private bool AllowHeight => Info.m_segments.All(s => !s.m_requireHeightMap);
@@ -242,8 +242,8 @@ namespace NetworkMultitool
             var startLength = startNode.Segments().Max(s => s.Info.m_halfWidth) + 2f;
             var endLength = endNode.Segments().Max(s => s.Info.m_halfWidth) + 2f;
 
-            StartLine = new Straight(startNode.m_position, Points[0].Position, startDir, startLength, StartLine?.Label ?? AddLabel(), startNode.m_position.y);
-            EndLine = new Straight(endNode.m_position, Points[Points.Count - 1].Position, endDir, endLength, EndLine?.Label ?? AddLabel(), endNode.m_position.y);
+            StartLine = new MeasureStraight(startNode.m_position, Points[0].Position, startDir, startLength, StartLine?.Label ?? AddLabel(), startNode.m_position.y);
+            EndLine = new MeasureStraight(endNode.m_position, Points[Points.Count - 1].Position, endDir, endLength, EndLine?.Label ?? AddLabel(), endNode.m_position.y);
         }
         protected override void Apply()
         {
@@ -380,18 +380,6 @@ namespace NetworkMultitool
             }
 
             base.RenderGeometry(cameraInfo);
-        }
-
-        public class Straight : BaseStraight
-        {
-            public float MeasureLength { get; }
-            public Straight(Vector3 start, Vector3 end, Vector3 labelDir, float measureLength, InfoLabel label, float height) : base(start, end, labelDir, label, height)
-            {
-                MeasureLength = measureLength;
-            }
-
-            public void Update(bool show) => Update(MeasureLength, show);
-            public void Render(RenderManager.CameraInfo cameraInfo, Color color, Color colorArrow, bool underground) => this.RenderMeasure(cameraInfo, 0f, MeasureLength, LabelDir, color, colorArrow, underground);
         }
     }
 }
