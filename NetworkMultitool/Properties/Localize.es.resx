@@ -123,6 +123,9 @@
   <data name="Mode_AddNode_Info_ClickToAdd" xml:space="preserve">
     <value>Clic para añadir nodo</value>
   </data>
+  <data name="Mode_AddNode_Info_PreciseMeasurement" xml:space="preserve">
+    <value>Mantener presionada {0} para medición precisa</value>
+  </data>
   <data name="Mode_AddNode_Info_SelectToAdd" xml:space="preserve">
     <value>Seleccione un segmento para añadir un nodo</value>
   </data>
@@ -468,7 +471,12 @@ Clic con {0} para separar nodo y alinear a la altura de la selección</value>
 [TRANSLATION] Añadidas las traducciones de Danés y Turco.</value>
   </data>
   
-  
+  <data name="Mod_WhatsNewMessage1_3_1" xml:space="preserve">
+    <value>[FIXED] Capacidad para invertir cualquier red, no solo carreteras de una via.
+[NEW] La herramienta no se cierra cuando selecciona otra red.
+[FIXED] Los botones del modo reaccionan de nuevo al hacer clic.
+[TRANSLATION] Añadida traducción al rumano.</value>
+  </data>
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>Atajos de activación</value>
   </data>

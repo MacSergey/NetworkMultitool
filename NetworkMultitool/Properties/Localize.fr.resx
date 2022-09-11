@@ -123,6 +123,9 @@
   <data name="Mode_AddNode_Info_ClickToAdd" xml:space="preserve">
     <value>Cliquez pour ajouter un nœud</value>
   </data>
+  <data name="Mode_AddNode_Info_PreciseMeasurement" xml:space="preserve">
+    <value>Maintenez {0} pour une mesure précise</value>
+  </data>
   <data name="Mode_AddNode_Info_SelectToAdd" xml:space="preserve">
     <value>Sélectionnez un segment pour ajouter un nœud</value>
   </data>
@@ -477,9 +480,49 @@ verrouiller ou déverrouiller</value>
 [FIXED] Correction de l'affichage en mode souterrain.
 [TRANSLATION] Ajout des traductions hongroises et coréennes.</value>
   </data>
-  
-  
-  
+  <data name="Mod_WhatsNewMessage1_2" xml:space="preserve">
+    <value>[NEW] Ajout du mode Ajout en parallèle : Sélectionnez les nœuds de réseau existants et créez un nouveau réseau en parallèle. Possibilité de définir le décalage, la hauteur et le côté des réseaux parallèles.
+[NEW] Ajout du mode Aligner en cercle : Sélectionnez les noeuds et disposez-les en cercle parfait. Il est possible de définir le rayon et la position du cercle, de déplacer les nœuds du cercle ainsi que de répartir uniformément les intersections et les nœuds dans le cercle.
+[NEW] Ajout du mode Créer une courbe : Créez une connexion lisse entre deux segments.
+[NEW] Ajout de la visualisation du réseau aux modes Connexion, Boucle, Parallèle et Courbe. Elle peut être désactivée dans les paramètres du mod.
+[NEW] Ajout de l'aimantation au mode Connexion : les cercles seront attirés aux cercles voisins lors du changement de leur rayon ou de leur position. Cette option peut être désactivée dans les paramètres du mod.
+[NEW] Ajout d'une option de suivi du terrain aux modes Connexion, Boucle, Parallèle et Courbe. Le suivi du terrain n'est possible que si les deux extrémités sont sur des réseaux au sol. La valeur par défaut peut être définie dans les paramètres du mod et modifiée avec Ctrl+F lors de la création du réseau.
+[NEW] Ajout d'effets sonores et visuels sur les actions des modes tel que des effets lors de la création d'un réseau. Cela devrait aider à comprendre que l'action a été effectuée. Peut être désactivé dans les paramètres du mod.
+[NEW] Ajout de la nécessite de l'argent pour construire les modes Connect, Loop, Parallel, Curve et Aligner la route. Peut être désactivé dans les paramètres du mod.
+[NEW] Ajout de la possibilité de modifier le nombre de colonnes dans le panneau des modes (entre 1 et 5).
+[NEW] Ajout de couleurs au texte des infobulles, ce qui devrait faciliter leur lecture.
+[NEW] Ajout de la possibilité de sélectionner des segments verrouillés dans les modes Connexion, Boucle, Parallèle et Courbe.
+[FIXED] Correction de la fermeture immédiate de l'outil lorsque le mode souterrain est sélectionné dans Fine Road Tool.
+[FIXED] Correction de la non mise à jour des zones lorsque le segment est déplacé en mode Aligner la route..
+[TRANSLATION] Ajout des traductions danoises et turques.</value>
+  </data>
+  <data name="Mod_WhatsNewMessage1_3" xml:space="preserve">
+    <value>[NEW] Ajout d'une option permettant de connecter automatiquement les extrémités d'un nouveau réseau parallèle à un réseau existant du même type. Cette option peut être désactivée dans les options du mod.
+[FIXED] Correction du problème de duplication des réseaux en mode parallèle.
+[UPDATED] Le mode Créer/Boucle/Courbe sélectionnera automatiquement la direction de construction où le nœud a le moins de segments.
+[NEW] AAjout de la possibilité de changer l'angle de départ aux modes Connexion et Boucle. Pour changer d'angle, appuyez sur O ou P (peut être rebindé dans les paramètres du mod).
+[NEW] Ajout de la possibilité d'inverser les routes à sens unique dans les modes de création.
+[NEW] Ajout de flèches de direction.
+[NEW] Ajout de la possibilité de basculer entre les mètres et les unités du jeu.
+[NEW] Ajout de couleurs aux libellés des pentes en fonction de leur valeur.
+[NEW] Ajout de la surbrillance du segment sélectionné en mode boucle.
+[UPDATED] Le rayon maximal du cercle en mode Connexion et en mode Boucle a été porté à 5 km.
+[UPDATED] La longueur maximale des segments droits en mode Connexion est passée de 500 à 5000 mètres.
+[NEW] Ajout de la possibilité de masquer le bouton original du mod dans la barre d'outils et d'utiliser uniquement le bouton UUI.
+[NEW] Ajout de la possibilité de définir le côté d'ouverture du panneau.
+[NEW] Le panneau des modes sera devant tous les autres éléments de l'interface utilisateur.
+[TRANSLATION] Ajout de la traduction néerlandaise.
+[FIXED] Correction du bug avec le clic droit qui ne fonctionnait pas pour désactiver l'outil. Maintenant tous les modes au premier clic réinitialisent la sélection (si elle existe), et au second clic désactivent l'outil.
+[FIXED] Correction de quelques problèmes de saisie sur mac os.
+[FIXED] Correction du calcul de la valeur de la pente.
+[FIXED] Correction d'une erreur dans le mode Arrangement en cercle lorsque le cercle sélectionné ne comporte pas d'intersections.</value>
+  </data>
+  <data name="Mod_WhatsNewMessage1_3_1" xml:space="preserve">
+    <value>[FIXED] Retour de la possibilité d'inverser n'importe quel réseau, pas seulement les routes à sens unique.
+[NEW] L'outil ne se ferme pas lorsque vous sélectionnez un autre réseau.
+[FIXED] Les boutons du mode réagissent à nouveau au clic.
+[TRANSLATION] Ajout de la traduction roumaine.</value>
+  </data>
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>Raccourcis d'activation</value>
   </data>

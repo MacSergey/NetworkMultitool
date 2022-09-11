@@ -146,6 +146,15 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Hold {0} for precise measurement.
+        /// </summary>
+        internal static string Mode_AddNode_Info_PreciseMeasurement {
+            get {
+                return ResourceManager.GetString("Mode_AddNode_Info_PreciseMeasurement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Select segment to add node.
         /// </summary>
         internal static string Mode_AddNode_Info_SelectToAdd {
