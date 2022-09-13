@@ -35,6 +35,8 @@ namespace NetworkMultitool
         protected override ulong StableWorkshopId => 2560782729ul;
         protected override ulong BetaWorkshopId => 2556133736ul;
 
+        public override string CrowdinUrl => "https://crowdin.com/translate/macsergey-other-mods/114";
+
 #if BETA
         public override bool IsBeta => true;
 #else
