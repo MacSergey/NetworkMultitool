@@ -454,7 +454,9 @@
   
   
   
-  
+  <data name="Mod_WhatsNewMessage1_3_2" xml:space="preserve">
+    <value>[UPDATED] Added Plazas &amp; Promenades DLC Support.</value>
+  </data>
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>Mode＆ツールの有効化</value>
   </data>
