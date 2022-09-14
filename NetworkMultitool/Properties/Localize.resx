@@ -516,6 +516,9 @@ lock or unlock it</value>
 [FIXED] Mode's buttons react again on click.
 [TRANSLATION] Added Romanian translation.</value>
   </data>
+  <data name="Mod_WhatsNewMessage1_3_2" xml:space="preserve">
+    <value>[UPDATED] Added Plazas &amp; Promenades DLC Support.</value>
+  </data>
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>Activation shortcuts</value>
   </data>

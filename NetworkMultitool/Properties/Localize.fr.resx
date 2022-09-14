@@ -523,6 +523,7 @@ verrouiller ou déverrouiller</value>
 [FIXED] Les boutons du mode réagissent à nouveau au clic.
 [TRANSLATION] Ajout de la traduction roumaine.</value>
   </data>
+  
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>Raccourcis d'activation</value>
   </data>

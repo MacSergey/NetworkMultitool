@@ -462,6 +462,7 @@ oder Entsperren auswählen</value>
 [FIXED] Die Modus-Schaltflächen reagieren wieder auf Klick.
 [TRANSLATION] Rumänische Übersetzung hinzugefügt.</value>
   </data>
+  
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>Aktivierungskurzbefehle</value>
   </data>
