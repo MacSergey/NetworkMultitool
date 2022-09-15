@@ -448,6 +448,7 @@ Düğümü dağıtmak ve hedef yüksekliğine ayarlamak için {0} tuşunu kullan
   
   
   
+  
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>Aktive etme kısayolları</value>
   </data>

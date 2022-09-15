@@ -462,6 +462,9 @@ oder Entsperren auswählen</value>
 [FIXED] Die Modus-Schaltflächen reagieren wieder auf Klick.
 [TRANSLATION] Rumänische Übersetzung hinzugefügt.</value>
   </data>
+  <data name="Mod_WhatsNewMessage1_3_2" xml:space="preserve">
+    <value>[UPDATED] DLC-Unterstützung für Plazas &amp; Promenades hinzugefügt.</value>
+  </data>
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>Aktivierungskurzbefehle</value>
   </data>

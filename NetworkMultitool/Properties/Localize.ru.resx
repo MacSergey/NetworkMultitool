@@ -519,6 +519,9 @@
 [FIXED] Кнопки режимов снова реагируют на нажатия.
 [TRANSLATION] Добавлен перевод на румынский.</value>
   </data>
+  <data name="Mod_WhatsNewMessage1_3_2" xml:space="preserve">
+    <value>[UPDATED] Добавлена поддержка Plazas &amp; Promenades DLC.</value>
+  </data>
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>Горячие клавиши активации</value>
   </data>

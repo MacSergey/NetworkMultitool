@@ -477,6 +477,9 @@ Clic con {0} para separar nodo y alinear a la altura de la selección</value>
 [FIXED] Los botones del modo reaccionan de nuevo al hacer clic.
 [TRANSLATION] Añadida traducción al rumano.</value>
   </data>
+  <data name="Mod_WhatsNewMessage1_3_2" xml:space="preserve">
+    <value>[UPDATED] Soporte para DLC Plazas &amp; Promedades.</value>
+  </data>
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>Atajos de activación</value>
   </data>
