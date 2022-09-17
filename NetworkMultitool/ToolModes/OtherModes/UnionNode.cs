@@ -40,7 +40,7 @@ namespace NetworkMultitool
                 if (!IsTarget || !IsSource)
                     return false;
                 else
-                    return NetExtension.GetCommon(Source.Id, Target.Id, out _);
+                    return NetExtension.GetCommonSegment(Source.Id, Target.Id, out _);
             }
         }
         private bool IsFar => (Source.Id.GetNode().m_position - Target.Id.GetNode().m_position).sqrMagnitude > 40000f;
