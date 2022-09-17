@@ -112,10 +112,10 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Mode_AddNode" xml:space="preserve">
     <value>Ajouter des nœuds</value>
@@ -525,6 +525,9 @@ verrouiller ou déverrouiller</value>
   </data>
   <data name="Mod_WhatsNewMessage1_3_2" xml:space="preserve">
     <value>[UPDATED] Ajout du support du DLC Plazas &amp; Promenades.</value>
+  </data>
+  <data name="Mod_WhatsNewMessage1_3_3" xml:space="preserve">
+    <value>[NEW] Le mod supporte Network Anarchy.</value>
   </data>
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>Raccourcis d'activation</value>

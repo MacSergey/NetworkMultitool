@@ -118,257 +118,254 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Mode_AddNode" xml:space="preserve">
-    <value>노드 추가 모드</value>
+    <value>Režim přidání uzlu</value>
   </data>
   <data name="Mode_AddNode_Info_ClickToAdd" xml:space="preserve">
-    <value>클릭해 노드 추가</value>
+    <value>Kliknutím přidáte uzel</value>
   </data>
   <data name="Mode_AddNode_Info_PreciseMeasurement" xml:space="preserve">
-    <value>{0}를 꾹 눌러 정밀한 조절</value>
+    <value>Podržte {0} pro přesné měření</value>
   </data>
   <data name="Mode_AddNode_Info_SelectToAdd" xml:space="preserve">
-    <value>세그먼트를 선택해 노드 추가</value>
+    <value>Vyberte segment pro přidání uzlu</value>
   </data>
   <data name="Mode_AddNode_Info_TooCloseNode" xml:space="preserve">
-    <value>노드 추가 불가
-근처 노드와 너무 가까움</value>
+    <value>Nelze vložit uzel
+Příliš blízko k jinému uzlu</value>
   </data>
   <data name="Mode_AngleFormat" xml:space="preserve">
     <value>{0}°</value>
   </data>
   <data name="Mode_ArrangeAtCircle" xml:space="preserve">
-    <value>원 위에 정렬 모드</value>
+    <value>Režim zarovnání do kruhu</value>
   </data>
   <data name="Mode_ArrangeAtLine" xml:space="preserve">
-    <value>선 위에 정렬 모드</value>
+    <value>Režim zarovnání do linie</value>
   </data>
   <data name="Mode_ArrangeCircle_Info_ClickToComplite" xml:space="preserve">
-    <value>클릭하여 원 선택 완료</value>
+    <value>Kliknutím dokončíte výběr kruhu</value>
   </data>
   <data name="Mode_ArrangeLine_Info_ClickToSelectDirection" xml:space="preserve">
-    <value>클릭해 배열 방향 선택</value>
+    <value>Kliknutím vyberte směr uspořádání</value>
   </data>
   <data name="Mode_ArrangeLine_Info_SelectDirection" xml:space="preserve">
-    <value>세그먼트를 클릭해 배열 방향 선택</value>
+    <value>Vyberte segment pro nastavení směru</value>
   </data>
   <data name="Mode_Connection_Info_DoubleClickOnCenterToChangeDir" xml:space="preserve">
-    <value>원 중심을 더블 클릭해
-커브의 방향 변경</value>
+    <value>Dvojklik do středu kruhu pro změnu směru zatáčky</value>
   </data>
   <data name="Mode_Connection_Info_DoubleClickToAdd" xml:space="preserve">
-    <value>더블 클릭해 이 선에 커브 추가</value>
+    <value>Dvojklikem přidáte do této linie zatáčku</value>
   </data>
   <data name="Mode_Connection_Info_DoubleClickToRemove" xml:space="preserve">
-    <value>더블 우클릭해 커브 제거</value>
+    <value>Pravým dvojklikem odeberete tuto zatáčku</value>
   </data>
   <data name="Mode_Connection_Info_DragToChangeRadius" xml:space="preserve">
-    <value>드래그해 반경 변경</value>
+    <value>Tažením změníte poloměr</value>
   </data>
   <data name="Mode_Connection_Info_DragToMove" xml:space="preserve">
-    <value>드래그해 원 이동</value>
+    <value>Tažením posunout kruh</value>
   </data>
   <data name="Mode_CreateConnection" xml:space="preserve">
-    <value>연결 생성 모드</value>
+    <value>Režim tvorby propojení</value>
   </data>
   <data name="Mode_CreateCurve" xml:space="preserve">
-    <value>곡선 생성 모드</value>
+    <value>Režim tvorby zatáčky</value>
   </data>
   <data name="Mode_CreateLoop" xml:space="preserve">
-    <value>루프 생성 모드</value>
+    <value>Režim tvorby smyčky</value>
   </data>
   <data name="Mode_CreateLoop_Info_Change" xml:space="preserve">
-    <value>{0} 키를 눌러서 루프 변경</value>
+    <value>Stiskněte {0} pro změnu smyčky</value>
   </data>
   <data name="Mode_CreateParallerl" xml:space="preserve">
-    <value>평행 생성 모드</value>
+    <value>Paralelní režim</value>
   </data>
   <data name="Mode_Info_Apply" xml:space="preserve">
-    <value>{0} 키를 눌러 적용</value>
+    <value>Stiskni {0} pro použití</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_Apply" xml:space="preserve">
-    <value>{0} 키를 눌러 원으로 정렬</value>
+    <value>Stiskněte {0} pro zarovnání do kruhu</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_BigDelta" xml:space="preserve">
-    <value>노드 간 각도가 지나치게 큼
-둥근 모양이 잘 만들어지지 않을 수 있음</value>
+    <value>Příliš velký úhel mezi uzly
+kulatý tvar nebude dokonalý</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_DoubleClickToResetCenter" xml:space="preserve">
-    <value>더블 클릭하여 중앙 위치 초기화</value>
+    <value>Dvojklikem resetujete středovou pozici</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_DoubleClickToResetNode" xml:space="preserve">
-    <value>더블 클릭하여 노드 위치 초기화</value>
+    <value>Dvojklikem resetujete pozici uzlu</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_DragToChangeRadius" xml:space="preserve">
-    <value>드래그해 반경 변경</value>
+    <value>Tažením změníte poloměr</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_DragToMoveCenter" xml:space="preserve">
-    <value>드래그해 원 이동</value>
+    <value>Tažením posunout kruh</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_DragToMoveNode" xml:space="preserve">
-    <value>드래그해 노드 이동</value>
+    <value>Uchopit pro přesun uzlu</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_MoveAll" xml:space="preserve">
-    <value>{0} 키를 누른 채로 모든 노드를
-동시에 이동</value>
+    <value>Podržte {0} pro posouvání všech uzlů
+současně</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_PressToDistributeBetweenIntersections" xml:space="preserve">
-    <value>{0} 키를 눌러 노드를 교차로
-사이에 일정하게 배치</value>
+    <value>Stiskněte {0} pro rovnoměrné rozložení uzlů
+mezi křižovatkami</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_PressToDistributeEvenly" xml:space="preserve">
-    <value>{0} 키를 눌러 노드를 원 위에 일정하게 배치</value>
+    <value>Stiskněte {0} pro rovnoměrné rozložení uzlů v kruhu</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_PressToDistributeIntersections" xml:space="preserve">
-    <value>{0} 키를 눌러 원 위에 교차로
-일정 간격으로 배치</value>
+    <value>Stiskněte {0} pro rovnoměrné rozložení křižovatek v kruhu</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_PressToReset" xml:space="preserve">
-    <value>{0} 키를 눌러 매개변수 초기화</value>
+    <value>Stiskněte {0} pro reset parametrů</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_WrongOrder" xml:space="preserve">
-    <value>노드 순서가 잘못됨</value>
+    <value>Špatné pořadí uzlů</value>
   </data>
   <data name="Mode_Info_ArrangeLine_Apply" xml:space="preserve">
-    <value>{0} 키를 눌러 직선으로 정렬</value>
+    <value>Stiskněte {0} pro zarovnání do linie</value>
   </data>
   <data name="Mode_Info_ChangeAllRadius" xml:space="preserve">
-    <value>{0} 또는 {1} 키를 눌러 모든 반지름 변경</value>
+    <value>Stiskněte {0} nebo {1} pro změnu všech poloměrů</value>
   </data>
   <data name="Mode_Info_ChangeBothRadius" xml:space="preserve">
-    <value>{0} 또는 {1} 키를 눌러 두 반지름 모두 변경</value>
+    <value>Stiskněte {0} nebo {1} pro změnu obou poloměrů</value>
   </data>
   <data name="Mode_Info_ChangeCircle" xml:space="preserve">
-    <value>{0} 키를 눌러 선택한 원 변경</value>
+    <value>Stiskněte {0} pro přepnutí vybraného kruhu</value>
   </data>
   <data name="Mode_Info_ChangeOffset" xml:space="preserve">
-    <value>{0} 또는 {1} 키를 눌러 커브 시작점 오프셋 변경</value>
+    <value>Stiskněte {0} nebo {1} pro změnu počátečního odsazení kruhu</value>
   </data>
   <data name="Mode_Info_ChangeOneRadius" xml:space="preserve">
-    <value>{0} 또는 {1} 키를 눌러 반지름 1개 변경</value>
+    <value>Stiskněte {0} nebo {1} pro změnu jednoho poloměru</value>
   </data>
   <data name="Mode_Info_ChangeRadius" xml:space="preserve">
-    <value>{0} 또는 {1} 키를 눌러 반지름 변경</value>
+    <value>Stiskněte {0} nebo {1} pro změnu poloměru</value>
   </data>
   <data name="Mode_Info_ChangeShift" xml:space="preserve">
-    <value>{0} 또는 {1} 키를 눌러 오프셋 변경</value>
+    <value>Stiskněte {0} nebo {1} pro změnu odsazení</value>
   </data>
   <data name="Mode_Info_ClickFirstSegment" xml:space="preserve">
-    <value>클릭해 첫 세그먼트 선택</value>
+    <value>Klikněte pro výběr prvního segmentu</value>
   </data>
   <data name="Mode_Info_ClickOnNodeToChangeCreateDir" xml:space="preserve">
-    <value>노드를 클릭해 제작 방향 변경</value>
+    <value>Klikněte na uzel pro změnu směru vytváření</value>
   </data>
   <data name="Mode_Info_ClickSecondSegment" xml:space="preserve">
-    <value>클릭해 두 번째 세그먼트 선택</value>
+    <value>Klikněte pro výběr druhého segmentu</value>
   </data>
   <data name="Mode_Info_ClickSelectNode" xml:space="preserve">
-    <value>클릭하여 노드 선택</value>
+    <value>Klinkěte pro výběr uzlu</value>
   </data>
   <data name="Mode_Info_ClickToChangeCreateDir" xml:space="preserve">
-    <value>클릭해 제작 방향 변경</value>
+    <value>Klikněte pro změnu směru vytváření</value>
   </data>
   <data name="Mode_Info_ClickUnselectNode" xml:space="preserve">
-    <value>클릭하여 노드 선택 취소</value>
+    <value>Klepnutím zrušíte výběr uzlu</value>
   </data>
   <data name="Mode_Info_Connection_Create" xml:space="preserve">
-    <value>{0} 키를 눌러서 연결 생성</value>
+    <value>Stiskněte {0} pro vytvoření spojení</value>
   </data>
   <data name="Mode_Info_ConstructionCost" xml:space="preserve">
-    <value>건설 비용: {0}</value>
+    <value>Cena stavby: {0}</value>
   </data>
   <data name="Mode_Info_Create" xml:space="preserve">
-    <value>{0} 키를 눌러서 생성</value>
+    <value>Zmáčknout {0} pro aktivaci</value>
   </data>
   <data name="Mode_Info_HoldToMoveSlower" xml:space="preserve">
-    <value>{0} 키를 눌러 {1}배 느리게 이동</value>
+    <value>Podrž {0} pro pomalejší posun X{1}</value>
   </data>
   <data name="Mode_Info_HoldToStep" xml:space="preserve">
-    <value>{0}키를 눌러 {1}만큼 스텝</value>
+    <value>Podrž {0} pro krok {1}</value>
   </data>
   <data name="Mode_Info_InvertNetwork" xml:space="preserve">
-    <value>{0} 키를 눌러 네트워크 반전</value>
+    <value>Stiskněte {0} pro obrácení silnice</value>
   </data>
   <data name="Mode_Info_Loop_Create" xml:space="preserve">
-    <value>{0} 키를 눌러서 루프 생성</value>
+    <value>Stiskni {0} pro vytvoření smyčky</value>
   </data>
   <data name="Mode_Info_NotEnoughMoney" xml:space="preserve">
-    <value>돈이 부족합니다</value>
+    <value>Nedostatek peněz</value>
   </data>
   <data name="Mode_Info_OutOfMap" xml:space="preserve">
-    <value>맵 밖</value>
+    <value>Mimo mapu</value>
   </data>
   <data name="Mode_Info_Parallel_ChangeHeight" xml:space="preserve">
-    <value>{0}이나 {1}을 눌러 높이 변경</value>
+    <value>Stiskněte {0} nebo {1} pro změnu výšky</value>
   </data>
   <data name="Mode_Info_Parallel_ChangeShift" xml:space="preserve">
-    <value>{0} 키를 눌러 제작 방향 변경</value>
+    <value>Stiskněte {0} pro přepnutí strany vytváření</value>
   </data>
   <data name="Mode_Info_Parallel_Create" xml:space="preserve">
-    <value>{0} 키를 눌러서 평행선 생성</value>
+    <value>Stisknutím {0} vytvoříte paralelu</value>
   </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
-    <value>반지름 너무 큼</value>
+    <value>Poloměr je příliš velký</value>
   </data>
   <data name="Mode_Info_RadiusTooSmall" xml:space="preserve">
-    <value>반지름 너무 작음</value>
+    <value>Poloměr je příliš malý</value>
   </data>
   <data name="Mode_Info_Refund" xml:space="preserve">
-    <value>환불: {0}</value>
+    <value>Vrácení: {0}</value>
   </data>
   <data name="Mode_Info_SelectFirstSegment" xml:space="preserve">
-    <value>첫 세그먼트 선택</value>
+    <value>Vyberte první segment</value>
   </data>
   <data name="Mode_Info_SelectSecondSegment" xml:space="preserve">
-    <value>둘째 세그먼트 선택</value>
+    <value>Vyberte druhý segment</value>
   </data>
   <data name="Mode_Info_SelectSegment" xml:space="preserve">
-    <value>세그먼트 선택</value>
+    <value>Vybrat segment</value>
   </data>
   <data name="Mode_Info_Slope_Apply" xml:space="preserve">
-    <value>{0} 키를 눌러 경사 적용</value>
+    <value>Stiskněte {0} pro použití sklonu</value>
   </data>
   <data name="Mode_Info_Step" xml:space="preserve">
-    <value>Shift - 10배, Ctrl - 0.1배, Alt - 0.01배</value>
+    <value>Shift - X10, Ctrl - X0.1, Alt - X0.01</value>
   </data>
   <data name="Mode_Info_SwitchFollowTerrain" xml:space="preserve">
-    <value>{0} 키를 눌러 지형에 맞추기 변경</value>
+    <value>Stiskněte {0} pro přepnutí následování terénu</value>
   </data>
   <data name="Mode_Info_SwitchOffset" xml:space="preserve">
-    <value>{0} 키를 눌러 선택한 오프셋 변경</value>
+    <value>Stiskněte {0} pro přepnutí vybraného odsazení</value>
   </data>
   <data name="Mode_Info_UndergroundMode" xml:space="preserve">
-    <value>{0}을 꾹 눌러 지하 모드</value>
+    <value>Stiskněte {0} pro podzemní režim</value>
   </data>
   <data name="Mode_Info_WrongShape" xml:space="preserve">
-    <value>틀린 모양</value>
+    <value>Špatný tvar</value>
   </data>
   <data name="Mode_IntersectSegment" xml:space="preserve">
-    <value>세그먼트 교차 모드</value>
+    <value>Režim protínání segmentů</value>
   </data>
   <data name="Mode_IntersectSegment_Info_CommonNode" xml:space="preserve">
-    <value>세그먼트가 1개 노드를 공유함</value>
+    <value>Tyto segmenty mají společný uzel</value>
   </data>
   <data name="Mode_IntersectSegment_Info_EdgeTooClose" xml:space="preserve">
-    <value>첫 세그먼트의 끝점이 두 번째의 끝점과 너무 가까움</value>
+    <value>Okraj jednoho segmentu je příliš blízko ke konci druhého segmentu</value>
   </data>
   <data name="Mode_IntersectSegment_Info_NotIntersect" xml:space="preserve">
-    <value>세 세그먼트가 교차하지 않음</value>
+    <value>Tyto segmenty se neprotínají</value>
   </data>
   <data name="Mode_InvertSegment" xml:space="preserve">
-    <value>세그먼트 반전 모드</value>
+    <value>Režim obrácení segmentu</value>
   </data>
   <data name="Mode_InvertSegment_Info_ClickToReverse" xml:space="preserve">
-    <value>클릭해 세그먼트 반전</value>
+    <value>Klikněte pro obrácení segmentu</value>
   </data>
   <data name="Mode_InvertSegment_Info_SelectToReverse" xml:space="preserve">
-    <value>세그먼트를 선택해 반전</value>
+    <value>Vyberte segment pro obrácení</value>
   </data>
   <data name="Mode_NodeLine_Info_NotConnected" xml:space="preserve">
-    <value>이 노드는 다른 노드와
-연결되어 있지 않아 선택할 수 없습니다</value>
+    <value>Tento uzel nemůže být vybrán, protože není propojen s ostatními</value>
   </data>
   <data name="Mode_NodeLine_Info_SelectNode" xml:space="preserve">
-    <value>노드를 선택해 순서에 추가</value>
+    <value>Vyberte uzel pro přidání do pořadí</value>
   </data>
   <data name="Mode_PercentagesFormat" xml:space="preserve">
     <value>{0}%</value>
@@ -377,249 +374,249 @@
     <value>{0}m</value>
   </data>
   <data name="Mode_RemoveNode" xml:space="preserve">
-    <value>노드 삭제 모드</value>
+    <value>Režim odstranění uzlu</value>
   </data>
   <data name="Mode_RemoveNode_Info_NotAllow" xml:space="preserve">
-    <value>노드 삭제 불가능</value>
+    <value>Nelze odstranit tento uzel</value>
   </data>
   <data name="Mode_SlopeNode" xml:space="preserve">
-    <value>기울기 모드</value>
+    <value>Režim nastavení sklonu</value>
   </data>
   <data name="Mode_SplitNode" xml:space="preserve">
-    <value>노드 분리 모드</value>
+    <value>Režim spojení uzlů</value>
   </data>
   <data name="Mode_SplitNode_Info_ClickFromOrder" xml:space="preserve">
-    <value>클릭해 분리 순서에서 세그먼트 삭제</value>
+    <value>Kliknutím odstraníte segment z rozdělení</value>
   </data>
   <data name="Mode_SplitNode_Info_ClickToOrder" xml:space="preserve">
-    <value>클릭해 분리 순서에 세그먼트 추가</value>
+    <value>Kliknutím přidáte segment do rozdělení</value>
   </data>
   <data name="Mode_SplitNode_Info_ClickToSplit" xml:space="preserve">
-    <value>클릭해 노드 분리 및 지형에 높이 맞춤
-{0}을 누른 채 클릭해 노드 분리 및 소스 높이에 정렬</value>
+    <value>Kliknutím rozdělíte uzel a zarovnejte na výšku terénu
+Kliknutím s {0} rozdělíte uzel a zarovnáte na zdrojovou výšku</value>
   </data>
   <data name="Mode_SplitNode_Info_NotAllowedSplit" xml:space="preserve">
-    <value>불가능함 1개 세그먼트에서만 노드 분리 가능</value>
+    <value>Není možné rozdělit uzel pouze s jedním segmentem</value>
   </data>
   <data name="Mode_SplitNode_Info_OrderIsFull" xml:space="preserve">
-    <value>불가능함 세그먼트를 더 추가해야 순서를 나눌 수 있음</value>
+    <value>Není možné přidat další segmenty k rozdělení</value>
   </data>
   <data name="Mode_SplitNode_Info_SelectToSplit" xml:space="preserve">
-    <value>나눌 세그먼트 선택</value>
+    <value>Vyberte segmenty k rozdělení</value>
   </data>
   <data name="Mode_SplitNode_Info_TooFar" xml:space="preserve">
-    <value>소스 노드로부터 너무 멀리 떨어짐</value>
+    <value>Pozice je příliš daleko od zdrojového uzlu</value>
   </data>
   <data name="Mode_UnionNode" xml:space="preserve">
-    <value>노드 결합 모드</value>
+    <value>Režim spojení uzlů</value>
   </data>
   <data name="Mode_UnionNode_Info_ClickSource" xml:space="preserve">
-    <value>클릭해 소스 노드 선택</value>
+    <value>Klinkěte pro výběr zdrojového uzlu</value>
   </data>
   <data name="Mode_UnionNode_Info_ClickUnion" xml:space="preserve">
-    <value>클릭해 노드 결합</value>
+    <value>Kliknutím spojíte uzly</value>
   </data>
   <data name="Mode_UnionNode_Info_NoCommon" xml:space="preserve">
-    <value>노드가 한 세그먼트를 공유하지 않음</value>
+    <value>Tyto uzly mají společný segment</value>
   </data>
   <data name="Mode_UnionNode_Info_Overflow" xml:space="preserve">
-    <value>노드는 8개 이하여야 합니다</value>
+    <value>Celkový počet uzlů musí být více než 8</value>
   </data>
   <data name="Mode_UnionNode_Info_SelectSource" xml:space="preserve">
-    <value>소스 노드 선택</value>
+    <value>Vybrat zdrojový uzel</value>
   </data>
   <data name="Mode_UnionNode_Info_SelectTarget" xml:space="preserve">
-    <value>대상 노드 선택</value>
+    <value>Vybrat cílový uzel</value>
   </data>
   <data name="Mode_UnionNode_Info_TooFar" xml:space="preserve">
-    <value>두 노드가 너무 멀리 떨어짐</value>
+    <value>Uzly jsou od sebe příliš daleko</value>
   </data>
   <data name="Mode_UnitsFormat" xml:space="preserve">
     <value>{0}U</value>
   </data>
   <data name="Mode_UnlockSegment" xml:space="preserve">
-    <value>세그먼트 잠금해제 모드</value>
+    <value>Režim odemčení segmentu</value>
   </data>
   <data name="Mode_UnlockSegment_Info_ChangeLock" xml:space="preserve">
-    <value>세그먼트를 선택해
-잠금 혹은 잠금 해제</value>
+    <value>Vyberte segment pro
+uzamčení nebo odemknutí</value>
   </data>
   <data name="Mode_UnlockSegment_Info_ClickToLock" xml:space="preserve">
-    <value>클릭해 이 세그먼트 잠금</value>
+    <value>Klikněte pro uzamčení tohoto segmentu</value>
   </data>
   <data name="Mode_UnlockSegment_Info_ClickToUnlock" xml:space="preserve">
-    <value>클릭해 이 세그먼트 잠금 해제</value>
+    <value>Klikněte pro odemknutí tohoto segmentu</value>
   </data>
   <data name="Mod_Description" xml:space="preserve">
-    <value>네트워크를 위한 여러 가지 도구</value>
+    <value>Mnoho různých nástrojů pro práci se silnicemi</value>
   </data>
   
   
   
   
   <data name="Mod_WhatsNewMessage1_3_2" xml:space="preserve">
-    <value>[UPDATED] Plazas &amp; Promenades DLC를 지원합니다.</value>
+    <value>[UPDATED] Přidána podpora Plazas &amp; Promenades DLC.</value>
   </data>
   <data name="Mod_WhatsNewMessage1_3_3" xml:space="preserve">
-    <value>[NEW] Network Anarchy를 지원합니다.</value>
+    <value>[NEW] Přidána podpora pro Network Anarchy.</value>
   </data>
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
-    <value>활성화 단축키</value>
+    <value>Aktivační zkratky</value>
   </data>
   <data name="Settings_AutoConnect" xml:space="preserve">
-    <value>자동으로 근처 노드에 평행하게 도로 연결</value>
+    <value>Automaticky připojit paralelní cestu k nejbližším uzlům</value>
   </data>
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
-    <value>모드 패널 자동으로 숨김</value>
+    <value>Automaticky skrývat panel režimů</value>
   </data>
   <data name="Settings_CommonCreateShortcuts" xml:space="preserve">
-    <value>제작 모드 내 일반 단축키</value>
+    <value>Časté zkratky v režimech tvorby</value>
   </data>
   <data name="Settings_CommonShortcuts" xml:space="preserve">
-    <value>모드 내 일반 단축키</value>
+    <value>Časté zkratky modů</value>
   </data>
   <data name="Settings_FollowTerrain" xml:space="preserve">
-    <value>지상 길의 높이를 지형에 맞추기</value>
+    <value>Pozemní silnice budou následovat terén</value>
   </data>
   <data name="Settings_Gameplay" xml:space="preserve">
-    <value>게임 플레이</value>
+    <value>Hraní hry</value>
   </data>
   <data name="Settings_Interface" xml:space="preserve">
-    <value>인터페이스</value>
+    <value>Prostředí</value>
   </data>
   <data name="Settings_LengthUnit" xml:space="preserve">
-    <value>길이 단위</value>
+    <value>Jednotka délky měření</value>
   </data>
   <data name="Settings_LengthUniteMeters" xml:space="preserve">
-    <value>미터</value>
+    <value>Metry</value>
   </data>
   <data name="Settings_LengthUniteUnits" xml:space="preserve">
-    <value>게임 단위 (1U = 8m)</value>
+    <value>Herní jednotky (1U = 8 m)</value>
   </data>
   <data name="Settings_NeedMoney" xml:space="preserve">
-    <value>건설에 비용 필요</value>
+    <value>Vyžaduje peníze ke stavbě</value>
   </data>
   <data name="Settings_PanelColumns" xml:space="preserve">
-    <value>패널 열 갯수</value>
+    <value>Počet sloupců panelu</value>
   </data>
   <data name="Settings_PanelOpenSide" xml:space="preserve">
-    <value>창 열림 방향</value>
+    <value>Strana otevírání panelu</value>
   </data>
   <data name="Settings_PanelOpenSideDown" xml:space="preserve">
-    <value>아래</value>
+    <value>Dolů</value>
   </data>
   <data name="Settings_PanelOpenSideUp" xml:space="preserve">
-    <value>위</value>
+    <value>Nahoru</value>
   </data>
   <data name="Settings_PlayEffects" xml:space="preserve">
-    <value>음성 및 시각 효과 재생</value>
+    <value>Přehrát zvukové a vizuální efekty</value>
   </data>
   <data name="Settings_PreviewType" xml:space="preserve">
-    <value>생성 미리보기</value>
+    <value>Vytvoření náhledu</value>
   </data>
   <data name="Settings_PreviewTypeBoth" xml:space="preserve">
-    <value>모두</value>
+    <value>Obojí</value>
   </data>
   <data name="Settings_PreviewTypeMesh" xml:space="preserve">
-    <value>네트워크 시각화</value>
+    <value>Zobrazení silnice</value>
   </data>
   <data name="Settings_PreviewTypeOverlay" xml:space="preserve">
-    <value>오버레이</value>
+    <value>Překrytí</value>
   </data>
   <data name="Settings_SegmentLength" xml:space="preserve">
-    <value>최대 세그먼트 길이</value>
+    <value>Maximální délka segmentu</value>
   </data>
   <data name="Settings_Shortcut_Apply" xml:space="preserve">
-    <value>모드 사용사항 적용</value>
+    <value>Použít akci režimu</value>
   </data>
   <data name="Settings_Shortcut_DecreaseAngle" xml:space="preserve">
-    <value>시작 각도 감소</value>
+    <value>Snížit počáteční úhel</value>
   </data>
   <data name="Settings_Shortcut_DecreaseHeight" xml:space="preserve">
-    <value>높이 감소</value>
+    <value>Snížit výšku</value>
   </data>
   <data name="Settings_Shortcut_DecreaseOffset" xml:space="preserve">
-    <value>원 시작 오프셋 감소</value>
+    <value>Snížit počáteční odsazení kruhu</value>
   </data>
   <data name="Settings_Shortcut_DecreaseOneRadius" xml:space="preserve">
-    <value>반경 1개 감소</value>
+    <value>Zmenšit jeden poloměr</value>
   </data>
   <data name="Settings_Shortcut_DecreaseRadii" xml:space="preserve">
-    <value>반경 감소</value>
+    <value>Zmenšení poloměrů</value>
   </data>
   <data name="Settings_Shortcut_DecreaseRadius" xml:space="preserve">
-    <value>반경 감소</value>
+    <value>Zmenšit poloměr</value>
   </data>
   <data name="Settings_Shortcut_DecreaseShift" xml:space="preserve">
-    <value>오프셋 감소</value>
+    <value>Zmenšit odsazení</value>
   </data>
   <data name="Settings_Shortcut_DistributeBetweenIntersections" xml:space="preserve">
-    <value>노드를 교차로 사이에 일정하게 배치</value>
+    <value>Rozložit uzly mezi křižovatkami rovnoměrně</value>
   </data>
   <data name="Settings_Shortcut_DistributeEvenly" xml:space="preserve">
-    <value>노드를 원 위에 일정하게 배치</value>
+    <value>Rozložit uzly v kruhu rovnoměrně</value>
   </data>
   <data name="Settings_Shortcut_DistributeIntersections" xml:space="preserve">
-    <value>원 위에 교차로를 일정 간격으로 배치</value>
+    <value>Rozložit křžovatky v kruhu rovnoměrně</value>
   </data>
   <data name="Settings_Shortcut_IncreaseAngle" xml:space="preserve">
-    <value>시작 각도 증가</value>
+    <value>Zvýšit počáteční úhel</value>
   </data>
   <data name="Settings_Shortcut_IncreaseHeight" xml:space="preserve">
-    <value>높이 증가</value>
+    <value>Zvýšit výšku</value>
   </data>
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
-    <value>원 시작 오프셋 증가</value>
+    <value>ZvýŠit počáteční odsazení kruhu</value>
   </data>
   <data name="Settings_Shortcut_IncreaseOneRadius" xml:space="preserve">
-    <value>반경 1개 증가</value>
+    <value>Zvětšit jeden poloměr</value>
   </data>
   <data name="Settings_Shortcut_IncreaseRadii" xml:space="preserve">
-    <value>반경 증가</value>
+    <value>Zvětšení poloměrů</value>
   </data>
   <data name="Settings_Shortcut_IncreaseRadius" xml:space="preserve">
-    <value>반경 증가</value>
+    <value>Zvětšit poloměr</value>
   </data>
   <data name="Settings_Shortcut_IncreaseShift" xml:space="preserve">
-    <value>오프셋 증가</value>
+    <value>Zvětšit odsazení</value>
   </data>
   <data name="Settings_Shortcut_InvertNetwork" xml:space="preserve">
-    <value>네트워크 반전</value>
+    <value>Obrátit silnici</value>
   </data>
   <data name="Settings_Shortcut_InvertShift" xml:space="preserve">
-    <value>제작 방향 변경</value>
+    <value>Přepnout stranu vytváření</value>
   </data>
   <data name="Settings_Shortcut_ResetArrangeCircle" xml:space="preserve">
-    <value>기본 원으로 초기화</value>
+    <value>Obnovit na výchozí kruh</value>
   </data>
   <data name="Settings_Shortcut_SwitchFollowTerrain" xml:space="preserve">
-    <value>지형 따라가기 변경</value>
+    <value>Přepnout na sledování terénu</value>
   </data>
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
-    <value>루프 방향 변경</value>
+    <value>Přepnout směr smyčky</value>
   </data>
   <data name="Settings_Shortcut_SwitchOffset" xml:space="preserve">
-    <value>다른 오프셋 선택</value>
+    <value>Přepnout vybrané odsazení</value>
   </data>
   <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
-    <value>다른 원 선택</value>
+    <value>Přepnout vybraný kruh</value>
   </data>
   <data name="Settings_SlopeColors" xml:space="preserve">
-    <value>기울기 라벨에 값에 따라 색상 설정</value>
+    <value>Nastavení barvy popisku svahu v závislosti na hodnotě</value>
   </data>
   <data name="Settings_SlopeUnit" xml:space="preserve">
-    <value>기울기 단위</value>
+    <value>Jednotka měření sklonu</value>
   </data>
   <data name="Settings_SlopeUnitDegrees" xml:space="preserve">
-    <value>도</value>
+    <value>Stupně</value>
   </data>
   <data name="Settings_SlopeUnitPercentages" xml:space="preserve">
-    <value>퍼센트</value>
+    <value>Procenta</value>
   </data>
   <data name="Tool_RemoveNode_Info_ClickToRemove" xml:space="preserve">
-    <value>클릭해 삭제</value>
+    <value>Klikni pro odstranění</value>
   </data>
   <data name="Tool_RemoveNode_Info_Select" xml:space="preserve">
-    <value>노드를 선택해 삭제</value>
+    <value>Vyberte uzel pro odstranění</value>
   </data>
 </root>
