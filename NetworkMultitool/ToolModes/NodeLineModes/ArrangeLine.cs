@@ -83,7 +83,7 @@ namespace NetworkMultitool
                 Cost = 0;
                 for (var i = 1; i < nodeIds.Length; i += 1)
                 {
-                    NetExtension.GetCommon(nodeIds[i - 1], nodeIds[i], out var segmentId);
+                    NetExtension.GetCommonSegment(nodeIds[i - 1], nodeIds[i], out var segmentId);
                     ref var segment = ref segmentId.GetSegment();
                     var segmentTrajectory = new BezierTrajectory(ref segment);
                     var delta = partLength - segmentTrajectory.Length;
@@ -133,7 +133,7 @@ namespace NetworkMultitool
             if (nodeId.GetNode().CountSegments() <= 1)
                 return 0;
 
-            NetExtension.GetCommon(nodeId, nextNodeId, out var commonId);
+            NetExtension.GetCommonSegment(nodeId, nextNodeId, out var commonId);
 
             ref var commonSegment = ref commonId.GetSegment();
             var commonDir = commonSegment.IsStartNode(nodeId) ? commonSegment.m_startDirection : commonSegment.m_endDirection;
@@ -195,7 +195,7 @@ namespace NetworkMultitool
         {
             var segmentIds = new ushort[nodeIds.Length - 1];
             for (var i = 1; i < nodeIds.Length; i += 1)
-                NetExtension.GetCommon(nodeIds[i - 1], nodeIds[i], out segmentIds[i - 1]);
+                NetExtension.GetCommonSegment(nodeIds[i - 1], nodeIds[i], out segmentIds[i - 1]);
             var terrainRect = GetTerrainRect(segmentIds);
 
             for (var i = 1; i < nodeIds.Length - 1; i += 1)
@@ -210,7 +210,7 @@ namespace NetworkMultitool
             }
             for (var i = 1; i < nodeIds.Length; i += 1)
             {
-                NetExtension.GetCommon(nodeIds[i - 1], nodeIds[i], out var segmentId);
+                NetExtension.GetCommonSegment(nodeIds[i - 1], nodeIds[i], out var segmentId);
                 UpdateZones(segmentId);
             }
 
@@ -260,7 +260,7 @@ namespace NetworkMultitool
                 {
                     if (!Points[i - 1].IsEmpty && !Points[i].IsEmpty)
                     {
-                        NetExtension.GetCommon(Nodes[i - 1].Id, Nodes[i].Id, out var segmentId);
+                        NetExtension.GetCommonSegment(Nodes[i - 1].Id, Nodes[i].Id, out var segmentId);
                         var data = new OverlayData(cameraInfo) { Color = color, Width = segmentId.GetSegment().Info.m_halfWidth * 2f, RenderLimit = Underground, Cut = true };
                         GetTrajectory(Points[i - 1], Points[i]).Render(data);
                     }
