@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Mode_AddNode" xml:space="preserve">
-    <value>Režim přidání uzlu</value>
+    <value>Přidání uzlu</value>
   </data>
   <data name="Mode_AddNode_Info_ClickToAdd" xml:space="preserve">
     <value>Kliknutím přidáte uzel</value>
@@ -137,10 +137,10 @@ Příliš blízko k jinému uzlu</value>
     <value>{0}°</value>
   </data>
   <data name="Mode_ArrangeAtCircle" xml:space="preserve">
-    <value>Režim zarovnání do kruhu</value>
+    <value>Zarovnání do kruhu</value>
   </data>
   <data name="Mode_ArrangeAtLine" xml:space="preserve">
-    <value>Režim zarovnání do linie</value>
+    <value>Zarovnání do linie</value>
   </data>
   <data name="Mode_ArrangeCircle_Info_ClickToComplite" xml:space="preserve">
     <value>Kliknutím dokončíte výběr kruhu</value>
@@ -149,10 +149,10 @@ Příliš blízko k jinému uzlu</value>
     <value>Kliknutím vyberte směr uspořádání</value>
   </data>
   <data name="Mode_ArrangeLine_Info_SelectDirection" xml:space="preserve">
-    <value>Vyberte segment pro nastavení směru</value>
+    <value>Vyberte segment pro nastavení směru uspořádání</value>
   </data>
   <data name="Mode_Connection_Info_DoubleClickOnCenterToChangeDir" xml:space="preserve">
-    <value>Dvojklik do středu kruhu pro změnu směru zatáčky</value>
+    <value>Dvojklik do středu kruhu pro změnu směru ohybu</value>
   </data>
   <data name="Mode_Connection_Info_DoubleClickToAdd" xml:space="preserve">
     <value>Dvojklikem přidáte do této linie zatáčku</value>
@@ -167,22 +167,22 @@ Příliš blízko k jinému uzlu</value>
     <value>Tažením posunout kruh</value>
   </data>
   <data name="Mode_CreateConnection" xml:space="preserve">
-    <value>Režim tvorby propojení</value>
+    <value>Tvorba propojení</value>
   </data>
   <data name="Mode_CreateCurve" xml:space="preserve">
-    <value>Režim tvorby zatáčky</value>
+    <value>Tvorba zatáčky</value>
   </data>
   <data name="Mode_CreateLoop" xml:space="preserve">
-    <value>Režim tvorby smyčky</value>
+    <value>Tvorba smyčky</value>
   </data>
   <data name="Mode_CreateLoop_Info_Change" xml:space="preserve">
     <value>Stiskněte {0} pro změnu smyčky</value>
   </data>
   <data name="Mode_CreateParallerl" xml:space="preserve">
-    <value>Paralelní režim</value>
+    <value>Tvorba paralely</value>
   </data>
   <data name="Mode_Info_Apply" xml:space="preserve">
-    <value>Stiskni {0} pro použití</value>
+    <value>Stiskněte {0} pro použití</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_Apply" xml:space="preserve">
     <value>Stiskněte {0} pro zarovnání do kruhu</value>
@@ -204,7 +204,7 @@ kulatý tvar nebude dokonalý</value>
     <value>Tažením posunout kruh</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_DragToMoveNode" xml:space="preserve">
-    <value>Uchopit pro přesun uzlu</value>
+    <value>Tažením posunout uzel</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_MoveAll" xml:space="preserve">
     <value>Podržte {0} pro posouvání všech uzlů
@@ -227,7 +227,7 @@ mezi křižovatkami</value>
     <value>Špatné pořadí uzlů</value>
   </data>
   <data name="Mode_Info_ArrangeLine_Apply" xml:space="preserve">
-    <value>Stiskněte {0} pro zarovnání do linie</value>
+    <value>Stiskněte {0} pro srovnání linie</value>
   </data>
   <data name="Mode_Info_ChangeAllRadius" xml:space="preserve">
     <value>Stiskněte {0} nebo {1} pro změnu všech poloměrů</value>
@@ -239,7 +239,7 @@ mezi křižovatkami</value>
     <value>Stiskněte {0} pro přepnutí vybraného kruhu</value>
   </data>
   <data name="Mode_Info_ChangeOffset" xml:space="preserve">
-    <value>Stiskněte {0} nebo {1} pro změnu počátečního odsazení kruhu</value>
+    <value>Stiskněte {0} nebo {1} pro změnu počátečního odsazení zatáčky</value>
   </data>
   <data name="Mode_Info_ChangeOneRadius" xml:space="preserve">
     <value>Stiskněte {0} nebo {1} pro změnu jednoho poloměru</value>
@@ -266,28 +266,28 @@ mezi křižovatkami</value>
     <value>Klikněte pro změnu směru vytváření</value>
   </data>
   <data name="Mode_Info_ClickUnselectNode" xml:space="preserve">
-    <value>Klepnutím zrušíte výběr uzlu</value>
+    <value>Kliknutím zrušíte výběr uzlu</value>
   </data>
   <data name="Mode_Info_Connection_Create" xml:space="preserve">
-    <value>Stiskněte {0} pro vytvoření spojení</value>
+    <value>Stiskněte {0} pro vytvoření propojení</value>
   </data>
   <data name="Mode_Info_ConstructionCost" xml:space="preserve">
     <value>Cena stavby: {0}</value>
   </data>
   <data name="Mode_Info_Create" xml:space="preserve">
-    <value>Zmáčknout {0} pro aktivaci</value>
+    <value>Stiskněte {0} pro aktivaci</value>
   </data>
   <data name="Mode_Info_HoldToMoveSlower" xml:space="preserve">
-    <value>Podrž {0} pro pomalejší posun X{1}</value>
+    <value>Podržte {0} pro pomalejší posun X{1}</value>
   </data>
   <data name="Mode_Info_HoldToStep" xml:space="preserve">
-    <value>Podrž {0} pro krok {1}</value>
+    <value>Podržte {0} pro krok {1}</value>
   </data>
   <data name="Mode_Info_InvertNetwork" xml:space="preserve">
     <value>Stiskněte {0} pro obrácení silnice</value>
   </data>
   <data name="Mode_Info_Loop_Create" xml:space="preserve">
-    <value>Stiskni {0} pro vytvoření smyčky</value>
+    <value>Stiskněte {0} pro vytvoření smyčky</value>
   </data>
   <data name="Mode_Info_NotEnoughMoney" xml:space="preserve">
     <value>Nedostatek peněz</value>
@@ -299,10 +299,10 @@ mezi křižovatkami</value>
     <value>Stiskněte {0} nebo {1} pro změnu výšky</value>
   </data>
   <data name="Mode_Info_Parallel_ChangeShift" xml:space="preserve">
-    <value>Stiskněte {0} pro přepnutí strany vytváření</value>
+    <value>Stiskněte {0} pro přepnutí strany</value>
   </data>
   <data name="Mode_Info_Parallel_Create" xml:space="preserve">
-    <value>Stisknutím {0} vytvoříte paralelu</value>
+    <value>Stiskněte {0} pro vytvoření paralely</value>
   </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
     <value>Poloměr je příliš velký</value>
@@ -311,7 +311,7 @@ mezi křižovatkami</value>
     <value>Poloměr je příliš malý</value>
   </data>
   <data name="Mode_Info_Refund" xml:space="preserve">
-    <value>Vrácení: {0}</value>
+    <value>Vrácení peněz: {0}</value>
   </data>
   <data name="Mode_Info_SelectFirstSegment" xml:space="preserve">
     <value>Vyberte první segment</value>
@@ -320,7 +320,7 @@ mezi křižovatkami</value>
     <value>Vyberte druhý segment</value>
   </data>
   <data name="Mode_Info_SelectSegment" xml:space="preserve">
-    <value>Vybrat segment</value>
+    <value>Vyberte segment</value>
   </data>
   <data name="Mode_Info_Slope_Apply" xml:space="preserve">
     <value>Stiskněte {0} pro použití sklonu</value>
@@ -335,13 +335,13 @@ mezi křižovatkami</value>
     <value>Stiskněte {0} pro přepnutí vybraného odsazení</value>
   </data>
   <data name="Mode_Info_UndergroundMode" xml:space="preserve">
-    <value>Stiskněte {0} pro podzemní režim</value>
+    <value>Podržte {0} pro podzemní režim</value>
   </data>
   <data name="Mode_Info_WrongShape" xml:space="preserve">
     <value>Špatný tvar</value>
   </data>
   <data name="Mode_IntersectSegment" xml:space="preserve">
-    <value>Režim protínání segmentů</value>
+    <value>Protínání segmentů</value>
   </data>
   <data name="Mode_IntersectSegment_Info_CommonNode" xml:space="preserve">
     <value>Tyto segmenty mají společný uzel</value>
@@ -353,7 +353,7 @@ mezi křižovatkami</value>
     <value>Tyto segmenty se neprotínají</value>
   </data>
   <data name="Mode_InvertSegment" xml:space="preserve">
-    <value>Režim obrácení segmentu</value>
+    <value>Otočení segmentu</value>
   </data>
   <data name="Mode_InvertSegment_Info_ClickToReverse" xml:space="preserve">
     <value>Klikněte pro obrácení segmentu</value>
@@ -362,10 +362,10 @@ mezi křižovatkami</value>
     <value>Vyberte segment pro obrácení</value>
   </data>
   <data name="Mode_NodeLine_Info_NotConnected" xml:space="preserve">
-    <value>Tento uzel nemůže být vybrán, protože není propojen s ostatními</value>
+    <value>Tento uzel nemůže být vybrán, protože nemá spojení s ostatními</value>
   </data>
   <data name="Mode_NodeLine_Info_SelectNode" xml:space="preserve">
-    <value>Vyberte uzel pro přidání do pořadí</value>
+    <value>Vyberte uzel do pořadí</value>
   </data>
   <data name="Mode_PercentagesFormat" xml:space="preserve">
     <value>{0}%</value>
@@ -374,25 +374,25 @@ mezi křižovatkami</value>
     <value>{0}m</value>
   </data>
   <data name="Mode_RemoveNode" xml:space="preserve">
-    <value>Režim odstranění uzlu</value>
+    <value>Odebrání uzlu</value>
   </data>
   <data name="Mode_RemoveNode_Info_NotAllow" xml:space="preserve">
     <value>Nelze odstranit tento uzel</value>
   </data>
   <data name="Mode_SlopeNode" xml:space="preserve">
-    <value>Režim nastavení sklonu</value>
+    <value>Vyrovnání sklonu</value>
   </data>
   <data name="Mode_SplitNode" xml:space="preserve">
-    <value>Režim spojení uzlů</value>
+    <value>Rozpojení uzlů</value>
   </data>
   <data name="Mode_SplitNode_Info_ClickFromOrder" xml:space="preserve">
-    <value>Kliknutím odstraníte segment z rozdělení</value>
+    <value>Kliknutím odstraníte segment z rozdělování</value>
   </data>
   <data name="Mode_SplitNode_Info_ClickToOrder" xml:space="preserve">
-    <value>Kliknutím přidáte segment do rozdělení</value>
+    <value>Kliknutím přidáte segment pro rozdělení</value>
   </data>
   <data name="Mode_SplitNode_Info_ClickToSplit" xml:space="preserve">
-    <value>Kliknutím rozdělíte uzel a zarovnejte na výšku terénu
+    <value>Kliknutím rozdělíte uzel a zarovnáte na výšku terénu
 Kliknutím s {0} rozdělíte uzel a zarovnáte na zdrojovou výšku</value>
   </data>
   <data name="Mode_SplitNode_Info_NotAllowedSplit" xml:space="preserve">
@@ -408,7 +408,7 @@ Kliknutím s {0} rozdělíte uzel a zarovnáte na zdrojovou výšku</value>
     <value>Pozice je příliš daleko od zdrojového uzlu</value>
   </data>
   <data name="Mode_UnionNode" xml:space="preserve">
-    <value>Režim spojení uzlů</value>
+    <value>Spojení uzlů</value>
   </data>
   <data name="Mode_UnionNode_Info_ClickSource" xml:space="preserve">
     <value>Klinkěte pro výběr zdrojového uzlu</value>
@@ -420,7 +420,7 @@ Kliknutím s {0} rozdělíte uzel a zarovnáte na zdrojovou výšku</value>
     <value>Tyto uzly mají společný segment</value>
   </data>
   <data name="Mode_UnionNode_Info_Overflow" xml:space="preserve">
-    <value>Celkový počet uzlů musí být více než 8</value>
+    <value>Celkový počet segmentů nesmí být více než 8</value>
   </data>
   <data name="Mode_UnionNode_Info_SelectSource" xml:space="preserve">
     <value>Vybrat zdrojový uzel</value>
@@ -435,14 +435,14 @@ Kliknutím s {0} rozdělíte uzel a zarovnáte na zdrojovou výšku</value>
     <value>{0}U</value>
   </data>
   <data name="Mode_UnlockSegment" xml:space="preserve">
-    <value>Režim odemčení segmentu</value>
+    <value>Zámek segmentu</value>
   </data>
   <data name="Mode_UnlockSegment_Info_ChangeLock" xml:space="preserve">
     <value>Vyberte segment pro
-uzamčení nebo odemknutí</value>
+uzamknutí nebo odemknutí</value>
   </data>
   <data name="Mode_UnlockSegment_Info_ClickToLock" xml:space="preserve">
-    <value>Klikněte pro uzamčení tohoto segmentu</value>
+    <value>Klikněte pro uzamknutí tohoto segmentu</value>
   </data>
   <data name="Mode_UnlockSegment_Info_ClickToUnlock" xml:space="preserve">
     <value>Klikněte pro odemknutí tohoto segmentu</value>
@@ -453,7 +453,12 @@ uzamčení nebo odemknutí</value>
   
   
   
-  
+  <data name="Mod_WhatsNewMessage1_3_1" xml:space="preserve">
+    <value>[FIXED] Navrácena možnost otočit jakoukoli silnici, nikoli pouze jednosměrnou.
+[NEW] Nástroj se nezavře, když vyberete jinou silnici.
+[FIXED] Tlačítka výběru znovu reagují na kliknutí.
+[TRANSLATION] Přidán Rumunský překlad.</value>
+  </data>
   <data name="Mod_WhatsNewMessage1_3_2" xml:space="preserve">
     <value>[UPDATED] Přidána podpora Plazas &amp; Promenades DLC.</value>
   </data>
@@ -467,34 +472,34 @@ uzamčení nebo odemknutí</value>
     <value>Automaticky připojit paralelní cestu k nejbližším uzlům</value>
   </data>
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
-    <value>Automaticky skrývat panel režimů</value>
+    <value>Automatické skrývání panelu módu</value>
   </data>
   <data name="Settings_CommonCreateShortcuts" xml:space="preserve">
-    <value>Časté zkratky v režimech tvorby</value>
+    <value>Časté zkratky režimů tvorby</value>
   </data>
   <data name="Settings_CommonShortcuts" xml:space="preserve">
-    <value>Časté zkratky modů</value>
+    <value>Časté zkratky módu</value>
   </data>
   <data name="Settings_FollowTerrain" xml:space="preserve">
     <value>Pozemní silnice budou následovat terén</value>
   </data>
   <data name="Settings_Gameplay" xml:space="preserve">
-    <value>Hraní hry</value>
+    <value>Hratelnost</value>
   </data>
   <data name="Settings_Interface" xml:space="preserve">
     <value>Prostředí</value>
   </data>
   <data name="Settings_LengthUnit" xml:space="preserve">
-    <value>Jednotka délky měření</value>
+    <value>Jednotka měření délky</value>
   </data>
   <data name="Settings_LengthUniteMeters" xml:space="preserve">
     <value>Metry</value>
   </data>
   <data name="Settings_LengthUniteUnits" xml:space="preserve">
-    <value>Herní jednotky (1U = 8 m)</value>
+    <value>Herní jednotka (1U = 8 m)</value>
   </data>
   <data name="Settings_NeedMoney" xml:space="preserve">
-    <value>Vyžaduje peníze ke stavbě</value>
+    <value>Ke stavbě vyžaduje peníze</value>
   </data>
   <data name="Settings_PanelColumns" xml:space="preserve">
     <value>Počet sloupců panelu</value>
@@ -509,16 +514,16 @@ uzamčení nebo odemknutí</value>
     <value>Nahoru</value>
   </data>
   <data name="Settings_PlayEffects" xml:space="preserve">
-    <value>Přehrát zvukové a vizuální efekty</value>
+    <value>Přehrávání zvukových a vizuálních efektů</value>
   </data>
   <data name="Settings_PreviewType" xml:space="preserve">
-    <value>Vytvoření náhledu</value>
+    <value>Náhled</value>
   </data>
   <data name="Settings_PreviewTypeBoth" xml:space="preserve">
-    <value>Obojí</value>
+    <value>Oba</value>
   </data>
   <data name="Settings_PreviewTypeMesh" xml:space="preserve">
-    <value>Zobrazení silnice</value>
+    <value>Zobrazení silnic</value>
   </data>
   <data name="Settings_PreviewTypeOverlay" xml:space="preserve">
     <value>Překrytí</value>
@@ -527,22 +532,22 @@ uzamčení nebo odemknutí</value>
     <value>Maximální délka segmentu</value>
   </data>
   <data name="Settings_Shortcut_Apply" xml:space="preserve">
-    <value>Použít akci režimu</value>
+    <value>Použít akci módu</value>
   </data>
   <data name="Settings_Shortcut_DecreaseAngle" xml:space="preserve">
-    <value>Snížit počáteční úhel</value>
+    <value>Zmenšit počáteční úhel</value>
   </data>
   <data name="Settings_Shortcut_DecreaseHeight" xml:space="preserve">
     <value>Snížit výšku</value>
   </data>
   <data name="Settings_Shortcut_DecreaseOffset" xml:space="preserve">
-    <value>Snížit počáteční odsazení kruhu</value>
+    <value>Zmenšit počáteční odsazení kruhu</value>
   </data>
   <data name="Settings_Shortcut_DecreaseOneRadius" xml:space="preserve">
     <value>Zmenšit jeden poloměr</value>
   </data>
   <data name="Settings_Shortcut_DecreaseRadii" xml:space="preserve">
-    <value>Zmenšení poloměrů</value>
+    <value>Zmenšit poloměry</value>
   </data>
   <data name="Settings_Shortcut_DecreaseRadius" xml:space="preserve">
     <value>Zmenšit poloměr</value>
@@ -560,19 +565,19 @@ uzamčení nebo odemknutí</value>
     <value>Rozložit křžovatky v kruhu rovnoměrně</value>
   </data>
   <data name="Settings_Shortcut_IncreaseAngle" xml:space="preserve">
-    <value>Zvýšit počáteční úhel</value>
+    <value>Zvětšit počáteční úhel</value>
   </data>
   <data name="Settings_Shortcut_IncreaseHeight" xml:space="preserve">
     <value>Zvýšit výšku</value>
   </data>
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
-    <value>ZvýŠit počáteční odsazení kruhu</value>
+    <value>Zvětšit počáteční odsazení kruhu</value>
   </data>
   <data name="Settings_Shortcut_IncreaseOneRadius" xml:space="preserve">
     <value>Zvětšit jeden poloměr</value>
   </data>
   <data name="Settings_Shortcut_IncreaseRadii" xml:space="preserve">
-    <value>Zvětšení poloměrů</value>
+    <value>Zvětšit poloměry</value>
   </data>
   <data name="Settings_Shortcut_IncreaseRadius" xml:space="preserve">
     <value>Zvětšit poloměr</value>
@@ -584,13 +589,13 @@ uzamčení nebo odemknutí</value>
     <value>Obrátit silnici</value>
   </data>
   <data name="Settings_Shortcut_InvertShift" xml:space="preserve">
-    <value>Přepnout stranu vytváření</value>
+    <value>Přepnout stranu</value>
   </data>
   <data name="Settings_Shortcut_ResetArrangeCircle" xml:space="preserve">
     <value>Obnovit na výchozí kruh</value>
   </data>
   <data name="Settings_Shortcut_SwitchFollowTerrain" xml:space="preserve">
-    <value>Přepnout na sledování terénu</value>
+    <value>Přepnout sledování terénu</value>
   </data>
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
     <value>Přepnout směr smyčky</value>
@@ -614,7 +619,7 @@ uzamčení nebo odemknutí</value>
     <value>Procenta</value>
   </data>
   <data name="Tool_RemoveNode_Info_ClickToRemove" xml:space="preserve">
-    <value>Klikni pro odstranění</value>
+    <value>Kliknutím odstraníte</value>
   </data>
   <data name="Tool_RemoveNode_Info_Select" xml:space="preserve">
     <value>Vyberte uzel pro odstranění</value>
