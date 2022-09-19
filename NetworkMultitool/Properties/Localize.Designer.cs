@@ -128,6 +128,15 @@ namespace NetworkMultitool {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на [NEW] Added Network Anarchy Support..
+        /// </summary>
+        internal static string Mod_WhatsNewMessage1_3_3 {
+            get {
+                return ResourceManager.GetString("Mod_WhatsNewMessage1_3_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Add node mode.
         /// </summary>
         internal static string Mode_AddNode {

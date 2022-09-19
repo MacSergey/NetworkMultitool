@@ -80,7 +80,24 @@ namespace NetworkMultitool
 
         public BaseCreateMode()
         {
-            if (Mod.NodeSpacerEnabled)
+            if(Mod.NetworkAnarchyEnabled)
+            {
+                try
+                {
+                    var method = System.Type.GetType("NetworkAnarchy.Patches.NT_CreateNode").GetMethod("GetMaxLength");
+                    if (MaxLengthGetter?.Method != method)
+                    {
+                        MaxLengthGetter = (Func<float>)Delegate.CreateDelegate(typeof(Func<float>), method);
+                        SingletonMod<Mod>.Logger.Debug("Segment length linked to Network Anarchy");
+                    }
+                    return;
+                }
+                catch (Exception error)
+                {
+                    SingletonMod<Mod>.Logger.Error("Cant access to Node Spacer", error);
+                }
+            }
+            else if (Mod.NodeSpacerEnabled)
             {
                 try
                 {

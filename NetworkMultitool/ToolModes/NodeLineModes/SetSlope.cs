@@ -59,14 +59,14 @@ namespace NetworkMultitool
             SetSlope(nodeIds, PositionGetter, DirectionGetter, PositionSetter);
             for (var i = 1; i < nodeIds.Length; i += 1)
             {
-                NetExtension.GetCommon(nodeIds[i - 1], nodeIds[i], out var segmentId);
+                NetExtension.GetCommonSegment(nodeIds[i - 1], nodeIds[i], out var segmentId);
                 CalculateSegmentDirections(segmentId);
             }
         }
         private static Vector3 PositionGetter(ref ushort nodeId) => nodeId.GetNode().m_position;
         private static void DirectionGetter(ushort firstId, ushort secondId, out Vector3 firstDir, out Vector3 secondDir)
         {
-            NetExtension.GetCommon(firstId, secondId, out var commonSegmentId);
+            NetExtension.GetCommonSegment(firstId, secondId, out var commonSegmentId);
 
             var segment = commonSegmentId.GetSegment();
 
@@ -119,7 +119,7 @@ namespace NetworkMultitool
         }
         private void ApplyLabel(InfoLabel label, ushort firstId, ushort secondId)
         {
-            NetExtension.GetCommon(firstId, secondId, out ushort segmentId);
+            NetExtension.GetCommonSegment(firstId, secondId, out ushort segmentId);
             ref var segment = ref segmentId.GetSegment();
             var bezier = new BezierTrajectory(ref segment);
 

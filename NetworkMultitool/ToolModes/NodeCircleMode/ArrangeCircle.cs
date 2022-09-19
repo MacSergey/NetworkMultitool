@@ -452,7 +452,7 @@ namespace NetworkMultitool
         {
             var segmentIds = new ushort[nodes.Length];
             for (var i = 0; i < nodes.Length; i += 1)
-                NetExtension.GetCommon(nodes[i].Id, nodes[(i + 1) % nodes.Length].Id, out segmentIds[i]);
+                NetExtension.GetCommonSegment(nodes[i].Id, nodes[(i + 1) % nodes.Length].Id, out segmentIds[i]);
             var terrainRect = GetTerrainRect(segmentIds);
 
             foreach (var node in nodes)
@@ -467,7 +467,7 @@ namespace NetworkMultitool
             }
             for (var i = 0; i < nodes.Length; i += 1)
             {
-                NetExtension.GetCommon(nodes[i].Id, nodes[(i + 1) % nodes.Length].Id, out var segmentId);
+                NetExtension.GetCommonSegment(nodes[i].Id, nodes[(i + 1) % nodes.Length].Id, out var segmentId);
                 UpdateZones(segmentId);
             }
 
@@ -480,7 +480,7 @@ namespace NetworkMultitool
         {
             var centerDir = (nodes[i].Id.GetNode().m_position - center).MakeFlatNormalized();
 
-            NetExtension.GetCommon(nodes[i].Id, nodes[j].Id, out var segmentId);
+            NetExtension.GetCommonSegment(nodes[i].Id, nodes[j].Id, out var segmentId);
             ref var segment = ref segmentId.GetSegment();
             var direction = nodes[j].Id.GetNode().m_position - nodes[i].Id.GetNode().m_position;
             var newDirection = centerDir.Turn90(NormalizeCrossXZ(centerDir, direction) >= 0f);
@@ -663,7 +663,7 @@ namespace NetworkMultitool
             var minRadius = 0f;
             for (var i = 0; i < Nodes.Count; i += 1)
             {
-                NetExtension.GetCommon(Nodes[i].Id, Nodes[(i + 1) % Nodes.Count].Id, out var segmentId);
+                NetExtension.GetCommonSegment(Nodes[i].Id, Nodes[(i + 1) % Nodes.Count].Id, out var segmentId);
                 minRadius = Mathf.Max(minRadius, segmentId.GetSegment().Info.m_halfWidth * 2f);
             }
             MinRadius = minRadius;

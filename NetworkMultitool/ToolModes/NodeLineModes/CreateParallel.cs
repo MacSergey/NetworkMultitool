@@ -161,7 +161,7 @@ namespace NetworkMultitool
                 var sum = 0f;
                 for (var i = 1; i < Nodes.Count; i += 1)
                 {
-                    NetExtension.GetCommon(Nodes[i - 1].Id, Nodes[i].Id, out var segmentId);
+                    NetExtension.GetCommonSegment(Nodes[i - 1].Id, Nodes[i].Id, out var segmentId);
                     sum += segmentId.GetSegment().Info.m_halfWidth;
                 }
                 Shift = sum / (Nodes.Count - 1) + Info.m_halfWidth;
@@ -175,7 +175,7 @@ namespace NetworkMultitool
 
                 if (i == 0)
                 {
-                    NetExtension.GetCommon(nodeId, Nodes[i + 1].Id, out var segmentId);
+                    NetExtension.GetCommonSegment(nodeId, Nodes[i + 1].Id, out var segmentId);
                     ref var segment = ref segmentId.GetSegment();
                     var direction = segment.IsStartNode(nodeId) ? segment.m_startDirection : segment.m_endDirection;
                     var shiftDir = direction.Turn90(false).MakeFlatNormalized();
@@ -183,7 +183,7 @@ namespace NetworkMultitool
                 }
                 else if (i == Nodes.Count - 1)
                 {
-                    NetExtension.GetCommon(nodeId, Nodes[i - 1].Id, out var segmentId);
+                    NetExtension.GetCommonSegment(nodeId, Nodes[i - 1].Id, out var segmentId);
                     ref var segment = ref segmentId.GetSegment();
                     var direction = segment.IsStartNode(nodeId) ? segment.m_startDirection : segment.m_endDirection;
                     var shiftDir = direction.Turn90(true).MakeFlatNormalized();
@@ -191,8 +191,8 @@ namespace NetworkMultitool
                 }
                 else
                 {
-                    NetExtension.GetCommon(nodeId, Nodes[i - 1].Id, out var backwardSegmentId);
-                    NetExtension.GetCommon(nodeId, Nodes[i + 1].Id, out var forwardSegmentId);
+                    NetExtension.GetCommonSegment(nodeId, Nodes[i - 1].Id, out var backwardSegmentId);
+                    NetExtension.GetCommonSegment(nodeId, Nodes[i + 1].Id, out var forwardSegmentId);
 
                     ref var backwardSegment = ref backwardSegmentId.GetSegment();
                     ref var forwardSegment = ref forwardSegmentId.GetSegment();

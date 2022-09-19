@@ -438,7 +438,7 @@ namespace NetworkMultitool
         }
         protected static void SetSegmentDirection(ushort nodeId, ushort anotherNodeId, Vector3 direction)
         {
-            if (NetExtension.GetCommon(nodeId, anotherNodeId, out var commonId))
+            if (NetExtension.GetCommonSegment(nodeId, anotherNodeId, out var commonId))
                 SetSegmentDirection(commonId, commonId.GetSegment().IsStartNode(nodeId), direction);
         }
         protected static void SetSegmentDirection(ushort segmentId, bool start, Vector3 direction)
