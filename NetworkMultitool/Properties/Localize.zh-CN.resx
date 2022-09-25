@@ -123,7 +123,9 @@
   <data name="Mode_AddNode_Info_ClickToAdd" xml:space="preserve">
     <value>点击添加节点</value>
   </data>
-  
+  <data name="Mode_AddNode_Info_PreciseMeasurement" xml:space="preserve">
+    <value>按住 {0} 以進行準確計算</value>
+  </data>
   <data name="Mode_AddNode_Info_SelectToAdd" xml:space="preserve">
     <value>选择要添加节点的部分</value>
   </data>
@@ -455,7 +457,9 @@
   
   
   
-  
+  <data name="Mod_WhatsNewMessage1_3_2" xml:space="preserve">
+    <value>[UPDATED] 新增了Plazas和Promenades DLC 支持。</value>
+  </data>
   
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>激活快捷键</value>
