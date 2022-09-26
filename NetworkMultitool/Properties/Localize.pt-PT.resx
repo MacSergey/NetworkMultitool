@@ -118,256 +118,255 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Mode_AddNode" xml:space="preserve">
-    <value>Tryb dodawania węzłów</value>
+    <value>Modo de adição de nó</value>
   </data>
   <data name="Mode_AddNode_Info_ClickToAdd" xml:space="preserve">
-    <value>Kliknij, aby wstawić węzeł</value>
+    <value>Clicar para adicionar nó</value>
   </data>
   <data name="Mode_AddNode_Info_PreciseMeasurement" xml:space="preserve">
-    <value>Przytrzymaj {0} dla precyzyjnego pomiaru</value>
+    <value>Manter {0} para uma medição precisa</value>
   </data>
   <data name="Mode_AddNode_Info_SelectToAdd" xml:space="preserve">
-    <value>Wybierz segment, aby dodać węzeł</value>
+    <value>Selecionar segmento para adicionar nó</value>
   </data>
   <data name="Mode_AddNode_Info_TooCloseNode" xml:space="preserve">
-    <value>Nie można wstawić węzła
-Za blisko sąsiedniego węzła</value>
+    <value>Não é possível inserir nó
+Está demasiado perto de outro nó</value>
   </data>
   <data name="Mode_AngleFormat" xml:space="preserve">
     <value>{0}°</value>
   </data>
   <data name="Mode_ArrangeAtCircle" xml:space="preserve">
-    <value>Tryb układania w okręgu</value>
+    <value>Modo de ajustar em círculo</value>
   </data>
   <data name="Mode_ArrangeAtLine" xml:space="preserve">
-    <value>Tryb porządkowania w linii</value>
+    <value>Modo de ajustar em linha</value>
   </data>
   <data name="Mode_ArrangeCircle_Info_ClickToComplite" xml:space="preserve">
-    <value>Naciśnij aby zakończyć wybór okręgu</value>
+    <value>Clicar para completar a seleção do círculo</value>
   </data>
   <data name="Mode_ArrangeLine_Info_ClickToSelectDirection" xml:space="preserve">
-    <value>Kliknij, aby wybrać kierunek porządkowania</value>
+    <value>Clicar para selecionar a direção do arranjo</value>
   </data>
   <data name="Mode_ArrangeLine_Info_SelectDirection" xml:space="preserve">
-    <value>Wybierz segment, aby ustawić kierunek porządkowania</value>
+    <value>Selecionar segmento para definir a direção do arranjo</value>
   </data>
   <data name="Mode_Connection_Info_DoubleClickOnCenterToChangeDir" xml:space="preserve">
-    <value>Kliknij dwukrotnie na środku okręgu, aby zmienić kierunek zakrętu</value>
+    <value>Clicar duas vezes no centro do círculo para mudar a direção da curva</value>
   </data>
   <data name="Mode_Connection_Info_DoubleClickToAdd" xml:space="preserve">
-    <value>Kliknij dwukrotnie, aby dodać zakręt do tej linii</value>
+    <value>Clique duas vezes para adicionar uma curva a esta reta</value>
   </data>
   <data name="Mode_Connection_Info_DoubleClickToRemove" xml:space="preserve">
-    <value>Kliknij dwukrotnie, aby usunąć ten zakręt</value>
+    <value>Clique duas vezes para remover esta curva</value>
   </data>
   <data name="Mode_Connection_Info_DragToChangeRadius" xml:space="preserve">
-    <value>Przeciągnij, aby zmienić promień</value>
+    <value>Arraste para alterar o raio</value>
   </data>
   <data name="Mode_Connection_Info_DragToMove" xml:space="preserve">
-    <value>Przeciągnij, aby przesunąć okrąg</value>
+    <value>Arraste para mover o círculo</value>
   </data>
   <data name="Mode_CreateConnection" xml:space="preserve">
-    <value>Tryb tworzenia połączeń</value>
+    <value>Modo de criação de ligação</value>
   </data>
   <data name="Mode_CreateCurve" xml:space="preserve">
-    <value>Tryb tworzenia zakrętu</value>
+    <value>Modo de criar curva</value>
   </data>
   <data name="Mode_CreateLoop" xml:space="preserve">
-    <value>Tryb tworzenia pętli</value>
+    <value>Modo de criação de loop</value>
   </data>
   <data name="Mode_CreateLoop_Info_Change" xml:space="preserve">
-    <value>Naciśnij {0}, aby zmienić pętlę</value>
+    <value>Pressione {0} para alterar o loop</value>
   </data>
   <data name="Mode_CreateParallerl" xml:space="preserve">
-    <value>Tryb tworzenia równoległego</value>
+    <value>Modo de criar paralelo</value>
   </data>
   <data name="Mode_Info_Apply" xml:space="preserve">
-    <value>Naciśnij {0}, aby zastosować</value>
+    <value>Pressione {0} para aplicar</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_Apply" xml:space="preserve">
-    <value>Naciśnij {0}, aby uporządkować w okręgu</value>
+    <value>Pressiona {0} para arranjar num círculo</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_BigDelta" xml:space="preserve">
-    <value>Zbyt duży kąt między węzłami
-okrągły kształt nie będzie idealny</value>
+    <value>O ângulo entre nódulos é muito grande, a forma redonda não será perfeita</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_DoubleClickToResetCenter" xml:space="preserve">
-    <value>Kliknij dwukrotnie, aby zresetować pozycję środka</value>
+    <value>Duplo-clique para redefinir a posição central</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_DoubleClickToResetNode" xml:space="preserve">
-    <value>Kliknij dwukrotnie, aby zresetować pozycję węzła</value>
+    <value>Duplo-clique para redefinir a posição do nódulo</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_DragToChangeRadius" xml:space="preserve">
-    <value>Przeciągnij, aby zmienić promień</value>
+    <value>Arrastar para mudar o raio</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_DragToMoveCenter" xml:space="preserve">
-    <value>Przeciągnij, aby przesunąć okrąg</value>
+    <value>Arraste para mover o círculo</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_DragToMoveNode" xml:space="preserve">
-    <value>Przeciągnij, aby przesunąć węzeł</value>
+    <value>Arraste para mover nó</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_MoveAll" xml:space="preserve">
-    <value>Przytrzymaj {0}, aby przenieść wszystkie węzły
-jednocześnie</value>
+    <value>Mantenha {0} para mover todos os nós
+ao mesmo tempo</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_PressToDistributeBetweenIntersections" xml:space="preserve">
-    <value>Naciśnij {0}, aby rozdzielić węzły
-równomiernie pomiędzy skrzyżowaniami</value>
+    <value>Pressione {0} para distribuir nós
+igualmente entre interseções</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_PressToDistributeEvenly" xml:space="preserve">
-    <value>Naciśnij {0}, aby rozdzielić węzły równomiernie w okręgu</value>
+    <value>Pressionar {0} para distribuir nódulos uniformemente no círculo</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_PressToDistributeIntersections" xml:space="preserve">
-    <value>Naciśnij {0}, aby rozdzielić skrzyżowania
-równomiernie w okręgu</value>
+    <value>Pressione {0} para distribuir
+intersecções de forma igualmente em círculo</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_PressToReset" xml:space="preserve">
-    <value>Naciśnij {0}, aby zresetować parametry</value>
+    <value>Pressione {0} para redefinir os parâmetros</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_WrongOrder" xml:space="preserve">
-    <value>Błędna kolejność węzłów</value>
+    <value>Ordem dos nós incorrecta</value>
   </data>
   <data name="Mode_Info_ArrangeLine_Apply" xml:space="preserve">
-    <value>Naciśnij {0}, aby uporządkować w linii</value>
+    <value>Pressionar {0} para arranjar na linha</value>
   </data>
   <data name="Mode_Info_ChangeAllRadius" xml:space="preserve">
-    <value>Naciśnij {0} lub {1} aby zmienić wszystkie promienie</value>
+    <value>Pressione {0} ou {1} para alterar todos os raios</value>
   </data>
   <data name="Mode_Info_ChangeBothRadius" xml:space="preserve">
-    <value>Naciśnij {0} lub {1} aby zmienić oba promienie</value>
+    <value>Pressione {0} ou {1} para alterar ambos os raios</value>
   </data>
   <data name="Mode_Info_ChangeCircle" xml:space="preserve">
-    <value>Naciśnij {0}, aby przełączyć wybrany okręg</value>
+    <value>Pressione {0} para alterar o círculo selecionado</value>
   </data>
   <data name="Mode_Info_ChangeOffset" xml:space="preserve">
-    <value>Naciśnij {0} lub {1}, aby zmienić przesunięcie początku zakrętu</value>
+    <value>Pressione {0} ou {1} para alterar o deslocamento inicial da curva</value>
   </data>
   <data name="Mode_Info_ChangeOneRadius" xml:space="preserve">
-    <value>Naciśnij {0} lub {1} aby zmienić jeden promień</value>
+    <value>Pressione {0} ou {1} para alterar um raio</value>
   </data>
   <data name="Mode_Info_ChangeRadius" xml:space="preserve">
-    <value>Naciśnij {0} lub {1} aby zmienić promień</value>
+    <value>Pressione {0} ou {1} para alterar o raio</value>
   </data>
   <data name="Mode_Info_ChangeShift" xml:space="preserve">
-    <value>Naciśnij {0} lub {1} aby zmienić przesunięcie</value>
+    <value>Pressione {0} ou {1} para alterar deslocamento</value>
   </data>
   <data name="Mode_Info_ClickFirstSegment" xml:space="preserve">
-    <value>Kliknij, aby zaznaczyć pierwszy segment</value>
+    <value>Clique para selecionar o primeiro segmento</value>
   </data>
   <data name="Mode_Info_ClickOnNodeToChangeCreateDir" xml:space="preserve">
-    <value>Kliknij na węźle, aby zmienić kierunek tworzenia</value>
+    <value>Clique no nó para mudar a direção de criação</value>
   </data>
   <data name="Mode_Info_ClickSecondSegment" xml:space="preserve">
-    <value>Kliknij, aby zaznaczyć drugi segment</value>
+    <value>Clique para selecionar o primeiro segmento</value>
   </data>
   <data name="Mode_Info_ClickSelectNode" xml:space="preserve">
-    <value>Kliknij, aby zaznaczyć węzeł</value>
+    <value>Clique para inserir nó</value>
   </data>
   <data name="Mode_Info_ClickToChangeCreateDir" xml:space="preserve">
-    <value>Kliknij, aby zmienić kierunek tworzenia</value>
+    <value>Clique para alterar a direção da criação</value>
   </data>
   <data name="Mode_Info_ClickUnselectNode" xml:space="preserve">
-    <value>Kliknij, aby odznaczyć węzeł</value>
+    <value>Clique para desselecionar o nó</value>
   </data>
   <data name="Mode_Info_Connection_Create" xml:space="preserve">
-    <value>Naciśnij {0}, aby utworzyć połączenie</value>
+    <value>Pressionar {0} para criar uma conexão</value>
   </data>
   <data name="Mode_Info_ConstructionCost" xml:space="preserve">
-    <value>Koszt budowy: {0}</value>
+    <value>Custo de Construção: {0}</value>
   </data>
   <data name="Mode_Info_Create" xml:space="preserve">
-    <value>Naciśnij {0}, aby utworzyć</value>
+    <value>Pressione {0} para criar</value>
   </data>
   <data name="Mode_Info_HoldToMoveSlower" xml:space="preserve">
-    <value>Przytrzymaj {0} aby przesuwać X{1} wolniej</value>
+    <value>Manter {0} para mover X{1} mais lentamente</value>
   </data>
   <data name="Mode_Info_HoldToStep" xml:space="preserve">
-    <value>Przytrzymaj {0} aby przejść {1}</value>
+    <value>Manter {0} para avançar {1}</value>
   </data>
   <data name="Mode_Info_InvertNetwork" xml:space="preserve">
-    <value>Naciśnij {0}, aby odwrócić sieć</value>
+    <value>Pressionar {0} para inverter a rede</value>
   </data>
   <data name="Mode_Info_Loop_Create" xml:space="preserve">
-    <value>Naciśnij {0}, aby utworzyć pętlę</value>
+    <value>Pressionar {0} para criar uma repetição</value>
   </data>
   <data name="Mode_Info_NotEnoughMoney" xml:space="preserve">
-    <value>Niewystarczająca ilość pieniędzy</value>
+    <value>Dinheiro insuficiente</value>
   </data>
   <data name="Mode_Info_OutOfMap" xml:space="preserve">
-    <value>Poza mapą</value>
+    <value>Fora do mapa</value>
   </data>
   <data name="Mode_Info_Parallel_ChangeHeight" xml:space="preserve">
-    <value>Naciśnij {0} lub {1}, aby zmienić wysokość</value>
+    <value>Pressionar {0} ou {1} para alterar a altura</value>
   </data>
   <data name="Mode_Info_Parallel_ChangeShift" xml:space="preserve">
-    <value>Naciśnij {0}, aby zmienić stronę tworzenia</value>
+    <value>Pressionar {0} para mudar o lado da criação</value>
   </data>
   <data name="Mode_Info_Parallel_Create" xml:space="preserve">
-    <value>Naciśnij {0}, aby utworzyć równoległy</value>
+    <value>Pressionar {0} para criar uma repetição</value>
   </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
-    <value>Promień jest za duży</value>
+    <value>Raio muito grande</value>
   </data>
   <data name="Mode_Info_RadiusTooSmall" xml:space="preserve">
-    <value>Promień jest za mały</value>
+    <value>Raio muito pequeno</value>
   </data>
   <data name="Mode_Info_Refund" xml:space="preserve">
-    <value>Zwrot: {0}</value>
+    <value>Reembolso: {0}</value>
   </data>
   <data name="Mode_Info_SelectFirstSegment" xml:space="preserve">
-    <value>Zaznacz pierwszy segment</value>
+    <value>Selecione o primeiro segmento</value>
   </data>
   <data name="Mode_Info_SelectSecondSegment" xml:space="preserve">
-    <value>Zaznacz drugi segment</value>
+    <value>Selecione o segundo segmento</value>
   </data>
   <data name="Mode_Info_SelectSegment" xml:space="preserve">
-    <value>Wybierz segment</value>
+    <value>Selecione segmento</value>
   </data>
   <data name="Mode_Info_Slope_Apply" xml:space="preserve">
-    <value>Naciśnij {0}, aby zastosować nachylenie</value>
+    <value>Pressione {0} para aplicar inclinação</value>
   </data>
   <data name="Mode_Info_Step" xml:space="preserve">
     <value>Shift - X10, Ctrl - X0.1, Alt - X0.01</value>
   </data>
   <data name="Mode_Info_SwitchFollowTerrain" xml:space="preserve">
-    <value>Naciśnij {0}, aby przełączyć podążanie za terenem</value>
+    <value>Pressionar {0} para alternar entre seguir terreno</value>
   </data>
   <data name="Mode_Info_SwitchOffset" xml:space="preserve">
-    <value>Naciśnij {0}, aby przełączyć wybrane przesunięcie</value>
+    <value>Pressione {0} para alternar deslocamento selecionado</value>
   </data>
   <data name="Mode_Info_UndergroundMode" xml:space="preserve">
-    <value>Przytrzymaj {0} by przejść w tryb podziemny</value>
+    <value>Segurar {0} para o modo subterrâneo</value>
   </data>
   <data name="Mode_Info_WrongShape" xml:space="preserve">
-    <value>Nieprawidłowy kształt</value>
+    <value>Forma errada</value>
   </data>
   <data name="Mode_IntersectSegment" xml:space="preserve">
-    <value>Tryb przecinania segmentów</value>
+    <value>Modo de intersecção de segmentos</value>
   </data>
   <data name="Mode_IntersectSegment_Info_CommonNode" xml:space="preserve">
-    <value>Te segmenty mają wspólny węzeł</value>
+    <value>Estes segmentos têm um nó comum</value>
   </data>
   <data name="Mode_IntersectSegment_Info_EdgeTooClose" xml:space="preserve">
-    <value>Krawędź pierwszego segmentu jest zbyt blisko końca drugiego segmentu</value>
+    <value>Borda de um segmento é muito perto do final do segundo segmento</value>
   </data>
   <data name="Mode_IntersectSegment_Info_NotIntersect" xml:space="preserve">
-    <value>Te segmenty się nie przecinają</value>
+    <value>Estes segmentos não se intersectam</value>
   </data>
   <data name="Mode_InvertSegment" xml:space="preserve">
-    <value>Tryb obracania segmentu</value>
+    <value>Modo de inversão de segmento</value>
   </data>
   <data name="Mode_InvertSegment_Info_ClickToReverse" xml:space="preserve">
-    <value>Kliknij, aby odwrócić segment</value>
+    <value>Clique para inverter o segmento</value>
   </data>
   <data name="Mode_InvertSegment_Info_SelectToReverse" xml:space="preserve">
-    <value>Wybierz segment, aby go odwrócić</value>
+    <value>Selecione o segmento para invertê-lo</value>
   </data>
   <data name="Mode_NodeLine_Info_NotConnected" xml:space="preserve">
-    <value>Ten węzeł nie może być zaznaczony
-ponieważ nie jest połączony z pozostałymi</value>
+    <value>Este nó não pode ser selecionado
+porque não está ligado a outros</value>
   </data>
   <data name="Mode_NodeLine_Info_SelectNode" xml:space="preserve">
-    <value>Zaznacz węzeł aby dodać go do kolejki</value>
+    <value>Selecione o nó para adicioná-lo à ordem</value>
   </data>
   <data name="Mode_PercentagesFormat" xml:space="preserve">
     <value>{0}%</value>
@@ -376,248 +375,246 @@ ponieważ nie jest połączony z pozostałymi</value>
     <value>{0}m</value>
   </data>
   <data name="Mode_RemoveNode" xml:space="preserve">
-    <value>Tryb usuwania węzłów</value>
+    <value>Modo remover nó</value>
   </data>
   <data name="Mode_RemoveNode_Info_NotAllow" xml:space="preserve">
-    <value>Nie zezwalaj na usunięcie tego węzła</value>
+    <value>Não é permitido remover este nó</value>
   </data>
   <data name="Mode_SlopeNode" xml:space="preserve">
-    <value>Tryb ustawiania nachylenia</value>
+    <value>Definir modo de inclinação</value>
   </data>
   <data name="Mode_SplitNode" xml:space="preserve">
-    <value>Tryb podziału węzła</value>
+    <value>Modo nó dividido</value>
   </data>
   <data name="Mode_SplitNode_Info_ClickFromOrder" xml:space="preserve">
-    <value>Naciśnij, aby usunąć segment z kolejki dzielenia</value>
+    <value>Clicar para remover o segmento da ordem dividida</value>
   </data>
   <data name="Mode_SplitNode_Info_ClickToOrder" xml:space="preserve">
-    <value>Naciśnij, aby dodać segment do kolejki dzielenia</value>
+    <value>Clicar para adicionar um segmento para dividir a ordem</value>
   </data>
   <data name="Mode_SplitNode_Info_ClickToSplit" xml:space="preserve">
-    <value>Naciśnij, aby podzielić węzeł i wyrównać do wysokości terenu
-Naciśnij trzymając {0} aby podzielić węzeł i wyrównać do wysokości źródłowej</value>
+    <value>Clicar para dividir nó e alinhá-lo à altura do terreno
+Clicar com {0} para dividir o nó e alinhá-lo à altura da fonte</value>
   </data>
   <data name="Mode_SplitNode_Info_NotAllowedSplit" xml:space="preserve">
-    <value>Nie da się podzielić węzła z tylko jednym segmentem</value>
+    <value>Não é possível dividir o nó com apenas um segmento</value>
   </data>
   <data name="Mode_SplitNode_Info_OrderIsFull" xml:space="preserve">
-    <value>Nie da się dodać więcej segmentów do kolejki dzielenia</value>
+    <value>Não é possível adicionar mais segmentos à ordem dividida</value>
   </data>
   <data name="Mode_SplitNode_Info_SelectToSplit" xml:space="preserve">
-    <value>Wybierz segmenty do podzielenia</value>
+    <value>Selecione segmentos para dividir</value>
   </data>
   <data name="Mode_SplitNode_Info_TooFar" xml:space="preserve">
-    <value>Pozycja jest zbyt daleko od węzła źródłowego</value>
+    <value>A posição está muito longe do nó de origem</value>
   </data>
   <data name="Mode_UnionNode" xml:space="preserve">
-    <value>Tryb łączenia węzłów</value>
+    <value>Modo de união de nós</value>
   </data>
   <data name="Mode_UnionNode_Info_ClickSource" xml:space="preserve">
-    <value>Kliknij, aby zaznaczyć węzeł źródłowy</value>
+    <value>Clique para selecionar o nó de origem</value>
   </data>
   <data name="Mode_UnionNode_Info_ClickUnion" xml:space="preserve">
-    <value>Kliknij aby złączyć węzły</value>
+    <value>Clique para unir nós</value>
   </data>
   <data name="Mode_UnionNode_Info_NoCommon" xml:space="preserve">
-    <value>Te węzły mają wspólny segment</value>
+    <value>Estes nós têm um segmento em comum</value>
   </data>
   <data name="Mode_UnionNode_Info_Overflow" xml:space="preserve">
-    <value>Całkowita liczba węzłów nie może być większa niż 8</value>
+    <value>O número total de nós não pode ser mais do que 8</value>
   </data>
   <data name="Mode_UnionNode_Info_SelectSource" xml:space="preserve">
-    <value>Wybierz węzeł źródłowy</value>
+    <value>Selecionar nó de origem</value>
   </data>
   <data name="Mode_UnionNode_Info_SelectTarget" xml:space="preserve">
-    <value>Wybierz węzeł docelowy</value>
+    <value>Selecionar nó de destino</value>
   </data>
   <data name="Mode_UnionNode_Info_TooFar" xml:space="preserve">
-    <value>Węzły są zbyt daleko od siebie</value>
+    <value>Nós muito distantes um do outro</value>
   </data>
   <data name="Mode_UnitsFormat" xml:space="preserve">
     <value>{0}U</value>
   </data>
   <data name="Mode_UnlockSegment" xml:space="preserve">
-    <value>Tryb odblokowywania segmentu</value>
+    <value>Modo de desbloqueio de segmento</value>
   </data>
   <data name="Mode_UnlockSegment_Info_ChangeLock" xml:space="preserve">
-    <value>Wybierz segment, aby go zablokować lub odblokować</value>
+    <value>Selecionar segmento para bloquear ou desbloqueá-lo</value>
   </data>
   <data name="Mode_UnlockSegment_Info_ClickToLock" xml:space="preserve">
-    <value>Kliknij, aby zablokować ten segment</value>
+    <value>Clicar para bloquear este segmento</value>
   </data>
   <data name="Mode_UnlockSegment_Info_ClickToUnlock" xml:space="preserve">
-    <value>Kliknij, aby odblokować ten segment</value>
+    <value>Clicar para desbloquear este segmento</value>
   </data>
   <data name="Mod_Description" xml:space="preserve">
-    <value>Wiele różnych narzędzi do pracy z sieciami</value>
+    <value>Muitas ferramentas diferentes para trabalhar com redes</value>
   </data>
   
   
   
   
   <data name="Mod_WhatsNewMessage1_3_2" xml:space="preserve">
-    <value>[UPDATED] Dodano wsparcie DLC Place &amp; Promenady.</value>
+    <value>[ATUALIZAÇÃO] Adicionado suporte ao DLC Plazas &amp; Promenades.</value>
   </data>
-  <data name="Mod_WhatsNewMessage1_3_3" xml:space="preserve">
-    <value>[NEW] Dodano wsparcie dla Network Anarchy.</value>
-  </data>
+  
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
-    <value>Skróty aktywacji</value>
+    <value>Atalhos de ativação</value>
   </data>
   <data name="Settings_AutoConnect" xml:space="preserve">
-    <value>Automatycznie połącz drogę równoległą do najbliższych węzłów</value>
+    <value>Ligar a estrada paralela aos nós mais próximo automaticamente</value>
   </data>
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
-    <value>Automatyczne ukrywanie panelu trybów</value>
+    <value>Ocultar automaticamente o painel de modos</value>
   </data>
   <data name="Settings_CommonCreateShortcuts" xml:space="preserve">
-    <value>Wspólne skróty trybów tworzenia</value>
+    <value>Atalhos comuns dos modos de criação</value>
   </data>
   <data name="Settings_CommonShortcuts" xml:space="preserve">
-    <value>Wspólne skróty trybów</value>
+    <value>Atalhos comuns dos modos</value>
   </data>
   <data name="Settings_FollowTerrain" xml:space="preserve">
-    <value>Drogi stworzone na ziemi będą podążać za terenem</value>
+    <value>Estradas terrestres seguirão o terreno</value>
   </data>
   <data name="Settings_Gameplay" xml:space="preserve">
-    <value>Rozgrywka</value>
+    <value>Jogabilidade</value>
   </data>
   <data name="Settings_Interface" xml:space="preserve">
-    <value>Interfejs</value>
+    <value>Interface</value>
   </data>
   <data name="Settings_LengthUnit" xml:space="preserve">
-    <value>Jednostka miary długości</value>
+    <value>Unidade de medida de comprimento</value>
   </data>
   <data name="Settings_LengthUniteMeters" xml:space="preserve">
-    <value>Metry</value>
+    <value>Metros</value>
   </data>
   <data name="Settings_LengthUniteUnits" xml:space="preserve">
-    <value>Jednostka gry (1U = 8m)</value>
+    <value>Unidades de jogo (1U = 8m)</value>
   </data>
   <data name="Settings_NeedMoney" xml:space="preserve">
-    <value>Pieniądze wymagane do budowy</value>
+    <value>Requer dinheiro para construir</value>
   </data>
   <data name="Settings_PanelColumns" xml:space="preserve">
-    <value>Liczba kolumn panelu</value>
+    <value>Número de colunas do painel</value>
   </data>
   <data name="Settings_PanelOpenSide" xml:space="preserve">
-    <value>Strona otwierania panelu</value>
+    <value>Lado de abertura do painel</value>
   </data>
   <data name="Settings_PanelOpenSideDown" xml:space="preserve">
-    <value>Dół</value>
+    <value>Baixo</value>
   </data>
   <data name="Settings_PanelOpenSideUp" xml:space="preserve">
-    <value>Góra</value>
+    <value>Cima</value>
   </data>
   <data name="Settings_PlayEffects" xml:space="preserve">
-    <value>Odtwarzaj efekty dźwiękowe i wizualne</value>
+    <value>Reproduzir áudio e efeitos visuais</value>
   </data>
   <data name="Settings_PreviewType" xml:space="preserve">
-    <value>Podgląd tworzenia</value>
+    <value>Pré-visualização da criação</value>
   </data>
   <data name="Settings_PreviewTypeBoth" xml:space="preserve">
-    <value>Obydwa</value>
+    <value>Ambos</value>
   </data>
   <data name="Settings_PreviewTypeMesh" xml:space="preserve">
-    <value>Wizualizacja sieci</value>
+    <value>Visualização da rede</value>
   </data>
   <data name="Settings_PreviewTypeOverlay" xml:space="preserve">
-    <value>Nakładka</value>
+    <value>Sobreposição</value>
   </data>
   <data name="Settings_SegmentLength" xml:space="preserve">
-    <value>Maksymalna długość segmentu</value>
+    <value>Comprimento máximo do segmento</value>
   </data>
   <data name="Settings_Shortcut_Apply" xml:space="preserve">
-    <value>Zastosuj akcję trybu</value>
+    <value>Aplicar ação do modo</value>
   </data>
   <data name="Settings_Shortcut_DecreaseAngle" xml:space="preserve">
-    <value>Zmniejsz kąt początkowy</value>
+    <value>Diminuir ângulo inicial</value>
   </data>
   <data name="Settings_Shortcut_DecreaseHeight" xml:space="preserve">
-    <value>Zmniejsz wysokość</value>
+    <value>Diminuir altura</value>
   </data>
   <data name="Settings_Shortcut_DecreaseOffset" xml:space="preserve">
-    <value>Zmniejsz przesunięcie początku okręgu</value>
+    <value>Diminuir o deslocamento inicial do círculo</value>
   </data>
   <data name="Settings_Shortcut_DecreaseOneRadius" xml:space="preserve">
-    <value>Zmniejsz jeden promień</value>
+    <value>Diminuir o raio uma vez</value>
   </data>
   <data name="Settings_Shortcut_DecreaseRadii" xml:space="preserve">
-    <value>Zmniejsz promienie</value>
+    <value>Diminuir raios</value>
   </data>
   <data name="Settings_Shortcut_DecreaseRadius" xml:space="preserve">
-    <value>Zmniejsz promień</value>
+    <value>Diminuir o raio</value>
   </data>
   <data name="Settings_Shortcut_DecreaseShift" xml:space="preserve">
-    <value>Zmniejsz przesunięcie</value>
+    <value>Diminuir deslocamento</value>
   </data>
   <data name="Settings_Shortcut_DistributeBetweenIntersections" xml:space="preserve">
-    <value>Rozdziel węzły równomiernie pomiędzy skrzyżowaniami</value>
+    <value>Distribuir nós igualmente entre interseções</value>
   </data>
   <data name="Settings_Shortcut_DistributeEvenly" xml:space="preserve">
-    <value>Rozdziel węzły równomiernie w okręgu</value>
+    <value>Distribuir nós igualmente no círculo</value>
   </data>
   <data name="Settings_Shortcut_DistributeIntersections" xml:space="preserve">
-    <value>Rozdziel skrzyżowania równomiernie w okręgu</value>
+    <value>Distribuir interseções igualmente no círculo</value>
   </data>
   <data name="Settings_Shortcut_IncreaseAngle" xml:space="preserve">
-    <value>Zwiększ kąt początkowy</value>
+    <value>Aumentar ângulo inicial</value>
   </data>
   <data name="Settings_Shortcut_IncreaseHeight" xml:space="preserve">
-    <value>Zwiększ wysokość</value>
+    <value>Aumentar altura</value>
   </data>
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
-    <value>Zwiększ przesunięcie początku okręgu</value>
+    <value>Aumentar o deslocamento inicial do círculo</value>
   </data>
   <data name="Settings_Shortcut_IncreaseOneRadius" xml:space="preserve">
-    <value>Zwiększ jeden promień</value>
+    <value>Aumentar o raio uma vez</value>
   </data>
   <data name="Settings_Shortcut_IncreaseRadii" xml:space="preserve">
-    <value>Zwiększ promienie</value>
+    <value>Aumentar raios</value>
   </data>
   <data name="Settings_Shortcut_IncreaseRadius" xml:space="preserve">
-    <value>Zwiększ promień</value>
+    <value>Aumentar o raio</value>
   </data>
   <data name="Settings_Shortcut_IncreaseShift" xml:space="preserve">
-    <value>Zwiększ przesunięcie</value>
+    <value>Aumentar o deslocamento</value>
   </data>
   <data name="Settings_Shortcut_InvertNetwork" xml:space="preserve">
-    <value>Odwróć sieć</value>
+    <value>Inverter rede</value>
   </data>
   <data name="Settings_Shortcut_InvertShift" xml:space="preserve">
-    <value>Przełącz stronę tworzenia</value>
+    <value>Mudar lado da criação</value>
   </data>
   <data name="Settings_Shortcut_ResetArrangeCircle" xml:space="preserve">
-    <value>Zresetuj do domyślnego okręgu</value>
+    <value>Restaurar ao círculo padrão</value>
   </data>
   <data name="Settings_Shortcut_SwitchFollowTerrain" xml:space="preserve">
-    <value>Przełącz podążanie za terenem</value>
+    <value>Alternar seguir terreno</value>
   </data>
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
-    <value>Przełącz kierunek pętli</value>
+    <value>Mudar direção da repetição</value>
   </data>
   <data name="Settings_Shortcut_SwitchOffset" xml:space="preserve">
-    <value>Przełącz wybrane przesunięcie</value>
+    <value>Alternar deslocamento selecionado</value>
   </data>
   <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
-    <value>Przełącz wybrane koło</value>
+    <value>Alternar círculo selecionado</value>
   </data>
   <data name="Settings_SlopeColors" xml:space="preserve">
-    <value>Ustaw kolor etykiety nachylenia w zależności od wartości</value>
+    <value>Definir a cor da etiqueta da inclinação dependendo do valor</value>
   </data>
   <data name="Settings_SlopeUnit" xml:space="preserve">
-    <value>Jednostka miary nachylenia</value>
+    <value>Unidade de medida de inclinação</value>
   </data>
   <data name="Settings_SlopeUnitDegrees" xml:space="preserve">
-    <value>Stopnie</value>
+    <value>Graus</value>
   </data>
   <data name="Settings_SlopeUnitPercentages" xml:space="preserve">
-    <value>Procenty</value>
+    <value>Percentagem</value>
   </data>
   <data name="Tool_RemoveNode_Info_ClickToRemove" xml:space="preserve">
-    <value>Naciśnij, aby usunąć</value>
+    <value>Clique para remover</value>
   </data>
   <data name="Tool_RemoveNode_Info_Select" xml:space="preserve">
-    <value>Wybierz węzeł, aby go usunąć</value>
+    <value>Selecione o nó para removê-lo</value>
   </data>
 </root>

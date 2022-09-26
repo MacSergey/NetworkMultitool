@@ -118,256 +118,254 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Mode_AddNode" xml:space="preserve">
-    <value>Tryb dodawania węzłów</value>
+    <value>Mode: ノードの追加</value>
   </data>
   <data name="Mode_AddNode_Info_ClickToAdd" xml:space="preserve">
-    <value>Kliknij, aby wstawić węzeł</value>
+    <value>クリックしてノードを追加</value>
   </data>
   <data name="Mode_AddNode_Info_PreciseMeasurement" xml:space="preserve">
-    <value>Przytrzymaj {0} dla precyzyjnego pomiaru</value>
+    <value>{0} で正確に距離を測定</value>
   </data>
   <data name="Mode_AddNode_Info_SelectToAdd" xml:space="preserve">
-    <value>Wybierz segment, aby dodać węzeł</value>
+    <value>ノードを追加したいセグメントを選択</value>
   </data>
   <data name="Mode_AddNode_Info_TooCloseNode" xml:space="preserve">
-    <value>Nie można wstawić węzła
-Za blisko sąsiedniego węzła</value>
+    <value>ノードが追加できません
+他のノードと近すぎます</value>
   </data>
   <data name="Mode_AngleFormat" xml:space="preserve">
     <value>{0}°</value>
   </data>
   <data name="Mode_ArrangeAtCircle" xml:space="preserve">
-    <value>Tryb układania w okręgu</value>
+    <value>Mode: フォースサークル</value>
   </data>
   <data name="Mode_ArrangeAtLine" xml:space="preserve">
-    <value>Tryb porządkowania w linii</value>
+    <value>Mode: フォーススムージング</value>
   </data>
   <data name="Mode_ArrangeCircle_Info_ClickToComplite" xml:space="preserve">
-    <value>Naciśnij aby zakończyć wybór okręgu</value>
+    <value>クリックしてサークルの選択を確定</value>
   </data>
   <data name="Mode_ArrangeLine_Info_ClickToSelectDirection" xml:space="preserve">
-    <value>Kliknij, aby wybrać kierunek porządkowania</value>
+    <value>クリックしてアレンジ方向を選択</value>
   </data>
   <data name="Mode_ArrangeLine_Info_SelectDirection" xml:space="preserve">
-    <value>Wybierz segment, aby ustawić kierunek porządkowania</value>
+    <value>アレンジ方向を設定するセグメントを選択</value>
   </data>
   <data name="Mode_Connection_Info_DoubleClickOnCenterToChangeDir" xml:space="preserve">
-    <value>Kliknij dwukrotnie na środku okręgu, aby zmienić kierunek zakrętu</value>
+    <value>サークルの中心をダブルクリックして
+カーブを方向転換</value>
   </data>
   <data name="Mode_Connection_Info_DoubleClickToAdd" xml:space="preserve">
-    <value>Kliknij dwukrotnie, aby dodać zakręt do tej linii</value>
+    <value>ダブルクリックでセグメントにカーブを追加</value>
   </data>
   <data name="Mode_Connection_Info_DoubleClickToRemove" xml:space="preserve">
-    <value>Kliknij dwukrotnie, aby usunąć ten zakręt</value>
+    <value>右のダブルクリックでセグメントのカーブを消去</value>
   </data>
   <data name="Mode_Connection_Info_DragToChangeRadius" xml:space="preserve">
-    <value>Przeciągnij, aby zmienić promień</value>
+    <value>ドラッグして半径を変更</value>
   </data>
   <data name="Mode_Connection_Info_DragToMove" xml:space="preserve">
-    <value>Przeciągnij, aby przesunąć okrąg</value>
+    <value>ドラッグしてサークルを移動</value>
   </data>
   <data name="Mode_CreateConnection" xml:space="preserve">
-    <value>Tryb tworzenia połączeń</value>
+    <value>Mode: ストレート接続</value>
   </data>
   <data name="Mode_CreateCurve" xml:space="preserve">
-    <value>Tryb tworzenia zakrętu</value>
+    <value>Mede: カーブ接続</value>
   </data>
   <data name="Mode_CreateLoop" xml:space="preserve">
-    <value>Tryb tworzenia pętli</value>
+    <value>Mode: ループ接続</value>
   </data>
   <data name="Mode_CreateLoop_Info_Change" xml:space="preserve">
-    <value>Naciśnij {0}, aby zmienić pętlę</value>
+    <value>{0} でループを変更</value>
   </data>
   <data name="Mode_CreateParallerl" xml:space="preserve">
-    <value>Tryb tworzenia równoległego</value>
+    <value>Mode: パラレル敷設</value>
   </data>
   <data name="Mode_Info_Apply" xml:space="preserve">
-    <value>Naciśnij {0}, aby zastosować</value>
+    <value>{0} で作業を確定</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_Apply" xml:space="preserve">
-    <value>Naciśnij {0}, aby uporządkować w okręgu</value>
+    <value>{0} でサークル作成を確定</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_BigDelta" xml:space="preserve">
-    <value>Zbyt duży kąt między węzłami
-okrągły kształt nie będzie idealny</value>
+    <value>ノード間の角度が大きすぎます
+円の形状が完璧ではありません</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_DoubleClickToResetCenter" xml:space="preserve">
-    <value>Kliknij dwukrotnie, aby zresetować pozycję środka</value>
+    <value>ダブルクリックで中心位置をリセット</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_DoubleClickToResetNode" xml:space="preserve">
-    <value>Kliknij dwukrotnie, aby zresetować pozycję węzła</value>
+    <value>ダブルクリックでノード位置をリセット</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_DragToChangeRadius" xml:space="preserve">
-    <value>Przeciągnij, aby zmienić promień</value>
+    <value>ドラッグして半径を変更</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_DragToMoveCenter" xml:space="preserve">
-    <value>Przeciągnij, aby przesunąć okrąg</value>
+    <value>ドラッグしてサークルを移動</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_DragToMoveNode" xml:space="preserve">
-    <value>Przeciągnij, aby przesunąć węzeł</value>
+    <value>ドラッグしてノードを移動</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_MoveAll" xml:space="preserve">
-    <value>Przytrzymaj {0}, aby przenieść wszystkie węzły
-jednocześnie</value>
+    <value>{0} で全てのノードを同時に移動</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_PressToDistributeBetweenIntersections" xml:space="preserve">
-    <value>Naciśnij {0}, aby rozdzielić węzły
-równomiernie pomiędzy skrzyżowaniami</value>
+    <value>{0} で交差点間のノードを均等配置</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_PressToDistributeEvenly" xml:space="preserve">
-    <value>Naciśnij {0}, aby rozdzielić węzły równomiernie w okręgu</value>
+    <value>{0} で円周上にノードを均等配置</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_PressToDistributeIntersections" xml:space="preserve">
-    <value>Naciśnij {0}, aby rozdzielić skrzyżowania
-równomiernie w okręgu</value>
+    <value>{0} で交差点間の円周上で均等配置</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_PressToReset" xml:space="preserve">
-    <value>Naciśnij {0}, aby zresetować parametry</value>
+    <value>{0} で設定をリセット</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_WrongOrder" xml:space="preserve">
-    <value>Błędna kolejność węzłów</value>
+    <value>ノードの順序が不適切</value>
   </data>
   <data name="Mode_Info_ArrangeLine_Apply" xml:space="preserve">
-    <value>Naciśnij {0}, aby uporządkować w linii</value>
+    <value>{0} でスムージングを確定</value>
   </data>
   <data name="Mode_Info_ChangeAllRadius" xml:space="preserve">
-    <value>Naciśnij {0} lub {1} aby zmienić wszystkie promienie</value>
+    <value>{0} or {1} で全ての半径を変更</value>
   </data>
   <data name="Mode_Info_ChangeBothRadius" xml:space="preserve">
-    <value>Naciśnij {0} lub {1} aby zmienić oba promienie</value>
+    <value>{0} or {1} で両方の半径を変更</value>
   </data>
   <data name="Mode_Info_ChangeCircle" xml:space="preserve">
-    <value>Naciśnij {0}, aby przełączyć wybrany okręg</value>
+    <value>{0} でループの選択を切り替え</value>
   </data>
   <data name="Mode_Info_ChangeOffset" xml:space="preserve">
-    <value>Naciśnij {0} lub {1}, aby zmienić przesunięcie początku zakrętu</value>
+    <value>{0} or {1} でカーブ開始時のオフセットを変更</value>
   </data>
   <data name="Mode_Info_ChangeOneRadius" xml:space="preserve">
-    <value>Naciśnij {0} lub {1} aby zmienić jeden promień</value>
+    <value>{0} or {1} で片方の半径を変更</value>
   </data>
   <data name="Mode_Info_ChangeRadius" xml:space="preserve">
-    <value>Naciśnij {0} lub {1} aby zmienić promień</value>
+    <value>{0} or {1} で半径を変更</value>
   </data>
   <data name="Mode_Info_ChangeShift" xml:space="preserve">
-    <value>Naciśnij {0} lub {1} aby zmienić przesunięcie</value>
+    <value>{0} or {1} でオフセットを変更</value>
   </data>
   <data name="Mode_Info_ClickFirstSegment" xml:space="preserve">
-    <value>Kliknij, aby zaznaczyć pierwszy segment</value>
+    <value>クリックして1つ目のセグメントを選択</value>
   </data>
   <data name="Mode_Info_ClickOnNodeToChangeCreateDir" xml:space="preserve">
-    <value>Kliknij na węźle, aby zmienić kierunek tworzenia</value>
+    <value>ノードをクリックして作成方向を転換</value>
   </data>
   <data name="Mode_Info_ClickSecondSegment" xml:space="preserve">
-    <value>Kliknij, aby zaznaczyć drugi segment</value>
+    <value>クリックして2つ目のセグメントを選択</value>
   </data>
   <data name="Mode_Info_ClickSelectNode" xml:space="preserve">
-    <value>Kliknij, aby zaznaczyć węzeł</value>
+    <value>クリックしてノードを選択</value>
   </data>
   <data name="Mode_Info_ClickToChangeCreateDir" xml:space="preserve">
-    <value>Kliknij, aby zmienić kierunek tworzenia</value>
+    <value>クリックして作成方向を転換</value>
   </data>
   <data name="Mode_Info_ClickUnselectNode" xml:space="preserve">
-    <value>Kliknij, aby odznaczyć węzeł</value>
+    <value>クリックしてノードの選択を解除</value>
   </data>
   <data name="Mode_Info_Connection_Create" xml:space="preserve">
-    <value>Naciśnij {0}, aby utworzyć połączenie</value>
+    <value>{0} でストレート接続を確定</value>
   </data>
   <data name="Mode_Info_ConstructionCost" xml:space="preserve">
-    <value>Koszt budowy: {0}</value>
+    <value>建設費: {0}</value>
   </data>
   <data name="Mode_Info_Create" xml:space="preserve">
-    <value>Naciśnij {0}, aby utworzyć</value>
+    <value>{0} で敷設を確定</value>
   </data>
   <data name="Mode_Info_HoldToMoveSlower" xml:space="preserve">
-    <value>Przytrzymaj {0} aby przesuwać X{1} wolniej</value>
+    <value>{0} で X{1} 遅く移動</value>
   </data>
   <data name="Mode_Info_HoldToStep" xml:space="preserve">
-    <value>Przytrzymaj {0} aby przejść {1}</value>
+    <value>{0} で {1} 刻み</value>
   </data>
   <data name="Mode_Info_InvertNetwork" xml:space="preserve">
-    <value>Naciśnij {0}, aby odwrócić sieć</value>
+    <value>{0} でネットワークを反転</value>
   </data>
   <data name="Mode_Info_Loop_Create" xml:space="preserve">
-    <value>Naciśnij {0}, aby utworzyć pętlę</value>
+    <value>{0} でループ接続を確定</value>
   </data>
   <data name="Mode_Info_NotEnoughMoney" xml:space="preserve">
-    <value>Niewystarczająca ilość pieniędzy</value>
+    <value>資金が足りません</value>
   </data>
   <data name="Mode_Info_OutOfMap" xml:space="preserve">
-    <value>Poza mapą</value>
+    <value>マップ圏外</value>
   </data>
   <data name="Mode_Info_Parallel_ChangeHeight" xml:space="preserve">
-    <value>Naciśnij {0} lub {1}, aby zmienić wysokość</value>
+    <value>{0} or {1} で高さを変更</value>
   </data>
   <data name="Mode_Info_Parallel_ChangeShift" xml:space="preserve">
-    <value>Naciśnij {0}, aby zmienić stronę tworzenia</value>
+    <value>{0} で作成側の向きを切り替え</value>
   </data>
   <data name="Mode_Info_Parallel_Create" xml:space="preserve">
-    <value>Naciśnij {0}, aby utworzyć równoległy</value>
+    <value>{0} をパラレル敷設を確定</value>
   </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
-    <value>Promień jest za duży</value>
+    <value>半径が大き過ぎます</value>
   </data>
   <data name="Mode_Info_RadiusTooSmall" xml:space="preserve">
-    <value>Promień jest za mały</value>
+    <value>半径が小さ過ぎます</value>
   </data>
   <data name="Mode_Info_Refund" xml:space="preserve">
-    <value>Zwrot: {0}</value>
+    <value>返金: {0}</value>
   </data>
   <data name="Mode_Info_SelectFirstSegment" xml:space="preserve">
-    <value>Zaznacz pierwszy segment</value>
+    <value>1つ目のセグメントを選択</value>
   </data>
   <data name="Mode_Info_SelectSecondSegment" xml:space="preserve">
-    <value>Zaznacz drugi segment</value>
+    <value>2つ目のセグメントを選択</value>
   </data>
   <data name="Mode_Info_SelectSegment" xml:space="preserve">
-    <value>Wybierz segment</value>
+    <value>セグメントを選択</value>
   </data>
   <data name="Mode_Info_Slope_Apply" xml:space="preserve">
-    <value>Naciśnij {0}, aby zastosować nachylenie</value>
+    <value>{0} でスロープ化を確定</value>
   </data>
   <data name="Mode_Info_Step" xml:space="preserve">
     <value>Shift - X10, Ctrl - X0.1, Alt - X0.01</value>
   </data>
   <data name="Mode_Info_SwitchFollowTerrain" xml:space="preserve">
-    <value>Naciśnij {0}, aby przełączyć podążanie za terenem</value>
+    <value>{0} で地形に追従</value>
   </data>
   <data name="Mode_Info_SwitchOffset" xml:space="preserve">
-    <value>Naciśnij {0}, aby przełączyć wybrane przesunięcie</value>
+    <value>{0} でオフセットを切り替え</value>
   </data>
   <data name="Mode_Info_UndergroundMode" xml:space="preserve">
-    <value>Przytrzymaj {0} by przejść w tryb podziemny</value>
+    <value>{0} で地下表示に切り替え</value>
   </data>
   <data name="Mode_Info_WrongShape" xml:space="preserve">
-    <value>Nieprawidłowy kształt</value>
+    <value>形状が不適切です</value>
   </data>
   <data name="Mode_IntersectSegment" xml:space="preserve">
-    <value>Tryb przecinania segmentów</value>
+    <value>Mode: セグメントのクロス結合</value>
   </data>
   <data name="Mode_IntersectSegment_Info_CommonNode" xml:space="preserve">
-    <value>Te segmenty mają wspólny węzeł</value>
+    <value>このセグメントは同じノードにあって選択できません</value>
   </data>
   <data name="Mode_IntersectSegment_Info_EdgeTooClose" xml:space="preserve">
-    <value>Krawędź pierwszego segmentu jest zbyt blisko końca drugiego segmentu</value>
+    <value>1 つ目と2つ目で選択した、いずれかのセグメントが終端に近すぎます</value>
   </data>
   <data name="Mode_IntersectSegment_Info_NotIntersect" xml:space="preserve">
-    <value>Te segmenty się nie przecinają</value>
+    <value>セグメント同士が交差していません</value>
   </data>
   <data name="Mode_InvertSegment" xml:space="preserve">
-    <value>Tryb obracania segmentu</value>
+    <value>Mode: セグメントの反転</value>
   </data>
   <data name="Mode_InvertSegment_Info_ClickToReverse" xml:space="preserve">
-    <value>Kliknij, aby odwrócić segment</value>
+    <value>クリックしてセグメントを反転</value>
   </data>
   <data name="Mode_InvertSegment_Info_SelectToReverse" xml:space="preserve">
-    <value>Wybierz segment, aby go odwrócić</value>
+    <value>セグメントを選択して反転</value>
   </data>
   <data name="Mode_NodeLine_Info_NotConnected" xml:space="preserve">
-    <value>Ten węzeł nie może być zaznaczony
-ponieważ nie jest połączony z pozostałymi</value>
+    <value>他のノードと未接続です
+このノードは選択できません</value>
   </data>
   <data name="Mode_NodeLine_Info_SelectNode" xml:space="preserve">
-    <value>Zaznacz węzeł aby dodać go do kolejki</value>
+    <value>ノードを選択してオーダーに追加</value>
   </data>
   <data name="Mode_PercentagesFormat" xml:space="preserve">
     <value>{0}%</value>
@@ -376,248 +374,249 @@ ponieważ nie jest połączony z pozostałymi</value>
     <value>{0}m</value>
   </data>
   <data name="Mode_RemoveNode" xml:space="preserve">
-    <value>Tryb usuwania węzłów</value>
+    <value>Mode: ノードの除去</value>
   </data>
   <data name="Mode_RemoveNode_Info_NotAllow" xml:space="preserve">
-    <value>Nie zezwalaj na usunięcie tego węzła</value>
+    <value>このノードは除去できません</value>
   </data>
   <data name="Mode_SlopeNode" xml:space="preserve">
-    <value>Tryb ustawiania nachylenia</value>
+    <value>Mode: ストレートスロープ</value>
   </data>
   <data name="Mode_SplitNode" xml:space="preserve">
-    <value>Tryb podziału węzła</value>
+    <value>Mode: ノードの分割</value>
   </data>
   <data name="Mode_SplitNode_Info_ClickFromOrder" xml:space="preserve">
-    <value>Naciśnij, aby usunąć segment z kolejki dzielenia</value>
+    <value>クリックして分割したいセグメントの選択を解除</value>
   </data>
   <data name="Mode_SplitNode_Info_ClickToOrder" xml:space="preserve">
-    <value>Naciśnij, aby dodać segment do kolejki dzielenia</value>
+    <value>クリックして分割したいセグメントを追加</value>
   </data>
   <data name="Mode_SplitNode_Info_ClickToSplit" xml:space="preserve">
-    <value>Naciśnij, aby podzielić węzeł i wyrównać do wysokości terenu
-Naciśnij trzymając {0} aby podzielić węzeł i wyrównać do wysokości źródłowej</value>
+    <value>クリックしてノードの分割は、地形側の高さに追従
+クリック + {0} で、分割元の高さで追従</value>
   </data>
   <data name="Mode_SplitNode_Info_NotAllowedSplit" xml:space="preserve">
-    <value>Nie da się podzielić węzła z tylko jednym segmentem</value>
+    <value>単一セグメントではノードの分割はできません</value>
   </data>
   <data name="Mode_SplitNode_Info_OrderIsFull" xml:space="preserve">
-    <value>Nie da się dodać więcej segmentów do kolejki dzielenia</value>
+    <value>このセグメントはオーダーに追加できません</value>
   </data>
   <data name="Mode_SplitNode_Info_SelectToSplit" xml:space="preserve">
-    <value>Wybierz segmenty do podzielenia</value>
+    <value>このセグメントを分割に選択</value>
   </data>
   <data name="Mode_SplitNode_Info_TooFar" xml:space="preserve">
-    <value>Pozycja jest zbyt daleko od węzła źródłowego</value>
+    <value>分割元のノードから遠すぎです</value>
   </data>
   <data name="Mode_UnionNode" xml:space="preserve">
-    <value>Tryb łączenia węzłów</value>
+    <value>Mode: ノードのユニオン結合</value>
   </data>
   <data name="Mode_UnionNode_Info_ClickSource" xml:space="preserve">
-    <value>Kliknij, aby zaznaczyć węzeł źródłowy</value>
+    <value>クリックして基準のノードを選択</value>
   </data>
   <data name="Mode_UnionNode_Info_ClickUnion" xml:space="preserve">
-    <value>Kliknij aby złączyć węzły</value>
+    <value>クリックしてノードを結合</value>
   </data>
   <data name="Mode_UnionNode_Info_NoCommon" xml:space="preserve">
-    <value>Te węzły mają wspólny segment</value>
+    <value>このノードは同じセグメントにあって選択できません</value>
   </data>
   <data name="Mode_UnionNode_Info_Overflow" xml:space="preserve">
-    <value>Całkowita liczba węzłów nie może być większa niż 8</value>
+    <value>接続されるノード・セグメント数は 8個以下にしてください</value>
   </data>
   <data name="Mode_UnionNode_Info_SelectSource" xml:space="preserve">
-    <value>Wybierz węzeł źródłowy</value>
+    <value>基準のノードを選択</value>
   </data>
   <data name="Mode_UnionNode_Info_SelectTarget" xml:space="preserve">
-    <value>Wybierz węzeł docelowy</value>
+    <value>結合先のノードを選択</value>
   </data>
   <data name="Mode_UnionNode_Info_TooFar" xml:space="preserve">
-    <value>Węzły są zbyt daleko od siebie</value>
+    <value>ノード同士が遠すぎます</value>
   </data>
   <data name="Mode_UnitsFormat" xml:space="preserve">
     <value>{0}U</value>
   </data>
   <data name="Mode_UnlockSegment" xml:space="preserve">
-    <value>Tryb odblokowywania segmentu</value>
+    <value>Mode: アンロックセグメント</value>
   </data>
   <data name="Mode_UnlockSegment_Info_ChangeLock" xml:space="preserve">
-    <value>Wybierz segment, aby go zablokować lub odblokować</value>
+    <value>セグメントを選択
+ロック・アンロックを切り替え</value>
   </data>
   <data name="Mode_UnlockSegment_Info_ClickToLock" xml:space="preserve">
-    <value>Kliknij, aby zablokować ten segment</value>
+    <value>クリックしてセグメントをロック</value>
   </data>
   <data name="Mode_UnlockSegment_Info_ClickToUnlock" xml:space="preserve">
-    <value>Kliknij, aby odblokować ten segment</value>
+    <value>クリックしてセグメントをアンロック</value>
   </data>
   <data name="Mod_Description" xml:space="preserve">
-    <value>Wiele różnych narzędzi do pracy z sieciami</value>
+    <value>ネットワークを操作するための十徳ナイフのようなツール</value>
   </data>
   
   
   
   
   <data name="Mod_WhatsNewMessage1_3_2" xml:space="preserve">
-    <value>[UPDATED] Dodano wsparcie DLC Place &amp; Promenady.</value>
+    <value>[UPDATED] Added Plazas &amp; Promenades DLC Support.</value>
   </data>
   <data name="Mod_WhatsNewMessage1_3_3" xml:space="preserve">
-    <value>[NEW] Dodano wsparcie dla Network Anarchy.</value>
+    <value>[NEW] Added Network Anarchy Support.</value>
   </data>
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
-    <value>Skróty aktywacji</value>
+    <value>Mode＆ツールの有効化</value>
   </data>
   <data name="Settings_AutoConnect" xml:space="preserve">
-    <value>Automatycznie połącz drogę równoległą do najbliższych węzłów</value>
+    <value>パラレル敷設時に最寄りのノードと自動的に接続</value>
   </data>
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
-    <value>Automatyczne ukrywanie panelu trybów</value>
+    <value>自動的にUIパネルを折り畳む</value>
   </data>
   <data name="Settings_CommonCreateShortcuts" xml:space="preserve">
-    <value>Wspólne skróty trybów tworzenia</value>
+    <value>作成作業の共通ショートカット</value>
   </data>
   <data name="Settings_CommonShortcuts" xml:space="preserve">
-    <value>Wspólne skróty trybów</value>
+    <value>Mode全般の共通ショートカット</value>
   </data>
   <data name="Settings_FollowTerrain" xml:space="preserve">
-    <value>Drogi stworzone na ziemi będą podążać za terenem</value>
+    <value>地形に沿ってネットワークを敷設</value>
   </data>
   <data name="Settings_Gameplay" xml:space="preserve">
-    <value>Rozgrywka</value>
+    <value>ゲームプレイ</value>
   </data>
   <data name="Settings_Interface" xml:space="preserve">
-    <value>Interfejs</value>
+    <value>インターフェース</value>
   </data>
   <data name="Settings_LengthUnit" xml:space="preserve">
-    <value>Jednostka miary długości</value>
+    <value>メジャーの表示単位</value>
   </data>
   <data name="Settings_LengthUniteMeters" xml:space="preserve">
-    <value>Metry</value>
+    <value>メートル単位</value>
   </data>
   <data name="Settings_LengthUniteUnits" xml:space="preserve">
-    <value>Jednostka gry (1U = 8m)</value>
+    <value>Unit(セル/マス目)単位 (1U = 8m)</value>
   </data>
   <data name="Settings_NeedMoney" xml:space="preserve">
-    <value>Pieniądze wymagane do budowy</value>
+    <value>建設時に資金が必要</value>
   </data>
   <data name="Settings_PanelColumns" xml:space="preserve">
-    <value>Liczba kolumn panelu</value>
+    <value>パネルの列数</value>
   </data>
   <data name="Settings_PanelOpenSide" xml:space="preserve">
-    <value>Strona otwierania panelu</value>
+    <value>パネルの開き方</value>
   </data>
   <data name="Settings_PanelOpenSideDown" xml:space="preserve">
-    <value>Dół</value>
+    <value>下へ展開</value>
   </data>
   <data name="Settings_PanelOpenSideUp" xml:space="preserve">
-    <value>Góra</value>
+    <value>上へ展開</value>
   </data>
   <data name="Settings_PlayEffects" xml:space="preserve">
-    <value>Odtwarzaj efekty dźwiękowe i wizualne</value>
+    <value>効果音と視覚効果を再生</value>
   </data>
   <data name="Settings_PreviewType" xml:space="preserve">
-    <value>Podgląd tworzenia</value>
+    <value>敷設作業をプレビュー</value>
   </data>
   <data name="Settings_PreviewTypeBoth" xml:space="preserve">
-    <value>Obydwa</value>
+    <value>両方とも表示</value>
   </data>
   <data name="Settings_PreviewTypeMesh" xml:space="preserve">
-    <value>Wizualizacja sieci</value>
+    <value>ネットワークの可視化</value>
   </data>
   <data name="Settings_PreviewTypeOverlay" xml:space="preserve">
-    <value>Nakładka</value>
+    <value>オーバーレイ表示</value>
   </data>
   <data name="Settings_SegmentLength" xml:space="preserve">
-    <value>Maksymalna długość segmentu</value>
+    <value>セグメントの最大長</value>
   </data>
   <data name="Settings_Shortcut_Apply" xml:space="preserve">
-    <value>Zastosuj akcję trybu</value>
+    <value>アクションを確定</value>
   </data>
   <data name="Settings_Shortcut_DecreaseAngle" xml:space="preserve">
-    <value>Zmniejsz kąt początkowy</value>
+    <value>開始角度を下げる</value>
   </data>
   <data name="Settings_Shortcut_DecreaseHeight" xml:space="preserve">
-    <value>Zmniejsz wysokość</value>
+    <value>高さを下げる</value>
   </data>
   <data name="Settings_Shortcut_DecreaseOffset" xml:space="preserve">
-    <value>Zmniejsz przesunięcie początku okręgu</value>
+    <value>サークル開始時のオフセットを伸ばす</value>
   </data>
   <data name="Settings_Shortcut_DecreaseOneRadius" xml:space="preserve">
-    <value>Zmniejsz jeden promień</value>
+    <value>半径を1回だけ縮小</value>
   </data>
   <data name="Settings_Shortcut_DecreaseRadii" xml:space="preserve">
-    <value>Zmniejsz promienie</value>
+    <value>半径を縮小</value>
   </data>
   <data name="Settings_Shortcut_DecreaseRadius" xml:space="preserve">
-    <value>Zmniejsz promień</value>
+    <value>半径を減少</value>
   </data>
   <data name="Settings_Shortcut_DecreaseShift" xml:space="preserve">
-    <value>Zmniejsz przesunięcie</value>
+    <value>オフセットを減少</value>
   </data>
   <data name="Settings_Shortcut_DistributeBetweenIntersections" xml:space="preserve">
-    <value>Rozdziel węzły równomiernie pomiędzy skrzyżowaniami</value>
+    <value>交差点間のノードを均等配置</value>
   </data>
   <data name="Settings_Shortcut_DistributeEvenly" xml:space="preserve">
-    <value>Rozdziel węzły równomiernie w okręgu</value>
+    <value>円周上にノードを均等配置</value>
   </data>
   <data name="Settings_Shortcut_DistributeIntersections" xml:space="preserve">
-    <value>Rozdziel skrzyżowania równomiernie w okręgu</value>
+    <value>交差点間の円周上で均等配置</value>
   </data>
   <data name="Settings_Shortcut_IncreaseAngle" xml:space="preserve">
-    <value>Zwiększ kąt początkowy</value>
+    <value>開始角度を上げる</value>
   </data>
   <data name="Settings_Shortcut_IncreaseHeight" xml:space="preserve">
-    <value>Zwiększ wysokość</value>
+    <value>高さを上げる</value>
   </data>
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
-    <value>Zwiększ przesunięcie początku okręgu</value>
+    <value>サークル開始時のオフセットを縮める</value>
   </data>
   <data name="Settings_Shortcut_IncreaseOneRadius" xml:space="preserve">
-    <value>Zwiększ jeden promień</value>
+    <value>半径を1回だけ拡大</value>
   </data>
   <data name="Settings_Shortcut_IncreaseRadii" xml:space="preserve">
-    <value>Zwiększ promienie</value>
+    <value>半径を拡大</value>
   </data>
   <data name="Settings_Shortcut_IncreaseRadius" xml:space="preserve">
-    <value>Zwiększ promień</value>
+    <value>半径を拡大</value>
   </data>
   <data name="Settings_Shortcut_IncreaseShift" xml:space="preserve">
-    <value>Zwiększ przesunięcie</value>
+    <value>オフセットを増加</value>
   </data>
   <data name="Settings_Shortcut_InvertNetwork" xml:space="preserve">
-    <value>Odwróć sieć</value>
+    <value>ネットワークを反転</value>
   </data>
   <data name="Settings_Shortcut_InvertShift" xml:space="preserve">
-    <value>Przełącz stronę tworzenia</value>
+    <value>作成側の向きを切り替え</value>
   </data>
   <data name="Settings_Shortcut_ResetArrangeCircle" xml:space="preserve">
-    <value>Zresetuj do domyślnego okręgu</value>
+    <value>既定のサークルにリセット</value>
   </data>
   <data name="Settings_Shortcut_SwitchFollowTerrain" xml:space="preserve">
-    <value>Przełącz podążanie za terenem</value>
+    <value>地形の追従を切り替え</value>
   </data>
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
-    <value>Przełącz kierunek pętli</value>
+    <value>ループの方向を切り替え</value>
   </data>
   <data name="Settings_Shortcut_SwitchOffset" xml:space="preserve">
-    <value>Przełącz wybrane przesunięcie</value>
+    <value>選択したオフセットを切り替え</value>
   </data>
   <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
-    <value>Przełącz wybrane koło</value>
+    <value>選択したサークルを切り替え</value>
   </data>
   <data name="Settings_SlopeColors" xml:space="preserve">
-    <value>Ustaw kolor etykiety nachylenia w zależności od wartości</value>
+    <value>勾配の変化から数値の色を連動化</value>
   </data>
   <data name="Settings_SlopeUnit" xml:space="preserve">
-    <value>Jednostka miary nachylenia</value>
+    <value>ストレートスロープの表示単位</value>
   </data>
   <data name="Settings_SlopeUnitDegrees" xml:space="preserve">
-    <value>Stopnie</value>
+    <value>角度で表示</value>
   </data>
   <data name="Settings_SlopeUnitPercentages" xml:space="preserve">
-    <value>Procenty</value>
+    <value>勾配率で表示</value>
   </data>
   <data name="Tool_RemoveNode_Info_ClickToRemove" xml:space="preserve">
-    <value>Naciśnij, aby usunąć</value>
+    <value>クリックしてノードを除去</value>
   </data>
   <data name="Tool_RemoveNode_Info_Select" xml:space="preserve">
-    <value>Wybierz węzeł, aby go usunąć</value>
+    <value>除去するノードを選択</value>
   </data>
 </root>

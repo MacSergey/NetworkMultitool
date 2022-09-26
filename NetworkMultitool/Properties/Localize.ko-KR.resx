@@ -118,256 +118,257 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Mode_AddNode" xml:space="preserve">
-    <value>Tryb dodawania węzłów</value>
+    <value>노드 추가 모드</value>
   </data>
   <data name="Mode_AddNode_Info_ClickToAdd" xml:space="preserve">
-    <value>Kliknij, aby wstawić węzeł</value>
+    <value>클릭해 노드 추가</value>
   </data>
   <data name="Mode_AddNode_Info_PreciseMeasurement" xml:space="preserve">
-    <value>Przytrzymaj {0} dla precyzyjnego pomiaru</value>
+    <value>{0}를 꾹 눌러 정밀한 조절</value>
   </data>
   <data name="Mode_AddNode_Info_SelectToAdd" xml:space="preserve">
-    <value>Wybierz segment, aby dodać węzeł</value>
+    <value>세그먼트를 선택해 노드 추가</value>
   </data>
   <data name="Mode_AddNode_Info_TooCloseNode" xml:space="preserve">
-    <value>Nie można wstawić węzła
-Za blisko sąsiedniego węzła</value>
+    <value>노드 추가 불가
+근처 노드와 너무 가까움</value>
   </data>
   <data name="Mode_AngleFormat" xml:space="preserve">
     <value>{0}°</value>
   </data>
   <data name="Mode_ArrangeAtCircle" xml:space="preserve">
-    <value>Tryb układania w okręgu</value>
+    <value>원 위에 정렬 모드</value>
   </data>
   <data name="Mode_ArrangeAtLine" xml:space="preserve">
-    <value>Tryb porządkowania w linii</value>
+    <value>선 위에 정렬 모드</value>
   </data>
   <data name="Mode_ArrangeCircle_Info_ClickToComplite" xml:space="preserve">
-    <value>Naciśnij aby zakończyć wybór okręgu</value>
+    <value>클릭하여 원 선택 완료</value>
   </data>
   <data name="Mode_ArrangeLine_Info_ClickToSelectDirection" xml:space="preserve">
-    <value>Kliknij, aby wybrać kierunek porządkowania</value>
+    <value>클릭해 배열 방향 선택</value>
   </data>
   <data name="Mode_ArrangeLine_Info_SelectDirection" xml:space="preserve">
-    <value>Wybierz segment, aby ustawić kierunek porządkowania</value>
+    <value>세그먼트를 클릭해 배열 방향 선택</value>
   </data>
   <data name="Mode_Connection_Info_DoubleClickOnCenterToChangeDir" xml:space="preserve">
-    <value>Kliknij dwukrotnie na środku okręgu, aby zmienić kierunek zakrętu</value>
+    <value>원 중심을 더블 클릭해
+커브의 방향 변경</value>
   </data>
   <data name="Mode_Connection_Info_DoubleClickToAdd" xml:space="preserve">
-    <value>Kliknij dwukrotnie, aby dodać zakręt do tej linii</value>
+    <value>더블 클릭해 이 선에 커브 추가</value>
   </data>
   <data name="Mode_Connection_Info_DoubleClickToRemove" xml:space="preserve">
-    <value>Kliknij dwukrotnie, aby usunąć ten zakręt</value>
+    <value>더블 우클릭해 커브 제거</value>
   </data>
   <data name="Mode_Connection_Info_DragToChangeRadius" xml:space="preserve">
-    <value>Przeciągnij, aby zmienić promień</value>
+    <value>드래그해 반경 변경</value>
   </data>
   <data name="Mode_Connection_Info_DragToMove" xml:space="preserve">
-    <value>Przeciągnij, aby przesunąć okrąg</value>
+    <value>드래그해 원 이동</value>
   </data>
   <data name="Mode_CreateConnection" xml:space="preserve">
-    <value>Tryb tworzenia połączeń</value>
+    <value>연결 생성 모드</value>
   </data>
   <data name="Mode_CreateCurve" xml:space="preserve">
-    <value>Tryb tworzenia zakrętu</value>
+    <value>곡선 생성 모드</value>
   </data>
   <data name="Mode_CreateLoop" xml:space="preserve">
-    <value>Tryb tworzenia pętli</value>
+    <value>루프 생성 모드</value>
   </data>
   <data name="Mode_CreateLoop_Info_Change" xml:space="preserve">
-    <value>Naciśnij {0}, aby zmienić pętlę</value>
+    <value>{0} 키를 눌러서 루프 변경</value>
   </data>
   <data name="Mode_CreateParallerl" xml:space="preserve">
-    <value>Tryb tworzenia równoległego</value>
+    <value>평행 생성 모드</value>
   </data>
   <data name="Mode_Info_Apply" xml:space="preserve">
-    <value>Naciśnij {0}, aby zastosować</value>
+    <value>{0} 키를 눌러 적용</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_Apply" xml:space="preserve">
-    <value>Naciśnij {0}, aby uporządkować w okręgu</value>
+    <value>{0} 키를 눌러 원으로 정렬</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_BigDelta" xml:space="preserve">
-    <value>Zbyt duży kąt między węzłami
-okrągły kształt nie będzie idealny</value>
+    <value>노드 간 각도가 지나치게 큼
+둥근 모양이 잘 만들어지지 않을 수 있음</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_DoubleClickToResetCenter" xml:space="preserve">
-    <value>Kliknij dwukrotnie, aby zresetować pozycję środka</value>
+    <value>더블 클릭하여 중앙 위치 초기화</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_DoubleClickToResetNode" xml:space="preserve">
-    <value>Kliknij dwukrotnie, aby zresetować pozycję węzła</value>
+    <value>더블 클릭하여 노드 위치 초기화</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_DragToChangeRadius" xml:space="preserve">
-    <value>Przeciągnij, aby zmienić promień</value>
+    <value>드래그해 반경 변경</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_DragToMoveCenter" xml:space="preserve">
-    <value>Przeciągnij, aby przesunąć okrąg</value>
+    <value>드래그해 원 이동</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_DragToMoveNode" xml:space="preserve">
-    <value>Przeciągnij, aby przesunąć węzeł</value>
+    <value>드래그해 노드 이동</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_MoveAll" xml:space="preserve">
-    <value>Przytrzymaj {0}, aby przenieść wszystkie węzły
-jednocześnie</value>
+    <value>{0} 키를 누른 채로 모든 노드를
+동시에 이동</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_PressToDistributeBetweenIntersections" xml:space="preserve">
-    <value>Naciśnij {0}, aby rozdzielić węzły
-równomiernie pomiędzy skrzyżowaniami</value>
+    <value>{0} 키를 눌러 노드를 교차로
+사이에 일정하게 배치</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_PressToDistributeEvenly" xml:space="preserve">
-    <value>Naciśnij {0}, aby rozdzielić węzły równomiernie w okręgu</value>
+    <value>{0} 키를 눌러 노드를 원 위에 일정하게 배치</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_PressToDistributeIntersections" xml:space="preserve">
-    <value>Naciśnij {0}, aby rozdzielić skrzyżowania
-równomiernie w okręgu</value>
+    <value>{0} 키를 눌러 원 위에 교차로
+일정 간격으로 배치</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_PressToReset" xml:space="preserve">
-    <value>Naciśnij {0}, aby zresetować parametry</value>
+    <value>{0} 키를 눌러 매개변수 초기화</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_WrongOrder" xml:space="preserve">
-    <value>Błędna kolejność węzłów</value>
+    <value>노드 순서가 잘못됨</value>
   </data>
   <data name="Mode_Info_ArrangeLine_Apply" xml:space="preserve">
-    <value>Naciśnij {0}, aby uporządkować w linii</value>
+    <value>{0} 키를 눌러 직선으로 정렬</value>
   </data>
   <data name="Mode_Info_ChangeAllRadius" xml:space="preserve">
-    <value>Naciśnij {0} lub {1} aby zmienić wszystkie promienie</value>
+    <value>{0} 또는 {1} 키를 눌러 모든 반지름 변경</value>
   </data>
   <data name="Mode_Info_ChangeBothRadius" xml:space="preserve">
-    <value>Naciśnij {0} lub {1} aby zmienić oba promienie</value>
+    <value>{0} 또는 {1} 키를 눌러 두 반지름 모두 변경</value>
   </data>
   <data name="Mode_Info_ChangeCircle" xml:space="preserve">
-    <value>Naciśnij {0}, aby przełączyć wybrany okręg</value>
+    <value>{0} 키를 눌러 선택한 원 변경</value>
   </data>
   <data name="Mode_Info_ChangeOffset" xml:space="preserve">
-    <value>Naciśnij {0} lub {1}, aby zmienić przesunięcie początku zakrętu</value>
+    <value>{0} 또는 {1} 키를 눌러 커브 시작점 오프셋 변경</value>
   </data>
   <data name="Mode_Info_ChangeOneRadius" xml:space="preserve">
-    <value>Naciśnij {0} lub {1} aby zmienić jeden promień</value>
+    <value>{0} 또는 {1} 키를 눌러 반지름 1개 변경</value>
   </data>
   <data name="Mode_Info_ChangeRadius" xml:space="preserve">
-    <value>Naciśnij {0} lub {1} aby zmienić promień</value>
+    <value>{0} 또는 {1} 키를 눌러 반지름 변경</value>
   </data>
   <data name="Mode_Info_ChangeShift" xml:space="preserve">
-    <value>Naciśnij {0} lub {1} aby zmienić przesunięcie</value>
+    <value>{0} 또는 {1} 키를 눌러 오프셋 변경</value>
   </data>
   <data name="Mode_Info_ClickFirstSegment" xml:space="preserve">
-    <value>Kliknij, aby zaznaczyć pierwszy segment</value>
+    <value>클릭해 첫 세그먼트 선택</value>
   </data>
   <data name="Mode_Info_ClickOnNodeToChangeCreateDir" xml:space="preserve">
-    <value>Kliknij na węźle, aby zmienić kierunek tworzenia</value>
+    <value>노드를 클릭해 제작 방향 변경</value>
   </data>
   <data name="Mode_Info_ClickSecondSegment" xml:space="preserve">
-    <value>Kliknij, aby zaznaczyć drugi segment</value>
+    <value>클릭해 두 번째 세그먼트 선택</value>
   </data>
   <data name="Mode_Info_ClickSelectNode" xml:space="preserve">
-    <value>Kliknij, aby zaznaczyć węzeł</value>
+    <value>클릭하여 노드 선택</value>
   </data>
   <data name="Mode_Info_ClickToChangeCreateDir" xml:space="preserve">
-    <value>Kliknij, aby zmienić kierunek tworzenia</value>
+    <value>클릭해 제작 방향 변경</value>
   </data>
   <data name="Mode_Info_ClickUnselectNode" xml:space="preserve">
-    <value>Kliknij, aby odznaczyć węzeł</value>
+    <value>클릭하여 노드 선택 취소</value>
   </data>
   <data name="Mode_Info_Connection_Create" xml:space="preserve">
-    <value>Naciśnij {0}, aby utworzyć połączenie</value>
+    <value>{0} 키를 눌러서 연결 생성</value>
   </data>
   <data name="Mode_Info_ConstructionCost" xml:space="preserve">
-    <value>Koszt budowy: {0}</value>
+    <value>건설 비용: {0}</value>
   </data>
   <data name="Mode_Info_Create" xml:space="preserve">
-    <value>Naciśnij {0}, aby utworzyć</value>
+    <value>{0} 키를 눌러서 생성</value>
   </data>
   <data name="Mode_Info_HoldToMoveSlower" xml:space="preserve">
-    <value>Przytrzymaj {0} aby przesuwać X{1} wolniej</value>
+    <value>{0} 키를 눌러 {1}배 느리게 이동</value>
   </data>
   <data name="Mode_Info_HoldToStep" xml:space="preserve">
-    <value>Przytrzymaj {0} aby przejść {1}</value>
+    <value>{0}키를 눌러 {1}만큼 스텝</value>
   </data>
   <data name="Mode_Info_InvertNetwork" xml:space="preserve">
-    <value>Naciśnij {0}, aby odwrócić sieć</value>
+    <value>{0} 키를 눌러 네트워크 반전</value>
   </data>
   <data name="Mode_Info_Loop_Create" xml:space="preserve">
-    <value>Naciśnij {0}, aby utworzyć pętlę</value>
+    <value>{0} 키를 눌러서 루프 생성</value>
   </data>
   <data name="Mode_Info_NotEnoughMoney" xml:space="preserve">
-    <value>Niewystarczająca ilość pieniędzy</value>
+    <value>돈이 부족합니다</value>
   </data>
   <data name="Mode_Info_OutOfMap" xml:space="preserve">
-    <value>Poza mapą</value>
+    <value>맵 밖</value>
   </data>
   <data name="Mode_Info_Parallel_ChangeHeight" xml:space="preserve">
-    <value>Naciśnij {0} lub {1}, aby zmienić wysokość</value>
+    <value>{0}이나 {1}을 눌러 높이 변경</value>
   </data>
   <data name="Mode_Info_Parallel_ChangeShift" xml:space="preserve">
-    <value>Naciśnij {0}, aby zmienić stronę tworzenia</value>
+    <value>{0} 키를 눌러 제작 방향 변경</value>
   </data>
   <data name="Mode_Info_Parallel_Create" xml:space="preserve">
-    <value>Naciśnij {0}, aby utworzyć równoległy</value>
+    <value>{0} 키를 눌러서 평행선 생성</value>
   </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
-    <value>Promień jest za duży</value>
+    <value>반지름 너무 큼</value>
   </data>
   <data name="Mode_Info_RadiusTooSmall" xml:space="preserve">
-    <value>Promień jest za mały</value>
+    <value>반지름 너무 작음</value>
   </data>
   <data name="Mode_Info_Refund" xml:space="preserve">
-    <value>Zwrot: {0}</value>
+    <value>환불: {0}</value>
   </data>
   <data name="Mode_Info_SelectFirstSegment" xml:space="preserve">
-    <value>Zaznacz pierwszy segment</value>
+    <value>첫 세그먼트 선택</value>
   </data>
   <data name="Mode_Info_SelectSecondSegment" xml:space="preserve">
-    <value>Zaznacz drugi segment</value>
+    <value>둘째 세그먼트 선택</value>
   </data>
   <data name="Mode_Info_SelectSegment" xml:space="preserve">
-    <value>Wybierz segment</value>
+    <value>세그먼트 선택</value>
   </data>
   <data name="Mode_Info_Slope_Apply" xml:space="preserve">
-    <value>Naciśnij {0}, aby zastosować nachylenie</value>
+    <value>{0} 키를 눌러 경사 적용</value>
   </data>
   <data name="Mode_Info_Step" xml:space="preserve">
-    <value>Shift - X10, Ctrl - X0.1, Alt - X0.01</value>
+    <value>Shift - 10배, Ctrl - 0.1배, Alt - 0.01배</value>
   </data>
   <data name="Mode_Info_SwitchFollowTerrain" xml:space="preserve">
-    <value>Naciśnij {0}, aby przełączyć podążanie za terenem</value>
+    <value>{0} 키를 눌러 지형에 맞추기 변경</value>
   </data>
   <data name="Mode_Info_SwitchOffset" xml:space="preserve">
-    <value>Naciśnij {0}, aby przełączyć wybrane przesunięcie</value>
+    <value>{0} 키를 눌러 선택한 오프셋 변경</value>
   </data>
   <data name="Mode_Info_UndergroundMode" xml:space="preserve">
-    <value>Przytrzymaj {0} by przejść w tryb podziemny</value>
+    <value>{0}을 꾹 눌러 지하 모드</value>
   </data>
   <data name="Mode_Info_WrongShape" xml:space="preserve">
-    <value>Nieprawidłowy kształt</value>
+    <value>틀린 모양</value>
   </data>
   <data name="Mode_IntersectSegment" xml:space="preserve">
-    <value>Tryb przecinania segmentów</value>
+    <value>세그먼트 교차 모드</value>
   </data>
   <data name="Mode_IntersectSegment_Info_CommonNode" xml:space="preserve">
-    <value>Te segmenty mają wspólny węzeł</value>
+    <value>세그먼트가 1개 노드를 공유함</value>
   </data>
   <data name="Mode_IntersectSegment_Info_EdgeTooClose" xml:space="preserve">
-    <value>Krawędź pierwszego segmentu jest zbyt blisko końca drugiego segmentu</value>
+    <value>첫 세그먼트의 끝점이 두 번째의 끝점과 너무 가까움</value>
   </data>
   <data name="Mode_IntersectSegment_Info_NotIntersect" xml:space="preserve">
-    <value>Te segmenty się nie przecinają</value>
+    <value>세 세그먼트가 교차하지 않음</value>
   </data>
   <data name="Mode_InvertSegment" xml:space="preserve">
-    <value>Tryb obracania segmentu</value>
+    <value>세그먼트 반전 모드</value>
   </data>
   <data name="Mode_InvertSegment_Info_ClickToReverse" xml:space="preserve">
-    <value>Kliknij, aby odwrócić segment</value>
+    <value>클릭해 세그먼트 반전</value>
   </data>
   <data name="Mode_InvertSegment_Info_SelectToReverse" xml:space="preserve">
-    <value>Wybierz segment, aby go odwrócić</value>
+    <value>세그먼트를 선택해 반전</value>
   </data>
   <data name="Mode_NodeLine_Info_NotConnected" xml:space="preserve">
-    <value>Ten węzeł nie może być zaznaczony
-ponieważ nie jest połączony z pozostałymi</value>
+    <value>이 노드는 다른 노드와
+연결되어 있지 않아 선택할 수 없습니다</value>
   </data>
   <data name="Mode_NodeLine_Info_SelectNode" xml:space="preserve">
-    <value>Zaznacz węzeł aby dodać go do kolejki</value>
+    <value>노드를 선택해 순서에 추가</value>
   </data>
   <data name="Mode_PercentagesFormat" xml:space="preserve">
     <value>{0}%</value>
@@ -376,248 +377,249 @@ ponieważ nie jest połączony z pozostałymi</value>
     <value>{0}m</value>
   </data>
   <data name="Mode_RemoveNode" xml:space="preserve">
-    <value>Tryb usuwania węzłów</value>
+    <value>노드 삭제 모드</value>
   </data>
   <data name="Mode_RemoveNode_Info_NotAllow" xml:space="preserve">
-    <value>Nie zezwalaj na usunięcie tego węzła</value>
+    <value>노드 삭제 불가능</value>
   </data>
   <data name="Mode_SlopeNode" xml:space="preserve">
-    <value>Tryb ustawiania nachylenia</value>
+    <value>기울기 모드</value>
   </data>
   <data name="Mode_SplitNode" xml:space="preserve">
-    <value>Tryb podziału węzła</value>
+    <value>노드 분리 모드</value>
   </data>
   <data name="Mode_SplitNode_Info_ClickFromOrder" xml:space="preserve">
-    <value>Naciśnij, aby usunąć segment z kolejki dzielenia</value>
+    <value>클릭해 분리 순서에서 세그먼트 삭제</value>
   </data>
   <data name="Mode_SplitNode_Info_ClickToOrder" xml:space="preserve">
-    <value>Naciśnij, aby dodać segment do kolejki dzielenia</value>
+    <value>클릭해 분리 순서에 세그먼트 추가</value>
   </data>
   <data name="Mode_SplitNode_Info_ClickToSplit" xml:space="preserve">
-    <value>Naciśnij, aby podzielić węzeł i wyrównać do wysokości terenu
-Naciśnij trzymając {0} aby podzielić węzeł i wyrównać do wysokości źródłowej</value>
+    <value>클릭해 노드 분리 및 지형에 높이 맞춤
+{0}을 누른 채 클릭해 노드 분리 및 소스 높이에 정렬</value>
   </data>
   <data name="Mode_SplitNode_Info_NotAllowedSplit" xml:space="preserve">
-    <value>Nie da się podzielić węzła z tylko jednym segmentem</value>
+    <value>불가능함 1개 세그먼트에서만 노드 분리 가능</value>
   </data>
   <data name="Mode_SplitNode_Info_OrderIsFull" xml:space="preserve">
-    <value>Nie da się dodać więcej segmentów do kolejki dzielenia</value>
+    <value>불가능함 세그먼트를 더 추가해야 순서를 나눌 수 있음</value>
   </data>
   <data name="Mode_SplitNode_Info_SelectToSplit" xml:space="preserve">
-    <value>Wybierz segmenty do podzielenia</value>
+    <value>나눌 세그먼트 선택</value>
   </data>
   <data name="Mode_SplitNode_Info_TooFar" xml:space="preserve">
-    <value>Pozycja jest zbyt daleko od węzła źródłowego</value>
+    <value>소스 노드로부터 너무 멀리 떨어짐</value>
   </data>
   <data name="Mode_UnionNode" xml:space="preserve">
-    <value>Tryb łączenia węzłów</value>
+    <value>노드 결합 모드</value>
   </data>
   <data name="Mode_UnionNode_Info_ClickSource" xml:space="preserve">
-    <value>Kliknij, aby zaznaczyć węzeł źródłowy</value>
+    <value>클릭해 소스 노드 선택</value>
   </data>
   <data name="Mode_UnionNode_Info_ClickUnion" xml:space="preserve">
-    <value>Kliknij aby złączyć węzły</value>
+    <value>클릭해 노드 결합</value>
   </data>
   <data name="Mode_UnionNode_Info_NoCommon" xml:space="preserve">
-    <value>Te węzły mają wspólny segment</value>
+    <value>노드가 한 세그먼트를 공유하지 않음</value>
   </data>
   <data name="Mode_UnionNode_Info_Overflow" xml:space="preserve">
-    <value>Całkowita liczba węzłów nie może być większa niż 8</value>
+    <value>노드는 8개 이하여야 합니다</value>
   </data>
   <data name="Mode_UnionNode_Info_SelectSource" xml:space="preserve">
-    <value>Wybierz węzeł źródłowy</value>
+    <value>소스 노드 선택</value>
   </data>
   <data name="Mode_UnionNode_Info_SelectTarget" xml:space="preserve">
-    <value>Wybierz węzeł docelowy</value>
+    <value>대상 노드 선택</value>
   </data>
   <data name="Mode_UnionNode_Info_TooFar" xml:space="preserve">
-    <value>Węzły są zbyt daleko od siebie</value>
+    <value>두 노드가 너무 멀리 떨어짐</value>
   </data>
   <data name="Mode_UnitsFormat" xml:space="preserve">
     <value>{0}U</value>
   </data>
   <data name="Mode_UnlockSegment" xml:space="preserve">
-    <value>Tryb odblokowywania segmentu</value>
+    <value>세그먼트 잠금해제 모드</value>
   </data>
   <data name="Mode_UnlockSegment_Info_ChangeLock" xml:space="preserve">
-    <value>Wybierz segment, aby go zablokować lub odblokować</value>
+    <value>세그먼트를 선택해
+잠금 혹은 잠금 해제</value>
   </data>
   <data name="Mode_UnlockSegment_Info_ClickToLock" xml:space="preserve">
-    <value>Kliknij, aby zablokować ten segment</value>
+    <value>클릭해 이 세그먼트 잠금</value>
   </data>
   <data name="Mode_UnlockSegment_Info_ClickToUnlock" xml:space="preserve">
-    <value>Kliknij, aby odblokować ten segment</value>
+    <value>클릭해 이 세그먼트 잠금 해제</value>
   </data>
   <data name="Mod_Description" xml:space="preserve">
-    <value>Wiele różnych narzędzi do pracy z sieciami</value>
+    <value>네트워크를 위한 여러 가지 도구</value>
   </data>
   
   
   
   
   <data name="Mod_WhatsNewMessage1_3_2" xml:space="preserve">
-    <value>[UPDATED] Dodano wsparcie DLC Place &amp; Promenady.</value>
+    <value>[UPDATED] Plazas &amp; Promenades DLC를 지원합니다.</value>
   </data>
   <data name="Mod_WhatsNewMessage1_3_3" xml:space="preserve">
-    <value>[NEW] Dodano wsparcie dla Network Anarchy.</value>
+    <value>[NEW] Network Anarchy를 지원합니다.</value>
   </data>
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
-    <value>Skróty aktywacji</value>
+    <value>활성화 단축키</value>
   </data>
   <data name="Settings_AutoConnect" xml:space="preserve">
-    <value>Automatycznie połącz drogę równoległą do najbliższych węzłów</value>
+    <value>자동으로 근처 노드에 평행하게 도로 연결</value>
   </data>
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
-    <value>Automatyczne ukrywanie panelu trybów</value>
+    <value>모드 패널 자동으로 숨김</value>
   </data>
   <data name="Settings_CommonCreateShortcuts" xml:space="preserve">
-    <value>Wspólne skróty trybów tworzenia</value>
+    <value>제작 모드 내 일반 단축키</value>
   </data>
   <data name="Settings_CommonShortcuts" xml:space="preserve">
-    <value>Wspólne skróty trybów</value>
+    <value>모드 내 일반 단축키</value>
   </data>
   <data name="Settings_FollowTerrain" xml:space="preserve">
-    <value>Drogi stworzone na ziemi będą podążać za terenem</value>
+    <value>지상 길의 높이를 지형에 맞추기</value>
   </data>
   <data name="Settings_Gameplay" xml:space="preserve">
-    <value>Rozgrywka</value>
+    <value>게임 플레이</value>
   </data>
   <data name="Settings_Interface" xml:space="preserve">
-    <value>Interfejs</value>
+    <value>인터페이스</value>
   </data>
   <data name="Settings_LengthUnit" xml:space="preserve">
-    <value>Jednostka miary długości</value>
+    <value>길이 단위</value>
   </data>
   <data name="Settings_LengthUniteMeters" xml:space="preserve">
-    <value>Metry</value>
+    <value>미터</value>
   </data>
   <data name="Settings_LengthUniteUnits" xml:space="preserve">
-    <value>Jednostka gry (1U = 8m)</value>
+    <value>게임 단위 (1U = 8m)</value>
   </data>
   <data name="Settings_NeedMoney" xml:space="preserve">
-    <value>Pieniądze wymagane do budowy</value>
+    <value>건설에 비용 필요</value>
   </data>
   <data name="Settings_PanelColumns" xml:space="preserve">
-    <value>Liczba kolumn panelu</value>
+    <value>패널 열 갯수</value>
   </data>
   <data name="Settings_PanelOpenSide" xml:space="preserve">
-    <value>Strona otwierania panelu</value>
+    <value>창 열림 방향</value>
   </data>
   <data name="Settings_PanelOpenSideDown" xml:space="preserve">
-    <value>Dół</value>
+    <value>아래</value>
   </data>
   <data name="Settings_PanelOpenSideUp" xml:space="preserve">
-    <value>Góra</value>
+    <value>위</value>
   </data>
   <data name="Settings_PlayEffects" xml:space="preserve">
-    <value>Odtwarzaj efekty dźwiękowe i wizualne</value>
+    <value>음성 및 시각 효과 재생</value>
   </data>
   <data name="Settings_PreviewType" xml:space="preserve">
-    <value>Podgląd tworzenia</value>
+    <value>생성 미리보기</value>
   </data>
   <data name="Settings_PreviewTypeBoth" xml:space="preserve">
-    <value>Obydwa</value>
+    <value>모두</value>
   </data>
   <data name="Settings_PreviewTypeMesh" xml:space="preserve">
-    <value>Wizualizacja sieci</value>
+    <value>네트워크 시각화</value>
   </data>
   <data name="Settings_PreviewTypeOverlay" xml:space="preserve">
-    <value>Nakładka</value>
+    <value>오버레이</value>
   </data>
   <data name="Settings_SegmentLength" xml:space="preserve">
-    <value>Maksymalna długość segmentu</value>
+    <value>최대 세그먼트 길이</value>
   </data>
   <data name="Settings_Shortcut_Apply" xml:space="preserve">
-    <value>Zastosuj akcję trybu</value>
+    <value>모드 사용사항 적용</value>
   </data>
   <data name="Settings_Shortcut_DecreaseAngle" xml:space="preserve">
-    <value>Zmniejsz kąt początkowy</value>
+    <value>시작 각도 감소</value>
   </data>
   <data name="Settings_Shortcut_DecreaseHeight" xml:space="preserve">
-    <value>Zmniejsz wysokość</value>
+    <value>높이 감소</value>
   </data>
   <data name="Settings_Shortcut_DecreaseOffset" xml:space="preserve">
-    <value>Zmniejsz przesunięcie początku okręgu</value>
+    <value>원 시작 오프셋 감소</value>
   </data>
   <data name="Settings_Shortcut_DecreaseOneRadius" xml:space="preserve">
-    <value>Zmniejsz jeden promień</value>
+    <value>반경 1개 감소</value>
   </data>
   <data name="Settings_Shortcut_DecreaseRadii" xml:space="preserve">
-    <value>Zmniejsz promienie</value>
+    <value>반경 감소</value>
   </data>
   <data name="Settings_Shortcut_DecreaseRadius" xml:space="preserve">
-    <value>Zmniejsz promień</value>
+    <value>반경 감소</value>
   </data>
   <data name="Settings_Shortcut_DecreaseShift" xml:space="preserve">
-    <value>Zmniejsz przesunięcie</value>
+    <value>오프셋 감소</value>
   </data>
   <data name="Settings_Shortcut_DistributeBetweenIntersections" xml:space="preserve">
-    <value>Rozdziel węzły równomiernie pomiędzy skrzyżowaniami</value>
+    <value>노드를 교차로 사이에 일정하게 배치</value>
   </data>
   <data name="Settings_Shortcut_DistributeEvenly" xml:space="preserve">
-    <value>Rozdziel węzły równomiernie w okręgu</value>
+    <value>노드를 원 위에 일정하게 배치</value>
   </data>
   <data name="Settings_Shortcut_DistributeIntersections" xml:space="preserve">
-    <value>Rozdziel skrzyżowania równomiernie w okręgu</value>
+    <value>원 위에 교차로를 일정 간격으로 배치</value>
   </data>
   <data name="Settings_Shortcut_IncreaseAngle" xml:space="preserve">
-    <value>Zwiększ kąt początkowy</value>
+    <value>시작 각도 증가</value>
   </data>
   <data name="Settings_Shortcut_IncreaseHeight" xml:space="preserve">
-    <value>Zwiększ wysokość</value>
+    <value>높이 증가</value>
   </data>
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
-    <value>Zwiększ przesunięcie początku okręgu</value>
+    <value>원 시작 오프셋 증가</value>
   </data>
   <data name="Settings_Shortcut_IncreaseOneRadius" xml:space="preserve">
-    <value>Zwiększ jeden promień</value>
+    <value>반경 1개 증가</value>
   </data>
   <data name="Settings_Shortcut_IncreaseRadii" xml:space="preserve">
-    <value>Zwiększ promienie</value>
+    <value>반경 증가</value>
   </data>
   <data name="Settings_Shortcut_IncreaseRadius" xml:space="preserve">
-    <value>Zwiększ promień</value>
+    <value>반경 증가</value>
   </data>
   <data name="Settings_Shortcut_IncreaseShift" xml:space="preserve">
-    <value>Zwiększ przesunięcie</value>
+    <value>오프셋 증가</value>
   </data>
   <data name="Settings_Shortcut_InvertNetwork" xml:space="preserve">
-    <value>Odwróć sieć</value>
+    <value>네트워크 반전</value>
   </data>
   <data name="Settings_Shortcut_InvertShift" xml:space="preserve">
-    <value>Przełącz stronę tworzenia</value>
+    <value>제작 방향 변경</value>
   </data>
   <data name="Settings_Shortcut_ResetArrangeCircle" xml:space="preserve">
-    <value>Zresetuj do domyślnego okręgu</value>
+    <value>기본 원으로 초기화</value>
   </data>
   <data name="Settings_Shortcut_SwitchFollowTerrain" xml:space="preserve">
-    <value>Przełącz podążanie za terenem</value>
+    <value>지형 따라가기 변경</value>
   </data>
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
-    <value>Przełącz kierunek pętli</value>
+    <value>루프 방향 변경</value>
   </data>
   <data name="Settings_Shortcut_SwitchOffset" xml:space="preserve">
-    <value>Przełącz wybrane przesunięcie</value>
+    <value>다른 오프셋 선택</value>
   </data>
   <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
-    <value>Przełącz wybrane koło</value>
+    <value>다른 원 선택</value>
   </data>
   <data name="Settings_SlopeColors" xml:space="preserve">
-    <value>Ustaw kolor etykiety nachylenia w zależności od wartości</value>
+    <value>기울기 라벨에 값에 따라 색상 설정</value>
   </data>
   <data name="Settings_SlopeUnit" xml:space="preserve">
-    <value>Jednostka miary nachylenia</value>
+    <value>기울기 단위</value>
   </data>
   <data name="Settings_SlopeUnitDegrees" xml:space="preserve">
-    <value>Stopnie</value>
+    <value>도</value>
   </data>
   <data name="Settings_SlopeUnitPercentages" xml:space="preserve">
-    <value>Procenty</value>
+    <value>퍼센트</value>
   </data>
   <data name="Tool_RemoveNode_Info_ClickToRemove" xml:space="preserve">
-    <value>Naciśnij, aby usunąć</value>
+    <value>클릭해 삭제</value>
   </data>
   <data name="Tool_RemoveNode_Info_Select" xml:space="preserve">
-    <value>Wybierz węzeł, aby go usunąć</value>
+    <value>노드를 선택해 삭제</value>
   </data>
 </root>

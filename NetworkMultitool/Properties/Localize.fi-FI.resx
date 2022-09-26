@@ -118,256 +118,254 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Mode_AddNode" xml:space="preserve">
-    <value>Tryb dodawania węzłów</value>
+    <value>Lisää liittymä</value>
   </data>
   <data name="Mode_AddNode_Info_ClickToAdd" xml:space="preserve">
-    <value>Kliknij, aby wstawić węzeł</value>
+    <value>Lisää liittymä napauttamalla</value>
   </data>
-  <data name="Mode_AddNode_Info_PreciseMeasurement" xml:space="preserve">
-    <value>Przytrzymaj {0} dla precyzyjnego pomiaru</value>
-  </data>
+  
   <data name="Mode_AddNode_Info_SelectToAdd" xml:space="preserve">
-    <value>Wybierz segment, aby dodać węzeł</value>
+    <value>Valitse tie lisätäksesi liittymä</value>
   </data>
   <data name="Mode_AddNode_Info_TooCloseNode" xml:space="preserve">
-    <value>Nie można wstawić węzła
-Za blisko sąsiedniego węzła</value>
+    <value>Liittymää ei voi lisätä
+Se on liian lähellä toista liittymää</value>
   </data>
   <data name="Mode_AngleFormat" xml:space="preserve">
     <value>{0}°</value>
   </data>
   <data name="Mode_ArrangeAtCircle" xml:space="preserve">
-    <value>Tryb układania w okręgu</value>
+    <value>Asettele ympyräksi</value>
   </data>
   <data name="Mode_ArrangeAtLine" xml:space="preserve">
-    <value>Tryb porządkowania w linii</value>
+    <value>Tien suoristus</value>
   </data>
   <data name="Mode_ArrangeCircle_Info_ClickToComplite" xml:space="preserve">
-    <value>Naciśnij aby zakończyć wybór okręgu</value>
+    <value>Napauta viimeistelläksesi ympyrän valinta</value>
   </data>
   <data name="Mode_ArrangeLine_Info_ClickToSelectDirection" xml:space="preserve">
-    <value>Kliknij, aby wybrać kierunek porządkowania</value>
+    <value>Napauta valitaksesi suunta</value>
   </data>
   <data name="Mode_ArrangeLine_Info_SelectDirection" xml:space="preserve">
-    <value>Wybierz segment, aby ustawić kierunek porządkowania</value>
+    <value>Valitse tie asettaaksesi suunta</value>
   </data>
   <data name="Mode_Connection_Info_DoubleClickOnCenterToChangeDir" xml:space="preserve">
-    <value>Kliknij dwukrotnie na środku okręgu, aby zmienić kierunek zakrętu</value>
+    <value>Kaksoisnapauta ympyrän
+keskustaa vaihtaaksesi suuntaa</value>
   </data>
   <data name="Mode_Connection_Info_DoubleClickToAdd" xml:space="preserve">
-    <value>Kliknij dwukrotnie, aby dodać zakręt do tej linii</value>
+    <value>Kaksoisnapauta lisätäksesi mutka</value>
   </data>
   <data name="Mode_Connection_Info_DoubleClickToRemove" xml:space="preserve">
-    <value>Kliknij dwukrotnie, aby usunąć ten zakręt</value>
+    <value>Kaksoisnapauta hiiren oikealla napilla poistaaksesi tämä mutka</value>
   </data>
   <data name="Mode_Connection_Info_DragToChangeRadius" xml:space="preserve">
-    <value>Przeciągnij, aby zmienić promień</value>
+    <value>Vedä muutaaksesi sädettä</value>
   </data>
   <data name="Mode_Connection_Info_DragToMove" xml:space="preserve">
-    <value>Przeciągnij, aby przesunąć okrąg</value>
+    <value>Vedä siirtääksesi ympyrää</value>
   </data>
   <data name="Mode_CreateConnection" xml:space="preserve">
-    <value>Tryb tworzenia połączeń</value>
+    <value>Teiden yhdistys</value>
   </data>
   <data name="Mode_CreateCurve" xml:space="preserve">
-    <value>Tryb tworzenia zakrętu</value>
+    <value>Mutkan luominen</value>
   </data>
   <data name="Mode_CreateLoop" xml:space="preserve">
-    <value>Tryb tworzenia pętli</value>
+    <value>Silmukan luominen</value>
   </data>
   <data name="Mode_CreateLoop_Info_Change" xml:space="preserve">
-    <value>Naciśnij {0}, aby zmienić pętlę</value>
+    <value>Napauta {0} vaihtaaksesi silmukan suunta</value>
   </data>
   <data name="Mode_CreateParallerl" xml:space="preserve">
-    <value>Tryb tworzenia równoległego</value>
+    <value>Luo rinnakkainen verkko</value>
   </data>
   <data name="Mode_Info_Apply" xml:space="preserve">
-    <value>Naciśnij {0}, aby zastosować</value>
+    <value>Paina {0} asettaaksesi</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_Apply" xml:space="preserve">
-    <value>Naciśnij {0}, aby uporządkować w okręgu</value>
+    <value>Paina {0} asetellaksesi ympyräksi</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_BigDelta" xml:space="preserve">
-    <value>Zbyt duży kąt między węzłami
-okrągły kształt nie będzie idealny</value>
+    <value>Liian suuri kulma liittymien välillä
+Ympyrästä ei tule täydellistä</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_DoubleClickToResetCenter" xml:space="preserve">
-    <value>Kliknij dwukrotnie, aby zresetować pozycję środka</value>
+    <value>Kaksoisnapauta palauttaaksesi keskipisteen sijainti</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_DoubleClickToResetNode" xml:space="preserve">
-    <value>Kliknij dwukrotnie, aby zresetować pozycję węzła</value>
+    <value>Kaksoisnapauta palauttaaksesi liittymän sijainti</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_DragToChangeRadius" xml:space="preserve">
-    <value>Przeciągnij, aby zmienić promień</value>
+    <value>Vedä muutaaksesi sädettä</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_DragToMoveCenter" xml:space="preserve">
-    <value>Przeciągnij, aby przesunąć okrąg</value>
+    <value>Vedä siirtääksesi ympyrää</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_DragToMoveNode" xml:space="preserve">
-    <value>Przeciągnij, aby przesunąć węzeł</value>
+    <value>Vedä siirtääksesi liittymää</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_MoveAll" xml:space="preserve">
-    <value>Przytrzymaj {0}, aby przenieść wszystkie węzły
-jednocześnie</value>
+    <value>Pidä {0} pohjassa siirtääksesi 
+kaikkia liittymiä samaan aikaan</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_PressToDistributeBetweenIntersections" xml:space="preserve">
-    <value>Naciśnij {0}, aby rozdzielić węzły
-równomiernie pomiędzy skrzyżowaniami</value>
+    <value>Paina {0} jakaaksesi
+liittymät tasaisesti</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_PressToDistributeEvenly" xml:space="preserve">
-    <value>Naciśnij {0}, aby rozdzielić węzły równomiernie w okręgu</value>
+    <value>Paina {0} jakaaksesi liittymät tasaisesti ympyrään</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_PressToDistributeIntersections" xml:space="preserve">
-    <value>Naciśnij {0}, aby rozdzielić skrzyżowania
-równomiernie w okręgu</value>
+    <value>Paina {0} jakaaksesi risteykset tasaisesti ympyrään</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_PressToReset" xml:space="preserve">
-    <value>Naciśnij {0}, aby zresetować parametry</value>
+    <value>Nollaa parametrit painamalla {0}</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_WrongOrder" xml:space="preserve">
-    <value>Błędna kolejność węzłów</value>
+    <value>Väärä liittymien järjestys</value>
   </data>
   <data name="Mode_Info_ArrangeLine_Apply" xml:space="preserve">
-    <value>Naciśnij {0}, aby uporządkować w linii</value>
+    <value>Paina {0} asetellaksesi tasaisesti</value>
   </data>
   <data name="Mode_Info_ChangeAllRadius" xml:space="preserve">
-    <value>Naciśnij {0} lub {1} aby zmienić wszystkie promienie</value>
+    <value>Muuta kaikkia säteitä painamalla {0} tai {1}</value>
   </data>
   <data name="Mode_Info_ChangeBothRadius" xml:space="preserve">
-    <value>Naciśnij {0} lub {1} aby zmienić oba promienie</value>
+    <value>Muuta molempia säteitä painamalla {0} tai {1}</value>
   </data>
   <data name="Mode_Info_ChangeCircle" xml:space="preserve">
-    <value>Naciśnij {0}, aby przełączyć wybrany okręg</value>
+    <value>Paina {0} valitaksesi toinen ympyrä</value>
   </data>
   <data name="Mode_Info_ChangeOffset" xml:space="preserve">
-    <value>Naciśnij {0} lub {1}, aby zmienić przesunięcie początku zakrętu</value>
+    <value>Muuta mutkan siirtymää painamalla {0} tai {1}</value>
   </data>
   <data name="Mode_Info_ChangeOneRadius" xml:space="preserve">
-    <value>Naciśnij {0} lub {1} aby zmienić jeden promień</value>
+    <value>Muuta sädettä painamalla {0} tai {1}</value>
   </data>
   <data name="Mode_Info_ChangeRadius" xml:space="preserve">
-    <value>Naciśnij {0} lub {1} aby zmienić promień</value>
+    <value>Muuta sädettä painamalla {0} tai {1}</value>
   </data>
   <data name="Mode_Info_ChangeShift" xml:space="preserve">
-    <value>Naciśnij {0} lub {1} aby zmienić przesunięcie</value>
+    <value>Muuta siirtymää painamalla {0} tai {1}</value>
   </data>
   <data name="Mode_Info_ClickFirstSegment" xml:space="preserve">
-    <value>Kliknij, aby zaznaczyć pierwszy segment</value>
+    <value>Napsauta valitaksesi ensimmäinen tie</value>
   </data>
   <data name="Mode_Info_ClickOnNodeToChangeCreateDir" xml:space="preserve">
-    <value>Kliknij na węźle, aby zmienić kierunek tworzenia</value>
+    <value>Napauta liittymää vaihtaaksesi suuntaa</value>
   </data>
   <data name="Mode_Info_ClickSecondSegment" xml:space="preserve">
-    <value>Kliknij, aby zaznaczyć drugi segment</value>
+    <value>Napsauta valitaksesi toinen tie</value>
   </data>
   <data name="Mode_Info_ClickSelectNode" xml:space="preserve">
-    <value>Kliknij, aby zaznaczyć węzeł</value>
+    <value>Napauta valitaksesi liittymä</value>
   </data>
   <data name="Mode_Info_ClickToChangeCreateDir" xml:space="preserve">
-    <value>Kliknij, aby zmienić kierunek tworzenia</value>
+    <value>Napauta vaihtaaksesi suuntaa</value>
   </data>
   <data name="Mode_Info_ClickUnselectNode" xml:space="preserve">
-    <value>Kliknij, aby odznaczyć węzeł</value>
+    <value>Napauta poistaaksesi liittymän valinta</value>
   </data>
   <data name="Mode_Info_Connection_Create" xml:space="preserve">
-    <value>Naciśnij {0}, aby utworzyć połączenie</value>
+    <value>Paina {0} yhdistääksesi</value>
   </data>
   <data name="Mode_Info_ConstructionCost" xml:space="preserve">
-    <value>Koszt budowy: {0}</value>
+    <value>Rakennuskustannus: {0}</value>
   </data>
   <data name="Mode_Info_Create" xml:space="preserve">
-    <value>Naciśnij {0}, aby utworzyć</value>
+    <value>Luo painamalla {0}</value>
   </data>
   <data name="Mode_Info_HoldToMoveSlower" xml:space="preserve">
-    <value>Przytrzymaj {0} aby przesuwać X{1} wolniej</value>
+    <value>Pidä {0} pohjassa siirtääksesi X{1} hitaampaa</value>
   </data>
   <data name="Mode_Info_HoldToStep" xml:space="preserve">
-    <value>Przytrzymaj {0} aby przejść {1}</value>
+    <value>{0} pohjassa askelväli on {1}</value>
   </data>
   <data name="Mode_Info_InvertNetwork" xml:space="preserve">
-    <value>Naciśnij {0}, aby odwrócić sieć</value>
+    <value>Paina {0} kääntääksesi tie</value>
   </data>
   <data name="Mode_Info_Loop_Create" xml:space="preserve">
-    <value>Naciśnij {0}, aby utworzyć pętlę</value>
+    <value>Paina {0} luodaksesi silmukka</value>
   </data>
   <data name="Mode_Info_NotEnoughMoney" xml:space="preserve">
-    <value>Niewystarczająca ilość pieniędzy</value>
+    <value>Ei riittävästi rahaa</value>
   </data>
   <data name="Mode_Info_OutOfMap" xml:space="preserve">
-    <value>Poza mapą</value>
+    <value>Kartan ulkopuolella</value>
   </data>
   <data name="Mode_Info_Parallel_ChangeHeight" xml:space="preserve">
-    <value>Naciśnij {0} lub {1}, aby zmienić wysokość</value>
+    <value>Muuta korkeutta painamalla {0} tai {1}</value>
   </data>
   <data name="Mode_Info_Parallel_ChangeShift" xml:space="preserve">
-    <value>Naciśnij {0}, aby zmienić stronę tworzenia</value>
+    <value>Paina {0} luodaksesi toiselle puolelle</value>
   </data>
   <data name="Mode_Info_Parallel_Create" xml:space="preserve">
-    <value>Naciśnij {0}, aby utworzyć równoległy</value>
+    <value>Paina {0} luodaksesi rinnakkainen</value>
   </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
-    <value>Promień jest za duży</value>
+    <value>Liian suuri säde</value>
   </data>
   <data name="Mode_Info_RadiusTooSmall" xml:space="preserve">
-    <value>Promień jest za mały</value>
+    <value>Liian pieni säde</value>
   </data>
   <data name="Mode_Info_Refund" xml:space="preserve">
-    <value>Zwrot: {0}</value>
+    <value>Hyvitys: {0}</value>
   </data>
   <data name="Mode_Info_SelectFirstSegment" xml:space="preserve">
-    <value>Zaznacz pierwszy segment</value>
+    <value>Valitse ensimmäinen tie</value>
   </data>
   <data name="Mode_Info_SelectSecondSegment" xml:space="preserve">
-    <value>Zaznacz drugi segment</value>
+    <value>Valitse toinen tie</value>
   </data>
   <data name="Mode_Info_SelectSegment" xml:space="preserve">
-    <value>Wybierz segment</value>
+    <value>Valitse tie</value>
   </data>
   <data name="Mode_Info_Slope_Apply" xml:space="preserve">
-    <value>Naciśnij {0}, aby zastosować nachylenie</value>
+    <value>Paina {0} asettaaksesi</value>
   </data>
   <data name="Mode_Info_Step" xml:space="preserve">
     <value>Shift - X10, Ctrl - X0.1, Alt - X0.01</value>
   </data>
   <data name="Mode_Info_SwitchFollowTerrain" xml:space="preserve">
-    <value>Naciśnij {0}, aby przełączyć podążanie za terenem</value>
+    <value>Paina {0} seurataksesi maaston muotoja</value>
   </data>
   <data name="Mode_Info_SwitchOffset" xml:space="preserve">
-    <value>Naciśnij {0}, aby przełączyć wybrane przesunięcie</value>
+    <value>Paina {0} valitaksesi toinen siirtymä</value>
   </data>
   <data name="Mode_Info_UndergroundMode" xml:space="preserve">
-    <value>Przytrzymaj {0} by przejść w tryb podziemny</value>
+    <value>Pidä {0}-näppäintä pohjassa nähdäksesi maanalaiset tiet</value>
   </data>
   <data name="Mode_Info_WrongShape" xml:space="preserve">
-    <value>Nieprawidłowy kształt</value>
+    <value>Väärä muoto</value>
   </data>
   <data name="Mode_IntersectSegment" xml:space="preserve">
-    <value>Tryb przecinania segmentów</value>
+    <value>Teiden risteys</value>
   </data>
   <data name="Mode_IntersectSegment_Info_CommonNode" xml:space="preserve">
-    <value>Te segmenty mają wspólny węzeł</value>
+    <value>Näillä teillä on yhteinen liittymä</value>
   </data>
   <data name="Mode_IntersectSegment_Info_EdgeTooClose" xml:space="preserve">
-    <value>Krawędź pierwszego segmentu jest zbyt blisko końca drugiego segmentu</value>
+    <value>Tie on liian lähellä toisen tien päätä</value>
   </data>
   <data name="Mode_IntersectSegment_Info_NotIntersect" xml:space="preserve">
-    <value>Te segmenty się nie przecinają</value>
+    <value>Nämä tiet eivät risteä</value>
   </data>
   <data name="Mode_InvertSegment" xml:space="preserve">
-    <value>Tryb obracania segmentu</value>
+    <value>Käännä tie</value>
   </data>
   <data name="Mode_InvertSegment_Info_ClickToReverse" xml:space="preserve">
-    <value>Kliknij, aby odwrócić segment</value>
+    <value>Napauta kääntääksesi tie</value>
   </data>
   <data name="Mode_InvertSegment_Info_SelectToReverse" xml:space="preserve">
-    <value>Wybierz segment, aby go odwrócić</value>
+    <value>Valitse tie kääntääksesi se</value>
   </data>
   <data name="Mode_NodeLine_Info_NotConnected" xml:space="preserve">
-    <value>Ten węzeł nie może być zaznaczony
-ponieważ nie jest połączony z pozostałymi</value>
+    <value>Tätä liittymää ei voi valita, koska 
+se ei ole yhteydessä muihin</value>
   </data>
   <data name="Mode_NodeLine_Info_SelectNode" xml:space="preserve">
-    <value>Zaznacz węzeł aby dodać go do kolejki</value>
+    <value>Valitse liittymä lisätäksesi se</value>
   </data>
   <data name="Mode_PercentagesFormat" xml:space="preserve">
     <value>{0}%</value>
@@ -376,248 +374,245 @@ ponieważ nie jest połączony z pozostałymi</value>
     <value>{0}m</value>
   </data>
   <data name="Mode_RemoveNode" xml:space="preserve">
-    <value>Tryb usuwania węzłów</value>
+    <value>Poista liittymä</value>
   </data>
   <data name="Mode_RemoveNode_Info_NotAllow" xml:space="preserve">
-    <value>Nie zezwalaj na usunięcie tego węzła</value>
+    <value>Tätä liittymää ei voi poistaa</value>
   </data>
   <data name="Mode_SlopeNode" xml:space="preserve">
-    <value>Tryb ustawiania nachylenia</value>
+    <value>Tasaa kaltevuus</value>
   </data>
   <data name="Mode_SplitNode" xml:space="preserve">
-    <value>Tryb podziału węzła</value>
+    <value>Halkaise liittymä</value>
   </data>
   <data name="Mode_SplitNode_Info_ClickFromOrder" xml:space="preserve">
-    <value>Naciśnij, aby usunąć segment z kolejki dzielenia</value>
+    <value>Napauta poistaaksesi tie erotettavien listalta</value>
   </data>
   <data name="Mode_SplitNode_Info_ClickToOrder" xml:space="preserve">
-    <value>Naciśnij, aby dodać segment do kolejki dzielenia</value>
+    <value>Napauta lisätäksesi tie erotettavaksi</value>
   </data>
   <data name="Mode_SplitNode_Info_ClickToSplit" xml:space="preserve">
-    <value>Naciśnij, aby podzielić węzeł i wyrównać do wysokości terenu
-Naciśnij trzymając {0} aby podzielić węzeł i wyrównać do wysokości źródłowej</value>
+    <value>Napauta halkaistaksesi liittymä maaston korkeuteen
+Napauta {0}-näppäin pohjassa halkaistaksesi liittymä lähtökorkeuteen</value>
   </data>
   <data name="Mode_SplitNode_Info_NotAllowedSplit" xml:space="preserve">
-    <value>Nie da się podzielić węzła z tylko jednym segmentem</value>
+    <value>Yhden tien liittymää ei voi halkaista</value>
   </data>
   <data name="Mode_SplitNode_Info_OrderIsFull" xml:space="preserve">
-    <value>Nie da się dodać więcej segmentów do kolejki dzielenia</value>
+    <value>Useampaa tietä ei ole mahdollista erottaa</value>
   </data>
   <data name="Mode_SplitNode_Info_SelectToSplit" xml:space="preserve">
-    <value>Wybierz segmenty do podzielenia</value>
+    <value>Valitse erotettavat tiet</value>
   </data>
   <data name="Mode_SplitNode_Info_TooFar" xml:space="preserve">
-    <value>Pozycja jest zbyt daleko od węzła źródłowego</value>
+    <value>Sijainti on liian kaukana alkuperäisestä liittymästä</value>
   </data>
   <data name="Mode_UnionNode" xml:space="preserve">
-    <value>Tryb łączenia węzłów</value>
+    <value>Yhdistä liittymät</value>
   </data>
   <data name="Mode_UnionNode_Info_ClickSource" xml:space="preserve">
-    <value>Kliknij, aby zaznaczyć węzeł źródłowy</value>
+    <value>Napauta valitaksesi alkuliittymä</value>
   </data>
   <data name="Mode_UnionNode_Info_ClickUnion" xml:space="preserve">
-    <value>Kliknij aby złączyć węzły</value>
+    <value>Napauta yhdistääksesi liittymät</value>
   </data>
   <data name="Mode_UnionNode_Info_NoCommon" xml:space="preserve">
-    <value>Te węzły mają wspólny segment</value>
+    <value>Näillä liittymillä on yhteinen tie</value>
   </data>
   <data name="Mode_UnionNode_Info_Overflow" xml:space="preserve">
-    <value>Całkowita liczba węzłów nie może być większa niż 8</value>
+    <value>Liittymien kokonaismäärä ei voi olla yli 8</value>
   </data>
   <data name="Mode_UnionNode_Info_SelectSource" xml:space="preserve">
-    <value>Wybierz węzeł źródłowy</value>
+    <value>Valitse alkuliittymä</value>
   </data>
   <data name="Mode_UnionNode_Info_SelectTarget" xml:space="preserve">
-    <value>Wybierz węzeł docelowy</value>
+    <value>Valitse kohdeliittymä</value>
   </data>
   <data name="Mode_UnionNode_Info_TooFar" xml:space="preserve">
-    <value>Węzły są zbyt daleko od siebie</value>
+    <value>Liittymät ovat liian kaukana toisistaan</value>
   </data>
   <data name="Mode_UnitsFormat" xml:space="preserve">
     <value>{0}U</value>
   </data>
   <data name="Mode_UnlockSegment" xml:space="preserve">
-    <value>Tryb odblokowywania segmentu</value>
+    <value>Vapauta tie</value>
   </data>
   <data name="Mode_UnlockSegment_Info_ChangeLock" xml:space="preserve">
-    <value>Wybierz segment, aby go zablokować lub odblokować</value>
+    <value>Valitse tie lukitaksesi
+tai vapauttaksesi se</value>
   </data>
   <data name="Mode_UnlockSegment_Info_ClickToLock" xml:space="preserve">
-    <value>Kliknij, aby zablokować ten segment</value>
+    <value>Napauta lukitaksesi tie</value>
   </data>
   <data name="Mode_UnlockSegment_Info_ClickToUnlock" xml:space="preserve">
-    <value>Kliknij, aby odblokować ten segment</value>
+    <value>Napauta vapauttaaksesi tie</value>
   </data>
   <data name="Mod_Description" xml:space="preserve">
-    <value>Wiele różnych narzędzi do pracy z sieciami</value>
+    <value>Työkaluja verkostojen muokkaamiseen</value>
   </data>
   
   
   
   
-  <data name="Mod_WhatsNewMessage1_3_2" xml:space="preserve">
-    <value>[UPDATED] Dodano wsparcie DLC Place &amp; Promenady.</value>
-  </data>
-  <data name="Mod_WhatsNewMessage1_3_3" xml:space="preserve">
-    <value>[NEW] Dodano wsparcie dla Network Anarchy.</value>
-  </data>
+  
+  
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
-    <value>Skróty aktywacji</value>
+    <value>Käynnistyksen pikanäppäimet</value>
   </data>
   <data name="Settings_AutoConnect" xml:space="preserve">
-    <value>Automatycznie połącz drogę równoległą do najbliższych węzłów</value>
+    <value>Liitä rinnakkainen tie lähimpiin liittymiin automaattisesti</value>
   </data>
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
-    <value>Automatyczne ukrywanie panelu trybów</value>
+    <value>Piilota valikko automaattisesti</value>
   </data>
   <data name="Settings_CommonCreateShortcuts" xml:space="preserve">
-    <value>Wspólne skróty trybów tworzenia</value>
+    <value>Rakennustyökalujen yhteiset pikanäppäimet</value>
   </data>
   <data name="Settings_CommonShortcuts" xml:space="preserve">
-    <value>Wspólne skróty trybów</value>
+    <value>Työkalujen yhteiset pikanäppäimet</value>
   </data>
   <data name="Settings_FollowTerrain" xml:space="preserve">
-    <value>Drogi stworzone na ziemi będą podążać za terenem</value>
+    <value>Maata vasten luodut tiet seuraavat maaston muotoja</value>
   </data>
   <data name="Settings_Gameplay" xml:space="preserve">
-    <value>Rozgrywka</value>
+    <value>Pelaaminen</value>
   </data>
   <data name="Settings_Interface" xml:space="preserve">
-    <value>Interfejs</value>
+    <value>Käyttöliittymä</value>
   </data>
   <data name="Settings_LengthUnit" xml:space="preserve">
-    <value>Jednostka miary długości</value>
+    <value>Pituuden yksikkö</value>
   </data>
   <data name="Settings_LengthUniteMeters" xml:space="preserve">
-    <value>Metry</value>
+    <value>Metri</value>
   </data>
   <data name="Settings_LengthUniteUnits" xml:space="preserve">
-    <value>Jednostka gry (1U = 8m)</value>
+    <value>Pelin yksikkö (1U=8m)</value>
   </data>
   <data name="Settings_NeedMoney" xml:space="preserve">
-    <value>Pieniądze wymagane do budowy</value>
+    <value>Vaadi rahaa rakentamiseen</value>
   </data>
   <data name="Settings_PanelColumns" xml:space="preserve">
-    <value>Liczba kolumn panelu</value>
+    <value>Valikon sarakkeiden määrä</value>
   </data>
   <data name="Settings_PanelOpenSide" xml:space="preserve">
-    <value>Strona otwierania panelu</value>
+    <value>Valikon avaussuunta</value>
   </data>
   <data name="Settings_PanelOpenSideDown" xml:space="preserve">
-    <value>Dół</value>
+    <value>Alas</value>
   </data>
   <data name="Settings_PanelOpenSideUp" xml:space="preserve">
-    <value>Góra</value>
+    <value>Ylös</value>
   </data>
   <data name="Settings_PlayEffects" xml:space="preserve">
-    <value>Odtwarzaj efekty dźwiękowe i wizualne</value>
+    <value>Toista ääni- ja videoefektit</value>
   </data>
   <data name="Settings_PreviewType" xml:space="preserve">
-    <value>Podgląd tworzenia</value>
+    <value>Luonnin esikatselu</value>
   </data>
   <data name="Settings_PreviewTypeBoth" xml:space="preserve">
-    <value>Obydwa</value>
+    <value>Molemmat</value>
   </data>
   <data name="Settings_PreviewTypeMesh" xml:space="preserve">
-    <value>Wizualizacja sieci</value>
+    <value>Visualisointi</value>
   </data>
   <data name="Settings_PreviewTypeOverlay" xml:space="preserve">
-    <value>Nakładka</value>
+    <value>Peittokuva</value>
   </data>
   <data name="Settings_SegmentLength" xml:space="preserve">
-    <value>Maksymalna długość segmentu</value>
+    <value>Pisin tien pituus</value>
   </data>
   <data name="Settings_Shortcut_Apply" xml:space="preserve">
-    <value>Zastosuj akcję trybu</value>
+    <value>Toteuta toiminto</value>
   </data>
   <data name="Settings_Shortcut_DecreaseAngle" xml:space="preserve">
-    <value>Zmniejsz kąt początkowy</value>
+    <value>Pienennä aloituskulmaa</value>
   </data>
   <data name="Settings_Shortcut_DecreaseHeight" xml:space="preserve">
-    <value>Zmniejsz wysokość</value>
+    <value>Laske korkeutta</value>
   </data>
   <data name="Settings_Shortcut_DecreaseOffset" xml:space="preserve">
-    <value>Zmniejsz przesunięcie początku okręgu</value>
+    <value>Pienennä kaarteen siirtymää</value>
   </data>
   <data name="Settings_Shortcut_DecreaseOneRadius" xml:space="preserve">
-    <value>Zmniejsz jeden promień</value>
+    <value>Pienennä sädettä</value>
   </data>
   <data name="Settings_Shortcut_DecreaseRadii" xml:space="preserve">
-    <value>Zmniejsz promienie</value>
+    <value>Pienennä säteitä</value>
   </data>
   <data name="Settings_Shortcut_DecreaseRadius" xml:space="preserve">
-    <value>Zmniejsz promień</value>
+    <value>Pienennä sädettä</value>
   </data>
   <data name="Settings_Shortcut_DecreaseShift" xml:space="preserve">
-    <value>Zmniejsz przesunięcie</value>
+    <value>Vähennä siirtymää</value>
   </data>
   <data name="Settings_Shortcut_DistributeBetweenIntersections" xml:space="preserve">
-    <value>Rozdziel węzły równomiernie pomiędzy skrzyżowaniami</value>
+    <value>Jaa liittymät tasaisesti</value>
   </data>
   <data name="Settings_Shortcut_DistributeEvenly" xml:space="preserve">
-    <value>Rozdziel węzły równomiernie w okręgu</value>
+    <value>Jaa liittymät tasaisesti ympyrään</value>
   </data>
   <data name="Settings_Shortcut_DistributeIntersections" xml:space="preserve">
-    <value>Rozdziel skrzyżowania równomiernie w okręgu</value>
+    <value>Jaa risteykset tasaisesti ympyrään</value>
   </data>
   <data name="Settings_Shortcut_IncreaseAngle" xml:space="preserve">
-    <value>Zwiększ kąt początkowy</value>
+    <value>Suurenna aloituskulmaa</value>
   </data>
   <data name="Settings_Shortcut_IncreaseHeight" xml:space="preserve">
-    <value>Zwiększ wysokość</value>
+    <value>Nosta korkeutta</value>
   </data>
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
-    <value>Zwiększ przesunięcie początku okręgu</value>
+    <value>Kasvata kaarteen siirtymää</value>
   </data>
   <data name="Settings_Shortcut_IncreaseOneRadius" xml:space="preserve">
-    <value>Zwiększ jeden promień</value>
+    <value>Suurenna sädettä</value>
   </data>
   <data name="Settings_Shortcut_IncreaseRadii" xml:space="preserve">
-    <value>Zwiększ promienie</value>
+    <value>Suurenna säteitä</value>
   </data>
   <data name="Settings_Shortcut_IncreaseRadius" xml:space="preserve">
-    <value>Zwiększ promień</value>
+    <value>Suurenna sädettä</value>
   </data>
   <data name="Settings_Shortcut_IncreaseShift" xml:space="preserve">
-    <value>Zwiększ przesunięcie</value>
+    <value>Suurenna siirtymää</value>
   </data>
   <data name="Settings_Shortcut_InvertNetwork" xml:space="preserve">
-    <value>Odwróć sieć</value>
+    <value>Käännä</value>
   </data>
   <data name="Settings_Shortcut_InvertShift" xml:space="preserve">
-    <value>Przełącz stronę tworzenia</value>
+    <value>Vaihda luontipuolta</value>
   </data>
   <data name="Settings_Shortcut_ResetArrangeCircle" xml:space="preserve">
-    <value>Zresetuj do domyślnego okręgu</value>
+    <value>Palauta oletusympyräksi</value>
   </data>
   <data name="Settings_Shortcut_SwitchFollowTerrain" xml:space="preserve">
-    <value>Przełącz podążanie za terenem</value>
+    <value>Seuraa maaston muotoja</value>
   </data>
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
-    <value>Przełącz kierunek pętli</value>
+    <value>Vaihda silmukan suunta</value>
   </data>
   <data name="Settings_Shortcut_SwitchOffset" xml:space="preserve">
-    <value>Przełącz wybrane przesunięcie</value>
+    <value>Vaihda valittu siirtymä</value>
   </data>
   <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
-    <value>Przełącz wybrane koło</value>
+    <value>Vaihda valittu ympyrä</value>
   </data>
   <data name="Settings_SlopeColors" xml:space="preserve">
-    <value>Ustaw kolor etykiety nachylenia w zależności od wartości</value>
+    <value>Aseta kaltevuuden lipukkeen väri arvon perusteella</value>
   </data>
   <data name="Settings_SlopeUnit" xml:space="preserve">
-    <value>Jednostka miary nachylenia</value>
+    <value>Kaltevuuden yksikkö</value>
   </data>
   <data name="Settings_SlopeUnitDegrees" xml:space="preserve">
-    <value>Stopnie</value>
+    <value>Asteet</value>
   </data>
   <data name="Settings_SlopeUnitPercentages" xml:space="preserve">
-    <value>Procenty</value>
+    <value>Prosenttiosuus</value>
   </data>
   <data name="Tool_RemoveNode_Info_ClickToRemove" xml:space="preserve">
-    <value>Naciśnij, aby usunąć</value>
+    <value>Napauta poistaaksesi</value>
   </data>
   <data name="Tool_RemoveNode_Info_Select" xml:space="preserve">
-    <value>Wybierz węzeł, aby go usunąć</value>
+    <value>Valitse liittymä poistaaksesi se</value>
   </data>
 </root>

@@ -118,508 +118,361 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Mode_AddNode" xml:space="preserve">
-    <value>添加节点模式</value>
+    <value>Csomópont hozzáadása mód</value>
   </data>
   <data name="Mode_AddNode_Info_ClickToAdd" xml:space="preserve">
-    <value>点击添加节点</value>
+    <value>Kattints csomópont hozzáadásához</value>
   </data>
-  <data name="Mode_AddNode_Info_PreciseMeasurement" xml:space="preserve">
-    <value>按住 {0} 以進行準確計算</value>
-  </data>
+  
   <data name="Mode_AddNode_Info_SelectToAdd" xml:space="preserve">
-    <value>选择要添加节点的部分</value>
+    <value>Válassz szegmenst a csomópont hozzáadásához</value>
   </data>
   <data name="Mode_AddNode_Info_TooCloseNode" xml:space="preserve">
-    <value>无法插入节点
-节点间距过短</value>
+    <value>Nem lehet hozzáadni a csomópontot
+Túl közel egy másik csomóponthoz</value>
   </data>
   <data name="Mode_AngleFormat" xml:space="preserve">
     <value>{0}°</value>
   </data>
-  <data name="Mode_ArrangeAtCircle" xml:space="preserve">
-    <value>圆圈对齐模式</value>
-  </data>
+  
   <data name="Mode_ArrangeAtLine" xml:space="preserve">
-    <value>多点均匀功能</value>
+    <value>Vonalhoz rendezés mód</value>
   </data>
-  <data name="Mode_ArrangeCircle_Info_ClickToComplite" xml:space="preserve">
-    <value>点击以完成圆圈选择</value>
-  </data>
+  
   <data name="Mode_ArrangeLine_Info_ClickToSelectDirection" xml:space="preserve">
-    <value>点击以选择对齐方向</value>
+    <value>Kattints a rendezés irányának kiválasztásához</value>
   </data>
   <data name="Mode_ArrangeLine_Info_SelectDirection" xml:space="preserve">
-    <value>选择段落以设定对齐方向</value>
+    <value>Válaszd ki a szegmenst a rendezési irány beállításához</value>
   </data>
   <data name="Mode_Connection_Info_DoubleClickOnCenterToChangeDir" xml:space="preserve">
-    <value>双击圆心
-以改变曲线方向</value>
+    <value>A görbe irányának megváltoztatásához
+kattints duplán a kör közepére</value>
   </data>
   <data name="Mode_Connection_Info_DoubleClickToAdd" xml:space="preserve">
-    <value>双击左键在此线添加曲线</value>
+    <value>Kattints duplán, hogy a görbét hozzáadd ehhez a vonalhoz</value>
   </data>
   <data name="Mode_Connection_Info_DoubleClickToRemove" xml:space="preserve">
-    <value>双击右键删除此曲线</value>
+    <value>A görbe eltávolításához kattints duplán a jobb gombbal</value>
   </data>
   <data name="Mode_Connection_Info_DragToChangeRadius" xml:space="preserve">
-    <value>拖动以改变半径</value>
+    <value>A sugár megváltoztatásához húzd</value>
   </data>
   <data name="Mode_Connection_Info_DragToMove" xml:space="preserve">
-    <value>拖移以移动圆</value>
+    <value>A kör mozgatásához húzd</value>
   </data>
   <data name="Mode_CreateConnection" xml:space="preserve">
-    <value>创建连接模式</value>
+    <value>Kapcsolat létrehozása mód</value>
   </data>
-  <data name="Mode_CreateCurve" xml:space="preserve">
-    <value>创建曲线模式</value>
-  </data>
+  
   <data name="Mode_CreateLoop" xml:space="preserve">
-    <value>创建环形模式</value>
+    <value>Hurok létrehozása mód</value>
   </data>
   <data name="Mode_CreateLoop_Info_Change" xml:space="preserve">
-    <value>按 {0} 更改环形</value>
+    <value>Nyomd meg {0}-t a hurok megváltoztatásához</value>
   </data>
-  <data name="Mode_CreateParallerl" xml:space="preserve">
-    <value>创建并行模式</value>
-  </data>
+  
   <data name="Mode_Info_Apply" xml:space="preserve">
-    <value>按下 {0} 以应用</value>
+    <value>Nyomj {0}-t a végrehajtáshoz</value>
   </data>
-  <data name="Mode_Info_ArrangeCircle_Apply" xml:space="preserve">
-    <value>按 {0} 来以圆圈对齐</value>
-  </data>
-  <data name="Mode_Info_ArrangeCircle_BigDelta" xml:space="preserve">
-    <value>节点间角度太大
-会导致圆形形状缺陷</value>
-  </data>
-  <data name="Mode_Info_ArrangeCircle_DoubleClickToResetCenter" xml:space="preserve">
-    <value>双击重置中心位置</value>
-  </data>
-  <data name="Mode_Info_ArrangeCircle_DoubleClickToResetNode" xml:space="preserve">
-    <value>双击重置节点位置</value>
-  </data>
-  <data name="Mode_Info_ArrangeCircle_DragToChangeRadius" xml:space="preserve">
-    <value>拖动以改变半径</value>
-  </data>
-  <data name="Mode_Info_ArrangeCircle_DragToMoveCenter" xml:space="preserve">
-    <value>拖动以移动圆圈</value>
-  </data>
+  
+  
+  
+  
+  
+  
   <data name="Mode_Info_ArrangeCircle_DragToMoveNode" xml:space="preserve">
-    <value>拖动以移动节点</value>
+    <value>Húzd a csomópont mozgatásához</value>
   </data>
-  <data name="Mode_Info_ArrangeCircle_MoveAll" xml:space="preserve">
-    <value>按住 {0} 键
-同时移动所有节点</value>
-  </data>
-  <data name="Mode_Info_ArrangeCircle_PressToDistributeBetweenIntersections" xml:space="preserve">
-    <value>按下 {0} 在交叉口之间
-平均分布节点</value>
-  </data>
-  <data name="Mode_Info_ArrangeCircle_PressToDistributeEvenly" xml:space="preserve">
-    <value>按下 {0} 在圆圈上平均分布节点</value>
-  </data>
-  <data name="Mode_Info_ArrangeCircle_PressToDistributeIntersections" xml:space="preserve">
-    <value>按下 {0} 在圆圈上
-平均分布交叉口</value>
-  </data>
-  <data name="Mode_Info_ArrangeCircle_PressToReset" xml:space="preserve">
-    <value>按 {0} 重置参数</value>
-  </data>
-  <data name="Mode_Info_ArrangeCircle_WrongOrder" xml:space="preserve">
-    <value>错误的节点顺序</value>
-  </data>
-  <data name="Mode_Info_ArrangeLine_Apply" xml:space="preserve">
-    <value>按下 {0} 来按直线对齐</value>
-  </data>
+  
+  
+  
+  
+  
+  
+  
   <data name="Mode_Info_ChangeAllRadius" xml:space="preserve">
-    <value>按 {0} 或 {1} 更改所有半径</value>
+    <value>Nyomj {0}-t vagy {1}-t minden sugár változtatásához</value>
   </data>
   <data name="Mode_Info_ChangeBothRadius" xml:space="preserve">
-    <value>按 {0} 或 {1} 来更改两个半径</value>
+    <value>Nyomj {0}-t vagy {1}-t mindkét sugár változtatásához</value>
   </data>
   <data name="Mode_Info_ChangeCircle" xml:space="preserve">
-    <value>按 {0} 切换到选中的圆</value>
+    <value>Nyomj {0}-t a kiválasztott kör váltásához</value>
   </data>
   <data name="Mode_Info_ChangeOffset" xml:space="preserve">
-    <value>按 {0} 或 {1} 更改曲线起始偏移</value>
+    <value>Nyomj {0}-t vagy {1}-t a görbe kezdési eltolásának megváltoztatásához</value>
   </data>
   <data name="Mode_Info_ChangeOneRadius" xml:space="preserve">
-    <value>按 {0} 或 {1} 来更改一个半径</value>
+    <value>Nyomj {0}-t vagy {1}-t az egyik sugár változtatásához</value>
   </data>
   <data name="Mode_Info_ChangeRadius" xml:space="preserve">
-    <value>按 {0} 或 {1} 更改半径</value>
+    <value>Nyomj {0}-t vagy {1}-t a sugár változtatásához</value>
   </data>
-  <data name="Mode_Info_ChangeShift" xml:space="preserve">
-    <value>按 {0} 或 {1} 更改偏移</value>
-  </data>
+  
   <data name="Mode_Info_ClickFirstSegment" xml:space="preserve">
-    <value>点击选择第一段落</value>
+    <value>Kattints az első szegmens kiválasztásához</value>
   </data>
   <data name="Mode_Info_ClickOnNodeToChangeCreateDir" xml:space="preserve">
-    <value>点击节点来改变创建方向</value>
+    <value>Kattints a csomópontra a létrehozási irány megváltoztatásához</value>
   </data>
   <data name="Mode_Info_ClickSecondSegment" xml:space="preserve">
-    <value>点击选择第二段落</value>
+    <value>Kattints a második szegmens kiválasztásához</value>
   </data>
   <data name="Mode_Info_ClickSelectNode" xml:space="preserve">
-    <value>点击选择节点</value>
+    <value>Kattints a csomópont kiválasztásához</value>
   </data>
   <data name="Mode_Info_ClickToChangeCreateDir" xml:space="preserve">
-    <value>点击来改变创建方向</value>
+    <value>Kattints a létrehozási irány megváltoztatásához</value>
   </data>
   <data name="Mode_Info_ClickUnselectNode" xml:space="preserve">
-    <value>点击撤销选择节点</value>
+    <value>Kattints a csomópont kijelölésének megszüntetéséhez</value>
   </data>
-  <data name="Mode_Info_Connection_Create" xml:space="preserve">
-    <value>按 {0} 创建连接</value>
-  </data>
-  <data name="Mode_Info_ConstructionCost" xml:space="preserve">
-    <value>建造成本: {0}</value>
-  </data>
+  
+  
   <data name="Mode_Info_Create" xml:space="preserve">
-    <value>按 {0} 以创建</value>
+    <value>Nyomj {0}-t a létrehozáshoz</value>
   </data>
-  <data name="Mode_Info_HoldToMoveSlower" xml:space="preserve">
-    <value>按住 {0} 键X{1} 倍慢速移动。</value>
-  </data>
-  <data name="Mode_Info_HoldToStep" xml:space="preserve">
-    <value>按住 {0} 键可以步进 {1}</value>
-  </data>
-  <data name="Mode_Info_InvertNetwork" xml:space="preserve">
-    <value>按 {0} 反转网络</value>
-  </data>
-  <data name="Mode_Info_Loop_Create" xml:space="preserve">
-    <value>按 {0} 创建环形</value>
-  </data>
-  <data name="Mode_Info_NotEnoughMoney" xml:space="preserve">
-    <value>资金不足</value>
-  </data>
-  <data name="Mode_Info_OutOfMap" xml:space="preserve">
-    <value>超出地图</value>
-  </data>
-  <data name="Mode_Info_Parallel_ChangeHeight" xml:space="preserve">
-    <value>按 {0} 或 {1} 更改高度</value>
-  </data>
-  <data name="Mode_Info_Parallel_ChangeShift" xml:space="preserve">
-    <value>按下 {0} 切换创建边</value>
-  </data>
-  <data name="Mode_Info_Parallel_Create" xml:space="preserve">
-    <value>按 {0} 创建平行</value>
-  </data>
+  
+  
+  
+  
+  
+  
+  
+  
+  
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
-    <value>半径过大</value>
+    <value>Túl nagy a sugár</value>
   </data>
   <data name="Mode_Info_RadiusTooSmall" xml:space="preserve">
-    <value>半径过小</value>
+    <value>Túl kicsi a sugár</value>
   </data>
-  <data name="Mode_Info_Refund" xml:space="preserve">
-    <value>退款： {0}</value>
-  </data>
+  
   <data name="Mode_Info_SelectFirstSegment" xml:space="preserve">
-    <value>选择第一段落</value>
+    <value>Válaszd ki az első szegmenst</value>
   </data>
   <data name="Mode_Info_SelectSecondSegment" xml:space="preserve">
-    <value>选择第二段落</value>
+    <value>Válaszd ki a második szegmenst</value>
   </data>
   <data name="Mode_Info_SelectSegment" xml:space="preserve">
-    <value>选择段落</value>
+    <value>Válaszd ki a szegmenst</value>
   </data>
-  <data name="Mode_Info_Slope_Apply" xml:space="preserve">
-    <value>按下 {0} 以应用斜坡</value>
-  </data>
+  
   <data name="Mode_Info_Step" xml:space="preserve">
-    <value>Shift - 10倍, Ctrl - 0.1倍, Alt - 0.01倍</value>
+    <value>Shift - 10x; Ctrl - 0,1x; Alt - 0,01x</value>
   </data>
-  <data name="Mode_Info_SwitchFollowTerrain" xml:space="preserve">
-    <value>按下“{0}”以切换至“跟随地形”模式。</value>
-  </data>
+  
   <data name="Mode_Info_SwitchOffset" xml:space="preserve">
-    <value>按 {0} 切换选中偏移</value>
+    <value>Nyomd meg a {0}-t a kiválasztott görbe indítási eltolásának váltásához</value>
   </data>
   <data name="Mode_Info_UndergroundMode" xml:space="preserve">
-    <value>按住 {0} 进入地下模式</value>
+    <value>Tartsd lenyomva a {0} a földalatti módhoz</value>
   </data>
   <data name="Mode_Info_WrongShape" xml:space="preserve">
-    <value>形状错误</value>
+    <value>Helytelen alak</value>
   </data>
   <data name="Mode_IntersectSegment" xml:space="preserve">
-    <value>交叉段落模式</value>
+    <value>Szegmensek metszése mód</value>
   </data>
-  <data name="Mode_IntersectSegment_Info_CommonNode" xml:space="preserve">
-    <value>这些段落有共同节点</value>
-  </data>
+  
   <data name="Mode_IntersectSegment_Info_EdgeTooClose" xml:space="preserve">
-    <value>一个段落的边缘离另一段落终点过近</value>
+    <value>Az egyik szegmens széle túl közel van a másik szegmens végéhez</value>
   </data>
   <data name="Mode_IntersectSegment_Info_NotIntersect" xml:space="preserve">
-    <value>这些段落并不相交</value>
+    <value>Ezek a szegmensek nem metszik egymást</value>
   </data>
   <data name="Mode_InvertSegment" xml:space="preserve">
-    <value>反转段落模式</value>
+    <value>Szegmens megfordítása mód</value>
   </data>
   <data name="Mode_InvertSegment_Info_ClickToReverse" xml:space="preserve">
-    <value>点击以反转段落</value>
+    <value>Kattints a szegmens megfordításához</value>
   </data>
   <data name="Mode_InvertSegment_Info_SelectToReverse" xml:space="preserve">
-    <value>选择要反转的段落</value>
+    <value>Válaszd ki a szegmenst a megfordításához</value>
   </data>
   <data name="Mode_NodeLine_Info_NotConnected" xml:space="preserve">
-    <value>不能选择此节点
-原因：未与其他节点连接</value>
+    <value>Ez a csomópont nem választható ki, 
+mert nincs kapcsolatban másokkal</value>
   </data>
   <data name="Mode_NodeLine_Info_SelectNode" xml:space="preserve">
-    <value>选择要均匀的节点</value>
+    <value>Válaszd ki a csomópontot a hozzáadáshoz</value>
   </data>
   <data name="Mode_PercentagesFormat" xml:space="preserve">
     <value>{0}%</value>
   </data>
   <data name="Mode_RadiusFormat" xml:space="preserve">
-    <value>{0}米</value>
+    <value>{0}m</value>
   </data>
   <data name="Mode_RemoveNode" xml:space="preserve">
-    <value>删除节点模式</value>
+    <value>Csomópont eltávolítása mód</value>
   </data>
   <data name="Mode_RemoveNode_Info_NotAllow" xml:space="preserve">
-    <value>不可删除此节点</value>
+    <value>Nem engedélyezett e csomópont eltávolítása</value>
   </data>
   <data name="Mode_SlopeNode" xml:space="preserve">
-    <value>设置斜坡模式</value>
+    <value>Lejtés beállítása mód</value>
   </data>
   <data name="Mode_SplitNode" xml:space="preserve">
-    <value>拆分节点模式</value>
+    <value>Csomópont felosztása mód</value>
   </data>
   <data name="Mode_SplitNode_Info_ClickFromOrder" xml:space="preserve">
-    <value>单击以从就序列表中移除段落</value>
+    <value>Kattintson a szegmens felosztásból történő eltávolításához</value>
   </data>
   <data name="Mode_SplitNode_Info_ClickToOrder" xml:space="preserve">
-    <value>单击以添加段落到就序列表中</value>
+    <value>Kattintson a szegmens felosztáshoz történő hozzáadáshoz</value>
   </data>
-  <data name="Mode_SplitNode_Info_ClickToSplit" xml:space="preserve">
-    <value>点击以分割节点并设置为地形高度
-按住{0} 单击以分割节点并设置为原高度</value>
-  </data>
+  
   <data name="Mode_SplitNode_Info_NotAllowedSplit" xml:space="preserve">
-    <value>无法分割只与一个段落相交的节点</value>
+    <value>Nem engedélyezett az egy szegmenses csomópont felosztása</value>
   </data>
   <data name="Mode_SplitNode_Info_OrderIsFull" xml:space="preserve">
-    <value>无法往就序列表中添加更多段落</value>
+    <value>Nem lehetséges további szegmensek hozzáadása a felosztáshoz</value>
   </data>
   <data name="Mode_SplitNode_Info_SelectToSplit" xml:space="preserve">
-    <value>选择要拆分的段落</value>
+    <value>Válaszd ki a felosztandó szegmenseket</value>
   </data>
   <data name="Mode_SplitNode_Info_TooFar" xml:space="preserve">
-    <value>位置离源节点太远</value>
+    <value>A pozíció messze van a forrás csomóponttól</value>
   </data>
   <data name="Mode_UnionNode" xml:space="preserve">
-    <value>并合节点模式</value>
+    <value>Csomópontok összekötése mód</value>
   </data>
   <data name="Mode_UnionNode_Info_ClickSource" xml:space="preserve">
-    <value>点击选择源节点</value>
+    <value>Kattints a forrás csomópont kiválasztásához</value>
   </data>
   <data name="Mode_UnionNode_Info_ClickUnion" xml:space="preserve">
-    <value>点击以并合节点</value>
+    <value>Kattints a csomópontok összekötéséhez</value>
   </data>
   <data name="Mode_UnionNode_Info_NoCommon" xml:space="preserve">
-    <value>节点间需存在通用段落</value>
+    <value>Ezeknek a csomópontoknak van közös szegmense</value>
   </data>
   <data name="Mode_UnionNode_Info_Overflow" xml:space="preserve">
-    <value>节点总数不能超过 8 个</value>
+    <value>Csomópontok száma nem lehet több, mint 8</value>
   </data>
   <data name="Mode_UnionNode_Info_SelectSource" xml:space="preserve">
-    <value>选择源节点</value>
+    <value>Válassz forrás csomópontot</value>
   </data>
   <data name="Mode_UnionNode_Info_SelectTarget" xml:space="preserve">
-    <value>选择目标节点</value>
+    <value>Válassz cél csomópontot</value>
   </data>
   <data name="Mode_UnionNode_Info_TooFar" xml:space="preserve">
-    <value>节点间距离太远</value>
+    <value>Csomópontok túl messze vannak egymástól</value>
   </data>
-  <data name="Mode_UnitsFormat" xml:space="preserve">
-    <value>{0}U</value>
-  </data>
+  
   <data name="Mode_UnlockSegment" xml:space="preserve">
-    <value>解/锁段落模式</value>
+    <value>Szegmens mód feloldása</value>
   </data>
   <data name="Mode_UnlockSegment_Info_ChangeLock" xml:space="preserve">
-    <value>选择要
-锁定或解锁的段落</value>
+    <value>Válaszd ki a szegmenst a 
+zároláshoz vagy feloldáshoz</value>
   </data>
   <data name="Mode_UnlockSegment_Info_ClickToLock" xml:space="preserve">
-    <value>点击锁定此段落</value>
+    <value>Kattints a szegmens zárolásához</value>
   </data>
   <data name="Mode_UnlockSegment_Info_ClickToUnlock" xml:space="preserve">
-    <value>点击解锁此段落</value>
+    <value>Kattints a szegmens feloldásához</value>
   </data>
   <data name="Mod_Description" xml:space="preserve">
-    <value>修改道路网络的许多小工具</value>
+    <value>Sokféle eszköz a hálózatokkal való munkavégzéshez</value>
   </data>
   
   
   
   
-  <data name="Mod_WhatsNewMessage1_3_2" xml:space="preserve">
-    <value>[UPDATED] 新增了Plazas和Promenades DLC 支持。</value>
-  </data>
-  <data name="Mod_WhatsNewMessage1_3_3" xml:space="preserve">
-    <value>[NEW] 添加了对Network Anarchy的支持。</value>
-  </data>
-  <data name="Settings_ActivationShortcuts" xml:space="preserve">
-    <value>激活快捷键</value>
-  </data>
-  <data name="Settings_AutoConnect" xml:space="preserve">
-    <value>平行道路自动连接到相邻节点</value>
-  </data>
+  
+  
+  
+  
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
-    <value>自动隐藏模式面板</value>
+    <value>Mód panel automatikus elrejtése</value>
   </data>
-  <data name="Settings_CommonCreateShortcuts" xml:space="preserve">
-    <value>创建模式的通用快捷方式</value>
-  </data>
-  <data name="Settings_CommonShortcuts" xml:space="preserve">
-    <value>模组共同快捷键</value>
-  </data>
-  <data name="Settings_FollowTerrain" xml:space="preserve">
-    <value>创建“跟随地形”模式的地面道路。</value>
-  </data>
-  <data name="Settings_Gameplay" xml:space="preserve">
-    <value>游戏设置</value>
-  </data>
-  <data name="Settings_Interface" xml:space="preserve">
-    <value>界面</value>
-  </data>
-  <data name="Settings_LengthUnit" xml:space="preserve">
-    <value>测量长度单位</value>
-  </data>
-  <data name="Settings_LengthUniteMeters" xml:space="preserve">
-    <value>米</value>
-  </data>
-  <data name="Settings_LengthUniteUnits" xml:space="preserve">
-    <value>游戏单位 (1U = 8米)</value>
-  </data>
-  <data name="Settings_NeedMoney" xml:space="preserve">
-    <value>需要金钱建设</value>
-  </data>
-  <data name="Settings_PanelColumns" xml:space="preserve">
-    <value>面板栏数</value>
-  </data>
-  <data name="Settings_PanelOpenSide" xml:space="preserve">
-    <value>面板打开方向</value>
-  </data>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   <data name="Settings_PanelOpenSideDown" xml:space="preserve">
-    <value>向下</value>
+    <value>Le</value>
   </data>
-  <data name="Settings_PanelOpenSideUp" xml:space="preserve">
-    <value>向上</value>
-  </data>
-  <data name="Settings_PlayEffects" xml:space="preserve">
-    <value>开启音频和视觉效果</value>
-  </data>
-  <data name="Settings_PreviewType" xml:space="preserve">
-    <value>创建预览</value>
-  </data>
+  
+  
+  
   <data name="Settings_PreviewTypeBoth" xml:space="preserve">
-    <value>同时启用</value>
+    <value>Mindkettő</value>
   </data>
-  <data name="Settings_PreviewTypeMesh" xml:space="preserve">
-    <value>网络可视化</value>
-  </data>
+  
   <data name="Settings_PreviewTypeOverlay" xml:space="preserve">
-    <value>覆盖</value>
+    <value>Átfedés</value>
   </data>
   <data name="Settings_SegmentLength" xml:space="preserve">
-    <value>最大段落长度</value>
+    <value>Maximális szegmens hossz</value>
   </data>
   <data name="Settings_Shortcut_Apply" xml:space="preserve">
-    <value>应用模式</value>
+    <value>Mód művelet alkalmazása</value>
   </data>
   <data name="Settings_Shortcut_DecreaseAngle" xml:space="preserve">
-    <value>减少起始角度</value>
+    <value>Kezdő szög csökkentése</value>
   </data>
-  <data name="Settings_Shortcut_DecreaseHeight" xml:space="preserve">
-    <value>降低高度</value>
-  </data>
+  
   <data name="Settings_Shortcut_DecreaseOffset" xml:space="preserve">
-    <value>减少圆形起点偏移</value>
+    <value>A görbe kezdési eltolásának csökkentése</value>
   </data>
   <data name="Settings_Shortcut_DecreaseOneRadius" xml:space="preserve">
-    <value>减少一个半径</value>
+    <value>Az egyik sugár csökkentése</value>
   </data>
-  <data name="Settings_Shortcut_DecreaseRadii" xml:space="preserve">
-    <value>减少半径</value>
-  </data>
-  <data name="Settings_Shortcut_DecreaseRadius" xml:space="preserve">
-    <value>减少半径</value>
-  </data>
-  <data name="Settings_Shortcut_DecreaseShift" xml:space="preserve">
-    <value>减少偏移</value>
-  </data>
-  <data name="Settings_Shortcut_DistributeBetweenIntersections" xml:space="preserve">
-    <value>在交叉口之间平均分布节点</value>
-  </data>
-  <data name="Settings_Shortcut_DistributeEvenly" xml:space="preserve">
-    <value>在圆圈上平均分布节点</value>
-  </data>
-  <data name="Settings_Shortcut_DistributeIntersections" xml:space="preserve">
-    <value>在圆圈上平均分布交叉口</value>
-  </data>
-  <data name="Settings_Shortcut_IncreaseAngle" xml:space="preserve">
-    <value>增大起始角度</value>
-  </data>
+  
+  
+  
+  
+  
+  
+  
   <data name="Settings_Shortcut_IncreaseHeight" xml:space="preserve">
-    <value>增高高度</value>
+    <value>Magasság növelése</value>
   </data>
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
-    <value>增加圆形起点偏移</value>
+    <value>A görbe kezdési eltolásának növelése</value>
   </data>
   <data name="Settings_Shortcut_IncreaseOneRadius" xml:space="preserve">
-    <value>增大一个半径</value>
+    <value>Az egyik sugár növelése</value>
   </data>
-  <data name="Settings_Shortcut_IncreaseRadii" xml:space="preserve">
-    <value>增大半径</value>
-  </data>
-  <data name="Settings_Shortcut_IncreaseRadius" xml:space="preserve">
-    <value>增大半径</value>
-  </data>
-  <data name="Settings_Shortcut_IncreaseShift" xml:space="preserve">
-    <value>增加偏移</value>
-  </data>
-  <data name="Settings_Shortcut_InvertNetwork" xml:space="preserve">
-    <value>反转网络</value>
-  </data>
-  <data name="Settings_Shortcut_InvertShift" xml:space="preserve">
-    <value>切换创建边</value>
-  </data>
-  <data name="Settings_Shortcut_ResetArrangeCircle" xml:space="preserve">
-    <value>重置为默认圆形</value>
-  </data>
-  <data name="Settings_Shortcut_SwitchFollowTerrain" xml:space="preserve">
-    <value>切换"跟随地形"模式。</value>
-  </data>
+  
+  
+  
+  
+  
+  
+  
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
-    <value>切换回环方向</value>
+    <value>Hurok irányának váltása</value>
   </data>
   <data name="Settings_Shortcut_SwitchOffset" xml:space="preserve">
-    <value>切换选中偏移</value>
+    <value>Kiválasztott görbe indítási eltolásának váltása</value>
   </data>
   <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
-    <value>切换选中的圆</value>
+    <value>Kiválasztott kör váltása</value>
   </data>
-  <data name="Settings_SlopeColors" xml:space="preserve">
-    <value>根据值设定斜坡标签颜色</value>
-  </data>
+  
   <data name="Settings_SlopeUnit" xml:space="preserve">
-    <value>斜坡度量单位</value>
+    <value>Lejtés mértékegysége</value>
   </data>
   <data name="Settings_SlopeUnitDegrees" xml:space="preserve">
-    <value>度</value>
+    <value>Fok</value>
   </data>
   <data name="Settings_SlopeUnitPercentages" xml:space="preserve">
-    <value>百分比</value>
+    <value>Százalék</value>
   </data>
   <data name="Tool_RemoveNode_Info_ClickToRemove" xml:space="preserve">
-    <value>点击以删除</value>
+    <value>Kattints az eltávolításhoz</value>
   </data>
   <data name="Tool_RemoveNode_Info_Select" xml:space="preserve">
-    <value>选择要删除的节点</value>
+    <value>Válaszd ki a csomópontot az eltávolításához</value>
   </data>
 </root>
