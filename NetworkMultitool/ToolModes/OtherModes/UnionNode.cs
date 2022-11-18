@@ -88,7 +88,7 @@ namespace NetworkMultitool
                 {
                     Union(sourceId, targetId);
                     PlayNodeEffect(targetId, true);
-                    ClearSelectionBuffer();
+                    NeedClearSelectionBuffer();
                 });
 
                 Reset(this);
