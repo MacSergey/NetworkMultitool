@@ -46,7 +46,7 @@ namespace NetworkMultitool
 #endif
         #endregion
 
-        protected override ResourceManager LocalizeManager => Localize.ResourceManager;
+        protected override LocalizeManager LocalizeManager => Localize.LocaleManager;
 
         private static PluginSearcher NetworkAnarchySearcher { get; } = PluginUtilities.GetSearcher("Network Anarchy", 2862881785ul);
         private static PluginSearcher FRTSearcher { get; } = PluginUtilities.GetSearcher("Fine Road Tool", 1844442251ul);

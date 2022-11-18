@@ -916,24 +916,24 @@ namespace NetworkMultitool
         }
         public class Straight : BaseStraight
         {
-            public bool IsShort => Length < 8f;
+            public bool IsShort => Trajectory.Length < 8f;
             public float Angle { get; private set; }
 
             public IEnumerable<Point> Parts
             {
                 get
                 {
-                    var count = Mathf.CeilToInt(Length / MaxLengthGetter());
+                    var count = Mathf.CeilToInt(Trajectory.Length / MaxLengthGetter());
                     for (var i = 1; i < count; i += 1)
                     {
-                        var point = new Point(Position(1f / count * i), Direction);
+                        var point = new Point(Trajectory.Position(1f / count * i), Trajectory.Direction);
                         yield return point;
                     }
                 }
             }
-            public Point StartPoint => new Point(StartPosition, StartDirection);
-            public Point MiddlePoint => new Point(Position(0.5f), Tangent(0.5f));
-            public Point EndPoint => new Point(EndPosition, -EndDirection);
+            public Point StartPoint => new Point(Trajectory.StartPosition, Trajectory.StartDirection);
+            public Point MiddlePoint => new Point(Trajectory.Position(0.5f), Trajectory.Tangent(0.5f));
+            public Point EndPoint => new Point(Trajectory.EndPosition, -Trajectory.EndDirection);
 
             public Straight(Vector3 start, Vector3 end, Vector3 labelDir, InfoLabel label, float height, float angle = 0) : base(start, end, labelDir, label, height)
             {
@@ -950,7 +950,7 @@ namespace NetworkMultitool
             }
             public void Update(NetInfo info, bool show) => Update(info.m_halfWidth + 7f, show);
 
-            public void Render(RenderManager.CameraInfo cameraInfo, NetInfo info, Color color, Color colorArrow, bool underground) => this.RenderMeasure(cameraInfo, info.m_halfWidth, 5f, LabelDir, color, colorArrow, underground);
+            public void Render(RenderManager.CameraInfo cameraInfo, NetInfo info, Color color, Color colorArrow, bool underground) => Trajectory.RenderMeasure(cameraInfo, info.m_halfWidth, 5f, LabelDir, color, colorArrow, underground);
         }
     }
 }

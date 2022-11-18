@@ -15,6 +15,7 @@ using System.Reflection.Emit;
 using System.Text;
 using UnityEngine;
 using static ColossalFramework.Math.VectorUtils;
+using static NetworkMultitool.BaseCreateMode;
 
 namespace NetworkMultitool
 {
@@ -947,8 +948,9 @@ namespace NetworkMultitool
             public static Point Empty => new Point(Vector3.zero, Vector3.zero);
         }
 
-        public class BaseStraight : StraightTrajectory
+        public class BaseStraight
         {
+            public StraightTrajectory Trajectory { get; }
             public Vector3 LabelDir { get; }
             private InfoLabel _label;
             public InfoLabel Label
@@ -965,13 +967,14 @@ namespace NetworkMultitool
                 }
             }
 
-            public BaseStraight(Vector3 start, Vector3 end, Vector3 labelDir, InfoLabel label, float height) : base(start.SetHeight(height), end.SetHeight(height))
+            public BaseStraight(Vector3 start, Vector3 end, Vector3 labelDir, InfoLabel label, float height) 
             {
+                Trajectory = new StraightTrajectory(start.SetHeight(height), end.SetHeight(height));
                 LabelDir = labelDir;
                 Label = label;
             }
 
-            protected virtual string GetText() => GetLengthString(Length);
+            protected virtual string GetText() => GetLengthString(Trajectory.Length);
             public void Update(float shift, bool show)
             {
                 if (Label is InfoLabel label)
@@ -981,7 +984,7 @@ namespace NetworkMultitool
                     {
                         label.text = GetText();
                         label.Direction = LabelDir;
-                        label.WorldPosition = Position(0.5f) + label.Direction * shift;
+                        label.WorldPosition = Trajectory.Position(0.5f) + label.Direction * shift;
 
                         label.UpdateInfo();
                     }
@@ -997,11 +1000,12 @@ namespace NetworkMultitool
             }
 
             public void Update(bool show) => Update(MeasureLength, show);
-            public void Render(RenderManager.CameraInfo cameraInfo, Color color, Color colorArrow, bool underground) => this.RenderMeasure(cameraInfo, 0f, MeasureLength, LabelDir, color, colorArrow, underground);
+            public void Render(RenderManager.CameraInfo cameraInfo, Color color, Color colorArrow, bool underground) => Trajectory.RenderMeasure(cameraInfo, 0f, MeasureLength, LabelDir, color, colorArrow, underground);
         }
 
-        public class BaseCurve : BezierTrajectory
+        public class BaseCurve
         {
+            protected BezierTrajectory Trajectory { get; }
             private InfoLabel _label;
             public InfoLabel Label
             {
@@ -1017,12 +1021,13 @@ namespace NetworkMultitool
                 }
             }
 
-            public BaseCurve(Bezier3 bezier, InfoLabel label) : base(bezier)
+            public BaseCurve(Bezier3 bezier, InfoLabel label)
             {
+                Trajectory = new BezierTrajectory(bezier);
                 Label = label;
             }
 
-            protected virtual string GetText() => GetLengthString(Length);
+            protected virtual string GetText() => GetLengthString(Trajectory.Length);
             public void Update(float shift, bool show)
             {
                 if (Label is InfoLabel label)
@@ -1031,8 +1036,8 @@ namespace NetworkMultitool
                     if (show)
                     {
                         label.text = GetText();
-                        label.Direction = Tangent(0.5f).Turn90(true).normalized;
-                        label.WorldPosition = Position(0.5f) + label.Direction * shift;
+                        label.Direction = Trajectory.Tangent(0.5f).Turn90(true).normalized;
+                        label.WorldPosition = Trajectory.Position(0.5f) + label.Direction * shift;
 
                         label.UpdateInfo();
                     }
@@ -1050,7 +1055,7 @@ namespace NetworkMultitool
             }
 
             public void Update(bool show) => Update(MeasureLength, show);
-            public void Render(RenderManager.CameraInfo cameraInfo, Color color, Color colorArrow, bool underground) => this.RenderMeasure(cameraInfo, 0f, MeasureLength, color, colorArrow, underground);
+            public void Render(RenderManager.CameraInfo cameraInfo, Color color, Color colorArrow, bool underground) => Trajectory.RenderMeasure(cameraInfo, 0f, MeasureLength, color, colorArrow, underground);
         }
     }
     public enum ToolModeType

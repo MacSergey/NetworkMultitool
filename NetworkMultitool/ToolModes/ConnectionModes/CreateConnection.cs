@@ -158,8 +158,8 @@ namespace NetworkMultitool
                             continue;
 
                         var mousePosition = GetMousePosition(Circles[i].CenterPos.y);
-                        var normal = new StraightTrajectory(mousePosition, mousePosition + Straights[i].Direction.Turn90(true), false);
-                        if (Intersection.CalculateSingle(Straights[i], normal, out _, out var t) && Mathf.Abs(t) <= info.m_halfWidth)
+                        var normal = new StraightTrajectory(mousePosition, mousePosition + Straights[i].Trajectory.Direction.Turn90(true), false);
+                        if (Intersection.CalculateSingle(Straights[i].Trajectory, normal, out _, out var t) && Mathf.Abs(t) <= info.m_halfWidth)
                         {
                             HoverStraight = i;
                             break;
@@ -324,7 +324,7 @@ namespace NetworkMultitool
         protected override void RenderCalculatedOverlay(RenderManager.CameraInfo cameraInfo, NetInfo info)
         {
             if (IsHoverStraight)
-                Straights[HoverStraight].Render(new OverlayData(cameraInfo) { Width = info.m_halfWidth * 2f + 0.7f, RenderLimit = Underground, Cut = true });
+                Straights[HoverStraight].Trajectory.Render(new OverlayData(cameraInfo) { Width = info.m_halfWidth * 2f + 0.7f, RenderLimit = Underground, Cut = true });
 
             for (var i = 0; i < Circles.Count; i += 1)
                 Circles[i].RenderCircle(cameraInfo, i == HoverCircle ? Colors.Blue : Colors.Green.SetAlpha(64), Underground);
