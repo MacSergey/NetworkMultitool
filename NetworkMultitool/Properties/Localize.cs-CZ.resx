@@ -472,7 +472,7 @@ uzamknutí nebo odemknutí</value>
     <value>Automaticky připojit paralelní cestu k nejbližším uzlům</value>
   </data>
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
-    <value>Automatické skrývání panelu módu</value>
+    <value>Automatické skrývání panelu</value>
   </data>
   <data name="Settings_CommonCreateShortcuts" xml:space="preserve">
     <value>Časté zkratky režimů tvorby</value>
