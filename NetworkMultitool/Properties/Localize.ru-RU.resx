@@ -541,7 +541,7 @@
     <value>Общие горячие клавиши режимов</value>
   </data>
   <data name="Settings_FollowTerrain" xml:space="preserve">
-    <value>Создаваемые догори следуют за поверхностью</value>
+    <value>Создаваемые дороги следуют за поверхностью</value>
   </data>
   <data name="Settings_Gameplay" xml:space="preserve">
     <value>Игровой процесс</value>
