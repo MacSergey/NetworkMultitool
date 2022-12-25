@@ -39,7 +39,7 @@ Available translations: Chinese, Danish, Finnish, French, German, Hungarian, Ita
 [HR][/HR] 
 [h1]Recommended additional mods[/h1]
 [list] 
-[*] [https://steamcommunity.com/sharedfiles/filedetails/?id=2862881785]Network Anarchy[/url] - To build specific road type and much more control
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862881785]Network Anarchy[/url] - To build specific road type and much more control
 [/list]
 
 [HR][/HR]
