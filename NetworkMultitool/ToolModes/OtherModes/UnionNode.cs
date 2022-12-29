@@ -13,7 +13,7 @@ namespace NetworkMultitool
         public override ToolModeType Type => ToolModeType.UnionNode;
         protected override bool IsReseted => !IsSource;
 
-        protected override bool IsValidNode(ushort nodeId) => base.IsValidNode(nodeId) && !IsSource || nodeId != Source.Id;
+        protected override bool IsValidNode(ushort nodeId) => base.IsValidNode(nodeId) && (!IsSource || nodeId != Source.Id);
 
         private NodeSelection Source { get; set; }
         private bool IsSource => Source != null;
