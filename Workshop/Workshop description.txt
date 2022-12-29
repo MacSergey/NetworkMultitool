@@ -39,8 +39,7 @@ Available translations: Chinese, Danish, Finnish, French, German, Hungarian, Ita
 [HR][/HR] 
 [h1]Recommended additional mods[/h1]
 [list] 
-[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=1844442251]Fine Road Tool[/url] - To build specific road type
-[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2085018096]Node Spacer[/url] - To change max segment lenght
+[*] [url=https://steamcommunity.com/sharedfiles/filedetails/?id=2862881785]Network Anarchy[/url] - To build specific road type and much more control
 [/list]
 
 [HR][/HR]

@@ -917,7 +917,15 @@ namespace NetworkMultitool
             var info = ToolsModifierControl.toolController.Tools.OfType<NetTool>().FirstOrDefault().Prefab?.m_netAI?.m_info;
             return info != null && CheckItemClass(info.GetConnectionClass()) ? info : null;
         }
-        protected bool IsInvertable(NetInfo info) => info.m_netAI is RoadBaseAI ? info.m_forwardVehicleLaneCount != info.m_backwardVehicleLaneCount : true;
+        protected bool IsInvertable(NetInfo info)
+        {
+            if (info.m_netAI is RoadBaseAI)
+                return info.m_forwardVehicleLaneCount != info.m_backwardVehicleLaneCount;
+            else if (info.m_netAI is DecorationWallAI)
+                return true;
+            else
+                return false;
+        }
 
         public struct Point
         {
@@ -967,7 +975,7 @@ namespace NetworkMultitool
                 }
             }
 
-            public BaseStraight(Vector3 start, Vector3 end, Vector3 labelDir, InfoLabel label, float height) 
+            public BaseStraight(Vector3 start, Vector3 end, Vector3 labelDir, InfoLabel label, float height)
             {
                 Trajectory = new StraightTrajectory(start.SetHeight(height), end.SetHeight(height));
                 LabelDir = labelDir;
