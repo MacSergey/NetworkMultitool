@@ -11,7 +11,7 @@ using UnityEngine;
 
 namespace NetworkMultitool.UI
 {
-    public class ModeButton : MultyAtlasUIButton
+    public class ModeButton : CustomUIButton
     {
         private static Dictionary<ToolModeType, List<ModeButton>> ButtonsDic { get; } = new Dictionary<ToolModeType, List<ModeButton>>();
 
@@ -23,9 +23,9 @@ namespace NetworkMultitool.UI
         private static Color32 FocusedColor => new Color32(144, 144, 144, 255);
 
         private BaseNetworkMultitoolMode Mode { get; set; }
-        public bool Activate 
-        { 
-            set 
+        public bool Activate
+        {
+            set
             {
                 if (value)
                 {
@@ -41,7 +41,7 @@ namespace NetworkMultitool.UI
                     pressedBgColor = PressedColor;
                     focusedBgColor = PressedColor;
                 }
-            } 
+            }
         }
         public ModeButton()
         {

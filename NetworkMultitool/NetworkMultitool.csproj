@@ -16,7 +16,7 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<AssemblyVersion>1.4.0.15</AssemblyVersion>
+		<AssemblyVersion>1.4.0.21</AssemblyVersion>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)' == 'Stable Release' OR '$(Configuration)' == 'Stable Debug'">
@@ -76,6 +76,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\PreviewImage.png" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<EmbeddedResource Include="Resources\ModeButtons\AddNode.png" />
 		<EmbeddedResource Include="Resources\ModeButtons\ArrangeAtCircle.png" />
 		<EmbeddedResource Include="Resources\ModeButtons\ArrangeAtLine.png" />
@@ -90,6 +94,7 @@
 		<EmbeddedResource Include="Resources\ModeButtons\SplitNode.png" />
 		<EmbeddedResource Include="Resources\ModeButtons\UnionNode.png" />
 		<EmbeddedResource Include="Resources\ModeButtons\UnlockSegment.png" />
+		<EmbeddedResource Include="Resources\PreviewImage.png" />
 
 		<EmbeddedResource Include="Resources\UUIButton\UUIButtonHovered.png" />
 		<EmbeddedResource Include="Resources\UUIButton\UUIButtonNormal.png" />
