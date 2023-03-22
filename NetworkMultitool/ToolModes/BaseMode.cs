@@ -51,33 +51,6 @@ namespace NetworkMultitool
         private static Func<bool> DefaultUndergroundDefaultGetter { get; } = () => false;
         public BaseNetworkMultitoolMode()
         {
-            if (Mod.FRTEnabled)
-            {
-                try
-                {
-                    if (UndergroundDefaultGetter == null || UndergroundDefaultGetter == DefaultUndergroundDefaultGetter)
-                    {
-                        var definition = new DynamicMethod("UndergroundGetter", typeof(bool), new Type[0], true);
-                        var generator = definition.GetILGenerator();
-
-                        var instanceField = AccessTools.Field(System.Type.GetType("FineRoadTool.FineRoadTool"), "instance");
-                        generator.Emit(OpCodes.Ldsfld, instanceField);
-                        var modeField = AccessTools.Field(System.Type.GetType("FineRoadTool.FineRoadTool"), "m_mode");
-                        generator.Emit(OpCodes.Ldfld, modeField);
-                        generator.Emit(OpCodes.Ldc_I4_S, 4);
-                        generator.Emit(OpCodes.Ceq);
-                        generator.Emit(OpCodes.Ret);
-
-                        UndergroundDefaultGetter = (Func<bool>)definition.CreateDelegate(typeof(Func<bool>));
-                    }
-                    return;
-                }
-                catch (Exception error)
-                {
-                    SingletonMod<Mod>.Logger.Error("Cant access to Node Spacer", error);
-                }
-            }
-
             UndergroundDefaultGetter = DefaultUndergroundDefaultGetter;
         }
 

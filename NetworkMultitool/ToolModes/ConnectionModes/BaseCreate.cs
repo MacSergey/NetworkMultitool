@@ -70,7 +70,7 @@ namespace NetworkMultitool
         protected float MinPossibleRadius => Info != null ? Info.m_halfWidth * 2f : 16f;
         protected float MaxPossibleRadius => 5000f;
 
-        private bool ForceUnderground => IsBoth && (First.Id.GetSegment().Nodes().Any(n => n.m_flags.IsSet(NetNode.Flags.Underground)) || Second.Id.GetSegment().Nodes().Any(n => n.m_flags.IsSet(NetNode.Flags.Underground)));
+        private bool ForceUnderground => IsBoth && (First.Id.GetSegment().NodeIds().Any(id => id.GetNode().m_flags.IsSet(NetNode.Flags.Underground)) || Second.Id.GetSegment().NodeIds().Any(id => id.GetNode().m_flags.IsSet(NetNode.Flags.Underground)));
 
         public int Cost { get; private set; }
         private new bool EnoughMoney => !NeedMoney || EnoughMoney(Cost);
@@ -89,23 +89,6 @@ namespace NetworkMultitool
                     {
                         MaxLengthGetter = (Func<float>)Delegate.CreateDelegate(typeof(Func<float>), method);
                         SingletonMod<Mod>.Logger.Debug("Segment length linked to Network Anarchy");
-                    }
-                    return;
-                }
-                catch (Exception error)
-                {
-                    SingletonMod<Mod>.Logger.Error("Cant access to Node Spacer", error);
-                }
-            }
-            else if (Mod.NodeSpacerEnabled)
-            {
-                try
-                {
-                    var method = System.Type.GetType("NodeSpacer.NT_CreateNode").GetMethod("GetMaxLength");
-                    if (MaxLengthGetter?.Method != method)
-                    {
-                        MaxLengthGetter = (Func<float>)Delegate.CreateDelegate(typeof(Func<float>), method);
-                        SingletonMod<Mod>.Logger.Debug("Segment length linked to Node Spacer");
                     }
                     return;
                 }

@@ -82,7 +82,7 @@ namespace NetworkMultitool
             AddCheckboxPanel(gameplayGroup, Localize.Settings_LengthUnit, LengthUnite, new string[] { Localize.Settings_LengthUniteMeters, Localize.Settings_LengthUniteUnits }, OnSlopeUniteChanged);
             AddCheckboxPanel(gameplayGroup, Localize.Settings_SlopeUnit, SlopeUnite, new string[] { Localize.Settings_SlopeUnitPercentages, Localize.Settings_SlopeUnitDegrees }, OnSlopeUniteChanged);
             AddCheckBox(gameplayGroup, Localize.Settings_AutoConnect, AutoConnect);
-            if (Utility.InGame && !Mod.NodeSpacerEnabled)
+            if (Utility.InGame && !Mod.NetworkAnarchyEnabled)
                 AddIntField(gameplayGroup, Localize.Settings_SegmentLength, SegmentLength, 80, 50, 200);
 
             AddNotifications(GeneralTab);
