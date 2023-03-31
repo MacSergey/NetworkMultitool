@@ -545,7 +545,7 @@ verrouiller ou déverrouiller</value>
     <value>Raccourcis communs des modes</value>
   </data>
   <data name="Settings_FollowTerrain" xml:space="preserve">
-    <value>Les routes créées au sol vont suivre le terrain</value>
+    <value>Les routes créées au sol suivent le relief</value>
   </data>
   <data name="Settings_Gameplay" xml:space="preserve">
     <value>Jouabilité</value>
