@@ -30,7 +30,7 @@ namespace NetworkMultitool
             new ModVersion(new Version("1.1"), new DateTime(2021, 8, 7)),
             new ModVersion(new Version("1.0"), new DateTime(2021, 7, 30)),
         };
-        protected override Version RequiredGameVersion => new Version(1, 16, 0, 3);
+        protected override Version RequiredGameVersion => new Version(1, 16, 1, 2);
 
         public override string NameRaw => "Network Multitool";
         public override string Description => !IsBeta ? Localize.Mod_Description : CommonLocalize.Mod_DescriptionBeta;
@@ -49,21 +49,14 @@ namespace NetworkMultitool
         protected override LocalizeManager LocalizeManager => Localize.LocaleManager;
 
         private static PluginSearcher NetworkAnarchySearcher { get; } = PluginUtilities.GetSearcher("Network Anarchy", 2862881785ul);
-        private static PluginSearcher FRTSearcher { get; } = PluginUtilities.GetSearcher("Fine Road Tool", 1844442251ul);
-        private static PluginSearcher NodeSpacerSearcher { get; } = PluginUtilities.GetSearcher("Node Spacer", 2085018096ul);
 
         public static bool IsNetworkAnarchy => NetworkAnarchySearcher.GetPlugin() != null;
-        public static bool IsFRT => FRTSearcher.GetPlugin() != null;
-        public static bool IsNodeSpacer => NodeSpacerSearcher.GetPlugin() != null;
 
         public static bool NetworkAnarchyEnabled => NetworkAnarchySearcher.GetPlugin() is PluginInfo plugin && plugin.isEnabled;
-        public static bool FRTEnabled => FRTSearcher.GetPlugin() is PluginInfo plugin && plugin.isEnabled;
-        public static bool NodeSpacerEnabled => NodeSpacerSearcher.GetPlugin() is PluginInfo plugin && plugin.isEnabled;
 
         static Type _networkAnarchyType;
-        static Type _frtType;
-        public static Type NetworkAnarchyType => _networkAnarchyType ??= Type.GetType("NetworkAnarchy.NetworkAnarchy");
-        public static Type FRTType => _frtType ??= Type.GetType("FineRoadTool.FineRoadTool");
+
+        public static Type NetworkAnarchyType => _networkAnarchyType ??= AccessTools.TypeByName("NetworkAnarchy.NetworkAnarchy");
 
         #region BASIC
 
@@ -96,16 +89,6 @@ namespace NetworkMultitool
                 success &= NetworkAnarchyUpdate();
                 success &= NetworkAnarchyOnGUI();
                 success &= NetworkAnarchyCreateOptionPanel();
-            }
-            else
-            {
-                if (IsFRT)
-                {
-                    success &= FineRoadToolUpdate();
-                    success &= FineRoadToolOnGUI();
-                }
-                if (IsNodeSpacer)
-                    success &= NodeSpacerStart();
             }
 
             return success;
@@ -143,27 +126,8 @@ namespace NetworkMultitool
         }
         private bool NetworkAnarchyCreateOptionPanel()
         {
-            return AddPostfix(typeof(Patcher), nameof(Patcher.NetworkAnarchyCreateOptionPanelPostfix), Type.GetType("NetworkAnarchy.UIToolOptionsButton"), "CreateOptionPanel");
+            return AddPostfix(typeof(Patcher), nameof(Patcher.NetworkAnarchyCreateOptionPanelPostfix), AccessTools.TypeByName("NetworkAnarchy.UIToolOptionsButton"), "CreateOptionPanel");
         }
-
-
-        private bool FineRoadToolUpdate()
-        {
-            if (!AddTranspiler(typeof(Patcher), nameof(Patcher.FineRoadToolUpdateTranspiler), FRTType, "Update"))
-                return AddTranspiler(typeof(Patcher), nameof(Patcher.FineRoadToolUpdateTranspiler), FRTType, "FpsBoosterUpdate");
-            else
-                return true;
-        }
-        private bool FineRoadToolOnGUI()
-        {
-            return AddTranspiler(typeof(Patcher), nameof(Patcher.FineRoadToolOnGUITranspiler), FRTType, "OnGUI");
-        }
-        private bool NodeSpacerStart()
-        {
-            return AddPostfix(typeof(Patcher), nameof(Patcher.NodeSpacerPostfix), Type.GetType("NodeSpacer.ModUI"), "Start");
-        }
-
-
 
         #endregion
     }
@@ -187,7 +151,6 @@ namespace NetworkMultitool
         public static IEnumerable<CodeInstruction> GameKeyShortcutsEscapeTranspiler(ILGenerator generator, IEnumerable<CodeInstruction> instructions) => ModsCommon.Patcher.GameKeyShortcutsEscapeTranspiler<Mod, NetworkMultitoolTool>(generator, instructions);
 
 
-        public static IEnumerable<CodeInstruction> FineRoadToolUpdateTranspiler(ILGenerator generator, IEnumerable<CodeInstruction> instructions) => UpdateTranspiler(generator, instructions, Mod.FRTType);
         public static IEnumerable<CodeInstruction> NetworkAnarchyUpdateTranspiler(ILGenerator generator, IEnumerable<CodeInstruction> instructions) => UpdateTranspiler(generator, instructions, Mod.NetworkAnarchyType);
 
 
@@ -216,8 +179,7 @@ namespace NetworkMultitool
         private static NetInfo GetPrefab(NetInfo info) => info ?? PrefabCollection<NetInfo>.FindLoaded("Basic Road");
 
 
-        public static IEnumerable<CodeInstruction> NetworkAnarchyOnGUITranspiler(ILGenerator generator, IEnumerable<CodeInstruction> instructions) => OnGUITranspiler(generator, instructions, Mod.FRTType);
-        public static IEnumerable<CodeInstruction> FineRoadToolOnGUITranspiler(ILGenerator generator, IEnumerable<CodeInstruction> instructions) => OnGUITranspiler(generator, instructions, Mod.NetworkAnarchyType);
+        public static IEnumerable<CodeInstruction> NetworkAnarchyOnGUITranspiler(ILGenerator generator, IEnumerable<CodeInstruction> instructions) => OnGUITranspiler(generator, instructions, Mod.NetworkAnarchyType);
 
         public static IEnumerable<CodeInstruction> OnGUITranspiler(ILGenerator generator, IEnumerable<CodeInstruction> instructions, Type type)
         {
@@ -256,15 +218,6 @@ namespace NetworkMultitool
                 prev = instruction;
             }
             yield return prev;
-        }
-
-        public static void NodeSpacerPostfix(UISlider ___m_maxLengthSlider)
-        {
-            ___m_maxLengthSlider.eventValueChanged += (_, _) =>
-            {
-                if (SingletonTool<NetworkMultitoolTool>.Instance.Mode is BaseCreateMode mode)
-                    mode.Recalculate();
-            };
         }
 
         public static void NetworkAnarchyCreateOptionPanelPostfix(UISlider ___m_maxSegmentLengthSlider)

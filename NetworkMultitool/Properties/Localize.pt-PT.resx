@@ -457,7 +457,9 @@ Clicar com {0} para dividir o nó e alinhá-lo à altura da fonte</value>
   <data name="Mod_WhatsNewMessage1_3_2" xml:space="preserve">
     <value>[ATUALIZAÇÃO] Adicionado suporte ao DLC Plazas &amp; Promenades.</value>
   </data>
-  
+  <data name="Mod_WhatsNewMessage1_3_3" xml:space="preserve">
+    <value>[NOVO] Suporte à Anarquia de Rede.</value>
+  </data>
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>Atalhos de ativação</value>
   </data>
