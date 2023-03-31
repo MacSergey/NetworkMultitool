@@ -134,13 +134,13 @@ namespace NetworkMultitool
 
                 if (IsHoverSegment)
                 {
-                    var color = Segments.Contains(HoverSegment) ? Colors.Yellow : (CanAddSegment ? Colors.Green : Colors.Red);
+                    var color = Segments.Contains(HoverSegment) ? CommonColors.Yellow : (CanAddSegment ? CommonColors.Green : CommonColors.Red);
                     HoverSegment.Render(new OverlayData(cameraInfo) { Color = color, RenderLimit = Underground });
                 }
                 else if (IsReady)
                 {
                     var width = Segments.Max(s => s.Id.GetSegment().Info.m_halfWidth) * 2f;
-                    var color = IsFar ? Colors.Red : Colors.Green;
+                    var color = IsFar ? CommonColors.Red : CommonColors.Green;
                     Tool.MouseWorldPosition.RenderCircle(new OverlayData(cameraInfo) { Width = width, Color = color, RenderLimit = Underground });
                 }
 
@@ -159,7 +159,7 @@ namespace NetworkMultitool
 
                 if (IsHoverNode)
                 {
-                    var color = HoverNode.Id.GetNode().CountSegments() >= 2 ? Colors.Green : Colors.Red;
+                    var color = HoverNode.Id.GetNode().CountSegments() >= 2 ? CommonColors.Green : CommonColors.Red;
                     HoverNode.Render(new OverlayData(cameraInfo) { Color = color, RenderLimit = Underground });
                 }
                 else

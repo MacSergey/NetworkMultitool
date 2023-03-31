@@ -538,7 +538,7 @@ lock or unlock it</value>
     <value>Modes' common shortcuts</value>
   </data>
   <data name="Settings_FollowTerrain" xml:space="preserve">
-    <value>Ground roads will follow terrain</value>
+    <value>Ground roads follow terrain</value>
   </data>
   <data name="Settings_Gameplay" xml:space="preserve">
     <value>Gameplay</value>

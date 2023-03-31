@@ -327,17 +327,17 @@ namespace NetworkMultitool
                 Straights[HoverStraight].Trajectory.Render(new OverlayData(cameraInfo) { Width = info.m_halfWidth * 2f + 0.7f, RenderLimit = Underground, Cut = true });
 
             for (var i = 0; i < Circles.Count; i += 1)
-                Circles[i].RenderCircle(cameraInfo, i == HoverCircle ? Colors.Blue : Colors.Green.SetAlpha(64), Underground);
+                Circles[i].RenderCircle(cameraInfo, i == HoverCircle ? CommonColors.Blue : CommonColors.Green.SetAlpha(64), Underground);
 
             foreach (var circle in Circles)
-                circle.Render(cameraInfo, info, Colors.Gray224, Underground);
+                circle.Render(cameraInfo, info, CommonColors.Gray224, Underground);
 
             for (var i = 0; i < Straights.Count; i += 1)
             {
                 if (i == 0 || i == Straights.Count - 1 || !Straights[i].IsShort)
                 {
-                    var colorArrow = i == (SelectOffset ? 0 : Straights.Count - 1) ? Colors.Yellow : Colors.Gray224;
-                    Straights[i].Render(cameraInfo, info, Colors.Gray224, colorArrow, Underground);
+                    var colorArrow = i == (SelectOffset ? 0 : Straights.Count - 1) ? CommonColors.Yellow : CommonColors.Gray224;
+                    Straights[i].Render(cameraInfo, info, CommonColors.Gray224, colorArrow, Underground);
                 }
             }
 
@@ -347,7 +347,7 @@ namespace NetworkMultitool
         protected override void RenderFailedOverlay(RenderManager.CameraInfo cameraInfo, NetInfo info)
         {
             for (var i = 0; i < Circles.Count; i += 1)
-                Circles[i].RenderCircle(cameraInfo, i == HoverCircle ? Colors.Blue : Colors.Red, Underground);
+                Circles[i].RenderCircle(cameraInfo, i == HoverCircle ? CommonColors.Blue : CommonColors.Red, Underground);
 
             base.RenderFailedOverlay(cameraInfo, info);
 
@@ -357,9 +357,9 @@ namespace NetworkMultitool
         private void RenderCenter(RenderManager.CameraInfo cameraInfo, int i)
         {
             if (i == HoverCenter)
-                Circles[i].RenderCenterHover(cameraInfo, Colors.Blue, Underground);
+                Circles[i].RenderCenterHover(cameraInfo, CommonColors.Blue, Underground);
             else if (i == SelectCircle)
-                Circles[i].RenderCenterHover(cameraInfo, Colors.Yellow, Underground);
+                Circles[i].RenderCenterHover(cameraInfo, CommonColors.Yellow, Underground);
         }
     }
 

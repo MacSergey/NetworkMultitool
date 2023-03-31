@@ -16,7 +16,7 @@ namespace NetworkMultitool
 
         protected override bool SelectNodes => false;
         protected override bool AllowUntouch => true;
-        protected override Color32 SegmentColor => HoverSegment.Id.GetSegment().m_flags.IsSet(NetSegment.Flags.Untouchable) ? Colors.Green : Colors.Yellow;
+        protected override Color32 SegmentColor => HoverSegment.Id.GetSegment().m_flags.IsSet(NetSegment.Flags.Untouchable) ? CommonColors.Green : CommonColors.Yellow;
 
         protected override string GetInfo()
         {

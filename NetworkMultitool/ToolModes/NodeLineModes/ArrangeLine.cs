@@ -255,7 +255,7 @@ namespace NetworkMultitool
         {
             if (Calculated)
             {
-                var color = EnoughMoney ? Colors.Yellow : Colors.Red;
+                var color = EnoughMoney ? CommonColors.Yellow : CommonColors.Red;
                 for (var i = 1; i < Points.Count; i += 1)
                 {
                     if (!Points[i - 1].IsEmpty && !Points[i].IsEmpty)
@@ -270,7 +270,7 @@ namespace NetworkMultitool
             base.RenderOverlay(cameraInfo);
 
             if (IsHoverGuideSegment)
-                HoverSegment.Render(new OverlayData(cameraInfo) { Color = Colors.Purple });
+                HoverSegment.Render(new OverlayData(cameraInfo) { Color = CommonColors.Purple });
         }
     }
 }

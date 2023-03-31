@@ -166,17 +166,17 @@ namespace NetworkMultitool
         }
         protected override void RenderCalculatedOverlay(RenderManager.CameraInfo cameraInfo, NetInfo info)
         {
-            Circle.Render(cameraInfo, info, Colors.Gray224, Underground);
-            StartStraight.Render(cameraInfo, info, Colors.Gray224, SelectOffset ? Colors.Yellow : Colors.Gray224, Underground);
-            EndStraight.Render(cameraInfo, info, Colors.Gray224, !SelectOffset ? Colors.Yellow : Colors.Gray224, Underground);
+            Circle.Render(cameraInfo, info, CommonColors.Gray224, Underground);
+            StartStraight.Render(cameraInfo, info, CommonColors.Gray224, SelectOffset ? CommonColors.Yellow : CommonColors.Gray224, Underground);
+            EndStraight.Render(cameraInfo, info, CommonColors.Gray224, !SelectOffset ? CommonColors.Yellow : CommonColors.Gray224, Underground);
 
             if (IsHoverCenter)
-                Circle.RenderCenterHover(cameraInfo, Colors.Blue, Underground);
+                Circle.RenderCenterHover(cameraInfo, CommonColors.Blue, Underground);
         }
         protected override void RenderFailedOverlay(RenderManager.CameraInfo cameraInfo, NetInfo info)
         {
             if (IsHoverCenter)
-                Circle.RenderCenterHover(cameraInfo, Colors.Blue, Underground);
+                Circle.RenderCenterHover(cameraInfo, CommonColors.Blue, Underground);
         }
 
         public class MiddleCircle : Circle

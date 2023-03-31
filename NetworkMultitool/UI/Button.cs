@@ -1,28 +1,20 @@
 ﻿using ColossalFramework.UI;
 using ModsCommon;
 using ModsCommon.UI;
-using NetworkMultitool.Utilities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using UnityEngine;
+using NetworkMultitool.Utilities;
+using static NetworkMultitool.Utilities.NetworkMultitoolTextures;
 
 namespace NetworkMultitool.UI
 {
     public class NetworkMultitoolButton : UUINetToolButton<Mod, NetworkMultitoolTool>
     {
         protected override Vector2 ButtonPosition => new Vector3(129, 38);
-        protected override UITextureAtlas Atlas => NetworkMultitoolTextures.Atlas;
+        protected override UITextureAtlas DefaultAtlas => NetworkMultitoolTextures.Atlas;
 
-        protected override string NormalBgSprite => NetworkMultitoolTextures.ActivationButtonNormal;
-        protected override string HoveredBgSprite => NetworkMultitoolTextures.ActivationButtonHover;
-        protected override string PressedBgSprite => NetworkMultitoolTextures.ActivationButtonHover;
-        protected override string FocusedBgSprite => NetworkMultitoolTextures.ActivationButtonActive;
-        protected override string NormalFgSprite => NetworkMultitoolTextures.ActivationButtonIconNormal;
-        protected override string HoveredFgSprite => NetworkMultitoolTextures.ActivationButtonIconHover;
-        protected override string PressedFgSprite => NetworkMultitoolTextures.ActivationButtonIconNormal;
-        protected override string FocusedFgSprite => NetworkMultitoolTextures.ActivationButtonIconNormal;
+        protected override SpriteSet DefaultBgSprite => new SpriteSet(ActivationButtonNormal, ActivationButtonHover, ActivationButtonHover, ActivationButtonActive, string.Empty);
+        protected override SpriteSet DefaultFgSprite => new SpriteSet(ActivationButtonIconNormal, ActivationButtonIconHover, ActivationButtonIconNormal, ActivationButtonIconNormal, string.Empty);
+
 
         public override void Start()
         {

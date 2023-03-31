@@ -238,12 +238,12 @@ namespace NetworkMultitool
         protected override void RenderCalculatedOverlay(RenderManager.CameraInfo cameraInfo, NetInfo info)
         {
             foreach (var circle in Circles)
-                circle.Render(cameraInfo, info, Colors.Gray224, Underground);
+                circle.Render(cameraInfo, info, CommonColors.Gray224, Underground);
 
             for (var i = 0; i < Straights.Count; i += 1)
             {
                 if (i == 0 || i == Straights.Count - 1 || !Straights[i].IsShort)
-                    Straights[i].Render(cameraInfo, info, Colors.Gray224, Colors.Gray224, Underground);
+                    Straights[i].Render(cameraInfo, info, CommonColors.Gray224, CommonColors.Gray224, Underground);
             }
         }
         protected override void RenderFailedOverlay(RenderManager.CameraInfo cameraInfo, NetInfo info)
@@ -252,8 +252,8 @@ namespace NetworkMultitool
             {
                 foreach (var circle in Circles)
                 {
-                    circle.RenderCircle(cameraInfo, circle.IsCorrect ? Colors.Green : Colors.Red, Underground);
-                    circle.RenderCenter(cameraInfo, circle.IsCorrect ? Colors.Green : Colors.Red, Underground);
+                    circle.RenderCircle(cameraInfo, circle.IsCorrect ? CommonColors.Green : CommonColors.Red, Underground);
+                    circle.RenderCenter(cameraInfo, circle.IsCorrect ? CommonColors.Green : CommonColors.Red, Underground);
                 }
             }
         }
@@ -418,9 +418,9 @@ namespace NetworkMultitool
             for (var i = 0; i < Circles.Count; i += 1)
             {
                 if (IsEdit && IsSnapping(Circles[Edit]) && Utility.NotPressed && Math.Abs(i - Edit) == 1 && Circle.IsSnapping(Circles[i], Circles[Edit]))
-                    Circles[i].RenderCircle(cameraInfo, Colors.Orange, Underground);
+                    Circles[i].RenderCircle(cameraInfo, CommonColors.Orange, Underground);
                 else
-                    Circles[i].RenderCircle(cameraInfo, i == Edit ? Colors.Green : Colors.Green.SetAlpha(64), Underground);
+                    Circles[i].RenderCircle(cameraInfo, i == Edit ? CommonColors.Green : CommonColors.Green.SetAlpha(64), Underground);
             }
 
             base.RenderCalculatedOverlay(cameraInfo, info);
@@ -429,7 +429,7 @@ namespace NetworkMultitool
         {
             for (var i = 0; i < Circles.Count; i += 1)
             {
-                var color = Circles[i].IsCorrect ? (i == Edit ? Colors.Green : Colors.Green.SetAlpha(64)) : Colors.Red;
+                var color = Circles[i].IsCorrect ? (i == Edit ? CommonColors.Green : CommonColors.Green.SetAlpha(64)) : CommonColors.Red;
                 Circles[i].RenderCircle(cameraInfo, color, Underground);
             }
 

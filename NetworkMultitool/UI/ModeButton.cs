@@ -3,11 +3,9 @@ using ModsCommon;
 using ModsCommon.UI;
 using ModsCommon.Utilities;
 using NetworkMultitool.Utilities;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using UnityEngine;
+using static ModsCommon.Utilities.CommonTextures;
 
 namespace NetworkMultitool.UI
 {
@@ -23,55 +21,30 @@ namespace NetworkMultitool.UI
         private static Color32 FocusedColor => new Color32(144, 144, 144, 255);
 
         private BaseNetworkMultitoolMode Mode { get; set; }
-        public bool Activate
-        {
-            set
-            {
-                if (value)
-                {
-                    normalBgSprite = CommonTextures.HeaderHover;
-                    hoveredBgColor = FocusedColor;
-                    pressedBgColor = FocusedColor;
-                    focusedBgColor = FocusedColor;
-                }
-                else
-                {
-                    normalBgSprite = string.Empty;
-                    hoveredBgColor = HoverColor;
-                    pressedBgColor = PressedColor;
-                    focusedBgColor = PressedColor;
-                }
-            }
-        }
         public ModeButton()
         {
-            atlasBackground = CommonTextures.Atlas;
-            atlasForeground = NetworkMultitoolTextures.Atlas;
-            hoveredBgSprite = CommonTextures.HeaderHover;
-            pressedBgSprite = CommonTextures.HeaderHover;
-            focusedBgSprite = CommonTextures.HeaderHover;
-            normalBgColor = FocusedColor;
+            bgAtlas = CommonTextures.Atlas;
+            bgSprites = new SpriteSet(string.Empty, HeaderHover, HeaderHover, HeaderHover, string.Empty);
+            bgColors = new ColorSet(default, HoverColor, PressedColor, PressedColor, default);
+            selBgSprites = HeaderHover;
+            selBgColors = FocusedColor;
+
+            fgAtlas = NetworkMultitoolTextures.Atlas;
+
             size = new Vector2(Size, Size);
             clipChildren = true;
             minimumSize = size;
-            foregroundSpriteMode = UIForegroundSpriteMode.Fill;
+            ForegroundSpriteMode = SpriteMode.Fill;
 
-            Activate = false;
+            IsSelected = false;
         }
         public static void SetState(ToolModeType modeType, bool state)
         {
             if (ButtonsDic.TryGetValue(modeType & ToolModeType.Group, out var buttons))
             {
                 foreach (var button in buttons)
-                    button.Activate = state;
+                    button.IsSelected = state;
             }
-        }
-
-        public override void Update()
-        {
-            base.Update();
-            if (state == ButtonState.Focused)
-                state = ButtonState.Normal;
         }
         public override void OnDestroy()
         {
@@ -91,10 +64,7 @@ namespace NetworkMultitool.UI
             var button = parent.AddUIComponent<ModeButton>();
 
             button.Mode = mode;
-            var sprite = mode.Type.ToString();
-            button.normalFgSprite = sprite;
-            button.hoveredFgSprite = sprite;
-            button.pressedFgSprite = sprite;
+            button.FgSprites = mode.Type.ToString();
 
             if (!ButtonsDic.TryGetValue(mode.Type & ToolModeType.Group, out var buttons))
             {

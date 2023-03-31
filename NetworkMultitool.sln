@@ -29,8 +29,6 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "SimpleMessageBoxShared", "M
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "SingletonShared", "ModsCommon\SingletonShared\SingletonShared.shproj", "{32AEE23B-AF72-45B6-8011-5EC3B139D2DF}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "AutoLayoutPanelShared", "ModsCommon\AutoLayoutPanelShared\AutoLayoutPanelShared.shproj", "{FC5E6F74-8408-4FD8-A46A-A7F549E30454}"
-EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "UIShared", "ModsCommon\UIShared\UIShared.shproj", "{BE979510-7832-4714-95A3-305065D9DED6}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "LoggerShared", "ModsCommon\LoggerShared\LoggerShared.shproj", "{FE0AF823-F63F-4441-B28D-C0890BC0BF6A}"
@@ -133,7 +131,6 @@ Global
 		{8431FA6D-34A1-4700-8D4F-09C9E65346E3} = {FCD91648-4081-411A-85B9-34EBEF872753}
 		{A3055CAA-4807-4C49-973C-7B92610C25C8} = {FCD91648-4081-411A-85B9-34EBEF872753}
 		{32AEE23B-AF72-45B6-8011-5EC3B139D2DF} = {74B18E71-50C2-4CE6-9B20-812891865D9A}
-		{FC5E6F74-8408-4FD8-A46A-A7F549E30454} = {FCD91648-4081-411A-85B9-34EBEF872753}
 		{BE979510-7832-4714-95A3-305065D9DED6} = {FCD91648-4081-411A-85B9-34EBEF872753}
 		{FE0AF823-F63F-4441-B28D-C0890BC0BF6A} = {74B18E71-50C2-4CE6-9B20-812891865D9A}
 		{2873738F-AA2C-4C8A-BE06-BC59ACCA56F0} = {74B18E71-50C2-4CE6-9B20-812891865D9A}
@@ -186,7 +183,6 @@ Global
 		ModsCommon\LocalizeShared\pt-PT\LocalizeShared.pt-PT.projitems*{63601bbf-995f-4843-b4e8-a388652bef2d}*SharedItemsImports = 13
 		ModsCommon\NetExtension\NetExtension.projitems*{69f65522-1ccc-4c9f-8989-8155708c1832}*SharedItemsImports = 13
 		ModsCommon\LocalizeShared\zh-CN\LocalizeShared.zh-CN.projitems*{6d76ce46-51a4-4596-8e5b-03261089bedd}*SharedItemsImports = 13
-		ModsCommon\AutoLayoutPanelShared\AutoLayoutPanelShared.projitems*{741e3213-4964-4600-a82c-7ffafef72449}*SharedItemsImports = 5
 		ModsCommon\ColorsShared\ColorsShared.projitems*{741e3213-4964-4600-a82c-7ffafef72449}*SharedItemsImports = 5
 		ModsCommon\DependencyShared\DependencyShared.projitems*{741e3213-4964-4600-a82c-7ffafef72449}*SharedItemsImports = 5
 		ModsCommon\LoadExtensionShared\LoadExtensionShared.projitems*{741e3213-4964-4600-a82c-7ffafef72449}*SharedItemsImports = 5
@@ -245,17 +241,7 @@ Global
 		ModsCommon\ToolShared\ModsToolShared.projitems*{ea585899-16c8-4ff0-ae8d-078f15a7a126}*SharedItemsImports = 13
 		ModsCommon\LocalizeShared\LocalizeShared.projitems*{f135cd5d-4cab-4347-bf44-1c6d0794a19d}*SharedItemsImports = 13
 		ModsCommon\XmlExtension\XmlExtension.projitems*{fada36db-c397-4128-9644-b477c4f50b26}*SharedItemsImports = 13
-		ModsCommon\AutoLayoutPanelShared\AutoLayoutPanelShared.projitems*{fc5e6f74-8408-4fd8-a46a-a7f549e30454}*SharedItemsImports = 13
 		ModsCommon\LoggerShared\LoggerShared.projitems*{fe0af823-f63f-4441-b28d-c0890bc0bf6a}*SharedItemsImports = 13
 		ModsCommon\TrajectoryShared\TrajectoryShared.projitems*{ffba673c-7990-421a-8dd3-87149c1f751b}*SharedItemsImports = 13
-	EndGlobalSection
-	GlobalSection(AutomaticVersions) = postSolution
-		UpdateAssemblyVersion.Beta Debug|Any CPU = True
-		UpdateAssemblyFileVersion.Beta Debug|Any CPU = False
-		UpdateAssemblyInfoVersion.Beta Debug|Any CPU = False
-		AssemblyVersionSettings.Beta Debug|Any CPU = None.None.None.Increment
-		UpdatePackageVersion.Beta Debug|Any CPU = False
-		AssemblyInfoVersionType.Beta Debug|Any CPU = SettingsVersion
-		InheritWinAppVersionFrom.Beta Debug|Any CPU = None
 	EndGlobalSection
 EndGlobal

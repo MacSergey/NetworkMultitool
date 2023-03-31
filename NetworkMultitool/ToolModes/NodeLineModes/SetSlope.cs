@@ -145,22 +145,22 @@ namespace NetworkMultitool
         {
             var value = Mathf.Abs(slope);
             if (!Settings.SlopeColors)
-                return Colors.White;
+                return CommonColors.White;
             else if (Settings.SlopeUnite == 0)
                 return value switch
                 {
-                    < 2f => Colors.Green,
-                    < 6f => CombineColor(Colors.Green, Colors.Yellow, 2f, 6f, value),
-                    < 10f => CombineColor(Colors.Yellow, Colors.Red, 6f, 10f, value),
-                    _ => Colors.Red,
+                    < 2f => CommonColors.Green,
+                    < 6f => CombineColor(CommonColors.Green, CommonColors.Yellow, 2f, 6f, value),
+                    < 10f => CombineColor(CommonColors.Yellow, CommonColors.Red, 6f, 10f, value),
+                    _ => CommonColors.Red,
                 };
             else
                 return value switch
                 {
-                    < 1.15f => Colors.Green,
-                    < 3.4f => CombineColor(Colors.Green, Colors.Yellow, 1.15f, 3.4f, value),
-                    < 5.7f => CombineColor(Colors.Yellow, Colors.Red, 3.4f, 5.7f, value),
-                    _ => Colors.Red,
+                    < 1.15f => CommonColors.Green,
+                    < 3.4f => CombineColor(CommonColors.Green, CommonColors.Yellow, 1.15f, 3.4f, value),
+                    < 5.7f => CombineColor(CommonColors.Yellow, CommonColors.Red, 3.4f, 5.7f, value),
+                    _ => CommonColors.Red,
                 };
 
             static Color32 CombineColor(Color32 first, Color32 second, float from, float to, float value)

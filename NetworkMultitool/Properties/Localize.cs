@@ -606,7 +606,7 @@ namespace NetworkMultitool
 		public static string Settings_CommonShortcuts => LocaleManager.GetString("Settings_CommonShortcuts", Culture);
 
 		/// <summary>
-		/// Ground roads will follow terrain
+		/// Ground roads follow terrain
 		/// </summary>
 		public static string Settings_FollowTerrain => LocaleManager.GetString("Settings_FollowTerrain", Culture);
 

@@ -63,27 +63,28 @@ namespace NetworkMultitool
         {
             AddLanguage(GeneralTab);
 
-            var interfaceGroup = GeneralTab.AddOptionsGroup(Localize.Settings_Interface);
-            AddToolButton<NetworkMultitoolTool, NetworkMultitoolButton>(interfaceGroup);
-            interfaceGroup.AddToggle(CommonLocalize.Settings_ShowTooltips, ShowToolTip);
-            interfaceGroup.AddToggle(Localize.Settings_AutoHideModePanel, AutoHideModePanel, OnAutoHideChanged);
+            var interfaceSection = GeneralTab.AddOptionsSection(Localize.Settings_Interface);
+            AddToolButton<NetworkMultitoolTool, NetworkMultitoolButton>(interfaceSection);
+            interfaceSection.AddToggle(CommonLocalize.Settings_ShowTooltips, ShowToolTip);
+            interfaceSection.AddToggle(Localize.Settings_AutoHideModePanel, AutoHideModePanel, OnAutoHideChanged);
 
             if (NetworkMultitoolTool.IsUUIEnabled)
-                interfaceGroup.AddTogglePanel(Localize.Settings_PanelOpenSide, PanelOpenSide, new string[] { Localize.Settings_PanelOpenSideDown, Localize.Settings_PanelOpenSideUp }, OnOpenSideChanged);
+                interfaceSection.AddTogglePanel(Localize.Settings_PanelOpenSide, PanelOpenSide, new string[] { Localize.Settings_PanelOpenSideDown, Localize.Settings_PanelOpenSideUp }, OnOpenSideChanged);
 
-            interfaceGroup.AddIntField(Localize.Settings_PanelColumns, PanelColumns, 1, 5, OnColumnChanged);
-            interfaceGroup.AddToggle(Localize.Settings_PlayEffects, PlayEffects);
-            interfaceGroup.AddTogglePanel(Localize.Settings_PreviewType, NetworkPreview, new string[] { Localize.Settings_PreviewTypeOverlay, Localize.Settings_PreviewTypeMesh, Localize.Settings_PreviewTypeBoth });
-            interfaceGroup.AddToggle(Localize.Settings_SlopeColors, SlopeColors, OnSlopeColorChanged);
+            var column = interfaceSection.AddIntField(Localize.Settings_PanelColumns, PanelColumns, 1, 5, OnColumnChanged);
+            column.Control.width = 60f;
+            interfaceSection.AddToggle(Localize.Settings_PlayEffects, PlayEffects);
+            interfaceSection.AddTogglePanel(Localize.Settings_PreviewType, NetworkPreview, new string[] { Localize.Settings_PreviewTypeOverlay, Localize.Settings_PreviewTypeMesh, Localize.Settings_PreviewTypeBoth });
+            interfaceSection.AddToggle(Localize.Settings_SlopeColors, SlopeColors, OnSlopeColorChanged);
 
-            var gameplayGroup = GeneralTab.AddOptionsGroup(Localize.Settings_Gameplay);
-            gameplayGroup.AddToggle(Localize.Settings_NeedMoney, NeedMoney);
-            gameplayGroup.AddToggle(Localize.Settings_FollowTerrain, FollowTerrain);
-            gameplayGroup.AddTogglePanel(Localize.Settings_LengthUnit, LengthUnite, new string[] { Localize.Settings_LengthUniteMeters, Localize.Settings_LengthUniteUnits }, OnSlopeUniteChanged);
-            gameplayGroup.AddTogglePanel(Localize.Settings_SlopeUnit, SlopeUnite, new string[] { Localize.Settings_SlopeUnitPercentages, Localize.Settings_SlopeUnitDegrees }, OnSlopeUniteChanged);
-            gameplayGroup.AddToggle(Localize.Settings_AutoConnect, AutoConnect);
-            if (Utility.InGame && !Mod.NodeSpacerEnabled)
-                gameplayGroup.AddIntField(Localize.Settings_SegmentLength, SegmentLength, 50, 200);
+            var gameplaySection = GeneralTab.AddOptionsSection(Localize.Settings_Gameplay);
+            gameplaySection.AddToggle(Localize.Settings_NeedMoney, NeedMoney);
+            gameplaySection.AddToggle(Localize.Settings_FollowTerrain, FollowTerrain);
+            gameplaySection.AddTogglePanel(Localize.Settings_LengthUnit, LengthUnite, new string[] { Localize.Settings_LengthUniteMeters, Localize.Settings_LengthUniteUnits }, OnSlopeUniteChanged);
+            gameplaySection.AddTogglePanel(Localize.Settings_SlopeUnit, SlopeUnite, new string[] { Localize.Settings_SlopeUnitPercentages, Localize.Settings_SlopeUnitDegrees }, OnSlopeUniteChanged);
+            gameplaySection.AddToggle(Localize.Settings_AutoConnect, AutoConnect);
+            if (Utility.InGame && !Mod.NetworkAnarchyEnabled)
+                gameplaySection.AddIntField(Localize.Settings_SegmentLength, SegmentLength, 50, 200);
 
             AddNotifications(GeneralTab);
 
@@ -125,48 +126,48 @@ namespace NetworkMultitool
 
         private void AddShortcuts()
         {
-            var modesGroup = ShortcutsTab.AddOptionsGroup(Localize.Settings_ActivationShortcuts);
-            modesGroup.AddKeyMappingButton(NetworkMultitoolTool.ActivationShortcut);
+            var modesSection = ShortcutsTab.AddOptionsSection(Localize.Settings_ActivationShortcuts);
+            modesSection.AddKeyMappingButton(NetworkMultitoolTool.ActivationShortcut);
             foreach (var shortcut in NetworkMultitoolTool.ModeShortcuts.Values)
-                modesGroup.AddKeyMappingButton(shortcut);
+                modesSection.AddKeyMappingButton(shortcut);
 
-            var generalGroup = ShortcutsTab.AddOptionsGroup(Localize.Settings_CommonShortcuts);
-            generalGroup.AddKeyMappingButton(NetworkMultitoolTool.SelectionStepOverShortcut);
-            generalGroup.AddKeyMappingButton(BaseNetworkMultitoolMode.ApplyShortcut);
+            var generalSection = ShortcutsTab.AddOptionsSection(Localize.Settings_CommonShortcuts);
+            generalSection.AddKeyMappingButton(NetworkMultitoolTool.SelectionStepOverShortcut);
+            generalSection.AddKeyMappingButton(BaseNetworkMultitoolMode.ApplyShortcut);
 
-            var commonGroup = ShortcutsTab.AddOptionsGroup(Localize.Settings_CommonCreateShortcuts);
-            commonGroup.AddKeyMappingButton(BaseCreateMode.SwitchFollowTerrainShortcut);
-            commonGroup.AddKeyMappingButton(BaseCreateMode.SwitchOffsetShortcut);
-            commonGroup.AddKeyMappingButton(BaseCreateMode.IncreaseAngleShortcut);
-            commonGroup.AddKeyMappingButton(BaseCreateMode.DecreaseAngleShortcut);
-            commonGroup.AddKeyMappingButton(BaseNetworkMultitoolMode.InvertNetworkShortcut);
+            var commonSection = ShortcutsTab.AddOptionsSection(Localize.Settings_CommonCreateShortcuts);
+            commonSection.AddKeyMappingButton(BaseCreateMode.SwitchFollowTerrainShortcut);
+            commonSection.AddKeyMappingButton(BaseCreateMode.SwitchOffsetShortcut);
+            commonSection.AddKeyMappingButton(BaseCreateMode.IncreaseAngleShortcut);
+            commonSection.AddKeyMappingButton(BaseCreateMode.DecreaseAngleShortcut);
+            commonSection.AddKeyMappingButton(BaseNetworkMultitoolMode.InvertNetworkShortcut);
 
-            var connectionGroup = ShortcutsTab.AddOptionsGroup(Localize.Mode_CreateConnection);
-            connectionGroup.AddKeyMappingButton(CreateConnectionMode.IncreaseRadiiShortcut);
-            modesGroup.AddKeyMappingButton(CreateConnectionMode.DecreaseRadiiShortcut);
-            modesGroup.AddKeyMappingButton(CreateConnectionMode.SwitchSelectShortcut);
-            modesGroup.AddKeyMappingButton(CreateConnectionMode.IncreaseOneRadiusShortcut);
-            generalGroup.AddKeyMappingButton(CreateConnectionMode.DecreaseOneRadiusShortcut);
-            generalGroup.AddKeyMappingButton(CreateConnectionMode.IncreaseOffsetShortcut);
-            generalGroup.AddKeyMappingButton(CreateConnectionMode.DecreaseOffsetShortcut);
+            var connectionSection = ShortcutsTab.AddOptionsSection(Localize.Mode_CreateConnection);
+            connectionSection.AddKeyMappingButton(CreateConnectionMode.IncreaseRadiiShortcut);
+            modesSection.AddKeyMappingButton(CreateConnectionMode.DecreaseRadiiShortcut);
+            modesSection.AddKeyMappingButton(CreateConnectionMode.SwitchSelectShortcut);
+            modesSection.AddKeyMappingButton(CreateConnectionMode.IncreaseOneRadiusShortcut);
+            generalSection.AddKeyMappingButton(CreateConnectionMode.DecreaseOneRadiusShortcut);
+            generalSection.AddKeyMappingButton(CreateConnectionMode.IncreaseOffsetShortcut);
+            generalSection.AddKeyMappingButton(CreateConnectionMode.DecreaseOffsetShortcut);
 
-            var loopGroup = ShortcutsTab.AddOptionsGroup(Localize.Mode_CreateLoop);
-            loopGroup.AddKeyMappingButton(CreateLoopMode.IncreaseRadiusShortcut);
-            loopGroup.AddKeyMappingButton(CreateLoopMode.DecreaseRadiusShortcut);
-            loopGroup.AddKeyMappingButton(CreateLoopMode.SwitchIsLoopShortcut);
+            var loopSection = ShortcutsTab.AddOptionsSection(Localize.Mode_CreateLoop);
+            loopSection.AddKeyMappingButton(CreateLoopMode.IncreaseRadiusShortcut);
+            loopSection.AddKeyMappingButton(CreateLoopMode.DecreaseRadiusShortcut);
+            loopSection.AddKeyMappingButton(CreateLoopMode.SwitchIsLoopShortcut);
 
-            var parallelGroup = ShortcutsTab.AddOptionsGroup(Localize.Mode_CreateParallerl);
-            parallelGroup.AddKeyMappingButton(CreateParallelMode.IncreaseShiftShortcut);
-            parallelGroup.AddKeyMappingButton(CreateParallelMode.DecreaseShiftShortcut);
-            parallelGroup.AddKeyMappingButton(CreateParallelMode.IncreaseHeightShortcut);
-            parallelGroup.AddKeyMappingButton(CreateParallelMode.DecreaseHeightShortcut);
-            parallelGroup.AddKeyMappingButton(CreateParallelMode.ChangeSideShortcut);
+            var parallelSection = ShortcutsTab.AddOptionsSection(Localize.Mode_CreateParallerl);
+            parallelSection.AddKeyMappingButton(CreateParallelMode.IncreaseShiftShortcut);
+            parallelSection.AddKeyMappingButton(CreateParallelMode.DecreaseShiftShortcut);
+            parallelSection.AddKeyMappingButton(CreateParallelMode.IncreaseHeightShortcut);
+            parallelSection.AddKeyMappingButton(CreateParallelMode.DecreaseHeightShortcut);
+            parallelSection.AddKeyMappingButton(CreateParallelMode.ChangeSideShortcut);
 
-            var arrangeCircleGroup = ShortcutsTab.AddOptionsGroup(Localize.Mode_ArrangeAtCircle);
-            arrangeCircleGroup.AddKeyMappingButton(ArrangeCircleCompleteMode.ResetArrangeCircleShortcut);
-            arrangeCircleGroup.AddKeyMappingButton(ArrangeCircleCompleteMode.DistributeEvenlyShortcut);
-            arrangeCircleGroup.AddKeyMappingButton(ArrangeCircleCompleteMode.DistributeIntersectionsShortcut);
-            arrangeCircleGroup.AddKeyMappingButton(ArrangeCircleCompleteMode.DistributeBetweenIntersectionsShortcut);
+            var arrangeCircleSection = ShortcutsTab.AddOptionsSection(Localize.Mode_ArrangeAtCircle);
+            arrangeCircleSection.AddKeyMappingButton(ArrangeCircleCompleteMode.ResetArrangeCircleShortcut);
+            arrangeCircleSection.AddKeyMappingButton(ArrangeCircleCompleteMode.DistributeEvenlyShortcut);
+            arrangeCircleSection.AddKeyMappingButton(ArrangeCircleCompleteMode.DistributeIntersectionsShortcut);
+            arrangeCircleSection.AddKeyMappingButton(ArrangeCircleCompleteMode.DistributeBetweenIntersectionsShortcut);
         }
 
         #endregion
@@ -175,12 +176,12 @@ namespace NetworkMultitool
 #if DEBUG
         private void AddDebug(UIComponent helper)
         {
-            var overlayGroup = helper.AddOptionsGroup("Selection overlay");
+            var overlaySection = helper.AddOptionsSection("Selection overlay");
 
-            Selection.AddAlphaBlendOverlay(overlayGroup);
-            Selection.AddRenderOverlayCentre(overlayGroup);
-            Selection.AddRenderOverlayBorders(overlayGroup);
-            Selection.AddBorderOverlayWidth(overlayGroup);
+            Selection.AddAlphaBlendOverlay(overlaySection);
+            Selection.AddRenderOverlayCentre(overlaySection);
+            Selection.AddRenderOverlayBorders(overlaySection);
+            Selection.AddBorderOverlayWidth(overlaySection);
         }
 #endif
         #endregion

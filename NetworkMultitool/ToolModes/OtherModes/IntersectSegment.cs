@@ -13,7 +13,7 @@ namespace NetworkMultitool
     {
         public override ToolModeType Type => ToolModeType.IntersectSegment;
         protected override bool SelectNodes => false;
-        protected override Color32 SegmentColor => Colors.Blue;
+        protected override Color32 SegmentColor => CommonColors.Blue;
         protected override bool IsReseted => !IsFirstSelect;
         protected override bool CanSwitchUnderground => !IsFirstSelect;
 
@@ -161,9 +161,9 @@ namespace NetworkMultitool
             {
                 var color = State switch
                 {
-                    Result.None => Colors.White,
-                    Result.Correct => Colors.Green,
-                    _ => Colors.Red,
+                    Result.None => CommonColors.White,
+                    Result.Correct => CommonColors.Green,
+                    _ => CommonColors.Red,
                 };
 
                 First.Render(new OverlayData(cameraInfo) { Color = color, RenderLimit = Underground });

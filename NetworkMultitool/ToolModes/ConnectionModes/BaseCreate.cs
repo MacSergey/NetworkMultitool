@@ -26,8 +26,8 @@ namespace NetworkMultitool
         protected override bool CanSwitchUnderground => !IsBoth;
 
 
-        protected override Color32 SegmentColor => Colors.Blue;
-        protected override Color32 NodeColor => Colors.Blue;
+        protected override Color32 SegmentColor => CommonColors.Blue;
+        protected override Color32 NodeColor => CommonColors.Blue;
 
         protected override bool CheckUnderground => !IsBoth;
         protected override bool SelectNodes => IsBoth;
@@ -446,9 +446,9 @@ namespace NetworkMultitool
         {
             var color = CalcState switch
             {
-                CalcResult.BigRadius or CalcResult.SmallRadius or CalcResult.WrongShape or CalcResult.NotIntersect => Colors.Red,
-                CalcResult.Calculated => Colors.White.SetAlpha(64),
-                _ => Colors.White,
+                CalcResult.BigRadius or CalcResult.SmallRadius or CalcResult.WrongShape or CalcResult.NotIntersect => CommonColors.Red,
+                CalcResult.Calculated => CommonColors.White.SetAlpha(64),
+                _ => CommonColors.White,
             };
 
             if (IsFirst)
@@ -461,7 +461,7 @@ namespace NetworkMultitool
                 var info = Info;
                 RenderCalculatedOverlay(cameraInfo, Info);
                 if (Settings.ShowOverlay)
-                    RenderPartsOverlay(cameraInfo, Points, EnoughMoney ? Colors.Yellow : Colors.Red, info.m_halfWidth * 2f);
+                    RenderPartsOverlay(cameraInfo, Points, EnoughMoney ? CommonColors.Yellow : CommonColors.Red, info.m_halfWidth * 2f);
 
                 RenderPartsArrows(cameraInfo, Points, Info, Invert);
             }

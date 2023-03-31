@@ -117,7 +117,7 @@ namespace NetworkMultitool
                 return $"{Title.ToUpper()}\n\n{info}";
         }
         protected virtual string GetInfo() => string.Empty;
-        protected string StepOverInfo => NetworkMultitoolTool.SelectionStepOverShortcut.NotSet ? string.Empty : "\n\n" + string.Format(CommonLocalize.Tool_InfoSelectionStepOver, Colors.AddInfoColor(NetworkMultitoolTool.SelectionStepOverShortcut));
+        protected string StepOverInfo => NetworkMultitoolTool.SelectionStepOverShortcut.NotSet ? string.Empty : "\n\n" + string.Format(CommonLocalize.Tool_InfoSelectionStepOver, CommonColors.AddInfoColor(NetworkMultitoolTool.SelectionStepOverShortcut));
         protected string UndergroundInfo => $"\n\n{string.Format(Localize.Mode_Info_UndergroundMode, LocalizeExtension.Shift.AddInfoColor())}";
         protected string CostInfo
         {
@@ -133,8 +133,8 @@ namespace NetworkMultitool
             }
         }
         protected string MoveSlowerInfo =>
-            string.Format(Localize.Mode_Info_HoldToMoveSlower, LocalizeExtension.Ctrl.AddInfoColor(), Colors.AddInfoColor("10")) + "\n" +
-            string.Format(Localize.Mode_Info_HoldToMoveSlower, LocalizeExtension.Alt.AddInfoColor(), Colors.AddInfoColor("100"));
+            string.Format(Localize.Mode_Info_HoldToMoveSlower, LocalizeExtension.Ctrl.AddInfoColor(), CommonColors.AddInfoColor("10")) + "\n" +
+            string.Format(Localize.Mode_Info_HoldToMoveSlower, LocalizeExtension.Alt.AddInfoColor(), CommonColors.AddInfoColor("100"));
         protected string RadiusStepInfo =>
             string.Format(Localize.Mode_Info_HoldToStep, LocalizeExtension.Shift.AddInfoColor(), string.Format(Localize.Mode_RadiusFormat, 10f).AddInfoColor()) + "\n" +
             string.Format(Localize.Mode_Info_HoldToStep, LocalizeExtension.Ctrl.AddInfoColor(), string.Format(Localize.Mode_RadiusFormat, 1f).AddInfoColor()) + "\n" +
@@ -619,9 +619,9 @@ namespace NetworkMultitool
         {
             var view = UIView.GetAView();
             var label = view.AddUIComponent(typeof(InfoLabel)) as InfoLabel;
-            label.color = color ?? Colors.White;
+            label.color = color ?? CommonColors.White;
             label.textScale = size;
-            label.textAlignment = UIHorizontalAlignment.Center;
+            label.HorizontalAlignment = UIHorizontalAlignment.Center;
             label.SendToBack();
             Labels.Add(label);
             return label;
@@ -647,7 +647,7 @@ namespace NetworkMultitool
         {
             if (IsHoverSegment)
             {
-                var data = new OverlayData(cameraInfo) { Color = Colors.Blue, RenderLimit = Underground };
+                var data = new OverlayData(cameraInfo) { Color = CommonColors.Blue, RenderLimit = Underground };
 
                 var segment = HoverSegment.Id.GetSegment();
                 if (!Underground ^ segment.m_startNode.GetNode().m_flags.IsSet(NetNode.Flags.Underground) && isAllow?.Invoke(segment.m_startNode) != false)
@@ -681,7 +681,7 @@ namespace NetworkMultitool
                         var magnitude = (XZ(node.m_position) - xzPosition).magnitude;
                         if (!Underground ^ node.m_flags.IsSet(NetNode.Flags.Underground) && magnitude <= radius && isAllow?.Invoke(nodeId) != false)
                         {
-                            var color = Colors.Blue;
+                            var color = CommonColors.Blue;
                             color.a = (byte)((1 - magnitude / radius) * 255f);
                             node.m_position.RenderCircle(new OverlayData(cameraInfo) { Width = Mathf.Min(8f, node.Info.m_halfWidth * 2f), Color = color, RenderLimit = Underground });
                         }
@@ -818,7 +818,7 @@ namespace NetworkMultitool
                         c = arrowPos + 2.5f * arrowDir,
                         d = arrowPos - 2.5f * arrowNormal,
                     };
-                    Singleton<RenderManager>.instance.OverlayEffect.DrawQuad(cameraInfo, Colors.White192, quad, -10f, 1280f, false, false);
+                    Singleton<RenderManager>.instance.OverlayEffect.DrawQuad(cameraInfo, CommonColors.White192, quad, -10f, 1280f, false, false);
 
                     quad = new Quad3()
                     {
@@ -827,7 +827,7 @@ namespace NetworkMultitool
                         c = arrowPos + 0.75f * arrowNormal - 4f * arrowDir,
                         d = arrowPos + 0.75f * arrowNormal,
                     };
-                    Singleton<RenderManager>.instance.OverlayEffect.DrawQuad(cameraInfo, Colors.White192, quad, -10f, 1280f, false, false);
+                    Singleton<RenderManager>.instance.OverlayEffect.DrawQuad(cameraInfo, CommonColors.White192, quad, -10f, 1280f, false, false);
                 }
                 else
                 {
@@ -838,7 +838,7 @@ namespace NetworkMultitool
                         c = arrowPos + 2.5f * arrowNormal,
                         d = arrowPos,
                     };
-                    Singleton<RenderManager>.instance.OverlayEffect.DrawQuad(cameraInfo, Colors.White192, quad, -10f, 1280f, false, false);
+                    Singleton<RenderManager>.instance.OverlayEffect.DrawQuad(cameraInfo, CommonColors.White192, quad, -10f, 1280f, false, false);
 
                     quad = new Quad3()
                     {
@@ -847,7 +847,7 @@ namespace NetworkMultitool
                         c = arrowPos - 0.75f * arrowNormal + 4f * arrowDir,
                         d = arrowPos - 0.75f * arrowNormal,
                     };
-                    Singleton<RenderManager>.instance.OverlayEffect.DrawQuad(cameraInfo, Colors.White192, quad, -10f, 1280f, false, false);
+                    Singleton<RenderManager>.instance.OverlayEffect.DrawQuad(cameraInfo, CommonColors.White192, quad, -10f, 1280f, false, false);
                 }
             }
         }

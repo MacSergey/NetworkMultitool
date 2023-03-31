@@ -363,12 +363,12 @@ namespace NetworkMultitool
             if (Calculated)
             {
                 if (Settings.ShowOverlay)
-                    RenderPartsOverlay(cameraInfo, Points, EnoughMoney ? Colors.Yellow : Colors.Red, Info.m_halfWidth * 2f);
+                    RenderPartsOverlay(cameraInfo, Points, EnoughMoney ? CommonColors.Yellow : CommonColors.Red, Info.m_halfWidth * 2f);
 
                 RenderPartsArrows(cameraInfo, Points, Info, ResultInvert);
 
-                StartLine.Render(cameraInfo, Colors.Gray224, Colors.Gray224, Underground);
-                EndLine.Render(cameraInfo, Colors.Gray224, Colors.Gray224, Underground);
+                StartLine.Render(cameraInfo, CommonColors.Gray224, CommonColors.Gray224, Underground);
+                EndLine.Render(cameraInfo, CommonColors.Gray224, CommonColors.Gray224, Underground);
             }
         }
         public override void RenderGeometry(RenderManager.CameraInfo cameraInfo)

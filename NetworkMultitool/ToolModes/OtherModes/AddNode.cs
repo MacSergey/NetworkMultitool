@@ -1,25 +1,17 @@
-﻿using ColossalFramework;
-using ColossalFramework.Math;
+﻿using ColossalFramework.Math;
 using ModsCommon;
 using ModsCommon.Utilities;
-using NetworkMultitool.Utilities;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using UnityEngine;
-using static ToolBase;
 
 namespace NetworkMultitool
 {
     public class AddNodeMode : BaseNetworkMultitoolMode
     {
-        private float tempT;
-
         public override ToolModeType Type => ToolModeType.AddNode;
         protected override bool IsReseted => true;
 
-        protected override Color32 NodeColor => Colors.Red;
+        protected override Color32 NodeColor => CommonColors.Red;
         private bool IsPossibleInsertNode { get; set; }
         private Vector3 InsertPosition { get; set; }
         private SnapTo SnapTo { get; set; }
@@ -215,7 +207,7 @@ namespace NetworkMultitool
                 var direction = bezier.Tangent(t).normalized;
                 var halfWidth = HoverSegment.Id.GetSegment().Info.m_halfWidth;
 
-                var color = possibleInsert ? Colors.Green : Colors.Red;
+                var color = possibleInsert ? CommonColors.Green : CommonColors.Red;
                 if (2f * halfWidth > Selection.BorderOverlayWidth)
                 {
                     var overlayData = new OverlayData(cameraInfo)
@@ -266,10 +258,10 @@ namespace NetworkMultitool
                 if(possibleInsert && snapTo != SnapTo.None)
                 {
                     StartSnapLine = new MeasureCurve(bezier.Cut(0f, t), StartSnapLine?.Label ?? AddLabel(), halfWidth + 2f);
-                    StartSnapLine.Render(cameraInfo, Colors.White, (snapTo & SnapTo.Start) != 0 ? Colors.Yellow : Colors.White, Underground);
+                    StartSnapLine.Render(cameraInfo, CommonColors.White, (snapTo & SnapTo.Start) != 0 ? CommonColors.Yellow : CommonColors.White, Underground);
 
                     EndSnapLine = new MeasureCurve(bezier.Cut(t, 1f), EndSnapLine?.Label ?? AddLabel(), halfWidth + 2f);
-                    EndSnapLine.Render(cameraInfo, Colors.White, (snapTo & SnapTo.End) != 0 ? Colors.Yellow : Colors.White, Underground);
+                    EndSnapLine.Render(cameraInfo, CommonColors.White, (snapTo & SnapTo.End) != 0 ? CommonColors.Yellow : CommonColors.White, Underground);
                 }
             }
             else

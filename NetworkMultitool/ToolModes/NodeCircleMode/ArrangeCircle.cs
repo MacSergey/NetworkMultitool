@@ -34,14 +34,14 @@ namespace NetworkMultitool
             if (!IsHoverNode)
             {
                 foreach (var node in Nodes)
-                    node.Render(new OverlayData(cameraInfo) { Color = Colors.White, RenderLimit = Underground });
+                    node.Render(new OverlayData(cameraInfo) { Color = CommonColors.White, RenderLimit = Underground });
             }
             else if (IsCompleteHover)
             {
                 foreach (var node in Nodes)
-                    node.Render(new OverlayData(cameraInfo) { Color = Colors.Purple, RenderLimit = Underground });
+                    node.Render(new OverlayData(cameraInfo) { Color = CommonColors.Purple, RenderLimit = Underground });
                 foreach (var node in ToAdd)
-                    node.Render(new OverlayData(cameraInfo) { Color = Colors.Purple, RenderLimit = Underground });
+                    node.Render(new OverlayData(cameraInfo) { Color = CommonColors.Purple, RenderLimit = Underground });
             }
             else
             {
@@ -64,7 +64,7 @@ namespace NetworkMultitool
         private List<bool> States { get; } = new List<bool>();
         protected bool IsWrongOrder => States.Any(s => !s);
         protected bool IsBigDelta { get; private set; }
-        protected Color CircleColor => IsWrongOrder ? Colors.Red : (IsBigDelta ? Colors.Orange : Colors.Green);
+        protected Color CircleColor => IsWrongOrder ? CommonColors.Red : (IsBigDelta ? CommonColors.Orange : CommonColors.Green);
 
         private InfoLabel _label;
         public InfoLabel Label
@@ -239,7 +239,7 @@ namespace NetworkMultitool
         {
             for (var i = 0; i < Nodes.Count; i += 1)
             {
-                var color = States[i] ? Colors.White : Colors.Red;
+                var color = States[i] ? CommonColors.White : CommonColors.Red;
                 Nodes[i].GetPositions(Center, Radius, out var currentPos, out var newPos);
                 if ((currentPos - newPos).sqrMagnitude > 1f)
                 {
@@ -249,7 +249,7 @@ namespace NetworkMultitool
                     line.Render(new OverlayData(cameraInfo) { Color = color, RenderLimit = Underground });
                 }
                 if (i == hover)
-                    newPos.RenderCircle(new OverlayData(cameraInfo) { Color = States[i] ? Colors.Blue : Colors.White, RenderLimit = Underground }, 4f, 2f);
+                    newPos.RenderCircle(new OverlayData(cameraInfo) { Color = States[i] ? CommonColors.Blue : CommonColors.White, RenderLimit = Underground }, 4f, 2f);
                 newPos.RenderCircle(new OverlayData(cameraInfo) { Color = color, RenderLimit = Underground }, 2f, 0f);
             }
         }
@@ -604,10 +604,10 @@ namespace NetworkMultitool
         public override void RenderOverlay(RenderManager.CameraInfo cameraInfo)
         {
             var color = CircleColor;
-            RenderCircle(cameraInfo, IsHoverCircle && !IsHoverCenter && HoveredNode == -1 ? Colors.Blue : color);
+            RenderCircle(cameraInfo, IsHoverCircle && !IsHoverCenter && HoveredNode == -1 ? CommonColors.Blue : color);
             RenderNodes(cameraInfo, IsHoverCenter ? -1 : HoveredNode);
             if (IsHoverCenter)
-                RenderHoverCenter(cameraInfo, Colors.White);
+                RenderHoverCenter(cameraInfo, CommonColors.White);
             RenderCenter(cameraInfo, color);
         }
     }
@@ -646,7 +646,7 @@ namespace NetworkMultitool
             var color = CircleColor;
             RenderCircle(cameraInfo, color);
             RenderNodes(cameraInfo);
-            RenderHoverCenter(cameraInfo, Colors.White);
+            RenderHoverCenter(cameraInfo, CommonColors.White);
             RenderCenter(cameraInfo, color);
         }
     }

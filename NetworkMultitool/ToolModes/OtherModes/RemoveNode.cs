@@ -71,7 +71,7 @@ namespace NetworkMultitool
             RenderSegmentNodes(cameraInfo);
 
             if (IsHoverNode)
-                HoverNode.Render(new OverlayData(cameraInfo) { Color = IsCorrect ? Colors.Green : Colors.Red, RenderLimit = Underground });
+                HoverNode.Render(new OverlayData(cameraInfo) { Color = IsCorrect ? CommonColors.Green : CommonColors.Red, RenderLimit = Underground });
         }
     }
 }

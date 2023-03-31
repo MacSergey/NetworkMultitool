@@ -50,7 +50,7 @@ namespace NetworkMultitool
             else if (AddState == AddResult.NotConnect)
                 return Localize.Mode_NodeLine_Info_NotConnected.AddErrorColor() + StepOverInfo;
             else
-                return string.Format(Localize.Mode_Info_Apply, Colors.AddInfoColor(ApplyShortcut));
+                return string.Format(Localize.Mode_Info_Apply, CommonColors.AddInfoColor(ApplyShortcut));
         }
         protected override void Reset(IToolMode prevMode)
         {
@@ -139,7 +139,7 @@ namespace NetworkMultitool
             for (var i = 0; i < Nodes.Count; i += 1)
             {
                 if ((i != 0 || AddState != AddResult.IsFirst) && (i != Nodes.Count - 1 || AddState != AddResult.IsLast))
-                    Nodes[i].Render(new OverlayData(cameraInfo) { Color = Colors.White, RenderLimit = Underground });
+                    Nodes[i].Render(new OverlayData(cameraInfo) { Color = CommonColors.White, RenderLimit = Underground });
             }
         }
         protected void RenderAddedOverlay(RenderManager.CameraInfo cameraInfo)
@@ -147,15 +147,15 @@ namespace NetworkMultitool
             if (AddState == AddResult.One || AddState == AddResult.InStart || AddState == AddResult.InEnd)
             {
                 foreach (var node in ToAdd)
-                    node.Render(new OverlayData(cameraInfo) { Color = Colors.Green, RenderLimit = Underground });
+                    node.Render(new OverlayData(cameraInfo) { Color = CommonColors.Green, RenderLimit = Underground });
             }
             else
             {
                 var color = AddState switch
                 {
-                    AddResult.IsFirst or AddResult.IsLast => Colors.Yellow,
-                    AddResult.NotConnect => Colors.Red,
-                    _ => Colors.Red,
+                    AddResult.IsFirst or AddResult.IsLast => CommonColors.Yellow,
+                    AddResult.NotConnect => CommonColors.Red,
+                    _ => CommonColors.Red,
                 };
                 HoverNode.Render(new OverlayData(cameraInfo) { Color = color, RenderLimit = Underground });
             }

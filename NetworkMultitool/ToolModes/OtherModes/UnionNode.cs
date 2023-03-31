@@ -108,7 +108,7 @@ namespace NetworkMultitool
             if (!IsSource)
             {
                 if (IsHoverNode)
-                    HoverNode.Render(new OverlayData(cameraInfo) { Color = Colors.Green, RenderLimit = Underground });
+                    HoverNode.Render(new OverlayData(cameraInfo) { Color = CommonColors.Green, RenderLimit = Underground });
                 else
                     RenderSegmentNodes(cameraInfo, IsValidNode);
             }
@@ -119,13 +119,13 @@ namespace NetworkMultitool
             }
             else if (!IsCorrect)
             {
-                Source.Render(new OverlayData(cameraInfo) { Color = Colors.Red, RenderLimit = Underground });
-                Target.Render(new OverlayData(cameraInfo) { Color = Colors.Red, RenderLimit = Underground });
+                Source.Render(new OverlayData(cameraInfo) { Color = CommonColors.Red, RenderLimit = Underground });
+                Target.Render(new OverlayData(cameraInfo) { Color = CommonColors.Red, RenderLimit = Underground });
             }
             else
             {
-                Source.Render(new OverlayData(cameraInfo) { Color = Colors.Green, RenderLimit = Underground });
-                Target.Render(new OverlayData(cameraInfo) { Color = Colors.Green, RenderLimit = Underground });
+                Source.Render(new OverlayData(cameraInfo) { Color = CommonColors.Green, RenderLimit = Underground });
+                Target.Render(new OverlayData(cameraInfo) { Color = CommonColors.Green, RenderLimit = Underground });
             }
         }
         protected override bool AllowRenderNear(ushort nodeId) => base.AllowRenderNear(nodeId) && (!IsSource || nodeId != Source.Id);

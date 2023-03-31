@@ -13,7 +13,7 @@ namespace NetworkMultitool
         protected override bool IsReseted => true;
 
         protected override bool SelectNodes => false;
-        protected override Color32 SegmentColor => Colors.Green;
+        protected override Color32 SegmentColor => CommonColors.Green;
 
         protected override string GetInfo()
         {
