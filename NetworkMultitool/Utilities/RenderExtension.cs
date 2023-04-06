@@ -51,7 +51,7 @@ namespace NetworkMultitool.Utilities
 
             new StraightTrajectory(trajectory.StartPosition + startShiftDir * shift, trajectory.StartPosition + startShiftDir * (shift + length + 2f)).Render(data);
             new StraightTrajectory(trajectory.EndPosition + endShiftDir * shift, trajectory.EndPosition + endShiftDir * (shift + length + 2f)).Render(data);
-            new BezierTrajectory(startShift, trajectory.StartDirection, endShift, trajectory.EndDirection).Render(dataArrow);
+            new BezierTrajectory(startShift, trajectory.StartDirection, endShift, trajectory.EndDirection, BezierTrajectory.Data.Default).Render(dataArrow);
 
             var startCross = CrossXZ(startShiftDir, trajectory.StartDirection) > 0f;
             var startDirP45 = startShiftDir.TurnDeg(45f, isShort ^ startCross);

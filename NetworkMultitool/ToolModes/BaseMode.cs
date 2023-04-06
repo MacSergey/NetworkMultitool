@@ -467,7 +467,7 @@ namespace NetworkMultitool
                 startDir = startDir.MakeFlatNormalized();
                 endDir = endDir.MakeFlatNormalized();
 
-                list.Add(new BezierTrajectory(startPos, startDir, endPos, endDir));
+                list.Add(new BezierTrajectory(startPos, startDir, endPos, endDir, BezierTrajectory.Data.Default));
             }
 
             var sumLength = list.Sum(t => t.Length);
@@ -539,8 +539,8 @@ namespace NetworkMultitool
 
                 for (var i = 1; i < points.Length - 1; i += 1)
                 {
-                    var before = new BezierTrajectory(points[i - 1].Position.MakeFlat(), points[i - 1].ForwardDirection, points[i].Position.MakeFlat(), points[i].BackwardDirection);
-                    var after = new BezierTrajectory(points[i].Position.MakeFlat(), points[i].ForwardDirection, points[i + 1].Position.MakeFlat(), points[i + 1].BackwardDirection);
+                    var before = new BezierTrajectory(points[i - 1].Position.MakeFlat(), points[i - 1].ForwardDirection, points[i].Position.MakeFlat(), points[i].BackwardDirection, BezierTrajectory.Data.Default);
+                    var after = new BezierTrajectory(points[i].Position.MakeFlat(), points[i].ForwardDirection, points[i + 1].Position.MakeFlat(), points[i + 1].BackwardDirection, BezierTrajectory.Data.Default);
 
                     var beforeTan = (points[i].Position.y - points[i - 1].Position.y) / before.Length;
                     var afterTan = (points[i + 1].Position.y - points[i].Position.y) / after.Length;
@@ -552,7 +552,7 @@ namespace NetworkMultitool
 
                 if (points.Length == 2)
                 {
-                    var line = new BezierTrajectory(points[0].Position.MakeFlat(), points[0].ForwardDirection, points[1].Position.MakeFlat(), points[1].BackwardDirection);
+                    var line = new BezierTrajectory(points[0].Position.MakeFlat(), points[0].ForwardDirection, points[1].Position.MakeFlat(), points[1].BackwardDirection, BezierTrajectory.Data.Default);
                     var tan = (points[1].Position.y - points[0].Position.y) / line.Length;
 
                     points[0].ForwardDirection = points[0].ForwardDirection.SetHeight(tan);
@@ -706,7 +706,7 @@ namespace NetworkMultitool
             else
                 return true;
         }
-        protected static BezierTrajectory GetTrajectory(Point first, Point second) => new BezierTrajectory(first.Position, first.ForwardDirection, second.Position, second.BackwardDirection);
+        protected static BezierTrajectory GetTrajectory(Point first, Point second) => new BezierTrajectory(first.Position, first.ForwardDirection, second.Position, second.BackwardDirection, BezierTrajectory.Data.Default);
         protected void RenderPartsOverlay(RenderManager.CameraInfo cameraInfo, List<Point> points, Color? color = null, float? width = null)
         {
             var data = new OverlayData(cameraInfo) { Color = color, Width = width, RenderLimit = Underground, Cut = true };
@@ -742,8 +742,8 @@ namespace NetworkMultitool
             var startNormal = start.ForwardDirection.Turn90(true).MakeFlatNormalized();
             var endNormal = end.BackwardDirection.Turn90(false).MakeFlatNormalized();
 
-            var right = new BezierTrajectory(start.Position + startNormal * info.m_halfWidth, start.ForwardDirection, end.Position + endNormal * info.m_halfWidth, end.BackwardDirection).Trajectory;
-            var left = new BezierTrajectory(start.Position - startNormal * info.m_halfWidth, start.ForwardDirection, end.Position - endNormal * info.m_halfWidth, end.BackwardDirection).Trajectory;
+            var right = new BezierTrajectory(start.Position + startNormal * info.m_halfWidth, start.ForwardDirection, end.Position + endNormal * info.m_halfWidth, end.BackwardDirection, BezierTrajectory.Data.Default).Trajectory;
+            var left = new BezierTrajectory(start.Position - startNormal * info.m_halfWidth, start.ForwardDirection, end.Position - endNormal * info.m_halfWidth, end.BackwardDirection, BezierTrajectory.Data.Default).Trajectory;
 
             var position = (start.Position + end.Position) / 2f;
             var vScale = info.m_netAI.GetVScale();
@@ -804,7 +804,7 @@ namespace NetworkMultitool
             var properties = Singleton<GameAreaManager>.instance.m_properties;
             if (properties != null)
             {
-                var trajectory = new BezierTrajectory(start.Position, start.ForwardDirection, end.Position, end.BackwardDirection);
+                var trajectory = new BezierTrajectory(start.Position, start.ForwardDirection, end.Position, end.BackwardDirection, BezierTrajectory.Data.Default);
                 var arrowPos = trajectory.Position(0.5f);
                 var arrowDir = trajectory.Tangent(0.5f).MakeFlatNormalized();
                 var arrowNormal = arrowDir.Turn90(true);

@@ -22,6 +22,7 @@ namespace NetworkMultitool
         protected override string IdRaw => nameof(NetworkMultitool);
         public override List<ModVersion> Versions { get; } = new List<ModVersion>
         {
+            new ModVersion(new Version("1.3.4"), new DateTime(2023, 4, 6)),
             new ModVersion(new Version("1.3.3"), new DateTime(2022, 9, 17)),
             new ModVersion(new Version("1.3.2"), new DateTime(2022, 9, 14)),
             new ModVersion(new Version("1.3.1"), new DateTime(2022, 6, 18)),

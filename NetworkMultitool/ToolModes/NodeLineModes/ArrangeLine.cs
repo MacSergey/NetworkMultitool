@@ -230,11 +230,11 @@ namespace NetworkMultitool
             if (firstCount == 1 && secondCount == 1)
                 return new StraightTrajectory(startPos, endPos);
             else if (firstCount == 1 && secondCount != 1)
-                return new BezierTrajectory(endPos, endDir, startPos, true, true).Invert();
+                return new BezierTrajectory(endPos, endDir, startPos, new BezierTrajectory.Data(false, true, true)).Invert();
             else if (firstCount != 1 && secondCount == 1)
-                return new BezierTrajectory(startPos, startDir, endPos, true, true);
+                return new BezierTrajectory(startPos, startDir, endPos, new BezierTrajectory.Data(false, true, true));
             else
-                return new BezierTrajectory(startPos, startDir, endPos, endDir, true, true, true);
+                return new BezierTrajectory(startPos, startDir, endPos, endDir, new BezierTrajectory.Data(false, true, true));
         }
         private static Vector3 GetDirection(ushort[] nodeIds, bool isFirst, ushort guideId, out int segmentCount)
         {

@@ -207,8 +207,8 @@ namespace NetworkMultitool
                     var forwardStartPos = node.m_position + forwardStartDir.Turn90(false).MakeFlatNormalized() * shift + Vector3.up * DeltaHeight;
                     var forwardEndPos = Nodes[i + 1].Id.GetNode().m_position + forwardEndDir.Turn90(true).MakeFlatNormalized() * shift + Vector3.up * DeltaHeight;
 
-                    var backward = new BezierTrajectory(backwardStartPos, backwardStartDir, backwardEndPos, backwardEndDir);
-                    var forward = new BezierTrajectory(forwardStartPos, forwardStartDir, forwardEndPos, forwardEndDir);
+                    var backward = new BezierTrajectory(backwardStartPos, backwardStartDir, backwardEndPos, backwardEndDir, BezierTrajectory.Data.Default);
+                    var forward = new BezierTrajectory(forwardStartPos, forwardStartDir, forwardEndPos, forwardEndDir, BezierTrajectory.Data.Default);
 
                     if (Intersection.CalculateSingle(backward, forward, out var backwardT, out var forwardT))
                     {

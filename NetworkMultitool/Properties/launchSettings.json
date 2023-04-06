@@ -3,12 +3,22 @@
     "Normal": {
       "commandName": "Executable",
       "executablePath": "C:\\Program Files (x86)\\Steam\\steam.exe",
-      "commandLineArgs": "-applaunch 255710"
+      "commandLineArgs": "-applaunch 255710 --refreshWorkshop"
     },
     "No Workshop": {
       "commandName": "Executable",
       "executablePath": "C:\\Program Files (x86)\\Steam\\steam.exe",
       "commandLineArgs": "-applaunch 255710 --noWorkshop"
+    },
+    "Release": {
+      "commandName": "Executable",
+      "executablePath": "C:\\Program Files (x86)\\Steam\\steamapps\\workshop\\content\\255710\\2953447919\\Tool\\LoadOrderToolTwo.exe",
+      "commandLineArgs": " -launch -profile Release"
+    },
+    "Debug": {
+      "commandName": "Executable",
+      "executablePath": "C:\\Program Files (x86)\\Steam\\steamapps\\workshop\\content\\255710\\2953447919\\Tool\\LoadOrderToolTwo.exe",
+      "commandLineArgs": "-launch -profile Debug"
     }
   }
 }

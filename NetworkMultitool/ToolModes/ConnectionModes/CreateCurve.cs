@@ -64,7 +64,7 @@ namespace NetworkMultitool
             var endPos = secondTrajectory.StartPosition.SetHeight(Height);
             var endDir = secondTrajectory.StartDirection.MakeFlatNormalized();
 
-            Bezier = new BezierTrajectory(startPos, startDir, endPos, endDir, true, true, true);
+            Bezier = new BezierTrajectory(startPos, startDir, endPos, endDir, new BezierTrajectory.Data(true, true, true));
 
             calcState = CalcResult.None;
             return true;
