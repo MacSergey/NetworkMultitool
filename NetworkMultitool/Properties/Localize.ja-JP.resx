@@ -460,6 +460,9 @@
   <data name="Mod_WhatsNewMessage1_3_3" xml:space="preserve">
     <value>[NEW] Added Network Anarchy Support.</value>
   </data>
+  <data name="Mod_WhatsNewMessage1_3_4" xml:space="preserve">
+    <value>[UPDATED] New settings UI</value>
+  </data>
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>Mode＆ツールの有効化</value>
   </data>
@@ -476,7 +479,7 @@
     <value>Mode全般の共通ショートカット</value>
   </data>
   <data name="Settings_FollowTerrain" xml:space="preserve">
-    <value>地形に沿ってネットワークを敷設</value>
+    <value>ネットワークの敷設時は地形に追従</value>
   </data>
   <data name="Settings_Gameplay" xml:space="preserve">
     <value>ゲームプレイ</value>

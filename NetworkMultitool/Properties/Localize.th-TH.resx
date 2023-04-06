@@ -118,508 +118,511 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Mode_AddNode" xml:space="preserve">
-    <value>Modo de adição de nó</value>
+    <value>โหมดเพิ่มโหนด</value>
   </data>
   <data name="Mode_AddNode_Info_ClickToAdd" xml:space="preserve">
-    <value>Clicar para adicionar nó</value>
+    <value>คลิกเพื่อเพิ่มโหนด</value>
   </data>
   <data name="Mode_AddNode_Info_PreciseMeasurement" xml:space="preserve">
-    <value>Manter {0} para uma medição precisa</value>
+    <value>กด {0} ค้าง เพื่อวัดแบบละเอียด</value>
   </data>
   <data name="Mode_AddNode_Info_SelectToAdd" xml:space="preserve">
-    <value>Selecionar segmento para adicionar nó</value>
+    <value>เลือกเซกเมนต์ที่ต้องการเพิ่มโหนด</value>
   </data>
   <data name="Mode_AddNode_Info_TooCloseNode" xml:space="preserve">
-    <value>Não é possível inserir nó
-Está demasiado perto de outro nó</value>
+    <value>เพิ่มโหนดตรงนี้ไม่ได้ 
+เนื่องจากอยู่ใกล้กับอีกโหนดเกินไป</value>
   </data>
   <data name="Mode_AngleFormat" xml:space="preserve">
     <value>{0}°</value>
   </data>
   <data name="Mode_ArrangeAtCircle" xml:space="preserve">
-    <value>Modo de ajustar em círculo</value>
+    <value>โหมดจัดเรียงเป็นวงกลม</value>
   </data>
   <data name="Mode_ArrangeAtLine" xml:space="preserve">
-    <value>Modo de ajustar em linha</value>
+    <value>โหมดจัดเรียงเป็นแถว</value>
   </data>
   <data name="Mode_ArrangeCircle_Info_ClickToComplite" xml:space="preserve">
-    <value>Clicar para completar a seleção do círculo</value>
+    <value>คลิกเพื่อทำวงกลมที่เลือก</value>
   </data>
   <data name="Mode_ArrangeLine_Info_ClickToSelectDirection" xml:space="preserve">
-    <value>Clicar para selecionar a direção do arranjo</value>
+    <value>คลิกเพื่อเลือกทิศทางการจัดเรียง</value>
   </data>
   <data name="Mode_ArrangeLine_Info_SelectDirection" xml:space="preserve">
-    <value>Selecionar segmento para definir a direção do arranjo</value>
+    <value>เลือกเซกเมนต์เพื่อกำหนดทิศทางการจัดเรียง</value>
   </data>
   <data name="Mode_Connection_Info_DoubleClickOnCenterToChangeDir" xml:space="preserve">
-    <value>Clicar duas vezes no centro do círculo para mudar a direção da curva</value>
+    <value>ดับเบิลคลิกที่จุดกลางวงกลม
+เพื่อเปลี่ยนทิศทางของเส้นโค้ง</value>
   </data>
   <data name="Mode_Connection_Info_DoubleClickToAdd" xml:space="preserve">
-    <value>Clique duas vezes para adicionar uma curva a esta reta</value>
+    <value>ดับเบิลคลิกเพื่อเพิ่มเส้นโค้งให้กับถนนเส้นนี้</value>
   </data>
   <data name="Mode_Connection_Info_DoubleClickToRemove" xml:space="preserve">
-    <value>Clique duas vezes para remover esta curva</value>
+    <value>ดับเบิลคลิกขวาเพื่อลบเส้นโค้งนี้</value>
   </data>
   <data name="Mode_Connection_Info_DragToChangeRadius" xml:space="preserve">
-    <value>Arraste para alterar o raio</value>
+    <value>ลากเพื่อปรับรัศมี</value>
   </data>
   <data name="Mode_Connection_Info_DragToMove" xml:space="preserve">
-    <value>Arraste para mover o círculo</value>
+    <value>ลากเพื่อย้ายวงกลม</value>
   </data>
   <data name="Mode_CreateConnection" xml:space="preserve">
-    <value>Modo de criação de ligação</value>
+    <value>โหมดสร้างการเชื่อมต่อ</value>
   </data>
   <data name="Mode_CreateCurve" xml:space="preserve">
-    <value>Modo de criar curva</value>
+    <value>โหมดสร้างทางโค้ง</value>
   </data>
   <data name="Mode_CreateLoop" xml:space="preserve">
-    <value>Modo de criação de loop</value>
+    <value>โหมดสร้างทางหมุนวน</value>
   </data>
   <data name="Mode_CreateLoop_Info_Change" xml:space="preserve">
-    <value>Pressione {0} para alterar o loop</value>
+    <value>กด {0} เพื่อเปลี่ยนการหมุนวน</value>
   </data>
   <data name="Mode_CreateParallerl" xml:space="preserve">
-    <value>Modo de criar paralelo</value>
+    <value>โหมดสร้างทางคู่ขนาน</value>
   </data>
   <data name="Mode_Info_Apply" xml:space="preserve">
-    <value>Pressione {0} para aplicar</value>
+    <value>กด {0} เพื่อปรับใช้</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_Apply" xml:space="preserve">
-    <value>Pressiona {0} para arranjar num círculo</value>
+    <value>กด {0} เพื่อจัดเรียงเป็นวงกลม</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_BigDelta" xml:space="preserve">
-    <value>O ângulo entre nódulos é muito grande, a forma redonda não será perfeita</value>
+    <value>มุมระหว่างโหนดใหญ่เกินไป
+วงเวียนที่ได้จะไม่สมมาตร</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_DoubleClickToResetCenter" xml:space="preserve">
-    <value>Duplo-clique para redefinir a posição central</value>
+    <value>ดับเบิลคลิกเพื่อรีเซ็ตตำแหน่งจุดศูนย์กลาง</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_DoubleClickToResetNode" xml:space="preserve">
-    <value>Duplo-clique para redefinir a posição do nódulo</value>
+    <value>ดับเบิลคลิกเพื่อรีเซ็ตตำแหน่งโหนด</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_DragToChangeRadius" xml:space="preserve">
-    <value>Arrastar para mudar o raio</value>
+    <value>ลากเพื่อปรับรัศมี</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_DragToMoveCenter" xml:space="preserve">
-    <value>Arraste para mover o círculo</value>
+    <value>ลากเพื่อย้ายวงกลม</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_DragToMoveNode" xml:space="preserve">
-    <value>Arraste para mover nó</value>
+    <value>ลากเพื่อย้ายโหนด</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_MoveAll" xml:space="preserve">
-    <value>Mantenha {0} para mover todos os nós
-ao mesmo tempo</value>
+    <value>กด {0} ค้างไว้เพื่อย้ายโหนดทั้งหมด
+ไปพร้อม ๆ กัน</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_PressToDistributeBetweenIntersections" xml:space="preserve">
-    <value>Pressione {0} para distribuir nós
-igualmente entre interseções</value>
+    <value>กด {0} เพื่อกระจายโหนด
+ระหว่างทางแยกอย่างสม่ำเสมอ</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_PressToDistributeEvenly" xml:space="preserve">
-    <value>Pressionar {0} para distribuir nódulos uniformemente no círculo</value>
+    <value>กด {0} เพื่อกระจายโหนดในวงกลมอย่างสม่ำเสมอ</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_PressToDistributeIntersections" xml:space="preserve">
-    <value>Pressione {0} para distribuir
-intersecções de forma igualmente em círculo</value>
+    <value>กด {0} บนวงกลมเพื่อกระจาย
+ทางแยกอย่างสม่ำเสมอ</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_PressToReset" xml:space="preserve">
-    <value>Pressione {0} para redefinir os parâmetros</value>
+    <value>กด {0} เพื่อรีเซ็ตพารามิเตอร์</value>
   </data>
   <data name="Mode_Info_ArrangeCircle_WrongOrder" xml:space="preserve">
-    <value>Ordem dos nós incorrecta</value>
+    <value>ลำดับโหนดที่ไม่ถูกต้อง</value>
   </data>
   <data name="Mode_Info_ArrangeLine_Apply" xml:space="preserve">
-    <value>Pressionar {0} para arranjar na linha</value>
+    <value>กด {0} เพื่อจัดเรียงเส้นทาง</value>
   </data>
   <data name="Mode_Info_ChangeAllRadius" xml:space="preserve">
-    <value>Pressione {0} ou {1} para alterar todos os raios</value>
+    <value>กด {0} หรือ {1} เพื่อเปลี่ยนรัศมีทั้งหมด</value>
   </data>
   <data name="Mode_Info_ChangeBothRadius" xml:space="preserve">
-    <value>Pressione {0} ou {1} para alterar ambos os raios</value>
+    <value>กด {0} หรือ {1} เพื่อเปลี่ยนรัศมีทั้งคู่</value>
   </data>
   <data name="Mode_Info_ChangeCircle" xml:space="preserve">
-    <value>Pressione {0} para alterar o círculo selecionado</value>
+    <value>กด {0} เพื่อสลับวงกลมที่เลือก</value>
   </data>
   <data name="Mode_Info_ChangeOffset" xml:space="preserve">
-    <value>Pressione {0} ou {1} para alterar o deslocamento inicial da curva</value>
+    <value>กด {0} หรือ {1} เพื่อเปลี่ยนระยะชดเชยเริ่มต้นของทางโค้ง</value>
   </data>
   <data name="Mode_Info_ChangeOneRadius" xml:space="preserve">
-    <value>Pressione {0} ou {1} para alterar um raio</value>
+    <value>กด {0} หรือ {1} เพื่อเปลี่ยนรัศมี</value>
   </data>
   <data name="Mode_Info_ChangeRadius" xml:space="preserve">
-    <value>Pressione {0} ou {1} para alterar o raio</value>
+    <value>กด {0} หรือ {1} เพื่อเปลี่ยนรัศมี</value>
   </data>
   <data name="Mode_Info_ChangeShift" xml:space="preserve">
-    <value>Pressione {0} ou {1} para alterar deslocamento</value>
+    <value>กด {0} หรือ {1} เพื่อเปลี่ยนระยะชดเชย</value>
   </data>
   <data name="Mode_Info_ClickFirstSegment" xml:space="preserve">
-    <value>Clique para selecionar o primeiro segmento</value>
+    <value>คลิกเลือกเซกเมนต์เพื่อเริ่มต้น</value>
   </data>
   <data name="Mode_Info_ClickOnNodeToChangeCreateDir" xml:space="preserve">
-    <value>Clique no nó para mudar a direção de criação</value>
+    <value>คลิกที่โหนดเพื่อเปลี่ยนทิศทางการสร้าง</value>
   </data>
   <data name="Mode_Info_ClickSecondSegment" xml:space="preserve">
-    <value>Clique para selecionar o primeiro segmento</value>
+    <value>คลิกเลือกเซกเมนต์ที่สอง</value>
   </data>
   <data name="Mode_Info_ClickSelectNode" xml:space="preserve">
-    <value>Clique para inserir nó</value>
+    <value>คลิกเพื่อเลือกโหนด</value>
   </data>
   <data name="Mode_Info_ClickToChangeCreateDir" xml:space="preserve">
-    <value>Clique para alterar a direção da criação</value>
+    <value>คลิกเพื่อเปลี่ยนทิศทางการสร้าง</value>
   </data>
   <data name="Mode_Info_ClickUnselectNode" xml:space="preserve">
-    <value>Clique para desselecionar o nó</value>
+    <value>คลิกเพื่อยกเลิกการเลือกโหนด</value>
   </data>
   <data name="Mode_Info_Connection_Create" xml:space="preserve">
-    <value>Pressionar {0} para criar uma conexão</value>
+    <value>กด {0} เพื่อสร้างการเชื่อมต่อ</value>
   </data>
   <data name="Mode_Info_ConstructionCost" xml:space="preserve">
-    <value>Custo de Construção: {0}</value>
+    <value>ค่าก่อสร้าง: {0}</value>
   </data>
   <data name="Mode_Info_Create" xml:space="preserve">
-    <value>Pressione {0} para criar</value>
+    <value>กด {0} เพื่อสร้าง</value>
   </data>
   <data name="Mode_Info_HoldToMoveSlower" xml:space="preserve">
-    <value>Manter {0} para mover X{1} mais lentamente</value>
+    <value>กด {0} ค้างไว้เพื่อให้ x{1} เคลื่อนที่ช้าลง</value>
   </data>
   <data name="Mode_Info_HoldToStep" xml:space="preserve">
-    <value>Manter {0} para avançar {1}</value>
+    <value>กด {0} ค้างไว้เพื่อเลื่อน {1} ทีละระดับ</value>
   </data>
   <data name="Mode_Info_InvertNetwork" xml:space="preserve">
-    <value>Pressionar {0} para inverter a rede</value>
+    <value>กด {0} เพื่อกลับด้านถนน</value>
   </data>
   <data name="Mode_Info_Loop_Create" xml:space="preserve">
-    <value>Pressionar {0} para criar uma repetição</value>
+    <value>กด {0} เพื่อสร้างการหมุนวน</value>
   </data>
   <data name="Mode_Info_NotEnoughMoney" xml:space="preserve">
-    <value>Dinheiro insuficiente</value>
+    <value>มีเงินไม่พอ</value>
   </data>
   <data name="Mode_Info_OutOfMap" xml:space="preserve">
-    <value>Fora do mapa</value>
+    <value>นอกแผนที่</value>
   </data>
   <data name="Mode_Info_Parallel_ChangeHeight" xml:space="preserve">
-    <value>Pressionar {0} ou {1} para alterar a altura</value>
+    <value>กด {0} หรือ {1} เพื่อเปลี่ยนความสูง</value>
   </data>
   <data name="Mode_Info_Parallel_ChangeShift" xml:space="preserve">
-    <value>Pressionar {0} para mudar o lado da criação</value>
+    <value>กด {0} เพื่อสลับข้าง</value>
   </data>
   <data name="Mode_Info_Parallel_Create" xml:space="preserve">
-    <value>Pressionar {0} para criar uma repetição</value>
+    <value>กด {0} เพื่อสร้างทางคู่ขนาน</value>
   </data>
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
-    <value>Raio muito grande</value>
+    <value>รัศมีกว้างเกินไป</value>
   </data>
   <data name="Mode_Info_RadiusTooSmall" xml:space="preserve">
-    <value>Raio muito pequeno</value>
+    <value>รัศมีแคบเกินไป</value>
   </data>
   <data name="Mode_Info_Refund" xml:space="preserve">
-    <value>Reembolso: {0}</value>
+    <value>คืนเงิน: {0}</value>
   </data>
   <data name="Mode_Info_SelectFirstSegment" xml:space="preserve">
-    <value>Selecione o primeiro segmento</value>
+    <value>เลือกเซกเมนต์แรก</value>
   </data>
   <data name="Mode_Info_SelectSecondSegment" xml:space="preserve">
-    <value>Selecione o segundo segmento</value>
+    <value>เลือกเซกเมนต์ที่สอง</value>
   </data>
   <data name="Mode_Info_SelectSegment" xml:space="preserve">
-    <value>Selecione segmento</value>
+    <value>เลือกเซกเมนต์</value>
   </data>
   <data name="Mode_Info_Slope_Apply" xml:space="preserve">
-    <value>Pressione {0} para aplicar inclinação</value>
+    <value>กด {0} เพื่อปรับใช้ความลาดชัน</value>
   </data>
   <data name="Mode_Info_Step" xml:space="preserve">
-    <value>Shift - X10, Ctrl - X0.1, Alt - X0.01</value>
+    <value>Shift - x10, Ctrl - x0.1, Alt - x0.01</value>
   </data>
   <data name="Mode_Info_SwitchFollowTerrain" xml:space="preserve">
-    <value>Pressionar {0} para alternar entre seguir terreno</value>
+    <value>กด {0} เพื่อสลับการปรับตามภูมิประเทศ</value>
   </data>
   <data name="Mode_Info_SwitchOffset" xml:space="preserve">
-    <value>Pressione {0} para alternar deslocamento selecionado</value>
+    <value>กด {0} เพื่อสลับการเลือกระยะชดเชย</value>
   </data>
   <data name="Mode_Info_UndergroundMode" xml:space="preserve">
-    <value>Segurar {0} para o modo subterrâneo</value>
+    <value>กด {0} ค้างไว้เพื่อใช้โหมดใต้ดิน</value>
   </data>
   <data name="Mode_Info_WrongShape" xml:space="preserve">
-    <value>Forma errada</value>
+    <value>ผิดรูปทรง</value>
   </data>
   <data name="Mode_IntersectSegment" xml:space="preserve">
-    <value>Modo de intersecção de segmentos</value>
+    <value>โหมดการตัดกันของเซกเมนต์</value>
   </data>
   <data name="Mode_IntersectSegment_Info_CommonNode" xml:space="preserve">
-    <value>Estes segmentos têm um nó comum</value>
+    <value>เซกเมนต์เหล่านี้ใช้โหนดร่วมกัน</value>
   </data>
   <data name="Mode_IntersectSegment_Info_EdgeTooClose" xml:space="preserve">
-    <value>Borda de um segmento é muito perto do final do segundo segmento</value>
+    <value>เซกเมนต์แรก อยู่ใกล้กับจุดสิ้นสุด เซกเมนต์ที่สอง มากเกินไป</value>
   </data>
   <data name="Mode_IntersectSegment_Info_NotIntersect" xml:space="preserve">
-    <value>Estes segmentos não se intersectam</value>
+    <value>เซกเมนต์เหล่านี้ไม่ตัดกัน</value>
   </data>
   <data name="Mode_InvertSegment" xml:space="preserve">
-    <value>Modo de inversão de segmento</value>
+    <value>โหมดกลับด้านเซกเมนต์</value>
   </data>
   <data name="Mode_InvertSegment_Info_ClickToReverse" xml:space="preserve">
-    <value>Clique para inverter o segmento</value>
+    <value>คลิกเพื่อกลับด้านเซกเมนต์</value>
   </data>
   <data name="Mode_InvertSegment_Info_SelectToReverse" xml:space="preserve">
-    <value>Selecione o segmento para invertê-lo</value>
+    <value>เลือกเซกเมนต์เพื่อกลับด้าน</value>
   </data>
   <data name="Mode_NodeLine_Info_NotConnected" xml:space="preserve">
-    <value>Este nó não pode ser selecionado
-porque não está ligado a outros</value>
+    <value>ไม่สามารถเลือกโหนดนี้ได้
+เพราะมันไม่เชื่อมต่อกับโหนดอื่น ๆ</value>
   </data>
   <data name="Mode_NodeLine_Info_SelectNode" xml:space="preserve">
-    <value>Selecione o nó para adicioná-lo à ordem</value>
+    <value>เลือกโหนดเพื่อเพิ่มมันในลำดับ</value>
   </data>
   <data name="Mode_PercentagesFormat" xml:space="preserve">
     <value>{0}%</value>
   </data>
   <data name="Mode_RadiusFormat" xml:space="preserve">
-    <value>{0}m</value>
+    <value>{0}ม.</value>
   </data>
   <data name="Mode_RemoveNode" xml:space="preserve">
-    <value>Modo remover nó</value>
+    <value>โหมดการลบโหนด</value>
   </data>
   <data name="Mode_RemoveNode_Info_NotAllow" xml:space="preserve">
-    <value>Não é permitido remover este nó</value>
+    <value>ไม่สามารถลบโหนดนี้ได้</value>
   </data>
   <data name="Mode_SlopeNode" xml:space="preserve">
-    <value>Definir modo de inclinação</value>
+    <value>โหมดปรับความลาดชัน</value>
   </data>
   <data name="Mode_SplitNode" xml:space="preserve">
-    <value>Modo nó dividido</value>
+    <value>โหมดแบ่งแยกโหนด</value>
   </data>
   <data name="Mode_SplitNode_Info_ClickFromOrder" xml:space="preserve">
-    <value>Clicar para remover o segmento da ordem dividida</value>
+    <value>คลิกเพื่อลบเซกเมนต์ออกจากลำดับที่ต้องการแยก</value>
   </data>
   <data name="Mode_SplitNode_Info_ClickToOrder" xml:space="preserve">
-    <value>Clicar para adicionar um segmento para dividir a ordem</value>
+    <value>คลิกเพื่อเพิ่มเซกเมนต์เข้าสู่ลำดับที่ต้องการแยก</value>
   </data>
   <data name="Mode_SplitNode_Info_ClickToSplit" xml:space="preserve">
-    <value>Clicar para dividir nó e alinhá-lo à altura do terreno
-Clicar com {0} para dividir o nó e alinhá-lo à altura da fonte</value>
+    <value>คลิกเพื่อแยกโหนดและปรับความสูงให้เป็นไปตามลักษณะภูมิประเทศ
+คลิก พร้อม {0} เพื่อแยกโหนดและปรับระดับความสูงให้เป็นไปตามความสูงของแหล่งอ้างอิง</value>
   </data>
   <data name="Mode_SplitNode_Info_NotAllowedSplit" xml:space="preserve">
-    <value>Não é possível dividir o nó com apenas um segmento</value>
+    <value>เป็นไปไม่ได้ที่จะแยกโหนดบนเซกเมนต์ที่มีเพียงอันเดียว</value>
   </data>
   <data name="Mode_SplitNode_Info_OrderIsFull" xml:space="preserve">
-    <value>Não é possível adicionar mais segmentos à ordem dividida</value>
+    <value>ไม่สามารถเพิ่มเซกเมนต์เพื่อทำการแยกได้อีก</value>
   </data>
   <data name="Mode_SplitNode_Info_SelectToSplit" xml:space="preserve">
-    <value>Selecione segmentos para dividir</value>
+    <value>เลือกเซกเมนต์ที่จะแยก</value>
   </data>
   <data name="Mode_SplitNode_Info_TooFar" xml:space="preserve">
-    <value>A posição está muito longe do nó de origem</value>
+    <value>ตำแหน่งอยู่ห่างจากโหนดต้นทางมากเกินไป</value>
   </data>
   <data name="Mode_UnionNode" xml:space="preserve">
-    <value>Modo de união de nós</value>
+    <value>โหมดการรวมโหนด</value>
   </data>
   <data name="Mode_UnionNode_Info_ClickSource" xml:space="preserve">
-    <value>Clique para selecionar o nó de origem</value>
+    <value>คลิกเพื่อเลือกโหนดต้นทาง</value>
   </data>
   <data name="Mode_UnionNode_Info_ClickUnion" xml:space="preserve">
-    <value>Clique para unir nós</value>
+    <value>คลิ๊กเพื่อรวมโหนด</value>
   </data>
   <data name="Mode_UnionNode_Info_NoCommon" xml:space="preserve">
-    <value>Estes nós têm um segmento em comum</value>
+    <value>โหนดเหล่านี้ใช้เซกเมนต์ร่วมกัน</value>
   </data>
   <data name="Mode_UnionNode_Info_Overflow" xml:space="preserve">
-    <value>O número total de nós não pode ser mais do que 8</value>
+    <value>จำนวนโหนดทั้งหมดต้องไม่เกิน 8 โหนด</value>
   </data>
   <data name="Mode_UnionNode_Info_SelectSource" xml:space="preserve">
-    <value>Selecionar nó de origem</value>
+    <value>เลือกโหนดต้นทาง</value>
   </data>
   <data name="Mode_UnionNode_Info_SelectTarget" xml:space="preserve">
-    <value>Selecionar nó de destino</value>
+    <value>เลือกโหนดปลายทาง</value>
   </data>
   <data name="Mode_UnionNode_Info_TooFar" xml:space="preserve">
-    <value>Nós muito distantes um do outro</value>
+    <value>โหนดอยู่ห่างจากกันมากเกินไป</value>
   </data>
   <data name="Mode_UnitsFormat" xml:space="preserve">
     <value>{0}U</value>
   </data>
   <data name="Mode_UnlockSegment" xml:space="preserve">
-    <value>Modo de desbloqueio de segmento</value>
+    <value>โหมดปลดล็อกเซกเมนต์</value>
   </data>
   <data name="Mode_UnlockSegment_Info_ChangeLock" xml:space="preserve">
-    <value>Selecionar segmento para bloquear ou desbloqueá-lo</value>
+    <value>เลือกเซกเมนต์
+เพื่อปลดล็อกหรือล็อกมัน</value>
   </data>
   <data name="Mode_UnlockSegment_Info_ClickToLock" xml:space="preserve">
-    <value>Clicar para bloquear este segmento</value>
+    <value>คลิกเพื่อล็อกเซกเมนต์</value>
   </data>
   <data name="Mode_UnlockSegment_Info_ClickToUnlock" xml:space="preserve">
-    <value>Clicar para desbloquear este segmento</value>
+    <value>คลิกเพื่อปลดล็อกเซกเมนต์</value>
   </data>
   <data name="Mod_Description" xml:space="preserve">
-    <value>Muitas ferramentas diferentes para trabalhar com redes</value>
+    <value>เครื่องมื่อต่าง ๆ มากมายสำหรับใช้งานกับระบบเครือข่ายเส้นทาง</value>
   </data>
   
   
   
   
   <data name="Mod_WhatsNewMessage1_3_2" xml:space="preserve">
-    <value>[ATUALIZAÇÃO] Adicionado suporte ao DLC Plazas &amp; Promenades.</value>
+    <value>[UPDATED] เพิ่มการรองรับ DLC Plazas &amp; Promenades</value>
   </data>
   <data name="Mod_WhatsNewMessage1_3_3" xml:space="preserve">
-    <value>[NOVO] Suporte à Anarquia de Rede.</value>
+    <value>[NEW] เพิ่มการรองรับ Network Anarchy</value>
   </data>
   <data name="Mod_WhatsNewMessage1_3_4" xml:space="preserve">
-    <value>[UPDATED] Interface da Nova Configurações</value>
+    <value>[UPDATED] UI หน้าการตั้งค่ารูปแบบใหม่</value>
   </data>
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
-    <value>Atalhos de ativação</value>
+    <value>เปิดใช้งานคำสั่งลัด</value>
   </data>
   <data name="Settings_AutoConnect" xml:space="preserve">
-    <value>Ligar a estrada paralela aos nós mais próximo automaticamente</value>
+    <value>เชื่อมต่อทางคู่ขนานกับโหนดที่ใกล้เคียงที่สุดโดยอัตโนมัติ</value>
   </data>
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
-    <value>Ocultar automaticamente o painel de modos</value>
+    <value>ซ่อนแผงข้อมูลโหนดโดยอัตโนมัติ</value>
   </data>
   <data name="Settings_CommonCreateShortcuts" xml:space="preserve">
-    <value>Atalhos comuns dos modos de criação</value>
+    <value>คำสั่งลัดทั่วไปของโหมดสร้าง</value>
   </data>
   <data name="Settings_CommonShortcuts" xml:space="preserve">
-    <value>Atalhos comuns dos modos</value>
+    <value>คำสั่งลัดทั่วไปของโหมด</value>
   </data>
   <data name="Settings_FollowTerrain" xml:space="preserve">
-    <value>Estradas terrestres seguirão o terreno</value>
+    <value>พื่นถนนปรับตามระดับภูมิประเทศ</value>
   </data>
   <data name="Settings_Gameplay" xml:space="preserve">
-    <value>Jogabilidade</value>
+    <value>เกมเพลย์</value>
   </data>
   <data name="Settings_Interface" xml:space="preserve">
-    <value>Interface</value>
+    <value>อินเทอร์เฟซ</value>
   </data>
   <data name="Settings_LengthUnit" xml:space="preserve">
-    <value>Unidade de medida de comprimento</value>
+    <value>หน่วยที่ใช้วัดความยาว</value>
   </data>
   <data name="Settings_LengthUniteMeters" xml:space="preserve">
-    <value>Metros</value>
+    <value>เมตร</value>
   </data>
   <data name="Settings_LengthUniteUnits" xml:space="preserve">
-    <value>Unidades de jogo (1U = 8m)</value>
+    <value>หน่วยของเกม (1U = 8ม.)</value>
   </data>
   <data name="Settings_NeedMoney" xml:space="preserve">
-    <value>Requer dinheiro para construir</value>
+    <value>ต้องใช้เงินในการสร้าง</value>
   </data>
   <data name="Settings_PanelColumns" xml:space="preserve">
-    <value>Número de colunas do painel</value>
+    <value>จำนวนคอลัมน์ในแผงข้อมูล</value>
   </data>
   <data name="Settings_PanelOpenSide" xml:space="preserve">
-    <value>Lado de abertura do painel</value>
+    <value>ด้านที่แผงข้อมูลเปิดออก</value>
   </data>
   <data name="Settings_PanelOpenSideDown" xml:space="preserve">
-    <value>Baixo</value>
+    <value>ล่าง</value>
   </data>
   <data name="Settings_PanelOpenSideUp" xml:space="preserve">
-    <value>Cima</value>
+    <value>บน</value>
   </data>
   <data name="Settings_PlayEffects" xml:space="preserve">
-    <value>Reproduzir áudio e efeitos visuais</value>
+    <value>เล่นเอฟเฟกต์เสียงและภาพ</value>
   </data>
   <data name="Settings_PreviewType" xml:space="preserve">
-    <value>Pré-visualização da criação</value>
+    <value>ชมตัวอย่างการสร้าง</value>
   </data>
   <data name="Settings_PreviewTypeBoth" xml:space="preserve">
-    <value>Ambos</value>
+    <value>ทั้งคู่</value>
   </data>
   <data name="Settings_PreviewTypeMesh" xml:space="preserve">
-    <value>Visualização da rede</value>
+    <value>การแสดงเครือข่าย</value>
   </data>
   <data name="Settings_PreviewTypeOverlay" xml:space="preserve">
-    <value>Sobreposição</value>
+    <value>การซ้อนทับ</value>
   </data>
   <data name="Settings_SegmentLength" xml:space="preserve">
-    <value>Comprimento máximo do segmento</value>
+    <value>ความยาวสูงสุดของเซกเมนต์</value>
   </data>
   <data name="Settings_Shortcut_Apply" xml:space="preserve">
-    <value>Aplicar ação do modo</value>
+    <value>ใช้โหมดการดำเนินการ</value>
   </data>
   <data name="Settings_Shortcut_DecreaseAngle" xml:space="preserve">
-    <value>Diminuir ângulo inicial</value>
+    <value>ลดมุมเริ่มต้น</value>
   </data>
   <data name="Settings_Shortcut_DecreaseHeight" xml:space="preserve">
-    <value>Diminuir altura</value>
+    <value>ลดความสูง</value>
   </data>
   <data name="Settings_Shortcut_DecreaseOffset" xml:space="preserve">
-    <value>Diminuir o deslocamento inicial do círculo</value>
+    <value>ลดระยะชดเชยเริ่มต้นของวงกลม</value>
   </data>
   <data name="Settings_Shortcut_DecreaseOneRadius" xml:space="preserve">
-    <value>Diminuir o raio uma vez</value>
+    <value>ลดรัศมี</value>
   </data>
   <data name="Settings_Shortcut_DecreaseRadii" xml:space="preserve">
-    <value>Diminuir raios</value>
+    <value>ลดรัศมี</value>
   </data>
   <data name="Settings_Shortcut_DecreaseRadius" xml:space="preserve">
-    <value>Diminuir o raio</value>
+    <value>ลดรัศมี</value>
   </data>
   <data name="Settings_Shortcut_DecreaseShift" xml:space="preserve">
-    <value>Diminuir deslocamento</value>
+    <value>ลดระยะชดเชย</value>
   </data>
   <data name="Settings_Shortcut_DistributeBetweenIntersections" xml:space="preserve">
-    <value>Distribuir nós igualmente entre interseções</value>
+    <value>กระจายโหนดระหว่างทางแยกอย่างสม่ำเสมอ</value>
   </data>
   <data name="Settings_Shortcut_DistributeEvenly" xml:space="preserve">
-    <value>Distribuir nós igualmente no círculo</value>
+    <value>กระจายโหนดในวงกลมอย่างสม่ำเสมอ</value>
   </data>
   <data name="Settings_Shortcut_DistributeIntersections" xml:space="preserve">
-    <value>Distribuir interseções igualmente no círculo</value>
+    <value>กระจายทางแยกอย่างสม่ำเสมอในวงกลม</value>
   </data>
   <data name="Settings_Shortcut_IncreaseAngle" xml:space="preserve">
-    <value>Aumentar ângulo inicial</value>
+    <value>เพิ่มมุมเริ่มต้น</value>
   </data>
   <data name="Settings_Shortcut_IncreaseHeight" xml:space="preserve">
-    <value>Aumentar altura</value>
+    <value>เพิ่มความสูง</value>
   </data>
   <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
-    <value>Aumentar o deslocamento inicial do círculo</value>
+    <value>เพิ่มระยะชดเชยเริ่มต้นของวงกลม</value>
   </data>
   <data name="Settings_Shortcut_IncreaseOneRadius" xml:space="preserve">
-    <value>Aumentar o raio uma vez</value>
+    <value>เพิ่มรัศมี</value>
   </data>
   <data name="Settings_Shortcut_IncreaseRadii" xml:space="preserve">
-    <value>Aumentar raios</value>
+    <value>เพิ่มรัศมี</value>
   </data>
   <data name="Settings_Shortcut_IncreaseRadius" xml:space="preserve">
-    <value>Aumentar o raio</value>
+    <value>เพิ่มรัศมี</value>
   </data>
   <data name="Settings_Shortcut_IncreaseShift" xml:space="preserve">
-    <value>Aumentar o deslocamento</value>
+    <value>เพิ่มระยะชดเชย</value>
   </data>
   <data name="Settings_Shortcut_InvertNetwork" xml:space="preserve">
-    <value>Inverter rede</value>
+    <value>กลับด้านเครือข่าย</value>
   </data>
   <data name="Settings_Shortcut_InvertShift" xml:space="preserve">
-    <value>Mudar lado da criação</value>
+    <value>สลับด้านการสร้าง</value>
   </data>
   <data name="Settings_Shortcut_ResetArrangeCircle" xml:space="preserve">
-    <value>Restaurar ao círculo padrão</value>
+    <value>รีเซ็ตเป็นวงกลมเริ่มต้น</value>
   </data>
   <data name="Settings_Shortcut_SwitchFollowTerrain" xml:space="preserve">
-    <value>Alternar seguir terreno</value>
+    <value>สลับให้ปรับระดับตามภูมิประเทศ</value>
   </data>
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
-    <value>Mudar direção da repetição</value>
+    <value>สลับให้ปรับตามทิศทางการหมุนวน</value>
   </data>
   <data name="Settings_Shortcut_SwitchOffset" xml:space="preserve">
-    <value>Alternar deslocamento selecionado</value>
+    <value>สลับการเลือกระยะชดเชย</value>
   </data>
   <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
-    <value>Alternar círculo selecionado</value>
+    <value>สลับการเลือกวงกลม</value>
   </data>
   <data name="Settings_SlopeColors" xml:space="preserve">
-    <value>Definir a cor da etiqueta da inclinação dependendo do valor</value>
+    <value>สีของป้ายกำกับความลาดชันถูกกำหนดตามค่าของมัน</value>
   </data>
   <data name="Settings_SlopeUnit" xml:space="preserve">
-    <value>Unidade de medida de inclinação</value>
+    <value>หน่วยที่ใช้วัดของความลาดชัน</value>
   </data>
   <data name="Settings_SlopeUnitDegrees" xml:space="preserve">
-    <value>Graus</value>
+    <value>องศา</value>
   </data>
   <data name="Settings_SlopeUnitPercentages" xml:space="preserve">
-    <value>Percentagem</value>
+    <value>อัตราร้อยละ</value>
   </data>
   <data name="Tool_RemoveNode_Info_ClickToRemove" xml:space="preserve">
-    <value>Clique para remover</value>
+    <value>คลิกเพื่อลบ</value>
   </data>
   <data name="Tool_RemoveNode_Info_Select" xml:space="preserve">
-    <value>Selecione o nó para removê-lo</value>
+    <value>เลือกโหนดเพื่อลบ</value>
   </data>
 </root>

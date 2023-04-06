@@ -468,6 +468,9 @@ oder Entsperren auswählen</value>
   <data name="Mod_WhatsNewMessage1_3_3" xml:space="preserve">
     <value>[NEW] Unterstützung für Network Anarchy hinzugefügt.</value>
   </data>
+  <data name="Mod_WhatsNewMessage1_3_4" xml:space="preserve">
+    <value>[UPDATED] Neue Benutzeroberfläche für Einstellungen</value>
+  </data>
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>Aktivierungskurzbefehle</value>
   </data>

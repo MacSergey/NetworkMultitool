@@ -457,6 +457,9 @@ Klik met {0} om de knooppunt te splitsen en de terrein uit te lijnen op de origi
   <data name="Mod_WhatsNewMessage1_3_3" xml:space="preserve">
     <value>[NEW] Ondersteuning toegevoegd voor Network Anarchy.</value>
   </data>
+  <data name="Mod_WhatsNewMessage1_3_4" xml:space="preserve">
+    <value>[UPDATED] Nieuwe gebruikersinterface voor instellingen</value>
+  </data>
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>Activatie snelkoppelingen</value>
   </data>

@@ -465,6 +465,7 @@ uzamknutí nebo odemknutí</value>
   <data name="Mod_WhatsNewMessage1_3_3" xml:space="preserve">
     <value>[NEW] Přidána podpora pro Network Anarchy.</value>
   </data>
+  
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>Aktivační zkratky</value>
   </data>

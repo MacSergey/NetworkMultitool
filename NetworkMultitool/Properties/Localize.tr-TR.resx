@@ -456,6 +456,7 @@ Düğümü dağıtmak ve hedef yüksekliğine ayarlamak için {0} tuşunu kullan
   <data name="Mod_WhatsNewMessage1_3_3" xml:space="preserve">
     <value>[NEW] Network Anarchy Desteği eklendi.</value>
   </data>
+  
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>Aktive etme kısayolları</value>
   </data>

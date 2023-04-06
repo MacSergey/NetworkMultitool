@@ -529,6 +529,9 @@ verrouiller ou déverrouiller</value>
   <data name="Mod_WhatsNewMessage1_3_3" xml:space="preserve">
     <value>[NEW] Ajout du support de Network Anarchy.</value>
   </data>
+  <data name="Mod_WhatsNewMessage1_3_4" xml:space="preserve">
+    <value>[UPDATED] Nouvelle interface pour les paramètres</value>
+  </data>
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>Raccourcis d'activation</value>
   </data>
