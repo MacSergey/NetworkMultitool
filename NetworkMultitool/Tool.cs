@@ -19,7 +19,6 @@ namespace NetworkMultitool
         public static NetworkMultitoolShortcut ActivationShortcut { get; } = new NetworkMultitoolShortcut(nameof(ActivationShortcut), nameof(CommonLocalize.Settings_ShortcutActivateTool), SavedInputKey.Encode(KeyCode.T, true, false, false));
         public static NetworkMultitoolShortcut SelectionStepOverShortcut { get; } = new NetworkMultitoolShortcut(nameof(SelectionStepOverShortcut), nameof(CommonLocalize.Settings_ShortcutSelectionStepOver), SavedInputKey.Encode(KeyCode.Space, true, false, false), () => SingletonTool<NetworkMultitoolTool>.Instance.SelectionStepOver());
 
-        public static IEnumerable<ToolModeType> ModeTypes => EnumExtension.GetEnumValues<ToolModeType>(m => m.IsItem());
         public static Dictionary<ToolModeType, NetworkMultitoolShortcut> ModeShortcuts { get; }
 
         private static IEnumerable<Shortcut> ToolShortcuts
