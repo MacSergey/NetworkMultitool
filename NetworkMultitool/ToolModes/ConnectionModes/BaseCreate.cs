@@ -1,5 +1,6 @@
 ﻿using ColossalFramework;
 using ColossalFramework.UI;
+using HarmonyLib;
 using ModsCommon;
 using ModsCommon.Utilities;
 using NetworkMultitool.Utilities;
@@ -84,7 +85,7 @@ namespace NetworkMultitool
             {
                 try
                 {
-                    var method = System.Type.GetType("NetworkAnarchy.Patches.NT_CreateNode").GetMethod("GetMaxLength");
+                    var method = AccessTools.TypeByName("NetworkAnarchy.Patches.NT_CreateNode").GetMethod("GetMaxLength");
                     if (MaxLengthGetter?.Method != method)
                     {
                         MaxLengthGetter = (Func<float>)Delegate.CreateDelegate(typeof(Func<float>), method);
@@ -94,7 +95,7 @@ namespace NetworkMultitool
                 }
                 catch (Exception error)
                 {
-                    SingletonMod<Mod>.Logger.Error("Cant access to Node Spacer", error);
+                    SingletonMod<Mod>.Logger.Error("Cant access to Network Anarchy", error);
                 }
             }
 

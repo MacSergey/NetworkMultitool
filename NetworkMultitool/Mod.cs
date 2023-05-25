@@ -31,7 +31,7 @@ namespace NetworkMultitool
             new ModVersion(new Version("1.1"), new DateTime(2021, 8, 7)),
             new ModVersion(new Version("1.0"), new DateTime(2021, 7, 30)),
         };
-        protected override Version RequiredGameVersion => new Version(1, 16, 1, 2);
+        protected override Version RequiredGameVersion => new Version(1, 17, 0, 3);
 
         public override string NameRaw => "Network Multitool";
         public override string Description => !IsBeta ? Localize.Mod_Description : CommonLocalize.Mod_DescriptionBeta;
