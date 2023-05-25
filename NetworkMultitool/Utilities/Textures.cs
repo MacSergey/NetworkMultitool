@@ -42,7 +42,7 @@ namespace NetworkMultitool.Utilities
             spriteParams[UUIButtonHovered] = new RectOffset();
             spriteParams[UUIButtonPressed] = new RectOffset();
 
-            foreach (var mode in NetworkMultitoolTool.ModeTypes)
+            foreach (var mode in EnumExtension.GetEnumValues<ToolModeType>().IsItem())
                 spriteParams.Add(mode.ToString(), new RectOffset());
 
             Atlas = TextureHelper.CreateAtlas(nameof(NetworkMultitool), spriteParams);
