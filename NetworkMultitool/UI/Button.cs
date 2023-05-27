@@ -7,7 +7,7 @@ using static NetworkMultitool.Utilities.NetworkMultitoolTextures;
 
 namespace NetworkMultitool.UI
 {
-    public class NetworkMultitoolButton : UUINetToolButton<Mod, NetworkMultitoolTool>
+    public class NetworkMultitoolButton : ToolButton<NetworkMultitoolTool>
     {
         protected override Vector2 ButtonPosition => new Vector3(129, 38);
         protected override UITextureAtlas DefaultAtlas => NetworkMultitoolTextures.Atlas;

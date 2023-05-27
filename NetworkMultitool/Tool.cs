@@ -121,7 +121,7 @@ namespace NetworkMultitool
         public override void RegisterUUI()
         {
             base.RegisterUUI();
-            if (IsInit && UUIRegistered)
+            if (IsInit && CanBeShownUUIButton)
                 ModesPanel.Add(UUIButton);
         }
 

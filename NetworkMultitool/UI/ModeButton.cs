@@ -13,9 +13,7 @@ namespace NetworkMultitool.UI
     {
         private static Dictionary<ToolModeType, List<ModeButton>> ButtonsDic { get; } = new Dictionary<ToolModeType, List<ModeButton>>();
 
-        public static int ButtonSize => ButtonIconSize + 2 * ButtonIconPadding;
-        private static int ButtonIconSize => 25;
-        public static int ButtonIconPadding => 2;
+        public static int ButtonSize => 25;
         private static Color32 HoverColor => new Color32(112, 112, 112, 255);
         private static Color32 PressedColor => new Color32(144, 144, 144, 255);
         private static Color32 FocusedColor => new Color32(144, 144, 144, 255);
@@ -29,9 +27,10 @@ namespace NetworkMultitool.UI
             selBgSprites = HeaderHover;
             selBgColors = FocusedColor;
 
-            fgAtlas = NetworkMultitoolTextures.Atlas;
+            iconAtlas = NetworkMultitoolTextures.Atlas;
 
-            size = new Vector2(ButtonSize, ButtonSize);
+            iconPadding = new RectOffset(2, 2, 2, 2);
+            size = new Vector2(ButtonSize + IconPadding.horizontal, ButtonSize + IconPadding.vertical);
             clipChildren = true;
             minimumSize = size;
             IconMode = SpriteMode.Fill;
@@ -64,7 +63,7 @@ namespace NetworkMultitool.UI
             var button = parent.AddUIComponent<ModeButton>();
 
             button.Mode = mode;
-            button.FgSprites = mode.Type.ToString();
+            button.AllIconSprites = mode.Type.ToString();
 
             if (!ButtonsDic.TryGetValue(mode.Type & ToolModeType.Group, out var buttons))
             {
