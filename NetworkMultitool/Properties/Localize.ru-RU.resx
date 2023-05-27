@@ -528,6 +528,10 @@
   <data name="Mod_WhatsNewMessage1_3_4" xml:space="preserve">
     <value>[UPDATED] Новый интерфейс настроек</value>
   </data>
+  <data name="Mod_WhatsNewMessage1_3_5" xml:space="preserve">
+    <value>[UPDATED] Добавлена поддержка Hotels&amp;Retreats DLC.
+[TRANSLATION] Добавлен перевод на традиционный китайский и тайский.</value>
+  </data>
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>Горячие клавиши активации</value>
   </data>

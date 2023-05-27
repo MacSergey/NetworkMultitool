@@ -464,6 +464,7 @@ bloca sau debloca</value>
     <value>[NEW] Adăugat suportul pentru Network Anarchy.</value>
   </data>
   
+  
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>Comenzi rapide de activare</value>
   </data>

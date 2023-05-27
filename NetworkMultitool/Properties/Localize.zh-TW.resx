@@ -465,6 +465,7 @@
   <data name="Mod_WhatsNewMessage1_3_4" xml:space="preserve">
     <value>【更新】新的設定UI</value>
   </data>
+  
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>啟動快速鍵</value>
   </data>

@@ -466,6 +466,7 @@
   <data name="Mod_WhatsNewMessage1_3_4" xml:space="preserve">
     <value>[UPDATED] 新的设置界面</value>
   </data>
+  
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>激活快捷键</value>
   </data>
