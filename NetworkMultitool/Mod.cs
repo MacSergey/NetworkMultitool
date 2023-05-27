@@ -7,10 +7,7 @@ using NetworkMultitool.UI;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
 using System.Reflection.Emit;
-using System.Resources;
-using System.Text;
 using static ColossalFramework.Plugins.PluginManager;
 
 namespace NetworkMultitool
@@ -22,6 +19,7 @@ namespace NetworkMultitool
         protected override string IdRaw => nameof(NetworkMultitool);
         public override List<ModVersion> Versions { get; } = new List<ModVersion>
         {
+            new ModVersion(new Version("1.3.5"), new DateTime(2023, 5, 27)),
             new ModVersion(new Version("1.3.4"), new DateTime(2023, 4, 6)),
             new ModVersion(new Version("1.3.3"), new DateTime(2022, 9, 17)),
             new ModVersion(new Version("1.3.2"), new DateTime(2022, 9, 14)),

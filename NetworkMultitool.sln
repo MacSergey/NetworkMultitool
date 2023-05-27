@@ -254,4 +254,13 @@ Global
 		ModsCommon\LoggerShared\LoggerShared.projitems*{fe0af823-f63f-4441-b28d-c0890bc0bf6a}*SharedItemsImports = 13
 		ModsCommon\TrajectoryShared\TrajectoryShared.projitems*{ffba673c-7990-421a-8dd3-87149c1f751b}*SharedItemsImports = 13
 	EndGlobalSection
+	GlobalSection(AutomaticVersions) = postSolution
+		UpdateAssemblyVersion.Beta Debug|Any CPU = True
+		UpdateAssemblyFileVersion.Beta Debug|Any CPU = False
+		UpdateAssemblyInfoVersion.Beta Debug|Any CPU = False
+		AssemblyVersionSettings.Beta Debug|Any CPU = None.None.None.Increment
+		UpdatePackageVersion.Beta Debug|Any CPU = False
+		AssemblyInfoVersionType.Beta Debug|Any CPU = SettingsVersion
+		InheritWinAppVersionFrom.Beta Debug|Any CPU = None
+	EndGlobalSection
 EndGlobal

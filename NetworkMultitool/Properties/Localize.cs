@@ -586,6 +586,11 @@ namespace NetworkMultitool
 		public static string Mod_WhatsNewMessage1_3_4 => LocaleManager.GetString("Mod_WhatsNewMessage1_3_4", Culture);
 
 		/// <summary>
+		/// [UPDATED] Added Hotels&Retreats DLC support.
+		/// </summary>
+		public static string Mod_WhatsNewMessage1_3_5 => LocaleManager.GetString("Mod_WhatsNewMessage1_3_5", Culture);
+
+		/// <summary>
 		/// Activation shortcuts
 		/// </summary>
 		public static string Settings_ActivationShortcuts => LocaleManager.GetString("Settings_ActivationShortcuts", Culture);
