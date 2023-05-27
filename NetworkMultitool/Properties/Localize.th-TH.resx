@@ -466,7 +466,10 @@
   <data name="Mod_WhatsNewMessage1_3_4" xml:space="preserve">
     <value>[UPDATED] UI หน้าการตั้งค่ารูปแบบใหม่</value>
   </data>
-  
+  <data name="Mod_WhatsNewMessage1_3_5" xml:space="preserve">
+    <value>[UPDATED] เพิ่มการรองรับ DLC Hotels&amp;Retreats
+[TRANSLATION] แปลภาษาจีนตัวเต็ม และภาษาไทย เพิ่มเติม</value>
+  </data>
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>เปิดใช้งานคำสั่งลัด</value>
   </data>

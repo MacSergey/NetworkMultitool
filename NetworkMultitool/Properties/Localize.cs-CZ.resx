@@ -465,8 +465,13 @@ uzamknutí nebo odemknutí</value>
   <data name="Mod_WhatsNewMessage1_3_3" xml:space="preserve">
     <value>[NEW] Přidána podpora pro Network Anarchy.</value>
   </data>
-  
-  
+  <data name="Mod_WhatsNewMessage1_3_4" xml:space="preserve">
+    <value>[UPDATED] Nové nastavení UI</value>
+  </data>
+  <data name="Mod_WhatsNewMessage1_3_5" xml:space="preserve">
+    <value>[UPDATED] Přidána podpora DLC Hotels&amp;Retreats.
+[TRANSLATION] Přidány Čínské tradiční a Thajské překlady.</value>
+  </data>
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>Aktivační zkratky</value>
   </data>

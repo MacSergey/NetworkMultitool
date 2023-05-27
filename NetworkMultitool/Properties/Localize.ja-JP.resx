@@ -463,7 +463,10 @@
   <data name="Mod_WhatsNewMessage1_3_4" xml:space="preserve">
     <value>[UPDATED] New settings UI</value>
   </data>
-  
+  <data name="Mod_WhatsNewMessage1_3_5" xml:space="preserve">
+    <value>[UPDATED] Added Hotels&amp;Retreats DLC support.
+[TRANSLATION] Added Chinese traditional and Thai translations.</value>
+  </data>
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>Mode＆ツールの有効化</value>
   </data>

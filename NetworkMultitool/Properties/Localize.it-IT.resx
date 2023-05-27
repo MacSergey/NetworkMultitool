@@ -466,7 +466,10 @@ bloccarlo o sbloccarlo</value>
   <data name="Mod_WhatsNewMessage1_3_4" xml:space="preserve">
     <value>[UPDATED] Nuove impostazioni UI</value>
   </data>
-  
+  <data name="Mod_WhatsNewMessage1_3_5" xml:space="preserve">
+    <value>[UPDATED] Aggiunto il supporto per il DLC Hotels&amp;Retreats.
+[TRANSLATION] Aggiunte le traduzioni in Cinese tradizionale e Thailandese.</value>
+  </data>
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>Attivazione scorciatoie</value>
   </data>
