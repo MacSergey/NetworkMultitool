@@ -7,6 +7,7 @@ using NetworkMultitool.UI;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Reflection;
 using System.Reflection.Emit;
 using static ColossalFramework.Plugins.PluginManager;
 
@@ -114,10 +115,12 @@ namespace NetworkMultitool
 
         private bool NetworkAnarchyUpdate()
         {
-            if (!AddTranspiler(typeof(Patcher), nameof(Patcher.NetworkAnarchyUpdateTranspiler), NetworkAnarchyType, "Update"))
-                return AddTranspiler(typeof(Patcher), nameof(Patcher.NetworkAnarchyUpdateTranspiler), NetworkAnarchyType, "FpsBoosterUpdate");
+            if (AccessTools.Method(NetworkAnarchyType, "Update") is MethodInfo updateMethod)
+                return AddTranspiler(typeof(Patcher), nameof(Patcher.NetworkAnarchyUpdateTranspiler), updateMethod);
+            else if (AccessTools.Method(NetworkAnarchyType, "FpsBoosterUpdate") is MethodInfo fpsBoosterUpdateMethod)
+                return AddTranspiler(typeof(Patcher), nameof(Patcher.NetworkAnarchyUpdateTranspiler), fpsBoosterUpdateMethod);
             else
-                return true;
+                return false;
         }
         private bool NetworkAnarchyOnGUI()
         {
