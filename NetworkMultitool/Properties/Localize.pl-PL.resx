@@ -464,7 +464,10 @@ Naciśnij trzymając {0} aby podzielić węzeł i wyrównać do wysokości źró
   <data name="Mod_WhatsNewMessage1_3_4" xml:space="preserve">
     <value>[UPDATED] Nowe ustawienia UI</value>
   </data>
-  
+  <data name="Mod_WhatsNewMessage1_3_5" xml:space="preserve">
+    <value>[UPDATED] Dodano wsparcie dla DLC Hotele i Schroniska
+[TRANSLATION] Dodano tłumaczenia chińskie tradycyjne i tajskie.</value>
+  </data>
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>Skróty aktywacji</value>
   </data>
