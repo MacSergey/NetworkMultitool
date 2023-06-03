@@ -266,6 +266,11 @@ namespace NetworkMultitool
 		public static string Mode_Info_Create => LocaleManager.GetString("Mode_Info_Create", Culture);
 
 		/// <summary>
+		/// Drag control point to change curve
+		/// </summary>
+		public static string Mode_Info_DragControlPoint => LocaleManager.GetString("Mode_Info_DragControlPoint", Culture);
+
+		/// <summary>
 		/// Hold {0} to move X{1} slower
 		/// </summary>
 		public static string Mode_Info_HoldToMoveSlower => LocaleManager.GetString("Mode_Info_HoldToMoveSlower", Culture);

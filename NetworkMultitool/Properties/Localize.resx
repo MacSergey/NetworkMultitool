@@ -279,6 +279,9 @@ intersections evenly on circle</value>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Press {0} to create</value>
   </data>
+  <data name="Mode_Info_DragControlPoint" xml:space="preserve">
+    <value>Drag control point to change curve</value>
+  </data>
   <data name="Mode_Info_HoldToMoveSlower" xml:space="preserve">
     <value>Hold {0} to move X{1} slower</value>
   </data>
