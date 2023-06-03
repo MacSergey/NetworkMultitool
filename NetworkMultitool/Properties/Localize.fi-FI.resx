@@ -276,6 +276,7 @@ liittymät tasaisesti</value>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Luo painamalla {0}</value>
   </data>
+  
   <data name="Mode_Info_HoldToMoveSlower" xml:space="preserve">
     <value>Pidä {0} pohjassa siirtääksesi X{1} hitaampaa</value>
   </data>

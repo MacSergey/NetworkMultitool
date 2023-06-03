@@ -281,6 +281,9 @@
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Нажмите {0} чтобы создать</value>
   </data>
+  <data name="Mode_Info_DragControlPoint" xml:space="preserve">
+    <value>Перетащите контрольную точку для изменения кривой</value>
+  </data>
   <data name="Mode_Info_HoldToMoveSlower" xml:space="preserve">
     <value>{0} для перемещения в {1} раз медленнее</value>
   </data>

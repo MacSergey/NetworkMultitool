@@ -278,6 +278,9 @@ in modo uniforme tra le intersezioni</value>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Premi {0} per creare</value>
   </data>
+  <data name="Mode_Info_DragControlPoint" xml:space="preserve">
+    <value>Trascina il punto di controllo per cambiare la curva</value>
+  </data>
   <data name="Mode_Info_HoldToMoveSlower" xml:space="preserve">
     <value>Tieni premuto {0} per spostare X{1} più lentamente</value>
   </data>

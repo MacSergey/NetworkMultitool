@@ -276,6 +276,7 @@ skæringspunkter jævnt på cirklen</value>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Tryk på {0} for at oprette</value>
   </data>
+  
   <data name="Mode_Info_HoldToMoveSlower" xml:space="preserve">
     <value>Hold {0} nede for at flytte X{1} langsommere</value>
   </data>

@@ -279,6 +279,7 @@ intersecțiile uniform în cerc</value>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Apăsați {0} pentru a crea</value>
   </data>
+  
   <data name="Mode_Info_HoldToMoveSlower" xml:space="preserve">
     <value>Țineți apăsat {0} pentru a mișca de {1} ori mai încet</value>
   </data>

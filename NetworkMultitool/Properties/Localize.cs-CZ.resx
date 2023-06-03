@@ -277,6 +277,7 @@ mezi křižovatkami</value>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Stiskněte {0} pro aktivaci</value>
   </data>
+  
   <data name="Mode_Info_HoldToMoveSlower" xml:space="preserve">
     <value>Podržte {0} pro pomalejší posun X{1}</value>
   </data>

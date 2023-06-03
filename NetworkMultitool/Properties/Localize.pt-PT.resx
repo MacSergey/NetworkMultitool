@@ -277,6 +277,7 @@ intersecções de forma igualmente em círculo</value>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Pressione {0} para criar</value>
   </data>
+  
   <data name="Mode_Info_HoldToMoveSlower" xml:space="preserve">
     <value>Manter {0} para mover X{1} mais lentamente</value>
   </data>

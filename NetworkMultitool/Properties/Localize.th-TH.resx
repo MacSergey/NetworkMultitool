@@ -279,6 +279,7 @@
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>กด {0} เพื่อสร้าง</value>
   </data>
+  
   <data name="Mode_Info_HoldToMoveSlower" xml:space="preserve">
     <value>กด {0} ค้างไว้เพื่อให้ x{1} เคลื่อนที่ช้าลง</value>
   </data>

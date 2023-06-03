@@ -276,6 +276,9 @@
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>{0} で敷設を確定</value>
   </data>
+  <data name="Mode_Info_DragControlPoint" xml:space="preserve">
+    <value>制御ポイントをドラッグして曲線を変更</value>
+  </data>
   <data name="Mode_Info_HoldToMoveSlower" xml:space="preserve">
     <value>{0} で X{1} 遅く移動</value>
   </data>

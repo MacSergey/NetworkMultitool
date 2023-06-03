@@ -280,6 +280,9 @@ de manera uniforme en el círculo</value>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Presiona la tecla {0} para crear</value>
   </data>
+  <data name="Mode_Info_DragControlPoint" xml:space="preserve">
+    <value>Arrastra el punto de control para cambiar la curva</value>
+  </data>
   <data name="Mode_Info_HoldToMoveSlower" xml:space="preserve">
     <value>Mantener presionada la tecla {0} para mover X{1} más lento</value>
   </data>

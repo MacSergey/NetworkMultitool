@@ -273,6 +273,7 @@
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Oluşturmak için {0} tıklayın</value>
   </data>
+  
   <data name="Mode_Info_HoldToMoveSlower" xml:space="preserve">
     <value>1/{1} hızda hareket etmek için {0} tuşuna basılı tutun</value>
   </data>
