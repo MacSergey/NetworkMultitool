@@ -19,6 +19,19 @@ namespace NetworkMultitool
         private ushort FirstGuide { get; set; }
         private ushort LastGuide { get; set; }
 
+        private ITrajectory Trajectory { get; set; }
+        private Vector3 StartPos { get; set; }
+        private Vector3 StartDir { get; set; }
+        private Vector3 EndPos { get; set; }
+        private Vector3 EndDir { get; set; }
+
+        private int HoverControl { get; set; }
+        protected bool IsHoverControl => HoverControl != -1;
+        private int PressedControl { get; set; }
+        protected bool IsPressedControl => PressedControl != -1;
+
+        protected override bool SelectSegments => !IsHoverControl && !IsPressedControl && base.SelectSegments;
+
         public int Cost { get; private set; }
         private new bool EnoughMoney => !NeedMoney || EnoughMoney(Cost);
 
@@ -35,13 +48,16 @@ namespace NetworkMultitool
 
         protected override string GetInfo()
         {
-            if (IsHoverGuideSegment)
-                return Localize.Mode_ArrangeLine_Info_ClickToSelectDirection + UndergroundInfo;
+            if (IsHoverControl || IsPressedControl)
+                return Localize.Mode_Info_DragControlPoint;
+            else if (IsHoverGuideSegment)
+                return Localize.Mode_ArrangeLine_Info_ClickToSelectDirection + UndergroundInfo; 
             else if (AddState == AddResult.None && Nodes.Count >= 3)
                 return
                     CostInfo +
                     Localize.Mode_NodeLine_Info_SelectNode + "\n" +
                     Localize.Mode_ArrangeLine_Info_SelectDirection + "\n" +
+                    Localize.Mode_Info_DragControlPoint + "\n" +
                     string.Format(Localize.Mode_Info_ArrangeLine_Apply, ApplyShortcut.AddInfoColor()) +
                     UndergroundInfo;
             else
@@ -50,22 +66,52 @@ namespace NetworkMultitool
         protected override void Reset(IToolMode prevMode)
         {
             base.Reset(prevMode);
+
             Calculated = false;
+            Trajectory = null;
             FirstGuide = 0;
             LastGuide = 0;
             Cost = 0;
+
+            HoverControl = -1;
+            PressedControl = -1;
         }
         public override void OnToolUpdate()
         {
             base.OnToolUpdate();
 
-            if (Nodes.Count >= 2 && !Calculated)
-                Calculate();
+            if (Nodes.Count >= 2)
+            {
+                if (!Calculated)
+                    Calculate();
+                else if(Trajectory is BezierTrajectory bezier)
+                {
+                    HoverControl = -1;
+
+                    var mousePositionB = GetMousePosition(bezier.Trajectory.b.y);
+                    if ((XZ(bezier.Trajectory.b) - XZ(mousePositionB)).sqrMagnitude <= 25f)
+                    {
+                        HoverControl = 0;
+                        return;
+                    }
+
+                    var mousePositionC = GetMousePosition(bezier.Trajectory.c.y);
+                    if ((XZ(bezier.Trajectory.c) - XZ(mousePositionC)).sqrMagnitude <= 25f)
+                    {
+                        HoverControl = 1;
+                        return;
+                    }
+                }
+            }
         }
         private void Calculate()
         {
             var nodeIds = Nodes.Select(n => n.Id).ToArray();
-            var trajectory = GetTrajectory(nodeIds, FirstGuide, LastGuide);
+
+            if (Trajectory == null)
+                CalculateTrajectory(nodeIds, FirstGuide, LastGuide);
+
+            var trajectory = Trajectory;
             var partLength = trajectory.Length / (nodeIds.Length - 1);
             var ts = new List<float>() { 0f };
             for (var i = 1; i < nodeIds.Length - 1; i += 1)
@@ -120,6 +166,7 @@ namespace NetworkMultitool
         {
             FirstGuide = GetGuide(true);
             LastGuide = GetGuide(false);
+            Trajectory = null;
             Calculated = false;
         }
         private ushort GetGuide(bool isFirst)
@@ -162,7 +209,9 @@ namespace NetworkMultitool
         {
             base.OnPrimaryMouseClicked(e);
 
-            if (IsHoverGuideSegment)
+            if(IsPressedControl)
+                PressedControl = -1;
+            else if (IsHoverGuideSegment)
             {
                 ref var segment = ref HoverSegment.Id.GetSegment();
                 if (segment.Contains(Nodes[0].Id))
@@ -170,7 +219,39 @@ namespace NetworkMultitool
                 else if (segment.Contains(Nodes[Nodes.Count - 1].Id))
                     LastGuide = HoverSegment.Id;
 
+                Trajectory = null;
                 Calculated = false;
+            }
+        }
+        public override void OnMouseDown(Event e)
+        {
+            if (Calculated && !IsHoverGuideSegment)
+                PressedControl = HoverControl;
+        }
+        public override void OnMouseDrag(Event e)
+        {
+            if (PressedControl != -1 && Trajectory is BezierTrajectory bezier)
+            {
+                var pos = PressedControl == 0 ? StartPos : EndPos;
+                var dir = PressedControl == 0 ? StartDir : EndDir;
+                var hit = GetMousePosition(pos.y);
+
+                var guide = new StraightTrajectory(pos, pos + dir, true, false);
+                var normal = new StraightTrajectory(hit, hit + dir.Turn90(true), false);
+
+                if (Intersection.CalculateSingle(guide, normal, out var t, out _))
+                {
+                    var trajectory = bezier.Trajectory;
+
+                    if (PressedControl == 0)
+                        trajectory.b = guide.Position(t);
+                    else
+                        trajectory.c = guide.Position(t);
+
+                    Trajectory = new BezierTrajectory(trajectory);
+
+                    Calculated = false;
+                }
             }
         }
         protected override void Apply()
@@ -220,21 +301,21 @@ namespace NetworkMultitool
             UpdateTerrain(terrainRect);
             ChangeMoney(cost, segmentIds[0].GetSegment().Info);
         }
-        private static ITrajectory GetTrajectory(ushort[] nodeIds, ushort firstGuideId, ushort lastGuideId)
+        private void CalculateTrajectory(ushort[] nodeIds, ushort firstGuideId, ushort lastGuideId)
         {
-            var startPos = nodeIds[0].GetNode().m_position;
-            var endPos = nodeIds[nodeIds.Length - 1].GetNode().m_position;
-            var startDir = NormalizeXZ(GetDirection(nodeIds, true, firstGuideId, out var firstCount));
-            var endDir = NormalizeXZ(GetDirection(nodeIds, false, lastGuideId, out var secondCount));
+            StartPos = nodeIds[0].GetNode().m_position;
+            EndPos = nodeIds[nodeIds.Length - 1].GetNode().m_position;
+            StartDir = NormalizeXZ(GetDirection(nodeIds, true, firstGuideId, out var firstCount));
+            EndDir = NormalizeXZ(GetDirection(nodeIds, false, lastGuideId, out var secondCount));
 
             if (firstCount == 1 && secondCount == 1)
-                return new StraightTrajectory(startPos, endPos);
+                Trajectory = new StraightTrajectory(StartPos, EndPos);
             else if (firstCount == 1 && secondCount != 1)
-                return new BezierTrajectory(endPos, endDir, startPos, new BezierTrajectory.Data(false, true, true)).Invert();
+                Trajectory = new BezierTrajectory(EndPos, EndDir, StartPos, new BezierTrajectory.Data(false, true, true)).Invert();
             else if (firstCount != 1 && secondCount == 1)
-                return new BezierTrajectory(startPos, startDir, endPos, new BezierTrajectory.Data(false, true, true));
+                Trajectory = new BezierTrajectory(StartPos, StartDir, EndPos, new BezierTrajectory.Data(false, true, true));
             else
-                return new BezierTrajectory(startPos, startDir, endPos, endDir, new BezierTrajectory.Data(false, true, true));
+                Trajectory = new BezierTrajectory(StartPos, StartDir, EndPos, EndDir, new BezierTrajectory.Data(false, true, true));
         }
         private static Vector3 GetDirection(ushort[] nodeIds, bool isFirst, ushort guideId, out int segmentCount)
         {
@@ -265,12 +346,28 @@ namespace NetworkMultitool
                         GetTrajectory(Points[i - 1], Points[i]).Render(data);
                     }
                 }
+
+                if(Trajectory is BezierTrajectory bezier)
+                {
+                    RenderCenter(cameraInfo, bezier.Trajectory.a, bezier.Trajectory.b);
+                    RenderCenter(cameraInfo, bezier.Trajectory.d, bezier.Trajectory.c);
+
+                    if (HoverControl == 0)
+                        bezier.Trajectory.b.RenderCircle(new OverlayData(cameraInfo) { Color = CommonColors.Blue, RenderLimit = Underground }, 7f, 5f);
+                    else if (HoverControl == 1)
+                        bezier.Trajectory.c.RenderCircle(new OverlayData(cameraInfo) { Color = CommonColors.Blue, RenderLimit = Underground }, 7f, 5f);
+                }
             }
 
             base.RenderOverlay(cameraInfo);
 
             if (IsHoverGuideSegment)
                 HoverSegment.Render(new OverlayData(cameraInfo) { Color = CommonColors.Purple });
+        }
+        private void RenderCenter(RenderManager.CameraInfo cameraInfo, Vector3 start, Vector3 end)
+        {
+            new StraightTrajectory(start, end).Render(new OverlayData(cameraInfo) { Color = CommonColors.Gray224, RenderLimit = Underground });
+            end.RenderCircle(new OverlayData(cameraInfo) { Color = CommonColors.Gray224, RenderLimit = Underground }, 5f, 0f);
         }
     }
 }
