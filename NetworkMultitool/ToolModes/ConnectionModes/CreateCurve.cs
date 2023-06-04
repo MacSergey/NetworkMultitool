@@ -89,25 +89,28 @@ namespace NetworkMultitool
         }
         public override void OnMouseDrag(Event e)
         {
-            var pos = PressedControl == 0 ? StartPos : EndPos;
-            var dir = PressedControl == 0 ? StartDir : EndDir;
-            var hit = GetMousePosition(pos.y);
-
-            var guide = new StraightTrajectory(pos, pos + dir, true, false);
-            var normal = new StraightTrajectory(hit, hit + dir.Turn90(true), false);
-
-            if(Intersection.CalculateSingle(guide, normal, out var t, out _))
+            if (PressedControl != -1)
             {
-                var trajectory = Bezier.Trajectory;
+                var pos = PressedControl == 0 ? StartPos : EndPos;
+                var dir = PressedControl == 0 ? StartDir : EndDir;
+                var hit = GetMousePosition(pos.y);
 
-                if (PressedControl == 0)
-                    trajectory.b = guide.Position(t);
-                else
-                    trajectory.c = guide.Position(t);
+                var guide = new StraightTrajectory(pos, pos + dir, true, false);
+                var normal = new StraightTrajectory(hit, hit + dir.Turn90(true), false);
 
-                Bezier = new BezierTrajectory(trajectory);
+                if (Intersection.CalculateSingle(guide, normal, out var t, out _))
+                {
+                    var trajectory = Bezier.Trajectory;
 
-                Recalculate();
+                    if (PressedControl == 0)
+                        trajectory.b = guide.Position(t);
+                    else
+                        trajectory.c = guide.Position(t);
+
+                    Bezier = new BezierTrajectory(trajectory);
+
+                    Recalculate();
+                }
             }
         }
         protected override void ResetParams()
