@@ -126,172 +126,496 @@
   <data name="Mode_AddNode_Info_PreciseMeasurement" xml:space="preserve">
     <value>Giữ {0} để đo chính xác</value>
   </data>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+  <data name="Mode_AddNode_Info_SelectToAdd" xml:space="preserve">
+    <value>Chọn phân đoạn để thêm nút</value>
+  </data>
+  <data name="Mode_AddNode_Info_TooCloseNode" xml:space="preserve">
+    <value>Không thể thêm nút
+Quá gần nút lân cận</value>
+  </data>
+  
+  <data name="Mode_ArrangeAtCircle" xml:space="preserve">
+    <value>Sắp xếp ở chế độ vòng tròn</value>
+  </data>
+  <data name="Mode_ArrangeAtLine" xml:space="preserve">
+    <value>Sắp xếp ở chế độ dòng</value>
+  </data>
+  <data name="Mode_ArrangeCircle_Info_ClickToComplite" xml:space="preserve">
+    <value>Nhấp để hoàn tất lựa chọn vòng tròn</value>
+  </data>
+  <data name="Mode_ArrangeLine_Info_ClickToSelectDirection" xml:space="preserve">
+    <value>Nhấp để chọn hướng sắp xếp</value>
+  </data>
+  <data name="Mode_ArrangeLine_Info_SelectDirection" xml:space="preserve">
+    <value>Chọn phân đoạn để đặt hướng sắp xếp</value>
+  </data>
+  <data name="Mode_Connection_Info_DoubleClickOnCenterToChangeDir" xml:space="preserve">
+    <value>Nhấp đúp chuột vào trung tâm vòng tròn
+để thay đổi hướng đường cong</value>
+  </data>
+  <data name="Mode_Connection_Info_DoubleClickToAdd" xml:space="preserve">
+    <value>Nhấp đúp để thêm đường cong vào đường này</value>
+  </data>
+  <data name="Mode_Connection_Info_DoubleClickToRemove" xml:space="preserve">
+    <value>Nhấp đúp chuột phải để xóa đường cong này</value>
+  </data>
+  <data name="Mode_Connection_Info_DragToChangeRadius" xml:space="preserve">
+    <value>Kéo để thay đổi bán kính</value>
+  </data>
+  <data name="Mode_Connection_Info_DragToMove" xml:space="preserve">
+    <value>Kéo để di chuyển vòng tròn</value>
+  </data>
+  <data name="Mode_CreateConnection" xml:space="preserve">
+    <value>Tạo chế độ kết nối</value>
+  </data>
+  <data name="Mode_CreateCurve" xml:space="preserve">
+    <value>Tạo chế độ đường cong</value>
+  </data>
+  <data name="Mode_CreateLoop" xml:space="preserve">
+    <value>Tạo chế độ vòng lặp</value>
+  </data>
+  <data name="Mode_CreateLoop_Info_Change" xml:space="preserve">
+    <value>Nhấn {0} để thay đổi vòng lặp</value>
+  </data>
+  <data name="Mode_CreateParallerl" xml:space="preserve">
+    <value>Tạo chế độ song song</value>
+  </data>
+  <data name="Mode_Info_Apply" xml:space="preserve">
+    <value>Nhấn {0} để đăng ký</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_Apply" xml:space="preserve">
+    <value>Nhấn {0} để sắp xếp theo vòng tròn</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_BigDelta" xml:space="preserve">
+    <value>Góc quá lớn giữa các nút
+Hình dạng tròn sẽ không hoàn hảo</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_DoubleClickToResetCenter" xml:space="preserve">
+    <value>Nhấp đúp để đặt lại vị trí trung tâm</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_DoubleClickToResetNode" xml:space="preserve">
+    <value>Nhấp đúp để đặt lại vị trí nút</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_DragToChangeRadius" xml:space="preserve">
+    <value>Kéo để thay đổi bán kính</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_DragToMoveCenter" xml:space="preserve">
+    <value>Kéo để di chuyển vòng tròn</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_DragToMoveNode" xml:space="preserve">
+    <value>Kéo để di chuyển nút</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_MoveAll" xml:space="preserve">
+    <value>Giữ {0} để di chuyển tất cả các nút
+đồng thời</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_PressToDistributeBetweenIntersections" xml:space="preserve">
+    <value>Nhấn {0} để phân phối các nút
+đồng đều giữa các nút giao</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_PressToDistributeEvenly" xml:space="preserve">
+    <value>Nhấn {0} để phân phối các nút đồng đều trên vòng tròn</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_PressToDistributeIntersections" xml:space="preserve">
+    <value>Nhấn {0} để phân phối
+giao nhau đều trên vòng tròn</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_PressToReset" xml:space="preserve">
+    <value>Nhấn {0} để đặt lại thông số</value>
+  </data>
+  <data name="Mode_Info_ArrangeCircle_WrongOrder" xml:space="preserve">
+    <value>Thứ tự nút sai</value>
+  </data>
+  <data name="Mode_Info_ArrangeLine_Apply" xml:space="preserve">
+    <value>Nhấn {0} để sắp xếp tại đường dây</value>
+  </data>
+  <data name="Mode_Info_ChangeAllRadius" xml:space="preserve">
+    <value>Nhấn {0} hoặc {1} để thay đổi tất cả bán kính</value>
+  </data>
+  <data name="Mode_Info_ChangeBothRadius" xml:space="preserve">
+    <value>Nhấn {0} hoặc {1} để thay đổi cả hai bán kính</value>
+  </data>
+  <data name="Mode_Info_ChangeCircle" xml:space="preserve">
+    <value>Nhấn {0} để chuyển vòng tròn đã chọn</value>
+  </data>
+  <data name="Mode_Info_ChangeOffset" xml:space="preserve">
+    <value>Nhấn {0} hoặc {1} để thay đổi độ lệch bắt đầu đường cong</value>
+  </data>
+  <data name="Mode_Info_ChangeOneRadius" xml:space="preserve">
+    <value>Nhấn {0} hoặc {1} để thay đổi một bán kính</value>
+  </data>
+  <data name="Mode_Info_ChangeRadius" xml:space="preserve">
+    <value>Nhấn {0} hoặc {1} để thay đổi bán kính</value>
+  </data>
+  <data name="Mode_Info_ChangeShift" xml:space="preserve">
+    <value>Nhấn {0} hoặc {1} để thay đổi độ lệch</value>
+  </data>
+  <data name="Mode_Info_ClickFirstSegment" xml:space="preserve">
+    <value>Nhấp để chọn phân đoạn đầu tiên</value>
+  </data>
+  <data name="Mode_Info_ClickOnNodeToChangeCreateDir" xml:space="preserve">
+    <value>Nhấp vào nút để thay đổi hướng tạo</value>
+  </data>
+  <data name="Mode_Info_ClickSecondSegment" xml:space="preserve">
+    <value>Nhấp để chọn phân đoạn thứ hai</value>
+  </data>
+  <data name="Mode_Info_ClickSelectNode" xml:space="preserve">
+    <value>Nhấp để chọn nút</value>
+  </data>
+  <data name="Mode_Info_ClickToChangeCreateDir" xml:space="preserve">
+    <value>Nhấp để thay đổi hướng tạo</value>
+  </data>
+  <data name="Mode_Info_ClickUnselectNode" xml:space="preserve">
+    <value>Nhấp để bỏ chọn nút</value>
+  </data>
+  <data name="Mode_Info_Connection_Create" xml:space="preserve">
+    <value>Nhấn {0} để tạo kết nối</value>
+  </data>
+  <data name="Mode_Info_ConstructionCost" xml:space="preserve">
+    <value>Chi phí xây dựng: {0}</value>
+  </data>
+  <data name="Mode_Info_Create" xml:space="preserve">
+    <value>Nhấn {0} để tạo</value>
+  </data>
+  <data name="Mode_Info_DragControlPoint" xml:space="preserve">
+    <value>Kéo điểm điều khiển để thay đổi đường cong</value>
+  </data>
+  <data name="Mode_Info_HoldToMoveSlower" xml:space="preserve">
+    <value>Giữ {0} để di chuyển X{1} chậm hơn</value>
+  </data>
+  <data name="Mode_Info_HoldToStep" xml:space="preserve">
+    <value>Giữ {0} để bước {1}</value>
+  </data>
+  <data name="Mode_Info_InvertNetwork" xml:space="preserve">
+    <value>Nhấn {0} để đảo ngược mạng</value>
+  </data>
+  <data name="Mode_Info_Loop_Create" xml:space="preserve">
+    <value>Nhấn {0} để tạo vòng lặp</value>
+  </data>
+  <data name="Mode_Info_NotEnoughMoney" xml:space="preserve">
+    <value>Không đủ tiền</value>
+  </data>
+  <data name="Mode_Info_OutOfMap" xml:space="preserve">
+    <value>Ngoài bản đồ</value>
+  </data>
+  <data name="Mode_Info_Parallel_ChangeHeight" xml:space="preserve">
+    <value>Nhấn {0} hoặc {1} để thay đổi chiều cao</value>
+  </data>
+  <data name="Mode_Info_Parallel_ChangeShift" xml:space="preserve">
+    <value>Nhấn {0} để chuyển sang bên tạo</value>
+  </data>
+  <data name="Mode_Info_Parallel_Create" xml:space="preserve">
+    <value>Nhấn {0} để tạo song song</value>
+  </data>
+  <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
+    <value>Bán kính quá lớn</value>
+  </data>
+  <data name="Mode_Info_RadiusTooSmall" xml:space="preserve">
+    <value>Bán kính quá nhỏ</value>
+  </data>
+  <data name="Mode_Info_Refund" xml:space="preserve">
+    <value>Hoàn tiền: {0}</value>
+  </data>
+  <data name="Mode_Info_SelectFirstSegment" xml:space="preserve">
+    <value>Chọn phân đoạn đầu tiên</value>
+  </data>
+  <data name="Mode_Info_SelectSecondSegment" xml:space="preserve">
+    <value>Chọn phân đoạn thứ hai</value>
+  </data>
+  <data name="Mode_Info_SelectSegment" xml:space="preserve">
+    <value>Chọn phân khúc</value>
+  </data>
+  <data name="Mode_Info_Slope_Apply" xml:space="preserve">
+    <value>Nhấn {0} để áp dụng độ dốc</value>
+  </data>
+  
+  <data name="Mode_Info_SwitchFollowTerrain" xml:space="preserve">
+    <value>Nhấn {0} để chuyển đổi địa hình theo dõi</value>
+  </data>
+  <data name="Mode_Info_SwitchOffset" xml:space="preserve">
+    <value>Nhấn {0} để chuyển đổi độ lệch đã chọn</value>
+  </data>
+  <data name="Mode_Info_UndergroundMode" xml:space="preserve">
+    <value>Giữ {0} ở chế độ ngầm</value>
+  </data>
+  <data name="Mode_Info_WrongShape" xml:space="preserve">
+    <value>Hình dạng sai</value>
+  </data>
+  <data name="Mode_IntersectSegment" xml:space="preserve">
+    <value>Chế độ phân đoạn giao nhau</value>
+  </data>
+  <data name="Mode_IntersectSegment_Info_CommonNode" xml:space="preserve">
+    <value>Các phân đoạn này có nút chung</value>
+  </data>
+  <data name="Mode_IntersectSegment_Info_EdgeTooClose" xml:space="preserve">
+    <value>Cạnh của một đoạn quá gần cuối phân đoạn thứ hai</value>
+  </data>
+  <data name="Mode_IntersectSegment_Info_NotIntersect" xml:space="preserve">
+    <value>Các phân đoạn này không giao nhau</value>
+  </data>
+  <data name="Mode_InvertSegment" xml:space="preserve">
+    <value>Chế độ đảo ngược phân đoạn</value>
+  </data>
+  <data name="Mode_InvertSegment_Info_ClickToReverse" xml:space="preserve">
+    <value>Nhấp để đảo ngược phân đoạn</value>
+  </data>
+  <data name="Mode_InvertSegment_Info_SelectToReverse" xml:space="preserve">
+    <value>Chọn phân đoạn để đảo ngược nó</value>
+  </data>
+  <data name="Mode_NodeLine_Info_NotConnected" xml:space="preserve">
+    <value>Không thể chọn nút này
+Bởi vì không kết nối với người khác</value>
+  </data>
+  <data name="Mode_NodeLine_Info_SelectNode" xml:space="preserve">
+    <value>Chọn nút để thêm nó vào thứ tự</value>
+  </data>
+  
+  
+  <data name="Mode_RemoveNode" xml:space="preserve">
+    <value>Xóa chế độ nút</value>
+  </data>
+  <data name="Mode_RemoveNode_Info_NotAllow" xml:space="preserve">
+    <value>Không thể xóa nút này</value>
+  </data>
+  <data name="Mode_SlopeNode" xml:space="preserve">
+    <value>Đặt chế độ dốc</value>
+  </data>
+  <data name="Mode_SplitNode" xml:space="preserve">
+    <value>Chế độ nút phân tách</value>
+  </data>
+  <data name="Mode_SplitNode_Info_ClickFromOrder" xml:space="preserve">
+    <value>Nhấp để xóa phân đoạn khỏi đơn đặt hàng tách</value>
+  </data>
+  <data name="Mode_SplitNode_Info_ClickToOrder" xml:space="preserve">
+    <value>Nhấp để thêm phân đoạn vào đơn hàng tách</value>
+  </data>
+  <data name="Mode_SplitNode_Info_ClickToSplit" xml:space="preserve">
+    <value>Nhấp để tách nút và căn chỉnh theo chiều cao địa hình
+Nhấp bằng {0} để tách nút và căn chỉnh theo chiều cao nguồn</value>
+  </data>
+  <data name="Mode_SplitNode_Info_NotAllowedSplit" xml:space="preserve">
+    <value>Không thể chia nút chỉ với một phân đoạn</value>
+  </data>
+  <data name="Mode_SplitNode_Info_OrderIsFull" xml:space="preserve">
+    <value>Không thể thêm các phân đoạn khác vào thứ tự tách</value>
+  </data>
+  <data name="Mode_SplitNode_Info_SelectToSplit" xml:space="preserve">
+    <value>Chọn phân đoạn để tách</value>
+  </data>
+  <data name="Mode_SplitNode_Info_TooFar" xml:space="preserve">
+    <value>Vị trí quá xa nút nguồn</value>
+  </data>
+  <data name="Mode_UnionNode" xml:space="preserve">
+    <value>Chế độ nút liên minh</value>
+  </data>
+  <data name="Mode_UnionNode_Info_ClickSource" xml:space="preserve">
+    <value>Nhấp để chọn nút nguồn</value>
+  </data>
+  <data name="Mode_UnionNode_Info_ClickUnion" xml:space="preserve">
+    <value>Nhấp để hợp nhất các nút</value>
+  </data>
+  <data name="Mode_UnionNode_Info_NoCommon" xml:space="preserve">
+    <value>Các nút này có phân khúc chung</value>
+  </data>
+  <data name="Mode_UnionNode_Info_Overflow" xml:space="preserve">
+    <value>Tổng số nút không được nhiều hơn 8</value>
+  </data>
+  <data name="Mode_UnionNode_Info_SelectSource" xml:space="preserve">
+    <value>Chọn nút nguồn</value>
+  </data>
+  <data name="Mode_UnionNode_Info_SelectTarget" xml:space="preserve">
+    <value>Chọn nút mục tiêu</value>
+  </data>
+  <data name="Mode_UnionNode_Info_TooFar" xml:space="preserve">
+    <value>Các nút quá xa nhau</value>
+  </data>
+  
+  <data name="Mode_UnlockSegment" xml:space="preserve">
+    <value>Mở khóa chế độ phân đoạn</value>
+  </data>
+  <data name="Mode_UnlockSegment_Info_ChangeLock" xml:space="preserve">
+    <value>Chọn phân đoạn thành
+Khóa hoặc mở khóa nó</value>
+  </data>
+  <data name="Mode_UnlockSegment_Info_ClickToLock" xml:space="preserve">
+    <value>Nhấp để khóa phân đoạn này</value>
+  </data>
+  <data name="Mode_UnlockSegment_Info_ClickToUnlock" xml:space="preserve">
+    <value>Nhấp để mở khóa phân đoạn này</value>
+  </data>
+  <data name="Mod_Description" xml:space="preserve">
+    <value>Nhiều công cụ khác nhau để làm việc với mạng</value>
+  </data>
+  
+  
+  
+  
+  <data name="Mod_WhatsNewMessage1_3_2" xml:space="preserve">
+    <value>[CẬP NHẬT] Đã thêm hỗ trợ DLC Plazas &amp;Promenades.</value>
+  </data>
+  <data name="Mod_WhatsNewMessage1_3_3" xml:space="preserve">
+    <value>[MỚI] Đã thêm hỗ trợ Network Anarchy.</value>
+  </data>
+  <data name="Mod_WhatsNewMessage1_3_4" xml:space="preserve">
+    <value>[CẬP NHẬT] Giao diện người dùng cài đặt mới</value>
+  </data>
+  <data name="Mod_WhatsNewMessage1_3_5" xml:space="preserve">
+    <value>[CẬP NHẬT] Đã thêm hỗ trợ DLC Hotels&amp;Retreats.
+[DỊCH] Thêm bản dịch tiếng Trung phồn thể và tiếng Thái.</value>
+  </data>
+  <data name="Settings_ActivationShortcuts" xml:space="preserve">
+    <value>Phím tắt kích hoạt</value>
+  </data>
+  <data name="Settings_AutoConnect" xml:space="preserve">
+    <value>Tự động kết nối đường song song với các nút gần nhất</value>
+  </data>
+  <data name="Settings_AutoHideModePanel" xml:space="preserve">
+    <value>Bảng điều khiển chế độ tự động ẩn</value>
+  </data>
+  <data name="Settings_CommonCreateShortcuts" xml:space="preserve">
+    <value>Các phím tắt phổ biến của chế độ tạo</value>
+  </data>
+  <data name="Settings_CommonShortcuts" xml:space="preserve">
+    <value>Các phím tắt phổ biến của chế độ</value>
+  </data>
+  <data name="Settings_FollowTerrain" xml:space="preserve">
+    <value>Đường mặt đất theo địa hình</value>
+  </data>
+  <data name="Settings_Gameplay" xml:space="preserve">
+    <value>Lối chơi</value>
+  </data>
+  <data name="Settings_Interface" xml:space="preserve">
+    <value>Giao diện</value>
+  </data>
+  <data name="Settings_LengthUnit" xml:space="preserve">
+    <value>Đơn vị đo chiều dài</value>
+  </data>
+  <data name="Settings_LengthUniteMeters" xml:space="preserve">
+    <value>Mét</value>
+  </data>
+  <data name="Settings_LengthUniteUnits" xml:space="preserve">
+    <value>Đơn vị trò chơi (1U = 8m)</value>
+  </data>
+  <data name="Settings_NeedMoney" xml:space="preserve">
+    <value>Cần tiền để xây dựng</value>
+  </data>
+  <data name="Settings_PanelColumns" xml:space="preserve">
+    <value>Số cột bảng điều khiển</value>
+  </data>
+  <data name="Settings_PanelOpenSide" xml:space="preserve">
+    <value>Mặt mở bảng điều khiển</value>
+  </data>
+  
+  
+  <data name="Settings_PlayEffects" xml:space="preserve">
+    <value>Phát hiệu ứng âm thanh và hình ảnh</value>
+  </data>
+  <data name="Settings_PreviewType" xml:space="preserve">
+    <value>Bản xem trước sáng tạo</value>
+  </data>
+  <data name="Settings_PreviewTypeBoth" xml:space="preserve">
+    <value>Cả hai</value>
+  </data>
+  <data name="Settings_PreviewTypeMesh" xml:space="preserve">
+    <value>Trực quan hóa mạng</value>
+  </data>
+  <data name="Settings_PreviewTypeOverlay" xml:space="preserve">
+    <value>Phủ</value>
+  </data>
+  <data name="Settings_SegmentLength" xml:space="preserve">
+    <value>Chiều dài đoạn tối đa</value>
+  </data>
+  <data name="Settings_Shortcut_Apply" xml:space="preserve">
+    <value>Áp dụng hành động chế độ</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseAngle" xml:space="preserve">
+    <value>Giảm góc bắt đầu</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseHeight" xml:space="preserve">
+    <value>Giảm chiều cao</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseOffset" xml:space="preserve">
+    <value>Giảm độ lệch bắt đầu vòng tròn</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseOneRadius" xml:space="preserve">
+    <value>Giảm một bán kính</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseRadii" xml:space="preserve">
+    <value>Giảm bán kính</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseRadius" xml:space="preserve">
+    <value>Giảm bán kính</value>
+  </data>
+  <data name="Settings_Shortcut_DecreaseShift" xml:space="preserve">
+    <value>Giảm bù đắp</value>
+  </data>
+  <data name="Settings_Shortcut_DistributeBetweenIntersections" xml:space="preserve">
+    <value>Phân bố các nút đồng đều giữa các giao điểm</value>
+  </data>
+  <data name="Settings_Shortcut_DistributeEvenly" xml:space="preserve">
+    <value>Phân phối các nút đồng đều trên vòng tròn</value>
+  </data>
+  <data name="Settings_Shortcut_DistributeIntersections" xml:space="preserve">
+    <value>Phân bố đều các giao lộ trên vòng tròn</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseAngle" xml:space="preserve">
+    <value>Tăng góc xuất phát</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseHeight" xml:space="preserve">
+    <value>Tăng chiều cao</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseOffset" xml:space="preserve">
+    <value>Tăng độ lệch bắt đầu vòng tròn</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseOneRadius" xml:space="preserve">
+    <value>Tăng một bán kính</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseRadii" xml:space="preserve">
+    <value>Tăng bán kính</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseRadius" xml:space="preserve">
+    <value>Tăng bán kính</value>
+  </data>
+  <data name="Settings_Shortcut_IncreaseShift" xml:space="preserve">
+    <value>Tăng bù đắp</value>
+  </data>
+  <data name="Settings_Shortcut_InvertNetwork" xml:space="preserve">
+    <value>Đảo ngược mạng</value>
+  </data>
+  <data name="Settings_Shortcut_InvertShift" xml:space="preserve">
+    <value>Bên tạo công tắc</value>
+  </data>
+  <data name="Settings_Shortcut_ResetArrangeCircle" xml:space="preserve">
+    <value>Đặt lại về vòng tròn mặc định</value>
+  </data>
+  <data name="Settings_Shortcut_SwitchFollowTerrain" xml:space="preserve">
+    <value>Chuyển đổi theo địa hình</value>
+  </data>
+  <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
+    <value>Chuyển hướng vòng lặp</value>
+  </data>
+  <data name="Settings_Shortcut_SwitchOffset" xml:space="preserve">
+    <value>Chuyển đổi độ lệch đã chọn</value>
+  </data>
+  <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
+    <value>Chuyển đổi vòng tròn đã chọn</value>
+  </data>
+  <data name="Settings_SlopeColors" xml:space="preserve">
+    <value>Đặt màu thành nhãn dốc tùy thuộc vào giá trị</value>
+  </data>
+  <data name="Settings_SlopeUnit" xml:space="preserve">
+    <value>Đơn vị đo độ dốc</value>
+  </data>
+  <data name="Settings_SlopeUnitDegrees" xml:space="preserve">
+    <value>Độ</value>
+  </data>
+  <data name="Settings_SlopeUnitPercentages" xml:space="preserve">
+    <value>Tỷ lệ phần trăm</value>
+  </data>
+  <data name="Tool_RemoveNode_Info_ClickToRemove" xml:space="preserve">
+    <value>Nhấp để xóa</value>
+  </data>
+  <data name="Tool_RemoveNode_Info_Select" xml:space="preserve">
+    <value>Chọn nút để xóa nó</value>
+  </data>
 </root>
