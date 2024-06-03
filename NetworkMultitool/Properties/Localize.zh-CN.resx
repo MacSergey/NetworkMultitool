@@ -124,7 +124,7 @@
     <value>点击添加节点</value>
   </data>
   <data name="Mode_AddNode_Info_PreciseMeasurement" xml:space="preserve">
-    <value>按住 {0} 以进行精确测量</value>
+    <value>Hold {0} for precise measurement</value>
   </data>
   <data name="Mode_AddNode_Info_SelectToAdd" xml:space="preserve">
     <value>选择要添加节点的部分</value>
