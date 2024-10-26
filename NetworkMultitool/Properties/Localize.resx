@@ -529,6 +529,9 @@ lock or unlock it</value>
     <value>[UPDATED] Added Hotels&amp;Retreats DLC support.
 [TRANSLATION] Added Chinese traditional and Thai translations.</value>
   </data>
+  <data name="Mod_WhatsNewMessage1_3_6" xml:space="preserve">
+    <value>[UPDATED] Updated required game version to 1.18.1-f3</value>
+  </data>
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>Activation shortcuts</value>
   </data>
