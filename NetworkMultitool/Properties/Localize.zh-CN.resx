@@ -118,13 +118,14 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Mode_AddNode" xml:space="preserve">
-    <value>添加节点模式</value>
+    <value>添加节点模式中文
+</value>
   </data>
   <data name="Mode_AddNode_Info_ClickToAdd" xml:space="preserve">
     <value>点击添加节点</value>
   </data>
   <data name="Mode_AddNode_Info_PreciseMeasurement" xml:space="preserve">
-    <value>按住 {0} 以进行精确测量</value>
+    <value>按住 {0} 进行精确计算</value>
   </data>
   <data name="Mode_AddNode_Info_SelectToAdd" xml:space="preserve">
     <value>选择要添加节点的部分</value>

@@ -280,7 +280,9 @@ les nœuds sur le cercle</value>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Appuyez sur {0} pour créer</value>
   </data>
-  
+  <data name="Mode_Info_DragControlPoint" xml:space="preserve">
+    <value>Faites glisser le point de contrôle pour modifier la courbe</value>
+  </data>
   <data name="Mode_Info_HoldToMoveSlower" xml:space="preserve">
     <value>Maintenez {0} pour déplacer X{1} plus lentement</value>
   </data>
