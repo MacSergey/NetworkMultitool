@@ -133,12 +133,14 @@
     <value>Không thể thêm nút
 Quá gần nút lân cận</value>
   </data>
-  
+  <data name="Mode_AngleFormat" xml:space="preserve">
+    <value>{0}°</value>
+  </data>
   <data name="Mode_ArrangeAtCircle" xml:space="preserve">
     <value>Sắp xếp ở chế độ vòng tròn</value>
   </data>
   <data name="Mode_ArrangeAtLine" xml:space="preserve">
-    <value>Sắp xếp ở chế độ dòng</value>
+    <value>Sắp xếp ở chế độ đường thẳng</value>
   </data>
   <data name="Mode_ArrangeCircle_Info_ClickToComplite" xml:space="preserve">
     <value>Nhấp để hoàn tất lựa chọn vòng tròn</value>
@@ -328,7 +330,9 @@ giao nhau đều trên vòng tròn</value>
   <data name="Mode_Info_Slope_Apply" xml:space="preserve">
     <value>Nhấn {0} để áp dụng độ dốc</value>
   </data>
-  
+  <data name="Mode_Info_Step" xml:space="preserve">
+    <value>Shift - X10, Ctrl - X0.1, Alt - X0.01</value>
+  </data>
   <data name="Mode_Info_SwitchFollowTerrain" xml:space="preserve">
     <value>Nhấn {0} để chuyển đổi địa hình theo dõi</value>
   </data>
@@ -369,8 +373,12 @@ Bởi vì không kết nối với người khác</value>
   <data name="Mode_NodeLine_Info_SelectNode" xml:space="preserve">
     <value>Chọn nút để thêm nó vào thứ tự</value>
   </data>
-  
-  
+  <data name="Mode_PercentagesFormat" xml:space="preserve">
+    <value>{0}%</value>
+  </data>
+  <data name="Mode_RadiusFormat" xml:space="preserve">
+    <value>{0}m</value>
+  </data>
   <data name="Mode_RemoveNode" xml:space="preserve">
     <value>Xóa chế độ nút</value>
   </data>
@@ -429,7 +437,9 @@ Nhấp bằng {0} để tách nút và căn chỉnh theo chiều cao nguồn</va
   <data name="Mode_UnionNode_Info_TooFar" xml:space="preserve">
     <value>Các nút quá xa nhau</value>
   </data>
-  
+  <data name="Mode_UnitsFormat" xml:space="preserve">
+    <value>{0}U</value>
+  </data>
   <data name="Mode_UnlockSegment" xml:space="preserve">
     <value>Mở khóa chế độ phân đoạn</value>
   </data>
@@ -505,8 +515,12 @@ Khóa hoặc mở khóa nó</value>
   <data name="Settings_PanelOpenSide" xml:space="preserve">
     <value>Mặt mở bảng điều khiển</value>
   </data>
-  
-  
+  <data name="Settings_PanelOpenSideDown" xml:space="preserve">
+    <value>Xuống</value>
+  </data>
+  <data name="Settings_PanelOpenSideUp" xml:space="preserve">
+    <value>Lên</value>
+  </data>
   <data name="Settings_PlayEffects" xml:space="preserve">
     <value>Phát hiệu ứng âm thanh và hình ảnh</value>
   </data>
