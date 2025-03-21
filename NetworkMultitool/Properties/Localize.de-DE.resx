@@ -279,7 +279,9 @@ gleichmäßig auf den Kreis zu verteilen</value>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Drücke {0} zum Erstellen</value>
   </data>
-  
+  <data name="Mode_Info_DragControlPoint" xml:space="preserve">
+    <value>Punkt ziehen, um die Kurve zu bearbeiten</value>
+  </data>
   <data name="Mode_Info_HoldToMoveSlower" xml:space="preserve">
     <value>Halte {0} gedrückt, um {1}x langsamer zu bewegen</value>
   </data>

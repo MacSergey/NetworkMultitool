@@ -279,7 +279,9 @@
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>{0} 키를 눌러서 생성</value>
   </data>
-  
+  <data name="Mode_Info_DragControlPoint" xml:space="preserve">
+    <value>점을 드래그해 커브 변경</value>
+  </data>
   <data name="Mode_Info_HoldToMoveSlower" xml:space="preserve">
     <value>{0} 키를 눌러 {1}배 느리게 이동</value>
   </data>
@@ -464,8 +466,13 @@
   <data name="Mod_WhatsNewMessage1_3_3" xml:space="preserve">
     <value>[NEW] Network Anarchy를 지원합니다.</value>
   </data>
-  
-  
+  <data name="Mod_WhatsNewMessage1_3_4" xml:space="preserve">
+    <value>[UPDATED] 새로운 설정 UI</value>
+  </data>
+  <data name="Mod_WhatsNewMessage1_3_5" xml:space="preserve">
+    <value>[UPDATED] Hotels&amp;Retreats DLC를 지원합니다.
+[TRANSLATION] 중국어(번체)와 태국어 번역을 추가했습니다.</value>
+  </data>
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>활성화 단축키</value>
   </data>
