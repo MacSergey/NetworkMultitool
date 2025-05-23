@@ -59,46 +59,46 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string"/>
-              <xsd:attribute name="type" type="xsd:string"/>
-              <xsd:attribute name="mimetype" type="xsd:string"/>
-              <xsd:attribute ref="xml:space"/>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string"/>
-              <xsd:attribute name="name" type="xsd:string"/>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
-              <xsd:attribute ref="xml:space"/>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required"/>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -123,7 +123,6 @@
   <data name="Mode_AddNode_Info_ClickToAdd" xml:space="preserve">
     <value>Kattints csomópont hozzáadásához</value>
   </data>
-  
   <data name="Mode_AddNode_Info_SelectToAdd" xml:space="preserve">
     <value>Válassz szegmenst a csomópont hozzáadásához</value>
   </data>
@@ -134,11 +133,9 @@ Túl közel egy másik csomóponthoz</value>
   <data name="Mode_AngleFormat" xml:space="preserve">
     <value>{0}°</value>
   </data>
-  
   <data name="Mode_ArrangeAtLine" xml:space="preserve">
     <value>Vonalhoz rendezés mód</value>
   </data>
-  
   <data name="Mode_ArrangeLine_Info_ClickToSelectDirection" xml:space="preserve">
     <value>Kattints a rendezés irányának kiválasztásához</value>
   </data>
@@ -164,33 +161,18 @@ kattints duplán a kör közepére</value>
   <data name="Mode_CreateConnection" xml:space="preserve">
     <value>Kapcsolat létrehozása mód</value>
   </data>
-  
   <data name="Mode_CreateLoop" xml:space="preserve">
     <value>Hurok létrehozása mód</value>
   </data>
   <data name="Mode_CreateLoop_Info_Change" xml:space="preserve">
     <value>Nyomd meg {0}-t a hurok megváltoztatásához</value>
   </data>
-  
   <data name="Mode_Info_Apply" xml:space="preserve">
     <value>Nyomj {0}-t a végrehajtáshoz</value>
   </data>
-  
-  
-  
-  
-  
-  
   <data name="Mode_Info_ArrangeCircle_DragToMoveNode" xml:space="preserve">
     <value>Húzd a csomópont mozgatásához</value>
   </data>
-  
-  
-  
-  
-  
-  
-  
   <data name="Mode_Info_ChangeAllRadius" xml:space="preserve">
     <value>Nyomj {0}-t vagy {1}-t minden sugár változtatásához</value>
   </data>
@@ -209,7 +191,6 @@ kattints duplán a kör közepére</value>
   <data name="Mode_Info_ChangeRadius" xml:space="preserve">
     <value>Nyomj {0}-t vagy {1}-t a sugár változtatásához</value>
   </data>
-  
   <data name="Mode_Info_ClickFirstSegment" xml:space="preserve">
     <value>Kattints az első szegmens kiválasztásához</value>
   </data>
@@ -228,27 +209,15 @@ kattints duplán a kör közepére</value>
   <data name="Mode_Info_ClickUnselectNode" xml:space="preserve">
     <value>Kattints a csomópont kijelölésének megszüntetéséhez</value>
   </data>
-  
-  
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Nyomj {0}-t a létrehozáshoz</value>
   </data>
-  
-  
-  
-  
-  
-  
-  
-  
-  
   <data name="Mode_Info_RadiusTooBig" xml:space="preserve">
     <value>Túl nagy a sugár</value>
   </data>
   <data name="Mode_Info_RadiusTooSmall" xml:space="preserve">
     <value>Túl kicsi a sugár</value>
   </data>
-  
   <data name="Mode_Info_SelectFirstSegment" xml:space="preserve">
     <value>Válaszd ki az első szegmenst</value>
   </data>
@@ -258,11 +227,9 @@ kattints duplán a kör közepére</value>
   <data name="Mode_Info_SelectSegment" xml:space="preserve">
     <value>Válaszd ki a szegmenst</value>
   </data>
-  
   <data name="Mode_Info_Step" xml:space="preserve">
     <value>Shift - 10x; Ctrl - 0,1x; Alt - 0,01x</value>
   </data>
-  
   <data name="Mode_Info_SwitchOffset" xml:space="preserve">
     <value>Nyomd meg a {0}-t a kiválasztott görbe indítási eltolásának váltásához</value>
   </data>
@@ -275,7 +242,6 @@ kattints duplán a kör közepére</value>
   <data name="Mode_IntersectSegment" xml:space="preserve">
     <value>Szegmensek metszése mód</value>
   </data>
-  
   <data name="Mode_IntersectSegment_Info_EdgeTooClose" xml:space="preserve">
     <value>Az egyik szegmens széle túl közel van a másik szegmens végéhez</value>
   </data>
@@ -322,7 +288,6 @@ mert nincs kapcsolatban másokkal</value>
   <data name="Mode_SplitNode_Info_ClickToOrder" xml:space="preserve">
     <value>Kattintson a szegmens felosztáshoz történő hozzáadáshoz</value>
   </data>
-  
   <data name="Mode_SplitNode_Info_NotAllowedSplit" xml:space="preserve">
     <value>Nem engedélyezett az egy szegmenses csomópont felosztása</value>
   </data>
@@ -359,7 +324,6 @@ mert nincs kapcsolatban másokkal</value>
   <data name="Mode_UnionNode_Info_TooFar" xml:space="preserve">
     <value>Csomópontok túl messze vannak egymástól</value>
   </data>
-  
   <data name="Mode_UnlockSegment" xml:space="preserve">
     <value>Szegmens mód feloldása</value>
   </data>
@@ -376,40 +340,15 @@ zároláshoz vagy feloldáshoz</value>
   <data name="Mod_Description" xml:space="preserve">
     <value>Sokféle eszköz a hálózatokkal való munkavégzéshez</value>
   </data>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   <data name="Settings_AutoHideModePanel" xml:space="preserve">
     <value>Mód panel automatikus elrejtése</value>
   </data>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   <data name="Settings_PanelOpenSideDown" xml:space="preserve">
     <value>Le</value>
   </data>
-  
-  
-  
   <data name="Settings_PreviewTypeBoth" xml:space="preserve">
     <value>Mindkettő</value>
   </data>
-  
   <data name="Settings_PreviewTypeOverlay" xml:space="preserve">
     <value>Átfedés</value>
   </data>
@@ -422,20 +361,12 @@ zároláshoz vagy feloldáshoz</value>
   <data name="Settings_Shortcut_DecreaseAngle" xml:space="preserve">
     <value>Kezdő szög csökkentése</value>
   </data>
-  
   <data name="Settings_Shortcut_DecreaseOffset" xml:space="preserve">
     <value>A görbe kezdési eltolásának csökkentése</value>
   </data>
   <data name="Settings_Shortcut_DecreaseOneRadius" xml:space="preserve">
     <value>Az egyik sugár csökkentése</value>
   </data>
-  
-  
-  
-  
-  
-  
-  
   <data name="Settings_Shortcut_IncreaseHeight" xml:space="preserve">
     <value>Magasság növelése</value>
   </data>
@@ -445,13 +376,6 @@ zároláshoz vagy feloldáshoz</value>
   <data name="Settings_Shortcut_IncreaseOneRadius" xml:space="preserve">
     <value>Az egyik sugár növelése</value>
   </data>
-  
-  
-  
-  
-  
-  
-  
   <data name="Settings_Shortcut_SwitchIsLoop" xml:space="preserve">
     <value>Hurok irányának váltása</value>
   </data>
@@ -461,7 +385,6 @@ zároláshoz vagy feloldáshoz</value>
   <data name="Settings_Shortcut_SwitchSelect" xml:space="preserve">
     <value>Kiválasztott kör váltása</value>
   </data>
-  
   <data name="Settings_SlopeUnit" xml:space="preserve">
     <value>Lejtés mértékegysége</value>
   </data>
