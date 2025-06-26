@@ -239,7 +239,9 @@ kattints duplán a kör közepére</value>
   
   
   
-  
+  <data name="Mode_Info_OutOfMap" xml:space="preserve">
+    <value>Térképen kívül</value>
+  </data>
   
   
   
@@ -393,7 +395,9 @@ zároláshoz vagy feloldáshoz</value>
   
   
   
-  
+  <data name="Settings_Gameplay" xml:space="preserve">
+    <value>Játékmenet</value>
+  </data>
   
   
   
