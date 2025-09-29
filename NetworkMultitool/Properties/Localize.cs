@@ -596,9 +596,14 @@ namespace NetworkMultitool
 		public static string Mod_WhatsNewMessage1_3_6 => LocaleManager.GetString("Mod_WhatsNewMessage1_3_6", Culture);
 
 		/// <summary>
-		/// [UPDATED] Updated required game version to 1.18.1-f3
+		/// [UPDATED] Updated required game version to 1.19.2-f3
 		/// </summary>
 		public static string Mod_WhatsNewMessage1_3_7 => LocaleManager.GetString("Mod_WhatsNewMessage1_3_7", Culture);
+
+		/// <summary>
+		/// [UPDATED] Updated required game version to 1.20.1-f1
+		/// </summary>
+		public static string Mod_WhatsNewMessage1_3_8 => LocaleManager.GetString("Mod_WhatsNewMessage1_3_8", Culture);
 
 		/// <summary>
 		/// Activation shortcuts

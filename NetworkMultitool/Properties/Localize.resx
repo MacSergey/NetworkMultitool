@@ -535,6 +535,9 @@ lock or unlock it</value>
   <data name="Mod_WhatsNewMessage1_3_7" xml:space="preserve">
     <value>[UPDATED] Updated required game version to 1.19.2-f3</value>
   </data>
+  <data name="Mod_WhatsNewMessage1_3_8" xml:space="preserve">
+    <value>[UPDATED] Updated required game version to 1.20.1-f1</value>
+  </data>
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>Activation shortcuts</value>
   </data>
