@@ -456,7 +456,6 @@ Clic con {0} para separar nodo y alinear a la altura de la selección</value>
   <data name="Mod_Description" xml:space="preserve">
     <value>Conjunto de herramientas diferentes para trabajar con redes</value>
   </data>
-  
   <data name="Mod_WhatsNewMessage1_2" xml:space="preserve">
     <value>[NEW] Nuevo Modo de creación de redes paralelas: Selecciona nodos en redes existentes y crea una nueva red paralela a la selección. Puedes configurar la separación, altura y el lado en donde crear la red paralela.
 [NEW] Nuevo Modo de organización en círculo: Selecciona nodos y crear un círculo perfecto. Puedes configurar el radio y la posición; Mover nodos en cada círculo; Distribuir intersecciones y nodos de manera uniforme en el círculo. 
@@ -473,7 +472,6 @@ Clic con {0} para separar nodo y alinear a la altura de la selección</value>
 [FIXED] Solucionado problema con zonas que no se actualizaban cuando un segmento es modificado en el modo de organización en línea.
 [TRANSLATION] Añadidas las traducciones de Danés y Turco.</value>
   </data>
-  
   <data name="Mod_WhatsNewMessage1_3_1" xml:space="preserve">
     <value>[FIXED] Capacidad para invertir cualquier red, no solo carreteras de una via.
 [NEW] La herramienta no se cierra cuando selecciona otra red.
