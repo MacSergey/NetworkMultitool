@@ -123,7 +123,6 @@
   <data name="Mode_AddNode_Info_ClickToAdd" xml:space="preserve">
     <value>Lisää liittymä napauttamalla</value>
   </data>
-  
   <data name="Mode_AddNode_Info_SelectToAdd" xml:space="preserve">
     <value>Valitse tie lisätäksesi liittymä</value>
   </data>
@@ -276,7 +275,6 @@ liittymät tasaisesti</value>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Luo painamalla {0}</value>
   </data>
-  
   <data name="Mode_Info_HoldToMoveSlower" xml:space="preserve">
     <value>Pidä {0} pohjassa siirtääksesi X{1} hitaampaa</value>
   </data>
@@ -451,14 +449,6 @@ tai vapauttaksesi se</value>
   <data name="Mod_Description" xml:space="preserve">
     <value>Työkaluja verkostojen muokkaamiseen</value>
   </data>
-  
-  
-  
-  
-  
-  
-  
-  
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>Käynnistyksen pikanäppäimet</value>
   </data>
