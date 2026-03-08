@@ -456,10 +456,6 @@
   <data name="Mod_Description" xml:space="preserve">
     <value>修改道路网络的许多小工具</value>
   </data>
-  
-  
-  
-  
   <data name="Mod_WhatsNewMessage1_3_2" xml:space="preserve">
     <value>[UPDATED] 新增了Plazas和Promenades DLC 支持。</value>
   </data>
