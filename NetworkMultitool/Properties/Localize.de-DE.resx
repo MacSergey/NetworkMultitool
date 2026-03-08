@@ -472,6 +472,9 @@ oder Entsperren auswählen</value>
     <value>[UPDATED] Hotels&amp;Retreats DLC-Unterstützung hinzugefügt.
 [TRANSLATION] Chinesische traditionelle und thailändische Übersetzungen hinzugefügt.</value>
   </data>
+  <data name="Mod_WhatsNewMessage1_3_9" xml:space="preserve">
+    <value />
+  </data>
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>Aktivierungskurzbefehle</value>
   </data>

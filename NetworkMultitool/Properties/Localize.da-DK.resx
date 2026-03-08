@@ -446,6 +446,9 @@ låse eller låse op</value>
   <data name="Mod_Description" xml:space="preserve">
     <value>Mange forskellige værktøjer til at arbejde med netværk</value>
   </data>
+  <data name="Mod_WhatsNewMessage1_3_9" xml:space="preserve">
+    <value />
+  </data>
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>Aktiveringsgenveje</value>
   </data>

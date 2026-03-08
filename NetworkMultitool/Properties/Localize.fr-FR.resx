@@ -536,6 +536,9 @@ verrouiller ou déverrouiller</value>
     <value>[UPDATED] Ajout de la prise en charge du DLC Hotels&amp;Retreats.
 [TRANSLATION] Ajout des traductions chinoises traditionnelles et thaïlandaises.</value>
   </data>
+  <data name="Mod_WhatsNewMessage1_3_9" xml:space="preserve">
+    <value />
+  </data>
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>Raccourcis d'activation</value>
   </data>

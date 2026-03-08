@@ -20,6 +20,7 @@ namespace NetworkMultitool
         protected override string IdRaw => nameof(NetworkMultitool);
         public override List<ModVersion> Versions { get; } = new List<ModVersion>
         {
+            new ModVersion(new Version("1.3.9"), new DateTime(2026, 3, 8)),
             new ModVersion(new Version("1.3.8"), new DateTime(2025, 9, 29)),
             new ModVersion(new Version("1.3.7"), new DateTime(2025, 5, 23)),
             new ModVersion(new Version("1.3.6"), new DateTime(2024, 10, 26)),
@@ -33,7 +34,7 @@ namespace NetworkMultitool
             new ModVersion(new Version("1.1"), new DateTime(2021, 8, 7)),
             new ModVersion(new Version("1.0"), new DateTime(2021, 7, 30)),
         };
-        protected override Version RequiredGameVersion => new Version(1, 20, 1, 1);
+        protected override Version RequiredGameVersion => new Version(1, 21, 1, 5);
 
         public override string NameRaw => "Network Multitool";
         public override string Description => !IsBeta ? Localize.Mod_Description : CommonLocalize.Mod_DescriptionBeta;

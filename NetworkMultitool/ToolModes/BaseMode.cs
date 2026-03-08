@@ -778,7 +778,7 @@ namespace NetworkMultitool
 
             foreach (var segment in info.m_segments)
             {
-                if (segment.CheckFlags(NetSegment.Flags.None, out var invert))
+                if (segment.CheckFlags(NetSegment.Flags.None, NetSegment.Flags2.None, out var invert))
                 {
                     var isTunnel = info.m_netAI.IsUnderground();
                     if (invert ^ (isTunnel ? tunnelInvert : forceInvert))

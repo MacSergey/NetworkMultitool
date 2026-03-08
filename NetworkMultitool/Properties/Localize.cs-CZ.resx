@@ -469,6 +469,9 @@ uzamknutí nebo odemknutí</value>
     <value>[UPDATED] Přidána podpora DLC Hotels&amp;Retreats.
 [TRANSLATION] Přidány Čínské tradiční a Thajské překlady.</value>
   </data>
+  <data name="Mod_WhatsNewMessage1_3_9" xml:space="preserve">
+    <value />
+  </data>
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>Aktivační zkratky</value>
   </data>

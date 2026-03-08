@@ -459,6 +459,9 @@ bloca sau debloca</value>
   <data name="Mod_WhatsNewMessage1_3_3" xml:space="preserve">
     <value>[NEW] Adăugat suportul pentru Network Anarchy.</value>
   </data>
+  <data name="Mod_WhatsNewMessage1_3_9" xml:space="preserve">
+    <value />
+  </data>
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>Comenzi rapide de activare</value>
   </data>

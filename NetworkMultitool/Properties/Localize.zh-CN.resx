@@ -466,6 +466,9 @@
     <value>[UPDATED] 新增了对 Hotels &amp; Retreats DLC 更新的支持。
 [TRANSLATION] 新增了繁体中文和泰语翻译。</value>
   </data>
+  <data name="Mod_WhatsNewMessage1_3_9" xml:space="preserve">
+    <value />
+  </data>
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>激活快捷键</value>
   </data>
