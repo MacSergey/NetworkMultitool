@@ -277,7 +277,6 @@ intersecções de forma igualmente em círculo</value>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Pressione {0} para criar</value>
   </data>
-  
   <data name="Mode_Info_HoldToMoveSlower" xml:space="preserve">
     <value>Manter {0} para mover X{1} mais lentamente</value>
   </data>
@@ -451,10 +450,6 @@ Clicar com {0} para dividir o nó e alinhá-lo à altura da fonte</value>
   <data name="Mod_Description" xml:space="preserve">
     <value>Muitas ferramentas diferentes para trabalhar com redes</value>
   </data>
-  
-  
-  
-  
   <data name="Mod_WhatsNewMessage1_3_2" xml:space="preserve">
     <value>[ATUALIZAÇÃO] Adicionado suporte ao DLC Plazas &amp; Promenades.</value>
   </data>
@@ -464,7 +459,6 @@ Clicar com {0} para dividir o nó e alinhá-lo à altura da fonte</value>
   <data name="Mod_WhatsNewMessage1_3_4" xml:space="preserve">
     <value>[UPDATED] Interface da Nova Configurações</value>
   </data>
-  
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>Atalhos de ativação</value>
   </data>
