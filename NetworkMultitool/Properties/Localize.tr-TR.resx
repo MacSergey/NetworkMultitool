@@ -273,7 +273,9 @@
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Oluşturmak için {0} tıklayın</value>
   </data>
-  
+  <data name="Mode_Info_DragControlPoint" xml:space="preserve">
+    <value>Eğriyi değiştirmek için kontrol noktasını sürükleyin</value>
+  </data>
   <data name="Mode_Info_HoldToMoveSlower" xml:space="preserve">
     <value>1/{1} hızda hareket etmek için {0} tuşuna basılı tutun</value>
   </data>
@@ -447,18 +449,20 @@ Düğümü dağıtmak ve hedef yüksekliğine ayarlamak için {0} tuşunu kullan
   <data name="Mod_Description" xml:space="preserve">
     <value>Ağlarla çalışmak için çok sayıda yeni fonksiyon</value>
   </data>
-  
-  
-  
-  
   <data name="Mod_WhatsNewMessage1_3_2" xml:space="preserve">
     <value>[UPDATED] Plazalar ve Gezinti Yerleri DLC Desteği Eklendi.</value>
   </data>
   <data name="Mod_WhatsNewMessage1_3_3" xml:space="preserve">
     <value>[NEW] Network Anarchy Desteği eklendi.</value>
   </data>
-  
-  
+  <data name="Mod_WhatsNewMessage1_3_4" xml:space="preserve">
+    <value>[GÜNCELLENDİ] Yeni ayarlar arayüzü</value>
+  </data>
+  <data name="Mod_WhatsNewMessage1_3_5" xml:space="preserve">
+    <value>[GÜNCELLENDİ] Hotels&amp;Retreats DLC desteği eklendi.
+
+[ÇEVİRİ] Geleneksel Çince ve Tayca çeviriler eklendi.</value>
+  </data>
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>Aktive etme kısayolları</value>
   </data>
