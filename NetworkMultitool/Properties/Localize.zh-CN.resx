@@ -124,7 +124,7 @@
     <value>点击添加节点</value>
   </data>
   <data name="Mode_AddNode_Info_PreciseMeasurement" xml:space="preserve">
-    <value>按住 {0} 以进行精确测量</value>
+    <value>按住 {0} 进行精确计算</value>
   </data>
   <data name="Mode_AddNode_Info_SelectToAdd" xml:space="preserve">
     <value>选择要添加节点的部分</value>
@@ -456,10 +456,6 @@
   <data name="Mod_Description" xml:space="preserve">
     <value>修改道路网络的许多小工具</value>
   </data>
-  
-  
-  
-  
   <data name="Mod_WhatsNewMessage1_3_2" xml:space="preserve">
     <value>[UPDATED] 新增了Plazas和Promenades DLC 支持。</value>
   </data>

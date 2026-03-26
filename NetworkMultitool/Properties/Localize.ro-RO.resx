@@ -279,7 +279,6 @@ intersecțiile uniform în cerc</value>
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>Apăsați {0} pentru a crea</value>
   </data>
-  
   <data name="Mode_Info_HoldToMoveSlower" xml:space="preserve">
     <value>Țineți apăsat {0} pentru a mișca de {1} ori mai încet</value>
   </data>
@@ -454,18 +453,12 @@ bloca sau debloca</value>
   <data name="Mod_Description" xml:space="preserve">
     <value>Sunt prea multe unelte pentru a lucra cu rețelele</value>
   </data>
-  
-  
-  
-  
   <data name="Mod_WhatsNewMessage1_3_2" xml:space="preserve">
     <value>[UPDATED] Adăugat suportul pentru Plazas &amp; Promenades DLC.</value>
   </data>
   <data name="Mod_WhatsNewMessage1_3_3" xml:space="preserve">
     <value>[NEW] Adăugat suportul pentru Network Anarchy.</value>
   </data>
-  
-  
   <data name="Settings_ActivationShortcuts" xml:space="preserve">
     <value>Comenzi rapide de activare</value>
   </data>

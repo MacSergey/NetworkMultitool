@@ -279,7 +279,9 @@
   <data name="Mode_Info_Create" xml:space="preserve">
     <value>按下 {0} 以創建</value>
   </data>
-  
+  <data name="Mode_Info_DragControlPoint" xml:space="preserve">
+    <value>拖動控制點以更改曲線</value>
+  </data>
   <data name="Mode_Info_HoldToMoveSlower" xml:space="preserve">
     <value>按住 {0} 鍵以 {1} 倍慢速移動。</value>
   </data>
